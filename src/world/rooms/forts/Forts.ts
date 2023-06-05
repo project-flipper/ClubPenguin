@@ -361,6 +361,7 @@ export default class Forts extends Phaser.Scene {
 
         SnowballTrigger.getComponent(this.snowball_target).execute = (_engine, _penguin, snowball) => {
             snowball.destroy(true);
+            this.sound.play('forts_target');
             this.target.play('target-animation');
             if (!this.clockwork.anims.isPlaying) this.clockwork.play('clockwork-animation');
             if (!this.cog.anims.isPlaying) this.cog.play('cog-animation');
