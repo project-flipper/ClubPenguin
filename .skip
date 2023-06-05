@@ -1,0 +1,11 @@
+build/**
+static/club-penguin-rules/**
+static/config/**
+static/css/**
+static/images/**
+static/js/**
+static/music/**
+static/scripts/**
+static/assets/clothing/**
+static/assets/puffle/**
+dist/**
