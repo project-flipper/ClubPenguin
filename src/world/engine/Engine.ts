@@ -74,7 +74,6 @@ export default class Engine extends Phaser.Scene {
 
         this.editorCreate();
 
-        this.musicMuted = true;
         this.sound.pauseOnBlur = false;
         this.game.events.on('focusregain', this.seekTweens, this);
 
