@@ -342,8 +342,15 @@ export default class Forts extends Phaser.Scene {
             startAt: 1000,
             callback: () => {
                 let spt = this.engine.world.getStandardPenguinTime();
-                this.clock.text = `${spt.getHours() % 12 || 12}:${spt.getMinutes().toString().padStart(2, '0')}`;
-                this.am_pm.text = spt.getHours() >= 12 ? 'PM' : 'AM';
+
+                if (this.game.locale.abbreviation != 'de') {
+                    this.clock.text = `${spt.getHours() % 12 || 12}:${spt.getMinutes().toString().padStart(2, '0')}`;
+                    this.am_pm.text = spt.getHours() >= 12 ? 'PM' : 'AM';
+                } else {
+                    this.clock.text = `${spt.getHours() || 12}:${spt.getMinutes().toString().padStart(2, '0')}`;
+                    this.am_pm.text = '';
+                }
+
                 this.day.text = this.game.locale.localize(days[spt.getDay()]);
             }
         });
