@@ -1,0 +1,76 @@
+{
+    "id": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "BitmapText",
+            "id": "d3a50338-c1a5-4b21-bc4b-3776486e5ec1",
+            "label": "bitmaptext",
+            "components": [],
+            "text": "TextBox",
+            "font": "BurbankSmallBold",
+            "fontSize": -72,
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "boxWidth",
+            "label": "Width",
+            "tooltip": "The width in which this text box is bounded.",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "boxHeight",
+            "label": "Height",
+            "tooltip": "The height in which this text box is bounded.",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "horizontalAlign",
+            "label": "Horizontal Align",
+            "tooltip": "The orientation to align the text horizontally with.",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "verticalAlign",
+            "label": "Vertical Align",
+            "tooltip": "The orientation to align the text vertically with.",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
+}

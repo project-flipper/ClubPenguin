@@ -1,0 +1,77 @@
+{
+    "id": "f58c5cab-2cab-446d-beda-1099ff2e1881",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "828eafd1-1360-417c-87f0-0cf870502603",
+            "label": "container_1",
+            "components": [],
+            "x": 10,
+            "y": 11,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "981e6fbc-334c-4a95-b806-8074c75b2c81",
+                    "label": "button",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/checkbox"
+                    },
+                    "originX": 0.41666667,
+                    "originY": 0.58333333,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "ad18474b-3a6d-4c1f-8571-9449109621f1",
+                    "label": "checkOverlay",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/checkboxChecked"
+                    },
+                    "originX": 0.41666667,
+                    "originY": 0.58333333,
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "checked",
+            "label": "Checked",
+            "tooltip": "The starting state of this checkbox",
+            "defValue": false,
+            "customDefinition": true,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

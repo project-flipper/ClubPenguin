@@ -1,0 +1,135 @@
+{
+    "id": "5496e58d-9143-42f5-9cc4-5ecb1eef26a1",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "a5bac030-eccb-4077-9226-c37fcdbf1b49",
+            "label": "container_1",
+            "x": -6,
+            "y": -185.175,
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "16dd63b2-05b8-4b47-bc00-965c5ae74699",
+                    "label": "upper",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/balloonUpper"
+                    },
+                    "y": -185.175,
+                    "originY": 0,
+                    "width": 146.25,
+                    "height": 76.6125,
+                    "leftWidth": 25,
+                    "rightWidth": 25,
+                    "topHeight": 25,
+                    "bottomHeight": 0
+                },
+                {
+                    "type": "NineSlice",
+                    "id": "269cd79d-46c2-4ede-bb5d-eab653f69430",
+                    "label": "lower",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/balloonLower"
+                    },
+                    "y": -108.5625,
+                    "originY": 0,
+                    "width": 146.25,
+                    "height": 45.45,
+                    "leftWidth": 19,
+                    "rightWidth": 55,
+                    "topHeight": 0,
+                    "bottomHeight": 25
+                },
+                {
+                    "type": "NineSlice",
+                    "id": "b7cd862a-73b3-4899-b403-792d48caeeee",
+                    "label": "lowerChat",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/balloonLowerChat"
+                    },
+                    "y": -108.5625,
+                    "originY": 0,
+                    "visible": false,
+                    "width": 146.25,
+                    "height": 45.45,
+                    "leftWidth": 19,
+                    "rightWidth": 127,
+                    "topHeight": 0,
+                    "bottomHeight": 25
+                },
+                {
+                    "type": "Image",
+                    "id": "2907b7d7-bd6a-43d2-86b9-8c5b35d830aa",
+                    "label": "emoji",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/emojiLaughing"
+                    },
+                    "y": -135.1125
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "e06e158e-1393-4e20-9741-91c376ccbfa8",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "fontSize",
+                        "font",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "message",
+                    "scope": "PUBLIC",
+                    "boxWidth": 272.25,
+                    "boxHeight": 47.3625,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": -137.25,
+                    "y": -153.45,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "W",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -27
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

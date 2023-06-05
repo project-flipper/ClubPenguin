@@ -1,0 +1,201 @@
+{
+    "id": "c6bd3489-b516-4f31-b452-156fd6d82207",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "dea5b704-17fc-4884-ab9f-c447a7686ed1",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "bef48252-1e18-4204-b013-9d18113ffbf3",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionsBg"
+                    },
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "376b0a50-f371-4a04-a02d-5689819fdf65",
+                    "label": "actionDance",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsButton0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionsButton0001"
+                    },
+                    "x": 78.6375,
+                    "y": 78.75,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "7f4c10c9-2a17-45ce-95c2-e8764ac86c24",
+                    "label": "interface_actionDance",
+                    "components": [],
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionDance"
+                    },
+                    "x": 78.6375,
+                    "y": 78.75,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "c443b3bb-53e7-4645-8505-a50cb6a9a25f",
+                    "label": "actionWave",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsButton0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionsButton0001"
+                    },
+                    "x": 78.6375,
+                    "y": 222.75,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "6421799c-7063-4929-94df-07940356c48e",
+                    "label": "interface_actionWave",
+                    "components": [],
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionWave"
+                    },
+                    "x": 78.6375,
+                    "y": 222.75,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "fe7ac384-c73e-4bcd-885f-33ff72ed9289",
+                    "label": "actionSitUpLeft",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsMiniButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsMiniButton0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionsMiniButton0001"
+                    },
+                    "x": 42.6375,
+                    "y": 330.75,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "074da562-33e9-4f56-8ccc-a00d743cf5b4",
+                    "label": "actionSitUpRight",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsMiniButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsMiniButton0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionsMiniButton0001"
+                    },
+                    "x": 114.525,
+                    "y": 330.75,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "3dd10f5e-6efd-45b0-93f4-dd4011026461",
+                    "label": "actionSitDownLeft",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsMiniButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsMiniButton0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionsMiniButton0001"
+                    },
+                    "x": 42.6375,
+                    "y": 403,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "14c08fd6-c4ce-4e90-85d4-351c3780bb81",
+                    "label": "actionSitDownRight",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsMiniButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/actionsMiniButton0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionsMiniButton0001"
+                    },
+                    "x": 114.525,
+                    "y": 403,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "f2aee3b7-a09f-45a5-96ea-147dd96d599a",
+                    "label": "interface_actionSit",
+                    "components": [],
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/actionSit"
+                    },
+                    "x": 76.1625,
+                    "y": 368.325,
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

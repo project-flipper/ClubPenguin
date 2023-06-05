@@ -1,0 +1,232 @@
+{
+    "id": "1cedaacd-7bc8-455e-8fbb-239c9f038ab5",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/assets/boot/bootstrap-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Bootstrap",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "18f1335b-94f8-4c80-9101-b26fe1698b30",
+            "label": "club_penguin",
+            "components": [],
+            "texture": {
+                "key": "club_penguin"
+            },
+            "originX": 0,
+            "originY": 0,
+            "list": []
+        },
+        {
+            "type": "Rectangle",
+            "id": "9a5269dd-a93a-482c-940d-b8fe37f8fd5f",
+            "label": "cover",
+            "scope": "PUBLIC",
+            "components": [
+                "InputBlocker"
+            ],
+            "originX": 0,
+            "originY": 0,
+            "visible": false,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "fillAlpha": 0.4,
+            "width": 1710,
+            "height": 1080,
+            "list": []
+        },
+        {
+            "type": "Container",
+            "id": "329bf3a4-cd76-4190-b489-1c37336a6fcd",
+            "label": "embeddedErrorDialog",
+            "scope": "PUBLIC",
+            "components": [],
+            "visible": false,
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "a71bd0e7-7b9a-42a2-b699-8a2c3ef31c5c",
+                    "label": "dialogBody",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "boot",
+                        "frame": "boot/dialog"
+                    },
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 796.5,
+                    "height": 495,
+                    "leftWidth": 47,
+                    "rightWidth": 47,
+                    "topHeight": 47,
+                    "bottomHeight": 47,
+                    "list": []
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "f10d7b61-50fd-4d54-8dab-a900ffa1a4ce",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "font",
+                        "fontSize",
+                        "text",
+                        "align"
+                    ],
+                    "label": "dialogMessage",
+                    "scope": "PUBLIC",
+                    "boxWidth": 722.475,
+                    "boxHeight": 257.9625,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": 34.537498474121094,
+                    "y": 29.924999237060547,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Load Error\nSorry, there's been an error loading\nClub Penguin. Please try logging in\nlater. If the problem continues please\ncontact support@clubpenguin.com",
+                    "font": "BurbankSmallMedium",
+                    "align": 1,
+                    "fontSize": -40.5,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "3de95122-4f81-40de-b53a-0a03aa478370",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxHeight",
+                        "boxWidth",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight"
+                    ],
+                    "label": "dialogCode",
+                    "scope": "PUBLIC",
+                    "boxWidth": 729,
+                    "boxHeight": 38.7,
+                    "horizontalAlign": 2,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": 38.25,
+                    "y": 427.5,
+                    "tintTopLeft": "#983A02",
+                    "tintTopRight": "#983A02",
+                    "tintBottomLeft": "#983A02",
+                    "tintBottomRight": "#983A02",
+                    "tintFill": true,
+                    "text": "c0",
+                    "font": "BurbankSmallMedium",
+                    "align": 2,
+                    "fontSize": -24.75,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "f7cf162d-401b-401f-9828-2c8a42762ed8",
+                    "label": "dialogButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"boot\",\"frame\":\"boot/button\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"boot\",\"frame\":\"boot/buttonHover\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"boot\",\"frame\":\"boot/buttonDown\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "boot",
+                        "frame": "boot/button"
+                    },
+                    "x": 219.60000610351562,
+                    "y": 301.1625061035156,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "e4f11a63-7a89-40e9-b6e7-a137d9182f07",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight"
+                    ],
+                    "label": "dialogButtonLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 337.8375,
+                    "boxHeight": 70.2,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": 230.1750030517578,
+                    "y": 321.63751220703125,
+                    "tintTopLeft": "#FFFFFF",
+                    "tintTopRight": "#FFFFFF",
+                    "tintBottomLeft": "#FFFFFF",
+                    "tintBottomRight": "#FFFFFF",
+                    "tintFill": true,
+                    "text": "OK",
+                    "font": "BurbankSmallMedium",
+                    "align": 1,
+                    "fontSize": -42.75,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

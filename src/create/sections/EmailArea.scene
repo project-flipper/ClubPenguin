@@ -1,0 +1,159 @@
+{
+    "id": "88ab6d33-9a3f-4749-8f84-bc972fa5cac9",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "f565525a-d5af-416a-8864-0f24193db5eb",
+            "label": "emailSection",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "96d328dc-d6ed-4dcf-a7a6-a0378647b922",
+                    "id": "b64364b0-11e4-488a-ac04-a221ec42bf3a",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text"
+                    ],
+                    "label": "progressBubble",
+                    "scope": "PUBLIC",
+                    "text": "4.",
+                    "components": [],
+                    "x": 0,
+                    "y": 0,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "a252eb06-9f38-4e41-9a22-4c5ec9024e20",
+                    "label": "title",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 112.5,
+                    "y": 19.6875,
+                    "tintTopLeft": "#2C2C2E",
+                    "tintTopRight": "#2C2C2E",
+                    "tintBottomLeft": "#2C2C2E",
+                    "tintBottomRight": "#2C2C2E",
+                    "text": "Parent's Email Address:",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -27,
+                    "list": []
+                },
+                {
+                    "type": "Container",
+                    "id": "cfd22e54-6499-4dff-8d96-78d80f94e771",
+                    "label": "emailConditions",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 126,
+                    "y": 141.75,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "24780c53-d9b0-4772-a218-818123415208",
+                            "label": "emailConditionsGraphic",
+                            "components": [],
+                            "texture": {
+                                "key": "create",
+                                "frame": "create-module/emailConditions"
+                            },
+                            "y": 8.325,
+                            "originX": 0,
+                            "originY": 0,
+                            "list": []
+                        },
+                        {
+                            "type": "BitmapText",
+                            "id": "74a5b899-f7e2-466d-b095-ee6a4ee190ff",
+                            "label": "emailConditionTextBox",
+                            "scope": "PUBLIC",
+                            "components": [],
+                            "x": 11.25,
+                            "y": -2.25,
+                            "tintTopLeft": "#525252",
+                            "tintTopRight": "#525252",
+                            "tintBottomLeft": "#525252",
+                            "tintBottomRight": "#525252",
+                            "text": "Club Penguin will send your parent an email with an activation code.",
+                            "font": "BurbankSmallBold",
+                            "fontSize": -18,
+                            "maxWidth": 528.75,
+                            "list": []
+                        }
+                    ]
+                },
+                {
+                    "type": "Image",
+                    "id": "8b5cfa90-93c1-4e70-9665-cb7b3e4b6803",
+                    "label": "fieldGraphic",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "create",
+                        "frame": "create-module/emailField"
+                    },
+                    "x": 108,
+                    "y": 59.74,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "1d027029-7973-45b6-a070-6c724b987a09",
+                    "label": "placeholder",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 119.25,
+                    "y": 79.9875,
+                    "tintTopLeft": "#D3D4D8",
+                    "tintTopRight": "#D3D4D8",
+                    "tintBottomLeft": "#D3D4D8",
+                    "tintBottomRight": "#D3D4D8",
+                    "text": "Enter parent's email address",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -27,
+                    "list": []
+                },
+                {
+                    "prefabId": "5ed39c58-bdfa-4831-81bd-b75efd0bc709",
+                    "id": "a8f1f6a0-26cc-4c2e-8d56-520fdeee8fbb",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "errorBubble",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 391.3875,
+                    "y": -32.175,
+                    "visible": false,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

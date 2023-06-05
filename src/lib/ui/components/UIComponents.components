@@ -1,0 +1,152 @@
+{
+    "components": [
+        {
+            "name": "ButtonComponent",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "upTexture",
+                    "label": "Up Texture",
+                    "tooltip": "The texture to display when the mouse is not interacting with this button (idle).",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "texture-config"
+                    }
+                },
+                {
+                    "name": "overTexture",
+                    "label": "Over Texture",
+                    "tooltip": "The texture to display when the mouse is lingering over this button (hover).",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "texture-config"
+                    }
+                },
+                {
+                    "name": "downTexture",
+                    "label": "Down Texture",
+                    "tooltip": "The texture to display when the mouse is clicking this button (click).",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "texture-config"
+                    }
+                },
+                {
+                    "name": "handCursor",
+                    "label": "Hand Cursor",
+                    "tooltip": "Whether to use a hand cursor when the mouse is lingering over this button (hover).",
+                    "defValue": false,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "pixelPerfect",
+                    "label": "Pixel Perfect",
+                    "tooltip": "Whether to use a pixel-perfect hitbox. This setting is expensive and may affect performance.",
+                    "defValue": false,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "InputBlocker",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.GameObject",
+            "properties": []
+        },
+        {
+            "name": "DepthEnabled",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.GameObject & Phaser.GameObjects.Components.Transform & Phaser.GameObjects.Components.Depth",
+            "properties": [
+                {
+                    "name": "automaticSort",
+                    "label": "Sort Automatically",
+                    "tooltip": "Let the game set depth at runtime based on Y position.",
+                    "defValue": true,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "depth",
+                    "label": "Depth",
+                    "tooltip": "The depth to set if automatic sort is off.",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "RoomTrigger",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "destination",
+                    "label": "Destination",
+                    "tooltip": "The room key of where this trigger leads to.",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "playerX",
+                    "label": "Player X",
+                    "tooltip": "The X coordinate the player will spawn at.",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "playerY",
+                    "label": "Player Y",
+                    "tooltip": "The Y coordinate the player will spawn at.",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "PressureTrigger",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
+        },
+        {
+            "name": "SnowballTrigger",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - User Components Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.UserComponents"
+    },
+    "outputLang": "TYPE_SCRIPT",
+    "insertSpaces": true,
+    "exportClass": true,
+    "autoImport": true
+}

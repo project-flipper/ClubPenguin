@@ -1,0 +1,145 @@
+{
+    "id": "4eac8cdf-d82e-412f-a999-0b6285431970",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "30f4e179-3436-40af-b16c-d735308cefb6",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Container",
+                    "id": "93e7c606-47d0-4bf5-bcac-06b14ab896c3",
+                    "label": "back_container",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "DepthEnabled"
+                    ],
+                    "DepthEnabled.depth": -15,
+                    "x": -231.075,
+                    "y": -231.525,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "b6961e3f-599c-4b6b-915c-7a54874f0a43",
+                            "label": "photo_button",
+                            "scope": "PUBLIC",
+                            "components": [
+                                "ButtonComponent"
+                            ],
+                            "ButtonComponent.handCursor": true,
+                            "ButtonComponent.pixelPerfect": true,
+                            "texture": {
+                                "key": "interface",
+                                "frame": "interface/namecardMask"
+                            },
+                            "originX": 0,
+                            "originY": 0,
+                            "visible": false,
+                            "alpha": 0.01,
+                            "alphaTopLeft": 0.01,
+                            "alphaTopRight": 0.01,
+                            "alphaBottomLeft": 0.01,
+                            "alphaBottomRight": 0.01,
+                            "list": []
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "43e636d7-afea-406d-9544-3235c94e0083",
+                    "label": "flag_container",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "DepthEnabled"
+                    ],
+                    "DepthEnabled.automaticSort": false,
+                    "DepthEnabled.depth": -10,
+                    "x": -172.125,
+                    "y": -134.775,
+                    "list": []
+                },
+                {
+                    "type": "Container",
+                    "id": "8c8a6ec1-b0d1-409d-9e08-287b4653e5ae",
+                    "label": "behind_container",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "DepthEnabled"
+                    ],
+                    "DepthEnabled.automaticSort": false,
+                    "DepthEnabled.depth": -5,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "954fdf98-10fc-4300-bafd-e9160a4dd8bd",
+                    "label": "body_art",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "DepthEnabled"
+                    ],
+                    "DepthEnabled.automaticSort": false,
+                    "texture": {
+                        "key": "body"
+                    },
+                    "x": -148.5,
+                    "y": -141.6375,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "02a12452-4801-4032-aa84-60081a3034f3",
+                    "label": "outline_art",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "DepthEnabled"
+                    ],
+                    "DepthEnabled.automaticSort": false,
+                    "DepthEnabled.depth": 1,
+                    "texture": {
+                        "key": "outline"
+                    },
+                    "x": -155.1375,
+                    "y": -145.57500000000002,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "interactive",
+            "label": "Enable Interactive",
+            "tooltip": "Whether to enable the clothing items as interactive.",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}

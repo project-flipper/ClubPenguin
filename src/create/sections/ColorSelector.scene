@@ -1,0 +1,357 @@
+{
+    "id": "b0dbd77b-f814-4108-a08f-be162f63ed23",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "96a946e2-f2ff-4816-abdb-8fa973af89d4",
+            "label": "colorSelectorSection",
+            "scope": "PUBLIC",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "96d328dc-d6ed-4dcf-a7a6-a0378647b922",
+                    "id": "b8295f3b-17aa-4e10-9bbc-44673f9a9a9c",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text"
+                    ],
+                    "label": "progressBubble",
+                    "scope": "PUBLIC",
+                    "text": "2.",
+                    "components": [],
+                    "x": 0,
+                    "y": 0,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "d4abbfa9-a7c1-4e69-b787-9baa88fa57d9",
+                    "label": "titleTextBox",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 112.5,
+                    "y": 19.6875,
+                    "tintTopLeft": "#2C2C2E",
+                    "tintTopRight": "#2C2C2E",
+                    "tintBottomLeft": "#2C2C2E",
+                    "tintBottomRight": "#2C2C2E",
+                    "text": "Choose a color:",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -27,
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "27a163fa-3c7f-4c0f-8f0e-9130b738c506",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId",
+                        "selected"
+                    ],
+                    "label": "swatch0",
+                    "scope": "PUBLIC",
+                    "color": "#02a797",
+                    "colorId": 15,
+                    "components": [],
+                    "x": 112.5,
+                    "y": 65.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "31898cbe-5c3a-464e-b54a-30130a0ac388",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch1",
+                    "scope": "PUBLIC",
+                    "color": "#003366",
+                    "colorId": 1,
+                    "components": [],
+                    "x": 193.95,
+                    "y": 65.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "33e2e35d-85ad-4e44-9d2c-f349d28138d5",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch2",
+                    "scope": "PUBLIC",
+                    "color": "#009900",
+                    "colorId": 2,
+                    "components": [],
+                    "x": 275.4,
+                    "y": 65.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "825d1a56-e593-418c-ad2a-d7fb139053ba",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch3",
+                    "scope": "PUBLIC",
+                    "color": "#ff6565",
+                    "colorId": 10,
+                    "components": [],
+                    "x": 356.85,
+                    "y": 65.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "c5b21e63-a2b7-462b-9a6a-d1986af9b810",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch4",
+                    "scope": "PUBLIC",
+                    "color": "#ffcc00",
+                    "colorId": 7,
+                    "components": [],
+                    "x": 438.3,
+                    "y": 65.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "b6760086-b55e-4ca9-8abd-b3d1c2a57e20",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch5",
+                    "scope": "PUBLIC",
+                    "color": "#650099",
+                    "colorId": 8,
+                    "components": [],
+                    "x": 519.75,
+                    "y": 65.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "5906dc29-3fc5-4b08-ad93-6c11c613c259",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch6",
+                    "scope": "PUBLIC",
+                    "color": "#006600",
+                    "colorId": 11,
+                    "components": [],
+                    "x": 601.2,
+                    "y": 65.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "324973c8-73aa-4595-a061-e2a8bc35b66f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch7",
+                    "scope": "PUBLIC",
+                    "color": "#ff6500",
+                    "colorId": 6,
+                    "components": [],
+                    "x": 112.5,
+                    "y": 137.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "08ca07bc-8c36-4cd8-b621-4415f7533a4c",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch8",
+                    "scope": "PUBLIC",
+                    "color": "#333333",
+                    "colorId": 4,
+                    "components": [],
+                    "x": 193.95,
+                    "y": 137.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "d1640412-44e1-4b76-b13b-1b52b2c7fedf",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch9",
+                    "scope": "PUBLIC",
+                    "color": "#0099cc",
+                    "colorId": 12,
+                    "components": [],
+                    "x": 275.4,
+                    "y": 137.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "52eb9dc0-7b77-4fe0-8ae1-0d234eed9216",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch10",
+                    "scope": "PUBLIC",
+                    "color": "#8ae802",
+                    "colorId": 13,
+                    "components": [],
+                    "x": 356.85,
+                    "y": 137.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "0cc647c8-26f4-4a20-8da4-d2d2c805a84d",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch11",
+                    "scope": "PUBLIC",
+                    "color": "#996600",
+                    "colorId": 9,
+                    "components": [],
+                    "x": 438.3,
+                    "y": 137.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "e277154c-f6c3-4f4d-a87f-a7520da9a661",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch12",
+                    "scope": "PUBLIC",
+                    "color": "#ff3299",
+                    "colorId": 3,
+                    "components": [],
+                    "x": 519.75,
+                    "y": 137.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
+                    "id": "528d4d06-20c3-40ad-bffc-e2c2a0ab2eef",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "color",
+                        "colorId"
+                    ],
+                    "label": "swatch13",
+                    "scope": "PUBLIC",
+                    "color": "#cc0000",
+                    "colorId": 5,
+                    "components": [],
+                    "x": 601.2,
+                    "y": 137.25,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "lists": [
+        {
+            "id": "8c79644d-5861-4795-9e8d-c1f3b35580c4",
+            "label": "swatches",
+            "objectIds": [
+                "27a163fa-3c7f-4c0f-8f0e-9130b738c506",
+                "31898cbe-5c3a-464e-b54a-30130a0ac388",
+                "33e2e35d-85ad-4e44-9d2c-f349d28138d5",
+                "825d1a56-e593-418c-ad2a-d7fb139053ba",
+                "c5b21e63-a2b7-462b-9a6a-d1986af9b810",
+                "b6760086-b55e-4ca9-8abd-b3d1c2a57e20",
+                "5906dc29-3fc5-4b08-ad93-6c11c613c259",
+                "324973c8-73aa-4595-a061-e2a8bc35b66f",
+                "08ca07bc-8c36-4cd8-b621-4415f7533a4c",
+                "d1640412-44e1-4b76-b13b-1b52b2c7fedf",
+                "52eb9dc0-7b77-4fe0-8ae1-0d234eed9216",
+                "0cc647c8-26f4-4a20-8da4-d2d2c805a84d",
+                "e277154c-f6c3-4f4d-a87f-a7520da9a661",
+                "528d4d06-20c3-40ad-bffc-e2c2a0ab2eef"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}

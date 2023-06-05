@@ -1,0 +1,94 @@
+{
+    "id": "7a133d01-1c59-43b8-8183-e9f635e52971",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "e7c5a90f-6166-4d44-a240-87d18e5c21f9",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "2d3c0957-dec4-4687-8a44-df882f6f1da5",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "originX",
+                        "originY",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "align"
+                    ],
+                    "label": "nickname",
+                    "scope": "PUBLIC",
+                    "boxWidth": 303.75,
+                    "boxHeight": 43.2,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": -148.5,
+                    "y": 25.425,
+                    "originX": 0,
+                    "originY": 0,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Nickname",
+                    "font": "BurbankSmallMedium",
+                    "align": 1,
+                    "fontSize": -27,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "prefabId": "5496e58d-9143-42f5-9cc4-5ecb1eef26a1",
+                    "id": "e1055355-60b3-428c-81c0-45e482b076ce",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "balloon",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 0,
+                    "y": 0,
+                    "visible": false,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

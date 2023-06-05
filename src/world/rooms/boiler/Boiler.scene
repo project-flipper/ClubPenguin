@@ -1,0 +1,24 @@
+{
+  "id": "ace385ad-2c5b-41ad-94e7-5b64056702e3",
+  "settings": {
+    "compilerOutputLanguage": "TYPE_SCRIPT",
+    "javaScriptInitFieldsInConstructor": false,
+    "exportClass": true,
+    "autoImport": true,
+    "createMethodName": "editorCreate",
+    "compilerInsertSpaces": true,
+    "compilerTabSize": 4,
+    "borderWidth": 1710,
+    "borderHeight": 1080,
+    "borderX": 0,
+    "borderY": 0,
+    "sceneKey": "Boiler"
+  },
+  "sceneType": "SCENE",
+  "displayList": [],
+  "meta": {
+    "app": "Phaser Editor 2D - Scene Editor",
+    "url": "https://phasereditor2d.com",
+    "contentType": "phasereditor2d.core.scene.SceneContentType"
+  }
+}

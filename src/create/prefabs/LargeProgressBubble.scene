@@ -1,0 +1,82 @@
+{
+    "id": "2c94de99-e3cf-48e4-8428-7bca36caba52",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "972011af-2acb-44fa-98c5-981fb71afe2d",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "cd6e5997-76ce-4bc1-9b96-0bca6f21fe42",
+                    "label": "graphic",
+                    "components": [],
+                    "texture": {
+                        "key": "create",
+                        "frame": "create-module/largeProgressBubble"
+                    },
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "a5d0a8d2-2d77-44cf-8c21-a4a39dcf684a",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "fontSize",
+                        "font",
+                        "text",
+                        "boxWidth",
+                        "boxHeight"
+                    ],
+                    "label": "label",
+                    "scope": "PUBLIC",
+                    "boxWidth": 90,
+                    "boxHeight": 50.655,
+                    "components": [],
+                    "x": 29.25,
+                    "y": 18,
+                    "text": "1.",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -51.75,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "text",
+            "label": "Text",
+            "tooltip": "The text to set on the label.",
+            "defValue": "1.",
+            "customDefinition": true,
+            "type": {
+                "id": "string"
+            }
+        }
+    ]
+}

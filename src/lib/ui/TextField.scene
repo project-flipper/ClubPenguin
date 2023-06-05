@@ -1,0 +1,288 @@
+{
+    "id": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "f6c536ed-af63-441b-86e3-d268d0879e3e",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "63df6c5e-f18d-41ad-a487-64082fb643bc",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "font",
+                        "fontSize"
+                    ],
+                    "label": "textBox",
+                    "scope": "CLASS",
+                    "components": [],
+                    "x": 0,
+                    "y": 0,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "text": "TextField",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -72,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "inputType",
+            "label": "Field Type",
+            "tooltip": "Property 1",
+            "defValue": "text",
+            "customDefinition": true,
+            "type": {
+                "id": "option",
+                "options": [
+                    "text",
+                    "password",
+                    "email"
+                ]
+            }
+        },
+        {
+            "name": "fieldWidth",
+            "label": "Width",
+            "tooltip": "The width of the text box. Padding and shadows add onto this width.",
+            "defValue": 307,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "fieldHeight",
+            "label": "Height",
+            "tooltip": "The height of the text box. Padding and shadows add onto this height.",
+            "defValue": 72,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "value",
+            "label": "Value",
+            "tooltip": "The default value to show.",
+            "defValue": "",
+            "customDefinition": true,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "maxLength",
+            "label": "Max. Length",
+            "tooltip": "Property 1",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "disabled",
+            "label": "Disabled",
+            "tooltip": "Property 1",
+            "defValue": false,
+            "customDefinition": true,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "readOnly",
+            "label": "Read-Only",
+            "tooltip": "Property 1",
+            "defValue": false,
+            "customDefinition": true,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "horizontalAlign",
+            "label": "Horizontal Align",
+            "tooltip": "Property 1",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "verticalAlign",
+            "label": "Vertical Align",
+            "tooltip": "Property 1",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "font",
+            "label": "Font Family",
+            "tooltip": "Property 1",
+            "defValue": "BurbankSmallMedium",
+            "customDefinition": true,
+            "type": {
+                "id": "asset-key"
+            }
+        },
+        {
+            "name": "fontSize",
+            "label": "Font Size",
+            "tooltip": "Property 1",
+            "defValue": -72,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "fontColor",
+            "label": "Font Color",
+            "tooltip": "Property 1",
+            "defValue": "#000000",
+            "customDefinition": true,
+            "type": {
+                "id": "color"
+            }
+        },
+        {
+            "name": "placeholder",
+            "label": "Placeholder",
+            "tooltip": "Property 1",
+            "defValue": "",
+            "customDefinition": true,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "selectionColor",
+            "label": "Selection Color",
+            "tooltip": "Property 1",
+            "defValue": "#000000",
+            "customDefinition": true,
+            "type": {
+                "id": "color"
+            }
+        },
+        {
+            "name": "backgroundIsFilled",
+            "label": "Fill Background",
+            "tooltip": "Property 1",
+            "defValue": true,
+            "customDefinition": true,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "backgroundColor",
+            "label": "Background Color",
+            "tooltip": "Property 1",
+            "defValue": "#ffffff",
+            "customDefinition": true,
+            "type": {
+                "id": "color"
+            }
+        },
+        {
+            "name": "backgroundIsStroked",
+            "label": "Stroke Background",
+            "tooltip": "Property 1",
+            "defValue": true,
+            "customDefinition": true,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "backgroundStrokeWidth",
+            "label": "Stroke Width",
+            "tooltip": "Property 1",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "backgroundStrokeColor",
+            "label": "Stroke Color",
+            "tooltip": "Property 1",
+            "defValue": "#000000",
+            "customDefinition": true,
+            "type": {
+                "id": "color"
+            }
+        },
+        {
+            "name": "leftMargin",
+            "label": "Left Margin",
+            "tooltip": "Property 1",
+            "defValue": 4.5,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "topMargin",
+            "label": "Top Margin",
+            "tooltip": "Property 1",
+            "defValue": 4.5,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "passwordCharacter",
+            "label": "Password Character",
+            "tooltip": "Property 1",
+            "defValue": "*",
+            "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        }
+    ]
+}

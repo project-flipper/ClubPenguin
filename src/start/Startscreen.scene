@@ -1,0 +1,330 @@
+{
+    "id": "b6191ae5-02bd-4de6-afca-48a043e86a9c",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/static/assets/start/start-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Startscreen",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "7fe5e4b1-8be2-4994-a0b2-3e7a76c503e4",
+            "label": "background",
+            "components": [
+                "InputBlocker"
+            ],
+            "texture": {
+                "key": "club_penguin"
+            },
+            "originX": 0,
+            "originY": 0,
+            "list": []
+        },
+        {
+            "type": "Container",
+            "id": "5d568b1f-7d2e-4fd7-ad0c-563cdc4baa52",
+            "label": "billboardContainer",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 157.5,
+            "y": 28.125,
+            "list": []
+        },
+        {
+            "type": "Container",
+            "id": "189b701c-15bc-4143-b6bd-f4828d0d8610",
+            "label": "startscreen",
+            "scope": "PUBLIC",
+            "components": [],
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "108ec538-7601-4c4c-97e1-bd37ad6d0202",
+                    "label": "backingGraphic",
+                    "components": [],
+                    "x": 990,
+                    "y": 645.75,
+                    "originX": 0,
+                    "originY": 0,
+                    "isFilled": true,
+                    "fillColor": "#FFFFFF",
+                    "fillAlpha": 0.45,
+                    "width": 562.5,
+                    "height": 112.5,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "e3d9adf8-594e-4725-b555-1d0993e0e65c",
+                    "label": "module",
+                    "components": [],
+                    "texture": {
+                        "key": "start",
+                        "frame": "start-screen/module"
+                    },
+                    "x": 855,
+                    "y": 650.9250000000001,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "50c61570-a26e-4f06-ac8d-352df4304cca",
+                    "label": "createAccountGraphic",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "start",
+                        "frame": "start-screen/createPenguinGraphic0001"
+                    },
+                    "x": 225,
+                    "y": 808.425,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "606b73aa-1966-4819-a50c-788b77fa76f5",
+                    "label": "createAccountButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"start\",\"frame\":\"start-screen/mainButton\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"start\",\"frame\":\"start-screen/mainButtonHover\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "start",
+                        "frame": "start-screen/mainButton"
+                    },
+                    "x": 405,
+                    "y": 888.75,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "19c70f23-c7d1-4ced-ba22-09f2493b19b6",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "text",
+                        "fontSize",
+                        "boxHeight",
+                        "boxWidth",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "createPenguinTextBox",
+                    "scope": "PUBLIC",
+                    "boxWidth": 396,
+                    "boxHeight": 103,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": 405,
+                    "y": 888.75,
+                    "text": "Create a Penguin",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -40,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "2a4fbd96-3475-4676-943d-75e47d8244bb",
+                    "label": "loginButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"start\",\"frame\":\"start-screen/mainButton\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"start\",\"frame\":\"start-screen/mainButtonHover\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "start",
+                        "frame": "start-screen/mainButton"
+                    },
+                    "x": 922.5,
+                    "y": 888.75,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "9abb9123-e224-4816-8bd0-7093dfd65178",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "text",
+                        "fontSize",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "loginTextBox",
+                    "scope": "PUBLIC",
+                    "boxWidth": 396,
+                    "boxHeight": 103,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": 922.5,
+                    "y": 888.75,
+                    "text": "Login",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -45,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "8b7f69f5-e8d2-4370-8c6b-733307a241ab",
+                    "label": "loginButtonGraphic",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "start",
+                        "frame": "start-screen/loginGraphic0001"
+                    },
+                    "x": 1285.0875,
+                    "y": 798.75,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "996e7a8a-a8f5-4bad-aed3-d14a437e7963",
+                    "label": "logo",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "start",
+                        "frame": "start-screen/logo"
+                    },
+                    "x": 855,
+                    "y": 686.25,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "6f5348a4-7086-40ee-b7de-3615cc993546",
+                    "label": "memberButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"start\",\"frame\":\"start-screen/memberButton\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"start\",\"frame\":\"start-screen/memberButtonHover\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "start",
+                        "frame": "start-screen/memberButton"
+                    },
+                    "x": 1113.75,
+                    "y": 654.75,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "12d8cf0f-4ca4-4746-a82d-d54f31b97a34",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "text",
+                        "fontSize",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "membershipTextBox",
+                    "scope": "PUBLIC",
+                    "boxWidth": 315,
+                    "boxHeight": 73,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": 1185.75,
+                    "y": 654.75,
+                    "tintTopLeft": "#00529b",
+                    "tintTopRight": "#00529b",
+                    "tintBottomLeft": "#00529b",
+                    "tintBottomRight": "#00529b",
+                    "tintFill": false,
+                    "text": "Learn More About Membership",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -18,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "df722f69-567e-4ee7-ac08-3fda36617eb3",
+                    "label": "memberBadge",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "start",
+                        "frame": "start-screen/memberBadge0001"
+                    },
+                    "x": 1120.5,
+                    "y": 664.75,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "7e4f2227-e55e-4093-b3a7-5985e05711f9",
+            "label": "fadebg",
+            "scope": "PUBLIC",
+            "components": [
+                "InputBlocker"
+            ],
+            "texture": {
+                "key": "club_penguin"
+            },
+            "originX": 0,
+            "originY": 0,
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

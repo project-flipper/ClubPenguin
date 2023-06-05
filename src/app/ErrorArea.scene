@@ -1,0 +1,206 @@
+{
+    "id": "46e2ddbc-8476-45ac-88c9-0e06a487ac30",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "_preload",
+        "preloadPackFiles": [
+            "ClubPenguin/static/assets/app/app-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "ErrorArea",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "119b8b18-f1f0-4bab-9b83-be5734b94e43",
+            "label": "cover",
+            "scope": "PUBLIC",
+            "components": [
+                "InputBlocker"
+            ],
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "fillAlpha": 0.4,
+            "width": 1710,
+            "height": 1080,
+            "list": []
+        },
+        {
+            "type": "Container",
+            "id": "0a843863-43fd-4fac-8ad2-704eac47bfc3",
+            "label": "errorWindow",
+            "scope": "PUBLIC",
+            "components": [],
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "0f0e084b-14fa-445c-bc51-e19e4fee1350",
+                    "label": "body",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "app",
+                        "frame": "app/error"
+                    },
+                    "y": -30.2625,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 796.5,
+                    "height": 528.525,
+                    "leftWidth": 46,
+                    "rightWidth": 46,
+                    "topHeight": 46,
+                    "bottomHeight": 46,
+                    "list": []
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "95813638-8382-40c0-a8eb-8b86ae79fdf5",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "boxWidth",
+                        "boxHeight",
+                        "text",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "message",
+                    "scope": "PUBLIC",
+                    "boxWidth": 686.25,
+                    "boxHeight": 290.7,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": 58.5,
+                    "y": 18,
+                    "text": " Error Message\n Error Message\n Error Message\n Error Message\n Error Message\n Error Message",
+                    "font": "BurbankSmallMedium",
+                    "align": 0,
+                    "fontSize": -36,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "Container",
+                    "id": "5f3c0d5e-2934-4e33-9409-e0d351cf5363",
+                    "label": "buttonContainer",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 216,
+                    "y": 333,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "f04586d0-1f33-4f8a-8480-55fc9ec6e3d1",
+                            "label": "button",
+                            "scope": "PUBLIC",
+                            "components": [
+                                "ButtonComponent"
+                            ],
+                            "ButtonComponent.upTexture": "{\"key\":\"app\",\"frame\":\"app/button\"}",
+                            "ButtonComponent.overTexture": "{\"key\":\"app\",\"frame\":\"app/buttonHover\"}",
+                            "ButtonComponent.downTexture": "{\"key\":\"app\",\"frame\":\"app/buttonDown\"}",
+                            "ButtonComponent.handCursor": true,
+                            "texture": {
+                                "key": "app",
+                                "frame": "app/button"
+                            },
+                            "originX": 0,
+                            "originY": 0,
+                            "list": []
+                        },
+                        {
+                            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                            "id": "1771fd0e-7a05-4430-9772-6c2aab9745bb",
+                            "unlock": [
+                                "x",
+                                "y",
+                                "boxWidth",
+                                "boxHeight",
+                                "verticalAlign",
+                                "fontSize",
+                                "font",
+                                "align",
+                                "text"
+                            ],
+                            "label": "buttonLabel",
+                            "scope": "PUBLIC",
+                            "boxWidth": 282.2625,
+                            "boxHeight": 63,
+                            "verticalAlign": 1,
+                            "components": [],
+                            "x": 37.4625,
+                            "y": 28.6875,
+                            "text": "Ok",
+                            "font": "BurbankSmallBold",
+                            "align": 1,
+                            "fontSize": -45,
+                            "nestedPrefabs": [],
+                            "list": []
+                        }
+                    ]
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "0459c945-768b-4b36-8447-e692ad67185e",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "align",
+                        "boxWidth",
+                        "boxHeight"
+                    ],
+                    "label": "code",
+                    "scope": "PUBLIC",
+                    "boxWidth": 729,
+                    "boxHeight": 38.7,
+                    "horizontalAlign": 2,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": 38.25,
+                    "y": 427.5,
+                    "tintTopLeft": "#983A02",
+                    "tintTopRight": "#983A02",
+                    "tintBottomLeft": "#983A02",
+                    "tintBottomRight": "#983A02",
+                    "tintFill": true,
+                    "text": "c0",
+                    "font": "BurbankSmallMedium",
+                    "align": 2,
+                    "fontSize": -22.5,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

@@ -1,0 +1,135 @@
+{
+    "id": "26574426-23e6-4e71-a8dd-82e102868d74",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "f5874390-e7b2-4c4b-b2db-c1fb02bebffd",
+            "label": "termsSection",
+            "scope": "PUBLIC",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "7d89c654-cc96-45e7-81f1-3aa3a3e6cb38",
+                    "id": "7ecbb3a4-2877-4645-87a8-dbc43c5bb2d4",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "handCursor"
+                    ],
+                    "label": "checkbox",
+                    "scope": "PUBLIC",
+                    "handCursor": true,
+                    "components": [],
+                    "x": 0,
+                    "y": 0,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "bd345727-3c31-40fa-a276-fceb2d5d773e",
+                    "label": "text1",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 49.5,
+                    "y": 4.5,
+                    "tintTopLeft": "#666666",
+                    "tintTopRight": "#666666",
+                    "tintBottomLeft": "#666666",
+                    "tintBottomRight": "#666666",
+                    "text": "I agree to the ",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -18,
+                    "list": []
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "e8b6a03f-2a18-4d19-813f-9752c1739a9d",
+                    "label": "link1",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 173.3625,
+                    "y": 2.25,
+                    "tintTopLeft": "#01539c",
+                    "tintTopRight": "#01539c",
+                    "tintBottomLeft": "#01539c",
+                    "tintBottomRight": "#01539c",
+                    "text": "PRIVACY POLICY",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -20.25,
+                    "list": []
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "81bdb89c-73c0-4f32-83b1-136f3c802ba2",
+                    "label": "text2",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 338.5125,
+                    "y": 4.5,
+                    "tintTopLeft": "#666666",
+                    "tintTopRight": "#666666",
+                    "tintBottomLeft": "#666666",
+                    "tintBottomRight": "#666666",
+                    "text": " and ",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -18,
+                    "list": []
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "eac82569-5f31-4d5a-bbda-b1f5c90502cc",
+                    "label": "link2",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 379.2375,
+                    "y": 2.25,
+                    "tintTopLeft": "#01539c",
+                    "tintTopRight": "#01539c",
+                    "tintBottomLeft": "#01539c",
+                    "tintBottomRight": "#01539c",
+                    "text": "TERMS OF USE",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -20.25,
+                    "list": []
+                },
+                {
+                    "prefabId": "398d1c7a-d16b-488b-a869-0649ea0098bc",
+                    "id": "de5890b6-65c9-495c-bd0d-12aebe9bf125",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "errorBubble",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 112.8375,
+                    "y": -94.5,
+                    "visible": false,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

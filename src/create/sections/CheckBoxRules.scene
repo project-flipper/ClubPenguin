@@ -1,0 +1,101 @@
+{
+    "id": "ad98953c-1c12-426d-b9ee-28af415121bf",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "3a7dc723-2aa8-41b1-bbc1-dc42ed8cce46",
+            "label": "rulesSection",
+            "scope": "PUBLIC",
+            "components": [],
+            "list": [
+                {
+                    "prefabId": "7d89c654-cc96-45e7-81f1-3aa3a3e6cb38",
+                    "id": "f4733f3e-b0d8-418b-9260-a476b7a65784",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "handCursor"
+                    ],
+                    "label": "checkbox",
+                    "scope": "PUBLIC",
+                    "handCursor": true,
+                    "components": [],
+                    "x": 0,
+                    "y": 0,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "07b5a79d-d8b7-48f1-84d1-d395dee3d6c7",
+                    "label": "text1",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 49.5,
+                    "y": 4.5,
+                    "tintTopLeft": "#666666",
+                    "tintTopRight": "#666666",
+                    "tintBottomLeft": "#666666",
+                    "tintBottomRight": "#666666",
+                    "text": "I agree to the ",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -18,
+                    "list": []
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "74629f6d-d049-4a1b-99bc-bf7324bc0bd5",
+                    "label": "link1",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 173.36,
+                    "y": 2.25,
+                    "tintTopLeft": "#01539c",
+                    "tintTopRight": "#01539c",
+                    "tintBottomLeft": "#01539c",
+                    "tintBottomRight": "#01539c",
+                    "text": "CLUB PENGUIN RULES",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -20.25,
+                    "list": []
+                },
+                {
+                    "prefabId": "2a3345f5-0fde-4aad-9d3d-82c19e306a8a",
+                    "id": "66a55d90-0a44-4c19-ac11-08108cd4142f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "errorBubble",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "x": 45.3375,
+                    "y": 18,
+                    "visible": false,
+                    "nestedPrefabs": [],
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

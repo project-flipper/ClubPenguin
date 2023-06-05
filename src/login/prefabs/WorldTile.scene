@@ -1,0 +1,207 @@
+{
+    "id": "b5fff2dc-7ff0-4f5d-a287-4afddb10f16a",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "8ed575b9-39ee-4e7b-9b18-9e714149019a",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "62eabd2d-3169-4410-bbc3-64eccdf9ec78",
+                    "label": "tile",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"login\",\"frame\":\"login-screen/worldTile\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"login\",\"frame\":\"login-screen/worldTileSelect\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/worldTile"
+                    },
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "c8969dfa-e342-4bb4-b83c-0a8e3bc95fae",
+                    "label": "safeChat",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/safeChat"
+                    },
+                    "x": 479.925,
+                    "y": 23.4,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "45d91a7a-8d2b-42f4-b53b-b394e54f844f",
+                    "label": "population1",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/populationOff"
+                    },
+                    "x": 556.0875,
+                    "y": 15.8625,
+                    "originX": -0.17657,
+                    "originY": -0.12228,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "9e745bcc-9a0f-43c4-a479-61ad19695568",
+                    "label": "population2",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/populationOff"
+                    },
+                    "x": 609.3,
+                    "y": 15.8625,
+                    "originX": -0.17657,
+                    "originY": -0.12228,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "9d1c5365-834e-4e78-a452-7b75a7d68615",
+                    "label": "population3",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/populationOff"
+                    },
+                    "x": 662.5125,
+                    "y": 15.8625,
+                    "originX": -0.17657,
+                    "originY": -0.12228,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "b73577b5-48a0-473c-9a41-bd0e324f0183",
+                    "label": "population4",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/populationOff"
+                    },
+                    "x": 715.9499999999999,
+                    "y": 15.8625,
+                    "originX": -0.17657,
+                    "originY": -0.12228,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "0dea654d-bc4e-4669-ad24-3f0dde45a554",
+                    "label": "population5",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/populationOff"
+                    },
+                    "x": 769.05,
+                    "y": 15.8625,
+                    "originX": -0.17657,
+                    "originY": -0.12228,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "b718a181-dd93-4ca6-9113-71558d317da8",
+                    "label": "full",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/full0001"
+                    },
+                    "x": 536.2875,
+                    "y": -6,
+                    "originX": 0,
+                    "originY": 0.00699,
+                    "list": []
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "1d6114a4-1912-48af-a975-16a9c8b1b38c",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "verticalAlign",
+                        "font",
+                        "fontSize",
+                        "text"
+                    ],
+                    "label": "worldName",
+                    "scope": "PUBLIC",
+                    "boxWidth": 357.4125,
+                    "boxHeight": 85.6125,
+                    "verticalAlign": 1,
+                    "components": [],
+                    "x": 97.98750000000003,
+                    "y": 9.5625,
+                    "text": "World",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -51.75,
+                    "nestedPrefabs": [],
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "5bed48f7-b950-4969-bd9a-a59129c7a433",
+                    "label": "buddy",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/buddy"
+                    },
+                    "x": 22.725,
+                    "y": 20.5875,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

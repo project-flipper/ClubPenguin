@@ -1,0 +1,575 @@
+{
+    "id": "cb21985e-1544-4b68-8b0a-a73b1547cbf9",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/static/assets/world/rooms/forts/forts-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Forts",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "0af3f314-0532-420a-9769-d4a268e2ee42",
+            "label": "forts_sky",
+            "texture": {
+                "key": "forts",
+                "frame": "forts/sky"
+            },
+            "x": -22.5,
+            "y": -22.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "f0ca3a03-a5c1-43a7-ab68-87056fdad3fa",
+            "label": "forts_base",
+            "texture": {
+                "key": "forts",
+                "frame": "forts/base"
+            },
+            "x": -157.3875,
+            "y": 103.3875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "b3344e0c-cc25-47af-9b4e-258c855762fd",
+            "label": "forts_snowman",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/snowman"
+            },
+            "x": 1549.0125,
+            "y": 864.9,
+            "originX": 0.48875598086124405,
+            "originY": 0.8522222222222222
+        },
+        {
+            "type": "Image",
+            "id": "d684d864-48b8-4f57-b812-9e51d6212a69",
+            "label": "forts_orangecastletower",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/orangecastletower"
+            },
+            "x": 974.475,
+            "y": 745.65,
+            "originX": 0.5005084745762712,
+            "originY": 0.4032857142857143
+        },
+        {
+            "type": "Image",
+            "id": "9a9dc415-2a9a-4aea-85df-fa5fa1ed9687",
+            "label": "forts_orangecastlebase",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/orangecastlebase"
+            },
+            "x": 542.025,
+            "y": 743.2875,
+            "originX": 0.49957346,
+            "originY": 0.56315175
+        },
+        {
+            "type": "Sprite",
+            "id": "8e08f329-be58-4704-8c46-04c5470d6839",
+            "label": "orangeflag",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 743.2875,
+            "texture": {
+                "key": "forts",
+                "frame": "forts/orangeflag0001"
+            },
+            "x": 437.5125,
+            "y": 477.225,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "30cb6470-03f5-4674-adfa-23cb3d31ab92",
+            "label": "forts_orangecastleside",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/orangecastleside"
+            },
+            "x": 861.75,
+            "y": 789.0749999999999,
+            "originY": 0.542007434944238
+        },
+        {
+            "type": "Image",
+            "id": "0b440ae0-6abb-4af8-af80-82accd191e0f",
+            "label": "forts_orangecastlepillar",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/orangecastlepillar"
+            },
+            "x": 619.2,
+            "y": 855.5625,
+            "originX": 0.498974358974359,
+            "originY": 0.63
+        },
+        {
+            "type": "Image",
+            "id": "9c19985e-9430-4aca-9696-e9f55a904013",
+            "label": "forts_bluecastlepillar",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/bluecastlepillar"
+            },
+            "x": 1195.65,
+            "y": 494.2125,
+            "originX": 0.49734939759036145,
+            "originY": 0.5923469387755101
+        },
+        {
+            "type": "Image",
+            "id": "2233d040-e181-48f6-b289-96abac13d5ae",
+            "label": "forts_bluecastleotherwall",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/bluecastleotherwall"
+            },
+            "x": 982.6875,
+            "y": 461.5875,
+            "originX": 0.4986792452830189,
+            "originY": 0.7568181818181817
+        },
+        {
+            "type": "Image",
+            "id": "d3bd6183-ba3b-4c27-ad41-1c4a4a92211b",
+            "label": "forts_bluecastletower",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/bluecastletower"
+            },
+            "x": 853.3125,
+            "y": 493.2,
+            "originX": 0.4978723404255319,
+            "originY": 0.3824
+        },
+        {
+            "type": "Image",
+            "id": "8e8cc794-2194-44f7-ba6f-2cde10f87367",
+            "label": "forts_bluecastlebase",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/bluecastlebase"
+            },
+            "x": 946.8,
+            "y": 558.5625,
+            "originX": 0.500662251655629,
+            "originY": 0.7421812080536913
+        },
+        {
+            "type": "Image",
+            "id": "095d4096-a026-48c0-b4ff-5c57e5a33725",
+            "label": "forts_bluecastleside",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/bluecastleside"
+            },
+            "x": 1349.1,
+            "y": 588.9375,
+            "originX": 0.5008064516129033,
+            "originY": 0.34600000000000003
+        },
+        {
+            "type": "Image",
+            "id": "9efc07bf-28ec-4233-be88-1392adbd1cd7",
+            "label": "forts_bluecastlewall",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/bluecastlewall"
+            },
+            "x": 1202.4,
+            "y": 626.4,
+            "originX": 0.49943966,
+            "originY": 0.69815789
+        },
+        {
+            "type": "Sprite",
+            "id": "04b2b037-7b77-4b06-8d18-350d2711171c",
+            "label": "blueflag",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 558.5625,
+            "texture": {
+                "key": "forts",
+                "frame": "forts/blueflag0001"
+            },
+            "x": 838.575,
+            "y": 337.1625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "16107593-b859-4a12-9535-7b37d59fc296",
+            "label": "cog",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "forts",
+                "frame": "forts/cog0001"
+            },
+            "x": 1444.6125,
+            "y": 124.0875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "809d736e-b7be-4a5f-9adc-90d10e7b8cd6",
+            "label": "forts_clockbase",
+            "texture": {
+                "key": "forts",
+                "frame": "forts/clockbase"
+            },
+            "x": 1078.0875,
+            "y": -13.95,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "4c6e2220-0b87-4706-96e8-f87cfad4464e",
+            "label": "target",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "forts",
+                "frame": "forts/target0001"
+            },
+            "x": 1412.8875,
+            "y": 139.1625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "5109210a-1b28-4904-9526-79050f8564f8",
+            "label": "clockwork",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "forts",
+                "frame": "forts/clockwork0001"
+            },
+            "x": 1108.575,
+            "y": 108.1125,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "a5a12c5e-8ace-4713-9ba5-5db5fb182735",
+            "label": "clocktext",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "forts",
+                "frame": "forts/clocktext0001"
+            },
+            "x": 1145.8125,
+            "y": 62.55,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "26ca8851-876b-4c96-ba91-8e357dc635ab",
+            "unlock": [
+                "x",
+                "y",
+                "boxWidth",
+                "boxHeight",
+                "horizontalAlign",
+                "text",
+                "font",
+                "fontSize",
+                "angle"
+            ],
+            "label": "day",
+            "scope": "PUBLIC",
+            "boxWidth": 175.5,
+            "boxHeight": 32.0625,
+            "horizontalAlign": 1,
+            "x": 1169,
+            "y": 250,
+            "angle": 4,
+            "text": "Monday",
+            "font": "CCComicCrazyW100BoldItalic",
+            "fontSize": -18
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "396a3b02-4234-4409-b725-e0cf22e93d56",
+            "unlock": [
+                "x",
+                "y",
+                "boxWidth",
+                "boxHeight",
+                "horizontalAlign",
+                "text",
+                "font",
+                "fontSize",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "clock",
+            "scope": "PUBLIC",
+            "boxWidth": 145.675,
+            "boxHeight": 229.3875,
+            "horizontalAlign": 1,
+            "x": 1170.1,
+            "y": 151.0625,
+            "scaleX": 1,
+            "scaleY": 1.51,
+            "text": "0000",
+            "font": "cplcd",
+            "fontSize": -63
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "e9d75472-35be-4fab-85eb-941feb8b0a90",
+            "unlock": [
+                "x",
+                "y",
+                "boxWidth",
+                "boxHeight",
+                "horizontalAlign",
+                "text",
+                "font",
+                "fontSize",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "am_pm",
+            "scope": "PUBLIC",
+            "boxWidth": 50.0625,
+            "boxHeight": 100.35,
+            "horizontalAlign": 1,
+            "x": 1299.6,
+            "y": 153.225,
+            "scaleX": 1,
+            "scaleY": 1,
+            "text": "00",
+            "font": "cplcd",
+            "fontSize": -40.5
+        },
+        {
+            "type": "Image",
+            "id": "d97eac51-db09-455e-9573-b042d51f84b2",
+            "label": "snowball_target",
+            "scope": "PUBLIC",
+            "components": [
+                "SnowballTrigger"
+            ],
+            "texture": {
+                "key": "forts",
+                "frame": "forts/target_area"
+            },
+            "x": 1469,
+            "y": 175,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "1e08d599-297f-4eb3-9582-a8ea44d1e359",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "forts",
+                "frame": "forts/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "69aaa721-3b30-4c84-9529-270dcf1abfdf",
+            "label": "town_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "forts",
+                "frame": "forts/town_btn0004"
+            },
+            "x": 207.5625,
+            "y": 355.3875,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "5a93e0cb-e96f-4d29-b69a-100d3beeb150",
+            "label": "plaza_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "forts",
+                "frame": "forts/plaza_btn0004"
+            },
+            "x": 1586.25,
+            "y": 303.75,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "c3ffb77b-8f11-49e2-912e-862e705706fb",
+            "label": "rink_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "forts",
+                "frame": "forts/rink_btn0004"
+            },
+            "x": 517.5,
+            "y": 263.8125,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "3c026065-265d-4291-a12b-92b0cf2e5158",
+            "label": "forts_plaza_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": "300",
+            "RoomTrigger.playerX": 191.25,
+            "RoomTrigger.playerY": 742.5,
+            "texture": {
+                "key": "forts",
+                "frame": "forts/plaza_trigger"
+            },
+            "x": 1570.275,
+            "y": 454.1625,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "b04dc476-dfb4-46b3-9cb1-358ace2eb0d6",
+            "label": "forts_rink_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": "802",
+            "RoomTrigger.playerX": 855,
+            "RoomTrigger.playerY": 303.75,
+            "texture": {
+                "key": "forts",
+                "frame": "forts/rink_trigger"
+            },
+            "x": 589.5,
+            "y": 382.1625,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "4ef83edf-9ef2-444a-bf96-921970b15843",
+            "label": "forts_town_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": "100",
+            "RoomTrigger.playerX": 1485,
+            "RoomTrigger.playerY": 731.25,
+            "texture": {
+                "key": "forts",
+                "frame": "forts/town_trigger"
+            },
+            "x": 159.75,
+            "y": 546.4125,
+            "visible": false
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "2ded3c9f-2671-4bc4-9cef-c864cb0d8985",
+            "label": "triggers",
+            "objectIds": [
+                "d97eac51-db09-455e-9573-b042d51f84b2",
+                "3c026065-265d-4291-a12b-92b0cf2e5158",
+                "b04dc476-dfb4-46b3-9cb1-358ace2eb0d6",
+                "4ef83edf-9ef2-444a-bf96-921970b15843"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}

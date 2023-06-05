@@ -1,0 +1,79 @@
+{
+    "id": "ab5d03f6-7d98-462a-9a0b-3e7089edd50e",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "5c9ca518-fdea-4405-97fe-936737de5d9f",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "80f1013e-3b95-46b4-bcea-45183f8dba75",
+                    "label": "art",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "lounge",
+                        "frame": "lounge/bluetarget"
+                    },
+                    "x": -36.25,
+                    "y": -36,
+                    "originX": 0,
+                    "originY": 0,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "d6af759c-e7ed-4a53-8485-7e7d35c8864a",
+                    "label": "hitbox",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "SnowballTrigger"
+                    ],
+                    "texture": {
+                        "key": "lounge",
+                        "frame": "lounge/targethitbox"
+                    },
+                    "visible": false,
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "team",
+            "label": "Team",
+            "tooltip": "The team of which this target belongs to.",
+            "defValue": "blue",
+            "customDefinition": true,
+            "type": {
+                "id": "option",
+                "options": [
+                    "blue",
+                    "red"
+                ]
+            }
+        }
+    ]
+}

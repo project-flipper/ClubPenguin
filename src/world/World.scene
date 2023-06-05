@@ -1,0 +1,26 @@
+{
+    "id": "32069ddc-47e7-41f9-acb7-0cb8b22c68fc",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "postload",
+        "preloadPackFiles": [
+            "ClubPenguin/static/assets/app/world-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "World",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

@@ -1,0 +1,92 @@
+{
+    "id": "50c1984f-bcfa-43c7-8aad-64b344227371",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/assets/login/login-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Login",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "9a7cb2de-04e9-4670-95c9-4e760ece8aad",
+            "label": "background",
+            "components": [
+                "InputBlocker"
+            ],
+            "texture": {
+                "key": "login",
+                "frame": "login-screen/background"
+            },
+            "originX": 0,
+            "originY": 0,
+            "list": []
+        },
+        {
+            "prefabId": "6eb1a7a1-3ef0-4bc6-8161-7c195cf95a5c",
+            "id": "b3be1ecb-bcac-47d8-88d6-8ca7c7a2c96a",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "newPlayerView",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 0,
+            "y": 0,
+            "visible": false,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "9f1d9003-bcba-4485-95fa-9b16a011ffd4",
+            "id": "5eb97099-5e24-4203-b25f-4d7a0c839e66",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "passwordPrompt",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 0,
+            "y": 0,
+            "visible": false,
+            "nestedPrefabs": [],
+            "list": []
+        },
+        {
+            "prefabId": "9a355514-15e8-49d2-8681-08f0ee9dc47b",
+            "id": "7eaff80a-6389-4241-a2cb-8821501ee59d",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "worldSelect",
+            "scope": "PUBLIC",
+            "components": [],
+            "x": 0,
+            "y": 0,
+            "visible": false,
+            "nestedPrefabs": [],
+            "list": []
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

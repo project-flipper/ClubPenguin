@@ -1,0 +1,96 @@
+{
+    "id": "7d89c654-cc96-45e7-81f1-3aa3a3e6cb38",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "fc1be453-f1d4-48a1-81d0-c25f3b91176f",
+            "label": "container_1",
+            "components": [],
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "b38a479d-49f9-4acd-b092-57e96fe1b471",
+                    "label": "graphic",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "originX": 0,
+                    "originY": 0,
+                    "isFilled": true,
+                    "strokeColor": "#cfd0d4",
+                    "lineWidth": 4.5,
+                    "isStroked": true,
+                    "width": 38.25,
+                    "height": 38.25,
+                    "list": []
+                },
+                {
+                    "type": "Image",
+                    "id": "4d763784-2730-4ae4-8fa3-c26ff0d59126",
+                    "label": "checkmark",
+                    "scope": "PUBLIC",
+                    "components": [],
+                    "texture": {
+                        "key": "create",
+                        "frame": "create-module/checkmark"
+                    },
+                    "x": 16.3125,
+                    "y": 25.3125,
+                    "originX": 0.36957,
+                    "originY": 0.72973,
+                    "list": []
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    },
+    "prefabProperties": [
+        {
+            "name": "flag",
+            "label": "State",
+            "tooltip": "What state this checkbox should begin with.",
+            "defValue": false,
+            "customDefinition": true,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "handCursor",
+            "label": "Hand Cursor",
+            "tooltip": "Whether to use a hand cursor when the mouse is lingering over this button (hover).",
+            "defValue": true,
+            "customDefinition": true,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "pixelPerfect",
+            "label": "Pixel Perfect",
+            "tooltip": "Whether to use a pixel-perfect hitbox. This setting is expensive and may affect performance.",
+            "defValue": false,
+            "customDefinition": true,
+            "type": {
+                "id": "boolean"
+            }
+        }
+    ]
+}
