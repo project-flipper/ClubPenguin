@@ -329,7 +329,7 @@ export default class Engine extends Phaser.Scene {
         if (this.world.isPlayer(data)) {
             penguin.ring.visible = true;
             penguin.ring.strokeColor = 0x3399FF;
-        } else if (this.world.isFriend(data)) { // TODO: buddy check
+        } else if (this.world.isFriend(data)) {
             penguin.ring.visible = true;
             penguin.ring.strokeColor = 0x009900;
         } else penguin.ring.visible = false;
