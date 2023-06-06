@@ -211,7 +211,11 @@ class Debug {
             },
             publicStampbook: false,
             member: membership,
-            mascotId
+            mascotId,
+            relationship: {
+                type: 'friend' as import('./net/types/penguin/relationship').RelationshipType.FRIEND,
+                since: ''
+            }
         };
 
         let avatar = await this.engine.loadAvatar('penguin');
@@ -272,7 +276,11 @@ class Debug {
                     flag: 0,
                 },
                 publicStampbook: Boolean(Math.floor(Math.random() * 2)),
-                member
+                member,
+                relationship: {
+                    type: 'friend' as import('./net/types/penguin/relationship').RelationshipType.FRIEND,
+                    since: ''
+                }
             };
 
             let penguin = this.engine.addPenguin(data, avatar, this.engine.cameras.main.centerX + this.randomRange(-350, +350), this.engine.cameras.main.centerY + this.randomRange(0, +400));
