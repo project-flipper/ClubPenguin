@@ -3,6 +3,30 @@ import { LoaderTask } from "../load/tasks";
 import type { App } from "./app";
 import Phaser from "phaser";
 
+export interface GeneralConfig {
+    mascot_options: {
+        migrator_active: boolean
+    },
+    party_options: {
+        fair_ticket_active: boolean,
+        hunt_active: boolean,
+        itemRewardID: number,
+        isMapNoteActive: boolean,
+        showPartyAnnouncement: boolean,
+        party_icon_active: boolean
+    },
+    igloo_options: {
+        contestRunning: boolean
+    },
+    oops_test: {
+        testEnabled: boolean
+    },
+    island_options: {
+        isDaytime: boolean
+    },
+    party_dates: { [date: string]: string }
+}
+
 export interface RoomConfig {
     room_id: number,
     room_key: string,
@@ -50,7 +74,7 @@ export default class Config {
         this.app = app;
     }
 
-    public general: any;
+    public general: GeneralConfig;
     public penguin_action_frames: { [id: string]: { head: number, face: number, neck: number, body: number, hand: number, feet: number, secret_frame: number }[] };
     public player_colors: { [id: string]: string };
 
