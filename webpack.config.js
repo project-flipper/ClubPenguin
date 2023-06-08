@@ -168,13 +168,19 @@ module.exports = env => {
             }
         },
         devServer: {
-            static: {
-                directory: path.resolve(__dirname, 'static'),
-                publicPath: '/'
-            }
+            static: [
+                {
+                    directory: path.resolve(__dirname, 'static'),
+                    publicPath: '/'
+                },
+                {
+                    directory: path.resolve(__dirname, 'play'),
+                    publicPath: '/'
+                }
+            ]
         },
         watchOptions: {
-            ignored: ['static/', 'node_modules/'],
+            ignored: ['static/', 'play/', 'node_modules/'],
             aggregateTimeout: 200
         },
 
