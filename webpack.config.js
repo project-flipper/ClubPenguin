@@ -11,7 +11,7 @@ module.exports = env => {
         language: 'en',
         apiPath: env.apiPath,
         mediaPath: env.mediaPath ? env.mediaPath : '/',
-        crossOrigin: env.crossOrigin ? env.crossOrigin : '',
+        crossOrigin: env.crossOrigin,
         cacheVersion: env.cacheVersion,
         clientVersion: env.clientVersion ? env.clientVersion : env.cacheVersion,
         contentVersion: env.contentVersion ? env.contentVersion : env.cacheVersion,
@@ -187,7 +187,11 @@ module.exports = env => {
 
         plugins: [
             new ForkTsCheckerWebpackPlugin(),
-            new DefinePlugin('__webpack_options__', JSON.stringify({ EXPOSE_APP: env.development })),
+            new DefinePlugin({
+                '__webpack_options__': JSON.stringify({
+                    EXPOSE_APP: env.development
+                })
+            }),
             ...playPages
         ]
     };
