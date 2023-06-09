@@ -24,6 +24,7 @@ interface RunParams {
     language: string,
     apiPath: string,
     mediaPath: string,
+    crossOrigin: string,
     cacheVersion: string,
     clientVersion: string,
     contentVersion: string,
@@ -94,7 +95,8 @@ export function run(params: RunParams): void {
         },
         loader: {
             baseURL: params.mediaPath,
-            maxParallelDownloads: 10
+            maxParallelDownloads: 10,
+            crossOrigin: params.crossOrigin
         },
         powerPreference: 'high-performance'
     }, {
