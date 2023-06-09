@@ -144,6 +144,11 @@ export default class Bootstrap extends Phaser.Scene {
     declare game: App;
 
     create(): void {
+        if (!this.cache.json.exists('bootstrap-pack')) {
+            if (window.handleGameError) window.handleGameError({ handled: false });
+            throw new Error('Bootstrap could not initiate Club Penguin');
+        }
+
         this.scene.run('InternalErrorArea');
 
         this.editorCreate();

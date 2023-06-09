@@ -181,7 +181,8 @@ declare global {
             showNav(): void;
             hideNav(): void;
             showRules(): void;
-        }
+        };
+        handleGameError: (data?: { handled: boolean }) => void;
     }
 }
 
