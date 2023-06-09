@@ -115,7 +115,7 @@ module.exports = function (paths) {
     Disney.Social.Environment = {
         DEBUG_CONFIG: "true",
         DEBUG: !0,
-        FRIENDS_BASE_URL: paths.basePath,
+        FRIENDS_BASE_URL: window.location.protocol + "//" + window.location.host,
         CLUBPENGUIN_CONTENT_URL: paths.basePath,
         BOSH_PATH: "/friends/bind",
         CLUB_PENGUIN_AVATAR_URL: paths.avatarUrl,
@@ -217,19 +217,19 @@ module.exports = function (paths) {
         init: function () {
             var e = Disney.Social,
                 i = e.Environment;
-            $.ajax(e.getUrlForLanguage(i.FRIENDS_BASE_URL, i.CHARACTERS_PATH), {
+            $.ajax(e.getUrlForLanguage(i.CLUBPENGUIN_CONTENT_URL, i.CHARACTERS_PATH), {
                 cache: !0,
                 dataType: "json",
                 success: function (e) {
                     Disney.Social.Data.characters = e
                 }
-            }), $.ajax(e.getUrlForLanguage(i.FRIENDS_BASE_URL, i.LANDS_PATH), {
+            }), $.ajax(e.getUrlForLanguage(i.CLUBPENGUIN_CONTENT_URL, i.LANDS_PATH), {
                 cache: !0,
                 dataType: "json",
                 success: function (e) {
                     Disney.Social.Data.lands = e
                 }
-            }), $.ajax(e.getUrlForLanguage(i.FRIENDS_BASE_URL, i.WORLDS_PATH), {
+            }), $.ajax(e.getUrlForLanguage(i.CLUBPENGUIN_CONTENT_URL, i.WORLDS_PATH), {
                 cache: !0,
                 dataType: "json",
                 success: function (e) {
@@ -1341,19 +1341,19 @@ module.exports = function (paths) {
             if ("number" == typeof this.timeoutID && (clearTimeout(this.timeoutID), delete this.timeoutID), this.markup && this.text && this.images) return !1;
             var e = Disney.Social,
                 i = e.Environment;
-            this.markup || $.ajax(e.getUrl(i.FRIENDS_BASE_URL, i.MARKUP_PATH), {
+            this.markup || $.ajax(e.getUrl(i.CLUBPENGUIN_CONTENT_URL, i.MARKUP_PATH), {
                 cache: !0,
                 dataType: "json",
                 success: function (e) {
                     Disney.Friends.UI.Data.markup = e.data, Disney.Friends.UI.Data.setMarkup()
                 }
-            }), this.text || $.ajax(e.getUrlForLanguage(i.FRIENDS_BASE_URL, i.TEXT_PATH), {
+            }), this.text || $.ajax(e.getUrlForLanguage(i.CLUBPENGUIN_CONTENT_URL, i.TEXT_PATH), {
                 cache: !0,
                 dataType: "json",
                 success: function (e) {
                     Disney.Friends.UI.Data.text = e, Disney.Friends.UI.Data.setText()
                 }
-            }), this.images || $.ajax(e.getUrl(i.FRIENDS_BASE_URL, i.IMAGES_PATH), {
+            }), this.images || $.ajax(e.getUrl(i.CLUBPENGUIN_CONTENT_URL, i.IMAGES_PATH), {
                 cache: !0,
                 dataType: "json",
                 success: function (e) {
