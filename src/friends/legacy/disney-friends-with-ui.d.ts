@@ -174,7 +174,7 @@ declare global {
     }
 }
 
-export function init(paths: {
+export default function init(paths: {
     basePath: string,
     avatarUrl: string
 }): void;
