@@ -70,7 +70,7 @@ A live public build of the project will be made available soon.
 
 # Support
 <p>
-    <img align="right" width="200" height="200" src="https://github.com/clubpenguin-html5/ClubPenguin/assets/44991848/49c007ac-1011-4948-972e-39c293c7fcda">
+    <img align="right" width="250" height="250" src="https://github.com/clubpenguin-html5/ClubPenguin/assets/44991848/49c007ac-1011-4948-972e-39c293c7fcda">
 Catch us on our Discord server <a href="https://discord.gg/CfBct5NUjv">here!</a> or join through this code: <code>CfBct5NUjv</code>.
 
 Please be mindful of the information shared here, as it may contain the answer to your query.
