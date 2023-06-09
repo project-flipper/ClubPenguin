@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/rooms/dock/dock-pack.json"
+            "ClubPenguin/media/assets/world/rooms/dock/dock-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Dock",

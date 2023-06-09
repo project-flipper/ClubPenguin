@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/logo/logo-pack.json"
+            "ClubPenguin/media/assets/logo/logo-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Logo",

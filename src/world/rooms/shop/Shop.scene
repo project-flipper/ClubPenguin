@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/rooms/shop/shop-pack.json"
+            "ClubPenguin/media/assets/world/rooms/shop/shop-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Shop",

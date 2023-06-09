@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/rooms/book/book-pack.json"
+            "ClubPenguin/media/assets/world/rooms/book/book-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Book",

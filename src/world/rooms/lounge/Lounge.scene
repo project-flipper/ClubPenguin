@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/rooms/lounge/lounge-pack.json"
+            "ClubPenguin/media/assets/world/rooms/lounge/lounge-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Lounge",

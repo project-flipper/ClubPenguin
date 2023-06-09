@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/start/start-pack.json"
+            "ClubPenguin/media/assets/start/start-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Startscreen",

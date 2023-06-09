@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/engine/engine-pack.json"
+            "ClubPenguin/media/assets/world/engine/engine-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Engine",

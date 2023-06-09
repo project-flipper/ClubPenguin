@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/rooms/forest/forest-pack.json"
+            "ClubPenguin/media/assets/world/rooms/forest/forest-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Forest",

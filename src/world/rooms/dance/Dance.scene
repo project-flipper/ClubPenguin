@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/rooms/dance/dance-pack.json"
+            "ClubPenguin/media/assets/world/rooms/dance/dance-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Dance",

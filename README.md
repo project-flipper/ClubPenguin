@@ -21,7 +21,7 @@ Clone this repository using `git`:
 git clone git@github.com:clubpenguin-html5/ClubPenguin.git
 ```
 
-Next, install the mediaserver. If you plan on running a [webpack DevServer](https://webpack.js.org/configuration/dev-server/) using the provided configuration, then the mediaserver must be available as a directory called `static` in the project root. Otherwise, you may install it anywhere **as long as the game can access it** and is defined in [options](#options).
+Next, install the mediaserver. If you plan on running a [webpack DevServer](https://webpack.js.org/configuration/dev-server/) using the provided configuration, then the mediaserver must be available as a directory called `media` in the project root. Otherwise, you may install it anywhere **as long as the game can access it** and is defined in [options](#options).
 
 Finally, build the game source:
 a. To output a build, run `npm run build`. This will output the game files and play page to a directory called `dist` in the project root.

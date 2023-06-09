@@ -7,7 +7,7 @@
         "autoImport": true,
         "preloadMethodName": "_preload",
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/app/app-pack.json"
+            "ClubPenguin/media/assets/app/app-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "ErrorArea",

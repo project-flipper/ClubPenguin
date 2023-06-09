@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/rooms/forts/forts-pack.json"
+            "ClubPenguin/media/assets/world/rooms/forts/forts-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Forts",

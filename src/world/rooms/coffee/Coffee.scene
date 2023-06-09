@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/rooms/coffee/coffee-pack.json"
+            "ClubPenguin/media/assets/world/rooms/coffee/coffee-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Coffee",

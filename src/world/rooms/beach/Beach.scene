@@ -6,7 +6,7 @@
         "exportClass": true,
         "autoImport": true,
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/world/rooms/beach/beach-pack.json"
+            "ClubPenguin/media/assets/world/rooms/beach/beach-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Beach",

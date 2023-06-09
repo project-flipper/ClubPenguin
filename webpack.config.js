@@ -172,7 +172,7 @@ module.exports = env => {
         devServer: {
             static: [
                 {
-                    directory: path.resolve(__dirname, 'static'),
+                    directory: path.resolve(__dirname, 'media'),
                     publicPath: '/'
                 },
                 {
@@ -182,7 +182,7 @@ module.exports = env => {
             ]
         },
         watchOptions: {
-            ignored: ['static/', 'play/', 'node_modules/'],
+            ignored: ['media/', 'play/', 'node_modules/'],
             aggregateTimeout: 200
         },
 

@@ -7,7 +7,7 @@
         "autoImport": true,
         "preloadMethodName": "postload",
         "preloadPackFiles": [
-            "ClubPenguin/static/assets/app/world-pack.json"
+            "ClubPenguin/media/assets/app/world-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "World",
