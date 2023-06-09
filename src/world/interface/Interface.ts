@@ -618,8 +618,10 @@ export default class Interface extends Phaser.Scene {
 
     sendMessage(): void {
         this.hideHint();
-        this.engine.currentPenguin.overlay.balloon.showMessage(this.chat.value);
-        this.chat.value = '';
+        if (this.chat.value.length > 0) {
+            this.engine.currentPenguin.overlay.balloon.showMessage(this.chat.value);
+            this.chat.value = '';
+        }
     }
 
     update(time: number, delta: number): void {
