@@ -21,6 +21,7 @@ Clone this repository using `git`:
 git clone --recurse-submodules git@github.com:clubpenguin-html5/ClubPenguin.git
 ```
 Don't forget the `--recurse-submodules` flag as it will also clone the [play page](https://github.com/clubpenguin-html5/play) needed to load the game.
+> NOTE: This repository contains only the assets needed for the play page. The actual play page is generated on-the-go by Webpack as to allow passing options to the game.
 
 Next, install the mediaserver. If you plan on running a [webpack DevServer](https://webpack.js.org/configuration/dev-server/) using the provided configuration, then the mediaserver must be available as a directory called `static` in the project root. Otherwise, you may install it anywhere **as long as the game can access it** and is defined in [options](#options).
 
