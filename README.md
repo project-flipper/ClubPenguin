@@ -46,7 +46,7 @@ Below is a list of valid options.
 > If this option is present, then the game instance will be made available in the playpage as `CP.app`. Otherwise, this property will be undefined.
 - `--env apiPath=string`: Sets the base API URL for communication. It is recommended that you provide an absolute URL for this option.
 - `--env mediaPath=string` (default: `"/"`): Sets the base URL for the mediaserver. It is recommended that you provide an absolute URL for this option.
-- `--env crossOrigin=string` (default: `""`): Sets the CORS rule for file fetching. Must be one of `anonymous` or `use-credentials`, or will default to `anonymous`. Best left untouched if you are not handling cross-origin requests.
+- `--env crossOrigin=string` (optional): Sets the CORS rule for file fetching. Must be one of `anonymous` or `use-credentials`. Best left untouched if you are not handling cross-origin requests.
 - `--env cacheVersion=string` (optional): Sets the base cache version. This is used by the game to get around file caching on mediaserver asset requests.
 - `--env clientVersion=string` (optional): Sets the cache version for client files. If not provided, then it defaults to the value of `cacheVersion`.
 - `--env contentVersion=string` (optional): Sets the cache version for content files. If not provided, then it defaults to the value of `cacheVersion`.
