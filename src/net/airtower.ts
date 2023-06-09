@@ -11,4 +11,8 @@ export class Airtower extends Phaser.Events.EventEmitter {
 
         this.basePath = basePath;
     }
+
+    get avatarUrl(): string {
+        return `${this.basePath}/penguin`;
+    }
 }

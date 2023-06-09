@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import type { App } from '../app/app';
-import type Handler from './legacy/legacy_handler';
+import type HandlerInit from './legacy/legacy_handler';
 import type Interface from '../world/interface/Interface';
 import type World from '../world/World';
 import { PenguinData } from '../net/types/penguin/penguin';
@@ -46,7 +46,7 @@ export enum Presence {
 
 export class Friends extends Phaser.Events.EventEmitter {
     public app: App;
-    protected instance: typeof Handler;
+    protected instance: typeof window.Disney;
 
     public namespace = "disney:land:clubpenguin";
 
@@ -63,10 +63,10 @@ export class Friends extends Phaser.Events.EventEmitter {
         return this.app.scene.getScene('Interface') as Interface;
     }
 
-    async init(): Promise<void> {
+    async init(params: Parameters<typeof HandlerInit>[0]): Promise<void> {
         if (this.instance) return;
 
-        this.instance = (await import('./legacy/legacy_handler')).default;
+        this.instance = (await import('./legacy/legacy_handler')).default(params);
 
         this.on(FriendsEvents.CONNECTED, this.onConnected, this);
         this.on(FriendsEvents.DISCONNECTED, this.onDisconnected, this);

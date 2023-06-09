@@ -1,4 +1,3 @@
-
 interface DisneyFriendsConnection {
     serviceUri: string;
     password?: string;
@@ -175,4 +174,7 @@ declare global {
     }
 }
 
-export { };
+export function init(paths: {
+    basePath: string,
+    avatarUrl: string
+}): void;

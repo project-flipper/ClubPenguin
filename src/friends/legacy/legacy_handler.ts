@@ -3,7 +3,9 @@ import './disney-friends.css';
 import './club.css';
 import './lib/jquery.ui.min';
 import './lib/libs.min';
-import './disney-friends-with-ui';
+import { init } from './disney-friends-with-ui';
 
-const Disney = window.Disney;
-export default Disney;
+export default function getHandler(paths: Parameters<typeof init>[0]): typeof window.Disney {
+    init(paths);
+    return window.Disney;
+}

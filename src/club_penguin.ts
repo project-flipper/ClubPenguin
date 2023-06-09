@@ -112,7 +112,10 @@ export function run(params: RunParams): void {
     if (params.elementId) _app.canvas.id = params.elementId;
     if (params.elementClassName) _app.canvas.className = params.elementClassName;
 
-    _app.friends.init();
+    _app.friends.init({
+        basePath: params.mediaPath,
+        avatarUrl: _app.airtower.avatarUrl
+    });
 
     if (__webpack_options__.EXPOSE_APP) app = _app;
 }
