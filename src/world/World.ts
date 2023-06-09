@@ -1,6 +1,22 @@
 
 // You can write more code here
 
+let SPAWN_ROOMS = [
+    '100', // town
+    '200', // village
+    //'230', // mtn
+    '300', // plaza
+    '400', // beach
+    '800', // dock
+    '801', // forts
+    //'802', // rink
+    //'805', // berg
+    //'807', // shack
+    '809', // forest
+    //'810', // cove
+
+];
+
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -196,7 +212,7 @@ export default class World extends Phaser.Scene {
             '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '16', '28', '31', '32', '33'
         ], true, true, true);
 
-        let roomConfig = this.game.gameConfig.rooms[this.getRandomItem(['100', '800', '801'])];
+        let roomConfig = this.game.gameConfig.rooms[this.getRandomItem(SPAWN_ROOMS)];
         console.log('Mocking room join on room', roomConfig);
         await engine.joinRoom(roomConfig);
     }
