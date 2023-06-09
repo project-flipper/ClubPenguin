@@ -60,21 +60,26 @@ export class LoaderTask extends EventEmitter implements Task {
         return this.important ? totalFailed === 0 : true;
     }
 
+    private _result: { ok: boolean, data: { totalComplete: number, totalFailed: number } };
+
     onComplete(_loader: Phaser.Loader.LoaderPlugin, totalComplete: number, totalFailed: number): void {
         let ok = this.isOk(totalComplete, totalFailed);
 
-        this.didFail = !ok;
-        this.emit('done', {
+        this._result = {
             ok,
             data: {
                 totalComplete,
                 totalFailed
             }
-        });
+        };
+
+        this.didFail = !ok;
+        this.emit('done', this._result);
     }
 
     wait(): Promise<{ ok: boolean, data: { totalComplete: number, totalFailed: number } }> {
         return new Promise(resolve => {
+            if (this._result) return resolve(this._result);
             this.once('done', payload => resolve(payload));
         });
     }
@@ -87,6 +92,8 @@ export class PromiseTask extends EventEmitter implements Task {
     didFail: boolean;
 
     wrapper: Promise<any>;
+
+    private _result: { ok: boolean, data: { value: any, reason: any } };
 
     constructor(callback: ((task?: PromiseTask) => any) | Promise<any>) {
         super();
@@ -103,13 +110,15 @@ export class PromiseTask extends EventEmitter implements Task {
                 let result = await Promise.resolve(callback);
 
                 this.isDone = true;
-                this.emit('done', { ok: true, data: { value: result, reason: undefined } });
+                this._result = { ok: true, data: { value: result, reason: undefined } };
+                this.emit('done', this._result);
             } catch (e) {
                 console.error('An error occurred on PromiseTask:', e);
 
                 this.isDone = true;
                 this.didFail = true;
-                this.emit('done', { ok: false, data: { value: undefined, reason: e } });
+                this._result = { ok: false, data: { value: undefined, reason: e } };
+                this.emit('done', this._result);
             }
 
         });
@@ -125,6 +134,7 @@ export class PromiseTask extends EventEmitter implements Task {
 
     wait(): Promise<{ ok: boolean, data: { value: any, reason: any } }> {
         return new Promise(resolve => {
+            if (this._result) return resolve(this._result);
             this.once('done', payload => resolve(payload));
         });
     }
@@ -144,15 +154,11 @@ export class GroupTask extends EventEmitter implements Task {
 
         this.important = false;
 
-        if (tasks !== undefined)
-            for (let task of tasks)
-                this.addTask(task);
+        if (tasks !== undefined) for (let task of tasks) this.addTask(task);
     }
 
     get didFail(): boolean {
-        for (let task of this._tasks)
-            if (task.didFail)
-                return true;
+        for (let task of this._tasks) if (task.didFail) return true;
         return false;
     }
 
@@ -160,55 +166,49 @@ export class GroupTask extends EventEmitter implements Task {
         return this._tasks.includes(task);
     }
 
-    addTask(task: Task): void {
+    addTask(task: Task): this {
         this.removeTask(task);
 
-        if (this._isBinded)
-            task.bind();
+        if (this._isBinded) task.bind();
 
         this._tasks.push(task);
+        return this;
     }
 
-    removeTask(task?: Task): void {
+    removeTask(task?: Task): this {
         if (task === undefined) {
-            for (let currentTask of this._tasks)
-                this.removeTask(currentTask);
-            return;
+            for (let currentTask of this._tasks) this.removeTask(currentTask);
+            return this;
         }
 
         let index = this._tasks.indexOf(task);
         if (index !== -1) {
-            if (this._isBinded)
-                task.unbind();
+            if (this._isBinded) task.unbind();
             this._tasks.splice(index, 1);
         }
+        return this;
     }
 
     get isDone(): boolean {
-        for (let task of this._tasks)
-            if (!task.isDone)
-                return false;
+        for (let task of this._tasks) if (!task.isDone) return false;
         return true;
     }
 
     get progress(): number {
         let progress = 0;
-        for (let task of this._tasks)
-            progress += task.progress;
+        for (let task of this._tasks) progress += task.progress;
 
         return progress / this._tasks.length;
     }
 
     bind(): void {
         this._isBinded = true;
-        for (let task of this._tasks)
-            task.bind();
+        for (let task of this._tasks) task.bind();
     }
 
     unbind(): void {
         this._isBinded = false;
-        for (let task of this._tasks)
-            task.unbind();
+        for (let task of this._tasks) task.unbind();
     }
 
     async wait(): Promise<DonePayload> {
