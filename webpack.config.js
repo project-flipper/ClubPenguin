@@ -186,6 +186,7 @@ module.exports = env => {
 
         plugins: [
             new ForkTsCheckerWebpackPlugin(),
+            new DefinePlugin('__webpack_options__', JSON.stringify({ EXPOSE_APP: env.development })),
             ...playPages
         ]
     };

@@ -15,6 +15,7 @@ import World from './world/World';
 import Interface from './world/interface/Interface';
 
 export var app: App;
+var _app: App;
 
 interface RunParams {
     parentId: string,
@@ -30,10 +31,16 @@ interface RunParams {
     environmentType: string
 }
 
+declare global {
+    const __webpack_options__: {
+        EXPOSE_APP: boolean
+    };
+}
+
 export function run(params: RunParams): void {
     stop();
 
-    app = new App({
+    _app = new App({
         parent: params.parentId,
         title: 'Club Penguin',
         banner: true,
@@ -100,21 +107,23 @@ export function run(params: RunParams): void {
         environmentType: params.environmentType
     });
 
-    if (params.elementId) app.canvas.id = params.elementId;
-    if (params.elementClassName) app.canvas.className = params.elementClassName;
+    if (params.elementId) _app.canvas.id = params.elementId;
+    if (params.elementClassName) _app.canvas.className = params.elementClassName;
 
-    app.friends.init();
+    _app.friends.init();
+
+    if (__webpack_options__.EXPOSE_APP) app = _app;
 }
 
 export function isRunning(): boolean {
-    return app !== undefined;
+    return _app !== undefined;
 }
 
 export function sizeChange(repositionFriends = false): void {
     if (!isRunning()) return;
 
-    if (app.scale.getParentBounds()) app.scale.refresh();
-    if (repositionFriends) app.friends.reposition();
+    if (_app.scale.getParentBounds()) _app.scale.refresh();
+    if (repositionFriends) _app.friends.reposition();
 }
 
 export function handleShowPreactivation(): void {
@@ -124,41 +133,41 @@ export function handleShowPreactivation(): void {
 export function friendsEventHandler(event: string, params: any[]): void {
     if (!isRunning()) return;
 
-    app.friends.friendsEventHandler(event, params);
+    _app.friends.friendsEventHandler(event, params);
 }
 
 export function sendBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
-    app.friends.sendBuddyRequest(swid);
+    _app.friends.sendBuddyRequest(swid);
 }
 
 export function sendAcceptBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
-    app.friends.sendAcceptBuddyRequest(swid);
+    _app.friends.sendAcceptBuddyRequest(swid);
 }
 
 export function sendRejectBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
-    app.friends.sendRejectBuddyRequest(swid);
+    _app.friends.sendRejectBuddyRequest(swid);
 }
 
 export function sendToggleBestFriend(swid: string): void {
     if (!isRunning()) return;
 
-    app.friends.sendToggleBestFriend(swid);
+    _app.friends.sendToggleBestFriend(swid);
 }
 
 export function sendToggleBestCharacter(id: string): void {
     if (!isRunning()) return;
 
-    app.friends.sendToggleBestCharacter(id);
+    _app.friends.sendToggleBestCharacter(id);
 }
 
 export function stop(): void {
-    if (isRunning()) app.destroy(false);
+    if (isRunning()) _app.destroy(false);
 }
 
 declare global {
@@ -178,15 +187,15 @@ class Debug {
     INTERNAL_ID = 10000;
 
     get engine(): Engine {
-        return app.scene.getScene('Engine') as Engine;
+        return _app.scene.getScene('Engine') as Engine;
     }
 
     get world(): World {
-        return app.scene.getScene('World') as World;
+        return _app.scene.getScene('World') as World;
     }
 
     get interface(): Interface {
-        return app.scene.getScene('Interface') as Interface;
+        return _app.scene.getScene('Interface') as Interface;
     }
 
     async spawn(name: string, color: number, member?: number, mascotId?: number): Promise<void> {
@@ -225,7 +234,7 @@ class Debug {
     }
 
     getItemsByType() {
-        let paperItems = app.gameConfig.paper_items;
+        let paperItems = _app.gameConfig.paper_items;
         let itemsByType: { [type: number]: number[] } = {};
         for (let idx in paperItems) {
             let item = paperItems[idx];
@@ -243,7 +252,7 @@ class Debug {
         let itemsByType = this.getItemsByType();
 
         let colors: number[] = [];
-        for (let idx in app.gameConfig.player_colors) {
+        for (let idx in _app.gameConfig.player_colors) {
             colors.push(parseInt(idx));
         }
 
@@ -294,7 +303,7 @@ class Debug {
         let itemsByType = this.getItemsByType();
 
         let colors: number[] = [];
-        for (let idx in app.gameConfig.player_colors) {
+        for (let idx in _app.gameConfig.player_colors) {
             colors.push(parseInt(idx));
         }
 
@@ -321,15 +330,15 @@ class Debug {
     }
 
     teleport(roomId: number): void {
-        let roomConfig = app.gameConfig.rooms[roomId.toString()];
+        let roomConfig = _app.gameConfig.rooms[roomId.toString()];
         if (!roomConfig) return;
         console.log('Mocking room join on room', roomConfig);
         this.engine.joinRoom(roomConfig);
     }
 
     changeLanguage(language: string): void {
-        app.locale.setLanguage(language);
-        app.locale.load();
+        _app.locale.setLanguage(language);
+        _app.locale.load();
     }
 }
 
