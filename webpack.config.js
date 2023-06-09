@@ -4,6 +4,7 @@ const { DefinePlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 /** @type {(env: any) => import("webpack").Configuration} */
 module.exports = env => {
@@ -192,7 +193,12 @@ module.exports = env => {
                     EXPOSE_APP: env.development
                 })
             }),
-            ...playPages
+            ...playPages,
+            new CopyPlugin({
+                patterns: [
+                    { from: '**/*', context: 'play' }
+                ]
+            })
         ]
     };
 };
