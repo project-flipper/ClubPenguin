@@ -112,6 +112,8 @@ export default class Login extends Phaser.Scene {
         this.passwordPrompt.show(successCallback, rejectCallback, this);
     }
 
+    private _name: string; // TODO: remove
+
     async login({ name, password, saveName, savePassword }: {
         name: string,
         password: string,
@@ -121,6 +123,7 @@ export default class Login extends Phaser.Scene {
         let load = this.scene.get('Load') as Load;
         load.show({ text: `${this.game.locale.localize('Logging in')} ${name}` });
 
+        this._name = name;
         // TODO: login
 
         load.hide();
@@ -147,7 +150,7 @@ export default class Login extends Phaser.Scene {
 
         setTimeout(() => {
             this.scene.start('World', {
-                id
+                id, name: this._name
             });
         }, 1000);
     }

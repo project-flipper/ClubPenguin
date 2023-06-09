@@ -70,11 +70,11 @@ export default class World extends Phaser.Scene {
         if (!load.isShowing) load.show({ logo: true });
     }
 
-    create(data: { id: number }): void {
+    create(data: { id: number, name: string }): void {
         this.worldId = data.id;
         this.myPenguinData = {
             id: '1000',
-            name: 'Dan',
+            name: data.name,
             avatar: {
                 color: 7,
                 head: 21073,
