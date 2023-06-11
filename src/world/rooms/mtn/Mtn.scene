@@ -1,0 +1,504 @@
+{
+    "id": "7b44f3e5-54bc-469a-8099-a1a9667727d4",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/mtn/mtn-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Mtn",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "416d33de-e747-4722-b074-246ff43a9724",
+            "label": "mtn_sky",
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/sky"
+            },
+            "x": -133.3125,
+            "y": -24.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "2a19a452-8a18-45aa-9de7-85cce054513e",
+            "label": "mtn_bg",
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/bg"
+            },
+            "x": -32.0625,
+            "y": 165.375,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "cdb6bd07-a856-47dd-ae4f-56391752b3ef",
+            "label": "mtn_foreground",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/foreground"
+            },
+            "x": 92.25,
+            "y": 841.1625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "431b10ec-dad1-4b8a-87f9-e570301fc672",
+            "label": "mtn_cables",
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/cables"
+            },
+            "x": 1063.2375,
+            "y": 99.7875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "643508d6-6a8d-45b4-9480-5f214dc93141",
+            "label": "cablecar",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/cablecar0001"
+            },
+            "x": 744.075,
+            "y": 16.9875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "15e3978c-8336-47ff-a33d-7118ed0321fc",
+            "label": "mtn_mountain",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/base"
+            },
+            "x": -126,
+            "y": 67.95,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "6316e602-6f7e-40e2-a249-42ecc7cddb0c",
+            "label": "mtn_cable1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/cable1"
+            },
+            "x": 871.875,
+            "y": 26.2125,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "d9263a9c-6519-42f9-8b2c-c7670293daf1",
+            "label": "mtn_cable2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/cable2"
+            },
+            "x": 1014.8625,
+            "y": 29.7,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "2decf365-8aa7-4c30-b3ca-5233b26ba6ba",
+            "label": "mtn_snow",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 3,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/snow"
+            },
+            "x": 862.875,
+            "y": 230.85,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "c593324c-ce30-4ae4-b886-3e81aadce1bd",
+            "label": "mtn_front",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 3,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/front"
+            },
+            "x": 335.8125,
+            "y": 12.9375,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "7def044f-87ed-4990-8d4e-83f47ebb90cf",
+            "label": "mtn_shopback",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 5,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/shopback"
+            },
+            "x": 1117.35,
+            "y": 243.5625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "2520e7f8-6404-43c6-ad74-2a49e044cdb6",
+            "label": "mtn_store",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/store"
+            },
+            "x": 1172.8125,
+            "y": 364.275,
+            "originX": 0.317165,
+            "originY": 0.890653
+        },
+        {
+            "type": "Image",
+            "id": "a4ad3b4e-17f1-410e-9f87-8468ce4ac6ff",
+            "label": "mtn_secondlane",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/secondlane"
+            },
+            "x": 546.075,
+            "y": 679.5,
+            "originX": 0.5892079207920792,
+            "originY": 0.7910752688172042
+        },
+        {
+            "type": "Image",
+            "id": "6c78ce0a-2a8c-4bee-a003-e6bc1453b702",
+            "label": "mtn_thirdlane",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/thirdlane"
+            },
+            "x": 1127.5875,
+            "y": 758.7,
+            "originX": 0.4061052631578947,
+            "originY": 0.8309090909090909
+        },
+        {
+            "type": "Image",
+            "id": "97cf67dd-59b4-42d2-b324-d546d1c3f535",
+            "label": "mtn_fourthlane",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/fourthlane"
+            },
+            "x": 1346.4,
+            "y": 649.125,
+            "originX": 0.34204918032786885,
+            "originY": 0.8220879120879121
+        },
+        {
+            "type": "Sprite",
+            "id": "020d76f3-f31f-4b2f-8f5b-7288e550176a",
+            "label": "cat",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/cat0001"
+            },
+            "x": 548.075,
+            "y": 203.7375
+        },
+        {
+            "type": "Image",
+            "id": "55d370b5-45ea-4c26-a12a-513eb39d6524",
+            "label": "cat_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/cat_btn"
+            },
+            "x": 545.625,
+            "y": 201.9375,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "66021c88-41bc-4180-92e6-5d10b2cc80fa",
+            "label": "catalogue",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/catalogue0001"
+            },
+            "x": 1617.6375,
+            "y": 1005.525
+        },
+        {
+            "type": "Image",
+            "id": "ff9c2c24-ba71-4997-a875-c05c3ee4796f",
+            "label": "catalogue_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/catalogue0004"
+            },
+            "x": 1617.6375,
+            "y": 1005.525,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "prefabId": "20d5cc0d-8fe6-446f-8628-1c62ae4aaf61",
+            "id": "f8bc3b7b-e91c-451b-b0b8-bd8949b3a633",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "firstLane",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "x": 229.05,
+            "y": 538.875
+        },
+        {
+            "prefabId": "81ef7fd3-8d24-4e58-8e4e-466262c36feb",
+            "id": "083a5e82-553e-493c-aa36-63405a340937",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "secondLane",
+            "components": [
+                "DepthEnabled"
+            ],
+            "x": 714.0375,
+            "y": 685.2375
+        },
+        {
+            "prefabId": "2a7ef382-2dbf-4bd7-bcbe-4b0bb7f40836",
+            "id": "de6e7922-1e7b-45e4-91c9-b337606c64de",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "thirdLane",
+            "components": [
+                "DepthEnabled"
+            ],
+            "x": 1051.3125,
+            "y": 706.3875
+        },
+        {
+            "prefabId": "6e1fa720-b8ef-42f5-94ce-70f486b9ce9e",
+            "id": "95adbae0-b010-471a-b689-cfea633768bf",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "fourthLane",
+            "components": [
+                "DepthEnabled"
+            ],
+            "x": 1283.4,
+            "y": 656.8875
+        },
+        {
+            "type": "Image",
+            "id": "383979f6-e75d-4418-9c2f-b043ea63e64d",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "24b9f091-f6b0-4e8d-a01c-06180fd7b317",
+            "label": "mtn_village_mc",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": "200",
+            "RoomTrigger.playerX": 501.75,
+            "RoomTrigger.playerY": 657,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/village_mc"
+            },
+            "x": 1020.2625,
+            "y": 299.025,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "4302a89c-ba7e-4f02-8550-c72e6d16aea4",
+            "label": "mtn_plaza_mc",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": "200",
+            "RoomTrigger.playerX": 501.75,
+            "RoomTrigger.playerY": 657,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/plaza_mc"
+            },
+            "x": 1401.075,
+            "y": 567.3375,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "bda7f217-6ef0-4c71-a139-d457851b6492",
+            "label": "shop_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/shop_btn0004"
+            },
+            "x": 1178.8875,
+            "y": 337.3875,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "4ebfe0f1-1ab2-436c-9f2d-5e053af8c802",
+            "label": "exit_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/exit_btn0004"
+            },
+            "x": 1415.1375,
+            "y": 575.8875,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "8854f00a-5d63-4619-ac57-58a5c3adea41",
+            "label": "triggers",
+            "objectIds": [
+                "24b9f091-f6b0-4e8d-a01c-06180fd7b317",
+                "4302a89c-ba7e-4f02-8550-c72e6d16aea4"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}

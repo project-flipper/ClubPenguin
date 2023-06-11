@@ -1,0 +1,152 @@
+{
+    "id": "20d5cc0d-8fe6-446f-8628-1c62ae4aaf61",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "8482eaa4-3958-4703-9488-1d469a071eaf",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "2e122812-8fbb-411c-b405-bd103170fedb",
+                    "label": "seat1",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "mtn",
+                        "frame": "mtn/firstlane_seat1"
+                    },
+                    "x": -52.2,
+                    "y": -20.7,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "8827b2f6-59ad-4ecf-ba71-c6e2b122e088",
+                    "label": "mtn_firstlane_separator1",
+                    "texture": {
+                        "key": "mtn",
+                        "frame": "mtn/firstlane_separator1"
+                    },
+                    "x": -23.5125,
+                    "y": 24.6375,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "7029e0c7-64b8-4da1-84dc-e1927f1f4d44",
+                    "label": "seat2",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "mtn",
+                        "frame": "mtn/firstlane_seat2"
+                    },
+                    "x": 13.05,
+                    "y": 34.425,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "29b1d500-d6eb-4a59-8d2d-f41d8dd24bcc",
+                    "label": "mtn_firstlane_separator2",
+                    "texture": {
+                        "key": "mtn",
+                        "frame": "mtn/firstlane_separator2"
+                    },
+                    "x": 53.8875,
+                    "y": 69.4125,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "a5124cfe-a55c-4259-a614-0891d332564d",
+                    "label": "seat3",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "mtn",
+                        "frame": "mtn/firstlane_seat3"
+                    },
+                    "x": 85.975,
+                    "y": 80.2375,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "44a33007-78bf-4a8f-94e9-42cfcc5c374e",
+                    "label": "mtn_firstlane_separator3",
+                    "texture": {
+                        "key": "mtn",
+                        "frame": "mtn/firstlane_separator3"
+                    },
+                    "x": 120.0375,
+                    "y": 113.9625,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "fea3f633-09c1-4e15-b017-4afef90faee6",
+                    "label": "seat4",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "mtn",
+                        "frame": "mtn/firstlane_seat4"
+                    },
+                    "x": 172.6875,
+                    "y": 116.55,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "90d51100-076c-4d76-b5df-2ba14e9cd1ec",
+                    "label": "btn",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "mtn",
+                        "frame": "mtn/firstlane_btn0004"
+                    },
+                    "x": 117.45,
+                    "y": 92.025,
+                    "alpha": 0.01,
+                    "alphaTopLeft": 0.01,
+                    "alphaTopRight": 0.01,
+                    "alphaBottomLeft": 0.01,
+                    "alphaBottomRight": 0.01
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}
