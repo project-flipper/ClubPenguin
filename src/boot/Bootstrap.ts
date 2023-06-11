@@ -196,9 +196,9 @@ export default class Bootstrap extends Phaser.Scene {
 
         if (this.load.totalFailed > 0) return this.showLoadError();
 
-        load.show({ logo: true });
+        /* load.show({ logo: true });
         this.scene.start('World');
-        return;
+        return; */
 
         let path = 'start'; // TODO: get path
 
