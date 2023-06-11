@@ -17,6 +17,11 @@ export enum ItemType {
 };
 export type ClothingSprite = Phaser.GameObjects.Sprite & { config: PaperItemConfig, animations: { [frame: number]: Phaser.Animations.Animation } };
 
+export interface Room extends Phaser.Scene {
+    roomData: RoomConfig;
+    customEase?: string | Function
+}
+
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -165,7 +170,7 @@ export default class Engine extends Phaser.Scene {
     public currentRoomId: number;
     public previousRoomId: number;
 
-    public currentRoom: Phaser.Scene & { roomData: RoomConfig };
+    public currentRoom: Room;
 
     async loadRoom(config: RoomConfig): Promise<void> {
         if (config.room_id == this.currentRoomId) return;
@@ -214,7 +219,7 @@ export default class Engine extends Phaser.Scene {
         this.previousRoomId = this.currentRoomId;
         this.currentRoomId = config.room_id;
 
-        this.currentRoom = roomScene as Phaser.Scene & { roomData: RoomConfig };
+        this.currentRoom = roomScene as Room;
         this.currentRoom.roomData = config;
 
         this.events.emit('roomload', this.currentRoom);
@@ -506,6 +511,7 @@ export default class Engine extends Phaser.Scene {
             targets: penguin,
             x: x,
             y: y,
+            ease: this.currentRoom?.customEase,
             onStart: (tween: Phaser.Tweens.Tween) => this.trackTween(tween),
             onUpdate: () => {
                 penguin.depth = penguin.y + 1;
