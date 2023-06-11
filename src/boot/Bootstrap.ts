@@ -18,7 +18,17 @@ export default class Bootstrap extends Phaser.Scene {
         super("Bootstrap");
 
         /* START-USER-CTR-CODE */
-        // Write your code here.
+
+        window.addEventListener('devtoolschange', event => {
+            if (event.detail.isOpen) console.log(
+                this.getDevtoolsWarnMessage(),
+                'font-weight: bold; color: red; font-size: 350%; background: navy;',
+                'color: red; font-size: 250%; background: navy;',
+                'color: lime; font-size: 200%; background: teal;',
+                'color: white; font-size: 150%; background: olive;'
+            );
+        });
+
         /* END-USER-CTR-CODE */
     }
 
@@ -186,9 +196,9 @@ export default class Bootstrap extends Phaser.Scene {
 
         if (this.load.totalFailed > 0) return this.showLoadError();
 
-        /* load.show({ logo: true });
+        load.show({ logo: true });
         this.scene.start('World');
-        return; */
+        return;
 
         let path = 'start'; // TODO: get path
 
@@ -235,6 +245,47 @@ export default class Bootstrap extends Phaser.Scene {
 
         let interr = this.scene.get('InternalErrorArea') as InternalErrorArea;
         interr.showErrorDialog(errorMessage, buttonText, () => window.location.reload(), '10010');
+    }
+
+    getDevtoolsWarnMessage(): string {
+        switch (this.game?.locale.language) {
+            case Language.PT:
+                return (
+                    '%cESPERE!\n%cSua conta pode estar em perigo.\n\n' +
+                    '%cQualquer criminoso pode induzi-lo a inserir códigos aqui que podem dar acesso à sua conta ou causar sua suspensão.\n\n' +
+                    '%cSe você sabe o que está fazendo, considere se juntar à nossa equipe :)'
+                );
+            case Language.FR:
+                return (
+                    '%cATTENDEZ!\n%cVotre compte peut être en danger.\n\n' +
+                    '%cTout criminel pourrait vous inciter à saisir ici des codes qui pourraient lui donner accès à votre compte ou entraîner votre suspension.\n\n' +
+                    '%cSi vous savez ce que vous faites, envisagez de rejoindre notre équipe :)'
+                );
+            case Language.ES:
+                return (
+                    '%c¡ESPERA!\n%cTu cuenta puede correr peligro.\n\n' +
+                    '%cCualquier malhechor podría engañarte al introducir códigos aquí que les puede dar acceso a tu cuenta, o causarle una suspención.\n\n' +
+                    '%cSi sabes lo que estás haciendo, considera unirte a nuestro equipo :)'
+                );
+            case Language.DE:
+                return (
+                    '%cWARTEN!\n%cIhr Konto könnte in Gefahr sein.\n\n' +
+                    '%cKriminelle könnten Sie dazu verleiten, hier Code einzuführen, der ihnen Zugriff auf Ihr Konto verschafft oder Sie sperrt.\n\n' +
+                    '%cWenn Sie wissen, was Sie tun, denken Sie darüber nach, unserem Team beizutreten :)'
+                );
+            case Language.RU:
+                return (
+                    '%cЖДАТЬ!\n%cВаш аккаунт может быть в опасности.\n\n' +
+                    '%cЗлоумышленники могут обманом заставить вас ввести здесь код, который может дать им доступ к вашей учетной записи или заблокировать вас.\n\n' +
+                    '%cЕсли вы знаете, что делаете, рассмотрите возможность присоединиться к нашей команде :)'
+                );
+            default:
+                return (
+                    '%cWAIT!\n%cYour account might be in danger.\n\n' +
+                    '%cBad actors might trick you into introducing code here that could give them access to your account or get you banned.\n\n' +
+                    '%cIf you know what you\'re doing, consider joining our team :)'
+                );
+        }
     }
 
     /* END-USER-CODE */

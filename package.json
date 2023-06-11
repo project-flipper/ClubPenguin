@@ -32,6 +32,7 @@
     "webpack-dev-server": "^4.13.3"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.21.0"
+    "@babel/runtime-corejs3": "^7.21.0",
+    "devtools-detect": "^4.0.1"
   }
 }

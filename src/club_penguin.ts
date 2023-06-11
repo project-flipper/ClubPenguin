@@ -1,3 +1,4 @@
+import 'devtools-detect';
 import Phaser from 'phaser';
 import { App } from './app/app';
 import Bootstrap from './boot/Bootstrap';
