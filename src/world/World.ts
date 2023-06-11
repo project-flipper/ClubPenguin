@@ -4,7 +4,7 @@
 let SPAWN_ROOMS = [
     '100', // town
     '200', // village
-    //'230', // mtn
+    '230', // mtn
     '300', // plaza
     '400', // beach
     '800', // dock
