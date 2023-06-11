@@ -150,23 +150,40 @@ export default class Shop extends Phaser.Scene {
         const stylebook = this.add.image(1501.9875, 922.05, "shop", "shop/stylebook0001");
         stylebook.setOrigin(0, 0);
 
+        // chest_btn
+        const chest_btn = this.add.image(1514.3625, 600.075, "shop", "shop/chest_btn");
+        chest_btn.alpha = 0.01;
+        chest_btn.alphaTopLeft = 0.01;
+        chest_btn.alphaTopRight = 0.01;
+        chest_btn.alphaBottomLeft = 0.01;
+        chest_btn.alphaBottomRight = 0.01;
+
+        // changeroom_btn
+        const changeroom_btn = this.add.image(510.6375, 312.8625, "shop", "shop/changeroom_btn");
+        changeroom_btn.alpha = 0.01;
+        changeroom_btn.alphaTopLeft = 0.01;
+        changeroom_btn.alphaTopRight = 0.01;
+        changeroom_btn.alphaBottomLeft = 0.01;
+        changeroom_btn.alphaBottomRight = 0.01;
+
+        // door_btn
+        const door_btn = this.add.image(1235.8125, 261.5625, "shop", "shop/door_btn");
+        door_btn.alpha = 0.01;
+        door_btn.alphaTopLeft = 0.01;
+        door_btn.alphaTopRight = 0.01;
+        door_btn.alphaBottomLeft = 0.01;
+        door_btn.alphaBottomRight = 0.01;
+
         // lists
         const triggers = [shop_town_trigger];
 
         // shop_clothes (components)
         new DepthEnabled(shop_clothes);
 
-        // door (components)
-        const doorButtonComponent = new ButtonComponent(door);
-        doorButtonComponent.upTexture = {"key":"shop","frame":"shop/door0001"};
-        doorButtonComponent.overTexture = {"key":"shop","frame":"shop/door0002"};
-        doorButtonComponent.handCursor = true;
-        doorButtonComponent.pixelPerfect = true;
-
         // changeroom (components)
         const changeroomButtonComponent = new ButtonComponent(changeroom);
-        changeroomButtonComponent.upTexture = {"key":"shop","frame":"shop/changeroom0001"};
-        changeroomButtonComponent.overTexture = {"key":"shop","frame":"shop/changeroom0002"};
+        changeroomButtonComponent.upTexture = { "key": "shop", "frame": "shop/changeroom0001" };
+        changeroomButtonComponent.overTexture = { "key": "shop", "frame": "shop/changeroom0002" };
         changeroomButtonComponent.handCursor = true;
         changeroomButtonComponent.pixelPerfect = true;
 
@@ -205,11 +222,6 @@ export default class Shop extends Phaser.Scene {
         const chestDepthEnabled = new DepthEnabled(chest);
         chestDepthEnabled.automaticSort = false;
         chestDepthEnabled.depth = 640.575;
-        const chestButtonComponent = new ButtonComponent(chest);
-        chestButtonComponent.upTexture = {"key":"shop","frame":"shop/chest0001"};
-        chestButtonComponent.overTexture = {"key":"shop","frame":"shop/chest0002"};
-        chestButtonComponent.handCursor = true;
-        chestButtonComponent.pixelPerfect = true;
 
         // display (components)
         const displayDepthEnabled = new DepthEnabled(display);
@@ -242,8 +254,8 @@ export default class Shop extends Phaser.Scene {
 
         // unlockbook (components)
         const unlockbookButtonComponent = new ButtonComponent(unlockbook);
-        unlockbookButtonComponent.upTexture = {"key":"shop","frame":"shop/unlockbook0001"};
-        unlockbookButtonComponent.overTexture = {"key":"shop","frame":"shop/unlockbook0002"};
+        unlockbookButtonComponent.upTexture = { "key": "shop", "frame": "shop/unlockbook0001" };
+        unlockbookButtonComponent.overTexture = { "key": "shop", "frame": "shop/unlockbook0002" };
         unlockbookButtonComponent.handCursor = true;
         unlockbookButtonComponent.pixelPerfect = true;
         const unlockbookDepthEnabled = new DepthEnabled(unlockbook);
@@ -252,12 +264,27 @@ export default class Shop extends Phaser.Scene {
 
         // stylebook (components)
         const stylebookButtonComponent = new ButtonComponent(stylebook);
-        stylebookButtonComponent.overTexture = {"key":"shop","frame":"shop/stylebook_open"};
+        stylebookButtonComponent.overTexture = { "key": "shop", "frame": "shop/stylebook_open" };
         stylebookButtonComponent.handCursor = true;
         stylebookButtonComponent.pixelPerfect = true;
         const stylebookDepthEnabled = new DepthEnabled(stylebook);
         stylebookDepthEnabled.automaticSort = false;
         stylebookDepthEnabled.depth = 1081;
+
+        // chest_btn (components)
+        const chest_btnButtonComponent = new ButtonComponent(chest_btn);
+        chest_btnButtonComponent.handCursor = true;
+        chest_btnButtonComponent.pixelPerfect = true;
+
+        // changeroom_btn (components)
+        const changeroom_btnButtonComponent = new ButtonComponent(changeroom_btn);
+        changeroom_btnButtonComponent.handCursor = true;
+        changeroom_btnButtonComponent.pixelPerfect = true;
+
+        // door_btn (components)
+        const door_btnButtonComponent = new ButtonComponent(door_btn);
+        door_btnButtonComponent.handCursor = true;
+        door_btnButtonComponent.pixelPerfect = true;
 
         this.door = door;
         this.changeroom = changeroom;
@@ -270,6 +297,9 @@ export default class Shop extends Phaser.Scene {
         this.register_button = register_button;
         this.unlockbook = unlockbook;
         this.stylebook = stylebook;
+        this.chest_btn = chest_btn;
+        this.changeroom_btn = changeroom_btn;
+        this.door_btn = door_btn;
         this.triggers = triggers;
 
         this.events.emit("scene-awake");
@@ -286,6 +316,9 @@ export default class Shop extends Phaser.Scene {
     public register_button!: Phaser.GameObjects.Image;
     public unlockbook!: Phaser.GameObjects.Image;
     public stylebook!: Phaser.GameObjects.Image;
+    public chest_btn!: Phaser.GameObjects.Image;
+    public changeroom_btn!: Phaser.GameObjects.Image;
+    public door_btn!: Phaser.GameObjects.Image;
     public triggers!: Phaser.GameObjects.Image[];
 
     /* START-USER-CODE */
@@ -314,17 +347,35 @@ export default class Shop extends Phaser.Scene {
 
         this.speakers.play('speakers-animation');
 
-        this.door.on('over', () => this.sound.play('shop_dooropen'));
-        this.door.on('out', () => this.sound.play('shop_doorclose'));
-        this.door.on('release', () => this.engine.movePlayer(1237.5, 405));
+        this.door_btn.on('over', () => {
+            this.door.setFrame('shop/door0002');
+            this.sound.play('shop_dooropen');
+        });
+        this.door_btn.on('out', () => {
+            this.door.setFrame('shop/door0001');
+            this.sound.play('shop_doorclose');
+        });
+        this.door_btn.on('release', () => this.engine.movePlayer(1237.5, 405));
 
-        this.changeroom.on('over', () => this.sound.play('shop_changeroomopen'));
-        this.changeroom.on('out', () => this.sound.play('shop_changeroomclose'));
-        this.changeroom.on('release', () => this.engine.movePlayer(528.75, 438.75));
+        this.changeroom_btn.on('over', () => {
+            this.changeroom.setFrame('shop/changeroom0002');
+            this.sound.play('shop_changeroomopen');
+        });
+        this.changeroom_btn.on('out', () => {
+            this.changeroom.setFrame('shop/changeroom0001');
+            this.sound.play('shop_changeroomclose');
+        });
+        this.changeroom_btn.on('release', () => this.engine.movePlayer(528.75, 438.75));
 
-        this.chest.on('over', () => this.sound.play('shop_chestopen'));
-        this.chest.on('out', () => this.sound.play('shop_chestclose'));
-        this.chest.on('release', () => this.engine.movePlayer(1485, 663.75));
+        this.chest_btn.on('over', () => {
+            this.chest.setFrame('shop/chest0002');
+            this.sound.play('shop_chestopen');
+        });
+        this.chest_btn.on('out', () => {
+            this.chest.setFrame('shop/chest0001');
+            this.sound.play('shop_chestclose');
+        });
+        this.chest_btn.on('release', () => this.engine.movePlayer(1485, 663.75));
 
         this.registerOpen = false;
         this.register_button.on('over', () => {

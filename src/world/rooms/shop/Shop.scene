@@ -49,13 +49,6 @@
             "id": "95d1b345-9f09-4340-98ec-cc97a254fde3",
             "label": "door",
             "scope": "PUBLIC",
-            "components": [
-                "ButtonComponent"
-            ],
-            "ButtonComponent.upTexture": "{\"key\":\"shop\",\"frame\":\"shop/door0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"shop\",\"frame\":\"shop/door0002\"}",
-            "ButtonComponent.handCursor": true,
-            "ButtonComponent.pixelPerfect": true,
             "texture": {
                 "key": "shop",
                 "frame": "shop/door0001"
@@ -255,15 +248,10 @@
             "label": "chest",
             "scope": "PUBLIC",
             "components": [
-                "DepthEnabled",
-                "ButtonComponent"
+                "DepthEnabled"
             ],
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 640.575,
-            "ButtonComponent.upTexture": "{\"key\":\"shop\",\"frame\":\"shop/chest0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"shop\",\"frame\":\"shop/chest0002\"}",
-            "ButtonComponent.handCursor": true,
-            "ButtonComponent.pixelPerfect": true,
             "texture": {
                 "key": "shop",
                 "frame": "shop/chest0001"
@@ -488,6 +476,72 @@
             "y": 922.05,
             "originX": 0,
             "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3ff15221-7201-4597-8554-5a644afb4ae0",
+            "label": "chest_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "shop",
+                "frame": "shop/chest_btn"
+            },
+            "x": 1514.3625,
+            "y": 600.075,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "c9d569f9-f67c-44f7-b496-b20d0c7837b9",
+            "label": "changeroom_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "shop",
+                "frame": "shop/changeroom_btn"
+            },
+            "x": 510.6375,
+            "y": 312.8625,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "4860fc29-8ec3-46a3-bd1b-5d6fa4e6097e",
+            "label": "door_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "shop",
+                "frame": "shop/door_btn"
+            },
+            "x": 1235.8125,
+            "y": 261.5625,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
         }
     ],
     "plainObjects": [],
