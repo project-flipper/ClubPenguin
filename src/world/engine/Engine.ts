@@ -226,6 +226,7 @@ export default class Engine extends Phaser.Scene {
     }
 
     async joinRoom(config: RoomConfig, x?: number, y?: number): Promise<void> {
+        if (config.room_id == this.currentRoomId) return;
         let data = this.world.myPenguinData;
 
         let load = this.scene.get('Load') as Load;
