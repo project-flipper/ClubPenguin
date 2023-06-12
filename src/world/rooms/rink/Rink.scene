@@ -1,0 +1,837 @@
+{
+    "id": "27ecbfcd-ce50-4699-8cff-6d1c86779a07",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/rink/rink-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Rink",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "44a6fc46-938c-4cd1-b24c-744637c3ad95",
+            "label": "rink_sky",
+            "texture": {
+                "key": "rink",
+                "frame": "rink/sky"
+            },
+            "x": -135.675,
+            "y": -22.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "a41ac540-4064-45ff-9e7e-f8b3d7e3c9bc",
+            "label": "rink_base",
+            "texture": {
+                "key": "rink",
+                "frame": "rink/base"
+            },
+            "x": -141.4125,
+            "y": -59.175,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "a5834e18-259b-4dc9-a72d-e0fccd456a6c",
+            "label": "rink_leftgoalbehind",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/leftgoalbehind"
+            },
+            "x": 304.875,
+            "y": 564.4125,
+            "originX": 0.6480281690140844,
+            "originY": 0.4164596273291925
+        },
+        {
+            "type": "Image",
+            "id": "2e4cceae-9b17-45fc-b48e-bcc517b256a0",
+            "label": "rink_leftgoal",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/leftgoal"
+            },
+            "x": 273.6,
+            "y": 628.3125,
+            "originX": 0.42636363636363633,
+            "originY": 0.7543333333333333
+        },
+        {
+            "type": "Image",
+            "id": "d0acae1c-7ee5-4708-ac69-25e0902fa836",
+            "label": "puck",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/puck"
+            },
+            "x": 859.5,
+            "y": 607.5
+        },
+        {
+            "type": "Image",
+            "id": "7203ddc6-ad80-44a9-96bb-e1026ce4b300",
+            "label": "rink_rightgoalbehind",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/rightgoalbehind"
+            },
+            "x": 1407.15,
+            "y": 562.6125,
+            "originX": 0.32161972,
+            "originY": 0.41645963
+        },
+        {
+            "type": "Image",
+            "id": "a94d1310-7c5f-4014-8d87-b54d0816d9bd",
+            "label": "rink_rightgoal",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/rightgoal"
+            },
+            "x": 1439.1,
+            "y": 628.3125,
+            "originX": 0.5404195804195804,
+            "originY": 0.7543333333333333
+        },
+        {
+            "type": "Image",
+            "id": "19efa96c-4e9d-4863-aced-ccef86b26a6c",
+            "label": "rink_fishdog",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 261,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/fishdog"
+            },
+            "x": 169.425,
+            "y": 243.45,
+            "originX": 0.48278146,
+            "originY": 0.58852217
+        },
+        {
+            "type": "Image",
+            "id": "74c666d6-a75b-4a34-b3b1-ec0ec82e5e1a",
+            "label": "fishdogsign",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 261,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/fishdog_sign0001"
+            },
+            "x": 104.7375,
+            "y": 130.6125,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "dda89548-7442-4109-98c6-d9b463992c86",
+            "label": "fishdog_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/fishdog_btn0004"
+            },
+            "x": 132.3,
+            "y": 230.625,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "fd17c0a8-08a6-46a4-b8a7-10d0869607f2",
+            "label": "rink_juryseats",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/juryseats"
+            },
+            "x": 590.4,
+            "y": 186.75,
+            "originX": 0.5012970711297071,
+            "originY": 0.6431474103585658
+        },
+        {
+            "type": "Image",
+            "id": "99ac8b9d-431e-4efe-9484-1fd3ced2a0e5",
+            "label": "stadiumsign",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 186.75,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/stadiumsign0001"
+            },
+            "x": 504.9,
+            "y": 183,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "1bc4821b-fe95-4675-a3e7-f5e69fb30dbb",
+            "label": "rink_snow",
+            "texture": {
+                "key": "rink",
+                "frame": "rink/snow"
+            },
+            "x": 1286.1,
+            "y": 126.675,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "14204b52-c291-490a-a084-26abf5344aaa",
+            "label": "rink_tree",
+            "texture": {
+                "key": "rink",
+                "frame": "rink/tree"
+            },
+            "x": 1370.5875,
+            "y": 96.8625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "de353327-bdca-4776-83a7-a9ea4477949e",
+            "label": "rink_trees",
+            "texture": {
+                "key": "rink",
+                "frame": "rink/trees"
+            },
+            "x": 1542.2625,
+            "y": 123.3,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "dcb23be1-3e89-4348-be62-05102960edd7",
+            "label": "rink_sign",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 260.8875,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/sign"
+            },
+            "x": 1374.4125,
+            "y": 179.6625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "d6f80b32-d009-4761-b09e-f46feb17103b",
+            "label": "snacksdoor",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 260.8875,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/snacksdoor0001"
+            },
+            "x": 1341.45,
+            "y": 126.5625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "7ec40446-4b01-47ac-aae1-fced81736c9b",
+            "label": "snacksdoor_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/snacksdoor0004"
+            },
+            "x": 1341.45,
+            "y": 126.5625,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "82d3f646-5245-4114-b218-eb7c3635da73",
+            "label": "snack_light",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "rink",
+                "frame": "rink/snack_light"
+            },
+            "x": 1029.9375,
+            "y": 147.4875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "1df9607b-9044-4312-a09f-2d45772c5f72",
+            "label": "rink_snacks",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 260.8875,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/snacks"
+            },
+            "x": 981.9,
+            "y": 18.3375,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "ce5aa3c0-c05f-4b92-b099-868f83391fb5",
+            "label": "snackssign",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 260.8875,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/snackssign0001"
+            },
+            "x": 1019.25,
+            "y": 40.95,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "224f78e8-c9b7-4096-a6f0-956ec0a60d2e",
+            "label": "rink_snacklights",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 260.8875,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/snacklights"
+            },
+            "x": 1035.9,
+            "y": -6.4125,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "47052cae-3290-4967-ba12-9fa59889d8f8",
+            "label": "rink_backwall",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 379.0125,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/backwall"
+            },
+            "x": 144.3375,
+            "y": 316.0125,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "d4408bb0-d40b-4bfc-ad18-025f6f9d91e2",
+            "label": "door",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 379.0125,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/door0001"
+            },
+            "x": 788.7375,
+            "y": 287.55,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3f58c1f4-fab3-438e-826d-6f329b28041d",
+            "label": "door_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/door0004"
+            },
+            "x": 788.7375,
+            "y": 287.55,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "fb36e0e2-6e42-40ce-a879-7a7b4ac4e712",
+            "label": "rink_lefttribune",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/lefttribune"
+            },
+            "x": 120.4875,
+            "y": 287.6625,
+            "originX": 0.5257051282051283,
+            "originY": 0.15574209245742093
+        },
+        {
+            "type": "Image",
+            "id": "50b5a39a-b9fa-412f-8ea9-87d2ad8b102d",
+            "label": "rink_prop1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/prop1"
+            },
+            "x": 31.8375,
+            "y": 333.45,
+            "originX": 0.4525,
+            "originY": 0.106
+        },
+        {
+            "type": "Image",
+            "id": "5f81f3f1-48f8-47e8-a6a8-7e2b430f37cb",
+            "label": "rink_prop2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/prop2"
+            },
+            "x": 131.625,
+            "y": 403.875,
+            "originX": 0.45,
+            "originY": 0.10914285714285714
+        },
+        {
+            "type": "Image",
+            "id": "8925825b-37d7-43d5-83a9-655dcda19f53",
+            "label": "rink_prop3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/prop3"
+            },
+            "x": 74.5875,
+            "y": 542.475,
+            "originX": 0.48333333333333334,
+            "originY": 0.654074074074074
+        },
+        {
+            "type": "Image",
+            "id": "bd9cdded-1da4-473b-89a0-f83ca6028f4b",
+            "label": "rink_lefttribuneside",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/lefttribuneside"
+            },
+            "x": 47.475,
+            "y": 625.3874999999999,
+            "originX": 0.8588782051282052,
+            "originY": 0.84274
+        },
+        {
+            "type": "Image",
+            "id": "285b2d36-a5f2-42f4-9c50-e95f35dfecb6",
+            "label": "rink_righttribune",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/righttribune"
+            },
+            "x": 1585.125,
+            "y": 287.6625,
+            "originX": 0.45900641025641026,
+            "originY": 0.15574209245742093
+        },
+        {
+            "type": "Image",
+            "id": "607c3203-75eb-43a2-9cea-9a0d359af593",
+            "label": "rink_prop4",
+            "texture": {
+                "key": "rink",
+                "frame": "rink/prop4"
+            },
+            "x": 1596.2625,
+            "y": 342.675,
+            "originX": 0.41222222222222227,
+            "originY": 0.6483636363636363
+        },
+        {
+            "type": "Image",
+            "id": "9712fefd-27b8-44a7-abc6-a635fb4c8285",
+            "label": "rink_prop5",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/prop5"
+            },
+            "x": 1655.4375,
+            "y": 473.2875,
+            "originX": 0.469625,
+            "originY": 0.05555555555555555
+        },
+        {
+            "type": "Image",
+            "id": "d6994ead-8ebd-4f8b-bebd-3f76e4dd8094",
+            "label": "rink_righttribuneside",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/righttribuneside"
+            },
+            "x": 1658.8125,
+            "y": 625.3875,
+            "originX": 0.12583333333333332,
+            "originY": 0.8427433628318585
+        },
+        {
+            "type": "Image",
+            "id": "9c32543a-b180-4ffc-8cb9-0bc8669ce900",
+            "label": "rink_pot",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "rink",
+                "frame": "rink/pot"
+            },
+            "x": 966.7125,
+            "y": 241.425,
+            "originX": 0.47947368,
+            "originY": 0.7125
+        },
+        {
+            "type": "Image",
+            "id": "416a4e2f-2a7e-4973-abe9-aa65c8eaf02d",
+            "label": "rink_foreground",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/foreground"
+            },
+            "x": -215.6625,
+            "y": 628.425,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "1ac5a109-39b0-43d0-ba35-92817528cb45",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "rink",
+                "frame": "rink/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "1764fa17-6940-40ba-8c78-84b21247da9b",
+            "label": "snack_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/snack_btn0004"
+            },
+            "x": 994.8375,
+            "y": 18.675,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "01a6000b-7aa9-4cb9-9b74-83cd7c358c39",
+            "label": "catalogue",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "ButtonComponent.upTexture": "{\"key\":\"rink\",\"frame\":\"rink/catalogue0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"rink\",\"frame\":\"rink/catalogue0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/catalogue0001"
+            },
+            "x": 1581.1875,
+            "y": 970.875
+        },
+        {
+            "type": "Image",
+            "id": "45f260c9-1d3b-4aed-b3d0-f05b9db5bf61",
+            "label": "catalogue_title",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/catalogue_title0001"
+            },
+            "x": 1554.1875,
+            "y": 909.7875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "c347f573-fe3c-4e46-b84a-3e8da179cb33",
+            "label": "rink_forts_mc",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": "801",
+            "RoomTrigger.playerX": 652.5,
+            "RoomTrigger.playerY": 459,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/forts_mc"
+            },
+            "x": 861.75,
+            "y": 213.75,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "df2846b8-b500-4d5d-8ccf-1a10b6f8c540",
+            "label": "rink_shack_mc",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": "122",
+            "RoomTrigger.playerX": 123.75,
+            "RoomTrigger.playerY": 810,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/shack_mc"
+            },
+            "x": 1473,
+            "y": 232,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "c9c71b34-8d17-4508-a822-ad93bc742f4c",
+            "label": "chair1_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/chair_btn0004"
+            },
+            "x": 456.4125,
+            "y": 158.625,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "617b8645-373c-4a92-b46c-4c2ece405ab4",
+            "label": "chair2_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/chair_btn0004"
+            },
+            "x": 534.7125,
+            "y": 152.325,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "782e0656-b4f6-43b9-8344-188c5268cdac",
+            "label": "chair3_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/chair_btn0004"
+            },
+            "x": 603.225,
+            "y": 145.35,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "271bd90a-a148-471d-a4a7-2ec1b911f69f",
+            "label": "chair4_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "rink",
+                "frame": "rink/chair_btn0004"
+            },
+            "x": 673.5375,
+            "y": 140.175,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "56c96d30-0263-4865-96fc-bc474981e069",
+            "label": "triggers",
+            "objectIds": [
+                "c347f573-fe3c-4e46-b84a-3e8da179cb33",
+                "df2846b8-b500-4d5d-8ccf-1a10b6f8c540"
+            ]
+        }
+    ]
+}
