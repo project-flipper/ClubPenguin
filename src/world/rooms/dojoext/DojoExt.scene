@@ -1,0 +1,329 @@
+{
+    "id": "271ae880-9f52-4950-a517-697e1f18f49a",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/dojoext/dojoext-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "DojoExt",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "77a24586-48eb-458b-979c-d8c94cb13479",
+            "label": "dojoext_sky",
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/sky"
+            },
+            "x": -125.775,
+            "y": -22.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "493e3b7a-8c6c-4e41-9565-eed83aa5e49c",
+            "label": "dojoext_base",
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/base"
+            },
+            "x": -127.125,
+            "y": -20.025,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "cad98070-9e56-4532-babd-1dc43cd4fa16",
+            "label": "lava",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/lava"
+            },
+            "x": -77.2875,
+            "y": -91.2375,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "86a2811e-96c0-4acc-abb6-5e1311d950a6",
+            "label": "smoke",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/smoke0001"
+            },
+            "x": -64.6875,
+            "y": -23.4,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "5eb121bf-ae75-43d1-a076-9abe8b47a833",
+            "label": "waterfall",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/waterfall0001"
+            },
+            "x": 268.425,
+            "y": 73.6875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "2b74f7d5-d76e-450c-a1e5-65f5b447ad79",
+            "label": "door",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/door0001"
+            },
+            "x": 766.35,
+            "y": 465.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "8803af9a-594e-4764-9e14-d5581422e3d6",
+            "label": "door_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/door0004"
+            },
+            "x": 766.35,
+            "y": 465.75,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "23417297-25b8-4228-b43d-12fc71037a6e",
+            "label": "dojoext_dojo",
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/dojo"
+            },
+            "x": 33.4125,
+            "y": -13.725,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "025792b1-3e39-4c02-b8a4-b85c15d8d68a",
+            "label": "dojoext_tree1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/tree1"
+            },
+            "x": 1542.375,
+            "y": 818.55,
+            "originX": 0.46656862745098043,
+            "originY": 0.6685398230088496
+        },
+        {
+            "type": "Image",
+            "id": "a95ae841-1fe1-4574-9a9f-d1b012d94011",
+            "label": "dojoext_tree2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/tree2"
+            },
+            "x": 1461.7125,
+            "y": 905.85,
+            "originX": 0.5106310679611651,
+            "originY": 0.6539837398373983
+        },
+        {
+            "type": "Image",
+            "id": "c713ce8f-a4fe-427f-b65b-fca19e9cdbbb",
+            "label": "dojoext_tree3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/tree3"
+            },
+            "x": 1562.85,
+            "y": 808.7625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "d6ba1567-d28e-4b28-8202-33f323cb1686",
+            "label": "dojoext_leftstatue",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/leftstatue"
+            },
+            "x": 520.2,
+            "y": 910.35,
+            "originX": 0.49178030303030307,
+            "originY": 0.37788461538461543
+        },
+        {
+            "type": "Image",
+            "id": "c7d4b2bc-5ebf-4d73-a2a5-1aadde4458aa",
+            "label": "dojoext_rightstatue",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/rightstatue"
+            },
+            "x": 1241.4375,
+            "y": 901.35,
+            "originX": 0.45155172,
+            "originY": 0.36834891
+        },
+        {
+            "type": "Image",
+            "id": "71eb41a4-1f30-4930-b57b-c59c69eeff60",
+            "label": "deck",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/deck0001"
+            },
+            "x": 1599.4125,
+            "y": 985.725
+        },
+        {
+            "type": "Image",
+            "id": "901ab776-1f4e-49ff-add4-7d74b86f6326",
+            "label": "deck_btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/deck0004"
+            },
+            "x": 1599.4125,
+            "y": 985.725,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "0a7a1b92-b986-4122-9939-8cf4e09a4d70",
+            "label": "dojoext_dojo_mc",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": "320",
+            "RoomTrigger.playerX": 855,
+            "RoomTrigger.playerY": 798.75,
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/dojo_mc"
+            },
+            "x": 873.675,
+            "y": 662.7375,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "05f51c7e-c964-4110-b82a-ff4c0e501a78",
+            "label": "dojoext_shack_mc",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": "807",
+            "RoomTrigger.playerX": 900,
+            "RoomTrigger.playerY": 483.75,
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/shack_mc"
+            },
+            "x": 879.525,
+            "y": 999.675,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "1610299f-741b-454c-9535-80fa8924fc3f",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dojoext",
+                "frame": "dojoext/block"
+            },
+            "x": -45,
+            "y": -45,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "9111f14c-e266-4c7c-82d7-3e598b507334",
+            "label": "triggers",
+            "objectIds": [
+                "0a7a1b92-b986-4122-9939-8cf4e09a4d70",
+                "05f51c7e-c964-4110-b82a-ff4c0e501a78"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}
