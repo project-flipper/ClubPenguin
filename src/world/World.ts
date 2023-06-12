@@ -13,7 +13,7 @@ let SPAWN_ROOMS = [
     //'805', // berg
     '807', // shack
     '809', // forest
-    //'810', // cove
+    '810', // cove
 
 ];
 
