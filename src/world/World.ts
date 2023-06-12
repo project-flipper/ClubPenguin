@@ -9,7 +9,7 @@ let SPAWN_ROOMS = [
     '400', // beach
     '800', // dock
     '801', // forts
-    //'802', // rink
+    '802', // rink
     //'805', // berg
     //'807', // shack
     '809', // forest
