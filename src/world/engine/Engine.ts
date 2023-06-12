@@ -266,7 +266,7 @@ export default class Engine extends Phaser.Scene {
     public penguins: { [id: string]: Avatar };
     public avatars: { [key: string]: AvatarCls };
 
-    get currentPenguin(): Avatar {
+    get player(): Avatar {
         return this.penguins[this.world.myPenguinData.id];
     }
 
@@ -725,7 +725,7 @@ export default class Engine extends Phaser.Scene {
     }
 
     throwSnowball(penguin: Avatar, x: number, y: number): void {
-        if (penguin == this.currentPenguin) this.cancelMovePlayer();
+        if (penguin == this.player) this.cancelMovePlayer();
         else penguin.scene.tweens.killTweensOf(penguin);
 
         let startX = penguin.x + penguin.snowballOffset.x;
@@ -777,14 +777,14 @@ export default class Engine extends Phaser.Scene {
     /* ============ PLAYER ============ */
 
     movePlayer(x: number, y: number): void {
-        let player = this.currentPenguin;
+        let player = this.player;
         // TODO: send move done
         let path = this.findPlayerPath(player, x, y);
         this.movePenguin(player, path.x, path.y, x, y);
     }
 
     cancelMovePlayer(): void {
-        let player = this.currentPenguin;
+        let player = this.player;
 
         player.scene.tweens.killTweensOf(player);
         // TODO: send move complete
@@ -811,7 +811,7 @@ export default class Engine extends Phaser.Scene {
     }
 
     lookAt(x: number, y: number): void {
-        let player = this.currentPenguin;
+        let player = this.player;
 
         let angle = this.getAngle(player.x, player.y, x, y);
         let direction = this.getDirection(angle);
@@ -820,66 +820,66 @@ export default class Engine extends Phaser.Scene {
 
     actionSitDown(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(16);
+        this.player.playAnimation(16);
         // TODO: send actions
     }
 
     actionSitDownLeft(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(17);
+        this.player.playAnimation(17);
         // TODO: send actions
     }
 
     actionSitLeft(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(18);
+        this.player.playAnimation(18);
         // TODO: send actions
     }
 
     actionSitUpLeft(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(19);
+        this.player.playAnimation(19);
         // TODO: send actions
     }
 
     actionSitUp(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(20);
+        this.player.playAnimation(20);
         // TODO: send actions
     }
 
     actionSitUpRight(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(21);
+        this.player.playAnimation(21);
         // TODO: send actions
     }
 
     actionSitRight(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(22);
+        this.player.playAnimation(22);
         // TODO: send actions
     }
 
     actionSitDownRight(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(23);
+        this.player.playAnimation(23);
         // TODO: send actions
     }
 
     actionWave(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(24);
+        this.player.playAnimation(24);
         // TODO: send actions
     }
 
     actionDance(): void {
         this.cancelMovePlayer();
-        this.currentPenguin.playAnimation(25);
+        this.player.playAnimation(25);
         // TODO: send actions
     }
 
     playerPointerMoveHandler(pointer: Phaser.Input.Pointer): void {
-        let player = this.currentPenguin;
+        let player = this.player;
         if (!player.isIdle()) return;
 
         let objects = this.currentRoom.input.hitTestPointer(pointer);

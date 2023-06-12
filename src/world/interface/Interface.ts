@@ -423,7 +423,7 @@ export default class Interface extends Phaser.Scene {
         this.playerNamecard.paperdoll.mask = mask;
 
         this.snowballCrosshair.on('release', () => {
-            this.engine.throwSnowball(this.engine.currentPenguin, this.snowballCrosshair.x, this.snowballCrosshair.y);
+            this.engine.throwSnowball(this.engine.player, this.snowballCrosshair.x, this.snowballCrosshair.y);
             this.snowballCrosshair.visible = false;
         });
 
@@ -619,7 +619,7 @@ export default class Interface extends Phaser.Scene {
     sendMessage(): void {
         this.hideHint();
         if (this.chat.value.length > 0) {
-            this.engine.currentPenguin.overlay.balloon.showMessage(this.chat.value);
+            this.engine.player.overlay.balloon.showMessage(this.chat.value);
             this.chat.value = '';
         }
     }

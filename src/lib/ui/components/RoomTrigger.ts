@@ -52,7 +52,7 @@ export default class RoomTrigger {
     }
 
     execute(engine: Engine, penguin: Avatar): void {
-        if (engine.currentPenguin != penguin) return;
+        if (engine.player != penguin) return;
 
         let room = engine.game.gameConfig.rooms[this.destination];
         if (room) engine.joinRoom(room, this.playerX, this.playerY); // TODO: send join room instead
