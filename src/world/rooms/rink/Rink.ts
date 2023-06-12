@@ -375,8 +375,8 @@ export default class Rink extends Phaser.Scene {
         catalogueDepthEnabled.automaticSort = false;
         catalogueDepthEnabled.depth = 1080;
         const catalogueButtonComponent = new ButtonComponent(catalogue);
-        catalogueButtonComponent.upTexture = {"key":"rink","frame":"rink/catalogue0001"};
-        catalogueButtonComponent.overTexture = {"key":"rink","frame":"rink/catalogue0002"};
+        catalogueButtonComponent.upTexture = { "key": "rink", "frame": "rink/catalogue0001" };
+        catalogueButtonComponent.overTexture = { "key": "rink", "frame": "rink/catalogue0002" };
         catalogueButtonComponent.handCursor = true;
         catalogueButtonComponent.pixelPerfect = true;
 
@@ -508,7 +508,7 @@ export default class Rink extends Phaser.Scene {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        //engine.game.unloadAssetPack('-pack');
+        engine.game.unloadAssetPack('rink-pack');
     }
 
     /* END-USER-CODE */
