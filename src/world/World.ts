@@ -11,7 +11,7 @@ let SPAWN_ROOMS = [
     '801', // forts
     '802', // rink
     //'805', // berg
-    //'807', // shack
+    '807', // shack
     '809', // forest
     //'810', // cove
 
