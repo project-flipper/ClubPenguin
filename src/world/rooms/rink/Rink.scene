@@ -320,6 +320,11 @@
             "id": "82d3f646-5245-4114-b218-eb7c3635da73",
             "label": "snack_light",
             "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 260.8875,
             "texture": {
                 "key": "rink",
                 "frame": "rink/snack_light"

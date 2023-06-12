@@ -305,6 +305,11 @@ export default class Rink extends Phaser.Scene {
         snacksdoor_btnButtonComponent.handCursor = true;
         snacksdoor_btnButtonComponent.pixelPerfect = true;
 
+        // snack_light (components)
+        const snack_lightDepthEnabled = new DepthEnabled(snack_light);
+        snack_lightDepthEnabled.automaticSort = false;
+        snack_lightDepthEnabled.depth = 260.8875;
+
         // rink_snacks (components)
         const rink_snacksDepthEnabled = new DepthEnabled(rink_snacks);
         rink_snacksDepthEnabled.automaticSort = false;
@@ -375,8 +380,8 @@ export default class Rink extends Phaser.Scene {
         catalogueDepthEnabled.automaticSort = false;
         catalogueDepthEnabled.depth = 1080;
         const catalogueButtonComponent = new ButtonComponent(catalogue);
-        catalogueButtonComponent.upTexture = { "key": "rink", "frame": "rink/catalogue0001" };
-        catalogueButtonComponent.overTexture = { "key": "rink", "frame": "rink/catalogue0002" };
+        catalogueButtonComponent.upTexture = {"key":"rink","frame":"rink/catalogue0001"};
+        catalogueButtonComponent.overTexture = {"key":"rink","frame":"rink/catalogue0002"};
         catalogueButtonComponent.handCursor = true;
         catalogueButtonComponent.pixelPerfect = true;
 
