@@ -85,9 +85,9 @@ export default class ErrorArea extends Phaser.Scene {
 
         // button (components)
         const buttonButtonComponent = new ButtonComponent(button);
-        buttonButtonComponent.upTexture = {"key":"app","frame":"app/button"};
-        buttonButtonComponent.overTexture = {"key":"app","frame":"app/buttonHover"};
-        buttonButtonComponent.downTexture = {"key":"app","frame":"app/buttonDown"};
+        buttonButtonComponent.upTexture = { "key": "app", "frame": "app/button" };
+        buttonButtonComponent.overTexture = { "key": "app", "frame": "app/buttonHover" };
+        buttonButtonComponent.downTexture = { "key": "app", "frame": "app/buttonDown" };
         buttonButtonComponent.handCursor = true;
 
         // buttonLabel (prefab fields)
@@ -138,7 +138,7 @@ export default class ErrorArea extends Phaser.Scene {
         if (data.onready) data.onready(this);
     }
 
-    showError(size: { w: number, h: number } = this.WINDOW_SMALL, message: string, buttonLabel: string, buttonCallback: () => void, code: string): void {
+    showError(size: { w: number, h: number } = this.WINDOW_SMALL, message: string, buttonLabel: string, buttonCallback: () => boolean, code: string): void {
         // hide error while it's being set up
         this.errorWindow.visible = false;
 
@@ -165,8 +165,7 @@ export default class ErrorArea extends Phaser.Scene {
         this.buttonLabel.text = buttonLabel;
 
         this.button.off('release');
-        if (!buttonCallback) buttonCallback = () => this.hide();
-        this.button.on('release', buttonCallback);
+        this.button.on('release', () => { if (buttonCallback()) this.hide(); });
 
         this.cover.visible = true;
         this.errorWindow.visible = true;
@@ -178,6 +177,108 @@ export default class ErrorArea extends Phaser.Scene {
 
         this.button.off('release');
     }
+
+    /* CODE */
+
+    makeCode(type: 'c' | 's', code: number): string {
+        return `${type}${code}`
+    }
+
+    public DEFAULT_ERROR = -1;
+    public CONNECTION_LOST = 1;
+    public TIME_OUT = 2;
+    public MULTI_CONNECTIONS = 3;
+    public DISCONNECT = 4;
+    public KICK = 5;
+    public CONNECTION_NOT_ALLOWED = 6;
+    public NAME_NOT_FOUND = 100;
+    public PASSWORD_WRONG = 101;
+    public SERVER_FULL = 103;
+    public OLD_SALT_ERROR = 104;
+    public PASSWORD_REQUIRED = 130;
+    public PASSWORD_SHORT = 131;
+    public PASSWORD_LONG = 132;
+    public NAME_REQUIRED = 140;
+    public NAME_SHORT = 141;
+    public NAME_LONG = 142;
+    public LOGIN_FLOODING = 150;
+    public PLAYER_IN_ROOM = 200;
+    public ROOM_FULL = 210;
+    public GAME_FULL = 211;
+    public ROOM_CAPACITY_RULE = 212;
+    public ROOM_DOES_NOT_EXIST = 213;
+    public ALREADY_OWN_INVENTORY_ITEM = 400;
+    public NOT_ENOUGH_COINS = 401;
+    public MAX_FURNITURE_ITEMS = 403;
+    public MAX_PUFFLECARE_ITEMS = 406;
+    public MAX_PUFFLEHAT_ITEMS = 407;
+    public ALREADY_OWN_SUPERPLAY_ITEM = 408;
+    public MAX_CJ_MATS = 409;
+    public ITEM_NOT_EXIST = 402;
+    public ITEM_NOT_AVAILABLE = 410;
+    public NOT_ENOUGH_MEDALS = 405;
+    public NAME_NOT_ALLOWED = 441;
+    public IGLOO_PUFFLE_LIMIT = 443;
+    public MAX_PUFFLE_LIMIT = 440;
+    public ALREADY_OWN_IGLOO = 500;
+    public ALREADY_OWN_FLOOR = 501;
+    public ALREADY_OWN_LOCATION = 502;
+    public BAN_DURATION = 601;
+    public BAN_AN_HOUR = 602;
+    public BAN_FOREVER = 603;
+    public AUTO_BAN = 610;
+    public HACKING_AUTO_BAN = 611;
+    public GAME_CHEAT = 800;
+    public ACCOUNT_NOT_ACTIVATE = 900;
+    public BUDDY_LIMIT = 901;
+    public PLAY_TIME_UP = 910;
+    public OUT_PLAY_TIME = 911;
+    public GROUNDED = 913;
+    public PLAY_TIME_ENDING = 914;
+    public PLAY_HOURS_ENDING = 915;
+    public PLAY_HOURS_UP = 916;
+    public PLAY_HOURS_HASNT_START = 917;
+    public PLAY_HOURS_UPDATE = 918;
+    public SYSTEM_REBOOT = 990;
+    public NOT_MEMBER = 999;
+    public NO_DB_CONNECTION = 1000;
+    public NO_SOCKET_CONNECTION = 10001;
+    public TIMEOUT = 10002;
+    public PASSWORD_SAVE_PROMPT = 10003;
+    public SOCKET_LOST_CONNECTION = 10004;
+    public LOAD_ERROR = 10005;
+    public MAX_IGLOO_FURNITURE_ERROR = 10006;
+    public MULTIPLE_CONNECTIONS = 10007;
+    public CONNECTION_TIMEOUT = 10008;
+    public MAX_STAMPBOOK_COVER_ITEMS = 10009;
+    public WEB_SERVICE_LOAD_ERROR = 10010;
+    public WEB_SERVICE_SEND_ERROR = 10011;
+    public CHROME_MAC_LOGIN_ERROR = 10104;
+    public REDEMPTION_CONNECTION_LOST = 20001;
+    public REDEMPTION_ALREADY_HAVE_ITEM = 20002;
+    public REDEMPTION_SERVER_FULL = 20103;
+    public NAME_REQUIRED_REDEMPTION = 20140;
+    public NAME_SHORT_REDEMPTION = 20141;
+    public PASSWORD_REQUIRED_REDEMPTION = 20130;
+    public PASSWORD_SHORT_REDEMPTION = 20131;
+    public REDEMPTION_BOOK_ID_NOT_EXIST = 20710;
+    public REDEMPTION_BOOK_ALREADY_REDEEMED = 20711;
+    public REDEMPTION_WRONG_BOOK_ANSWER = 20712;
+    public REDEMPTION_BOOK_TOO_MANY_ATTEMPTS = 20713;
+    public REDEMPTION_CODE_NOT_FOUND = 20720;
+    public REDEMPTION_CODE_ALREADY_REDEEMED = 20721;
+    public REDEMPTION_TOO_MANY_ATTEMPTS = 20722;
+    public REDEMPTION_CATALOG_NOT_AVAILABLE = 20723;
+    public REDEMPTION_NO_EXCLUSIVE_REDEEMS = 20724;
+    public REDEMPTION_CODE_GROUP_REDEEMED = 20725;
+    public REDEMPTION_CODE_EXPIRED = 20726;
+    public REDEMPTION_PUFFLES_MAX = 20730;
+    public REDEMPTION_PUFFLE_INVALID = 21700;
+    public REDEMPTION_PUFFLE_CODE_MAX = 21701;
+    public REDEMPTION_CODE_TOO_SHORT = 21702;
+    public REDEMPTION_CODE_TOO_LONG = 21703;
+    public GOLDEN_CODE_NOT_READY = 21704;
+    public REDEMPTION_PUFFLE_NAME_EMPTY = 21705;
 
     /* END-USER-CODE */
 }
