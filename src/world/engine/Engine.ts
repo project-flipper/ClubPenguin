@@ -2,7 +2,6 @@ const avatarPaths: { [key: string]: string } = {
     penguin: 'Penguin'
 };
 
-type UnloadCallback = (engine: Engine) => void;
 export enum ItemType {
     COLOR = 1,
     HEAD,
@@ -17,9 +16,22 @@ export enum ItemType {
 };
 export type ClothingSprite = Phaser.GameObjects.Sprite & { config: PaperItemConfig, animations: { [frame: number]: Phaser.Animations.Animation } };
 
+export type Trigger =
+    | RoomTrigger
+    | PressureTrigger
+    | SnowballTrigger;
+
 export interface Room extends Phaser.Scene {
     roomData: RoomConfig;
-    customEase?: string | Function
+    customEase?: string | Function,
+    customSnowballClass?: typeof Snowball,
+    triggers: Phaser.GameObjects.Image[];
+    unload(engine: Engine): void;
+}
+
+export interface Game extends Phaser.Scene {
+    gameData: GameConfig;
+    unload(engine: Engine): void;
 }
 
 /* START OF COMPILED CODE */
@@ -34,13 +46,14 @@ import type { MyPenguinData, PenguinData } from "../../net/types/penguin/penguin
 import type { Avatar as AvatarData } from "../../net/types/penguin/avatar";
 import type Interface from "../interface/Interface";
 import type World from "../World";
-import type { PaperItemConfig, RoomConfig } from "../../app/config";
+import type { GameConfig, PaperItemConfig, RoomConfig } from "../../app/config";
 import RoomTrigger from "../../lib/ui/components/RoomTrigger";
 import PressureTrigger from "../../lib/ui/components/PressureTrigger";
 import Snowball from "../interface/prefabs/Snowball";
 import SnowballTrigger from "../../lib/ui/components/SnowballTrigger";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import Cleaner from "./cleaner";
+import ErrorArea from "../../app/ErrorArea";
 /* END-USER-IMPORTS */
 
 export default class Engine extends Phaser.Scene {
@@ -121,6 +134,7 @@ export default class Engine extends Phaser.Scene {
     public currentMusicId: number;
 
     async playMusic(id: number): Promise<void> {
+        if (this.currentMusicId == id) return;
         this.stopMusic();
 
         let key = `music-${id}`;
@@ -169,6 +183,8 @@ export default class Engine extends Phaser.Scene {
 
     public currentRoomId: number;
     public previousRoomId: number;
+    public previousPlayerX: number;
+    public previousPlayerY: number;
 
     public currentRoom: Room;
 
@@ -178,30 +194,39 @@ export default class Engine extends Phaser.Scene {
         let room = (await import(/* webpackInclude: /\.ts$/ */`../rooms/${config.path}`)).default;
 
         if (this.currentRoom) {
+            this.previousPlayerX = this.player?.x;
+            this.previousPlayerY = this.player?.y;
+
             this.currentRoom.scene.remove();
-            if ('unload' in this.currentRoom) (this.currentRoom.unload as UnloadCallback)(this);
+            if ('unload' in this.currentRoom) this.currentRoom.unload(this);
             this.events.emit('roomunload', this.currentRoom);
+
+            this.previousRoomId = this.currentRoomId;
+            this.currentRoom = undefined;
         }
 
         let load = this.scene.get('Load') as Load;
-        let roomScene = await new Promise<Phaser.Scene>(resolve => {
+        let roomScene = await new Promise<Room>(resolve => {
             this.scene.add(`room-${config.room_id}`, room, true, {
                 config,
-                oninit: (scene: Phaser.Scene) => load.track(new LoaderTask(scene.load)),
-                onready: (scene: Phaser.Scene) => resolve(scene)
+                oninit: (scene: Room) => load.track(new LoaderTask(scene.load)),
+                onready: (scene: Room) => resolve(scene)
             });
         });
 
         if (config.pin_id !== undefined) {
             let key = `clothing-icons-${config.pin_id}`;
-            let task = load.track(new LoaderTask(roomScene.load));
-            roomScene.load.multiatlas({
-                key,
-                atlasURL: `assets/clothing/icons/${config.pin_id}.json`,
-                path: `assets/clothing/icons`
-            });
-            roomScene.load.start();
-            await task.wait();
+
+            if (!this.textures.exists(key)) {
+                let task = load.track(new LoaderTask(roomScene.load));
+                roomScene.load.multiatlas({
+                    key,
+                    atlasURL: `assets/clothing/icons/${config.pin_id}.json`,
+                    path: `assets/clothing/icons`
+                });
+                roomScene.load.start();
+                await task.wait();
+            }
 
             let pin = roomScene.add.image(config.pin_x, config.pin_y, key, `${config.pin_id}/0`);
             let component = new ButtonComponent(pin);
@@ -216,7 +241,6 @@ export default class Engine extends Phaser.Scene {
         if (config.music_id && this.currentMusicId != config.music_id) this.playMusic(config.music_id);
         else if (!config.music_id) this.stopMusic();
 
-        this.previousRoomId = this.currentRoomId;
         this.currentRoomId = config.room_id;
 
         this.currentRoom = roomScene as Room;
@@ -232,7 +256,27 @@ export default class Engine extends Phaser.Scene {
         let load = this.scene.get('Load') as Load;
         if (!load.isShowing) load.show();
 
-        await this.loadRoom(config);
+        try {
+            await this.loadRoom(config);
+        } catch (e) {
+            if (this.currentRoom == undefined && this.previousRoomId) {
+                try {
+                    await this.joinRoom(this.game.gameConfig.rooms[this.previousRoomId.toString()], this.previousPlayerX, this.previousPlayerY);
+                } catch (ne) {
+                    console.error('Failed to go back to previous room.', e, ne);
+                }
+            }
+
+            let error = this.scene.get('ErrorArea') as ErrorArea;
+            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.ROOM_FULL', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.interface.showMap();
+                return true;
+            }, error.makeCode('c', error.ROOM_FULL));
+
+            load.hide();
+            throw e;
+        }
+
         this.penguins = {};
         this.snowballs = [];
         this.trackedTweens = [];
@@ -253,6 +297,7 @@ export default class Engine extends Phaser.Scene {
         this.currentRoom.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.playerPointerUpHandler(pointer));
         this.currentRoom.input.on('pointermove', (pointer: Phaser.Input.Pointer) => this.playerPointerMoveHandler(pointer));
 
+        this.interface.show();
         load.hide();
         this.events.emit('roomjoin', this.currentRoom);
     }
@@ -260,6 +305,10 @@ export default class Engine extends Phaser.Scene {
     async loadInitialPenguins(): Promise<void> {
 
     }
+
+    /* ============ GAMES ============ */
+
+    public currentGame: Game;
 
     /* ============ AVATARS ============ */
 
@@ -716,7 +765,8 @@ export default class Engine extends Phaser.Scene {
     }
 
     testSnowballTriggers(snowball: Snowball, penguin: Avatar): void {
-        let triggers = 'triggers' in penguin.scene ? (penguin.scene.triggers as Phaser.GameObjects.Image[]) : [];
+        let room = penguin.scene as Room;
+        let triggers = 'triggers' in room ? room.triggers : [];
 
         for (let trigger of triggers) {
             let snowballTrigger = SnowballTrigger.getComponent(trigger);
@@ -736,7 +786,7 @@ export default class Engine extends Phaser.Scene {
             lastSnowball.destroy();
         }
 
-        let snowballClass = 'customSnowballClass' in this.currentRoom ? this.currentRoom.customSnowballClass as typeof Snowball : Snowball;
+        let snowballClass = 'customSnowballClass' in this.currentRoom ? this.currentRoom.customSnowballClass : Snowball;
         let snowball = new snowballClass(this.currentRoom, startX, startY);
         this.currentRoom.add.existing(snowball);
 
