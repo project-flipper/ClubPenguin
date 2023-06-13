@@ -28,6 +28,7 @@ import type { Locale } from "../../app/locale";
 import type { App } from "../../app/app";
 import Load from "../../load/Load";
 import { LoaderTask } from "../../load/tasks";
+import ErrorArea from "../../app/ErrorArea";
 /* END-USER-IMPORTS */
 
 export default class Interface extends Phaser.Scene {
@@ -802,6 +803,14 @@ export default class Interface extends Phaser.Scene {
         } catch (e) {
             this.chat.locked = false;
             this.closeContent();
+
+            let error = this.scene.get('ErrorArea') as ErrorArea;
+            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.LOAD_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                let load = this.scene.get('Load') as Load;
+                load.hide();
+                return true;
+            }, error.makeCode('c', error.LOAD_ERROR));
+
             throw e;
         }
     }
