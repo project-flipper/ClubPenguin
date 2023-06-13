@@ -1,5 +1,11 @@
+export interface Content extends Phaser.Scene {
+    unload(interface_: Interface): void;
+    hidesInterface?: boolean
+}
 
-// You can write more code here
+export interface ContentCls {
+    new(): Content;
+}
 
 /* START OF COMPILED CODE */
 
@@ -20,6 +26,8 @@ import type World from "../World";
 import type Engine from "../engine/Engine";
 import type { Locale } from "../../app/locale";
 import type { App } from "../../app/app";
+import Load from "../../load/Load";
+import { LoaderTask } from "../../load/tasks";
 /* END-USER-IMPORTS */
 
 export default class Interface extends Phaser.Scene {
@@ -42,12 +50,17 @@ export default class Interface extends Phaser.Scene {
         // avatarOverlays
         const avatarOverlays = this.add.layer();
 
+        // ui
+        const ui = this.add.layer();
+
         // interface_dock
         const interface_dock = this.add.image(211.5, 978.75, "interface", "interface/dock");
         interface_dock.setOrigin(0, 0);
+        ui.add(interface_dock);
 
         // chatLog
         const chatLog = this.add.container(855, -4.5);
+        ui.add(chatLog);
 
         // interface_messagesTabBody
         const interface_messagesTabBody = this.add.image(0, 9, "interface", "interface/messagesTabBody");
@@ -65,115 +78,143 @@ export default class Interface extends Phaser.Scene {
         chatLog.add(interface_messagesTabArrow0001);
 
         // puffleButton
-        const puffleButton = this.add.image(277.2, 1037.925, "interface", "interface/dockButton0001");
+        const puffleButton = this.add.image(277.20001220703125, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(puffleButton);
 
         // emojiButton
-        const emojiButton = this.add.image(344.7, 1037.925, "interface", "interface/dockButton0001");
+        const emojiButton = this.add.image(344.70001220703125, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(emojiButton);
 
         // actionButton
-        const actionButton = this.add.image(412.2, 1037.925, "interface", "interface/dockButton0001");
+        const actionButton = this.add.image(412.20001220703125, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(actionButton);
 
         // snowballButton
-        const snowballButton = this.add.image(479.7, 1037.925, "interface", "interface/dockButton0001");
+        const snowballButton = this.add.image(479.70001220703125, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(snowballButton);
 
         // chatBg
-        const chatBg = this.add.image(521.55, 1007.4375, "interface", "interface/chatBg");
+        const chatBg = this.add.image(521.5499877929688, 1007.4375, "interface", "interface/chatBg");
         chatBg.setOrigin(0, 0);
+        ui.add(chatBg);
 
         // chat
-        const chat = new TextField(this, 590.45, 1020.6);
-        this.add.existing(chat);
+        const chat = new TextField(this, 590.4500122070312, 1020.5999755859375);
+        ui.add(chat);
 
         // chatButton
-        const chatButton = this.add.image(547.2, 1037.925, "interface", "interface/dockButton0001");
+        const chatButton = this.add.image(547.2000122070312, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(chatButton);
 
         // sendButton
-        const sendButton = this.add.image(1154.7, 1037.925, "interface", "interface/dockButton0001");
+        const sendButton = this.add.image(1154.699951171875, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(sendButton);
 
         // playerButton
-        const playerButton = this.add.image(1222.2, 1037.925, "interface", "interface/dockButton0001");
+        const playerButton = this.add.image(1222.199951171875, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(playerButton);
 
         // friendsButton
-        const friendsButton = this.add.image(1289.8125, 1037.925, "interface", "interface/dockButton0001");
+        const friendsButton = this.add.image(1289.8125, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(friendsButton);
 
         // iglooButton
-        const iglooButton = this.add.image(1357.2, 1037.925, "interface", "interface/dockButton0001");
+        const iglooButton = this.add.image(1357.199951171875, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(iglooButton);
 
         // settingsButton
-        const settingsButton = this.add.image(1424.7, 1037.925, "interface", "interface/dockButton0001");
+        const settingsButton = this.add.image(1424.699951171875, 1037.925048828125, "interface", "interface/dockButton0001");
+        ui.add(settingsButton);
 
         // puffleButtonIcon
-        const puffleButtonIcon = this.add.image(276.525, 1035.675, "interface", "interface/puffleButtonIcon0001");
+        const puffleButtonIcon = this.add.image(276.5249938964844, 1035.675048828125, "interface", "interface/puffleButtonIcon0001");
+        ui.add(puffleButtonIcon);
 
         // emojiIcon
-        this.add.image(344.25, 1035.8999999999999, "interface", "interface/emojiIcon");
+        const emojiIcon = this.add.image(344.25, 1035.9000244140625, "interface", "interface/emojiIcon");
+        ui.add(emojiIcon);
 
         // actionIcon
-        this.add.image(410.175, 1033.9875, "interface", "interface/actionIcon");
+        const actionIcon = this.add.image(410.17498779296875, 1033.987548828125, "interface", "interface/actionIcon");
+        ui.add(actionIcon);
 
         // snowballIcon
-        this.add.image(479.475, 1035.45, "interface", "interface/snowballIcon");
+        const snowballIcon = this.add.image(479.4750061035156, 1035.449951171875, "interface", "interface/snowballIcon");
+        ui.add(snowballIcon);
 
         // chatIcon
-        const chatIcon = this.add.image(547.2, 1037.925, "interface", "interface/chatIcon0001");
+        const chatIcon = this.add.image(547.2000122070312, 1037.925048828125, "interface", "interface/chatIcon0001");
+        ui.add(chatIcon);
 
         // sendIcon
-        const sendIcon = this.add.image(1156.275, 1035.7875, "interface", "interface/sendIcon0001");
+        const sendIcon = this.add.image(1156.2750244140625, 1035.7874755859375, "interface", "interface/sendIcon0001");
+        ui.add(sendIcon);
 
         // playerIcon
-        const playerIcon = this.add.image(1221.75, 1035.1125, "interface", "interface/playerIcon0001");
+        const playerIcon = this.add.image(1221.75, 1035.112548828125, "interface", "interface/playerIcon0001");
+        ui.add(playerIcon);
 
         // friendsIcon
-        const friendsIcon = this.add.image(1289.1375, 1036.9125, "interface", "interface/friendsIcon");
+        const friendsIcon = this.add.image(1289.137451171875, 1036.9124755859375, "interface", "interface/friendsIcon");
+        ui.add(friendsIcon);
 
         // settingsIcon
-        const settingsIcon = this.add.image(1424.475, 1035.675, "interface", "interface/settingsIcon");
+        const settingsIcon = this.add.image(1424.4749755859375, 1035.675048828125, "interface", "interface/settingsIcon");
+        ui.add(settingsIcon);
 
         // iglooIcon
-        this.add.image(1357.7625, 1037.925, "interface", "interface/iglooIcon0001");
+        const iglooIcon = this.add.image(1357.762451171875, 1037.925048828125, "interface", "interface/iglooIcon0001");
+        ui.add(iglooIcon);
 
         // emoteMenu
-        const emoteMenu = new EmoteMenu(this, 238.5, 437.2875);
-        this.add.existing(emoteMenu);
+        const emoteMenu = new EmoteMenu(this, 238.5, 437.2875061035156);
         emoteMenu.visible = false;
+        ui.add(emoteMenu);
 
         // actionsMenu
-        const actionsMenu = new ActionsMenu(this, 336.6, 528.75);
-        this.add.existing(actionsMenu);
+        const actionsMenu = new ActionsMenu(this, 336.6000061035156, 528.75);
         actionsMenu.visible = false;
+        ui.add(actionsMenu);
 
         // snowballCrosshair
         const snowballCrosshair = this.add.image(855, 540, "interface", "interface/snowballCrosshair");
         snowballCrosshair.visible = false;
+        ui.add(snowballCrosshair);
 
         // mailIcon
         const mailIcon = this.add.image(198, 78.75, "interface", "interface/mailIcon0001");
         mailIcon.setOrigin(0.5, 0.6327);
+        ui.add(mailIcon);
 
         // newsIcon
         const newsIcon = this.add.image(87.75, 72.5625, "interface", "interface/newsIcon0001");
+        ui.add(newsIcon);
 
         // newsLabel
         const newsLabel = this.add.image(114.75, 108, "interface", "interface/newsLabel0001");
+        ui.add(newsLabel);
 
         // safetyIcon
-        const safetyIcon = this.add.image(1604.25, 90.1125, "interface", "interface/safetyIcon0001");
+        const safetyIcon = this.add.image(1604.25, 90.11250305175781, "interface", "interface/safetyIcon0001");
+        ui.add(safetyIcon);
 
         // mapIcon
         const mapIcon = this.add.image(108, 990, "interface", "interface/mapIcon0001");
+        ui.add(mapIcon);
 
         // phoneIcon
-        const phoneIcon = this.add.image(99.1125, 850.3875, "interface", "interface/phoneIcon0001");
+        const phoneIcon = this.add.image(99.11250305175781, 850.3875122070312, "interface", "interface/phoneIcon0001");
+        ui.add(phoneIcon);
 
         // namecard
         const namecard = new Namecard(this, 269, 213);
-        this.add.existing(namecard);
         namecard.visible = false;
+        ui.add(namecard);
 
         // playerNamecard
         const playerNamecard = new PlayerNamecard(this, 269, 213);
-        this.add.existing(playerNamecard);
         playerNamecard.visible = false;
+        ui.add(playerNamecard);
 
         // hint
         const hint = new Hint(this, 718, 540);
@@ -365,6 +406,7 @@ export default class Interface extends Phaser.Scene {
         this.phoneIcon = phoneIcon;
         this.namecard = namecard;
         this.playerNamecard = playerNamecard;
+        this.ui = ui;
         this.hint = hint;
         this.photo_mask = photo_mask;
 
@@ -401,6 +443,7 @@ export default class Interface extends Phaser.Scene {
     public phoneIcon!: Phaser.GameObjects.Image;
     public namecard!: Namecard;
     public playerNamecard!: PlayerNamecard;
+    public ui!: Phaser.GameObjects.Layer;
     public hint!: Hint;
     public photo_mask!: Phaser.GameObjects.Image;
 
@@ -417,6 +460,8 @@ export default class Interface extends Phaser.Scene {
     create(data: any) {
 
         this.editorCreate();
+
+        this.mapIcon.on('release', this.showMap, this);
 
         let mask = this.photo_mask.createBitmapMask();
         this.namecard.paperdoll.mask = mask;
@@ -573,6 +618,19 @@ export default class Interface extends Phaser.Scene {
         this.chat.filterRegex = new RegExp(locale.localize('chat_restrict'), 'g');
     }
 
+    update(time: number, delta: number): void {
+        if (this.snowballCrosshair.visible) this.snowballCrosshair.setPosition(this.input.activePointer.x, this.input.activePointer.y);
+
+        if (this.namecard.visible) this.photo_mask.setPosition(this.namecard.x + 18, this.namecard.y + 90);
+        else if (this.playerNamecard.visible) this.photo_mask.setPosition(this.playerNamecard.x + 18, this.playerNamecard.y + 90);
+    }
+
+    showMap(): void {
+        this.loadContent(async () => (await import('./content/map/Map')).default);
+    }
+
+    /* ============ INPUT ============ */
+
     keydownHandler(event: KeyboardEvent): void {
         if (!this.game.hasFocus || !this.quickKeys) return;
         if (document.activeElement !== document.body) return;
@@ -624,12 +682,7 @@ export default class Interface extends Phaser.Scene {
         }
     }
 
-    update(time: number, delta: number): void {
-        if (this.snowballCrosshair.visible) this.snowballCrosshair.setPosition(this.input.activePointer.x, this.input.activePointer.y);
-
-        if (this.namecard.visible) this.photo_mask.setPosition(this.namecard.x + 18, this.namecard.y + 90);
-        else if (this.playerNamecard.visible) this.photo_mask.setPosition(this.playerNamecard.x + 18, this.playerNamecard.y + 90);
-    }
+    /* ============ AVATAR OVERLAYS ============ */
 
     attachAvatarOverlay(penguin: Avatar): void {
         let overlay = new AvatarOverlay(this, penguin.x, penguin.y);
@@ -646,6 +699,8 @@ export default class Interface extends Phaser.Scene {
     clearAvatarOverlays(): void {
         this.avatarOverlays.removeAll(true);
     }
+
+    /* ============ NAMECARD ============ */
 
     openNamecard(data: PenguinData): void {
         if (this.world.isPlayer(data)) return this.openMyNamecard();
@@ -683,6 +738,8 @@ export default class Interface extends Phaser.Scene {
         this.playerNamecard.visible = false;
     }
 
+    /* ============ HINT ============ */
+
     showHint(at: Phaser.Types.Math.Vector2Like, message: string, offsetX = 0, offsetY = -63): void {
         this.hint.hide();
 
@@ -709,9 +766,88 @@ export default class Interface extends Phaser.Scene {
         this.hint.hide();
     }
 
+    /* ============ CONTENT ============ */
+
+    public currentContent: Content;
+    private _prevVisible: boolean;
+
+    async loadContent(callback: () => Promise<ContentCls>, data?: any): Promise<void> {
+        try {
+            this.closeContent();
+            this.chat.locked = true;
+
+            let load = this.scene.get('Load') as Load;
+            if (!load.isShowing) load.show({ mini: true });
+
+            let contentCls = await callback();
+            let contentScene = await new Promise<Content>(resolve => {
+                this.scene.add('interface-content', contentCls, true, {
+                    ...data,
+                    oninit: (scene: Content) => load.track(new LoaderTask(scene.load)),
+                    onready: (scene: Content) => resolve(scene)
+                });
+            });
+
+            this.currentContent = contentScene;
+
+            this.events.emit('contentload', this.currentContent);
+            this.chat.locked = true;
+
+            if (this.currentContent.hidesInterface) {
+                if (this._prevVisible === undefined) this._prevVisible = this.isShowing;
+                this.hide(false);
+            }
+
+            load.hide();
+        } catch (e) {
+            this.chat.locked = false;
+            this.closeContent();
+            throw e;
+        }
+    }
+
+    closeContent(): void {
+        if (!this.currentContent) return;
+
+        this.currentContent.scene.remove();
+        if ('unload' in this.currentContent) this.currentContent.unload(this);
+
+        this.events.emit('contentunload', this.currentContent);
+        this.currentContent = undefined;
+        this.chat.locked = false;
+
+        if (this._prevVisible !== undefined) {
+            if (this._prevVisible) this.show();
+            else this.hide();
+            this._prevVisible = undefined;
+        }
+    }
+
+    safeCloseContent(): void {
+        setTimeout(() => this.closeContent(), 10);
+    }
+
+    /* ============ VISIBILITY ============ */
+
+    show(): void {
+        this.ui.visible = true;
+        this.chat.locked = false;
+    }
+
+    get isShowing(): boolean {
+        return this.ui.visible;
+    }
+
+    hide(closeAll = true): void {
+        this.ui.visible = false;
+        if (closeAll) this.closeAll();
+        this.chat.locked = true;
+    }
+
     closeAll(): void {
         this.closeNamecard();
         this.hideHint();
+        this.closeContent();
         this.chat.value = '';
     }
 
