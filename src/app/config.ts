@@ -67,6 +67,15 @@ export interface PaperItemConfig {
     is_game_achievable?: boolean
 }
 
+export interface GameConfig {
+    name: string,
+    room_id: number,
+    music_id: number,
+    stamp_group_id: number
+    path: string
+    show_player_in_room: boolean
+}
+
 export default class Config {
     public app: App;
 
@@ -78,6 +87,7 @@ export default class Config {
     public penguin_action_frames: { [id: string]: { head: number, face: number, neck: number, body: number, hand: number, feet: number, secret_frame: number }[] };
     public player_colors: { [id: string]: string };
 
+    public games: { [id: string]: GameConfig }
     public furniture_items: any;
     public igloo_floors: any;
     public igloo_locations: any;
@@ -118,6 +128,7 @@ export default class Config {
         this.addGlobalConfig(loader, cache, 'penguin_action_frames');
         this.addGlobalConfig(loader, cache, 'player_colors');
 
+        this.addLocalConfig(loader, cache, locale, 'games');
         this.addLocalConfig(loader, cache, locale, 'furniture_items');
         this.addLocalConfig(loader, cache, locale, 'igloo_floors');
         this.addLocalConfig(loader, cache, locale, 'igloo_locations');
@@ -137,6 +148,7 @@ export default class Config {
         this.penguin_action_frames = this.getGlobalConfig(cache, 'penguin_action_frames');
         this.player_colors = this.getGlobalConfig(cache, 'player_colors');
 
+        this.games = this.getLocalConfig(cache, locale, 'games');
         this.furniture_items = this.getLocalConfig(cache, locale, 'furniture_items');
         this.igloo_floors = this.getLocalConfig(cache, locale, 'igloo_floors');
         this.igloo_locations = this.getLocalConfig(cache, locale, 'igloo_locations');
