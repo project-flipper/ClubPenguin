@@ -197,6 +197,14 @@ class Debug {
         return _app.scene.getScene('Engine') as Engine;
     }
 
+    get room(): import('./world/engine/Engine').Room {
+        return this.engine.currentRoom;
+    }
+
+    get player(): import('./world/avatar/avatar').Avatar {
+        return this.engine.player;
+    }
+
     get world(): World {
         return _app.scene.getScene('World') as World;
     }
@@ -349,4 +357,6 @@ class Debug {
     }
 }
 
-export let debug = new Debug();
+export let debug: Debug;
+
+if (__webpack_options__.EXPOSE_APP) debug = new Debug();
