@@ -4,6 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
+import SnowballTrigger from "../../../../lib/ui/components/SnowballTrigger";
 /* START-USER-IMPORTS */
 import type Lounge from "../Lounge";
 /* END-USER-IMPORTS */
@@ -24,11 +25,16 @@ export default class MonsterTarget extends Phaser.GameObjects.Container {
         hitbox.visible = false;
         this.add(hitbox);
 
+        // hitbox (components)
+        new SnowballTrigger(hitbox);
+
         this.art = art;
         this.hitbox = hitbox;
 
         /* START-USER-CTR-CODE */
-        // Write your code here.
+
+        SnowballTrigger.getComponent(hitbox).execute = this.hit.bind(this);
+
         /* END-USER-CTR-CODE */
 
         // custom definition props
