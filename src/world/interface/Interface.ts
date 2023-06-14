@@ -652,7 +652,7 @@ export default class Interface extends Phaser.Scene {
     }
 
     showMap(): void {
-        this.loadContent(async () => (await import('./content/map/Map')).default);
+        this.loadContent(async () => (await import('../content/map/Map')).default);
     }
 
     /* ============ INPUT ============ */

@@ -4,8 +4,8 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import TextBox from "../../../../../lib/ui/TextBox";
-import ButtonComponent from "../../../../../lib/ui/components/ButtonComponent";
+import TextBox from "../../../../lib/ui/TextBox";
+import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import MapScene, { MapCategory } from "../Map";
 /* END-USER-IMPORTS */
