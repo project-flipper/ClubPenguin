@@ -13,12 +13,11 @@ import FourthLane from "./prefabs/FourthLane";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine from "../../engine/Engine";
+import Engine, { Room } from "../../engine/Engine";
 import Interface from "../../interface/Interface";
-import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Mtn extends Phaser.Scene {
+export default class Mtn extends Phaser.Scene implements Room {
 
     constructor() {
         super("Mtn");

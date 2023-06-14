@@ -9,12 +9,12 @@ import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine from "../../engine/Engine";
+import Engine, { Room } from "../../engine/Engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Beach extends Phaser.Scene {
+export default class Beach extends Phaser.Scene implements Room {
 
     constructor() {
         super("Beach");

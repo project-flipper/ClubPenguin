@@ -8,13 +8,13 @@ import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
-import type { App } from "../../../app/app";
-import type Engine from "../../engine/Engine";
-import type Interface from "../../interface/Interface";
+import { App } from "../../../app/app";
+import Engine, { Room } from "../../engine/Engine";
+import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Shop extends Phaser.Scene {
+export default class Shop extends Phaser.Scene implements Room {
 
     constructor() {
         super("Shop");
@@ -182,8 +182,8 @@ export default class Shop extends Phaser.Scene {
 
         // changeroom (components)
         const changeroomButtonComponent = new ButtonComponent(changeroom);
-        changeroomButtonComponent.upTexture = { "key": "shop", "frame": "shop/changeroom0001" };
-        changeroomButtonComponent.overTexture = { "key": "shop", "frame": "shop/changeroom0002" };
+        changeroomButtonComponent.upTexture = {"key":"shop","frame":"shop/changeroom0001"};
+        changeroomButtonComponent.overTexture = {"key":"shop","frame":"shop/changeroom0002"};
         changeroomButtonComponent.handCursor = true;
         changeroomButtonComponent.pixelPerfect = true;
 
@@ -254,8 +254,8 @@ export default class Shop extends Phaser.Scene {
 
         // unlockbook (components)
         const unlockbookButtonComponent = new ButtonComponent(unlockbook);
-        unlockbookButtonComponent.upTexture = { "key": "shop", "frame": "shop/unlockbook0001" };
-        unlockbookButtonComponent.overTexture = { "key": "shop", "frame": "shop/unlockbook0002" };
+        unlockbookButtonComponent.upTexture = {"key":"shop","frame":"shop/unlockbook0001"};
+        unlockbookButtonComponent.overTexture = {"key":"shop","frame":"shop/unlockbook0002"};
         unlockbookButtonComponent.handCursor = true;
         unlockbookButtonComponent.pixelPerfect = true;
         const unlockbookDepthEnabled = new DepthEnabled(unlockbook);
@@ -264,7 +264,7 @@ export default class Shop extends Phaser.Scene {
 
         // stylebook (components)
         const stylebookButtonComponent = new ButtonComponent(stylebook);
-        stylebookButtonComponent.overTexture = { "key": "shop", "frame": "shop/stylebook_open" };
+        stylebookButtonComponent.overTexture = {"key":"shop","frame":"shop/stylebook_open"};
         stylebookButtonComponent.handCursor = true;
         stylebookButtonComponent.pixelPerfect = true;
         const stylebookDepthEnabled = new DepthEnabled(stylebook);

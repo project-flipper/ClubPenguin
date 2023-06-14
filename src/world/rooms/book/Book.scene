@@ -5,6 +5,7 @@
         "compilerInsertSpaces": true,
         "exportClass": true,
         "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
             "ClubPenguin/media/assets/world/rooms/book/book-pack.json"
         ],

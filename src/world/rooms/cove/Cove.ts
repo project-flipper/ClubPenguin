@@ -9,12 +9,12 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine from "../../engine/Engine";
+import Engine, { Room } from "../../engine/Engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Cove extends Phaser.Scene {
+export default class Cove extends Phaser.Scene implements Room {
 
     constructor() {
         super("Cove");

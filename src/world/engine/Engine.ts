@@ -27,7 +27,7 @@ export interface Room extends Phaser.Scene {
     roomData?: RoomConfig;
     customEase?: string | Function,
     customSnowballClass?: typeof Snowball,
-    triggers: Phaser.GameObjects.Image[];
+    triggers?: Phaser.GameObjects.Image[];
     unload(engine: Engine): void;
 }
 

@@ -11,13 +11,13 @@ import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import SnowballTrigger from "../../../lib/ui/components/SnowballTrigger";
 /* START-USER-IMPORTS */
-import type Engine from "../../engine/Engine";
-import type { Locale } from "../../../app/locale";
-import type { App } from "../../../app/app";
-import type Interface from "../../interface/Interface";
+import { App } from "../../../app/app";
+import Engine, { Room } from "../../engine/Engine";
+import Interface from "../../interface/Interface";
+import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Lounge extends Phaser.Scene {
+export default class Lounge extends Phaser.Scene implements Room {
 
     constructor() {
         super("Lounge");

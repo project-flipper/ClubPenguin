@@ -5,6 +5,7 @@
         "compilerInsertSpaces": true,
         "exportClass": true,
         "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
             "ClubPenguin/media/assets/world/rooms/rink/rink-pack.json"
         ],
@@ -836,7 +837,8 @@
             "objectIds": [
                 "c347f573-fe3c-4e46-b84a-3e8da179cb33",
                 "df2846b8-b500-4d5d-8ccf-1a10b6f8c540"
-            ]
+            ],
+            "scope": "PUBLIC"
         }
     ]
 }

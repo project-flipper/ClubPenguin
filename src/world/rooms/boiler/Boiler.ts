@@ -5,13 +5,13 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import type { App } from "../../../app/app";
-import type Engine from "../../engine/Engine";
-import type Interface from "../../interface/Interface";
+import { App } from "../../../app/app";
+import Engine, { Room } from "../../engine/Engine";
+import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Boiler extends Phaser.Scene {
+export default class Boiler extends Phaser.Scene implements Room {
 
     constructor() {
         super("Boiler");

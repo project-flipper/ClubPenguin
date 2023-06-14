@@ -9,12 +9,12 @@ import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine from "../../engine/Engine";
+import Engine, { Room } from "../../engine/Engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Plaza extends Phaser.Scene {
+export default class Plaza extends Phaser.Scene implements Room {
 
     constructor() {
         super("Plaza");
@@ -403,7 +403,7 @@ export default class Plaza extends Phaser.Scene {
     public forest_btn!: Phaser.GameObjects.Image;
     public forts_btn!: Phaser.GameObjects.Image;
     public tickets_btn!: Phaser.GameObjects.Image;
-    private triggers!: Phaser.GameObjects.Image[];
+    public triggers!: Phaser.GameObjects.Image[];
 
     /* START-USER-CODE */
 

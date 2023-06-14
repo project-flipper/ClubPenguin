@@ -8,13 +8,13 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
-import type Engine from "../../engine/Engine";
-import type { Locale } from "../../../app/locale";
-import type { App } from "../../../app/app";
-import type Interface from "../../interface/Interface";
+import { App } from "../../../app/app";
+import Engine, { Room } from "../../engine/Engine";
+import Interface from "../../interface/Interface";
+import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Coffee extends Phaser.Scene {
+export default class Coffee extends Phaser.Scene implements Room {
 
     constructor() {
         super("Coffee");
@@ -317,8 +317,8 @@ export default class Coffee extends Phaser.Scene {
 
         // door (components)
         const doorButtonComponent = new ButtonComponent(door);
-        doorButtonComponent.upTexture = {"key":"coffee","frame":"coffee/door0001"};
-        doorButtonComponent.overTexture = {"key":"coffee","frame":"coffee/door0002"};
+        doorButtonComponent.upTexture = { "key": "coffee", "frame": "coffee/door0001" };
+        doorButtonComponent.overTexture = { "key": "coffee", "frame": "coffee/door0002" };
         doorButtonComponent.handCursor = true;
         doorButtonComponent.pixelPerfect = true;
 

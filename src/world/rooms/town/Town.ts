@@ -5,12 +5,13 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
-import type Engine from "../../engine/Engine";
-import type { Locale } from "../../../app/locale";
-import type { App } from "../../../app/app";
+import { App } from "../../../app/app";
+import Engine, { Room } from "../../engine/Engine";
+import Interface from "../../interface/Interface";
+import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Town extends Phaser.Scene {
+export default class Town extends Phaser.Scene implements Room {
 
     constructor() {
         super("Town");
@@ -408,6 +409,10 @@ export default class Town extends Phaser.Scene {
 
     get engine(): Engine {
         return (this.scene.get('Engine') as Engine);
+    }
+
+    get interface(): Interface {
+        return (this.scene.get('Interface') as Interface);
     }
 
     create(data: any): void {

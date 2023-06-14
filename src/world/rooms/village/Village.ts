@@ -9,12 +9,12 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine from "../../engine/Engine";
+import Engine, { Room } from "../../engine/Engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Village extends Phaser.Scene {
+export default class Village extends Phaser.Scene implements Room {
 
     constructor() {
         super("Village");
@@ -252,7 +252,7 @@ export default class Village extends Phaser.Scene {
     public tours!: Phaser.GameObjects.Image;
     public tours_btn!: Phaser.GameObjects.Image;
     public epf_title!: Phaser.GameObjects.Image;
-    private triggers!: Phaser.GameObjects.Image[];
+    public triggers!: Phaser.GameObjects.Image[];
 
     /* START-USER-CODE */
 

@@ -10,12 +10,13 @@ import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import MancalaBoard from "./prefabs/MancalaBoard";
 import PressureTrigger from "../../../lib/ui/components/PressureTrigger";
 /* START-USER-IMPORTS */
-import type Engine from "../../engine/Engine";
-import type { Locale } from "../../../app/locale";
-import type { App } from "../../../app/app";
+import { App } from "../../../app/app";
+import Engine, { Room } from "../../engine/Engine";
+import Interface from "../../interface/Interface";
+import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Book extends Phaser.Scene {
+export default class Book extends Phaser.Scene implements Room {
 
     constructor() {
         super("Book");
@@ -259,8 +260,8 @@ export default class Book extends Phaser.Scene {
 
         // mancalanotice (components)
         const mancalanoticeButtonComponent = new ButtonComponent(mancalanotice);
-        mancalanoticeButtonComponent.upTexture = {"key":"book","frame":"book/mancalanotice0001"};
-        mancalanoticeButtonComponent.overTexture = {"key":"book","frame":"book/mancalanotice0002"};
+        mancalanoticeButtonComponent.upTexture = { "key": "book", "frame": "book/mancalanotice0001" };
+        mancalanoticeButtonComponent.overTexture = { "key": "book", "frame": "book/mancalanotice0002" };
         mancalanoticeButtonComponent.handCursor = true;
         mancalanoticeButtonComponent.pixelPerfect = true;
 
@@ -293,8 +294,8 @@ export default class Book extends Phaser.Scene {
 
         // books (components)
         const booksButtonComponent = new ButtonComponent(books);
-        booksButtonComponent.upTexture = {"key":"book","frame":"book/books0001"};
-        booksButtonComponent.overTexture = {"key":"book","frame":"book/books0002"};
+        booksButtonComponent.upTexture = { "key": "book", "frame": "book/books0001" };
+        booksButtonComponent.overTexture = { "key": "book", "frame": "book/books0002" };
         booksButtonComponent.handCursor = true;
         booksButtonComponent.pixelPerfect = true;
 
@@ -386,8 +387,8 @@ export default class Book extends Phaser.Scene {
 
         // book (components)
         const bookButtonComponent = new ButtonComponent(book);
-        bookButtonComponent.upTexture = {"key":"book","frame":"book/book0001"};
-        bookButtonComponent.overTexture = {"key":"book","frame":"book/book0002"};
+        bookButtonComponent.upTexture = { "key": "book", "frame": "book/book0001" };
+        bookButtonComponent.overTexture = { "key": "book", "frame": "book/book0002" };
         bookButtonComponent.handCursor = true;
         bookButtonComponent.pixelPerfect = true;
         const bookDepthEnabled = new DepthEnabled(book);
@@ -460,6 +461,10 @@ export default class Book extends Phaser.Scene {
 
     get engine(): Engine {
         return (this.scene.get('Engine') as Engine);
+    }
+
+    get interface(): Interface {
+        return (this.scene.get('Interface') as Interface);
     }
 
     create(data: any) {

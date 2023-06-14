@@ -8,13 +8,13 @@ import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
-import type { App } from "../../../app/app";
-import type Engine from "../../engine/Engine";
-import type Interface from "../../interface/Interface";
+import { App } from "../../../app/app";
+import Engine, { Room } from "../../engine/Engine";
+import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Dock extends Phaser.Scene {
+export default class Dock extends Phaser.Scene implements Room {
 
     constructor() {
         super("Dock");
@@ -230,8 +230,8 @@ export default class Dock extends Phaser.Scene {
 
         // dock_catalogIcon (components)
         const dock_catalogIconButtonComponent = new ButtonComponent(dock_catalogIcon);
-        dock_catalogIconButtonComponent.upTexture = { "key": "dock", "frame": "dock/catalogIcon" };
-        dock_catalogIconButtonComponent.overTexture = { "key": "dock", "frame": "dock/catalogIconOver" };
+        dock_catalogIconButtonComponent.upTexture = {"key":"dock","frame":"dock/catalogIcon"};
+        dock_catalogIconButtonComponent.overTexture = {"key":"dock","frame":"dock/catalogIconOver"};
         dock_catalogIconButtonComponent.handCursor = true;
         dock_catalogIconButtonComponent.pixelPerfect = true;
         const dock_catalogIconDepthEnabled = new DepthEnabled(dock_catalogIcon);

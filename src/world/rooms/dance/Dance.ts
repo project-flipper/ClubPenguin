@@ -8,13 +8,13 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
-import type Engine from "../../engine/Engine";
-import type { App } from "../../../app/app";
-import type { Locale } from "../../../app/locale";
-import type Interface from "../../interface/Interface";
+import { App } from "../../../app/app";
+import Engine, { Room } from "../../engine/Engine";
+import Interface from "../../interface/Interface";
+import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Dance extends Phaser.Scene {
+export default class Dance extends Phaser.Scene implements Room {
 
     constructor() {
         super("Dance");
@@ -304,8 +304,8 @@ export default class Dance extends Phaser.Scene {
 
         // stairs (components)
         const stairsButtonComponent = new ButtonComponent(stairs);
-        stairsButtonComponent.upTexture = {"key":"dance","frame":"dance/stairs0001"};
-        stairsButtonComponent.overTexture = {"key":"dance","frame":"dance/stairs0002"};
+        stairsButtonComponent.upTexture = { "key": "dance", "frame": "dance/stairs0001" };
+        stairsButtonComponent.overTexture = { "key": "dance", "frame": "dance/stairs0002" };
         stairsButtonComponent.handCursor = true;
         stairsButtonComponent.pixelPerfect = true;
 
@@ -522,8 +522,8 @@ export default class Dance extends Phaser.Scene {
 
         // catalog (components)
         const catalogButtonComponent = new ButtonComponent(catalog);
-        catalogButtonComponent.upTexture = {"key":"dance","frame":"dance/catalog0001"};
-        catalogButtonComponent.overTexture = {"key":"dance","frame":"dance/catalog0002"};
+        catalogButtonComponent.upTexture = { "key": "dance", "frame": "dance/catalog0001" };
+        catalogButtonComponent.overTexture = { "key": "dance", "frame": "dance/catalog0002" };
         catalogButtonComponent.handCursor = true;
         catalogButtonComponent.pixelPerfect = true;
         const catalogDepthEnabled = new DepthEnabled(catalog);

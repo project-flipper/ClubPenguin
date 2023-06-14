@@ -9,12 +9,12 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine from "../../engine/Engine";
+import Engine, { Room } from "../../engine/Engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
-export default class Rink extends Phaser.Scene {
+export default class Rink extends Phaser.Scene implements Room {
 
     constructor() {
         super("Rink");
@@ -380,8 +380,8 @@ export default class Rink extends Phaser.Scene {
         catalogueDepthEnabled.automaticSort = false;
         catalogueDepthEnabled.depth = 1080;
         const catalogueButtonComponent = new ButtonComponent(catalogue);
-        catalogueButtonComponent.upTexture = { "key": "rink", "frame": "rink/catalogue0001" };
-        catalogueButtonComponent.overTexture = { "key": "rink", "frame": "rink/catalogue0002" };
+        catalogueButtonComponent.upTexture = {"key":"rink","frame":"rink/catalogue0001"};
+        catalogueButtonComponent.overTexture = {"key":"rink","frame":"rink/catalogue0002"};
         catalogueButtonComponent.handCursor = true;
         catalogueButtonComponent.pixelPerfect = true;
 
@@ -459,7 +459,7 @@ export default class Rink extends Phaser.Scene {
     public chair2_btn!: Phaser.GameObjects.Image;
     public chair3_btn!: Phaser.GameObjects.Image;
     public chair4_btn!: Phaser.GameObjects.Image;
-    private triggers!: Phaser.GameObjects.Image[];
+    public triggers!: Phaser.GameObjects.Image[];
 
     /* START-USER-CODE */
 

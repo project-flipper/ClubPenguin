@@ -5,6 +5,7 @@
         "compilerInsertSpaces": true,
         "exportClass": true,
         "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
             "ClubPenguin/media/assets/world/rooms/plaza/plaza-pack.json"
         ],
@@ -713,7 +714,8 @@
                 "e6ded98f-36b6-4f30-af8b-96fe8cb39172",
                 "b50c115f-c61e-4866-88c2-f87b61a8b2aa",
                 "42875dbf-31c2-42d0-80bc-476e1db490fb"
-            ]
+            ],
+            "scope": "PUBLIC"
         }
     ]
 }

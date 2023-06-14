@@ -5,6 +5,7 @@
         "compilerInsertSpaces": true,
         "exportClass": true,
         "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
             "ClubPenguin/media/assets/world/rooms/village/village-pack.json"
         ],
@@ -442,7 +443,8 @@
                 "b01a348c-42dd-4fc2-98f9-83c6d00422de",
                 "46147aeb-48f8-4bbe-8072-d7c169b727b1",
                 "b7e7703b-6246-4415-9742-9299ef013337"
-            ]
+            ],
+            "scope": "PUBLIC"
         }
     ]
 }
