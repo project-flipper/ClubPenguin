@@ -1255,53 +1255,53 @@ export default class Map extends Phaser.Scene implements Content {
         this.setupButton(this.rescue, this.rescue, 'puffle_rescue', '808');
         this.setupButton(this.roundup, this.roundup, 'puffle_round_up', '310');
         this.setupButton(this.pizza, this.pizza, 'pizzatron_3000', '330');
-        this.setupButton(this.launch, this.launch, 'puffle_launch', '330');
-        this.setupButton(this.jetpack, this.jetpack, 'jet_pack_adventure', '330');
-        this.setupButton(this.sledrace, this.sledrace, 'sled_racing', '330');
-        this.setupButton(this.escape, this.escape, 'pufflescape', '330');
-        this.setupButton(this.fish, this.fish, 'ice_fishing', '330');
-        this.setupButton(this.dj, this.dj, 'dj3k', '330');
-        this.setupButton(this.dance, this.dance, 'dance_contest', '330');
-        this.setupButton(this.cart, this.cart, 'cart_surfer', '330');
-        this.setupButton(this.cardjitsu, this.cardjitsu, 'card_jitsu', '330');
-        this.setupButton(this.bean, this.bean, 'bean_counters', '330');
-        this.setupButton(this.arcade, this.arcade, 'arcade', '330');
-        this.setupButton(this.aqua, this.aqua, 'aqua_grabber', '330');
+        this.setupButton(this.launch, this.launch, 'puffle_launch', '310');
+        this.setupButton(this.jetpack, this.jetpack, 'jet_pack_adventure', '411');
+        this.setupButton(this.sledrace, this.sledrace, 'sled_racing', '230');
+        this.setupButton(this.escape, this.escape, 'pufflescape', '310');
+        this.setupButton(this.fish, this.fish, 'ice_fishing', '220');
+        this.setupButton(this.dj, this.dj, 'dj3k', '120');
+        this.setupButton(this.dance, this.dance, 'dance_contest', '120');
+        this.setupButton(this.cart, this.cart, 'cart_surfer', '808');
+        this.setupButton(this.cardjitsu, this.cardjitsu, 'card_jitsu', '320');
+        this.setupButton(this.bean, this.bean, 'bean_counters', '110');
+        this.setupButton(this.arcade, this.arcade, 'arcade', '121');
+        this.setupButton(this.aqua, this.aqua, 'aqua_grabber', '805');
 
         /* SHOP */
 
         this.setupButton(this.wavescat, this.wavescat, 'surf_upgrade', '810');
-        this.setupButton(this.stagecat, this.stagecat, 'costume_trunk', '810');
-        this.setupButton(this.sportscat, this.sportscat, 'snow_and_sports', '810');
-        this.setupButton(this.pufflecat, this.pufflecat, 'pet_furniture', '810');
-        this.setupButton(this.instcat, this.instcat, 'music_catalogue', '810');
-        this.setupButton(this.hydrocat, this.hydrocat, 'tubing_upgrade', '810');
-        this.setupButton(this.sledcat, this.sledcat, 'sled_upgrade', '810');
-        this.setupButton(this.fishcat, this.fishcat, 'fishing_upgrade', '810');
-        this.setupButton(this.dancecat, this.dancecat, 'dj3k_upgrade', '810');
-        this.setupButton(this.clothescat, this.clothescat, 'penguin_style', '810');
-        this.setupButton(this.cardcat, this.cardcat, 'martial_arts', '810');
+        this.setupButton(this.stagecat, this.stagecat, 'costume_trunk', '340');
+        this.setupButton(this.sportscat, this.sportscat, 'snow_and_sports', '802');
+        this.setupButton(this.pufflecat, this.pufflecat, 'pet_furniture', '310');
+        this.setupButton(this.instcat, this.instcat, 'music_catalogue', '410');
+        this.setupButton(this.hydrocat, this.hydrocat, 'tubing_upgrade', '800');
+        this.setupButton(this.sledcat, this.sledcat, 'sled_upgrade', '230');
+        this.setupButton(this.fishcat, this.fishcat, 'fishing_upgrade', '220');
+        this.setupButton(this.dancecat, this.dancecat, 'dj3k_upgrade', '120');
+        this.setupButton(this.clothescat, this.clothescat, 'penguin_style', '130');
+        this.setupButton(this.cardcat, this.cardcat, 'martial_arts', '320');
 
         /* PET */
 
-        this.setupButton(this.proundup, this.proundup, 'puffle_round_up', '810');
-        this.setupButton(this.pshop, this.pshop, 'pet_furniture', '810');
-        this.setupButton(this.prainbow, this.prainbow, 'hotel_lobby', '810');
-        this.setupButton(this.plaunch, this.plaunch, 'puffle_launch', '810');
-        this.setupButton(this.ppuffle, this.ppuffle, 'puffle_adoption', '810');
-        this.setupButton(this.pescape, this.pescape, 'pufflescape', '810');
+        this.setupButton(this.proundup, this.proundup, 'puffle_round_up', '310');
+        this.setupButton(this.pshop, this.pshop, 'pet_furniture', '310');
+        this.setupButton(this.prainbow, this.prainbow, 'hotel_lobby', '430');
+        this.setupButton(this.plaunch, this.plaunch, 'puffle_launch', '310');
+        this.setupButton(this.ppuffle, this.ppuffle, 'puffle_adoption', '310');
+        this.setupButton(this.pescape, this.pescape, 'pufflescape', '310');
         this.setupButton(this.pigloo, this.pigloo, 'igloo', undefined);
         this.pigloo.on('release', this.goToMyIgloo, this);
 
         /* PET GAMES */
 
-        this.setupButton(this.pjetpack, this.pjetpack, 'jet_pack_adventure', '810');
-        this.setupButton(this.prescue, this.prescue, 'puffle_rescue', '810');
-        this.setupButton(this.pdj, this.pdj, 'dj3k', '810');
-        this.setupButton(this.pdance, this.pdance, 'dance_contest', '810');
-        this.setupButton(this.pcart, this.pcart, 'cart_surfer', '810');
-        this.setupButton(this.parcade, this.parcade, 'arcade', '810');
-        this.setupButton(this.paqua, this.paqua, 'aqua_grabber', '810');
+        this.setupButton(this.pjetpack, this.pjetpack, 'jet_pack_adventure', '310');
+        this.setupButton(this.prescue, this.prescue, 'puffle_rescue', '310');
+        this.setupButton(this.pdj, this.pdj, 'dj3k', '120');
+        this.setupButton(this.pdance, this.pdance, 'dance_contest', '120');
+        this.setupButton(this.pcart, this.pcart, 'cart_surfer', '808');
+        this.setupButton(this.parcade, this.parcade, 'arcade', '121');
+        this.setupButton(this.paqua, this.paqua, 'aqua_grabber', '805');
         this.setupButton(this.pwaves, this.pwaves, 'catchin_waves', '810');
 
         this.game.locale.register(this.localize, this);
