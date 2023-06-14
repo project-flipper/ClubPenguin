@@ -249,6 +249,206 @@
             "visible": false
         },
         {
+            "type": "Container",
+            "id": "c2bd5ec0-01db-4aac-919e-0427c7b26cdd",
+            "label": "boat1",
+            "scope": "PUBLIC",
+            "x": 1438.5375,
+            "y": 526.3875,
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "318d3edb-c960-4ae8-983d-bfc688b41983",
+                    "label": "binoculars_boat1",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/boat1"
+                    },
+                    "x": 317.475,
+                    "y": 57.15,
+                    "originX": 0.49682316118935843,
+                    "originY": 0.48025210084033615
+                },
+                {
+                    "type": "Sprite",
+                    "id": "67785db0-9282-4248-b598-1e8869a380d0",
+                    "label": "tide1",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/tide0001"
+                    },
+                    "x": 202.5,
+                    "y": 99.45,
+                    "originX": 0.37621,
+                    "originY": 0.29807
+                },
+                {
+                    "type": "Sprite",
+                    "id": "40dc7a34-ce47-410e-adec-90478b4f4285",
+                    "label": "tide2",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/tide0001"
+                    },
+                    "x": 625.5,
+                    "y": 85.3875,
+                    "scaleX": 0.56922619,
+                    "scaleY": 0.56922619,
+                    "originX": 0.37620567,
+                    "originY": 0.29807018
+                }
+            ]
+        },
+        {
+            "type": "Container",
+            "id": "5046a364-38e8-4446-bbf9-006b9b471dcf",
+            "label": "boat2",
+            "scope": "PUBLIC",
+            "x": -431.1,
+            "y": 521.8875,
+            "visible": false,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "9bb3414b-72c6-486e-bf64-141c4528f82c",
+                    "label": "penguin",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/penguin0001"
+                    },
+                    "x": 396.225,
+                    "y": 64.35,
+                    "originX": 3.30192,
+                    "originY": 0.757059
+                },
+                {
+                    "type": "Image",
+                    "id": "ed63a233-b659-4290-a3a6-ec5898ad9d55",
+                    "label": "binoculars_boat2",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/boat2"
+                    },
+                    "x": 396.225,
+                    "y": 64.35,
+                    "originX": 0.476205,
+                    "originY": 0.480252
+                },
+                {
+                    "type": "Sprite",
+                    "id": "8d0d8ca6-e009-4add-b5c7-73c36670b291",
+                    "label": "tide3",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/tide0001"
+                    },
+                    "x": 526.6125,
+                    "y": 103.95,
+                    "scaleX": -1,
+                    "originX": 0.37621,
+                    "originY": 0.29807
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b2d6bcfb-b8ef-43ee-9c6e-73b99f4252e7",
+                    "label": "tide4",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/tide0001"
+                    },
+                    "x": 103.725,
+                    "y": 89.8875,
+                    "scaleX": -0.56922619,
+                    "scaleY": 0.56922619,
+                    "originX": 0.37620567,
+                    "originY": 0.29807018
+                }
+            ]
+        },
+        {
+            "type": "Layer",
+            "id": "b0731183-b20b-43f3-bdd6-a7f6ef160787",
+            "label": "fish1",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "4cbb4dcd-696b-4906-a161-97722367d026",
+                    "label": "fish",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/fish0001"
+                    },
+                    "x": 1144.575,
+                    "y": 739.9125,
+                    "scaleX": -1,
+                    "angle": 90,
+                    "originX": 0.46732394366197183,
+                    "originY": 0.3676923076923077
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "1a4dc4c6-601a-4221-84e3-047f7d264eb3",
+                    "label": "rectangle_1",
+                    "x": 1070.8875,
+                    "y": 670.5,
+                    "originX": 0,
+                    "originY": 0,
+                    "isFilled": true,
+                    "fillColor": "#009ACC",
+                    "width": 133.875,
+                    "height": 133.7625
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "c2bdf62b-57aa-427d-9a06-d66963bb1ad1",
+                    "label": "rectangle",
+                    "x": 733.8375,
+                    "y": 739.575,
+                    "originX": 0,
+                    "originY": 0,
+                    "isFilled": true,
+                    "fillColor": "#009ACC",
+                    "width": 133.875,
+                    "height": 133.7625
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b9caa196-6db9-495c-b7cf-b8157286a321",
+                    "label": "splash1",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/splash10001"
+                    },
+                    "x": 1131.525,
+                    "y": 670.6125,
+                    "originX": 0.534884,
+                    "originY": 0.892857,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "fdb41567-e781-4e21-8236-64c276165017",
+                    "label": "splash2",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "binoculars",
+                        "frame": "binoculars/splash20001"
+                    },
+                    "x": 799.425,
+                    "y": 738.3375,
+                    "originX": 0.531915,
+                    "originY": 0.926136,
+                    "visible": false
+                }
+            ]
+        },
+        {
             "type": "Image",
             "id": "aaebe809-a3fd-4f70-a846-42e2c849e379",
             "label": "binoculars_hud",
@@ -276,8 +476,8 @@
                 "key": "binoculars",
                 "frame": "binoculars/close0001"
             },
-            "x": 1445,
-            "y": 101
+            "x": 1649.25,
+            "y": 58.5
         }
     ],
     "plainObjects": [],
@@ -311,6 +511,16 @@
                 "344a6b55-e687-4670-a4c6-e8c6bdfb6f85",
                 "94083b0c-aa2f-4376-ba47-773744c0f2e3",
                 "de03f028-4091-44a3-b010-b4c4533e1ae0"
+            ]
+        },
+        {
+            "id": "8bb95dae-3c3a-4871-b4af-2d64032bc750",
+            "label": "tides",
+            "objectIds": [
+                "b2d6bcfb-b8ef-43ee-9c6e-73b99f4252e7",
+                "8d0d8ca6-e009-4add-b5c7-73c36670b291",
+                "40dc7a34-ce47-410e-adec-90478b4f4285",
+                "67785db0-9282-4248-b598-1e8869a380d0"
             ]
         }
     ]

@@ -126,16 +126,102 @@ export default class Binoculars extends Phaser.Scene implements Content {
         binoculars_wave_10.setOrigin(0.15454954954954955, 0.7876666666666666);
         binoculars_wave_10.visible = false;
 
+        // boat1
+        const boat1 = this.add.container(1438.5375, 526.3875);
+        boat1.visible = false;
+
+        // binoculars_boat1
+        const binoculars_boat1 = this.add.image(317.475, 57.15, "binoculars", "binoculars/boat1");
+        binoculars_boat1.setOrigin(0.49682316118935843, 0.48025210084033615);
+        boat1.add(binoculars_boat1);
+
+        // tide1
+        const tide1 = this.add.sprite(202.5, 99.45, "binoculars", "binoculars/tide0001");
+        tide1.setOrigin(0.37621, 0.29807);
+        boat1.add(tide1);
+
+        // tide2
+        const tide2 = this.add.sprite(625.5, 85.3875, "binoculars", "binoculars/tide0001");
+        tide2.scaleX = 0.56922619;
+        tide2.scaleY = 0.56922619;
+        tide2.setOrigin(0.37620567, 0.29807018);
+        boat1.add(tide2);
+
+        // boat2
+        const boat2 = this.add.container(-431.1, 521.8875);
+        boat2.visible = false;
+
+        // penguin
+        const penguin = this.add.sprite(396.225, 64.35, "binoculars", "binoculars/penguin0001");
+        penguin.setOrigin(3.30192, 0.757059);
+        boat2.add(penguin);
+
+        // binoculars_boat2
+        const binoculars_boat2 = this.add.image(396.225, 64.35, "binoculars", "binoculars/boat2");
+        binoculars_boat2.setOrigin(0.476205, 0.480252);
+        boat2.add(binoculars_boat2);
+
+        // tide3
+        const tide3 = this.add.sprite(526.6125, 103.95, "binoculars", "binoculars/tide0001");
+        tide3.scaleX = -1;
+        tide3.setOrigin(0.37621, 0.29807);
+        boat2.add(tide3);
+
+        // tide4
+        const tide4 = this.add.sprite(103.725, 89.8875, "binoculars", "binoculars/tide0001");
+        tide4.scaleX = -0.56922619;
+        tide4.scaleY = 0.56922619;
+        tide4.setOrigin(0.37620567, 0.29807018);
+        boat2.add(tide4);
+
+        // fish1
+        const fish1 = this.add.layer();
+        fish1.visible = false;
+
+        // fish
+        const fish = this.add.sprite(1144.575, 739.9125, "binoculars", "binoculars/fish0001");
+        fish.scaleX = -1;
+        fish.angle = 90;
+        fish.setOrigin(0.46732394366197183, 0.3676923076923077);
+        fish1.add(fish);
+
+        // rectangle_1
+        const rectangle_1 = this.add.rectangle(1070.8875, 670.5, 133.875, 133.7625);
+        rectangle_1.setOrigin(0, 0);
+        rectangle_1.isFilled = true;
+        rectangle_1.fillColor = 39628;
+        fish1.add(rectangle_1);
+
+        // rectangle
+        const rectangle = this.add.rectangle(733.8375, 739.575, 133.875, 133.7625);
+        rectangle.setOrigin(0, 0);
+        rectangle.isFilled = true;
+        rectangle.fillColor = 39628;
+        fish1.add(rectangle);
+
+        // splash1
+        const splash1 = this.add.sprite(1131.525, 670.6125, "binoculars", "binoculars/splash10001");
+        splash1.setOrigin(0.534884, 0.892857);
+        splash1.visible = false;
+        fish1.add(splash1);
+
+        // splash2
+        const splash2 = this.add.sprite(799.425, 738.3375, "binoculars", "binoculars/splash20001");
+        splash2.setOrigin(0.531915, 0.926136);
+        splash2.visible = false;
+        fish1.add(splash2);
+
         // binoculars_hud
         const binoculars_hud = this.add.image(0, 0, "binoculars", "binoculars/hud");
         binoculars_hud.setOrigin(0, 0);
 
         // close
-        const close = this.add.image(1445, 101, "binoculars", "binoculars/close0001");
+        const close = this.add.image(1649.25, 58.5, "binoculars", "binoculars/close0001");
 
         // lists
         const waves1 = [binoculars_wave_1, binoculars_wave, binoculars_wave10001, binoculars_wave_3, binoculars_wave_4, binoculars_wave_6, binoculars_wave_7, binoculars_wave_10, binoculars_wave_9];
         const waves2 = [binoculars_wave20001, binoculars_wave_2, binoculars_wave_5, binoculars_wave_8];
+        const tides = [tide4, tide3, tide2, tide1];
 
         // blocker (components)
         new InputBlocker(blocker);
@@ -149,17 +235,33 @@ export default class Binoculars extends Phaser.Scene implements Content {
         closeButtonComponent.pixelPerfect = true;
 
         this.blocker = blocker;
+        this.boat1 = boat1;
+        this.penguin = penguin;
+        this.boat2 = boat2;
+        this.fish = fish;
+        this.splash1 = splash1;
+        this.splash2 = splash2;
+        this.fish1 = fish1;
         this.close = close;
         this.waves1 = waves1;
         this.waves2 = waves2;
+        this.tides = tides;
 
         this.events.emit("scene-awake");
     }
 
     public blocker!: Phaser.GameObjects.Rectangle;
+    public boat1!: Phaser.GameObjects.Container;
+    public penguin!: Phaser.GameObjects.Sprite;
+    public boat2!: Phaser.GameObjects.Container;
+    public fish!: Phaser.GameObjects.Sprite;
+    public splash1!: Phaser.GameObjects.Sprite;
+    public splash2!: Phaser.GameObjects.Sprite;
+    public fish1!: Phaser.GameObjects.Layer;
     public close!: Phaser.GameObjects.Image;
     private waves1!: Phaser.GameObjects.Sprite[];
     private waves2!: Phaser.GameObjects.Sprite[];
+    private tides!: Phaser.GameObjects.Sprite[];
 
     /* START-USER-CODE */
 
@@ -183,6 +285,10 @@ export default class Binoculars extends Phaser.Scene implements Content {
 
         this.editorCreate();
 
+        this.fish.play('fish-animation');
+        this.penguin.play('penguin-animation');
+        for (let tide of this.tides) tide.play('tide-animation');
+
         for (let wave of this.waves1) {
             this.randomPlayAnimation(wave, 0, 1000, 'wave1-animation');
             wave.on('animationcomplete', () => this.randomPlayAnimation(wave, 0, 1000, 'wave1-animation'));
@@ -192,6 +298,84 @@ export default class Binoculars extends Phaser.Scene implements Content {
             this.randomPlayAnimation(wave, 0, 1310.34483, 'wave2-animation');
             wave.on('animationcomplete', () => this.randomPlayAnimation(wave, 0, 1310.34483, 'wave2-animation'));
         }
+
+        this.time.addEvent({
+            delay: 9000,
+            loop: true,
+            callback: () => {
+                switch (Phaser.Math.Between(0, 2)) {
+                    case 0:
+                        this.boat1.visible = true;
+                        this.boat2.visible = false;
+                        this.fish1.visible = false;
+
+                        this.tweens.add({
+                            targets: this.boat1,
+                            x: { from: 1438.5375, to: -467.8875 },
+                            duration: 3250,
+                            onComplete: () => this.boat1.visible = false
+                        });
+                        break;
+                    case 1:
+                        this.boat1.visible = false;
+                        this.boat2.visible = true;
+                        this.fish1.visible = false;
+
+                        this.tweens.add({
+                            targets: this.boat2,
+                            x: { from: -431.1, to: 1981.575 },
+                            duration: 3708.33333,
+                            onComplete: () => this.boat2.visible = false
+                        })
+                        break;
+                    case 2:
+                        this.boat1.visible = false;
+                        this.boat2.visible = false;
+                        this.fish1.visible = true;
+
+                        let start = new Phaser.Math.Vector2(1144.575, 739.9125);
+                        let end = new Phaser.Math.Vector2(798.525, 758.25);
+                        let curve = new Phaser.Curves.QuadraticBezier(
+                            start,
+                            new Phaser.Math.Vector2(965.8125, 504.925),
+                            end
+                        );
+
+                        this.add.timeline([
+                            {
+                                at: 41.6666667,
+                                tween: {
+                                    targets: this.fish,
+                                    angle: { from: 92.9489, to: -90.9957 },
+                                    duration: 1000,
+                                    onStart: () => this.fish.visible = true,
+                                    onUpdate: tween => {
+                                        let position = curve.getPoint(tween.totalProgress);
+                                        this.fish.x = position.x;
+                                        this.fish.y = position.y;
+                                    },
+                                    onComplete: tween => {
+                                        let position = curve.getPoint(tween.totalProgress);
+                                        this.fish.x = position.x;
+                                        this.fish.y = position.y;
+                                        this.fish.visible = false;
+                                        this.fish1.visible = false;
+                                    }
+                                }
+                            },
+                            {
+                                at: 125,
+                                run: () => this.splash1.play('splash1-animation')
+                            },
+                            {
+                                at: 958.333333,
+                                run: () => this.splash2.play('splash2-animation')
+                            }
+                        ]).play();
+                        break;
+                }
+            }
+        });
 
         this.close.on('release', () => this.interface.safeCloseContent());
 
