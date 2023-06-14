@@ -418,15 +418,11 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
     lock(): void {
         this.nameTextField.locked = true;
         this.passwordTextField.locked = true;
-
-        console.trace('Lock');
     }
 
     unlock(): void {
         this.nameTextField.locked = false;
         this.passwordTextField.locked = false;
-
-        console.trace('Unlock');
     }
 
     localize(locale: Locale): void {
