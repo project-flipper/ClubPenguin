@@ -44,9 +44,12 @@ export function run(params: RunParams): void {
 
     _app = new App({
         parent: params.parentId,
+        fullscreenTarget: params.parentId,
+        autoFocus: true,
         title: 'Club Penguin',
-        banner: true,
+        banner: false,
         backgroundColor: 0xffffff,
+        transparent: false,
         scene: [
             Bootstrap,
             Create,
@@ -99,7 +102,19 @@ export function run(params: RunParams): void {
             maxParallelDownloads: 10,
             crossOrigin: params.crossOrigin
         },
-        powerPreference: 'high-performance'
+        powerPreference: 'high-performance',
+        failIfMajorPerformanceCaveat: true,
+        callbacks: {
+            postBoot: (app: App) => {
+                if (params.elementId) app.canvas.id = params.elementId;
+                if (params.elementClassName) app.canvas.className = params.elementClassName;
+
+                app.friends.init({
+                    basePath: params.mediaPath,
+                    avatarUrl: _app.airtower.avatarUrl
+                });
+            }
+        }
     }, {
         language: params.language,
         apiPath: params.apiPath,
@@ -108,14 +123,6 @@ export function run(params: RunParams): void {
         contentVersion: params.contentVersion,
         minigameVersion: params.minigameVersion,
         environmentType: params.environmentType
-    });
-
-    if (params.elementId) _app.canvas.id = params.elementId;
-    if (params.elementClassName) _app.canvas.className = params.elementClassName;
-
-    _app.friends.init({
-        basePath: params.mediaPath,
-        avatarUrl: _app.airtower.avatarUrl
     });
 
     if (__webpack_options__.EXPOSE_APP) app = _app;
