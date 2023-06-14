@@ -833,6 +833,7 @@ export default class Interface extends Phaser.Scene {
     }
 
     safeCloseContent(): void {
+        // ensure the pointerup event finishes before re-allowing room input
         setTimeout(() => this.closeContent(), 10);
     }
 
