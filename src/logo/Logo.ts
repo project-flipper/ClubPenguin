@@ -78,6 +78,8 @@ export default class Logo extends Phaser.Scene {
 
     create(): void {
 
+        this.hide();
+
         this.editorCreate();
 
         this.logo_shine1.setBlendMode(Phaser.BlendModes.ADD);
