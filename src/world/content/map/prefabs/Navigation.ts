@@ -287,7 +287,7 @@ export default class Navigation extends Phaser.GameObjects.Container {
                 this.puffleGames.visible = false;
                 break;
             case MapCategory.PETS:
-                if (this.scene.category == MapCategory.PETS) {
+                if (this.scene.category == MapCategory.PETS || this.scene.category == MapCategory.PET_GAMES) {
                     this.puffleGames.visible = false;
                     this.scene.showCategory(MapCategory.NO_CATEGORY);
                     this.petsButton.setFrame('map/petsButton0001');
