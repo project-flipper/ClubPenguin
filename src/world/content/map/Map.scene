@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Content",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/interface/content/map/map-pack.json"
+            "ClubPenguin/media/assets/world/content/map/map-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Map",

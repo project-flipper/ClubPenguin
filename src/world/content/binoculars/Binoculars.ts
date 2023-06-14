@@ -4,13 +4,12 @@
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
-import InputBlocker from "../../../../lib/ui/components/InputBlocker";
-import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
+import InputBlocker from "../../../lib/ui/components/InputBlocker";
+import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import { App } from "../../../../app/app";
-import Engine from "../../../engine/Engine";
-import Interface, { Content } from "../../Interface";
-import { Locale } from "../../../../app/locale";
+import { App } from "../../../app/app";
+import Engine from "../../engine/Engine";
+import Interface, { Content } from "../../interface/Interface";
 /* END-USER-IMPORTS */
 
 export default class Binoculars extends Phaser.Scene implements Content {
@@ -25,7 +24,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
 
     preload(): void {
 
-        this.load.pack("binoculars-pack", "assets/world/interface/content/binoculars/binoculars-pack.json");
+        this.load.pack("binoculars-pack", "assets/world/content/binoculars/binoculars-pack.json");
     }
 
     editorCreate(): void {

@@ -466,7 +466,7 @@ export default class Cove extends Phaser.Scene {
 
         this.binoculars_btn.on('over', () => this.binoculars.setFrame('cove/binoculars0002'));
         this.binoculars_btn.on('out', () => this.binoculars.setFrame('cove/binoculars0001'));
-        this.binoculars_btn.on('release', () => this.interface.loadContent(async () => (await import('../../interface/content/binoculars/Binoculars')).default));
+        this.binoculars_btn.on('release', () => this.interface.loadContent(async () => (await import('../../content/binoculars/Binoculars')).default));
 
         this.cat_btn.on('over', () => this.cat.setFrame('cove/cat_btn0002'));
         this.cat_btn.on('out', () => this.cat.setFrame('cove/cat_btn0001'));
