@@ -938,6 +938,7 @@ export default class Interface extends Phaser.Scene {
 
     show(): void {
         this.ui.visible = true;
+        this.avatarOverlays.visible = true;
         this.chat.locked = false;
     }
 
@@ -947,6 +948,7 @@ export default class Interface extends Phaser.Scene {
 
     hide(closeAll = true): void {
         this.ui.visible = false;
+        this.avatarOverlays.visible = false;
         if (closeAll) this.closeAll();
         this.chat.locked = true;
     }
