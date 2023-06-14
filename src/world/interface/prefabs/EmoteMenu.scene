@@ -17,7 +17,6 @@
             "type": "Container",
             "id": "9776c3aa-331d-49ed-a56d-7e0e047bfd37",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "Image",
@@ -34,13 +33,12 @@
                     "x": -3,
                     "y": -3,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
                     "id": "ce5e02b4-fd4f-4533-8c9d-29bef5850fc0",
-                    "label": "emote_button1",
+                    "label": "laughing_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -54,14 +52,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 40.5,
-                    "y": 41.4,
-                    "list": []
+                    "y": 41.4
                 },
                 {
                     "type": "Image",
                     "id": "70fe8dbf-ad82-4c68-8369-ef0355dc1834",
                     "label": "interface_emojiLaughing",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiLaughing"
@@ -69,13 +65,12 @@
                     "x": 40.5,
                     "y": 41.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "b2d897f6-a102-44b4-adf4-770ce0242628",
-                    "label": "emote_button2",
+                    "label": "happy_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -89,14 +84,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 112.5,
-                    "y": 41.4,
-                    "list": []
+                    "y": 41.4
                 },
                 {
                     "type": "Image",
                     "id": "440dedc6-d90c-4c2f-9381-cee24918c497",
                     "label": "interface_emojiHappy",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiHappy"
@@ -104,13 +97,12 @@
                     "x": 112.5,
                     "y": 41.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "cb0380d4-9620-4e70-9812-9477d70208bc",
-                    "label": "emote_button3",
+                    "label": "coffee_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -124,14 +116,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 184.5,
-                    "y": 41.4,
-                    "list": []
+                    "y": 41.4
                 },
                 {
                     "type": "Image",
                     "id": "7f8def99-ba42-4170-bf0f-4787a4dd1c75",
                     "label": "interface_emojiCoffee",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiCoffee"
@@ -139,13 +129,12 @@
                     "x": 184.5,
                     "y": 41.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "8bb2f2cb-8085-44ca-a37b-c3358d136c67",
-                    "label": "emote_button4",
+                    "label": "indifferent_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -159,14 +148,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 40.5,
-                    "y": 113.4,
-                    "list": []
+                    "y": 113.4
                 },
                 {
                     "type": "Image",
                     "id": "2134a66a-1d2d-450f-b3e1-9ce812b9d7e1",
                     "label": "interface_emojiIndifferent",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiIndifferent"
@@ -174,13 +161,12 @@
                     "x": 40.5,
                     "y": 113.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "eb51b7be-4044-44ec-a47a-908d700ee9ba",
-                    "label": "emote_button5",
+                    "label": "sad_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -194,14 +180,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 112.5,
-                    "y": 113.4,
-                    "list": []
+                    "y": 113.4
                 },
                 {
                     "type": "Image",
                     "id": "c6b6ef3b-f9b7-4389-921e-5359b1b6e7ce",
                     "label": "interface_emojiSad",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiSad"
@@ -209,13 +193,12 @@
                     "x": 112.5,
                     "y": 113.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "c35527bb-7f58-47c4-9b96-8495f6d454f8",
-                    "label": "emote_button6",
+                    "label": "controller_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -229,14 +212,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 184.5,
-                    "y": 113.4,
-                    "list": []
+                    "y": 113.4
                 },
                 {
                     "type": "Image",
                     "id": "3f8f95d7-00ec-45c4-b330-03270379aae1",
                     "label": "interface_emojiController",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiController"
@@ -244,13 +225,12 @@
                     "x": 184.5,
                     "y": 113.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "27c9c9b0-467b-4673-8dd2-a9adb5ed1c55",
-                    "label": "emote_button7",
+                    "label": "surprised_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -264,14 +244,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 40.5,
-                    "y": 185.4,
-                    "list": []
+                    "y": 185.4
                 },
                 {
                     "type": "Image",
                     "id": "e8f34974-d9c4-4aa7-9339-fdb212567929",
                     "label": "interface_emojiSurprised",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiSurprised"
@@ -279,13 +257,12 @@
                     "x": 40.5,
                     "y": 185.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "0ff670af-b7e7-4974-b818-d4edd545f0f1",
-                    "label": "emote_button8",
+                    "label": "pokingOutTongue_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -299,14 +276,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 112.5,
-                    "y": 185.4,
-                    "list": []
+                    "y": 185.4
                 },
                 {
                     "type": "Image",
                     "id": "58e836b3-ee78-4f30-bb95-606304c9aab7",
                     "label": "interface_emojiPokingOutTongue",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiPokingOutTongue"
@@ -314,13 +289,12 @@
                     "x": 112.5,
                     "y": 185.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "1e24b27e-4817-4f95-9f03-d980727166c3",
-                    "label": "emote_button9",
+                    "label": "popcorn_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -334,14 +308,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 184.5,
-                    "y": 185.4,
-                    "list": []
+                    "y": 185.4
                 },
                 {
                     "type": "Image",
                     "id": "712a34d3-b8b9-4a2c-a478-6d340048a22d",
                     "label": "interface_emojiPopcorn",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiPopcorn"
@@ -349,13 +321,12 @@
                     "x": 184.5,
                     "y": 185.4,
                     "scaleX": 0.63,
-                    "scaleY": 0.63,
-                    "list": []
+                    "scaleY": 0.63
                 },
                 {
                     "type": "Image",
                     "id": "9dadb469-dd8b-44f5-ba9b-614baee618d2",
-                    "label": "emote_button10",
+                    "label": "winking_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -369,14 +340,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 40.5,
-                    "y": 257.4,
-                    "list": []
+                    "y": 257.4
                 },
                 {
                     "type": "Image",
                     "id": "1cc27faf-5ec7-4bc1-bd6e-085e5a351a47",
                     "label": "interface_emojiWinking",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiWinking"
@@ -384,13 +353,12 @@
                     "x": 40.5,
                     "y": 257.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "d8e66323-6253-491f-a8eb-c36d72120a4f",
-                    "label": "emote_button11",
+                    "label": "sick_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -404,14 +372,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 112.5,
-                    "y": 257.4,
-                    "list": []
+                    "y": 257.4
                 },
                 {
                     "type": "Image",
                     "id": "c8d8c7c0-7f56-45b0-9d2f-923a2e7b4818",
                     "label": "interface_emojiSick",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiSick"
@@ -419,13 +385,12 @@
                     "x": 112.5,
                     "y": 257.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "22797dfb-bea9-4834-9baf-adbe5c836a39",
-                    "label": "emote_button12",
+                    "label": "pizza_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -439,14 +404,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 184.5,
-                    "y": 257.4,
-                    "list": []
+                    "y": 257.4
                 },
                 {
                     "type": "Image",
                     "id": "425927e9-8a55-498c-ac10-a575f7262ee3",
                     "label": "interface_emojiPizza",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiPizza"
@@ -454,13 +417,12 @@
                     "x": 184.5,
                     "y": 257.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "0420cef3-32a2-4af9-b0fa-fee7ea8bad5d",
-                    "label": "emote_button13",
+                    "label": "mad_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -474,14 +436,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 40.5,
-                    "y": 329.4,
-                    "list": []
+                    "y": 329.4
                 },
                 {
                     "type": "Image",
                     "id": "b4647825-babe-464b-a44d-bdc112db305d",
                     "label": "interface_emojiMad",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiMad"
@@ -489,13 +449,12 @@
                     "x": 40.5,
                     "y": 329.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "ae38d6b5-a4b4-4555-9516-2366f36be614",
-                    "label": "emote_button14",
+                    "label": "upset_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -509,14 +468,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 112.5,
-                    "y": 329.4,
-                    "list": []
+                    "y": 329.4
                 },
                 {
                     "type": "Image",
                     "id": "40f58f4f-461a-4b3f-98bc-669ba0c3b784",
                     "label": "interface_emojiUpset",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiUpset"
@@ -524,13 +481,12 @@
                     "x": 112.5,
                     "y": 329.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "6ab6fb80-f5bf-45ff-b788-8c74a50a74d3",
-                    "label": "emote_button15",
+                    "label": "strawberryIceCream_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -544,14 +500,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 184.5,
-                    "y": 329.4,
-                    "list": []
+                    "y": 329.4
                 },
                 {
                     "type": "Image",
                     "id": "21522668-edb8-439c-bbfe-4324f92fef86",
                     "label": "interface_emojiStrawberryIceCream",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiStrawberryIceCream"
@@ -559,13 +513,12 @@
                     "x": 184.5,
                     "y": 329.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "9f453efb-bf6c-42e5-b3fb-2a0358ea1bcd",
-                    "label": "emote_button16",
+                    "label": "meh_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -579,14 +532,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 40.5,
-                    "y": 401.4,
-                    "list": []
+                    "y": 401.4
                 },
                 {
                     "type": "Image",
                     "id": "fef0439e-38bf-467c-8879-fe6eb5065909",
                     "label": "interface_emojiMeh",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiMeh"
@@ -594,13 +545,12 @@
                     "x": 40.5,
                     "y": 401.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "2acd4178-c5b3-43c3-8a22-00060f355aa1",
-                    "label": "emote_button17",
+                    "label": "cake_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -614,14 +564,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 112.5,
-                    "y": 401.4,
-                    "list": []
+                    "y": 401.4
                 },
                 {
                     "type": "Image",
                     "id": "c8f275b2-1287-4620-818e-0141172cd76e",
                     "label": "interface_emojiCake",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiCake"
@@ -629,13 +577,12 @@
                     "x": 112.5,
                     "y": 401.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "a0ea2b3b-b76e-42ca-b08c-69362e4a5667",
-                    "label": "emote_button18",
+                    "label": "shamrock_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -649,14 +596,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 184.5,
-                    "y": 401.4,
-                    "list": []
+                    "y": 401.4
                 },
                 {
                     "type": "Image",
                     "id": "d95b6d04-c2e0-43ee-a63d-0ad0a865d8f8",
                     "label": "interface_emojiShamrock",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiShamrock"
@@ -664,13 +609,12 @@
                     "x": 184.5,
                     "y": 401.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "90f7b6b5-02a0-47fd-b2f2-90177a0c5356",
-                    "label": "emote_button19",
+                    "label": "heart_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -684,14 +628,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 40.5,
-                    "y": 473.4,
-                    "list": []
+                    "y": 473.4
                 },
                 {
                     "type": "Image",
                     "id": "c16c994c-c350-4d9f-9dd4-76c7cabc9d47",
                     "label": "interface_emojiHeart",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiHeart"
@@ -699,13 +641,12 @@
                     "x": 40.5,
                     "y": 473.4,
                     "scaleX": 0.7,
-                    "scaleY": 0.7,
-                    "list": []
+                    "scaleY": 0.7
                 },
                 {
                     "type": "Image",
                     "id": "0e146760-3a29-45a5-8f9f-fd98b0e7028a",
-                    "label": "emote_button20",
+                    "label": "lightbulb_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -719,14 +660,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 112.5,
-                    "y": 473.4,
-                    "list": []
+                    "y": 473.4
                 },
                 {
                     "type": "Image",
                     "id": "eb13d123-f812-493c-a73f-73576b6e1101",
                     "label": "interface_emojiLightBulb",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiLightBulb"
@@ -734,13 +673,12 @@
                     "x": 112.5,
                     "y": 473.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "45305125-503d-46ee-880d-d5401e9fb98c",
-                    "label": "emote_button21",
+                    "label": "flower_btn",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -754,14 +692,12 @@
                         "frame": "interface/emote0001"
                     },
                     "x": 184.5,
-                    "y": 473.4,
-                    "list": []
+                    "y": 473.4
                 },
                 {
                     "type": "Image",
                     "id": "db6f51fe-298f-490a-8c2c-1a061fa9106c",
                     "label": "interface_emojiFlower",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/emojiFlower"
@@ -769,8 +705,7 @@
                     "x": 184.5,
                     "y": 473.4,
                     "scaleX": 0.8,
-                    "scaleY": 0.8,
-                    "list": []
+                    "scaleY": 0.8
                 }
             ]
         }
@@ -780,6 +715,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 4
     }
 }

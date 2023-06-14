@@ -123,6 +123,8 @@ export default class Balloon extends Phaser.GameObjects.Container {
         this.emoji.setFrame(this.getEmojiFrame(emoji));
         this.emoji.visible = true;
 
+        if (emoji == 'TOOT') this.scene.sound.play('interface_fart');
+
         this.visible = true;
         this.startHideTimer();
     }
@@ -131,8 +133,64 @@ export default class Balloon extends Phaser.GameObjects.Container {
         switch (emoji) {
             case 'LAUGHING':
                 return 'interface/emojiLaughing';
-            case 'SMILE':
-                return 'interface/emojiSmile';
+            case 'HAPPY':
+                return 'interface/emojiHappy';
+            case 'COFFEE':
+                return 'interface/emojiCoffee';
+            case 'INDIFFERENT':
+                return 'interface/emojiIndifferent';
+            case 'SAD':
+                return 'interface/emojiSad';
+            case 'CONTROLLER':
+                return 'interface/emojiController';
+            case 'SURPRISED':
+                return 'interface/emojiSurprised';
+            case 'POKING_OUT_TONGUE':
+                return 'interface/emojiPokingOutTongue';
+            case 'POPCORN':
+                return 'interface/emojiPopcorn';
+            case 'WINKING':
+                return 'interface/emojiWinking';
+            case 'SICK':
+                return 'interface/emojiSick';
+            case 'PIZZA':
+                return 'interface/emojiPizza';
+            case 'MAD':
+                return 'interface/emojiMad';
+            case 'UPSET':
+                return 'interface/emojiUpset';
+            case 'STRAWBERRY_ICE_CREAM':
+                return 'interface/emojiStrawberryIceCream';
+            case 'MEH':
+                return 'interface/emojiMeh';
+            case 'CAKE':
+                return 'interface/emojiCake';
+            case 'SHAMROCK':
+                return 'interface/emojiShamrock';
+            case 'HEART':
+                return 'interface/emojiHeart';
+            case 'LIGHTBULB':
+                return 'interface/emojiLightBulb';
+            case 'FLOWER':
+                return 'interface/emojiFlower';
+            case 'CHOCOLATE_ICE_CREAM':
+                return 'interface/emojiChocolateIceCream';
+            case 'COIN':
+                return 'interface/emojiCoin';
+            case 'EXCLAMATION':
+                return 'interface/emojiExclamation';
+            case 'IGLOO':
+                return 'interface/emojiIgloo';
+            case 'MOON':
+                return 'interface/emojiMoon';
+            case 'PUFFLE':
+                return 'interface/emojiPuffle';
+            case 'QUESTION':
+                return 'interface/emojiQuestion';
+            case 'SUN':
+                return 'interface/emojiSun';
+            case 'TOOT':
+                return 'interface/emojiToot';
         }
     }
 

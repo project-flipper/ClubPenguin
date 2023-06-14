@@ -29,6 +29,7 @@ import type { App } from "../../app/app";
 import Load from "../../load/Load";
 import { LoaderTask } from "../../load/tasks";
 import ErrorArea from "../../app/ErrorArea";
+import { Emoji } from "../../net/types/chat/emoji";
 /* END-USER-IMPORTS */
 
 export default class Interface extends Phaser.Scene {
@@ -586,7 +587,31 @@ export default class Interface extends Phaser.Scene {
         this.engine.events.on('roomload', () => this.quickKeys = true);
         this.engine.events.on('roomunload', () => this.quickKeys = false);
 
-        this.input.keyboard.on('keydown', (event: KeyboardEvent) => this.keydownHandler(event));
+        this.input.keyboard.createCombo('e1', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('e2', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('e3', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('e4', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('e5', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('e6', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('e7', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('e8', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('e9', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('e0', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('ef', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('eg', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('eh', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('ep', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('em', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('el', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('ec', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('et', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('?', { resetOnWrongKey: true, resetOnMatch: true });
+        this.input.keyboard.createCombo('!', { resetOnWrongKey: true, resetOnMatch: true });
+
+        this.input.keyboard.on('keydown', this.keydownHandler, this);
+
+        this.input.keyboard.on('keycombomatch', this.processEmojiCombo, this);
+
         this.chat.handleKeyUp = (event) => {
             if (event.key == 'Enter') {
                 event.preventDefault();
@@ -632,29 +657,31 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ INPUT ============ */
 
+    get canProcessInput(): boolean {
+        // Canvas elements cannot have be set as active, so body it is.
+        return this.game.hasFocus && document.activeElement == document.body;
+    }
+
+    public lastFart: number;
+
     keydownHandler(event: KeyboardEvent): void {
-        if (!this.game.hasFocus || !this.quickKeys) return;
-        if (document.activeElement !== document.body) return;
+        if (!this.canProcessInput) return;
 
         switch (event.key) {
             case 'ArrowDown':
                 this.engine.actionSitDown();
-                event.preventDefault();
                 event.stopPropagation();
                 break;
             case 'ArrowLeft':
                 this.engine.actionSitLeft();
-                event.preventDefault();
                 event.stopPropagation();
                 break;
             case 'ArrowUp':
                 this.engine.actionSitUp();
-                event.preventDefault();
                 event.stopPropagation();
                 break;
             case 'ArrowRight':
                 this.engine.actionSitRight();
-                event.preventDefault();
                 event.stopPropagation();
                 break;
             case 'Enter':
@@ -669,10 +696,76 @@ export default class Interface extends Phaser.Scene {
                 event.stopPropagation();
                 break;
             case 't':
+                // Prioritize combo
+                let delta = window.performance.now() - this.lastFart;
+                if (delta < 1) return;
                 this.snowballCrosshair.visible = true;
                 event.stopPropagation();
                 break;
         }
+    }
+
+    processEmojiCombo(combo: Phaser.Input.Keyboard.KeyCombo): void {
+        if (!this.canProcessInput) return;
+
+        switch (combo.keyCodes[1]) {
+            case 49:
+                this.sendEmoji('LAUGHING');
+                break;
+            case 50:
+                this.sendEmoji('HAPPY');
+                break;
+            case 51:
+                this.sendEmoji('INDIFFERENT');
+                break;
+            case 52:
+                this.sendEmoji('SAD');
+                break;
+            case 53:
+                this.sendEmoji('SURPRISED');
+                break;
+            case 54:
+                this.sendEmoji('POKING_OUT_TONGUE');
+                break;
+            case 55:
+                this.sendEmoji('WINKING');
+                break;
+            case 56:
+                this.sendEmoji('SICK');
+                break;
+            case 57:
+                this.sendEmoji('MAD');
+                break;
+            case 48:
+                this.sendEmoji('UPSET');
+                break;
+            case 70:
+                this.sendEmoji('FLOWER');
+                break;
+            case 71:
+                this.sendEmoji('CONTROLLER');
+                break;
+            case 72:
+                this.sendEmoji('HEART');
+                break;
+            case 80:
+                this.sendEmoji('PUFFLE');
+                break;
+            case 77:
+                this.sendEmoji('COIN');
+                break;
+            case 76:
+                this.sendEmoji('SHAMROCK');
+                break;
+            case 67:
+                this.sendEmoji('COFFEE');
+                break;
+            case 84:
+                this.sendEmoji('TOOT');
+                this.lastFart = window.performance.now();
+                break;
+        }
+
     }
 
     sendMessage(): void {
@@ -681,6 +774,10 @@ export default class Interface extends Phaser.Scene {
             this.engine.player.overlay.balloon.showMessage(this.chat.value);
             this.chat.value = '';
         }
+    }
+
+    sendEmoji(emoji: Emoji): void {
+        this.engine.player.overlay.balloon.showEmoji(emoji);
     }
 
     /* ============ AVATAR OVERLAYS ============ */
