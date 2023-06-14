@@ -22,7 +22,9 @@ export type Trigger =
     | SnowballTrigger;
 
 export interface Room extends Phaser.Scene {
-    roomData: RoomConfig;
+    safeX?: number;
+    safeY?: number;
+    roomData?: RoomConfig;
     customEase?: string | Function,
     customSnowballClass?: typeof Snowball,
     triggers: Phaser.GameObjects.Image[];
@@ -193,17 +195,7 @@ export default class Engine extends Phaser.Scene {
 
         let room = (await import(/* webpackInclude: /\.ts$/ */`../rooms/${config.path}`)).default;
 
-        if (this.currentRoom) {
-            this.previousPlayerX = this.player?.x;
-            this.previousPlayerY = this.player?.y;
-
-            this.currentRoom.scene.remove();
-            if ('unload' in this.currentRoom) this.currentRoom.unload(this);
-            this.events.emit('roomunload', this.currentRoom);
-
-            this.previousRoomId = this.currentRoomId;
-            this.currentRoom = undefined;
-        }
+        this.unloadRoom();
 
         let load = this.scene.get('Load') as Load;
         let roomScene = await new Promise<Room>(resolve => {
@@ -247,6 +239,20 @@ export default class Engine extends Phaser.Scene {
         this.currentRoom.roomData = config;
 
         this.events.emit('roomload', this.currentRoom);
+    }
+
+    unloadRoom(): void {
+        if (this.currentRoom) {
+            this.previousPlayerX = this.player?.x;
+            this.previousPlayerY = this.player?.y;
+
+            this.currentRoom.scene.remove();
+            if ('unload' in this.currentRoom) this.currentRoom.unload(this);
+            this.events.emit('roomunload', this.currentRoom);
+
+            this.previousRoomId = this.currentRoomId;
+            this.currentRoom = undefined;
+        }
     }
 
     async joinRoom(config: RoomConfig, x?: number, y?: number): Promise<void> {
@@ -494,8 +500,8 @@ export default class Engine extends Phaser.Scene {
     }
 
     findRandomPosition(): Phaser.Math.Vector2 {
-        let origin = new Phaser.Math.Vector2(this.cameras.main.centerX, this.cameras.main.centerY + 200);
-        let target = new Phaser.Math.Vector2(this.cameras.main.centerX + this.randomRange(- 350, 350), this.cameras.main.centerY + this.randomRange(0, 400));
+        let origin = new Phaser.Math.Vector2(this.currentRoom?.safeX ?? this.cameras.main.centerX, this.currentRoom?.safeY ?? (this.cameras.main.centerY + 200));
+        let target = new Phaser.Math.Vector2(origin.x + this.randomRange(-350, 350), origin.y + this.randomRange(-200, 200));
 
         let block = 'block' in this.currentRoom ? this.currentRoom.block as Phaser.GameObjects.Image : undefined;
         if (block == undefined) return target;
