@@ -1,0 +1,394 @@
+{
+    "id": "b1b66710-9189-4afc-8749-6e9ed4342491",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "3f99ba26-4507-426a-a240-9e90062b03dc",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "2b4a31fd-953a-4797-8177-5493548a8040",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/navBase"
+                    },
+                    "x": -8,
+                    "y": -8,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "064b2cc1-472f-4f1b-b8ba-35b08a05a436",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "gamesLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 152.325,
+                    "boxHeight": 43.0875,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 30.6,
+                    "y": 185.9625,
+                    "tintTopLeft": "#666666",
+                    "tintTopRight": "#666666",
+                    "tintBottomLeft": "#666666",
+                    "tintBottomRight": "#666666",
+                    "tintFill": true,
+                    "text": "Games",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -22.5
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "d108d961-fee9-46f1-b199-7f4a8ab1dd29",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "placesLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 150.3,
+                    "boxHeight": 43.0875,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 207.9,
+                    "y": 185.9625,
+                    "tintTopLeft": "#666666",
+                    "tintTopRight": "#666666",
+                    "tintBottomLeft": "#666666",
+                    "tintBottomRight": "#666666",
+                    "tintFill": true,
+                    "text": "Places",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -22.5
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "8f4f4690-0109-4f50-be59-47d297ca31bd",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "shopLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 148.95,
+                    "boxHeight": 43.0875,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 380.25,
+                    "y": 185.9625,
+                    "tintTopLeft": "#666666",
+                    "tintTopRight": "#666666",
+                    "tintBottomLeft": "#666666",
+                    "tintBottomRight": "#666666",
+                    "tintFill": true,
+                    "text": "Shop",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -22.5
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "536734dd-47a5-4a27-b857-3cd2c7b46ab3",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "petsLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 154.8,
+                    "boxHeight": 43.0875,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 550.0125,
+                    "y": 185.9625,
+                    "tintTopLeft": "#666666",
+                    "tintTopRight": "#666666",
+                    "tintBottomLeft": "#666666",
+                    "tintBottomRight": "#666666",
+                    "tintFill": true,
+                    "text": "Pets",
+                    "font": "BurbankSmallBold",
+                    "fontSize": -22.5
+                },
+                {
+                    "type": "Image",
+                    "id": "6c255ea4-a868-4d3b-941a-af66523c352a",
+                    "label": "gamesButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/gamesButton0001"
+                    },
+                    "x": 42.975,
+                    "y": 40.95,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "088b0ebf-60bf-4436-8b09-5581f87b1ced",
+                    "label": "placesButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/placesButton0001"
+                    },
+                    "x": 215.6625,
+                    "y": 40.95,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "739f9894-29c4-44d4-abe5-849533e6de90",
+                    "label": "shopButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/shopButton0001"
+                    },
+                    "x": 388.35,
+                    "y": 40.95,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "0ea18344-347d-4a97-aa67-af6212c5f61a",
+                    "label": "petsButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/petsButton0001"
+                    },
+                    "x": 561.0375,
+                    "y": 40.95,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Container",
+                    "id": "5f1e9af3-3942-4f09-8c2a-f884905a1271",
+                    "label": "puffleGames",
+                    "scope": "PUBLIC",
+                    "x": 728.55,
+                    "y": 2.025,
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "b09dedd7-530e-44e2-8ab2-9ca196899b01",
+                            "label": "map_puffleBase",
+                            "texture": {
+                                "key": "map",
+                                "frame": "map/puffleBase"
+                            },
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "type": "Image",
+                            "id": "bc26d8e0-b1d8-4e95-a829-b4f879af11b5",
+                            "label": "map_puffleIcon",
+                            "texture": {
+                                "key": "map",
+                                "frame": "map/puffleIcon"
+                            },
+                            "x": 64.91253662109375,
+                            "y": 66.48749685287476,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "type": "Image",
+                            "id": "3caac0ee-bea0-40ee-9e3a-e741f2a43c5a",
+                            "label": "hide_btn",
+                            "scope": "PUBLIC",
+                            "components": [
+                                "ButtonComponent"
+                            ],
+                            "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/hide_button0001\"}",
+                            "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/hide_button0002\"}",
+                            "ButtonComponent.downTexture": "{\"key\":\"map\",\"frame\":\"map/hide_button0003\"}",
+                            "ButtonComponent.handCursor": true,
+                            "ButtonComponent.pixelPerfect": true,
+                            "texture": {
+                                "key": "map",
+                                "frame": "map/hide_button0001"
+                            },
+                            "x": 275.73748779296875,
+                            "y": 140.17499685287476,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                            "id": "c34f25ed-9ca7-4f91-b756-f77f7ea43552",
+                            "unlock": [
+                                "x",
+                                "y",
+                                "tintFill",
+                                "tintTopLeft",
+                                "tintTopRight",
+                                "tintBottomLeft",
+                                "tintBottomRight",
+                                "text",
+                                "font",
+                                "fontSize",
+                                "boxWidth",
+                                "boxHeight",
+                                "horizontalAlign",
+                                "verticalAlign"
+                            ],
+                            "label": "petsHintLabel",
+                            "scope": "PUBLIC",
+                            "boxWidth": 324.225,
+                            "boxHeight": 113.175,
+                            "horizontalAlign": 1,
+                            "verticalAlign": 1,
+                            "x": 241.98748779296875,
+                            "y": 32.962499141693115,
+                            "tintTopLeft": "#333333",
+                            "tintTopRight": "#333333",
+                            "tintBottomLeft": "#333333",
+                            "tintBottomRight": "#333333",
+                            "tintFill": true,
+                            "text": "Different colored puffles play different games.",
+                            "font": "BurbankSmallBold",
+                            "fontSize": -22.5
+                        },
+                        {
+                            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                            "id": "6909aa33-3d4c-4cd3-80f3-c9ff1a11e2ee",
+                            "unlock": [
+                                "x",
+                                "y",
+                                "tintFill",
+                                "tintTopLeft",
+                                "tintTopRight",
+                                "tintBottomLeft",
+                                "tintBottomRight",
+                                "text",
+                                "font",
+                                "fontSize",
+                                "boxWidth",
+                                "boxHeight",
+                                "horizontalAlign",
+                                "verticalAlign"
+                            ],
+                            "label": "petsButtonLabel",
+                            "scope": "PUBLIC",
+                            "boxWidth": 238.6125,
+                            "boxHeight": 43.3125,
+                            "horizontalAlign": 1,
+                            "verticalAlign": 1,
+                            "x": 281.8125,
+                            "y": 147.4500060081482,
+                            "tintTopLeft": "#00475B",
+                            "tintTopRight": "#00475B",
+                            "tintBottomLeft": "#00475B",
+                            "tintBottomRight": "#00475B",
+                            "tintFill": true,
+                            "text": "Hide games",
+                            "font": "BurbankSmallBold",
+                            "fontSize": -22.5
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

@@ -1,0 +1,1684 @@
+{
+    "id": "e7fd5f35-8165-4cca-a124-87058e15a517",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Content",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/interface/content/map/map-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Map",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "0f0fc8d2-e9d5-4061-9ffc-458490a8063d",
+            "label": "map_base",
+            "components": [
+                "InputBlocker"
+            ],
+            "texture": {
+                "key": "map",
+                "frame": "map/base"
+            },
+            "x": -3.6,
+            "y": -0.675,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Layer",
+            "id": "7a26ce7d-f3dd-44da-a46c-15a7883f0737",
+            "label": "island",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "391a988e-959d-47ef-baa0-94b85b6cabd8",
+                    "label": "dojoext",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/dojo0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/dojo0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/dojo0001"
+                    },
+                    "x": 958.05,
+                    "y": 199.8,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "7cbc9359-4702-46f7-bd64-e3332bc6f2ea",
+                    "label": "map_island",
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/island"
+                    },
+                    "x": 44.775,
+                    "y": 311.2875,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "687a2309-da6c-4aea-9477-0d5da4d4faf3",
+                    "label": "map_igloosBase",
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/igloosBase"
+                    },
+                    "x": 549.5625,
+                    "y": 763.9875,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "e933ed2b-d2e4-4eb1-8a81-7087ab0c836d",
+                    "label": "mtn",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/mtn0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/mtn0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/mtn0001"
+                    },
+                    "x": 87.45,
+                    "y": 235.2125,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "3d77e369-2776-448b-b6a5-b99ebd6b5f5a",
+                    "label": "map_snow4",
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/snow4"
+                    },
+                    "x": 456.975,
+                    "y": 428.85,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "359da20b-81fb-45bb-8083-fd16bebbcb15",
+                    "label": "village",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/village0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/village0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/village0001"
+                    },
+                    "x": 251.0124,
+                    "y": 469.075,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "e11fb5bd-8b8c-4d0a-b82e-8fecbfd2f56f",
+                    "label": "map_snow",
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/snow"
+                    },
+                    "x": 67.05,
+                    "y": 506.8125,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "f82f9c94-1143-4048-bac1-581aea27a57b",
+                    "label": "map_snow3",
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/snow3"
+                    },
+                    "x": 451.2375,
+                    "y": 438.8625,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "41b68228-def2-4aa9-b695-50395d68473b",
+                    "label": "dock",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/dock0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/dock0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/dock0001"
+                    },
+                    "x": 71.9125,
+                    "y": 811.0125,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "f44e4d7b-e043-4d2e-9aea-5ce88d3e0a3b",
+                    "label": "beach",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/beach0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/beach0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/beach0001"
+                    },
+                    "x": -83.175,
+                    "y": 563.8,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "ecaa0160-e82e-4523-b765-74f18558f697",
+                    "label": "igloos",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/igloos0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/igloos0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/igloos0001"
+                    },
+                    "x": 472.275,
+                    "y": 739.575,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "f4e1450b-c41d-415b-9fb4-032fe2ac5fe1",
+                    "label": "shack",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/shack0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/shack0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/shack0001"
+                    },
+                    "x": 1188.9625,
+                    "y": 460.1625,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "b64f8194-b858-4754-859c-78c9e56857b0",
+                    "label": "berg",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/berg"
+                    },
+                    "x": 1527.6374,
+                    "y": 431.2,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "59537a78-029c-482b-8673-44287ee54f15",
+                    "label": "town",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/town0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/town0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/town0001"
+                    },
+                    "x": 254.5625,
+                    "y": 544.225,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "255d1af1-acd3-4012-be96-ac0947e056fa",
+                    "label": "map_tree",
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/tree"
+                    },
+                    "x": 1192.8875,
+                    "y": 540.9875,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "822e341f-0140-4694-98f5-c24d6bf15768",
+                    "label": "plaza",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/plaza0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/plaza0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/plaza0001"
+                    },
+                    "x": 975,
+                    "y": 425,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "8ae11a8b-208e-46fe-8be6-a2123321560c",
+                    "label": "forest",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/forest0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/forest0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/forest0001"
+                    },
+                    "x": 1253,
+                    "y": 610,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "003f2606-1893-4486-922d-8ca84189dcb8",
+                    "label": "cove",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/cove0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/cove0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/cove0001"
+                    },
+                    "x": 1524,
+                    "y": 590,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "3073cb33-1607-4b4f-883d-9f8c58fdba0f",
+                    "label": "forts",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/forts0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/forts0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/forts0001"
+                    },
+                    "x": 675,
+                    "y": 526,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "a7133be4-a2c1-40ec-a687-397bb69b357c",
+                    "label": "rink",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/rink0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/rink0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/rink0001"
+                    },
+                    "x": 609.3125,
+                    "y": 329.45,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "3573f6d8-4df7-4a56-8589-606c73af65a8",
+                    "label": "map_trees",
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/trees"
+                    },
+                    "x": 590.625,
+                    "y": 490.05,
+                    "originX": 0,
+                    "originY": 0
+                }
+            ]
+        },
+        {
+            "type": "Rectangle",
+            "id": "f58d4197-a820-411f-8ca4-73e5612873ad",
+            "label": "tint",
+            "scope": "PUBLIC",
+            "components": [
+                "InputBlocker"
+            ],
+            "originX": 0,
+            "originY": 0,
+            "visible": false,
+            "isFilled": true,
+            "fillColor": "#FFFFFF",
+            "fillAlpha": 0.4,
+            "width": 1710,
+            "height": 1080
+        },
+        {
+            "type": "Layer",
+            "id": "014c3550-76e6-4f06-a817-311aea61aaab",
+            "label": "places",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "d8aefa6c-ca40-4f4d-b639-d49cc0edcab7",
+                    "label": "sshack",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sshack0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sshack0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sshack0001"
+                    },
+                    "x": 1189,
+                    "y": 459,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "63975e8d-8f5b-4d32-a3f5-fa8f5637e607",
+                    "label": "sbeach",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sbeach0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sbeach0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sbeach0001"
+                    },
+                    "x": -84,
+                    "y": 565,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "a3f8d6f2-b3a6-42e3-8f48-8834acab8afd",
+                    "label": "scove",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/scove0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/scove0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/scove0001"
+                    },
+                    "x": 1526,
+                    "y": 684,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "ac490430-10c8-4057-aefb-937e837d1192",
+                    "label": "sdock",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sdock0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sdock0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sdock0001"
+                    },
+                    "x": 73,
+                    "y": 812,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "62cca3cc-b8f0-4e17-8eda-102eaa10882e",
+                    "label": "sdojoext",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sdojo0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sdojo0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sdojo0001"
+                    },
+                    "x": 958,
+                    "y": 199,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "75516979-9eef-429b-9071-d909b04407da",
+                    "label": "sforest",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sforest0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sforest0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sforest0001"
+                    },
+                    "x": 1252,
+                    "y": 610,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "f27fa5ec-b03b-4dfd-a88e-84c0ecbdf26d",
+                    "label": "sforts",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sforts0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sforts0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sforts0001"
+                    },
+                    "x": 673,
+                    "y": 527,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "4561a255-ae48-4be5-85bc-982389f32ae4",
+                    "label": "sigloos",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sigloos0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sigloos0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sigloos0001"
+                    },
+                    "x": 474,
+                    "y": 740,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "6e77ba23-5312-4919-8578-a826f9240814",
+                    "label": "smtn",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/smtn0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/smtn0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/smtn0001"
+                    },
+                    "x": 200,
+                    "y": 265,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "b1206200-df65-4e52-947a-397a75a383aa",
+                    "label": "splaza",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/splaza0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/splaza0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/splaza0001"
+                    },
+                    "x": 975,
+                    "y": 425,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "e5b90c41-c79e-4129-b95e-9d0f638dd4f5",
+                    "label": "srink",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/srink0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/srink0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/srink0001"
+                    },
+                    "x": 609,
+                    "y": 331,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "4a9adbc5-4ad0-49ca-886e-6c08849e211c",
+                    "label": "stown",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/stown0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/stown0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/stown0001"
+                    },
+                    "x": 255.5,
+                    "y": 544,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "9bbb4621-a2ca-4205-a14d-7028c6736ec8",
+                    "label": "svillage",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/svillage0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/svillage0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/svillage0001"
+                    },
+                    "x": 251,
+                    "y": 469,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "c659f441-169e-4e63-81b9-712f6854af38",
+                    "label": "sberg",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sberg"
+                    },
+                    "x": 1558,
+                    "y": 436,
+                    "originX": 0,
+                    "originY": 0
+                }
+            ]
+        },
+        {
+            "type": "Layer",
+            "id": "91d7034f-0a56-403d-b74b-07ae6040113f",
+            "label": "games",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "5bcd1c7c-6ad6-49d7-8f9b-cdfc5e03c205",
+                    "label": "aqua",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/aqua0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/aqua0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/aqua0001"
+                    },
+                    "x": 1540.125,
+                    "y": 435.375
+                },
+                {
+                    "type": "Image",
+                    "id": "7b9b36c1-1636-4498-a176-3c9873de7f26",
+                    "label": "arcade",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/arcade0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/arcade0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/arcade0001"
+                    },
+                    "x": 643.3875,
+                    "y": 528.75
+                },
+                {
+                    "type": "Image",
+                    "id": "13232567-3764-4d27-b21e-61802593db99",
+                    "label": "bean",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/bean0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/bean0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/bean0001"
+                    },
+                    "x": 486,
+                    "y": 634.5
+                },
+                {
+                    "type": "Image",
+                    "id": "f2ea4d23-fd9d-470d-aebf-2e1f9297d56b",
+                    "label": "cardjitsu",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/cardjitsu0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/cardjitsu0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/cardjitsu0001"
+                    },
+                    "x": 1026,
+                    "y": 279
+                },
+                {
+                    "type": "Image",
+                    "id": "1e579be4-f175-4e81-8380-bca62a8cce22",
+                    "label": "cart",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/cart0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/cart0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/cart0001"
+                    },
+                    "x": 1357.875,
+                    "y": 457.875
+                },
+                {
+                    "type": "Image",
+                    "id": "465df3bb-4f9c-450a-ab04-4efacdaa15e9",
+                    "label": "dance",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/dance0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/dance0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/dance0001"
+                    },
+                    "x": 792,
+                    "y": 600.75
+                },
+                {
+                    "type": "Image",
+                    "id": "0158bf42-0f45-4e3e-926c-59dee1063054",
+                    "label": "dj",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/dj0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/dj0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/dj0001"
+                    },
+                    "x": 653.625,
+                    "y": 686.25
+                },
+                {
+                    "type": "Image",
+                    "id": "bb996517-6daf-4ccd-97f4-b4f4928e64a3",
+                    "label": "fish",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/fish0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/fish0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/fish0001"
+                    },
+                    "x": 403.875,
+                    "y": 491.625
+                },
+                {
+                    "type": "Image",
+                    "id": "beaa5412-764c-4082-9e2d-61b09665a79c",
+                    "label": "escape",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/escape0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/escape0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/escape0001"
+                    },
+                    "x": 1048.1625,
+                    "y": 754.2
+                },
+                {
+                    "type": "Image",
+                    "id": "f8615328-ff3b-403e-ab3f-dcd41e00e05b",
+                    "label": "sledrace",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sledrace0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sledrace0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sledrace0001"
+                    },
+                    "x": 333,
+                    "y": 312.75
+                },
+                {
+                    "type": "Image",
+                    "id": "35784225-e8f5-4958-83d7-60482ca557a2",
+                    "label": "jetpack",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/jetpack0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/jetpack0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/jetpack0001"
+                    },
+                    "x": 169.875,
+                    "y": 601.875
+                },
+                {
+                    "type": "Image",
+                    "id": "0b6c8550-3989-49eb-ab5b-331642eed606",
+                    "label": "launch",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/launch0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/launch0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/launch0001"
+                    },
+                    "x": 973.125,
+                    "y": 625.5
+                },
+                {
+                    "type": "Image",
+                    "id": "324155c6-5e5a-4b3b-8aeb-7f66731ddc14",
+                    "label": "pizza",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pizza0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pizza0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pizza0001"
+                    },
+                    "x": 1310.625,
+                    "y": 625.5
+                },
+                {
+                    "type": "Image",
+                    "id": "5158a2bf-dc11-415c-8612-aa911ac4af25",
+                    "label": "roundup",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/roundup0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/roundup0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/roundup0001"
+                    },
+                    "x": 1143,
+                    "y": 625.5
+                },
+                {
+                    "type": "Image",
+                    "id": "4790739a-210b-449f-a127-3fe9a0aa3f16",
+                    "label": "rescue",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/rescue0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/rescue0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/rescue0001"
+                    },
+                    "x": 1191.375,
+                    "y": 466.875
+                },
+                {
+                    "type": "Image",
+                    "id": "37f5118d-5892-4b20-8edb-971d83061c5f",
+                    "label": "smoothie",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/smoothie0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/smoothie0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/smoothie0001"
+                    },
+                    "x": 517.05,
+                    "y": 783.7875
+                },
+                {
+                    "type": "Image",
+                    "id": "75558a35-8dfe-4a73-a33b-640042e0f907",
+                    "label": "hydro",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/hydro0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/hydro0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/hydro0001"
+                    },
+                    "x": 303.75,
+                    "y": 865.125
+                },
+                {
+                    "type": "Image",
+                    "id": "228501d6-ef88-41de-9406-9ad8c99cddd7",
+                    "label": "waves",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/waves0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/waves0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/waves0001"
+                    },
+                    "x": 1528.875,
+                    "y": 702
+                }
+            ]
+        },
+        {
+            "type": "Layer",
+            "id": "df18c9f9-0f5d-4768-845f-6b00052fd056",
+            "label": "shop",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "7c772905-a5cb-4636-949e-761b738c97f4",
+                    "label": "cardcat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/cardcat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/cardcat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/cardcat0001"
+                    },
+                    "x": 1023.6375,
+                    "y": 321.3
+                },
+                {
+                    "type": "Image",
+                    "id": "3b286e7f-23b0-4687-84c3-64c1febf49ac",
+                    "label": "clothescat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/clothescat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/clothescat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/clothescat0001"
+                    },
+                    "x": 751.5,
+                    "y": 652.5
+                },
+                {
+                    "type": "Image",
+                    "id": "dad2e064-d639-4572-8bf9-ee9dc601dc73",
+                    "label": "dancecat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/dancecat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/dancecat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/dancecat0001"
+                    },
+                    "x": 585,
+                    "y": 652.5
+                },
+                {
+                    "type": "Image",
+                    "id": "df3661ce-8afe-47c6-acc0-5470fa4af734",
+                    "label": "fishcat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/fishcat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/fishcat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/fishcat0001"
+                    },
+                    "x": 433.125,
+                    "y": 523.575
+                },
+                {
+                    "type": "Image",
+                    "id": "8a805a48-feb0-47e4-802c-525bd2dee715",
+                    "label": "sledcat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sledcat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sledcat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sledcat0001"
+                    },
+                    "x": 371.25,
+                    "y": 366.75
+                },
+                {
+                    "type": "Image",
+                    "id": "6ef4922a-a013-4e30-826b-7ebac4998986",
+                    "label": "hydrocat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/hydrocat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/hydrocat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/hydrocat0001"
+                    },
+                    "x": 374.625,
+                    "y": 844.875
+                },
+                {
+                    "type": "Image",
+                    "id": "e391711c-1f4a-47bf-89c0-5bd8be8611ad",
+                    "label": "instcat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/instcat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/instcat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/instcat0001"
+                    },
+                    "x": 190.575,
+                    "y": 705.375
+                },
+                {
+                    "type": "Image",
+                    "id": "75da9c23-f1b8-4afb-9ed4-6102f4adbb11",
+                    "label": "pufflecat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pufflecat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pufflecat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pufflecat0001"
+                    },
+                    "x": 1005.75,
+                    "y": 594
+                },
+                {
+                    "type": "Image",
+                    "id": "2d6bd0b2-f180-4c81-9325-bea7f3d97195",
+                    "label": "sportscat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/sportscat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/sportscat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/sportscat0001"
+                    },
+                    "x": 781.425,
+                    "y": 469.575
+                },
+                {
+                    "type": "Image",
+                    "id": "d90f4c13-33c4-4c5b-ad91-ef72b268d8f7",
+                    "label": "stagecat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/stagecat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/stagecat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/stagecat0001"
+                    },
+                    "x": 1170,
+                    "y": 598.5
+                },
+                {
+                    "type": "Image",
+                    "id": "51199d0b-1719-4969-a250-fb439c2d1141",
+                    "label": "wavescat",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/wavescat0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/wavescat0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/wavescat0001"
+                    },
+                    "x": 1525.5,
+                    "y": 733.5
+                }
+            ]
+        },
+        {
+            "type": "Layer",
+            "id": "54771f19-55b4-4acd-a347-e4997de38afd",
+            "label": "pets",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "27c62741-3192-44e9-875b-973593d682c7",
+                    "label": "pescape",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pescape0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pescape0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pescape0001"
+                    },
+                    "x": 999,
+                    "y": 761.4
+                },
+                {
+                    "type": "Image",
+                    "id": "67ff9f7c-75ae-4d37-9713-c4ceb85649ce",
+                    "label": "pigloo",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pigloo0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pigloo0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pigloo0001"
+                    },
+                    "x": 724.275,
+                    "y": 835.2
+                },
+                {
+                    "type": "Image",
+                    "id": "092d99a0-57dc-43f5-8e49-314368086eb2",
+                    "label": "ppuffle",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/ppuffle0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/ppuffle0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/ppuffle0001"
+                    },
+                    "x": 1048.5,
+                    "y": 620.8875
+                },
+                {
+                    "type": "Image",
+                    "id": "689dff15-b724-4eea-89d0-5a3159b0552b",
+                    "label": "plaunch",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/plaunch0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/plaunch0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/plaunch0001"
+                    },
+                    "x": 901.125,
+                    "y": 648.225
+                },
+                {
+                    "type": "Image",
+                    "id": "00b8f879-0596-4e4e-b60d-04576f6ad10f",
+                    "label": "prainbow",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/prainbow0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/prainbow0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/prainbow0001"
+                    },
+                    "x": 1198.0125,
+                    "y": 619.425
+                },
+                {
+                    "type": "Image",
+                    "id": "462f5408-fb9b-434e-bc2f-914f492a320b",
+                    "label": "pshop",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pshop0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pshop0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pshop0001"
+                    },
+                    "x": 1150.65,
+                    "y": 753.1875
+                },
+                {
+                    "type": "Image",
+                    "id": "1056c784-5245-4f9e-a847-d00ae8ba8e84",
+                    "label": "proundup",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/proundup0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/proundup0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/proundup0001"
+                    },
+                    "x": 950.9625,
+                    "y": 498.2625
+                }
+            ]
+        },
+        {
+            "type": "Layer",
+            "id": "c4a9f97f-0bc1-43cb-8c79-9674e17dca33",
+            "label": "pet_games",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "aab5020e-b83c-4d9f-85e5-e8747de3dbcc",
+                    "label": "paqua",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/paqua0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/paqua0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/paqua0001"
+                    },
+                    "x": 1530,
+                    "y": 440.1
+                },
+                {
+                    "type": "Image",
+                    "id": "634ca9b1-feaf-48ff-bd59-7aae05148d78",
+                    "label": "parcade",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/parcade0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/parcade0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/parcade0001"
+                    },
+                    "x": 647.6625,
+                    "y": 552.15
+                },
+                {
+                    "type": "Image",
+                    "id": "d4ca15fe-2cc7-4409-878b-3fc42d70030e",
+                    "label": "pcart",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pcart0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pcart0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pcart0001"
+                    },
+                    "x": 1363.95,
+                    "y": 434.25
+                },
+                {
+                    "type": "Image",
+                    "id": "f4918b74-9638-456a-8bde-280d161a27ca",
+                    "label": "pdance",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pdance0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pdance0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pdance0001"
+                    },
+                    "x": 727.65,
+                    "y": 686.8125
+                },
+                {
+                    "type": "Image",
+                    "id": "63fa5856-b5f9-44fe-9d71-d95d55c91cc4",
+                    "label": "pdj",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pdj0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pdj0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pdj0001"
+                    },
+                    "x": 557.8875,
+                    "y": 693.9
+                },
+                {
+                    "type": "Image",
+                    "id": "5f073f5d-53ad-41e9-999d-4bc1336a64e6",
+                    "label": "prescue",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/prescue0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/prescue0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/prescue0001"
+                    },
+                    "x": 1200.825,
+                    "y": 471.2625
+                },
+                {
+                    "type": "Image",
+                    "id": "3a224533-7070-4701-93ab-9023969bf2b0",
+                    "label": "pjetpack",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pjetpack0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pjetpack0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pjetpack0001"
+                    },
+                    "x": 175.5,
+                    "y": 609.6375
+                },
+                {
+                    "type": "Image",
+                    "id": "a80f5581-77c8-4297-8abf-5c1c6e146d75",
+                    "label": "pwaves",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/pwaves0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/pwaves0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "map",
+                        "frame": "map/pwaves0001"
+                    },
+                    "x": 1522.125,
+                    "y": 708.75
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "cab71d9c-db23-46e6-acc8-5298024251e2",
+            "label": "border",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "map",
+                "frame": "map/nav0002"
+            },
+            "x": 855.1125,
+            "y": 539.8875
+        },
+        {
+            "prefabId": "b1b66710-9189-4afc-8749-6e9ed4342491",
+            "id": "33523630-f672-4336-a627-235986c7786b",
+            "unlock": [
+                "x",
+                "y",
+                "scaleX",
+                "scaleY"
+            ],
+            "label": "navigation",
+            "scope": "PUBLIC",
+            "x": 1.4625,
+            "y": 4.275,
+            "scaleX": 0.85,
+            "scaleY": 0.85
+        },
+        {
+            "type": "Image",
+            "id": "68be019e-f74e-435b-99b7-30476f8e39ff",
+            "label": "close",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"map\",\"frame\":\"map/close0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"map\",\"frame\":\"map/close0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"map\",\"frame\":\"map/close0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "map",
+                "frame": "map/close0001"
+            },
+            "x": 1665,
+            "y": 47.25
+        },
+        {
+            "type": "Rectangle",
+            "id": "c97d561b-e06f-43a8-9954-f88f6fa9f85e",
+            "label": "borderLine",
+            "originX": 0,
+            "originY": 0,
+            "visible": false,
+            "strokeColor": "#333333",
+            "lineWidth": 0.225,
+            "isStroked": true,
+            "width": 1710,
+            "height": 1080
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}
