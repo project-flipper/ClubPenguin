@@ -72,7 +72,11 @@ export default class Logo extends Phaser.Scene {
     public shine1: Phaser.Tweens.Tween;
     public shine2: Phaser.Tweens.Tween;
 
-    create() {
+    init(data: any): void {
+        if (data?.oninit) data.oninit(this);
+    }
+
+    create(): void {
 
         this.editorCreate();
 
@@ -84,12 +88,16 @@ export default class Logo extends Phaser.Scene {
 
         let mask2 = this.logo_mask2.createBitmapMask();
         this.logo_shine2.mask = mask2;
+    }
+
+    show(): void {
+        this.scene.setVisible(true);
 
         this.animation = this.tweens.add({
             targets: [this.logo, this.logo_mask1, this.logo_mask2],
             scale: 1.09842733,
             duration: 7625,
-            onComplete: () => this.scene.stop()
+            onComplete: () => this.hide()
         });
 
         this.shine1 = this.tweens.add({
@@ -98,14 +106,18 @@ export default class Logo extends Phaser.Scene {
             ease: 'Sine.In',
             duration: 1125,
             delay: 2958
-        })
+        });
         this.shine2 = this.tweens.add({
             targets: this.logo_shine2,
             x: { from: -499, to: 543 },
             ease: 'Sine.In',
             duration: 1083,
             delay: 3083
-        })
+        });
+    }
+
+    hide(): void {
+        this.scene.setVisible(false);
     }
 
     /* END-USER-CODE */

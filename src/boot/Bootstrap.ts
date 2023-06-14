@@ -186,6 +186,9 @@ export default class Bootstrap extends Phaser.Scene {
 
         this.load.pack("app-pack", "assets/app/app-pack.json");
         this.load.pack("font-library", "assets/lib/fonts/font-library.json");
+        this.scene.run('Logo', {
+            oninit: (scene: Phaser.Scene) => load.track(new LoaderTask(scene.load))
+        });
         this.load.start();
 
         await load.waitAllTasksComplete();
@@ -195,10 +198,6 @@ export default class Bootstrap extends Phaser.Scene {
         }));
 
         if (this.load.totalFailed > 0) return this.showLoadError();
-
-        /* load.show({ logo: true });
-        this.scene.start('World');
-        return; */
 
         let path = 'start'; // TODO: get path
 

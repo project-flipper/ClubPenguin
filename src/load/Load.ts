@@ -7,6 +7,7 @@ import TextBox from "../lib/ui/TextBox";
 import Spinner from "./prefabs/Spinner";
 /* START-USER-IMPORTS */
 import type { Task } from './tasks';
+import Logo from "../logo/Logo";
 /* END-USER-IMPORTS */
 
 export default class Load extends Phaser.Scene {
@@ -251,7 +252,8 @@ export default class Load extends Phaser.Scene {
             this.spinner.visible = true;
         } else {
             if (logo) {
-                this.scene.run('Logo');
+                let logoScene = this.scene.get('Logo') as Logo;
+                if (logoScene) logoScene.show();
                 this.spinner.y = 868.16;
                 this.spinnerMask.y = 883.8;
             }
@@ -292,7 +294,8 @@ export default class Load extends Phaser.Scene {
             }
         }
 
-        this.scene.stop('Logo');
+        let logoScene = this.scene.get('Logo') as Logo;
+        if (logoScene) logoScene.hide();
 
         this.scene.setActive(false);
         this.scene.setVisible(false);
