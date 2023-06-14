@@ -1,0 +1,317 @@
+{
+    "id": "c6fff2e0-1365-4439-8047-bd5a5b42f26d",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Content",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/interface/content/binoculars/binoculars-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Binoculars",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "f789ff77-4670-42de-8aff-7e52034a1174",
+            "label": "blocker",
+            "scope": "PUBLIC",
+            "components": [
+                "InputBlocker"
+            ],
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "width": 1710,
+            "height": 1080
+        },
+        {
+            "type": "Image",
+            "id": "0f56e6ad-f7f3-4e0f-82f8-397163e59450",
+            "label": "binoculars_base",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/base"
+            },
+            "x": 194.5125,
+            "y": 72,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "00a2e459-e3e9-474e-be55-111ac11b67ba",
+            "label": "binoculars_wave10001",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave10001"
+            },
+            "x": 326.025,
+            "y": 479.7,
+            "originX": 0.15454954954954955,
+            "originY": 0.7876666666666666,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "e2a48f36-291f-493c-93c4-aef49761b992",
+            "label": "binoculars_wave20001",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave20001"
+            },
+            "x": 362.25,
+            "y": 463.6125,
+            "originX": 0.2965454545454545,
+            "originY": 0.5628571428571428,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "c342d61a-b2ea-4e1d-b311-a6dbedc25d9c",
+            "label": "binoculars_wave",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave10001"
+            },
+            "x": 449.775,
+            "y": 481.725,
+            "scaleX": 1.09,
+            "scaleY": 1.09,
+            "angle": 1.5506000000000002,
+            "originX": 0.15454954954954955,
+            "originY": 0.7876666666666666,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "e998d1ef-528c-4b52-9176-24ea1944af00",
+            "label": "binoculars_wave_1",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave10001"
+            },
+            "x": 459.9,
+            "y": 460.575,
+            "scaleX": 0.899994,
+            "scaleY": 0.899994,
+            "originX": 0.15454954954954955,
+            "originY": 0.7876666666666666,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "344a6b55-e687-4670-a4c6-e8c6bdfb6f85",
+            "label": "binoculars_wave_2",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave20001"
+            },
+            "x": 521.325,
+            "y": 449.6625,
+            "originX": 0.2965454545454545,
+            "originY": 0.5628571428571428,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "5d89ede6-96b7-4d7f-beef-b198fb0cf768",
+            "label": "binoculars_wave_3",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave10001"
+            },
+            "x": 678.375,
+            "y": 460.0125,
+            "angle": 6.709700000000001,
+            "originX": 0.15454954954954955,
+            "originY": 0.7876666666666666,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "454286dd-9d9d-4470-b629-fb4994fe1ecb",
+            "label": "binoculars_wave_4",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave10001"
+            },
+            "x": 797.4,
+            "y": 467.775,
+            "scaleX": 1.099411,
+            "scaleY": 1.099411,
+            "angle": 9.5553,
+            "originX": 0.15454954954954955,
+            "originY": 0.7876666666666666,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "94083b0c-aa2f-4376-ba47-773744c0f2e3",
+            "label": "binoculars_wave_5",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave20001"
+            },
+            "x": 875.25,
+            "y": 450.1125,
+            "originX": 0.2965454545454545,
+            "originY": 0.5628571428571428,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "8f654f4c-45e8-4ddf-ba40-479e94969960",
+            "label": "binoculars_wave_6",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave10001"
+            },
+            "x": 976.275,
+            "y": 445.275,
+            "scaleX": 0.799973,
+            "scaleY": 0.799973,
+            "angle": 10.0011,
+            "originX": 0.15454954954954955,
+            "originY": 0.7876666666666666,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "18da2c00-876f-4daa-8e27-150edefbde69",
+            "label": "binoculars_wave_7",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave10001"
+            },
+            "x": 1033.65,
+            "y": 466.3125,
+            "angle": 14.999700000000002,
+            "originX": 0.15454954954954955,
+            "originY": 0.7876666666666666,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "de03f028-4091-44a3-b010-b4c4533e1ae0",
+            "label": "binoculars_wave_8",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave20001"
+            },
+            "x": 1154.7,
+            "y": 463.6125,
+            "scaleX": 0.999374,
+            "scaleY": 0.999374,
+            "angle": 11.2686,
+            "originX": 0.2965454545454545,
+            "originY": 0.5628571428571428,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "68131121-8baf-41aa-82a3-abb5f03ae50c",
+            "label": "binoculars_wave_9",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave10001"
+            },
+            "x": 1205.775,
+            "y": 456.75,
+            "scaleX": 0.800003,
+            "scaleY": 0.800003,
+            "angle": 14.999700000000002,
+            "originX": 0.15454954954954955,
+            "originY": 0.7876666666666666,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "e96ac63b-b34d-4303-8e71-a2df87e439fb",
+            "label": "binoculars_wave_10",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/wave10001"
+            },
+            "x": 1322.4375,
+            "y": 481.6125,
+            "scaleX": 1.099976,
+            "scaleY": 1.099976,
+            "angle": 18,
+            "originX": 0.15454954954954955,
+            "originY": 0.7876666666666666,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "aaebe809-a3fd-4f70-a846-42e2c849e379",
+            "label": "binoculars_hud",
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/hud"
+            },
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "bde0bd9c-7d30-4b64-9720-6738dc95c174",
+            "label": "close",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"binoculars\",\"frame\":\"binoculars/close0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"binoculars\",\"frame\":\"binoculars/close0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"binoculars\",\"frame\":\"binoculars/close0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "binoculars",
+                "frame": "binoculars/close0001"
+            },
+            "x": 1445,
+            "y": 101
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "f996bba9-97cc-47c4-a1a2-afd2eb833c66",
+            "label": "waves1",
+            "objectIds": [
+                "e998d1ef-528c-4b52-9176-24ea1944af00",
+                "c342d61a-b2ea-4e1d-b311-a6dbedc25d9c",
+                "00a2e459-e3e9-474e-be55-111ac11b67ba",
+                "5d89ede6-96b7-4d7f-beef-b198fb0cf768",
+                "454286dd-9d9d-4470-b629-fb4994fe1ecb",
+                "8f654f4c-45e8-4ddf-ba40-479e94969960",
+                "18da2c00-876f-4daa-8e27-150edefbde69",
+                "e96ac63b-b34d-4303-8e71-a2df87e439fb",
+                "68131121-8baf-41aa-82a3-abb5f03ae50c"
+            ]
+        },
+        {
+            "id": "48746278-9ea5-403d-b761-b2f93b7f779a",
+            "label": "waves2",
+            "objectIds": [
+                "e2a48f36-291f-493c-93c4-aef49761b992",
+                "344a6b55-e687-4670-a4c6-e8c6bdfb6f85",
+                "94083b0c-aa2f-4376-ba47-773744c0f2e3",
+                "de03f028-4091-44a3-b010-b4c4533e1ae0"
+            ]
+        }
+    ]
+}
