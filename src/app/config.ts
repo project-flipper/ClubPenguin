@@ -93,7 +93,7 @@ export default class Config {
     public igloo_locations: any;
     public igloo_music_tracks: any;
     public igloos: any;
-    public jokes: any;
+    public jokes: string[];
     public mascot_messages: any;
     public mascots: any;
     public paper_items: { [itemId: string]: PaperItemConfig; };

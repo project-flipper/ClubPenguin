@@ -605,8 +605,6 @@ export default class Interface extends Phaser.Scene {
         this.input.keyboard.createCombo('el', { resetOnWrongKey: true, resetOnMatch: true });
         this.input.keyboard.createCombo('ec', { resetOnWrongKey: true, resetOnMatch: true });
         this.input.keyboard.createCombo('et', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('?', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('!', { resetOnWrongKey: true, resetOnMatch: true });
 
         this.input.keyboard.on('keydown', this.keydownHandler, this);
 
@@ -702,6 +700,19 @@ export default class Interface extends Phaser.Scene {
                 this.snowballCrosshair.visible = true;
                 event.stopPropagation();
                 break;
+            case 'j':
+                let joke = Phaser.Math.RND.pick(this.game.gameConfig.jokes);
+                this.sendMessage(joke, true);
+                event.stopPropagation();
+                break;
+            case '?':
+                this.sendEmoji('QUESTION');
+                event.stopPropagation();
+                break;
+            case '!':
+                this.sendEmoji('EXCLAMATION');
+                event.stopPropagation();
+                break;
         }
     }
 
@@ -768,10 +779,12 @@ export default class Interface extends Phaser.Scene {
 
     }
 
-    sendMessage(): void {
+    sendMessage(message?: string, allowAutopart = false): void {
         this.hideHint();
-        if (this.chat.value.length > 0) {
-            this.engine.player.overlay.balloon.showMessage(this.chat.value);
+
+        if (message) this.engine.player.overlay.balloon.showMessage(message, allowAutopart);
+        else if (this.chat.value.length > 0) {
+            this.engine.player.overlay.balloon.showMessage(this.chat.value, allowAutopart);
             this.chat.value = '';
         }
     }
