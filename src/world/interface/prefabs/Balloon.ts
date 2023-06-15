@@ -58,7 +58,9 @@ export default class Balloon extends Phaser.GameObjects.Container {
         this.message = message;
 
         /* START-USER-CTR-CODE */
-        // Write your code here.
+
+        this.parts = [];
+
         /* END-USER-CTR-CODE */
     }
 
@@ -85,16 +87,37 @@ export default class Balloon extends Phaser.GameObjects.Container {
         this.lowerChat.setFrame(state ? 'interface/bannedBalloonLowerChat' : 'interface/balloonLowerChat');
     }
 
-    showMessage(message: string): void {
+    public parts: string[];
+
+    showNextPart(): void {
+        this.message.text = this.parts.shift();
+        this.setBalloonSize();
+    }
+
+    showMessage(message: string, allowMultipart = false): void {
         this.setBanned(false);
 
         this.lower.visible = false;
         this.lowerChat.visible = true;
         this.emoji.visible = false;
 
-        this.message.text = message;
-        this.message.boxHeight = (this.message.height + this.TEXT_Y_PADDING / 2) + 45;
+        if (allowMultipart) {
+            this.parts = message.split('|');
+            this.showNextPart();
+        } else {
+            this.parts = [];
+            this.message.text = message;
+            this.setBalloonSize();
+        }
+
         this.message.visible = true;
+
+        this.visible = true;
+        this.startHideTimer();
+    }
+
+    setBalloonSize(): void {
+        this.message.boxHeight = (this.message.height + this.TEXT_Y_PADDING / 2) + 45;
 
         this.upper.width = this.message.boxWidth + this.TEXT_X_PADDING;
         this.lowerChat.width = this.upper.width;
@@ -103,9 +126,6 @@ export default class Balloon extends Phaser.GameObjects.Container {
 
         this.message.boxX = (this.upper.x - (this.upper.width / 2)) + (this.TEXT_X_PADDING / 2);
         this.message.boxY = this.upper.y - (this.TEXT_Y_PADDING / 2);
-
-        this.visible = true;
-        this.startHideTimer();
     }
 
     showEmoji(emoji: Emoji): void {
@@ -119,6 +139,8 @@ export default class Balloon extends Phaser.GameObjects.Container {
         this.lower.width = this.upper.width;
         this.upper.height = this.EMOTE_HEIGHT;
         this.upper.y = this.lower.y - this.upper.height;
+
+        this.parts = [];
 
         this.emoji.setFrame(this.getEmojiFrame(emoji));
         this.emoji.visible = true;
@@ -197,7 +219,14 @@ export default class Balloon extends Phaser.GameObjects.Container {
     startHideTimer(): void {
         if (this.timer) this.timer.remove();
 
-        this.timer = this.scene.time.delayedCall(this.DURATION, () => this.visible = false);
+        this.timer = this.scene.time.delayedCall(this.DURATION, () => {
+            if (this.parts.length > 0) {
+                this.showNextPart();
+                this.startHideTimer();
+            } else {
+                this.visible = false;
+            }
+        });
     }
 
     /* END-USER-CODE */
