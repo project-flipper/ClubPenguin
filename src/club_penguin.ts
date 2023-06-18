@@ -39,6 +39,15 @@ declare global {
     };
 }
 
+export function isBrowserCompatible(): boolean {
+    return (
+        typeof fetch == 'function' &&
+        typeof crypto == 'object' &&
+        typeof crypto.subtle == 'object' &&
+        typeof WebSocket == 'function'
+    );
+}
+
 export function run(params: RunParams): void {
     stop();
 
@@ -88,13 +97,13 @@ export function run(params: RunParams): void {
             }
         },
         physics: {
-            default: 'arcade',
-            arcade: {
-                debug: true,
+            default: 'matter',
+            matter: {
                 gravity: {
-                    x: 0,
                     y: 0
-                }
+                },
+                enableSleeping: true,
+                debug: params.environmentType == 'dev'
             }
         },
         loader: {
