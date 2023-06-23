@@ -262,9 +262,9 @@ export default class Startscreen extends Phaser.Scene {
 
     localize(locale: Locale): void {
         this.memberBadge.setFrame(`start-screen/memberBadge${locale.frame}`);
-        this.membershipTextBox.text = locale.localize('w.puffleadoption.dialog.rainbowposter.learnmoremembership');
-        this.loginTextBox.text = locale.localize('Login');
-        this.createPenguinTextBox.text = locale.localize('w.redemption.login.createPenguin');
+        this.membershipTextBox.text = locale.localize('membership_button', 'start_module');
+        this.loginTextBox.text = locale.localize('start_button', 'start_module');
+        this.createPenguinTextBox.text = locale.localize('create_button', 'start_module');
 
         if (locale.language == Language.RU) this.logo.setFrame('start-screen/logoRu');
         else this.logo.setFrame('start-screen/logo');

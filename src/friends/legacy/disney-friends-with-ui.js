@@ -1,4 +1,4 @@
-module.exports = function (paths) {
+module.exports = function (basePath, getAvatarUrl) {
     var DISNEY_FRIENDS_INI = {
         ieVer: 0,
         VERSION: '0.0.1'
@@ -116,9 +116,8 @@ module.exports = function (paths) {
         DEBUG_CONFIG: "true",
         DEBUG: !0,
         FRIENDS_BASE_URL: window.location.protocol + "//" + window.location.host,
-        CLUBPENGUIN_CONTENT_URL: paths.basePath,
+        CLUBPENGUIN_CONTENT_URL: basePath,
         BOSH_PATH: "/friends/bind",
-        CLUB_PENGUIN_AVATAR_URL: paths.avatarUrl,
         PRESENCE_LIMIT_CONFIG: "true",
         PRESENCE_LIMIT: !1,
         PRESENCE_TIME_PERIOD: "120",
@@ -818,7 +817,7 @@ module.exports = function (paths) {
             $("#D_F_FriendsPanel").data(i) && ((i = $("#D_F_FriendsPanel").data(i).status) && i === Disney.Friends.Presence.Status.ONLINE || (t += "Off")), t += ".png", t = Disney.Social.getUrl(t, !0), Disney.Friends.UI.Images.checkValidAvatar(e, t, n)
         },
         getAvatarUriByFriendId: function (e, i, n, t, s) {
-            return n = Disney.Friends.UI.Images, t || (t = 88), t = t < 88 ? 60 : 88, 0 === i.indexOf("character_") ? (this.getCharacterAvatar(e, i, t), !1) : i && "null" !== i ? (i = Disney.Social.Environment.CLUB_PENGUIN_AVATAR_URL + "/" + i + "/avatar", i += "?size=" + t.toString(), i += "&language=" + Disney.Social.getPageLang(), i += s ? "&photo=true" : "&photo=false", i += "&bypassPlayerSettingCache=false", void n.checkValidAvatar(e, i, t)) : (s = "18", t < 88 && (s = "14"), $(e).unbind("load").unbind("error").attr("longdesc", s), Disney.Friends.UI.Images.setAttrs(e, s, !1), !1)
+            return n = Disney.Friends.UI.Images, t || (t = 88), t = t < 88 ? 60 : 88, 0 === i.indexOf("character_") ? (this.getCharacterAvatar(e, i, t), !1) : i && "null" !== i ? (i = getAvatarUrl(i, { size: t, language: Disney.Social.getPageLang(), photo: s, bypassPlayerSettingCache: false }), void n.checkValidAvatar(e, i, t)) : (s = "18", t < 88 && (s = "14"), $(e).unbind("load").unbind("error").attr("longdesc", s), Disney.Friends.UI.Images.setAttrs(e, s, !1), !1)
         },
         getAvatarUriBySwid: function (e, i, n, t) {
             var s = null;
@@ -1060,7 +1059,7 @@ module.exports = function (paths) {
                 r = t.length;
             for (s > r && (s = r - 1), (s -= 9) < 0 && (s = 0), n += s; s < r && !(s > n); s++)
                 if ((i = t[s]) && "null" !== i && 0 !== i.indexOf("character_") && !(e = this.getAvatarCache(i, 88))) {
-                    n = Disney.Social.Environment.CLUB_PENGUIN_AVATAR_URL + "/" + i + "/avatar?size=88&language=" + Disney.Social.getPageLang() + "&photo=true", n += "&bypassPlayerSettingCache=false", Disney.Friends.UI.Images.preloadAvatar(n);
+                    n = getAvatarUrl(i, { size: 88, language: Disney.Social.getPageLang(), photo: true, bypassPlayerSettingCache: false }), Disney.Friends.UI.Images.preloadAvatar(n);
                     break
                 }
         },

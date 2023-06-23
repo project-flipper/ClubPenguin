@@ -74,7 +74,8 @@ export default class World extends Phaser.Scene {
         this.worldId = data.id;
         this.myPenguinData = {
             id: '1000',
-            name: data.name,
+            username: data.name,
+            nickname: data.name,
             avatar: {
                 color: 7,
                 head: 21073,
@@ -127,88 +128,7 @@ export default class World extends Phaser.Scene {
             onready: (scene: Engine) => resolve(scene)
         }));
 
-        this.game.friends.connect([
-            {
-                id: '10000001',
-                name: 'Ray',
-                avatar: {
-                    color: 2,
-                    head: 0,
-                    face: 0,
-                    neck: 0,
-                    body: 0,
-                    hand: 0,
-                    feet: 0,
-                    photo: 0,
-                    flag: 0
-                },
-                publicStampbook: false,
-                relationship: {
-                    type: RelationshipType.FRIEND,
-                    since: ''
-                }
-            },
-            {
-                id: '10000002',
-                name: 'Koji',
-                avatar: {
-                    color: 2,
-                    head: 0,
-                    face: 0,
-                    neck: 0,
-                    body: 0,
-                    hand: 0,
-                    feet: 0,
-                    photo: 0,
-                    flag: 0
-                },
-                publicStampbook: false,
-                relationship: {
-                    type: RelationshipType.FRIEND,
-                    since: ''
-                }
-            },
-            {
-                id: '10000003',
-                name: 'ugly',
-                avatar: {
-                    color: 6,
-                    head: 0,
-                    face: 0,
-                    neck: 0,
-                    body: 0,
-                    hand: 0,
-                    feet: 0,
-                    photo: 0,
-                    flag: 0
-                },
-                publicStampbook: false,
-                relationship: {
-                    type: RelationshipType.FRIEND,
-                    since: ''
-                }
-            },
-            {
-                id: '10000004',
-                name: 'vanessa\'s mom',
-                avatar: {
-                    color: 2,
-                    head: 0,
-                    face: 0,
-                    neck: 0,
-                    body: 0,
-                    hand: 0,
-                    feet: 0,
-                    photo: 0,
-                    flag: 0
-                },
-                publicStampbook: false,
-                relationship: {
-                    type: RelationshipType.FRIEND,
-                    since: ''
-                }
-            }
-        ], [
+        this.game.friends.connect([], [
             '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '16', '28', '31', '32', '33'
         ], true, true, true);
 
@@ -266,7 +186,8 @@ export default class World extends Phaser.Scene {
         // TODO: fetch penguin data
         this.interface.openNamecard({
             id: id,
-            name: 'Penguin of ' + id,
+            username: 'P' + id,
+            nickname: 'P' + id,
             avatar: {
                 color: 2,
                 head: 0,

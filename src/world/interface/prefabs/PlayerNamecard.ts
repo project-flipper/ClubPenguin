@@ -294,7 +294,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
     setup(data: MyPenguinData): void {
         this.closeInventory();
 
-        this.nickname.text = data.name;
+        this.nickname.text = data.nickname;
 
         this.paperdoll.clear();
         if (data.avatar.transformation) {

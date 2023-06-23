@@ -201,6 +201,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         nameTextField.backgroundIsStroked = true;
         nameTextField.backgroundStrokeWidth = 2;
         nameTextField.backgroundStrokeColor = "#000000";
+        nameTextField.autocomplete = "username";
 
         // passwordTextField (prefab fields)
         passwordTextField.inputType = "password";
@@ -213,6 +214,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         passwordTextField.backgroundIsStroked = true;
         passwordTextField.backgroundStrokeWidth = 2;
         passwordTextField.backgroundStrokeColor = "#000000";
+        passwordTextField.autocomplete = "password";
 
         // nameLabel (prefab fields)
         nameLabel.boxWidth = 409.05;
@@ -240,9 +242,9 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
 
         // loginButton (components)
         const loginButtonButtonComponent = new ButtonComponent(loginButton);
-        loginButtonButtonComponent.upTexture = { "key": "login", "frame": "login-screen/button" };
-        loginButtonButtonComponent.overTexture = { "key": "login", "frame": "login-screen/buttonHover" };
-        loginButtonButtonComponent.downTexture = { "key": "login", "frame": "login-screen/buttonDown" };
+        loginButtonButtonComponent.upTexture = {"key":"login","frame":"login-screen/button"};
+        loginButtonButtonComponent.overTexture = {"key":"login","frame":"login-screen/buttonHover"};
+        loginButtonButtonComponent.downTexture = {"key":"login","frame":"login-screen/buttonDown"};
         loginButtonButtonComponent.handCursor = true;
 
         // loginLabel (prefab fields)
@@ -373,7 +375,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
             this.lock();
 
             this.scene.login({
-                name: this.nameTextField.value || 'BanduPengu12',
+                name: this.nameTextField.value,
                 password: this.passwordTextField.value,
                 saveName: this.nameCheckbox.checked,
                 savePassword: this.passwordCheckbox.checked

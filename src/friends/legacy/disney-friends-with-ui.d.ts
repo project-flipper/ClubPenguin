@@ -174,7 +174,4 @@ declare global {
     }
 }
 
-export default function init(paths: {
-    basePath: string,
-    avatarUrl: string
-}): void;
+export default function init(basePath: string, avatarUrl: (id: string, params: { size: number, language: string, photo: boolean, bypassPlayerSettingCache: boolean }) => string): void;

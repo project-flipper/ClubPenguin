@@ -17,7 +17,6 @@
             "type": "Container",
             "id": "f6c536ed-af63-441b-86e3-d268d0879e3e",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -35,7 +34,6 @@
                     ],
                     "label": "textBox",
                     "scope": "CLASS",
-                    "components": [],
                     "x": 0,
                     "y": 0,
                     "tintTopLeft": "#000000",
@@ -44,9 +42,7 @@
                     "tintBottomRight": "#000000",
                     "text": "TextField",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -72,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -72
                 }
             ]
         }
@@ -56,7 +52,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 4
     },
     "prefabProperties": [
         {
@@ -280,6 +276,16 @@
             "tooltip": "Property 1",
             "defValue": "*",
             "customDefinition": false,
+            "type": {
+                "id": "string"
+            }
+        },
+        {
+            "name": "autocomplete",
+            "label": "Autocomplete",
+            "tooltip": "The autocomplete hint for web browsers to populate this field's content.",
+            "defValue": "off",
+            "customDefinition": true,
             "type": {
                 "id": "string"
             }

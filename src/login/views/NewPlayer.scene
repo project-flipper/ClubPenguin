@@ -17,7 +17,6 @@
             "type": "Container",
             "id": "d284bffa-4bca-49ec-9fa9-b119ebd2b23c",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "prefabId": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",
@@ -34,7 +33,8 @@
                         "fontSize",
                         "fontColor",
                         "backgroundStrokeColor",
-                        "inputType"
+                        "inputType",
+                        "autocomplete"
                     ],
                     "label": "nameTextField",
                     "scope": "PUBLIC",
@@ -48,11 +48,9 @@
                     "backgroundIsStroked": true,
                     "backgroundStrokeWidth": 2,
                     "backgroundStrokeColor": "#000000",
-                    "components": [],
+                    "autocomplete": "username",
                     "x": 711,
-                    "y": 135,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 135
                 },
                 {
                     "prefabId": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",
@@ -69,7 +67,8 @@
                         "fontSize",
                         "fontColor",
                         "backgroundStrokeColor",
-                        "inputType"
+                        "inputType",
+                        "autocomplete"
                     ],
                     "label": "passwordTextField",
                     "scope": "PUBLIC",
@@ -83,11 +82,9 @@
                     "backgroundIsStroked": true,
                     "backgroundStrokeWidth": 2,
                     "backgroundStrokeColor": "#000000",
-                    "components": [],
+                    "autocomplete": "password",
                     "x": 711,
-                    "y": 202.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 202.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -115,7 +112,6 @@
                     "boxHeight": 52.2,
                     "horizontalAlign": 2,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 292.5,
                     "y": 139.5,
                     "tintTopLeft": "#000000",
@@ -126,9 +122,7 @@
                     "text": "Penguin name:",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -36,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -36
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -156,7 +150,6 @@
                     "boxHeight": 52.2,
                     "horizontalAlign": 2,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 292.5,
                     "y": 209.25,
                     "tintTopLeft": "#000000",
@@ -167,9 +160,7 @@
                     "text": "Password:",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -36,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -36
                 },
                 {
                     "prefabId": "f58c5cab-2cab-446d-beda-1099ff2e1881",
@@ -180,11 +171,8 @@
                     ],
                     "label": "nameCheckbox",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 637.3125,
-                    "y": 303.41249999999997,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 303.41249999999997
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -213,7 +201,6 @@
                     "boxHeight": 52.2,
                     "horizontalAlign": 0,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 672.75,
                     "y": 279,
                     "tintTopLeft": "#000000",
@@ -225,9 +212,7 @@
                     "font": "BurbankSmallMedium",
                     "align": 0,
                     "fontSize": -36,
-                    "maxWidth": 760.3875,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "maxWidth": 760.3875
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -256,7 +241,6 @@
                     "boxHeight": 52.2,
                     "horizontalAlign": 0,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 672.75,
                     "y": 337.5,
                     "tintTopLeft": "#000000",
@@ -268,9 +252,7 @@
                     "font": "BurbankSmallMedium",
                     "align": 0,
                     "fontSize": -36,
-                    "maxWidth": 760.3875,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "maxWidth": 760.3875
                 },
                 {
                     "prefabId": "f58c5cab-2cab-446d-beda-1099ff2e1881",
@@ -281,11 +263,8 @@
                     ],
                     "label": "passwordCheckbox",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 637.3125,
-                    "y": 366.41249999999997,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 366.41249999999997
                 },
                 {
                     "type": "Image",
@@ -306,8 +285,7 @@
                     "x": 680.0625,
                     "y": 424.125,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -330,37 +308,31 @@
                     "boxHeight": 63,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 716.2875,
                     "y": 453.375,
                     "text": "Login",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -45,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -45
                 },
                 {
                     "type": "Rectangle",
                     "id": "8dc46531-7048-4cfd-bec8-b2f10fd56485",
                     "label": "forgotHitbox",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 853.7625,
                     "y": 620.55,
                     "alpha": 0.01,
                     "isFilled": true,
                     "fillColor": "#56e4d7",
                     "width": 486,
-                    "height": 81,
-                    "list": []
+                    "height": 81
                 },
                 {
                     "type": "Sprite",
                     "id": "2bebf980-e416-47c5-85d5-a4817c094d9c",
                     "label": "forgotBar",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "login",
                         "frame": "login-screen/forgot0001"
@@ -369,8 +341,7 @@
                     "y": 575.55,
                     "originX": 0,
                     "originY": 0,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -393,37 +364,31 @@
                     "boxHeight": 52.2,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 551.25,
                     "y": 592.425,
                     "text": "Forgot your password?",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -36
                 },
                 {
                     "type": "Rectangle",
                     "id": "41e7251b-fd17-4fd4-9c36-3af1cffa108a",
                     "label": "accountHitbox",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 859.5,
                     "y": 747,
                     "alpha": 0.01,
                     "isFilled": true,
                     "fillColor": "#56e4d7",
                     "width": 685.575,
-                    "height": 162,
-                    "list": []
+                    "height": 162
                 },
                 {
                     "type": "Sprite",
                     "id": "5474cb2b-7cff-4e8e-be1b-25a6200fe41f",
                     "label": "accountBar",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "login",
                         "frame": "login-screen/account0001"
@@ -432,8 +397,7 @@
                     "y": 657,
                     "originX": 0,
                     "originY": 0,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -461,7 +425,6 @@
                     "boxHeight": 52.2,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 549.225,
                     "y": 695.1375,
                     "tintTopLeft": "#000000",
@@ -472,9 +435,7 @@
                     "text": "Don't have a penguin?",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -36
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -497,37 +458,31 @@
                     "boxHeight": 75.0375,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 303.4125,
                     "y": 750.375,
                     "text": "Create a free account now",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -38.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -38.25
                 },
                 {
                     "type": "Rectangle",
                     "id": "dd6edbac-d694-46ac-937f-003a86b92b4d",
                     "label": "rulesHitbox",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 852.75,
                     "y": 876.375,
                     "alpha": 0.01,
                     "isFilled": true,
                     "fillColor": "#56e4d7",
                     "width": 470.7,
-                    "height": 88.2,
-                    "list": []
+                    "height": 88.2
                 },
                 {
                     "type": "Sprite",
                     "id": "40984b93-a091-4529-a5b2-b06ddc06ba64",
                     "label": "rulesBar",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "login",
                         "frame": "login-screen/rules0001"
@@ -536,8 +491,7 @@
                     "y": 827.375,
                     "originX": 0,
                     "originY": 0,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -560,37 +514,31 @@
                     "boxHeight": 58.5,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 551.3625,
                     "y": 847.35,
                     "text": "Club Penguin Rules",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -40.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -40.5
                 },
                 {
                     "type": "Rectangle",
                     "id": "8487ce42-180c-491a-991f-835b69206d7e",
                     "label": "backHitbox",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 853.7625,
                     "y": 991.0125,
                     "alpha": 0.01,
                     "isFilled": true,
                     "fillColor": "#56e4d7",
                     "width": 486,
-                    "height": 81,
-                    "list": []
+                    "height": 81
                 },
                 {
                     "type": "Sprite",
                     "id": "bae6b405-36e1-4418-9bb7-3c0b602bf875",
                     "label": "backBar",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "login",
                         "frame": "login-screen/back0001"
@@ -599,8 +547,7 @@
                     "y": 946.0125,
                     "originX": 0,
                     "originY": 0,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -623,22 +570,18 @@
                     "boxHeight": 52.2,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 690.75,
                     "y": 966.2625,
                     "text": "Back",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -36
                 },
                 {
                     "type": "Image",
                     "id": "a8d85e3e-1f1b-4c2b-91cb-0e391d466bb2",
                     "label": "secret",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "login",
                         "frame": "login-screen/secret0001"
@@ -646,8 +589,7 @@
                     "x": 1329.75,
                     "y": 558.9,
                     "originX": 0.4921875,
-                    "originY": 0.49058824,
-                    "list": []
+                    "originY": 0.49058824
                 }
             ]
         }
@@ -657,6 +599,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 4
     }
 }

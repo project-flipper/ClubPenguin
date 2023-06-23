@@ -5,6 +5,7 @@ export type InputType = 'text' | 'password' | 'email';
 import Phaser from "phaser";
 import TextBox from "./TextBox";
 /* START-USER-IMPORTS */
+import { App } from "../../app/app";
 /* END-USER-IMPORTS */
 
 export default class TextField extends Phaser.GameObjects.Container {
@@ -51,20 +52,24 @@ export default class TextField extends Phaser.GameObjects.Container {
 
         this.handleKeyUp = () => true;
         this.handleKeyDown = () => true;
+        this.handleValueChange = () => { };
 
-        let element = scene.add.dom(0, 0, 'input', 'background: transparent; border: none; outline: none;');
+        let app = scene.game as App;
+        let element = app.fixDomGO(scene.add.dom(0, 0, 'input', 'background: transparent; border: none; outline: none;'));
         element.addListener('keydown keyup input select focusin focusout');
         element.on('keyup', (event: KeyboardEvent) => {
             if (this.handleKeyUp(event)) {
                 this.filter();
                 this.render();
             }
+            this.handleValueChange(this.value);
         });
         element.on('keydown', (event: KeyboardEvent) => {
             if (this.handleKeyDown(event)) {
                 this.filter();
                 this.render();
             }
+            this.handleValueChange(this.value);
         });
         element.alpha = 0.01;
         element.setOrigin(0, 0);
@@ -100,6 +105,7 @@ export default class TextField extends Phaser.GameObjects.Container {
         this.backgroundStrokeColor = "#000000";
         this.leftMargin = 4.5;
         this.topMargin = 4.5;
+        this.autocomplete = "off";
     }
 
     private textBox: TextBox;
@@ -109,6 +115,7 @@ export default class TextField extends Phaser.GameObjects.Container {
 
     public handleKeyUp: (event: KeyboardEvent) => boolean;
     public handleKeyDown: (event: KeyboardEvent) => boolean;
+    public handleValueChange: (value: string) => void;
 
     public filterRegex: RegExp;
 
@@ -169,6 +176,14 @@ export default class TextField extends Phaser.GameObjects.Container {
         this.render();
     }
 
+    get autocomplete(): string {
+        return this.html.autocomplete;
+    }
+
+    set autocomplete(value: string) {
+        this.html.autocomplete = value;
+    }
+
     get value(): string {
         return this.html.value;
     }
@@ -204,8 +219,22 @@ export default class TextField extends Phaser.GameObjects.Container {
     private _backgroundStrokeWidth: number;
     private _backgroundStrokeColor: number;
 
-    public horizontalAlign: number;
-    public verticalAlign: number;
+    get horizontalAlign(): number {
+        return this.textBox.horizontalAlign;
+    }
+
+    set horizontalAlign(value: number) {
+        this.textBox.horizontalAlign = value;
+    }
+
+    get verticalAlign(): number {
+        return this.textBox.verticalAlign;
+    }
+
+    set verticalAlign(value: number) {
+        this.textBox.verticalAlign = value;
+    }
+
     public selectionColor: string;
     public selectionInvertsText: boolean;
 

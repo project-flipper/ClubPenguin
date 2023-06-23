@@ -607,7 +607,6 @@ export default class Interface extends Phaser.Scene {
         this.input.keyboard.createCombo('et', { resetOnWrongKey: true, resetOnMatch: true });
 
         this.input.keyboard.on('keydown', this.keydownHandler, this);
-
         this.input.keyboard.on('keycombomatch', this.processEmojiCombo, this);
 
         this.chat.handleKeyUp = (event) => {

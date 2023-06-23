@@ -3,6 +3,5 @@ export type CreateAccountPayload = {
     color: number,
     password: string,
     email: string,
-    agreesToTerms: boolean,
-    agreesToRules: boolean
+    token: string,
 };

@@ -5,7 +5,8 @@ import { Relationship } from "./relationship"
 
 export type BasePenguinData = {
     id: string,
-    name: string,
+    username: string,
+    nickname: string,
     avatar: Avatar,
     member?: Membership,
     iglooId?: number,

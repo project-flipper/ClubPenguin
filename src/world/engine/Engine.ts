@@ -230,7 +230,7 @@ export default class Engine extends Phaser.Scene {
             });
         }
 
-        if (config.music_id && this.currentMusicId != config.music_id) this.playMusic(config.music_id);
+        if (config.music_id && this.currentMusicId != config.music_id) await this.playMusic(config.music_id);
         else if (!config.music_id) this.stopMusic();
 
         this.currentRoomId = config.room_id;
@@ -305,7 +305,7 @@ export default class Engine extends Phaser.Scene {
 
         this.interface.show();
         load.hide();
-        this.events.emit('roomjoin', this.currentRoom);
+        this.events.emit('roomready', this.currentRoom);
     }
 
     async loadInitialPenguins(): Promise<void> {
@@ -398,7 +398,7 @@ export default class Engine extends Phaser.Scene {
         penguin.hitbox.on('release', () => this.world.isPlayer(data) ? this.interface.openMyNamecard() : this.interface.openNamecard(data));
         this.interface.attachAvatarOverlay(penguin);
 
-        penguin.overlay.nickname.text = data.name;
+        penguin.overlay.nickname.text = data.nickname;
         penguin.overlay.balloon.x = penguin.speechBubbleOffset.x;
         penguin.overlay.balloon.y = penguin.speechBubbleOffset.y;
 
@@ -831,6 +831,16 @@ export default class Engine extends Phaser.Scene {
     }
 
     /* ============ PLAYER ============ */
+
+    enablePlayerPhysics(): void {
+        this.player.scene.matter.add.gameObject(this.player, {
+            shape: {
+                type: 'circle',
+                radius: 25
+            },
+            isStatic: false
+        });
+    }
 
     movePlayer(x: number, y: number): void {
         let player = this.player;

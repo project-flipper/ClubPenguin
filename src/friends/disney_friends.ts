@@ -63,10 +63,10 @@ export class Friends extends Phaser.Events.EventEmitter {
         return this.app.scene.getScene('Interface') as Interface;
     }
 
-    async init(params: Parameters<typeof HandlerInit>[0]): Promise<void> {
+    async init(...params: Parameters<typeof HandlerInit>): Promise<void> {
         if (this.instance) return;
 
-        this.instance = (await import('./legacy/legacy_handler')).default(params);
+        this.instance = (await import('./legacy/legacy_handler')).default(...params);
 
         this.on(FriendsEvents.CONNECTED, this.onConnected, this);
         this.on(FriendsEvents.DISCONNECTED, this.onDisconnected, this);
@@ -97,7 +97,7 @@ export class Friends extends Phaser.Events.EventEmitter {
         this.instance.Friends.activeUser.settings.settingRequestResultHandler([
             bestFriends.length, notificationsEnabled, friendsEnabled, bestFriendsEnabled
         ]);
-        this.instance.Friends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id, name: data.name, presence: Presence.OFFLINE.toString() })));
+        this.instance.Friends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id, name: data.nickname, presence: Presence.OFFLINE.toString() })));
         this.instance.Friends.activeUser.roster.populateBestFriends([]);
         this.instance.Friends.activeUser.roster.populateCharacterRoster(characters.map(id => ({ id, presence: Presence.OFFLINE.toString() })));
     }

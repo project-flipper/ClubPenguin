@@ -36,6 +36,11 @@ export class App extends Phaser.Game {
         this.environmentType = params.environmentType;
     }
 
+    fixDomGO<T extends Phaser.GameObjects.DOMElement>(dom: T): T {
+        if ('phaser' in dom.node) delete dom.node['phaser'];
+        return dom;
+    }
+
     protected onBlur(): void {
         this.lastBlur = window.performance.now();
         super.onBlur();

@@ -1,3 +1,5 @@
+if ('Phaser' in global) delete global['Phaser'];
+
 import 'devtools-detect';
 import Phaser from 'phaser';
 import { App } from './app/app';
@@ -14,6 +16,7 @@ import InternalErrorArea from './app/InternalErrorArea';
 import Logo from './logo/Logo';
 import World from './world/World';
 import Interface from './world/interface/Interface';
+import { Airtower } from './net/airtower';
 
 export var app: App;
 var _app: App;
@@ -35,7 +38,8 @@ interface RunParams {
 
 declare global {
     const __webpack_options__: {
-        EXPOSE_APP: boolean
+        EXPOSE_APP: boolean,
+        RECAPTCHA_SITE_KEY: string
     };
 }
 
@@ -118,10 +122,7 @@ export function run(params: RunParams): void {
                 if (params.elementId) app.canvas.id = params.elementId;
                 if (params.elementClassName) app.canvas.className = params.elementClassName;
 
-                app.friends.init({
-                    basePath: params.mediaPath,
-                    avatarUrl: _app.airtower.avatarUrl
-                });
+                app.friends.init(params.mediaPath, _app.airtower.createAvatarUrlCallback());
             }
         }
     }, {
@@ -209,6 +210,10 @@ declare global {
 class Debug {
     INTERNAL_ID = 10000;
 
+    get airtower(): Airtower {
+        return _app.airtower;
+    }
+
     get engine(): Engine {
         return _app.scene.getScene('Engine') as Engine;
     }
@@ -237,7 +242,8 @@ class Debug {
 
         let data: import('./net/types/penguin/penguin').PenguinData = {
             id: this.INTERNAL_ID.toString(),
-            name,
+            username: name,
+            nickname: name,
             avatar: {
                 color,
                 head: 0,
@@ -300,10 +306,12 @@ class Debug {
                 level: randomRank,
                 since: ''
             } : undefined;
+            let username = `P${this.INTERNAL_ID}`;
 
             let data: import('./net/types/penguin/penguin').PenguinData = {
                 id: this.INTERNAL_ID.toString(),
-                name: `P${this.INTERNAL_ID}`,
+                username,
+                nickname: username,
                 avatar: {
                     color: this.getRandomItem(colors),
                     head: this.getRandomItem(itemsByType[2]),
