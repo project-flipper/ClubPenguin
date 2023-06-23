@@ -10,6 +10,9 @@ import type Load from '../load/Load';
 import { LoaderTask } from '../load/tasks';
 import type { Locale } from "../app/locale";
 import type { App } from "../app/app";
+import { Airtower, HTTPError, digest } from "../net/airtower";
+import { BanError, LoginResponse } from "../net/types/api";
+import ErrorArea from "../app/ErrorArea";
 /* END-USER-IMPORTS */
 
 export default class Login extends Phaser.Scene {
@@ -66,6 +69,10 @@ export default class Login extends Phaser.Scene {
 
     declare game: App;
 
+    get airtower(): Airtower {
+        return this.game.airtower;
+    }
+
     init(): void {
         let load = this.scene.get('Load') as Load;
 
@@ -108,11 +115,21 @@ export default class Login extends Phaser.Scene {
         this.worldSelect.visible = true;
     }
 
+    unlock(): void {
+        if (this.newPlayerView.visible) {
+            this.newPlayerView.unlock();
+        }
+    }
+
     showSavePasswordPrompt(successCallback: () => void, rejectCallback: () => void): void {
         this.passwordPrompt.show(successCallback, rejectCallback, this);
     }
 
-    private _name: string; // TODO: remove
+
+    public MIN_PASS_LENGTH = 4;
+    public MAX_PASS_LENGTH = 32;
+    public MIN_USERNAME_LENGTH = 4;
+    public MAX_USERNAME_LENGTH = 12;
 
     async login({ name, password, saveName, savePassword }: {
         name: string,
@@ -120,11 +137,107 @@ export default class Login extends Phaser.Scene {
         saveName: boolean,
         savePassword: boolean
     }): Promise<void> {
+        let error = this.scene.get('ErrorArea') as ErrorArea;
+        if (name.length == 0) {
+            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NAME_REQUIRED', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.unlock();
+                return true;
+            }, error.makeCode('c', error.NAME_REQUIRED));
+        } else if (name.length < this.MIN_USERNAME_LENGTH) {
+            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NAME_SHORT', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.unlock();
+                return true;
+            }, error.makeCode('c', error.NAME_SHORT));
+        } else if (name.length > this.MAX_USERNAME_LENGTH) {
+            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NAME_LONG', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.unlock();
+                return true;
+            }, error.makeCode('c', error.NAME_LONG));
+        } else if (password.length == 0) {
+            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.PASSWORD_REQUIRED', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.unlock();
+                return true;
+            }, error.makeCode('c', error.PASSWORD_REQUIRED));
+        } else if (password.length < this.MIN_PASS_LENGTH) {
+            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.PASSWORD_SHORT', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.unlock();
+                return true;
+            }, error.makeCode('c', error.PASSWORD_SHORT));
+        } else if (password.length > this.MAX_PASS_LENGTH) {
+            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.PASSWORD_LONG', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.unlock();
+                return true;
+            }, error.makeCode('c', error.PASSWORD_LONG));
+        }
+
         let load = this.scene.get('Load') as Load;
         load.show({ text: `${this.game.locale.localize('Logging in')} ${name}` });
 
-        this._name = name;
-        // TODO: login
+        let response: LoginResponse;
+        try {
+            response = await this.airtower.logIn(name, await digest(password), savePassword);
+        } catch (e) {
+            if (e instanceof HTTPError) {
+                if (e.response.status == 401) {
+                    load.hide();
+                    return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.PASSWORD_WRONG', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                        this.unlock();
+                        return true;
+                    }, error.makeCode('c', error.PASSWORD_WRONG));
+                }
+                else if (e.response.status == 403) {
+                    // we might have a ban
+                    let err = e.data?.error as BanError;
+                    if ([601, 610, 611].includes(err?.error_type)) {
+                        let duration = err?.ban_dur;
+                        load.hide();
+
+                        if (duration == -1) {
+                            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.BAN_FOREVER', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                                this.unlock();
+                                return true;
+                            }, error.makeCode('c', error.BAN_FOREVER));
+                        }
+
+                        let hours = duration / 60;
+
+                        if (hours < 1) {
+                            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.BAN_AN_HOUR', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                                this.unlock();
+                                return true;
+                            }, error.makeCode('c', error.BAN_AN_HOUR));
+                        } else {
+                            let desc = this.game.locale.localize('shell.BAN_DURATION', 'error_lang').replace('%0 %1', `${Math.ceil(hours)} ${this.game.locale.localize('hours')}`);
+                            return error.showError(error.WINDOW_SMALL, desc, this.game.locale.localize('Okay'), () => {
+                                this.unlock();
+                                return true;
+                            }, error.makeCode('c', error.BAN_DURATION));
+                        }
+                    }
+                    throw e;
+                } else if (e.response.status == 404) {
+                    load.hide();
+                    return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NAME_NOT_FOUND', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                        this.unlock();
+                        return true;
+                    }, error.makeCode('c', error.NAME_NOT_FOUND));
+                } else if (e.response.status == 429) {
+                    load.hide();
+                    return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.LOGIN_FLOODING', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                        this.unlock();
+                        return true;
+                    }, error.makeCode('c', error.LOGIN_FLOODING));
+                }
+
+            }
+
+            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NO_SOCKET_CONNECTION', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                window.location.reload();
+                return false;
+            }, error.makeCode('c', error.NO_SOCKET_CONNECTION));
+
+            throw e;
+        }
 
         load.hide();
 
@@ -149,9 +262,7 @@ export default class Login extends Phaser.Scene {
         // TODO: access world
 
         setTimeout(() => {
-            this.scene.start('World', {
-                id, name: this._name
-            });
+            this.scene.start('World', { id });
         }, 1000);
     }
 
