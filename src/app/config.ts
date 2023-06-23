@@ -41,7 +41,11 @@ export interface RoomConfig {
     short_name: string,
     pin_id?: number,
     pin_x?: number,
-    pin_y: number
+    pin_y: number,
+    safe_start_x: number,
+    safe_end_x: number,
+    safe_start_y: number,
+    safe_end_y: number,
 }
 
 export interface PaperItemConfig {

@@ -262,6 +262,10 @@ export default class Engine extends Phaser.Scene {
         let load = this.scene.get('Load') as Load;
         if (!load.isShowing) load.show();
 
+        let position = this.findSafePoint(config);
+        x = x ?? position.x;
+        y = y ?? position.y;
+
         try {
             await this.loadRoom(config);
         } catch (e) {
@@ -290,10 +294,6 @@ export default class Engine extends Phaser.Scene {
 
         this.interface.closeAll();
         this.interface.clearAvatarOverlays();
-
-        let position = this.findRandomPosition();
-        x = x ?? position.x;
-        y = y ?? position.y;
 
         let avatarKey = data.avatar.transformation ?? 'penguin';
 
@@ -499,9 +499,9 @@ export default class Engine extends Phaser.Scene {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    findRandomPosition(): Phaser.Math.Vector2 {
-        let origin = new Phaser.Math.Vector2(this.currentRoom?.safeX ?? this.cameras.main.centerX, this.currentRoom?.safeY ?? (this.cameras.main.centerY + 200));
-        let target = new Phaser.Math.Vector2(origin.x + this.randomRange(-350, 350), origin.y + this.randomRange(-200, 200));
+    findSafePoint(data: RoomConfig): Phaser.Math.Vector2 {
+        let origin = new Phaser.Math.Vector2(data.safe_start_x + data.safe_end_x / 2, data.safe_start_y + data.safe_end_y / 2);
+        let target = new Phaser.Math.Vector2(this.randomRange(data.safe_start_x, data.safe_end_x), this.randomRange(data.safe_start_y, data.safe_end_y));
 
         let block = 'block' in this.currentRoom ? this.currentRoom.block as Phaser.GameObjects.Image : undefined;
         if (block == undefined) return target;
