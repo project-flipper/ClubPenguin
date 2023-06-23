@@ -3,7 +3,9 @@
 import Phaser from "phaser";
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ErrorBubble from "../prefabs/ErrorBubble";
+import TextField from "../../lib/ui/TextField";
 /* START-USER-IMPORTS */
+import { Locale } from "../../app/locale";
 /* END-USER-IMPORTS */
 
 export default class EmailArea extends Phaser.GameObjects.Container {
@@ -50,6 +52,12 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         fieldGraphic.setOrigin(0, 0);
         this.add(fieldGraphic);
 
+        // errorBox
+        const errorBox = scene.add.image(108, 59.74, "create", "create-module/emailField");
+        errorBox.setOrigin(0, 0);
+        errorBox.visible = false;
+        this.add(errorBox);
+
         // placeholder
         const placeholder = scene.add.bitmapText(119.25, 79.9875, "BurbankSmallBold", "Enter parent's email address");
         placeholder.tintTopLeft = 13882584;
@@ -65,19 +73,43 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         errorBubble.visible = false;
         this.add(errorBubble);
 
+        // textField
+        const textField = new TextField(scene, 108, 59.74);
+        this.add(textField);
+
         // progressBubble (prefab fields)
         progressBubble.text = "4.";
+
+        // textField (prefab fields)
+        textField.fieldWidth = 560;
+        textField.fieldHeight = 69;
+        textField.maxLength = 32;
+        textField.verticalAlign = 1;
+        textField.font = "BurbankSmallBold";
+        textField.fontSize = -27;
+        textField.fontColor = "#2c2c2e";
+        textField.backgroundIsFilled = false;
+        textField.leftMargin = 11.25;
+        textField.autocomplete = "email";
 
         this.progressBubble = progressBubble;
         this.title = title;
         this.emailConditionTextBox = emailConditionTextBox;
         this.emailConditions = emailConditions;
         this.fieldGraphic = fieldGraphic;
+        this.errorBox = errorBox;
         this.placeholder = placeholder;
         this.errorBubble = errorBubble;
+        this.textField = textField;
 
         /* START-USER-CTR-CODE */
-        // Write your code here.
+
+        textField.setup();
+        textField.handleValueChange = () => {
+            this.placeholder.visible = textField.value.length == 0;
+            this.hideError();
+        };
+
         /* END-USER-CTR-CODE */
     }
 
@@ -86,12 +118,30 @@ export default class EmailArea extends Phaser.GameObjects.Container {
     public emailConditionTextBox: Phaser.GameObjects.BitmapText;
     public emailConditions: Phaser.GameObjects.Container;
     public fieldGraphic: Phaser.GameObjects.Image;
+    public errorBox: Phaser.GameObjects.Image;
     public placeholder: Phaser.GameObjects.BitmapText;
     public errorBubble: ErrorBubble;
+    public textField: TextField;
 
     /* START-USER-CODE */
 
-    // Write your code here.
+    localize(locale: Locale): void {
+        this.title.text = locale.localize('email_title', 'create_module');
+        this.placeholder.text = locale.localize('email_placeholder', 'create_module');
+        this.emailConditionTextBox.text = locale.localize('email_rule', 'create_module');
+
+    }
+
+    showError(message: string): void {
+        this.errorBubble.textBox.text = message;
+        this.errorBubble.visible = true;
+        this.errorBox.visible = true;
+    }
+
+    hideError(): void {
+        this.errorBubble.visible = false;
+        this.errorBox.visible = false;
+    }
 
     /* END-USER-CODE */
 }

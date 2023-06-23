@@ -111,6 +111,10 @@
             font-size: larger;
             font-weight: bolder;
         }
+
+        .grecaptcha-badge {
+            visibility: hidden;
+        }
     </style>
 
     <link id="stylesheet" type="text/css" href="<%= links.play %>/css/0.css" rel="stylesheet" />
@@ -381,6 +385,8 @@
     <div id="preload-gif">
         <img src="<%= links.play %>/images/processing-icon.gif" />
     </div>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=<%= recaptchaSiteKey %>"></script>
 
     <div id="preloader"></div>
 </body>

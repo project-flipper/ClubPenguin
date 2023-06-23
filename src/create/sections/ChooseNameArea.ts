@@ -3,9 +3,10 @@
 import Phaser from "phaser";
 import LargeProgressBubble from "../prefabs/LargeProgressBubble";
 import TextBox from "../../lib/ui/TextBox";
-import ErrorBubble from "../prefabs/ErrorBubble";
 import TextField from "../../lib/ui/TextField";
+import ErrorBubble from "../prefabs/ErrorBubble";
 /* START-USER-IMPORTS */
+import { Locale } from "../../app/locale";
 /* END-USER-IMPORTS */
 
 export default class ChooseNameArea extends Phaser.GameObjects.Container {
@@ -64,8 +65,14 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         fieldGraphic.setOrigin(0, 0);
         this.add(fieldGraphic);
 
+        // errorBox
+        const errorBox = scene.add.image(135, 42.75, "create", "create-module/chooseNameField");
+        errorBox.setOrigin(0, 0);
+        errorBox.visible = false;
+        this.add(errorBox);
+
         // placeholder
-        const placeholder = scene.add.bitmapText(139.5, 76.5, "BurbankSmallBold", "Enter Penguin Name");
+        const placeholder = scene.add.bitmapText(146.25, 76.5, "BurbankSmallBold", "Enter Penguin Name");
         placeholder.tintTopLeft = 13882584;
         placeholder.tintTopRight = 13882584;
         placeholder.tintBottomLeft = 13882584;
@@ -74,17 +81,17 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         placeholder.fontSize = -27;
         this.add(placeholder);
 
+        // textField
+        const textField = new TextField(scene, 135, 42.75);
+        this.add(textField);
+
         // errorBubble
         const errorBubble = new ErrorBubble(scene, 328.3875, -49.1625);
         errorBubble.visible = false;
         this.add(errorBubble);
 
-        // textField
-        const textField = new TextField(scene, 162, 72);
-        this.add(textField);
-
         // titleTextBox (prefab fields)
-        titleTextBox.boxWidth = 234;
+        titleTextBox.boxWidth = 466;
         titleTextBox.boxHeight = 36;
 
         // condition1TextBox (prefab fields)
@@ -97,18 +104,36 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         condition2TextBox.boxHeight = 50.625;
         condition2TextBox.verticalAlign = 1;
 
+        // textField (prefab fields)
+        textField.fieldWidth = 466;
+        textField.fieldHeight = 95;
+        textField.maxLength = 12;
+        textField.verticalAlign = 1;
+        textField.font = "BurbankSmallBold";
+        textField.fontSize = -27;
+        textField.fontColor = "#2c2c2e";
+        textField.backgroundIsFilled = false;
+        textField.leftMargin = 11.25;
+        textField.autocomplete = "username";
+
         this.progressBubble = progressBubble;
         this.titleTextBox = titleTextBox;
         this.condition1TextBox = condition1TextBox;
         this.condition2TextBox = condition2TextBox;
         this.conditions = conditions;
         this.fieldGraphic = fieldGraphic;
+        this.errorBox = errorBox;
         this.placeholder = placeholder;
+        this.textField = textField;
         this.errorBubble = errorBubble;
 
         /* START-USER-CTR-CODE */
 
         textField.setup();
+        textField.handleValueChange = () => {
+            this.placeholder.visible = textField.value.length == 0;
+            this.hideError();
+        };
 
         /* END-USER-CTR-CODE */
     }
@@ -119,12 +144,30 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
     public condition2TextBox: TextBox;
     public conditions: Phaser.GameObjects.Container;
     public fieldGraphic: Phaser.GameObjects.Image;
+    public errorBox: Phaser.GameObjects.Image;
     public placeholder: Phaser.GameObjects.BitmapText;
+    public textField: TextField;
     public errorBubble: ErrorBubble;
 
     /* START-USER-CODE */
 
-    // Write your code here.
+    localize(locale: Locale): void {
+        this.titleTextBox.text = locale.localize('choose_name_title', 'create_module');
+        this.placeholder.text = locale.localize('choose_name_placeholder', 'create_module');
+        this.condition1TextBox.text = locale.localize('choose_name_rule1', 'create_module');
+        this.condition2TextBox.text = locale.localize('choose_name_rule2', 'create_module');
+    }
+
+    showError(message: string): void {
+        this.errorBubble.textBox.text = message;
+        this.errorBubble.visible = true;
+        this.errorBox.visible = true;
+    }
+
+    hideError(): void {
+        this.errorBubble.visible = false;
+        this.errorBox.visible = false;
+    }
 
     /* END-USER-CODE */
 }

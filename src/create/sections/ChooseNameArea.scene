@@ -18,7 +18,6 @@
             "id": "d0eb23d7-45d9-43e3-8a9a-7b72d78db099",
             "label": "chooseNameSection",
             "scope": "PUBLIC",
-            "components": [],
             "list": [
                 {
                     "prefabId": "2c94de99-e3cf-48e4-8428-7bca36caba52",
@@ -29,11 +28,8 @@
                     ],
                     "label": "progressBubble",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 0,
-                    "y": -91.8,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": -91.8
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -54,9 +50,8 @@
                     ],
                     "label": "titleTextBox",
                     "scope": "PUBLIC",
-                    "boxWidth": 234,
+                    "boxWidth": 466,
                     "boxHeight": 36,
-                    "components": [],
                     "x": 132.75,
                     "y": 0,
                     "tintTopLeft": "#2C2C2E",
@@ -66,16 +61,13 @@
                     "tintFill": false,
                     "text": "Create Penguin Name:",
                     "font": "BurbankSmallBold",
-                    "fontSize": -27,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -27
                 },
                 {
                     "type": "Container",
                     "id": "a422d725-6e29-410f-95eb-9bd09355169d",
                     "label": "conditions",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 139.5,
                     "y": 148.5,
                     "list": [
@@ -83,15 +75,13 @@
                             "type": "Image",
                             "id": "f49ae97c-462f-4e45-a6bd-da5f84f7b606",
                             "label": "conditionsGraphics",
-                            "components": [],
                             "texture": {
                                 "key": "create",
                                 "frame": "create-module/nameConditions"
                             },
                             "y": 8.325,
                             "originX": 0,
-                            "originY": 0,
-                            "list": []
+                            "originY": 0
                         },
                         {
                             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -116,7 +106,6 @@
                             "boxWidth": 900,
                             "boxHeight": 50.625,
                             "verticalAlign": 1,
-                            "components": [],
                             "x": 11.25,
                             "y": -2.25,
                             "tintTopLeft": "#525252",
@@ -126,9 +115,7 @@
                             "tintFill": false,
                             "text": "4 - 12 letters, numbers or spaces",
                             "font": "BurbankSmallBold",
-                            "fontSize": -22.5,
-                            "nestedPrefabs": [],
-                            "list": []
+                            "fontSize": -22.5
                         },
                         {
                             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -153,7 +140,6 @@
                             "boxWidth": 900,
                             "boxHeight": 50.625,
                             "verticalAlign": 1,
-                            "components": [],
                             "x": 11.25,
                             "y": 20.25,
                             "tintTopLeft": "#525252",
@@ -163,9 +149,7 @@
                             "tintFill": false,
                             "text": "Do not use your real name",
                             "font": "BurbankSmallBold",
-                            "fontSize": -22.5,
-                            "nestedPrefabs": [],
-                            "list": []
+                            "fontSize": -22.5
                         }
                     ]
                 },
@@ -174,7 +158,20 @@
                     "id": "3752a01e-1cac-4f1c-8bb4-999d887a8fa4",
                     "label": "fieldGraphic",
                     "scope": "PUBLIC",
-                    "components": [],
+                    "texture": {
+                        "key": "create",
+                        "frame": "create-module/chooseNameField"
+                    },
+                    "x": 135,
+                    "y": 42.75,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "f35bfbf0-a20c-4501-9ebe-47f36603ff82",
+                    "label": "errorBox",
+                    "scope": "PUBLIC",
                     "texture": {
                         "key": "create",
                         "frame": "create-module/chooseNameField"
@@ -183,15 +180,14 @@
                     "y": 42.75,
                     "originX": 0,
                     "originY": 0,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "type": "BitmapText",
                     "id": "f76ea410-76a2-46d9-860a-b84b1628dfe5",
                     "label": "placeholder",
                     "scope": "PUBLIC",
-                    "components": [],
-                    "x": 139.5,
+                    "x": 146.25,
                     "y": 76.5,
                     "tintTopLeft": "#D3D4D8",
                     "tintTopRight": "#D3D4D8",
@@ -199,8 +195,40 @@
                     "tintBottomRight": "#D3D4D8",
                     "text": "Enter Penguin Name",
                     "font": "BurbankSmallBold",
+                    "fontSize": -27
+                },
+                {
+                    "prefabId": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",
+                    "id": "1af09357-2109-45a7-9f25-387e38869006",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "property1",
+                        "fieldWidth",
+                        "fieldHeight",
+                        "fontColor",
+                        "fontSize",
+                        "verticalAlign",
+                        "font",
+                        "maxLength",
+                        "backgroundIsFilled",
+                        "leftMargin",
+                        "autocomplete"
+                    ],
+                    "label": "textField",
+                    "scope": "PUBLIC",
+                    "fieldWidth": 466,
+                    "fieldHeight": 95,
+                    "maxLength": 12,
+                    "verticalAlign": 1,
+                    "font": "BurbankSmallBold",
                     "fontSize": -27,
-                    "list": []
+                    "fontColor": "#2c2c2e",
+                    "backgroundIsFilled": false,
+                    "leftMargin": 11.25,
+                    "autocomplete": "username",
+                    "x": 135,
+                    "y": 42.75
                 },
                 {
                     "prefabId": "5ed39c58-bdfa-4831-81bd-b75efd0bc709",
@@ -212,27 +240,9 @@
                     ],
                     "label": "errorBubble",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 328.3875,
                     "y": -49.1625,
-                    "visible": false,
-                    "nestedPrefabs": [],
-                    "list": []
-                },
-                {
-                    "prefabId": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",
-                    "id": "1af09357-2109-45a7-9f25-387e38869006",
-                    "unlock": [
-                        "x",
-                        "y",
-                        "property1"
-                    ],
-                    "label": "textField",
-                    "components": [],
-                    "x": 162,
-                    "y": 72,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "visible": false
                 }
             ]
         }
@@ -242,6 +252,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 4
     }
 }

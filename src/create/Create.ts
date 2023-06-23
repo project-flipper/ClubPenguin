@@ -1,34 +1,15 @@
-export enum CreateError {
-    NET_ERR = 'neterr',
-    NAME_MISSING = 'namemissing',
-    NAME_TOO_SHORT = 'nametooshort',
-    NAME_TOO_LONG = 'nametoolong',
-    NAME_TAKEN = 'nametaken',
-    INVALID_COLOR = 'invalidcolor',
-    PASSWORD_MISSING = 'passwordmissing',
-    PASSWORD_REPEAT_MISING = 'passwordrepeatmissing',
-    PASSWORD_MISMATCH = 'passwordmismatch',
-    PASSWORD_TOO_SHORT = 'passwordtooshort',
-    PASSWORD_TOO_LONG = 'passwordtoolong',
-    EMAIL_MISSING = 'emailmissing',
-    EMAIL_INVALID = 'emailinvalid',
-    EMAIL_TAKEN = 'emailtaken',
-    TERMS_NOT_AGREED = 'termsnotagreed',
-    RULES_NOT_AGREED = 'rulesnotagreed'
-};
-
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 import Paperdoll from "./prefabs/Paperdoll";
 import ColorSelector from "./sections/ColorSelector";
+import TextBox from "../lib/ui/TextBox";
 import ChooseNameArea from "./sections/ChooseNameArea";
 import PasswordArea from "./sections/PasswordArea";
 import EmailArea from "./sections/EmailArea";
 import CheckBoxTerms from "./sections/CheckBoxTerms";
 import CheckBoxRules from "./sections/CheckBoxRules";
-import TextBox from "../lib/ui/TextBox";
 import PaperdollAlternate from "./prefabs/PaperdollAlternate";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 /* START-USER-IMPORTS */
@@ -38,6 +19,8 @@ import { LoaderTask } from '../load/tasks';
 import ColorSwatch from './prefabs/ColorSwatch';
 import type { App } from "../app/app";
 import type { Locale } from "../app/locale";
+import ErrorArea from "../app/ErrorArea";
+import { HTTPError } from "../net/airtower";
 /* END-USER-IMPORTS */
 
 export default class Create extends Phaser.Scene {
@@ -50,7 +33,7 @@ export default class Create extends Phaser.Scene {
         /* END-USER-CTR-CODE */
     }
 
-    preload(): void {
+    editorPreload(): void {
 
         this.load.pack("create-pack", "assets/create/create-pack.json");
     }
@@ -87,26 +70,6 @@ export default class Create extends Phaser.Scene {
         const colorSelector = new ColorSelector(this, 832.5, 94.5);
         signUpState.add(colorSelector);
 
-        // chooseNameArea
-        const chooseNameArea = new ChooseNameArea(this, 168.75, 787.5);
-        signUpState.add(chooseNameArea);
-
-        // passwordArea
-        const passwordArea = new PasswordArea(this, 832.5, 330.75);
-        signUpState.add(passwordArea);
-
-        // emailArea
-        const emailArea = new EmailArea(this, 832.5, 562.5);
-        signUpState.add(emailArea);
-
-        // termsArea
-        const termsArea = new CheckBoxTerms(this, 933.75, 798.75);
-        signUpState.add(termsArea);
-
-        // rulesArea
-        const rulesArea = new CheckBoxRules(this, 933.75, 855);
-        signUpState.add(rulesArea);
-
         // nextButton
         const nextButton = this.add.image(1267.987548828125, 911.25, "create", "create-module/nextButton");
         nextButton.setOrigin(0, 0);
@@ -126,6 +89,26 @@ export default class Create extends Phaser.Scene {
         const create_module_nextButtonArrow = this.add.image(1426.5, 929.0250244140625, "create", "create-module/nextButtonArrow");
         create_module_nextButtonArrow.setOrigin(0, 0);
         signUpState.add(create_module_nextButtonArrow);
+
+        // chooseNameArea
+        const chooseNameArea = new ChooseNameArea(this, 168.75, 787.5);
+        signUpState.add(chooseNameArea);
+
+        // passwordArea
+        const passwordArea = new PasswordArea(this, 832.5, 330.75);
+        signUpState.add(passwordArea);
+
+        // emailArea
+        const emailArea = new EmailArea(this, 832.5, 562.5);
+        signUpState.add(emailArea);
+
+        // termsArea
+        const termsArea = new CheckBoxTerms(this, 933.75, 798.75);
+        signUpState.add(termsArea);
+
+        // rulesArea
+        const rulesArea = new CheckBoxRules(this, 933.75, 855);
+        signUpState.add(rulesArea);
 
         // confirmationState
         const confirmationState = this.add.container(0, 0);
@@ -450,12 +433,13 @@ export default class Create extends Phaser.Scene {
         this.staticGraphics = staticGraphics;
         this.paperdoll = paperdoll;
         this.colorSelector = colorSelector;
-        this.chooseNameArea = chooseNameArea;
-        this.passwordArea = passwordArea;
-        this.termsArea = termsArea;
-        this.rulesArea = rulesArea;
         this.nextButton = nextButton;
         this.nextButtonLabelTextBox = nextButtonLabelTextBox;
+        this.chooseNameArea = chooseNameArea;
+        this.passwordArea = passwordArea;
+        this.emailArea = emailArea;
+        this.termsArea = termsArea;
+        this.rulesArea = rulesArea;
         this.signUpState = signUpState;
         this.paperdollAlternate = paperdollAlternate;
         this.confirmationNameTextBox = confirmationNameTextBox;
@@ -489,12 +473,13 @@ export default class Create extends Phaser.Scene {
     public staticGraphics!: Phaser.GameObjects.Container;
     public paperdoll!: Paperdoll;
     public colorSelector!: ColorSelector;
-    public chooseNameArea!: ChooseNameArea;
-    public passwordArea!: PasswordArea;
-    public termsArea!: CheckBoxTerms;
-    public rulesArea!: CheckBoxRules;
     public nextButton!: Phaser.GameObjects.Image;
     public nextButtonLabelTextBox!: TextBox;
+    public chooseNameArea!: ChooseNameArea;
+    public passwordArea!: PasswordArea;
+    public emailArea!: EmailArea;
+    public termsArea!: CheckBoxTerms;
+    public rulesArea!: CheckBoxRules;
     public signUpState!: Phaser.GameObjects.Container;
     public paperdollAlternate!: PaperdollAlternate;
     public confirmationNameTextBox!: TextBox;
@@ -530,6 +515,11 @@ export default class Create extends Phaser.Scene {
         if (!load.isShowing) load.show();
     }
 
+    preload(): void {
+        this.editorPreload();
+    }
+
+    public brandingContainer: Phaser.GameObjects.DOMElement;
     public initialState: Phaser.GameObjects.Container;
 
     create(): void {
@@ -558,37 +548,76 @@ export default class Create extends Phaser.Scene {
 
         if (window.jsAPI) window.jsAPI.hideNav();
 
-        let load = this.scene.get('Load') as Load;
-        if (load.isShowing) load.waitAllTasksComplete().then(() => load.hide());
+        this.brandingContainer = this.game.fixDomGO(this.add.dom(
+            0, 0, 'div',
+            `bottom: 0; right: 0;`,
+        ));
+        this.brandingContainer.visible = false;
+        this.brandingContainer.setOrigin(0, 0);
+        this.brandingContainer.setHTML(
+            'This site is protected by reCAPTCHA and the Google ' +
+            '<a href="https://policies.google.com/privacy">Privacy Policy</a> and ' +
+            '<a href="https://policies.google.com/terms">Terms of Service</a> apply.'
+        );
 
-        this.show(this.initialState);
+        grecaptcha.ready(() => {
+            let load = this.scene.get('Load') as Load;
+            if (load.isShowing) load.waitAllTasksComplete().then(() => load.hide());
 
-        this.tweens.add({
-            targets: [this.staticGraphics, this.initialState],
-            alpha: { from: 0, to: 1 },
-            ease: 'Linear',
-            duration: 200
+            this.show(this.initialState);
+
+            this.tweens.add({
+                targets: [this.staticGraphics, this.initialState],
+                alpha: { from: 0, to: 1 },
+                ease: 'Linear',
+                duration: 200
+            });
         });
     }
 
     localize(locale: Locale): void {
-
+        this.nextButtonLabelTextBox.text = locale.localize('next_button', 'create_module');
+        this.chooseNameArea.localize(locale);
+        this.colorSelector.localize(locale);
+        this.passwordArea.localize(locale);
+        this.emailArea.localize(locale);
+        this.termsArea.localize(locale);
+        this.rulesArea.localize(locale);
+        this.confirmationBubbleTextBox.text = locale.localize('confirmation_bubble', 'create_module');
+        this.confirmationActivationTextBox.text = locale.localize('confirmation_email', 'create_module');
+        this.confirmationApprovedTextBox.text = locale.localize('confirmation_approval', 'create_module');
+        this.memberTtitleTextBox.text = locale.localize('confirmation_memberperk1', 'create_module');
+        this.heading1TextBox.text = locale.localize('confirmation_memberperk2', 'create_module');
+        this.body1TextBox.text = locale.localize('confirmation_memberperk3', 'create_module');
+        this.heading2TextBox.text = locale.localize('confirmation_memberperk4', 'create_module');
+        this.body2TextBox.text = locale.localize('confirmation_memberperk5', 'create_module');
+        this.heading3TextBox.text = locale.localize('confirmation_memberperk6', 'create_module');
+        this.body3TextBox.text = locale.localize('confirmation_memberperk7', 'create_module');
+        this.heading4TextBox.text = locale.localize('confirmation_memberperk8', 'create_module');
+        this.body4TextBox.text = locale.localize('confirmation_memberperk9', 'create_module');
+        this.memberButtonTextBox.text = locale.localize('confirmation_learn_member', 'create_module');
     }
 
     show(container: Phaser.GameObjects.Container): void {
         if (container === this.confirmationState) {
+            this.brandingContainer.visible = false;
             this.signUpState.visible = false;
             this.confirmationState.visible = true;
 
-            this.confirmationNameTextBox.text = 'BanduPengu12';
-            this.confirmationEmailTextBox.text = 'parent@mail.com';
+            this.lock();
+
+            this.confirmationNameTextBox.text = this.chooseNameArea.textField.value;
+            this.confirmationEmailTextBox.text = this.emailArea.textField.value;
 
             this.paperdollAlternate.contentFill.setTintFill(this.colorSelector.selected.color);
 
             this.mainBackground.setFrame("create-module/mainBackgroundConfirmation");
         } else {
+            this.brandingContainer.visible = true;
             this.signUpState.visible = true;
             this.confirmationState.visible = false;
+
+            this.unlock();
 
             this.paperdoll.contentFill.setTintFill(this.colorSelector.selected.color);
 
@@ -596,81 +625,121 @@ export default class Create extends Phaser.Scene {
         }
     }
 
-    getFormData(): CreateAccountPayload & { repeatPassword: string } {
+    lock(): void {
+        this.chooseNameArea.textField.locked = true;
+        this.passwordArea.textField1.locked = true;
+        this.passwordArea.textField2.locked = true;
+        this.emailArea.textField.locked = true;
+    }
+
+    unlock(): void {
+        this.chooseNameArea.textField.locked = false;
+        this.passwordArea.textField1.locked = false;
+        this.passwordArea.textField2.locked = false;
+        this.emailArea.textField.locked = false;
+    }
+
+    getFormData(token: string): CreateAccountPayload {
         return {
-            name: '',
+            name: this.chooseNameArea.textField.value,
             color: this.colorSelector.selected.colorId,
-            password: '',
-            repeatPassword: '',
-            email: '',
-            agreesToTerms: this.termsArea.checkbox.flag,
-            agreesToRules: this.rulesArea.checkbox.flag
+            password: this.passwordArea.textField1.value,
+            email: this.emailArea.textField.value,
+            token
         };
     }
 
-    async validate(): Promise<CreateError[]> {
-        let errors: CreateError[] = [];
-
-        let data = this.getFormData();
-
-        if (!data.name) errors.push(CreateError.NAME_MISSING);
-        else {
-            if (data.name.length < 4) errors.push(CreateError.NAME_TOO_SHORT);
-            else if (data.name.length > 16) errors.push(CreateError.NAME_TOO_LONG);
-        }
-
-        if (!data.password) errors.push(CreateError.PASSWORD_MISSING);
-        else {
-            if (data.password.length < 4) errors.push(CreateError.PASSWORD_TOO_SHORT);
-            else if (data.password.length > 32) errors.push(CreateError.PASSWORD_TOO_LONG);
-            else if (data.password !== data.repeatPassword) errors.push(CreateError.PASSWORD_MISMATCH);
-        }
-
-        if (!data.email) errors.push(CreateError.EMAIL_MISSING);
-
-        if (!this.termsArea.checkbox.flag) errors.push(CreateError.TERMS_NOT_AGREED);
-        if (!this.rulesArea.checkbox.flag) errors.push(CreateError.RULES_NOT_AGREED);
-
-        return errors;
-    }
-
-    async postForm(): Promise<{ ok: boolean, errors: CreateError[] }> {
-        let data = this.getFormData();
-
-        let errors = await this.validate();
-        if (errors.length > 0) return { ok: false, errors };
-
-        await new Promise<void>(resolve => setTimeout(() => resolve(), 2000));
-
-        return { ok: true, errors };
-    }
-
-    showError(error: CreateError): void {
-        window.alert(error);
-    }
-
     async post(): Promise<void> {
+        let hasErrors = false;
+
+        if (this.chooseNameArea.textField.value.length == 0) {
+            hasErrors = true;
+            this.chooseNameArea.showError(this.game.locale.localize('create.NO_USERNAME', 'error_lang'));
+        }
+
+        if (this.passwordArea.textField1.value.length == 0) {
+            hasErrors = true;
+            this.passwordArea.showError(this.game.locale.localize('create.NO_PASSWORD', 'error_lang'));
+        } else if (this.passwordArea.textField2.value.length == 0) {
+            hasErrors = true;
+            this.passwordArea.showError(this.game.locale.localize('create.NO_REPEAT_PASSWORD', 'error_lang'));
+        } else if (this.passwordArea.textField1.value != this.passwordArea.textField2.value) {
+            hasErrors = true;
+            this.passwordArea.showError(this.game.locale.localize('create.PASSWORD_MISMATCH', 'error_lang'));
+        }
+
+        if (this.emailArea.textField.value.length == 0) {
+            hasErrors = true;
+            this.emailArea.showError(this.game.locale.localize('create.NO_EMAIL', 'error_lang'));
+        }
+
+        if (!this.termsArea.checkbox.flag) {
+            hasErrors = true;
+            this.termsArea.showError(this.game.locale.localize('create.NOT_AGREED_TERMS', 'error_lang'));
+        }
+
+        if (!this.rulesArea.checkbox.flag) {
+            hasErrors = true;
+            this.rulesArea.showError(this.game.locale.localize('create.NOT_AGREED_RULES', 'error_lang'));
+        }
+
+        if (hasErrors) return;
+
         this.preloader.visible = true;
 
         try {
-            var response = await this.postForm();
+            let token = await grecaptcha.execute(__webpack_options__.RECAPTCHA_SITE_KEY, { action: 'register' });
+            var response = await this.game.airtower.createAccount(this.getFormData(token));
         } catch (e) {
-            this.preloader.visible = false;
-            this.showError(CreateError.NET_ERR);
+            if (e instanceof HTTPError) {
+                if (e.data?.error && Array.isArray(e.data?.error)) {
+                    for (let error of e.data?.error) {
+                        if ('msg' in error && 'loc' in error) {
+                            for (let loc of error.loc) {
+                                switch (loc) {
+                                    case 'name':
+                                        this.chooseNameArea.showError(error.msg);
+                                        break;
+                                    case 'password':
+                                        this.passwordArea.showError(error.msg);
+                                        break;
+                                    case 'email':
+                                        this.emailArea.showError(error.msg);
+                                        break;
+                                    default:
+                                        console.warn('Unknown error location!', error);
+                                        break;
+                                }
+                            }
+                        }
+                    }
 
-            return;
+                    this.preloader.visible = false;
+                    return;
+                }
+            }
+
+            let error = this.scene.get('ErrorArea') as ErrorArea;
+            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.preloader.visible = false;
+                return true;
+            }, error.makeCode('c', error.DEFAULT_ERROR));
+
+            throw e;
+        }
+
+        console.debug(response);
+
+        if (response.data?.create) this.show(this.confirmationState);
+        else {
+            let error = this.scene.get('ErrorArea') as ErrorArea;
+            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.preloader.visible = false;
+                return true;
+            }, error.makeCode('c', error.DEFAULT_ERROR));
         }
 
         this.preloader.visible = false;
-
-        if (response.ok) {
-            this.show(this.confirmationState);
-            return;
-        }
-
-        //for (let error of response.errors) this.showError(error);
-        window.alert(response.errors.join('\n'));
-        this.show(this.confirmationState);
     }
 
     goToStart(): void {

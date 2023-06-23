@@ -16,7 +16,7 @@ export default class ErrorBubble extends Phaser.GameObjects.Container {
         this.add(graphic);
 
         // textBox
-        const textBox = new TextBox(scene, -270.3375, 0, "BurbankSmallBold");
+        const textBox = new TextBox(scene, -247.95, 1.2375, "BurbankSmallBold");
         textBox.setOrigin(0, 0);
         textBox.tintTopLeft = 6710886;
         textBox.tintTopRight = 6710886;
@@ -27,15 +27,19 @@ export default class ErrorBubble extends Phaser.GameObjects.Container {
         this.add(textBox);
 
         // textBox (prefab fields)
-        textBox.boxWidth = 540.7875;
-        textBox.boxHeight = 92.025;
+        textBox.boxWidth = 495.9;
+        textBox.boxHeight = 88.7625;
         textBox.horizontalAlign = 1;
         textBox.verticalAlign = 1;
+
+        this.textBox = textBox;
 
         /* START-USER-CTR-CODE */
         // Write your code here.
         /* END-USER-CTR-CODE */
     }
+
+    public textBox: TextBox;
 
     /* START-USER-CODE */
 

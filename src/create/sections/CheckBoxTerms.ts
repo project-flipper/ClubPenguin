@@ -4,6 +4,7 @@ import Phaser from "phaser";
 import Checkbox from "../prefabs/Checkbox";
 import ErrorBubbleModified from "../prefabs/ErrorBubbleModified";
 /* START-USER-IMPORTS */
+import { Locale } from "../../app/locale";
 /* END-USER-IMPORTS */
 
 export default class CheckBoxTerms extends Phaser.GameObjects.Container {
@@ -79,6 +80,7 @@ export default class CheckBoxTerms extends Phaser.GameObjects.Container {
         link2.on('pointerup', (pointer: Phaser.Input.Pointer) => link2.emit('release', pointer.downTime));
 
         this.setLayout();
+        checkbox.on('stateupdate', () => this.hideError());
 
         /* END-USER-CTR-CODE */
     }
@@ -105,6 +107,23 @@ export default class CheckBoxTerms extends Phaser.GameObjects.Container {
         this.link1.x = this.text1.x + this.text1.width;
         this.text2.x = this.link1.x + this.link1.width;
         this.link2.x = this.text2.x + this.text2.width;
+    }
+
+    localize(locale: Locale): void {
+        this.text1.text = locale.localize('checkbox1', 'create_module');
+        this.link1.text = locale.localize('checkbox2', 'create_module');
+        this.text2.text = locale.localize('checkbox3', 'create_module');
+        this.link2.text = locale.localize('checkbox4', 'create_module');
+        this.setLayout();
+    }
+
+    showError(message: string): void {
+        this.errorBubble.textBox.text = message;
+        this.errorBubble.visible = true;
+    }
+
+    hideError(): void {
+        this.errorBubble.visible = false;
     }
 
     /* END-USER-CODE */

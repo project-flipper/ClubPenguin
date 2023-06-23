@@ -22,7 +22,8 @@ module.exports = env => {
             home: env.homeLink,
             play: env.playLink,
             localPlay: env.playLink,
-        }
+        },
+        recaptchaSiteKey: env.recaptchaSiteKey
     };
 
     console.log(env);
@@ -179,7 +180,10 @@ module.exports = env => {
                     directory: path.resolve(__dirname, 'play'),
                     publicPath: '/'
                 }
-            ]
+            ],
+            devMiddleware: {
+                writeToDisk: true
+            }
         },
         watchOptions: {
             ignored: ['media/', 'play/', 'node_modules/'],
@@ -190,7 +194,8 @@ module.exports = env => {
             new ForkTsCheckerWebpackPlugin(),
             new DefinePlugin({
                 '__webpack_options__': JSON.stringify({
-                    EXPOSE_APP: env.development
+                    EXPOSE_APP: env.development,
+                    RECAPTCHA_SITE_KEY: env.recaptchaSiteKey
                 })
             }),
             ...playPages,

@@ -17,20 +17,17 @@
             "type": "Container",
             "id": "a5837235-643f-4c63-bbaf-32de617cd6ec",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "Image",
                     "id": "5adc8484-57e2-450d-9725-d6a6855d9a84",
                     "label": "graphic",
-                    "components": [],
                     "texture": {
                         "key": "create",
                         "frame": "create-module/errorBubbleReversed"
                     },
                     "originX": 0.3746374,
-                    "originY": 0.125125,
-                    "list": []
+                    "originY": 0.125125
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -54,13 +51,12 @@
                     ],
                     "label": "textBox",
                     "scope": "PUBLIC",
-                    "boxWidth": 477.9,
-                    "boxHeight": 92.025,
+                    "boxWidth": 440,
+                    "boxHeight": 88.7625,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
-                    "x": -196.3125,
-                    "y": 20.025000000000002,
+                    "x": -156,
+                    "y": 23,
                     "originX": 0,
                     "originY": 0,
                     "tintTopLeft": "#666666",
@@ -69,9 +65,7 @@
                     "tintBottomRight": "#666666",
                     "text": "Example error",
                     "font": "BurbankSmallBold",
-                    "fontSize": -18,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -18
                 }
             ]
         }
@@ -81,6 +75,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 4
     }
 }

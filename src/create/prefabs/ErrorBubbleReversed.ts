@@ -16,7 +16,7 @@ export default class ErrorBubbleReversed extends Phaser.GameObjects.Container {
         this.add(graphic);
 
         // textBox
-        const textBox = new TextBox(scene, -196.3125, 20.025000000000002, "BurbankSmallBold");
+        const textBox = new TextBox(scene, -156, 23, "BurbankSmallBold");
         textBox.setOrigin(0, 0);
         textBox.tintTopLeft = 6710886;
         textBox.tintTopRight = 6710886;
@@ -27,8 +27,8 @@ export default class ErrorBubbleReversed extends Phaser.GameObjects.Container {
         this.add(textBox);
 
         // textBox (prefab fields)
-        textBox.boxWidth = 477.9;
-        textBox.boxHeight = 92.025;
+        textBox.boxWidth = 440;
+        textBox.boxHeight = 88.7625;
         textBox.horizontalAlign = 1;
         textBox.verticalAlign = 1;
 

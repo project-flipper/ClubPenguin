@@ -6,6 +6,7 @@ import Phaser from "phaser";
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ColorSwatch from "../prefabs/ColorSwatch";
 /* START-USER-IMPORTS */
+import { Locale } from "../../app/locale";
 /* END-USER-IMPORTS */
 
 export default class ColorSelector extends Phaser.GameObjects.Container {
@@ -200,6 +201,10 @@ export default class ColorSelector extends Phaser.GameObjects.Container {
     /* START-USER-CODE */
 
     public selected: ColorSwatch;
+
+    localize(locale: Locale): void {
+        this.titleTextBox.text = locale.localize('choose_color_title', 'create_module');
+    }
 
     /* END-USER-CODE */
 }
