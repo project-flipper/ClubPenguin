@@ -650,6 +650,8 @@ export default class Create extends Phaser.Scene {
     }
 
     async post(): Promise<void> {
+        this.lock();
+
         let hasErrors = false;
 
         if (this.chooseNameArea.textField.value.length == 0) {
@@ -683,7 +685,7 @@ export default class Create extends Phaser.Scene {
             this.rulesArea.showError(this.game.locale.localize('create.NOT_AGREED_RULES', 'error_lang'));
         }
 
-        if (hasErrors) return;
+        if (hasErrors) return this.unlock();
 
         this.preloader.visible = true;
 
@@ -715,6 +717,7 @@ export default class Create extends Phaser.Scene {
                     }
 
                     this.preloader.visible = false;
+                    this.unlock();
                     return;
                 }
             }
@@ -722,6 +725,7 @@ export default class Create extends Phaser.Scene {
             let error = this.scene.get('ErrorArea') as ErrorArea;
             error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
                 this.preloader.visible = false;
+                this.unlock();
                 return true;
             }, error.makeCode('c', error.DEFAULT_ERROR));
 
@@ -735,6 +739,7 @@ export default class Create extends Phaser.Scene {
             let error = this.scene.get('ErrorArea') as ErrorArea;
             error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
                 this.preloader.visible = false;
+                this.unlock();
                 return true;
             }, error.makeCode('c', error.DEFAULT_ERROR));
         }
