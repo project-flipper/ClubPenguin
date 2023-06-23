@@ -20,7 +20,7 @@ import ColorSwatch from './prefabs/ColorSwatch';
 import type { App } from "../app/app";
 import type { Locale } from "../app/locale";
 import ErrorArea from "../app/ErrorArea";
-import { HTTPError } from "../net/airtower";
+import { HTTPError, digest } from "../net/airtower";
 /* END-USER-IMPORTS */
 
 export default class Create extends Phaser.Scene {
@@ -639,11 +639,11 @@ export default class Create extends Phaser.Scene {
         this.emailArea.textField.locked = false;
     }
 
-    getFormData(token: string): CreateAccountPayload {
+    async getFormData(token: string): Promise<CreateAccountPayload> {
         return {
             name: this.chooseNameArea.textField.value,
             color: this.colorSelector.selected.colorId,
-            password: this.passwordArea.textField1.value,
+            password: await digest(this.passwordArea.textField1.value),
             email: this.emailArea.textField.value,
             token
         };
@@ -691,7 +691,7 @@ export default class Create extends Phaser.Scene {
 
         try {
             let token = await grecaptcha.execute(__webpack_options__.RECAPTCHA_SITE_KEY, { action: 'register' });
-            var response = await this.game.airtower.createAccount(this.getFormData(token));
+            var response = await this.game.airtower.createAccount(await this.getFormData(token));
         } catch (e) {
             if (e instanceof HTTPError) {
                 if (e.data?.error && Array.isArray(e.data?.error)) {
