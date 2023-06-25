@@ -41,6 +41,7 @@ declare global {
         EXPOSE_APP: boolean,
         RECAPTCHA_SITE_KEY: string
     };
+    const __webpack_public_path__: string;
 }
 
 export function isBrowserCompatible(): boolean {
