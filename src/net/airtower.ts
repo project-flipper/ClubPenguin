@@ -107,7 +107,10 @@ export function sleep(ms?: number): Promise<void> {
 export async function digest(password: string): Promise<string> {
     let buffer = new TextEncoder().encode(password);
     let digest = await crypto.subtle.digest('SHA-256', buffer);
-    return new TextDecoder('utf-8').decode(digest);
+    let hashArray = Array.from(new Uint8Array(digest));
+    return hashArray
+        .map((b) => b.toString(16).padStart(2, '0'))
+        .join('');
 }
 
 /**
