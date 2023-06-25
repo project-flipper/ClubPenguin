@@ -3,4 +3,6 @@ play/**
 media/music/**
 media/assets/clothing/**
 media/assets/puffle/**
+media/assets/world/games/**
+media/ruffle/**
 dist/**
