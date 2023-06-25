@@ -656,7 +656,7 @@ export default class Interface extends Phaser.Scene {
 
     get canProcessInput(): boolean {
         // Canvas elements cannot have be set as active, so body it is.
-        return this.game.hasFocus && document.activeElement == document.body;
+        return this.game.hasFocus && document.activeElement == document.body && !this.engine.currentGame;
     }
 
     public lastFart: number;

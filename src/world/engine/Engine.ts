@@ -56,6 +56,7 @@ import SnowballTrigger from "../../lib/ui/components/SnowballTrigger";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import Cleaner from "./cleaner";
 import ErrorArea from "../../app/ErrorArea";
+import { HybridGame } from "./hybridGame";
 /* END-USER-IMPORTS */
 
 export default class Engine extends Phaser.Scene {
@@ -80,11 +81,12 @@ export default class Engine extends Phaser.Scene {
 
     /* START-USER-CODE */
 
-    declare cleaner: Cleaner;
     declare public game: App;
 
+    public cleaner: Cleaner;
+
     create(data: any) {
-        this.cleaner = new Cleaner(this.game);
+        this.cleaner = new Cleaner(this);
 
         this.penguins = {};
         this.initialPenguins = [];
@@ -196,6 +198,7 @@ export default class Engine extends Phaser.Scene {
         let room = (await import(/* webpackInclude: /\.ts$/ */`../rooms/${config.path}`)).default;
 
         this.unloadRoom();
+        this.unloadGame();
 
         let load = this.scene.get('Load') as Load;
         let roomScene = await new Promise<Room>(resolve => {
@@ -238,6 +241,8 @@ export default class Engine extends Phaser.Scene {
         this.currentRoom = roomScene as Room;
         this.currentRoom.roomData = config;
 
+        this.unlockRoom();
+
         this.events.emit('roomload', this.currentRoom);
     }
 
@@ -252,6 +257,10 @@ export default class Engine extends Phaser.Scene {
 
             this.previousRoomId = this.currentRoomId;
             this.currentRoom = undefined;
+
+            this.penguins = {};
+            this.snowballs = [];
+            this.trackedTweens = [];
         }
     }
 
@@ -287,9 +296,6 @@ export default class Engine extends Phaser.Scene {
             throw e;
         }
 
-        this.penguins = {};
-        this.snowballs = [];
-        this.trackedTweens = [];
         this.initialPenguins = [data.id];
 
         this.interface.closeAll();
@@ -312,9 +318,73 @@ export default class Engine extends Phaser.Scene {
 
     }
 
+    public roomLocked = false;
+
+    lockRoom(): void {
+        if (this.currentRoom) {
+            this.currentRoom.input.keyboard.enabled = false;
+            this.currentRoom.input.enabled = false;
+        }
+        this.input.keyboard.enabled = false;
+        this.input.enabled = false;
+
+        this.roomLocked = true;
+    }
+
+    unlockRoom(): void {
+        if (this.currentRoom) {
+            this.currentRoom.input.keyboard.enabled = true;
+            this.currentRoom.input.enabled = true;
+        }
+        this.input.keyboard.enabled = true;
+        this.input.enabled = true;
+
+        this.roomLocked = false;
+    }
+
     /* ============ GAMES ============ */
 
     public currentGame: Game;
+
+    async loadGame(config: GameConfig): Promise<void> {
+        if (this.currentGame && config == this.currentGame.gameData) return;
+
+        let cls: Game;
+        if (config.is_hybrid) {
+            cls = new HybridGame(config);
+        } else {
+            cls = (await import(/* webpackInclude: /\.ts$/ */`../games/${config.path}`)).default;
+        }
+
+        if (!config.show_player_in_room) this.unloadRoom();
+        else this.lockRoom();
+        this.unloadGame();
+
+        let load = this.scene.get('Load') as Load;
+        let game = await new Promise<Game>(resolve => {
+            this.scene.add(`game-${config.name}`, cls, true, {
+                config,
+                oninit: (scene: Game) => load.track(new LoaderTask(scene.load)),
+                onready: (scene: Game) => resolve(scene)
+            });
+        });
+
+        if (config.music_id && this.currentMusicId != config.music_id) await this.playMusic(config.music_id);
+        else if (!config.music_id) this.stopMusic();
+
+        this.currentGame = game;
+        this.currentGame.gameData = config;
+
+        this.events.emit('gameload', this.currentGame);
+    }
+
+    unloadGame(): void {
+        if (this.currentGame) {
+            this.currentGame.unload(this);
+            this.currentGame = undefined;
+            this.unlockRoom();
+        }
+    }
 
     /* ============ AVATARS ============ */
 
@@ -500,46 +570,7 @@ export default class Engine extends Phaser.Scene {
     }
 
     findSafePoint(data: RoomConfig): Phaser.Math.Vector2 {
-        let origin = new Phaser.Math.Vector2(data.safe_start_x + data.safe_end_x / 2, data.safe_start_y + data.safe_end_y / 2);
-        let target = new Phaser.Math.Vector2(this.randomRange(data.safe_start_x, data.safe_end_x), this.randomRange(data.safe_start_y, data.safe_end_y));
-
-        let block = 'block' in this.currentRoom ? this.currentRoom.block as Phaser.GameObjects.Image : undefined;
-        if (block == undefined) return target;
-
-        let distance = Math.round(Phaser.Math.Distance.BetweenPoints(origin, target));
-        let stepX = (target.x - origin.x) / distance;
-        let stepY = (target.y - origin.y) / distance;
-
-        let point = new Phaser.Math.Vector2(0, 0);
-        let matrix = new Phaser.GameObjects.Components.TransformMatrix();
-        let parentMatrix = new Phaser.GameObjects.Components.TransformMatrix();
-
-        let pixelPerfect = this.currentRoom.input.makePixelPerfect();
-        let hitTest = (x: number, y: number) => {
-            if (block.parentContainer) {
-                block.parentContainer.getWorldTransformMatrix(matrix, parentMatrix);
-                matrix.applyInverse(x, y, point);
-            } else {
-                Phaser.Math.TransformXY(x, y, block.x, block.y, block.rotation, block.scaleX, block.scaleY, point);
-            }
-
-            let testX = point.x + block.displayOriginX;
-            let testY = point.y + block.displayOriginY;
-            return pixelPerfect({}, testX + stepX, testY + stepY, block);
-        }
-
-        while (distance > 0) {
-            if (hitTest(origin.x, origin.y)) {
-                break;
-            }
-
-            origin.x += stepX;
-            origin.y += stepY;
-
-            distance--;
-        }
-
-        return origin;
+        return new Phaser.Math.Vector2(this.randomRange(data.safe_start_x, data.safe_end_x), this.randomRange(data.safe_start_y, data.safe_end_y));
     }
 
     movePenguin(penguin: Avatar, x: number, y: number, originalX?: number, originalY?: number): void {

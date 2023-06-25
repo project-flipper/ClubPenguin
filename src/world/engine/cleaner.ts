@@ -1,4 +1,4 @@
-import { App } from "../../app/app";
+import Engine from "./Engine";
 
 export type FileType =
     | 'animation'
@@ -8,10 +8,10 @@ export type FileType =
 export type AssetIndex = `${FileType}:${string}`;
 
 export default class Cleaner {
-    app: App;
+    engine: Engine;
 
-    constructor(app: App) {
-        this.app = app;
+    constructor(engine: Engine) {
+        this.engine = engine;
     }
 
 }

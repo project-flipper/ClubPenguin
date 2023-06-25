@@ -77,7 +77,8 @@ export interface GameConfig {
     music_id: number,
     stamp_group_id: number
     path: string
-    show_player_in_room: boolean
+    show_player_in_room: boolean,
+    is_hybrid: boolean
 }
 
 export default class Config {
