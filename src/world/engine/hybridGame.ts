@@ -2,6 +2,7 @@ import { App } from "../../app/app";
 import { GameConfig } from "../../app/config";
 import Interface from "../interface/Interface";
 import Engine, { Game } from "./Engine";
+import { HybridBridge } from "./hybridBridge";
 import { RufflePlayer } from "./ruffle";
 
 interface HybridContainer extends Phaser.GameObjects.DOMElement {
@@ -31,16 +32,27 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     public gameData: GameConfig;
-    public container: HybridContainer;
 
     create(data: any): void {
 
-        this.play(`${this.load.baseURL}assets/world/games/${this.gameData.path}`, this.asFlashVars({
+        this.play(this.url, this.asFlashVars({
             locale: this.game.locale.language.toString(),
             nickname: this.engine.world.myPenguinData.nickname,
             color: this.engine.world.myPenguinData.avatar.color.toString(),
-            media: this.load.baseURL
-        })).then(() => { if (data.onready) data.onready(this) });
+            media: this.load.baseURL,
+            bridge: this.createBridge()
+        })).then(() => {
+            this.bridge.player = this.player;
+            if (data.onready) data.onready(this);
+        });
+    }
+
+    /* ================= FLASH ================= */
+
+    public container: HybridContainer;
+
+    get url(): string {
+        return `${this.load.baseURL}assets/world/games/${this.gameData.path}`;
     }
 
     asFlashVars(params: Record<string, string>): string {
@@ -63,9 +75,16 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.player = ruffle.createPlayer();
         await this.player.load({
             url,
+            base: this.url,
             splashScreen: false,
             favorFlash: true,
             autoplay: 'off',
+            quality: 'medium',
+            openUrlMode: 'allow',
+            allowScriptAccess: true,
+            warnOnUnsupportedContent: false,
+            showSwfDownload: false,
+            unmuteOverlay: 'hidden',
             wmode: 'transparent',
             parameters: params
         });
@@ -77,7 +96,32 @@ export class HybridGame extends Phaser.Scene implements Game {
 
         this.container.destroy(true);
         this.container = undefined;
+
+        this.destroyBridge();
     }
+
+    /* ================= COMMUNICATION ================= */
+
+    bridge: HybridBridge;
+    bridgeId: string;
+
+    createBridge(): string {
+        if (this.bridge) this.destroyBridge();
+        this.bridgeId = 'b' + Phaser.Utils.String.UUID();
+
+        let bridge = new HybridBridge();
+        // dynamically sets a property for ActionScript's ExternalInterface
+        (global as any)[this.bridgeId] = bridge;
+
+        return this.bridgeId;
+    }
+
+    destroyBridge(): void {
+        this.bridge = undefined;
+        this.bridgeId = undefined;
+    }
+
+    /* ================= CLEANUP ================= */
 
     unload(engine: Engine): void {
         this.stop();
