@@ -382,7 +382,15 @@ export default class Engine extends Phaser.Scene {
         if (this.currentGame) {
             this.currentGame.unload(this);
             this.currentGame = undefined;
-            this.unlockRoom();
+
+            if (this.currentRoom) {
+                this.unlockRoom();
+                let config = this.currentRoom.roomData;
+
+                if (config.music_id && this.currentMusicId != config.music_id) this.playMusic(config.music_id);
+                else if (!config.music_id) this.stopMusic();
+            }
+
         }
     }
 
