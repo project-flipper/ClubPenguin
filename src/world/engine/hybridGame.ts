@@ -1,3 +1,4 @@
+import Phaser from "phaser";
 import { App } from "../../app/app";
 import { GameConfig } from "../../app/config";
 import Interface from "../interface/Interface";
@@ -33,18 +34,22 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     public gameData: GameConfig;
 
-    create(data: any): void {
+    async create(data: any): Promise<void> {
+        let penguinData = this.engine.world.myPenguinData;
+        let handItem = penguinData.avatar.hand;
 
-        this.play(this.url, this.asFlashVars({
+        this.createBridge();
+        await this.play(this.url, this.asFlashVars({
             locale: this.game.locale.language.toString(),
-            nickname: this.engine.world.myPenguinData.nickname,
-            color: this.engine.world.myPenguinData.avatar.color.toString(),
-            media: this.load.baseURL,
-            bridge: this.createBridge()
-        })).then(() => {
-            this.bridge.player = this.player;
-            if (data.onready) data.onready(this);
-        });
+            nickname: penguinData.nickname,
+            color: penguinData.avatar.color.toString(),
+            colorHex: this.game.gameConfig.player_colors[penguinData.avatar.color],
+            handItem: handItem.toString(),
+            media: this.load.baseURL
+        }));
+
+        this.bridge.player = this.player;
+        this.bridge.once('ready', () => { if (data.onready) data.onready(this) });
     }
 
     /* ================= FLASH ================= */
@@ -103,22 +108,30 @@ export class HybridGame extends Phaser.Scene implements Game {
     /* ================= COMMUNICATION ================= */
 
     bridge: HybridBridge;
-    bridgeId: string;
 
-    createBridge(): string {
+    createBridge(): void {
         if (this.bridge) this.destroyBridge();
-        this.bridgeId = 'b' + Phaser.Utils.String.UUID();
+        this.bridge = new HybridBridge();
 
-        let bridge = new HybridBridge();
-        // dynamically sets a property for ActionScript's ExternalInterface
-        (global as any)[this.bridgeId] = bridge;
+        this.bridge.on('startGameMusic', this.startGameMusic, this);
+        this.bridge.on('stopGameMusic', this.startGameMusic, this);
+        this.bridge.on('endGame', this.endGame, this);
+    }
 
-        return this.bridgeId;
+    startGameMusic(): void {
+        this.engine.playMusic(this.gameData.music_id);
+    }
+
+    stopGameMusic(): void {
+        this.engine.stopMusic();
+    }
+
+    endGame(): void {
+        this.engine.endGame();
     }
 
     destroyBridge(): void {
         this.bridge = undefined;
-        this.bridgeId = undefined;
     }
 
     /* ================= CLEANUP ================= */

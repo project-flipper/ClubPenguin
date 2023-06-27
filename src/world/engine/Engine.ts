@@ -394,6 +394,44 @@ export default class Engine extends Phaser.Scene {
         }
     }
 
+    async startGame(config: GameConfig): Promise<void> {
+        if (this.currentGame && config == this.currentGame.gameData) return;
+
+        let load = this.scene.get('Load') as Load;
+        if (!load.isShowing) load.show();
+
+        try {
+            await this.loadGame(config);
+        } catch (e) {
+            if (this.currentRoom == undefined && this.previousRoomId) {
+                try {
+                    await this.joinRoom(this.game.gameConfig.rooms[this.previousRoomId.toString()], this.previousPlayerX, this.previousPlayerY);
+                } catch (ne) {
+                    console.error('Failed to go back to previous room.', e, ne);
+                }
+            }
+
+            let error = this.scene.get('ErrorArea') as ErrorArea;
+            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.GAME_FULL', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                this.interface.showMap();
+                return true;
+            }, error.makeCode('c', error.GAME_FULL));
+
+            load.hide();
+            throw e;
+        }
+
+        this.interface.hide();
+        if (!(this.currentGame instanceof HybridGame)) {
+            load.hide();
+        }
+        this.events.emit('gameready', this.currentGame);
+    }
+
+    endGame(): void {
+        this.unloadGame();
+    }
+
     /* ============ AVATARS ============ */
 
     public penguins: { [id: string]: Avatar };

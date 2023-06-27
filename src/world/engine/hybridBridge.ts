@@ -1,26 +1,23 @@
 import Phaser from "phaser"
 import { RufflePlayer } from "./ruffle";
 
-export type BridgedPlayer = RufflePlayer & {
-    messageFromHTML5(payload: string): void;
-};
-
 export type BridgeMessage = {
-    function: string,
+    op: string,
     parameters: any[]
 };
 
 /**
- * Allows communication between 
+ * Allows communication between Flash and the HTML5 client.
  */
 export class HybridBridge extends Phaser.Events.EventEmitter {
     constructor() {
         super();
     }
 
-    #flash: BridgedPlayer;
+    #flash: RufflePlayer;
     set player(player: RufflePlayer) {
-        this.#flash = player as BridgedPlayer;
+        this.#flash = player;
+        this.#flash.onFSCommand = this.messageFromFlash;
     }
 
     /**
@@ -29,16 +26,10 @@ export class HybridBridge extends Phaser.Events.EventEmitter {
      * Instead, you should add a listener to this instance to receive data.
      * @param payload The serialized JSON received from Flash.
      */
-    protected messageFromFlash(payload: string): void {
-        let data = JSON.parse(payload) as BridgeMessage;
-        this.emit(data.function, ...data.parameters);
-    }
+    protected messageFromFlash(op: string, params: string): boolean {
+        let data = params ? JSON.parse(params) : [];
+        let param = Array.isArray(data) ? data : [data];
 
-    /**
-     * Sends a message to Flash.
-     * @param payload The payload to send to Flash. Will be serialized to JSON.
-     */
-    send(payload: BridgeMessage): void {
-        this.#flash.messageFromHTML5(JSON.stringify(payload));
+        return this.emit(op, ...param);
     }
 }
