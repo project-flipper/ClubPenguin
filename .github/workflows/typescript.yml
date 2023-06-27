@@ -1,20 +1,12 @@
-name: TypeScript Test
+name: 'TypeScript Typecheck'
 
 on: [push, pull_request]
 
 jobs:
-  test:
+  typecheck:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x]
     steps:
-      - uses: actions/checkout@v1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: TypeScript report
+        uses: fersilva16/ts-report-action@1.2.1
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        run: npm install --save-dev
-      - name: Typecheck
-        uses: andoshin11/typescript-error-reporter-action@v1.0.3
+          project: tsconfig.json
