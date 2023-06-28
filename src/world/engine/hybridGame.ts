@@ -47,7 +47,7 @@ export class HybridGame extends Phaser.Scene implements Game {
         }));
 
         this.bridge.player = this.player;
-        this.bridge.once('ready', () => { if(data.onready) data.onready(this) });
+        this.bridge.once('ready', () => { if (data.onready) data.onready(this) });
 
         // Once the ruffle bridge has been loaded it sends everything the flash client needed, for now it only needs penguin's object and color crumbs
         this.bridge.once('loaded', () => this.bridge.send({
@@ -125,12 +125,14 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.bridge.on('endGame', this.endGame, this);
     }
 
-    startMusicById(musicId: integer): void {
+    startMusicById(musicId: number): void {
         this.engine.playMusic(musicId);
     }
 
     startGameMusic(): void {
-        this.engine.playMusic(this.gameData.music_id);
+        if (this.gameData.music_id && this.engine.currentMusicId != this.gameData.music_id) this.engine.playMusic(this.gameData.music_id);
+        else if (!this.gameData.music_id) this.engine.stopMusic();
+
     }
 
     stopGameMusic(): void {
@@ -142,8 +144,8 @@ export class HybridGame extends Phaser.Scene implements Game {
         load.hide();
     }
 
-    endGame(): void {
-        this.engine.endGame();
+    endGame(score: number, room: undefined): void {
+        this.engine.endGame(score, room);
     }
 
     destroyBridge(): void {

@@ -152,6 +152,11 @@ export default class Engine extends Phaser.Scene {
 
             this.load.start();
             await task.wait();
+
+            if (!this.load.cacheManager.audio.has(key)) {
+                console.warn('Music could not be loaded. ID:', id);
+                return;
+            }
         }
 
         this.currentMusicId = id;
@@ -257,6 +262,7 @@ export default class Engine extends Phaser.Scene {
 
             this.previousRoomId = this.currentRoomId;
             this.currentRoom = undefined;
+            this.currentRoomId = undefined;
 
             this.penguins = {};
             this.snowballs = [];
@@ -384,15 +390,6 @@ export default class Engine extends Phaser.Scene {
             if ('unload' in this.currentGame) this.currentGame.unload(this);
             this.events.emit('gameunload', this.currentGame);
             this.currentGame = undefined;
-
-            if (this.currentRoom) {
-                this.unlockRoom();
-                let config = this.currentRoom.roomData;
-
-                if (config.music_id && this.currentMusicId != config.music_id) this.playMusic(config.music_id);
-                else if (!config.music_id) this.stopMusic();
-            }
-
         }
     }
 
@@ -430,8 +427,33 @@ export default class Engine extends Phaser.Scene {
         this.events.emit('gameready', this.currentGame);
     }
 
-    endGame(): void {
+    async endGame(score: number, roomConfig: RoomConfig): Promise<void> {
+        let load = this.scene.get('Load') as Load;
+        if (!load.isShowing) load.show();
+
         this.unloadGame();
+
+        if (roomConfig) {
+            console.log('join room');
+            await this.joinRoom(roomConfig);
+        } else if (this.currentRoom) {
+            console.log('unlocking room');
+            this.unlockRoom();
+            let config = this.currentRoom.roomData;
+
+            if (config.music_id && this.currentMusicId != config.music_id) this.playMusic(config.music_id);
+            else if (!config.music_id) this.stopMusic();
+
+            this.interface.show();
+            load.hide();
+        } else if (this.previousRoomId) {
+            console.log('restoring room');
+            try {
+                await this.joinRoom(this.game.gameConfig.rooms[this.previousRoomId.toString()], this.previousPlayerX, this.previousPlayerY);
+            } catch (e) {
+                console.error('Failed to go back to previous room.', e);
+            }
+        } else this.interface.showMap();
     }
 
     /* ============ AVATARS ============ */

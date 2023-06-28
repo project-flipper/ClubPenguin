@@ -35,6 +35,7 @@ export class HybridBridge extends Phaser.Events.EventEmitter {
         let param = Array.isArray(data) ? data : [data];
         // I unfortunately have to delegate this to a setTimeout because ruffle cannot call itself (see ruffle issue #10791)
         setTimeout(() => this.emit(op, ...param), 200);
+        console.log(op, params);
         return true;
     }
 
