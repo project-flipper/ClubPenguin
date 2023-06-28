@@ -380,7 +380,9 @@ export default class Engine extends Phaser.Scene {
 
     unloadGame(): void {
         if (this.currentGame) {
-            this.currentGame.unload(this);
+            this.currentGame.scene.remove();
+            if ('unload' in this.currentGame) this.currentGame.unload(this);
+            this.events.emit('gameunload', this.currentGame);
             this.currentGame = undefined;
 
             if (this.currentRoom) {
