@@ -17,7 +17,7 @@ export class HybridBridge extends Phaser.Events.EventEmitter {
     #flash: RufflePlayer;
     set player(player: RufflePlayer) {
         this.#flash = player;
-        this.#flash.onFSCommand = this.messageFromFlash;
+        this.#flash.onFSCommand = this.messageFromFlash.bind(this);
     }
 
     /**
