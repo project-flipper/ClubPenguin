@@ -3,8 +3,9 @@ import { App } from "../../app/app";
 import { GameConfig } from "../../app/config";
 import Interface from "../interface/Interface";
 import Engine, { Game } from "./Engine";
-import { HybridBridge } from "./hybridBridge";
+import { HybridBridge, type BridgeMessage } from "./hybridBridge";
 import { RufflePlayer } from "./ruffle";
+import type Load from '../../load/Load';
 
 interface HybridContainer extends Phaser.GameObjects.DOMElement {
     node: RufflePlayer;
@@ -36,20 +37,26 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     async create(data: any): Promise<void> {
         let penguinData = this.engine.world.myPenguinData;
-        let handItem = penguinData.avatar.hand;
+        let colorHex = this.game.gameConfig.player_colors;
 
         this.createBridge();
-        await this.play(this.url, this.asFlashVars({
+        await this.play(`${this.load.baseURL}assets/world/games/loader.swf`, this.asFlashVars({
             locale: this.game.locale.language.toString(),
-            nickname: penguinData.nickname,
-            color: penguinData.avatar.color.toString(),
-            colorHex: this.game.gameConfig.player_colors[penguinData.avatar.color],
-            handItem: handItem.toString(),
-            media: this.load.baseURL
+            media: this.load.baseURL,
+            game: this.url
         }));
 
         this.bridge.player = this.player;
-        this.bridge.once('ready', () => { if (data.onready) data.onready(this) });
+        this.bridge.once('ready', () => { if(data.onready) data.onready(this) });
+
+        // Once the ruffle bridge has been loaded it sends everything the flash client needed, for now it only needs penguin's object and color crumbs
+        this.bridge.once('loaded', () => this.bridge.send({
+            function: "populateFlashData",
+            parameters: [
+                penguinData,
+                colorHex,
+            ]
+        } as BridgeMessage));
     }
 
     /* ================= FLASH ================= */
@@ -97,8 +104,6 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     stop(): void {
-        if (this.player.isPlaying) this.player.destroy();
-
         this.container.destroy(true);
         this.container = undefined;
 
@@ -113,9 +118,15 @@ export class HybridGame extends Phaser.Scene implements Game {
         if (this.bridge) this.destroyBridge();
         this.bridge = new HybridBridge();
 
+        this.bridge.on('startMusicById', this.startMusicById, this);
         this.bridge.on('startGameMusic', this.startGameMusic, this);
         this.bridge.on('stopGameMusic', this.startGameMusic, this);
+        this.bridge.on('hideLoading', this.hideLoading, this);
         this.bridge.on('endGame', this.endGame, this);
+    }
+
+    startMusicById(musicId: integer): void {
+        this.engine.playMusic(musicId);
     }
 
     startGameMusic(): void {
@@ -124,6 +135,11 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     stopGameMusic(): void {
         this.engine.stopMusic();
+    }
+
+    hideLoading(): void {
+        let load = this.scene.get('Load') as Load;
+        load.hide();
     }
 
     endGame(): void {
