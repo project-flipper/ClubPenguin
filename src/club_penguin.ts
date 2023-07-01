@@ -16,10 +16,9 @@ import InternalErrorArea from './app/InternalErrorArea';
 import Logo from './logo/Logo';
 import World from './world/World';
 import Interface from './world/interface/Interface';
-import { Airtower } from './net/airtower';
+import { Debug } from './debug';
 
-export var app: App;
-var _app: App;
+var app: App;
 
 interface RunParams {
     parentId: string,
@@ -30,7 +29,6 @@ interface RunParams {
     mediaPath: string,
     crossOrigin: string,
     cacheVersion: string,
-    clientVersion: string,
     contentVersion: string,
     minigameVersion: string,
     environmentType: string
@@ -56,7 +54,7 @@ export function isBrowserCompatible(): boolean {
 export function run(params: RunParams): void {
     stop();
 
-    _app = new App({
+    app = new App({
         parent: params.parentId,
         fullscreenTarget: params.parentId,
         autoFocus: true,
@@ -123,31 +121,30 @@ export function run(params: RunParams): void {
                 if (params.elementId) app.canvas.id = params.elementId;
                 if (params.elementClassName) app.canvas.className = params.elementClassName;
 
-                app.friends.init(params.mediaPath, _app.airtower.createAvatarUrlCallback());
+                app.friends.init(params.mediaPath, app.airtower.createAvatarUrlCallback());
             }
         }
     }, {
         language: params.language,
         apiPath: params.apiPath,
         cacheVersion: params.cacheVersion,
-        clientVersion: params.clientVersion,
         contentVersion: params.contentVersion,
         minigameVersion: params.minigameVersion,
         environmentType: params.environmentType
     });
 
-    if (__webpack_options__.EXPOSE_APP) app = _app;
+    if (__webpack_options__.EXPOSE_APP) app = app;
 }
 
 export function isRunning(): boolean {
-    return _app !== undefined;
+    return app !== undefined;
 }
 
 export function sizeChange(repositionFriends = false): void {
     if (!isRunning()) return;
 
-    if (_app.scale.getParentBounds()) _app.scale.refresh();
-    if (repositionFriends) _app.friends.reposition();
+    if (app.scale.getParentBounds()) app.scale.refresh();
+    if (repositionFriends) app.friends.reposition();
 }
 
 export function handleShowPreactivation(): void {
@@ -157,41 +154,41 @@ export function handleShowPreactivation(): void {
 export function friendsEventHandler(event: string, params: any[]): void {
     if (!isRunning()) return;
 
-    _app.friends.friendsEventHandler(event, params);
+    app.friends.friendsEventHandler(event, params);
 }
 
 export function sendBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
-    _app.friends.sendBuddyRequest(swid);
+    app.friends.sendBuddyRequest(swid);
 }
 
 export function sendAcceptBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
-    _app.friends.sendAcceptBuddyRequest(swid);
+    app.friends.sendAcceptBuddyRequest(swid);
 }
 
 export function sendRejectBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
-    _app.friends.sendRejectBuddyRequest(swid);
+    app.friends.sendRejectBuddyRequest(swid);
 }
 
 export function sendToggleBestFriend(swid: string): void {
     if (!isRunning()) return;
 
-    _app.friends.sendToggleBestFriend(swid);
+    app.friends.sendToggleBestFriend(swid);
 }
 
 export function sendToggleBestCharacter(id: string): void {
     if (!isRunning()) return;
 
-    _app.friends.sendToggleBestCharacter(id);
+    app.friends.sendToggleBestCharacter(id);
 }
 
 export function stop(): void {
-    if (isRunning()) _app.destroy(false);
+    if (isRunning()) app.destroy(false);
 }
 
 declare global {
@@ -205,183 +202,6 @@ declare global {
     }
 }
 
-
-/** DEBUG LAYER */
-
-class Debug {
-    INTERNAL_ID = 10000;
-
-    get airtower(): Airtower {
-        return _app.airtower;
-    }
-
-    get engine(): Engine {
-        return _app.scene.getScene('Engine') as Engine;
-    }
-
-    get room(): import('./world/engine/Engine').Room {
-        return this.engine.currentRoom;
-    }
-
-    get player(): import('./world/avatar/avatar').Avatar {
-        return this.engine.player;
-    }
-
-    get world(): World {
-        return _app.scene.getScene('World') as World;
-    }
-
-    get interface(): Interface {
-        return _app.scene.getScene('Interface') as Interface;
-    }
-
-    async spawn(name: string, color: number, member?: number, mascotId?: number): Promise<void> {
-        let membership: import('./net/types/penguin/membership').Membership = member != undefined ? {
-            level: member,
-            since: ''
-        } : undefined;
-
-        let data: import('./net/types/penguin/penguin').PenguinData = {
-            id: this.INTERNAL_ID.toString(),
-            username: name,
-            nickname: name,
-            avatar: {
-                color,
-                head: 0,
-                face: 1924,
-                neck: 0,
-                body: 4022,
-                hand: 0,
-                feet: 0,
-                photo: 0,
-                flag: 0
-            },
-            publicStampbook: false,
-            member: membership,
-            mascotId,
-            relationship: {
-                type: 'friend' as import('./net/types/penguin/relationship').RelationshipType.FRIEND,
-                since: ''
-            }
-        };
-
-        let avatar = await this.engine.loadAvatar('penguin');
-        this.engine.addPenguin(data, avatar, this.engine.cameras.main.centerX, this.engine.cameras.main.centerY + 200);
-
-        this.INTERNAL_ID += 1;
-    }
-
-    getItemsByType() {
-        let paperItems = _app.gameConfig.paper_items;
-        let itemsByType: { [type: number]: number[] } = {};
-        for (let idx in paperItems) {
-            let item = paperItems[idx];
-
-            if (item.is_bait) continue;
-
-            if (!(item.type in itemsByType)) itemsByType[item.type] = [];
-
-            itemsByType[item.type].push(item.paper_item_id);
-        }
-        return itemsByType;
-    }
-
-    async stressTest(limit?: number): Promise<void> {
-        let itemsByType = this.getItemsByType();
-
-        let colors: number[] = [];
-        for (let idx in _app.gameConfig.player_colors) {
-            colors.push(parseInt(idx));
-        }
-
-        let avatar = await this.engine.loadAvatar('penguin');
-        limit = limit ?? this.engine.currentRoom.roomData.max_users;
-
-        let actions: number[] = [
-            0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
-        ];
-
-        for (let i = 0; i < limit; i++) {
-            let randomRank = Math.floor(Math.random() * 5);
-            let member: import('./net/types/penguin/membership').Membership = randomRank > 0 ? {
-                level: randomRank,
-                since: ''
-            } : undefined;
-            let username = `P${this.INTERNAL_ID}`;
-
-            let data: import('./net/types/penguin/penguin').PenguinData = {
-                id: this.INTERNAL_ID.toString(),
-                username,
-                nickname: username,
-                avatar: {
-                    color: this.getRandomItem(colors),
-                    head: this.getRandomItem(itemsByType[2]),
-                    face: this.getRandomItem(itemsByType[3]),
-                    neck: this.getRandomItem(itemsByType[4]),
-                    body: this.getRandomItem(itemsByType[5]),
-                    hand: this.getRandomItem(itemsByType[6]),
-                    feet: this.getRandomItem(itemsByType[7]),
-                    photo: this.getRandomItem(itemsByType[9]),
-                    flag: 0,
-                },
-                publicStampbook: Boolean(Math.floor(Math.random() * 2)),
-                member,
-                relationship: {
-                    type: 'friend' as import('./net/types/penguin/relationship').RelationshipType.FRIEND,
-                    since: ''
-                }
-            };
-
-            let penguin = this.engine.addPenguin(data, avatar, this.engine.cameras.main.centerX + this.randomRange(-350, +350), this.engine.cameras.main.centerY + this.randomRange(0, +400));
-            penguin.playAnimation(this.getRandomItem(actions));
-
-            this.INTERNAL_ID += 1;
-        }
-    }
-
-    getRandomAvatar(): import('./net/types/penguin/avatar').Avatar {
-        let itemsByType = this.getItemsByType();
-
-        let colors: number[] = [];
-        for (let idx in _app.gameConfig.player_colors) {
-            colors.push(parseInt(idx));
-        }
-
-        return {
-            color: this.getRandomItem(colors),
-            head: this.getRandomItem(itemsByType[2]),
-            face: this.getRandomItem(itemsByType[3]),
-            neck: this.getRandomItem(itemsByType[4]),
-            body: this.getRandomItem(itemsByType[5]),
-            hand: this.getRandomItem(itemsByType[6]),
-            feet: this.getRandomItem(itemsByType[7]),
-            photo: this.getRandomItem(itemsByType[9]),
-            flag: 0,
-        }
-    }
-
-    randomRange(min: number, max: number): number {
-        return Math.floor(Math.random() * (max - min + 1)) + min
-    }
-
-    getRandomItem<T>(array: T[]): T {
-        let idx = Math.floor(Math.random() * array.length);
-        return array[idx];
-    }
-
-    teleport(roomId: number): void {
-        let roomConfig = _app.gameConfig.rooms[roomId.toString()];
-        if (!roomConfig) return;
-        console.log('Mocking room join on room', roomConfig);
-        this.engine.joinRoom(roomConfig);
-    }
-
-    changeLanguage(language: string): void {
-        _app.locale.setLanguage(language);
-        _app.locale.load();
-    }
-}
-
 export let debug: Debug;
 
-if (__webpack_options__.EXPOSE_APP) debug = new Debug();
+if (__webpack_options__.EXPOSE_APP) debug = new Debug(() => app);
