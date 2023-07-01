@@ -45,7 +45,8 @@ Below is a list of valid options.
 ---
 
 - `--env development`: Marks this build as a `development` build, disabling any post-processing for optimization and thus greatly reducing build times.
-> If this option is present, then the game instance will be made available in the playpage as `CP.app` to assist debugging. Otherwise, this property will be undefined.
+> If this option is present, then a class instance will be made available in the playpage as `CP.debug` to assist debugging. Otherwise, this property will be undefined.
+> This instance exposes a handful of properties and other utility functions, which should not be made available for the public as it can easily give a window to tamper with game internals.
 - `--env apiPath=string`: Sets the base API URL for communication. It is recommended that you provide an absolute URL for this option.
 - `--env mediaPath=string` (default: `"/"`): Sets the base URL for the mediaserver. It is recommended that you provide an absolute URL for this option.
 - `--env crossOrigin=string` (optional): Sets the CORS rule for file fetching. Must be one of `anonymous` or `use-credentials`. Best left untouched if you are not handling cross-origin requests.

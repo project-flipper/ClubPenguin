@@ -14,7 +14,6 @@ module.exports = env => {
         mediaPath: env.mediaPath ? env.mediaPath : '/',
         crossOrigin: env.crossOrigin,
         cacheVersion: env.cacheVersion,
-        clientVersion: env.clientVersion ? env.clientVersion : env.cacheVersion,
         contentVersion: env.contentVersion ? env.contentVersion : env.cacheVersion,
         minigameVersion: env.minigameVersion ? env.minigameVersion : env.cacheVersion,
         environmentType: env.environmentType ? env.environmentType : env.development ? 'dev' : 'prod',
