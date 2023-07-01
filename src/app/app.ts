@@ -9,7 +9,6 @@ interface AppParams {
     environmentType: string,
     apiPath: string,
     cacheVersion: string,
-    clientVersion: string,
     contentVersion: string,
     minigameVersion: string
 }

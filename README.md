@@ -35,8 +35,8 @@ Both `npm run build` and `npm run serve` run `webpack` under the hood, so you ma
 To pass environment options to a build command, you must use a separator `--` to forward arguments to `webpack`, and use the `--env` argument afterwards to define an option.
 
 A build command with options may look like this:
-```
-webpack serve --env development --env mediaPath="http://localhost" --env homeLink="http://localhost" --env playLink="http://localhost"
+```sh
+npm run build -- --env development --env mediaPath="http://localhost" --env homeLink="http://localhost" --env playLink="http://localhost"
 ```
 Note that `development` is a boolean option, so there is no need to provide a value for it unlike string options. The absence of this option would mean `false`.
 
@@ -50,7 +50,6 @@ Below is a list of valid options.
 - `--env mediaPath=string` (default: `"/"`): Sets the base URL for the mediaserver. It is recommended that you provide an absolute URL for this option.
 - `--env crossOrigin=string` (optional): Sets the CORS rule for file fetching. Must be one of `anonymous` or `use-credentials`. Best left untouched if you are not handling cross-origin requests.
 - `--env cacheVersion=string` (optional): Sets the base cache version. This is used by the game to get around file caching on mediaserver asset requests.
-- `--env clientVersion=string` (optional): Sets the cache version for client files. If not provided, then it defaults to the value of `cacheVersion`.
 - `--env contentVersion=string` (optional): Sets the cache version for content files. If not provided, then it defaults to the value of `cacheVersion`.
 - `--env minigameVersion=string` (optional): Sets the cache version for minigame files. If not provided, then it defaults to the value of `cacheVersion`.
 - `--env environmentType=string` (optional): Sets the environment type hint for the game. If not provided, then it will infer the value based on the build type: `prod` for production and `dev` for development.
