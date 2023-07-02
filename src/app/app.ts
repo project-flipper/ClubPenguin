@@ -22,6 +22,10 @@ export class App extends Phaser.Game {
     public environmentType: string;
     public lastBlur?: number;
 
+    public cacheVersion: string;
+    public contentVersion: string;
+    public minigameVersion: string;
+
     constructor(config: Phaser.Types.Core.GameConfig, params: AppParams) {
         super(config);
 
@@ -33,6 +37,9 @@ export class App extends Phaser.Game {
         this.input.globalTopOnly = true;
 
         this.environmentType = params.environmentType;
+        this.cacheVersion = params.cacheVersion;
+        this.contentVersion = params.contentVersion;
+        this.minigameVersion = params.minigameVersion;
     }
 
     fixDomGO<T extends Phaser.GameObjects.DOMElement>(dom: T): T {
