@@ -36,7 +36,7 @@ interface RunParams {
 
 declare global {
     const __webpack_options__: {
-        EXPOSE_APP: boolean,
+        EXPOSE_DEBUG: boolean,
         RECAPTCHA_SITE_KEY: string
     };
     const __webpack_public_path__: string;
@@ -133,7 +133,7 @@ export function run(params: RunParams): void {
         environmentType: params.environmentType
     });
 
-    if (__webpack_options__.EXPOSE_APP) app = app;
+    app = app;
 }
 
 export function isRunning(): boolean {
@@ -204,4 +204,4 @@ declare global {
 
 export let debug: Debug;
 
-if (__webpack_options__.EXPOSE_APP) debug = new Debug(() => app);
+if (__webpack_options__.EXPOSE_DEBUG) debug = new Debug(() => app);

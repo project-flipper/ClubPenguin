@@ -193,7 +193,7 @@ module.exports = env => {
             new ForkTsCheckerWebpackPlugin(),
             new DefinePlugin({
                 '__webpack_options__': JSON.stringify({
-                    EXPOSE_APP: env.development,
+                    EXPOSE_DEBUG: env.development,
                     RECAPTCHA_SITE_KEY: env.recaptchaSiteKey
                 })
             }),
