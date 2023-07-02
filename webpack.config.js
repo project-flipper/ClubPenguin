@@ -6,6 +6,11 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
+function getNowFormat() {
+    let now = new Date();
+    return `${now.getUTCFullYear()}${now.getUTCMonth() + 1}${now.getUTCDay() + 1}${now.getUTCHours()}${now.getUTCMinutes()}${now.getUTCSeconds()}`
+}
+
 /** @type {(env: any) => import("webpack").Configuration} */
 module.exports = env => {
     let environment = {
@@ -13,7 +18,7 @@ module.exports = env => {
         apiPath: env.apiPath,
         mediaPath: env.mediaPath ? env.mediaPath : '/',
         crossOrigin: env.crossOrigin,
-        cacheVersion: env.cacheVersion,
+        cacheVersion: env.cacheVersion ? env.cacheVersion : getNowFormat(),
         contentVersion: env.contentVersion ? env.contentVersion : env.cacheVersion,
         minigameVersion: env.minigameVersion ? env.minigameVersion : env.cacheVersion,
         environmentType: env.environmentType ? env.environmentType : env.development ? 'dev' : 'prod',
