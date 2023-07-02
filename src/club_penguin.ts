@@ -1,4 +1,5 @@
 if ('Phaser' in global) delete global['Phaser'];
+Phaser.Plugins.PluginCache.register('Loader', LoaderPlugin, 'load');
 
 import 'devtools-detect';
 import Phaser from 'phaser';
@@ -17,8 +18,9 @@ import Logo from './logo/Logo';
 import World from './world/World';
 import Interface from './world/interface/Interface';
 import { Debug } from './debug';
+import { LoaderPlugin } from './app/loader';
 
-var app: App;
+let app: App;
 
 interface RunParams {
     parentId: string,
@@ -133,7 +135,7 @@ export function run(params: RunParams): void {
         environmentType: params.environmentType
     });
 
-    app = app;
+    LoaderPlugin.cacheVersion = params.cacheVersion;
 }
 
 export function isRunning(): boolean {
