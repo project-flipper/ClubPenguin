@@ -4,8 +4,10 @@ import { Airtower } from './net/airtower';
 import { Membership } from './net/types/penguin/membership';
 import { PenguinData } from './net/types/penguin/penguin';
 import { RelationshipType } from './net/types/penguin/relationship';
+import { Avatar as AvatarData } from './net/types/penguin/avatar';
 import World from './world/World';
-import Engine from './world/engine/Engine';
+import { Avatar } from './world/avatar/avatar';
+import Engine, { Room } from './world/engine/Engine';
 import Interface from './world/interface/Interface';
 
 export class Debug {
@@ -31,11 +33,11 @@ export class Debug {
         return this.app.scene.getScene('Engine') as Engine;
     }
 
-    get room(): import('./world/engine/Engine').Room {
+    get room(): Room {
         return this.engine.currentRoom;
     }
 
-    get player(): import('./world/avatar/avatar').Avatar {
+    get player(): Avatar {
         return this.engine.player;
     }
 
@@ -117,13 +119,13 @@ export class Debug {
 
         for (let i = 0; i < limit; i++) {
             let randomRank = Math.floor(Math.random() * 5);
-            let member: import('./net/types/penguin/membership').Membership = randomRank > 0 ? {
+            let member: Membership = randomRank > 0 ? {
                 level: randomRank,
                 since: ''
             } : undefined;
             let username = `P${this.INTERNAL_ID}`;
 
-            let data: import('./net/types/penguin/penguin').PenguinData = {
+            let data: PenguinData = {
                 id: this.INTERNAL_ID.toString(),
                 username,
                 nickname: username,
@@ -153,7 +155,7 @@ export class Debug {
         }
     }
 
-    getRandomAvatar(): import('./net/types/penguin/avatar').Avatar {
+    getRandomAvatar(): AvatarData {
         let itemsByType = this.getItemsByType();
 
         let colors: number[] = [];
