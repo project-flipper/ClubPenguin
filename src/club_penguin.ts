@@ -168,6 +168,20 @@ export function sizeChange(repositionFriends = false): void {
     if (repositionFriends) app.friends.reposition();
 }
 
+export function handleLogOff(redirectUrl: string): void {
+    stop(true);
+
+    if (redirectUrl) window.location.href = redirectUrl;
+}
+
+export let handleWindowUnload = handleLogOff;
+
+export let handleBack = handleLogOff;
+
+export function handleNameResubmit(): void {
+
+}
+
 export function handleShowPreactivation(): void {
 
 }
