@@ -17,6 +17,14 @@ import EmoteMenu from "./prefabs/EmoteMenu";
 import ActionsMenu from "./prefabs/ActionsMenu";
 import Namecard from "./prefabs/Namecard";
 import PlayerNamecard from "./prefabs/PlayerNamecard";
+import PromptQuestion from "./prefabs/PromptQuestion";
+import PromptOkay from "./prefabs/PromptOkay";
+import PromptSpinner from "./prefabs/PromptSpinner";
+import PromptIgloo from "./prefabs/PromptIgloo";
+import PromptShop from "./prefabs/PromptShop";
+import PromptCoin from "./prefabs/PromptCoin";
+import PromptInput from "./prefabs/PromptInput";
+import PromptError from "./prefabs/PromptError";
 import Hint from "./prefabs/Hint";
 /* START-USER-IMPORTS */
 import type { PenguinData } from "../../net/types/penguin/penguin";
@@ -218,6 +226,50 @@ export default class Interface extends Phaser.Scene {
         playerNamecard.visible = false;
         ui.add(playerNamecard);
 
+        // prompt
+        const prompt = this.add.layer();
+        prompt.visible = false;
+
+        // block
+        const block = this.add.rectangle(0, 0, 1710, 1080);
+        block.setOrigin(0, 0);
+        block.isFilled = true;
+        block.fillColor = 0;
+        block.fillAlpha = 0.25;
+        prompt.add(block);
+
+        // promptQuestion
+        const promptQuestion = new PromptQuestion(this, 0, 0);
+        prompt.add(promptQuestion);
+
+        // promptOkay
+        const promptOkay = new PromptOkay(this, 0, 0);
+        prompt.add(promptOkay);
+
+        // promptSpinner
+        const promptSpinner = new PromptSpinner(this, 0, 0);
+        prompt.add(promptSpinner);
+
+        // promptIgloo
+        const promptIgloo = new PromptIgloo(this, 0, 0);
+        prompt.add(promptIgloo);
+
+        // promptShop
+        const promptShop = new PromptShop(this, 0, 0);
+        prompt.add(promptShop);
+
+        // promptCoin
+        const promptCoin = new PromptCoin(this, 0, 0);
+        prompt.add(promptCoin);
+
+        // promptInput
+        const promptInput = new PromptInput(this, 0, 0);
+        prompt.add(promptInput);
+
+        // promptError
+        const promptError = new PromptError(this, 0, 0);
+        prompt.add(promptError);
+
         // hint
         const hint = new Hint(this, 718, 540);
         this.add.existing(hint);
@@ -378,6 +430,9 @@ export default class Interface extends Phaser.Scene {
         phoneIconButtonComponent.handCursor = true;
         phoneIconButtonComponent.pixelPerfect = true;
 
+        // block (components)
+        new InputBlocker(block);
+
         this.avatarOverlays = avatarOverlays;
         this.puffleButton = puffleButton;
         this.emojiButton = emojiButton;
@@ -409,6 +464,15 @@ export default class Interface extends Phaser.Scene {
         this.namecard = namecard;
         this.playerNamecard = playerNamecard;
         this.ui = ui;
+        this.promptQuestion = promptQuestion;
+        this.promptOkay = promptOkay;
+        this.promptSpinner = promptSpinner;
+        this.promptIgloo = promptIgloo;
+        this.promptShop = promptShop;
+        this.promptCoin = promptCoin;
+        this.promptInput = promptInput;
+        this.promptError = promptError;
+        this.prompt = prompt;
         this.hint = hint;
         this.photo_mask = photo_mask;
 
@@ -446,6 +510,15 @@ export default class Interface extends Phaser.Scene {
     public namecard!: Namecard;
     public playerNamecard!: PlayerNamecard;
     public ui!: Phaser.GameObjects.Layer;
+    public promptQuestion!: PromptQuestion;
+    public promptOkay!: PromptOkay;
+    public promptSpinner!: PromptSpinner;
+    public promptIgloo!: PromptIgloo;
+    public promptShop!: PromptShop;
+    public promptCoin!: PromptCoin;
+    public promptInput!: PromptInput;
+    public promptError!: PromptError;
+    public prompt!: Phaser.GameObjects.Layer;
     public hint!: Hint;
     public photo_mask!: Phaser.GameObjects.Image;
 

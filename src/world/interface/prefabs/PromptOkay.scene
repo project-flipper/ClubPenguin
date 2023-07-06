@@ -1,0 +1,129 @@
+{
+    "id": "11e3fa29-fabf-4929-a7e9-d63914a6e0d8",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "c2c0666b-57a6-48f1-abfd-796008e7a8e4",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "765ef550-8b30-4cb4-968e-5cdbf796accc",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptBg"
+                    },
+                    "x": 456.75,
+                    "y": 246.375,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 796.5,
+                    "height": 364.5,
+                    "leftWidth": 47,
+                    "rightWidth": 47,
+                    "topHeight": 47,
+                    "bottomHeight": 47
+                },
+                {
+                    "type": "Image",
+                    "id": "5dcf1647-1eb3-4b77-b3e6-49e828cb66ff",
+                    "label": "okayButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptOkayButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptOkayButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptOkayButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptOkayButton0001"
+                    },
+                    "x": 855,
+                    "y": 492.975
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "9cc6362d-fe7a-4b9b-b9de-78936d0c827f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "font",
+                        "fontSize",
+                        "horizontalAlign",
+                        "boxHeight",
+                        "boxWidth",
+                        "text"
+                    ],
+                    "label": "message",
+                    "scope": "PUBLIC",
+                    "boxWidth": 642.15,
+                    "boxHeight": 151.9875,
+                    "horizontalAlign": 1,
+                    "x": 533.925,
+                    "y": 309.7125,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Message goes here\nMessage goes here",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -36
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "9419054e-6f5c-42bd-b5da-b54bcd4bf8b4",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "horizontalAlign",
+                        "boxHeight",
+                        "boxWidth",
+                        "text"
+                    ],
+                    "label": "ok",
+                    "scope": "PUBLIC",
+                    "boxWidth": 160.0875,
+                    "boxHeight": 63,
+                    "horizontalAlign": 1,
+                    "x": 775.0125,
+                    "y": 463.5,
+                    "text": "Ok",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -45
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

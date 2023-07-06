@@ -641,6 +641,126 @@
             ]
         },
         {
+            "type": "Layer",
+            "id": "d4995e3e-7295-4f9b-85f6-36de6bc37861",
+            "label": "prompt",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "01400ef4-da75-4653-b841-084bb9b96c0c",
+                    "label": "block",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "originX": 0,
+                    "originY": 0,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "fillAlpha": 0.25,
+                    "width": 1710,
+                    "height": 1080
+                },
+                {
+                    "prefabId": "8de172e0-450f-4a94-b284-67beef1004b4",
+                    "id": "929066ef-da13-4247-9b27-f8947fdb8394",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "promptQuestion",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "prefabId": "11e3fa29-fabf-4929-a7e9-d63914a6e0d8",
+                    "id": "c584434d-7740-4a58-82d4-dac35fd9f4d2",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "promptOkay",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "prefabId": "47cac99f-df20-451f-bad6-cbde58ec89ed",
+                    "id": "c2feb3bb-0261-4cb0-b955-0b84d2bc08af",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "promptSpinner",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "prefabId": "8253ec3b-903c-4b64-a3a8-8f57aaee2f2b",
+                    "id": "70f2650a-332b-48c9-84ab-470bd5beec61",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "promptIgloo",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "prefabId": "f5c05e8a-4506-4ff0-b4c7-01b8c8ac5a09",
+                    "id": "d9247405-abda-4db1-ba7b-b2a7171b5dee",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "promptShop",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "prefabId": "d7397e26-0f2d-4e02-b432-fbe6a1f3a8b2",
+                    "id": "1166be57-9fef-46d9-8d49-c7b06bda50b8",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "promptCoin",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "prefabId": "0980aa23-ebb0-4302-af36-63709763625a",
+                    "id": "ebdc2c61-04ef-4562-9477-cc00572d239e",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "promptInput",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "prefabId": "41ca1325-4dcd-482f-b076-e2a6f3727227",
+                    "id": "98348f53-0454-4d08-8721-e0a80eee8767",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "promptError",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0
+                }
+            ]
+        },
+        {
             "prefabId": "7d16d984-0ba1-44a7-aafe-0e6f377cabdd",
             "id": "9f33174f-a72b-4d12-a285-49debdf6e56e",
             "unlock": [
