@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "serve": "webpack serve",
-    "dev-serve": "webpack serve --env development --env mediaPath=\"http://localhost:8080\" --env homeLink=\"http://localhost:8080\" --env playLink=\"http://localhost:8080\"",
-    "dev-serve-net": "webpack serve --env development --env mediaPath=\"http://192.168.100.59:8080\" --env homeLink=\"http://192.168.100.59:8080\" --env playLink=\"http://192.168.100.59:8080\""
+    "dev-serve": "webpack serve --env development --env mediaPath=\"http://localhost:8080/media\" --env homeLink=\"http://localhost:8080\" --env playLink=\"http://localhost:8080\"",
+    "dev-serve-net": "webpack serve --env development --env mediaPath=\"http://192.168.100.59:8080/media\" --env homeLink=\"http://192.168.100.59:8080\" --env playLink=\"http://192.168.100.59:8080\""
   },
   "author": "",
   "license": "ISC",

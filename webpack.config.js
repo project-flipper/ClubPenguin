@@ -178,7 +178,8 @@ module.exports = env => {
             static: [
                 {
                     directory: path.resolve(__dirname, 'media'),
-                    publicPath: '/'
+                    publicPath: '/media/',
+                    watch: false
                 },
                 {
                     directory: path.resolve(__dirname, 'play'),
