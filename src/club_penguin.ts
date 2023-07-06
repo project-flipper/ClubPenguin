@@ -37,11 +37,27 @@ interface RunParams {
 }
 
 declare global {
+    /* ========== WEBPACK VARIABLES ========== */
     const __webpack_options__: {
         EXPOSE_DEBUG: boolean,
         RECAPTCHA_SITE_KEY: string
     };
     const __webpack_public_path__: string;
+
+    /* ========== PLAY PAGE ========== */
+    interface Window {
+        jsAPI: {
+            showNav(): void;
+            hideNav(): void;
+            showRules(): void;
+        };
+        handleGameError: (options?: { handled: boolean }) => void;
+    }
+}
+
+function onAppCrash(): void {
+    if (window.handleGameError) window.handleGameError({ handled: false });
+    stop(true);
 }
 
 export function isBrowserCompatible(): boolean {
@@ -123,6 +139,9 @@ export function run(params: RunParams): void {
                 if (params.elementId) app.canvas.id = params.elementId;
                 if (params.elementClassName) app.canvas.className = params.elementClassName;
 
+                app.canvas.addEventListener('contextlost', onAppCrash);
+                app.canvas.addEventListener('webglcontextlost', onAppCrash);
+
                 app.friends.init(params.mediaPath, app.airtower.createAvatarUrlCallback());
             }
         }
@@ -189,18 +208,10 @@ export function sendToggleBestCharacter(id: string): void {
     app.friends.sendToggleBestCharacter(id);
 }
 
-export function stop(): void {
-    if (isRunning()) app.destroy(false);
-}
-
-declare global {
-    interface Window {
-        jsAPI: {
-            showNav(): void;
-            hideNav(): void;
-            showRules(): void;
-        };
-        handleGameError: (data?: { handled: boolean }) => void;
+export function stop(terminate = false): void {
+    if (isRunning()) {
+        //app.airtower.close();
+        app.destroy(false, terminate);
     }
 }
 
