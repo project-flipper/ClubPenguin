@@ -138,6 +138,12 @@
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.Image",
             "properties": []
+        },
+        {
+            "name": "Trigger",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
         }
     ],
     "meta": {

@@ -219,8 +219,8 @@ export default class DojoExt extends Phaser.Scene implements Room {
         this.deck_btn.on('over', () => this.deck.setFrame('dojoext/deck0002'));
         this.deck_btn.on('out', () => this.deck.setFrame('dojoext/deck0001'));
 
-        this.smoke.play('smoke-animation');
-        this.waterfall.play('waterfall-animation');
+        this.smoke.play('dojoext-smoke-animation');
+        this.waterfall.play('dojoext-waterfall-animation');
 
         if (data.onready) data.onready(this);
     }

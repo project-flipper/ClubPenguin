@@ -5,32 +5,28 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import type { Avatar } from "../../../world/avatar/avatar";
 import Engine from "../../../world/engine/Engine";
+import { Avatar } from "../../../world/avatar/avatar";
 /* END-USER-IMPORTS */
 
-export default class PressureTrigger {
+export default class Trigger {
 
     constructor(gameObject: Phaser.GameObjects.Image) {
         this.gameObject = gameObject;
-        (gameObject as any)["__PressureTrigger"] = this;
+        (gameObject as any)["__Trigger"] = this;
 
         /* START-USER-CTR-CODE */
-
-        this.active = false;
-
+        // Write your code here.
         /* END-USER-CTR-CODE */
     }
 
-    static getComponent(gameObject: Phaser.GameObjects.Image): PressureTrigger {
-        return (gameObject as any)["__PressureTrigger"];
+    static getComponent(gameObject: Phaser.GameObjects.Image): Trigger {
+        return (gameObject as any)["__Trigger"];
     }
 
     private gameObject: Phaser.GameObjects.Image;
 
     /* START-USER-CODE */
-
-    public active: boolean;
 
     test(x: number, y: number): boolean {
         let point = new Phaser.Math.Vector2(0, 0);
@@ -52,7 +48,9 @@ export default class PressureTrigger {
         return test({}, point.x, point.y, this.gameObject);
     }
 
-    execute(engine: Engine, penguin: Avatar): void { }
+    execute(engine: Engine, penguin: Avatar): void {
+
+    }
 
     /* END-USER-CODE */
 }

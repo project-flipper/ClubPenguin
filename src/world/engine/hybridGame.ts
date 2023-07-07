@@ -80,6 +80,7 @@ export class HybridGame extends Phaser.Scene implements Game {
 
         this.container = this.add.dom(0, 0, player, `width: ${this.cameras.main.width}px; height: ${this.cameras.main.height}px`) as HybridContainer;
         this.container.setOrigin(0, 0);
+        this.container.visible = false;
     }
 
     async play(url: string, params?: string): Promise<void> {
@@ -104,8 +105,10 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     stop(): void {
-        this.container.destroy(true);
-        this.container = undefined;
+        if (this.container) {
+            this.container.destroy(true);
+            this.container = undefined;
+        }
 
         this.destroyBridge();
     }
@@ -141,10 +144,15 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     hideLoading(): void {
         let load = this.scene.get('Load') as Load;
-        load.hide();
+        if (load.isShowing) load.hide();
+        this.container.visible = true;
     }
 
     endGame(score: number, room: undefined): void {
+        let load = this.scene.get('Load') as Load;
+        if (!load.isShowing) load.show();
+
+        this.container.visible = false;
         this.engine.endGame(score, room);
     }
 

@@ -332,8 +332,8 @@ export default class Forts extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.orangeflag.play('orangeflag-animation');
-        this.blueflag.play('blueflag-animation');
+        this.orangeflag.play('forts-orangeflag-animation');
+        this.blueflag.play('forts-blueflag-animation');
 
         let days = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
         this.time.addEvent({
@@ -362,9 +362,9 @@ export default class Forts extends Phaser.Scene implements Room {
         SnowballTrigger.getComponent(this.snowball_target).execute = (_engine, _penguin, snowball) => {
             snowball.destroy(true);
             this.sound.play('forts_target');
-            this.target.play('target-animation');
-            if (!this.clockwork.anims.isPlaying) this.clockwork.play('clockwork-animation');
-            if (!this.cog.anims.isPlaying) this.cog.play('cog-animation');
+            this.target.play('forts-target-animation');
+            if (!this.clockwork.anims.isPlaying) this.clockwork.play('forts-clockwork-animation');
+            if (!this.cog.anims.isPlaying) this.cog.play('forts-cog-animation');
         };
 
         this.game.locale.register(this.localize, this);

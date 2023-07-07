@@ -1,0 +1,183 @@
+{
+    "id": "0980aa23-ebb0-4302-af36-63709763625a",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "3699575f-d364-4182-ac23-83b70e962f7f",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "1ef9978f-4f8e-44ba-aff3-6f0de0e60196",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptBg"
+                    },
+                    "x": 456.75,
+                    "y": 166.5,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 796.5,
+                    "height": 657,
+                    "leftWidth": 47,
+                    "rightWidth": 47,
+                    "topHeight": 47,
+                    "bottomHeight": 47
+                },
+                {
+                    "type": "Image",
+                    "id": "535fd9fe-2dcb-4db8-9c09-916731e4a666",
+                    "label": "okayButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptOkayButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptOkayButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptOkayButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptOkayButton0001"
+                    },
+                    "x": 855,
+                    "y": 686.475
+                },
+                {
+                    "type": "Image",
+                    "id": "3ee6ef88-f62e-4bd8-8dee-ad00cae7a893",
+                    "label": "closeButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/namecardClose0001"
+                    },
+                    "x": 1188.1125,
+                    "y": 231.8625
+                },
+                {
+                    "type": "Container",
+                    "id": "dbfc417f-bcfd-4099-9d2b-18fcf9b7c3ea",
+                    "label": "icon",
+                    "scope": "PUBLIC",
+                    "x": 858.2625,
+                    "y": 336.15
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "aff45435-aef3-4b49-b028-13930ede6651",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "font",
+                        "fontSize",
+                        "horizontalAlign",
+                        "boxHeight",
+                        "boxWidth",
+                        "text"
+                    ],
+                    "label": "message",
+                    "scope": "PUBLIC",
+                    "boxWidth": 642.15,
+                    "boxHeight": 151.9875,
+                    "horizontalAlign": 1,
+                    "x": 534.9375,
+                    "y": 458.2125,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Message goes here",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -36
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "208914a7-bada-487a-b5fe-eda2819c026b",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "horizontalAlign",
+                        "boxHeight",
+                        "boxWidth",
+                        "text",
+                        "verticalAlign"
+                    ],
+                    "label": "okay",
+                    "scope": "PUBLIC",
+                    "boxWidth": 259.875,
+                    "boxHeight": 63,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 723.2625,
+                    "y": 657,
+                    "text": "Continue",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -45
+                },
+                {
+                    "prefabId": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",
+                    "id": "d5d00907-7502-49b2-8b17-28fe3c556527",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "inputType",
+                        "fieldWidth",
+                        "fieldHeight",
+                        "maxLength",
+                        "font",
+                        "fontSize"
+                    ],
+                    "label": "field",
+                    "scope": "PUBLIC",
+                    "inputType": "text",
+                    "fieldWidth": 456.6375,
+                    "fieldHeight": 63,
+                    "maxLength": 12,
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -45,
+                    "x": 680,
+                    "y": 549
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

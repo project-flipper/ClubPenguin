@@ -703,7 +703,11 @@
         {
             "type": "Image",
             "id": "cdb18821-7610-46cf-b8ae-03e61c76bac7",
-            "label": "cove_waves_mc",
+            "label": "waves_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
             "texture": {
                 "key": "cove",
                 "frame": "cove/waves_mc"
@@ -861,7 +865,8 @@
             "id": "f671da03-091f-448d-912b-9f19de11d54a",
             "label": "triggers",
             "objectIds": [
-                "bf54fe68-75e4-441d-9364-9f34d9bdbc2d"
+                "bf54fe68-75e4-441d-9364-9f34d9bdbc2d",
+                "cdb18821-7610-46cf-b8ae-03e61c76bac7"
             ],
             "scope": "PUBLIC"
         }

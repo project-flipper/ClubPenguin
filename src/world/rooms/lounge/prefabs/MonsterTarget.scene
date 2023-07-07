@@ -44,10 +44,8 @@
                         "key": "lounge",
                         "frame": "lounge/monsterhitbox"
                     },
-                    "x": -58,
-                    "y": -127,
-                    "originX": 0,
-                    "originY": 0,
+                    "x": 2,
+                    "y": -63,
                     "visible": false
                 }
             ]

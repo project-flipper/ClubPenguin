@@ -6,6 +6,7 @@
 import Phaser from "phaser";
 import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import Trigger from "../../../lib/ui/components/Trigger";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
@@ -176,7 +177,7 @@ export default class Dock extends Phaser.Scene implements Room {
         dock_beach_trigger.visible = false;
 
         // lists
-        const triggers = [dock_village_trigger, dock_town_trigger, dock_beach_trigger];
+        const triggers = [dock_village_trigger, dock_town_trigger, dock_beach_trigger, boat_btn];
 
         // dock_stairs (components)
         new DepthEnabled(dock_stairs);
@@ -230,8 +231,8 @@ export default class Dock extends Phaser.Scene implements Room {
 
         // dock_catalogIcon (components)
         const dock_catalogIconButtonComponent = new ButtonComponent(dock_catalogIcon);
-        dock_catalogIconButtonComponent.upTexture = {"key":"dock","frame":"dock/catalogIcon"};
-        dock_catalogIconButtonComponent.overTexture = {"key":"dock","frame":"dock/catalogIconOver"};
+        dock_catalogIconButtonComponent.upTexture = { "key": "dock", "frame": "dock/catalogIcon" };
+        dock_catalogIconButtonComponent.overTexture = { "key": "dock", "frame": "dock/catalogIconOver" };
         dock_catalogIconButtonComponent.handCursor = true;
         dock_catalogIconButtonComponent.pixelPerfect = true;
         const dock_catalogIconDepthEnabled = new DepthEnabled(dock_catalogIcon);
@@ -251,6 +252,7 @@ export default class Dock extends Phaser.Scene implements Room {
         const boat_btnButtonComponent = new ButtonComponent(boat_btn);
         boat_btnButtonComponent.handCursor = true;
         boat_btnButtonComponent.pixelPerfect = true;
+        new Trigger(boat_btn);
 
         // town_btn (components)
         const town_btnButtonComponent = new ButtonComponent(town_btn);
@@ -334,7 +336,7 @@ export default class Dock extends Phaser.Scene implements Room {
         this.editorCreate();
 
         this.catalog_btn.on('over', () => {
-            this.catalog.play('catalog-animation');
+            this.catalog.play('dock-catalog-animation');
         });
         this.catalog_btn.on('out', () => {
             this.catalog.stop();
@@ -353,7 +355,7 @@ export default class Dock extends Phaser.Scene implements Room {
 
         this.tubes_btn.on('over', () => {
             this.sound.play('dock_tubes');
-            this.tubes.play('tubes-animation');
+            this.tubes.play('dock-tubes-animation');
         });
 
         this.town_btn.on('release', () => this.engine.movePlayer(1541.25, 371.25));
@@ -370,6 +372,13 @@ export default class Dock extends Phaser.Scene implements Room {
             yoyo: true,
             hold: 250
         });
+
+        Trigger.getComponent(this.boat_btn).execute = (engine, penguin) => {
+            if (engine.player != penguin) return;
+            this.interface.promptQuestion.showLocalized('hydro_prompt', () => {
+                this.engine.startGame(engine.game.gameConfig.games['hydro'], {});
+            }, () => { });
+        }
 
         this.game.locale.register(this.localize, this);
 

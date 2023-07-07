@@ -9,6 +9,7 @@ import TargetGame from "./prefabs/TargetGame";
 import TargetGameScreen from "./prefabs/TargetGameScreen";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import Trigger from "../../../lib/ui/components/Trigger";
 import SnowballTrigger from "../../../lib/ui/components/SnowballTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
@@ -246,17 +247,17 @@ export default class Lounge extends Phaser.Scene implements Room {
         thinicebutton.alphaBottomLeft = 0.01;
         thinicebutton.alphaBottomRight = 0.01;
 
-        // lounge_bits_trigger
-        const lounge_bits_trigger = this.add.image(328.95, 560.8125, "lounge", "lounge/bits_trigger");
-        lounge_bits_trigger.visible = false;
+        // bits_trigger
+        const bits_trigger = this.add.image(328.95, 560.8125, "lounge", "lounge/bits_trigger");
+        bits_trigger.visible = false;
 
-        // lounge_astro_trigger
-        const lounge_astro_trigger = this.add.image(1383.3, 519.1875, "lounge", "lounge/astro_trigger");
-        lounge_astro_trigger.visible = false;
+        // astro_trigger
+        const astro_trigger = this.add.image(1383.3, 519.1875, "lounge", "lounge/astro_trigger");
+        astro_trigger.visible = false;
 
-        // lounge_thinice_trigger
-        const lounge_thinice_trigger = this.add.image(1272.2625, 433.2375, "lounge", "lounge/thinice_trigger");
-        lounge_thinice_trigger.visible = false;
+        // thinice_trigger
+        const thinice_trigger = this.add.image(1272.2625, 433.2375, "lounge", "lounge/thinice_trigger");
+        thinice_trigger.visible = false;
 
         // chairbutton11
         const chairbutton11 = this.add.image(371.7, 802.35, "lounge", "lounge/chairbutton1_1");
@@ -333,7 +334,7 @@ export default class Lounge extends Phaser.Scene implements Room {
         snowballblock.visible = false;
 
         // lists
-        const triggers = [lounge_dance_trigger, snowballblock];
+        const triggers = [lounge_dance_trigger, snowballblock, bits_trigger, thinice_trigger, astro_trigger];
 
         // lounge_stairsrailing (components)
         const lounge_stairsrailingDepthEnabled = new DepthEnabled(lounge_stairsrailing);
@@ -481,6 +482,15 @@ export default class Lounge extends Phaser.Scene implements Room {
         thinicebuttonButtonComponent.handCursor = true;
         thinicebuttonButtonComponent.pixelPerfect = true;
 
+        // bits_trigger (components)
+        new Trigger(bits_trigger);
+
+        // astro_trigger (components)
+        new Trigger(astro_trigger);
+
+        // thinice_trigger (components)
+        new Trigger(thinice_trigger);
+
         // chairbutton11 (components)
         const chairbutton11ButtonComponent = new ButtonComponent(chairbutton11);
         chairbutton11ButtonComponent.pixelPerfect = true;
@@ -540,6 +550,9 @@ export default class Lounge extends Phaser.Scene implements Room {
         this.bitsbutton = bitsbutton;
         this.astrobutton = astrobutton;
         this.thinicebutton = thinicebutton;
+        this.bits_trigger = bits_trigger;
+        this.astro_trigger = astro_trigger;
+        this.thinice_trigger = thinice_trigger;
         this.chairbutton11 = chairbutton11;
         this.chairbutton12 = chairbutton12;
         this.chairbutton13 = chairbutton13;
@@ -579,6 +592,9 @@ export default class Lounge extends Phaser.Scene implements Room {
     public bitsbutton!: Phaser.GameObjects.Image;
     public astrobutton!: Phaser.GameObjects.Image;
     public thinicebutton!: Phaser.GameObjects.Image;
+    public bits_trigger!: Phaser.GameObjects.Image;
+    public astro_trigger!: Phaser.GameObjects.Image;
+    public thinice_trigger!: Phaser.GameObjects.Image;
     public chairbutton11!: Phaser.GameObjects.Image;
     public chairbutton12!: Phaser.GameObjects.Image;
     public chairbutton13!: Phaser.GameObjects.Image;
@@ -613,17 +629,17 @@ export default class Lounge extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.dancefloor.play('dancefloor-animation');
-        this.penguin1.play('penguin1-animation');
-        this.penguin2.play('penguin2-animation');
-        this.penguin3.play('penguin3-animation');
-        this.penguin4.play('penguin4-animation');
-        this.penguin5.play('penguin1-animation');
-        this.penguin6.play('penguin4-animation');
-        this.speaker1.play('speaker1-animation');
-        this.speaker2.play('speaker2-animation');
+        this.dancefloor.play('lounge-dancefloor-animation');
+        this.penguin1.play('lounge-penguin1-animation');
+        this.penguin2.play('lounge-penguin2-animation');
+        this.penguin3.play('lounge-penguin3-animation');
+        this.penguin4.play('lounge-penguin4-animation');
+        this.penguin5.play('lounge-penguin1-animation');
+        this.penguin6.play('lounge-penguin4-animation');
+        this.speaker1.play('lounge-speaker1-animation');
+        this.speaker2.play('lounge-speaker2-animation');
 
-        this.bitsscreen.play('bits-animation');
+        this.bitsscreen.play('lounge-bits-animation');
 
         this.chairbutton11.on('release', () => this.engine.movePlayer(371.25, 810));
         this.chairbutton12.on('release', () => this.engine.movePlayer(450, 945));
@@ -641,13 +657,13 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.interface.showLocalizedHint({ x: 267.6375, y: 459.675 }, 'bitsandbolts');
         })
         this.bitsbutton.on('out', () => {
-            this.bitsscreen.play('bits-animation');
+            this.bitsscreen.play('lounge-bits-animation');
             this.bitslight.setFrame('lounge/bits_lightoff');
             this.interface.hideHint();
         })
         this.bitsbutton.on('release', () => this.engine.movePlayer(360, 551.25));
 
-        this.thinicescreen.play('thinice-animation');
+        this.thinicescreen.play('lounge-thinice-animation');
 
         this.thinicebutton.on('over', () => {
             this.thinicescreen.stop();
@@ -656,13 +672,13 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.interface.showLocalizedHint({ x: 1326.15, y: 345.9375 }, 'thinice_hint');
         })
         this.thinicebutton.on('out', () => {
-            this.thinicescreen.play('thinice-animation');
+            this.thinicescreen.play('lounge-thinice-animation');
             this.thinicelight.setFrame('lounge/thinice_lightoff');
             this.interface.hideHint();
         })
         this.thinicebutton.on('release', () => this.engine.movePlayer(1237.5, 427.5));
 
-        this.astroscreen.play('astro-animation');
+        this.astroscreen.play('lounge-astro-animation');
 
         this.astrobutton.on('over', () => {
             this.astroscreen.stop();
@@ -671,7 +687,7 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.interface.showLocalizedHint({ x: 1425.4875, y: 434.92500 }, 'astro_hint');
         })
         this.astrobutton.on('out', () => {
-            this.astroscreen.play('astro-animation');
+            this.astroscreen.play('lounge-astro-animation');
             this.astrolight.setFrame('lounge/astro_lightoff');
             this.interface.hideHint();
         })
@@ -680,6 +696,27 @@ export default class Lounge extends Phaser.Scene implements Room {
         this.game.locale.register(this.localize, this);
 
         SnowballTrigger.getComponent(this.snowballblock).execute = (_engine, _penguin, snowball) => snowball.destroy(true);
+
+        Trigger.getComponent(this.thinice_trigger).execute = (engine, penguin) => {
+            if (engine.player != penguin) return;
+            this.interface.promptQuestion.showLocalized('thinice_prompt', () => {
+                this.engine.startGame(engine.game.gameConfig.games['thinice'], {});
+            }, () => { });
+        }
+
+        Trigger.getComponent(this.astro_trigger).execute = (engine, penguin) => {
+            if (engine.player != penguin) return;
+            this.interface.promptQuestion.showLocalized('astro_prompt', () => {
+                this.engine.startGame(engine.game.gameConfig.games['astro'], {});
+            }, () => { });
+        }
+
+        Trigger.getComponent(this.bits_trigger).execute = (engine, penguin) => {
+            if (engine.player != penguin) return;
+            this.interface.promptQuestion.showLocalized('bitsandbolts_prompt', () => {
+                this.engine.startGame(engine.game.gameConfig.games['bitsandbolts'], {});
+            }, () => { });
+        }
 
         this.screen.load(this.game.locale.abbreviation.toString()).then(() => {
             this.targetGame.start();

@@ -6,6 +6,7 @@
 import Phaser from "phaser";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
+import Trigger from "../../../lib/ui/components/Trigger";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
@@ -268,17 +269,17 @@ export default class Coffee extends Phaser.Scene implements Room {
         beansarea.alphaBottomLeft = 0.01;
         beansarea.alphaBottomRight = 0.01;
 
-        // coffee_smoothie_trigger
-        const coffee_smoothie_trigger = this.add.image(153, 731.25, "coffee", "coffee/smoothie-trigger");
-        coffee_smoothie_trigger.visible = false;
+        // smoothie_trigger
+        const smoothie_trigger = this.add.image(153, 731.25, "coffee", "coffee/smoothie-trigger");
+        smoothie_trigger.visible = false;
 
         // coffee_door_trigger
         const coffee_door_trigger = this.add.image(801.3375, 343.0125, "coffee", "coffee/door-trigger");
         coffee_door_trigger.visible = false;
 
-        // coffee_beans_trigger
-        const coffee_beans_trigger = this.add.image(1591.2, 871.65, "coffee", "coffee/beans-trigger");
-        coffee_beans_trigger.visible = false;
+        // beans_trigger
+        const beans_trigger = this.add.image(1591.2, 871.65, "coffee", "coffee/beans-trigger");
+        beans_trigger.visible = false;
 
         // coffee_upstairs_trigger
         const coffee_upstairs_trigger = this.add.image(1471.5, 421.7625, "coffee", "coffee/upstairs-trigger");
@@ -308,7 +309,7 @@ export default class Coffee extends Phaser.Scene implements Room {
         block.visible = false;
 
         // lists
-        const triggers = [coffee_upstairs_trigger, coffee_door_trigger];
+        const triggers = [coffee_upstairs_trigger, coffee_door_trigger, beans_trigger, smoothie_trigger];
 
         // stairs_btn (components)
         const stairs_btnButtonComponent = new ButtonComponent(stairs_btn);
@@ -411,11 +412,17 @@ export default class Coffee extends Phaser.Scene implements Room {
         beansareaButtonComponent.handCursor = true;
         beansareaButtonComponent.pixelPerfect = true;
 
+        // smoothie_trigger (components)
+        new Trigger(smoothie_trigger);
+
         // coffee_door_trigger (components)
         const coffee_door_triggerRoomTrigger = new RoomTrigger(coffee_door_trigger);
         coffee_door_triggerRoomTrigger.destination = "100";
         coffee_door_triggerRoomTrigger.playerX = 652.5;
         coffee_door_triggerRoomTrigger.playerY = 585;
+
+        // beans_trigger (components)
+        new Trigger(beans_trigger);
 
         // coffee_upstairs_trigger (components)
         const coffee_upstairs_triggerRoomTrigger = new RoomTrigger(coffee_upstairs_trigger);
@@ -441,6 +448,8 @@ export default class Coffee extends Phaser.Scene implements Room {
         this.beans = beans;
         this.smoothie_btn = smoothie_btn;
         this.beansarea = beansarea;
+        this.smoothie_trigger = smoothie_trigger;
+        this.beans_trigger = beans_trigger;
         this.register_btn = register_btn;
         this.smoothieregister_btn = smoothieregister_btn;
         this.block = block;
@@ -461,6 +470,8 @@ export default class Coffee extends Phaser.Scene implements Room {
     public beans!: Phaser.GameObjects.Sprite;
     public smoothie_btn!: Phaser.GameObjects.Image;
     public beansarea!: Phaser.GameObjects.Image;
+    public smoothie_trigger!: Phaser.GameObjects.Image;
+    public beans_trigger!: Phaser.GameObjects.Image;
     public register_btn!: Phaser.GameObjects.Image;
     public smoothieregister_btn!: Phaser.GameObjects.Image;
     public block!: Phaser.GameObjects.Image;
@@ -559,6 +570,20 @@ export default class Coffee extends Phaser.Scene implements Room {
                 this.smoothieCashOpen = false;
             }
         });
+
+        Trigger.getComponent(this.beans_trigger).execute = (engine, penguin) => {
+            if (engine.player != penguin) return;
+            this.interface.promptQuestion.showLocalized('beans_prompt', () => {
+                this.engine.startGame(engine.game.gameConfig.games['beans'], {});
+            }, () => { });
+        }
+
+        Trigger.getComponent(this.smoothie_trigger).execute = (engine, penguin) => {
+            if (engine.player != penguin) return;
+            this.interface.promptQuestion.showLocalized('smoothie_prompt', () => {
+                this.engine.startGame(engine.game.gameConfig.games['smoothie'], {});
+            }, () => { });
+        }
 
         this.game.locale.register(this.localize, this);
 

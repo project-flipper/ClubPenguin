@@ -983,7 +983,11 @@
         {
             "type": "Image",
             "id": "0b432b48-e824-4099-ae56-0f8d5af27927",
-            "label": "dance_dancing_trigger",
+            "label": "dancing_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
             "texture": {
                 "key": "dance",
                 "frame": "dance/dancing_trigger"
@@ -995,7 +999,11 @@
         {
             "type": "Image",
             "id": "45a4b18d-420b-4e9a-9673-b0a22769115a",
-            "label": "dance_mix_trigger",
+            "label": "mix_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
             "texture": {
                 "key": "dance",
                 "frame": "dance/mix_trigger"
@@ -1080,7 +1088,9 @@
                 "1dcf365c-78ff-47b7-8a6c-12e8f936547c",
                 "0be5ff1e-7584-4fe3-8a8a-68fdfd955526",
                 "5a26f0ae-bb75-4df6-b327-a7ac2b3729f8",
-                "3184f5d8-635e-4403-bf76-a29b2a1f6958"
+                "3184f5d8-635e-4403-bf76-a29b2a1f6958",
+                "45a4b18d-420b-4e9a-9673-b0a22769115a",
+                "0b432b48-e824-4099-ae56-0f8d5af27927"
             ],
             "scope": "PUBLIC"
         }

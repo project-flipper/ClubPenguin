@@ -1,0 +1,185 @@
+{
+    "id": "f5c05e8a-4506-4ff0-b4c7-01b8c8ac5a09",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "2277ddbe-fc2c-40e0-be54-6dd4d55096ac",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "8207edce-9e39-4514-80ed-404a693d7a02",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptBg"
+                    },
+                    "x": 456.75,
+                    "y": 166.5,
+                    "originX": 0,
+                    "originY": 0,
+                    "width": 796.5,
+                    "height": 657,
+                    "leftWidth": 47,
+                    "rightWidth": 47,
+                    "topHeight": 47,
+                    "bottomHeight": 47
+                },
+                {
+                    "type": "Image",
+                    "id": "1856e426-bd0a-4d2a-968e-a0ca2d4381c2",
+                    "label": "yesButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptButton0001"
+                    },
+                    "x": 732.2625,
+                    "y": 686.5875
+                },
+                {
+                    "type": "Image",
+                    "id": "0773dcf3-e25a-4d90-b005-4a20e7a42d30",
+                    "label": "noButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptButton0001"
+                    },
+                    "x": 979.7625,
+                    "y": 686.5875
+                },
+                {
+                    "type": "Container",
+                    "id": "327a0ab5-73cb-42a3-95b3-956f117df53d",
+                    "label": "icon",
+                    "scope": "PUBLIC",
+                    "x": 858.2625,
+                    "y": 336.15
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "1996ca71-7c40-402d-b08f-391a79532bde",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "horizontalAlign",
+                        "boxHeight",
+                        "boxWidth",
+                        "text",
+                        "verticalAlign"
+                    ],
+                    "label": "yes",
+                    "scope": "PUBLIC",
+                    "boxWidth": 160.0875,
+                    "boxHeight": 63,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 652.275,
+                    "y": 657,
+                    "text": "Yes",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -45
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "3b1808e9-3e22-4738-aae2-4e1ebc95af0a",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "horizontalAlign",
+                        "boxHeight",
+                        "boxWidth",
+                        "text",
+                        "verticalAlign"
+                    ],
+                    "label": "no",
+                    "scope": "PUBLIC",
+                    "boxWidth": 160.0875,
+                    "boxHeight": 63,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 899.775,
+                    "y": 657,
+                    "text": "No",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -45
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "6726f66c-1c84-4bb4-9181-488cad9be5a3",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "font",
+                        "fontSize",
+                        "horizontalAlign",
+                        "boxHeight",
+                        "boxWidth",
+                        "text"
+                    ],
+                    "label": "message",
+                    "scope": "PUBLIC",
+                    "boxWidth": 642.15,
+                    "boxHeight": 151.9875,
+                    "horizontalAlign": 1,
+                    "x": 534.9375,
+                    "y": 458.2125,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "You found a party hat.\nWould you like to pick it up?",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -36
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

@@ -548,7 +548,7 @@ export default class Shack extends Phaser.Scene implements Room {
         this.exit_btn.on('release', () => this.engine.movePlayer(101.25, 922.5));
         this.dojoext_btn.on('release', () => this.engine.movePlayer(832.5, 360));
 
-        this.flag.play('flag-animation');
+        this.flag.play('shack-flag-animation');
 
         let volleyA = PressureTrigger.getComponent(this.volleya_mc);
         let volleyB = PressureTrigger.getComponent(this.volleyb_mc);
@@ -564,7 +564,7 @@ export default class Shack extends Phaser.Scene implements Room {
     updateVolleyGame(state: boolean): void {
         if (state == this.volleyActive) return;
 
-        if (state) this.volleyball.play('volleyball-animation');
+        if (state) this.volleyball.play('shack-volleyball-animation');
         else {
             this.volleyball.anims.stop();
             this.volleyball.setFrame('shack/volleyball');

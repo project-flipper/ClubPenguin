@@ -283,23 +283,23 @@ export default class Beach extends Phaser.Scene implements Room {
 
             switch (this.bucketState) {
                 case 0:
-                    this.bucket.play('bucket0-animation');
+                    this.bucket.play('beach-bucket0-animation');
                     this.bucket_btn.setFrame('beach/bucket_btn');
                     break;
                 case 1:
-                    this.bucket.play('bucket1-animation');
+                    this.bucket.play('beach-bucket1-animation');
                     this.bucket_btn.setFrame('beach/bucket_btn');
                     break;
                 case 2:
-                    this.bucket.play('bucket2-animation');
+                    this.bucket.play('beach-bucket2-animation');
                     this.bucket_btn.setFrame('beach/bucket_btn');
                     break;
                 case 3:
-                    this.bucket.play('bucket3-animation');
+                    this.bucket.play('beach-bucket3-animation');
                     this.bucket_btn.setFrame('beach/bucket_btn2');
                     break;
                 case 4:
-                    this.bucket.play('bucket4-animation');
+                    this.bucket.play('beach-bucket4-animation');
                     this.bucket_btn.setFrame('beach/bucket_btn');
                     break;
             }
@@ -338,26 +338,26 @@ export default class Beach extends Phaser.Scene implements Room {
 
     updateBucketSoundEffects(animation: Phaser.Animations.Animation, frame: Phaser.Animations.AnimationFrame): void {
         switch (animation.key) {
-            case 'bucket0-animation':
+            case 'beach-bucket0-animation':
                 if (frame.index == 2) this.sound.play('beach_bucket0');
                 if (frame.index == 16) this.sound.play('beach_bucket1');
                 if (frame.index == 53) this.sound.play('beach_bucket2');
                 break;
-            case 'bucket1-animation':
+            case 'beach-bucket1-animation':
                 if (frame.index == 2) this.sound.play('beach_bucket0');
                 if (frame.index == 15) this.sound.play('beach_bucket1');
                 if (frame.index == 52) this.sound.play('beach_bucket2');
                 break;
-            case 'bucket2-animation':
+            case 'beach-bucket2-animation':
                 if (frame.index == 2) this.sound.play('beach_bucket0');
                 if (frame.index == 15) this.sound.play('beach_bucket1');
                 if (frame.index == 52) this.sound.play('beach_bucket2');
                 break;
-            case 'bucket3-animation':
+            case 'beach-bucket3-animation':
                 if (frame.index == 2) this.sound.play('beach_bucket3');
                 if (frame.index == 37) this.sound.play('beach_bucket4');
                 break;
-            case 'bucket4-animation':
+            case 'beach-bucket4-animation':
                 if (frame.index == 3) this.sound.play('beach_bucket5');
                 if (frame.index == 24) this.sound.play('beach_bucket0');
                 if (frame.index == 48) this.sound.play('beach_bucket6');

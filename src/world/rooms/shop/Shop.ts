@@ -182,8 +182,8 @@ export default class Shop extends Phaser.Scene implements Room {
 
         // changeroom (components)
         const changeroomButtonComponent = new ButtonComponent(changeroom);
-        changeroomButtonComponent.upTexture = {"key":"shop","frame":"shop/changeroom0001"};
-        changeroomButtonComponent.overTexture = {"key":"shop","frame":"shop/changeroom0002"};
+        changeroomButtonComponent.upTexture = { "key": "shop", "frame": "shop/changeroom0001" };
+        changeroomButtonComponent.overTexture = { "key": "shop", "frame": "shop/changeroom0002" };
         changeroomButtonComponent.handCursor = true;
         changeroomButtonComponent.pixelPerfect = true;
 
@@ -254,8 +254,8 @@ export default class Shop extends Phaser.Scene implements Room {
 
         // unlockbook (components)
         const unlockbookButtonComponent = new ButtonComponent(unlockbook);
-        unlockbookButtonComponent.upTexture = {"key":"shop","frame":"shop/unlockbook0001"};
-        unlockbookButtonComponent.overTexture = {"key":"shop","frame":"shop/unlockbook0002"};
+        unlockbookButtonComponent.upTexture = { "key": "shop", "frame": "shop/unlockbook0001" };
+        unlockbookButtonComponent.overTexture = { "key": "shop", "frame": "shop/unlockbook0002" };
         unlockbookButtonComponent.handCursor = true;
         unlockbookButtonComponent.pixelPerfect = true;
         const unlockbookDepthEnabled = new DepthEnabled(unlockbook);
@@ -264,7 +264,7 @@ export default class Shop extends Phaser.Scene implements Room {
 
         // stylebook (components)
         const stylebookButtonComponent = new ButtonComponent(stylebook);
-        stylebookButtonComponent.overTexture = {"key":"shop","frame":"shop/stylebook_open"};
+        stylebookButtonComponent.overTexture = { "key": "shop", "frame": "shop/stylebook_open" };
         stylebookButtonComponent.handCursor = true;
         stylebookButtonComponent.pixelPerfect = true;
         const stylebookDepthEnabled = new DepthEnabled(stylebook);
@@ -345,7 +345,7 @@ export default class Shop extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.speakers.play('speakers-animation');
+        this.speakers.play('shop-speakers-animation');
 
         this.door_btn.on('over', () => {
             this.door.setFrame('shop/door0002');
@@ -383,11 +383,11 @@ export default class Shop extends Phaser.Scene implements Room {
 
             if (!this.registerOpen) {
                 this.sound.play('shop_registeropen');
-                this.register.play('registeropen-animation');
+                this.register.play('shop-registeropen-animation');
                 this.registerOpen = true;
             } else {
                 this.sound.play('shop_registerclose');
-                this.register.play('registerclose-animation');
+                this.register.play('shop-registerclose-animation');
                 this.registerOpen = false;
             }
         });
@@ -396,7 +396,7 @@ export default class Shop extends Phaser.Scene implements Room {
             if (this.display.anims.isPlaying) return;
 
             this.sound.play('shop_displayspin');
-            this.display.play('displayspin-animation');
+            this.display.play('shop-displayspin-animation');
         });
 
         this.unlockbook.on('over', () => this.sound.play('shop_bookopen'));

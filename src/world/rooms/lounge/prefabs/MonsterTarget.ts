@@ -20,8 +20,7 @@ export default class MonsterTarget extends Phaser.GameObjects.Container {
         this.add(art);
 
         // hitbox
-        const hitbox = scene.add.image(-58, -127, "lounge", "lounge/monsterhitbox");
-        hitbox.setOrigin(0, 0);
+        const hitbox = scene.add.image(2, -63, "lounge", "lounge/monsterhitbox");
         hitbox.visible = false;
         this.add(hitbox);
 
@@ -67,7 +66,7 @@ export default class MonsterTarget extends Phaser.GameObjects.Container {
         if (this.team == 'blue') this.scene.targetGame.blueScore += 1;
         else this.scene.targetGame.redScore += 1;
 
-        this.art.play(`${this.team}monster-animation`);
+        this.art.play(`lounge-${this.team}monster-animation`);
         this.art.once('animationcomplete', () => this.hide());
     }
 
