@@ -57,6 +57,7 @@ import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import Cleaner from "./cleaner";
 import ErrorArea from "../../app/ErrorArea";
 import { HybridGame } from "./hybridGame";
+import GenericTrigger from "../../lib/ui/components/Trigger";
 /* END-USER-IMPORTS */
 
 export default class Engine extends Phaser.Scene {
@@ -352,7 +353,7 @@ export default class Engine extends Phaser.Scene {
 
     public currentGame: Game;
 
-    async loadGame(config: GameConfig): Promise<void> {
+    async loadGame(config: GameConfig, options?: any): Promise<void> {
         if (this.currentGame && config == this.currentGame.gameData) return;
 
         let cls: Game;
@@ -370,6 +371,7 @@ export default class Engine extends Phaser.Scene {
         let game = await new Promise<Game>(resolve => {
             this.scene.add(`game-${config.name}`, cls, true, {
                 config,
+                options,
                 oninit: (scene: Game) => load.track(new LoaderTask(scene.load)),
                 onready: (scene: Game) => resolve(scene)
             });
@@ -393,14 +395,14 @@ export default class Engine extends Phaser.Scene {
         }
     }
 
-    async startGame(config: GameConfig): Promise<void> {
+    async startGame(config: GameConfig, options?: any): Promise<void> {
         if (this.currentGame && config == this.currentGame.gameData) return;
 
         let load = this.scene.get('Load') as Load;
         if (!load.isShowing) load.show();
 
         try {
-            await this.loadGame(config);
+            await this.loadGame(config, options);
         } catch (e) {
             if (this.currentRoom == undefined && this.previousRoomId) {
                 try {
@@ -577,9 +579,13 @@ export default class Engine extends Phaser.Scene {
         x = x ?? penguin.x;
         y = y ?? penguin.y;
 
-        let triggers = 'triggers' in penguin.scene ? (penguin.scene.triggers as Phaser.GameObjects.Image[]) : [];
+        let scene = penguin.scene as Room;
+        let triggers = 'triggers' in scene ? scene.triggers : [];
 
         for (let trigger of triggers) {
+            let genericTrigger = GenericTrigger.getComponent(trigger);
+            if (genericTrigger && finishedMoving && !prohibitJoinRoom && genericTrigger.test(x, y)) genericTrigger.execute(this, penguin);
+
             let roomTrigger = RoomTrigger.getComponent(trigger);
             if (roomTrigger && finishedMoving && !prohibitJoinRoom && roomTrigger.test(x, y)) roomTrigger.execute(this, penguin);
 
