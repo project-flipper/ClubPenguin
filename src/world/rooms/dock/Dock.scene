@@ -382,7 +382,8 @@
             "label": "boat_btn",
             "scope": "PUBLIC",
             "components": [
-                "ButtonComponent"
+                "ButtonComponent",
+                "Trigger"
             ],
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
@@ -532,7 +533,8 @@
             "objectIds": [
                 "bc2e52f1-88e1-40e0-9406-fd51fb4af30f",
                 "51ac6456-af4f-4a13-b7ee-84dae6a7319f",
-                "23ce9669-9ca6-4870-9d64-3595c27bcecd"
+                "23ce9669-9ca6-4870-9d64-3595c27bcecd",
+                "4f6f992a-ac79-43fd-abb1-804a59b30557"
             ],
             "scope": "PUBLIC"
         }
