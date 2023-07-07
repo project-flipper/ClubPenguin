@@ -239,8 +239,6 @@ export default class Login extends Phaser.Scene {
             throw e;
         }
 
-        load.hide();
-
         this.worldSelect.setup({
             worlds: [
                 {
@@ -253,6 +251,8 @@ export default class Login extends Phaser.Scene {
             ], token: ''
         });
         this.showWorldSelect();
+
+        load.hide();
     }
 
     selectWorld(id: string): void {
@@ -261,9 +261,7 @@ export default class Login extends Phaser.Scene {
 
         // TODO: access world
 
-        setTimeout(() => {
-            this.scene.start('World', { id });
-        }, 1000);
+        this.scene.start('World', { id });
     }
 
     goToStart(): void {
