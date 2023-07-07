@@ -6,6 +6,7 @@
 import Phaser from "phaser";
 import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import Trigger from "../../../lib/ui/components/Trigger";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
@@ -206,9 +207,9 @@ export default class Cove extends Phaser.Scene implements Room {
         cove_ocean_water_mc.setOrigin(0, 0);
         cove_ocean_water_mc.visible = false;
 
-        // cove_waves_mc
-        const cove_waves_mc = this.add.image(1394.8875, 750.2625, "cove", "cove/waves_mc");
-        cove_waves_mc.visible = false;
+        // waves_trigger
+        const waves_trigger = this.add.image(1394.8875, 750.2625, "cove", "cove/waves_mc");
+        waves_trigger.visible = false;
 
         // cove_forest_mc
         const cove_forest_mc = this.add.image(338.175, 310.725, "cove", "cove/forest_mc");
@@ -252,7 +253,7 @@ export default class Cove extends Phaser.Scene implements Room {
         catalogue_btn.alphaBottomRight = 0.01;
 
         // lists
-        const triggers = [cove_forest_mc];
+        const triggers = [cove_forest_mc, waves_trigger];
 
         // cove_oceantile1 (components)
         new DepthEnabled(cove_oceantile1);
@@ -382,6 +383,9 @@ export default class Cove extends Phaser.Scene implements Room {
         // cove_medicsign (components)
         new DepthEnabled(cove_medicsign);
 
+        // waves_trigger (components)
+        new Trigger(waves_trigger);
+
         // cove_forest_mc (components)
         const cove_forest_mcRoomTrigger = new RoomTrigger(cove_forest_mc);
         cove_forest_mcRoomTrigger.destination = "809";
@@ -416,6 +420,7 @@ export default class Cove extends Phaser.Scene implements Room {
         this.binoculars_btn = binoculars_btn;
         this.surfshacksign = surfshacksign;
         this.block = block;
+        this.waves_trigger = waves_trigger;
         this.waves = waves;
         this.waves_btn = waves_btn;
         this.cat = cat;
@@ -432,6 +437,7 @@ export default class Cove extends Phaser.Scene implements Room {
     public binoculars_btn!: Phaser.GameObjects.Image;
     public surfshacksign!: Phaser.GameObjects.Image;
     public block!: Phaser.GameObjects.Image;
+    public waves_trigger!: Phaser.GameObjects.Image;
     public waves!: Phaser.GameObjects.Image;
     public waves_btn!: Phaser.GameObjects.Image;
     public cat!: Phaser.GameObjects.Image;
@@ -488,6 +494,13 @@ export default class Cove extends Phaser.Scene implements Room {
             this.catalogue.stop();
             this.catalogue.setFrame('cove/catalogue0001');
         });
+
+        Trigger.getComponent(this.waves_trigger).execute = (engine, penguin) => {
+            if (engine.player != penguin) return;
+            this.interface.promptQuestion.showLocalized('waves_prompt', () => {
+                this.engine.startGame(engine.game.gameConfig.games['waves'], {});
+            }, () => { });
+        }
 
         this.game.locale.register(this.localize, this);
 
