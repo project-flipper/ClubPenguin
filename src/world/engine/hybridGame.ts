@@ -145,6 +145,7 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     endGame(score: number, room: undefined): void {
+        this.container.visible = false;
         this.engine.endGame(score, room);
     }
 
