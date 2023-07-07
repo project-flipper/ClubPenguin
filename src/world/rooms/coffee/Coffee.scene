@@ -864,7 +864,11 @@
         {
             "type": "Image",
             "id": "c8bdfe8d-b116-4fc0-9af0-142f4347afa7",
-            "label": "coffee_smoothie_trigger",
+            "label": "smoothie_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
             "texture": {
                 "key": "coffee",
                 "frame": "coffee/smoothie-trigger"
@@ -894,7 +898,11 @@
         {
             "type": "Image",
             "id": "fe8cd815-1f0b-4ad4-ae97-bd34f31d6ddb",
-            "label": "coffee_beans_trigger",
+            "label": "beans_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
             "texture": {
                 "key": "coffee",
                 "frame": "coffee/beans-trigger"
@@ -993,7 +1001,9 @@
             "label": "triggers",
             "objectIds": [
                 "98750323-78a7-470a-922a-c579ac827f81",
-                "f60e7cbf-6f74-4f5b-bdb7-6eb07cf54124"
+                "f60e7cbf-6f74-4f5b-bdb7-6eb07cf54124",
+                "fe8cd815-1f0b-4ad4-ae97-bd34f31d6ddb",
+                "c8bdfe8d-b116-4fc0-9af0-142f4347afa7"
             ],
             "scope": "PUBLIC"
         }
