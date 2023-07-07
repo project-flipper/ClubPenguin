@@ -1067,6 +1067,7 @@ export default class Interface extends Phaser.Scene {
         this.hideHint();
         this.closeContent();
         this.chat.value = '';
+        this.closePrompt();
     }
 
     /* END-USER-CODE */
