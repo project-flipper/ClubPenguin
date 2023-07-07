@@ -7,6 +7,7 @@ import Phaser from "phaser";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
+import Trigger from "../../../lib/ui/components/Trigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
 import Engine, { Room } from "../../engine/Engine";
@@ -274,13 +275,13 @@ export default class Dance extends Phaser.Scene implements Room {
         const dance_boiler_trigger = this.add.image(1158.8625, 409.6125, "dance", "dance/boiler_trigger");
         dance_boiler_trigger.visible = false;
 
-        // dance_dancing_trigger
-        const dance_dancing_trigger = this.add.image(1277.325, 476.1, "dance", "dance/dancing_trigger");
-        dance_dancing_trigger.visible = false;
+        // dancing_trigger
+        const dancing_trigger = this.add.image(1277.325, 476.1, "dance", "dance/dancing_trigger");
+        dancing_trigger.visible = false;
 
-        // dance_mix_trigger
-        const dance_mix_trigger = this.add.image(781.875, 393.75, "dance", "dance/mix_trigger");
-        dance_mix_trigger.visible = false;
+        // mix_trigger
+        const mix_trigger = this.add.image(781.875, 393.75, "dance", "dance/mix_trigger");
+        mix_trigger.visible = false;
 
         // dj3k
         const dj3k = this.add.image(585.9, 278.325, "dance", "dance/mix_button");
@@ -300,7 +301,7 @@ export default class Dance extends Phaser.Scene implements Room {
         block.visible = false;
 
         // lists
-        const triggers = [dance_town_trigger, dance_lounge_trigger, dance_boiler_trigger];
+        const triggers = [dance_town_trigger, dance_lounge_trigger, dance_boiler_trigger, mix_trigger, dancing_trigger];
 
         // stairs (components)
         const stairsButtonComponent = new ButtonComponent(stairs);
@@ -515,6 +516,12 @@ export default class Dance extends Phaser.Scene implements Room {
         dance_boiler_triggerRoomTrigger.playerX = 1260;
         dance_boiler_triggerRoomTrigger.playerY = 720;
 
+        // dancing_trigger (components)
+        new Trigger(dancing_trigger);
+
+        // mix_trigger (components)
+        new Trigger(mix_trigger);
+
         // dj3k (components)
         const dj3kButtonComponent = new ButtonComponent(dj3k);
         dj3kButtonComponent.handCursor = true;
@@ -566,6 +573,8 @@ export default class Dance extends Phaser.Scene implements Room {
         this.notice = notice;
         this.diskbox = diskbox;
         this.disksButton = disksButton;
+        this.dancing_trigger = dancing_trigger;
+        this.mix_trigger = mix_trigger;
         this.dj3k = dj3k;
         this.catalog = catalog;
         this.block = block;
@@ -610,6 +619,8 @@ export default class Dance extends Phaser.Scene implements Room {
     public notice!: Phaser.GameObjects.Sprite;
     public diskbox!: Phaser.GameObjects.Image;
     public disksButton!: Phaser.GameObjects.Image;
+    public dancing_trigger!: Phaser.GameObjects.Image;
+    public mix_trigger!: Phaser.GameObjects.Image;
     public dj3k!: Phaser.GameObjects.Image;
     public catalog!: Phaser.GameObjects.Image;
     public block!: Phaser.GameObjects.Image;
@@ -750,6 +761,20 @@ export default class Dance extends Phaser.Scene implements Room {
         });
 
         this.puffle.play('dance-puffleidle-animation');
+
+        Trigger.getComponent(this.mix_trigger).execute = (engine, penguin) => {
+            if (engine.player != penguin) return;
+            this.interface.promptQuestion.showLocalized('mixmaster_prompt', () => {
+                this.engine.startGame(engine.game.gameConfig.games['mixmaster'], {});
+            }, () => { });
+        }
+
+        Trigger.getComponent(this.dancing_trigger).execute = (engine, penguin) => {
+            if (engine.player != penguin) return;
+            this.interface.promptQuestion.showLocalized('dancing_prompt', () => {
+                this.engine.startGame(engine.game.gameConfig.games['dancing'], {});
+            }, () => { });
+        }
 
         this.game.locale.register(this.localize, this);
 
