@@ -5,6 +5,7 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import Interface from "../Interface";
 /* END-USER-IMPORTS */
 
 export default class PromptSpinner extends Phaser.GameObjects.Container {
@@ -34,7 +35,26 @@ export default class PromptSpinner extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    // Write your code here.
+    declare scene: Interface;
+
+    show(): void {
+        this.scene.closePrompt();
+
+        this.spinner.play('interface-promptspinner-animation');
+
+        this.visible = true;
+        this.scene.promptBlock.visible = true;
+    }
+
+    hide(): void {
+        this.spinner.stop();
+        this.visible = false;
+        this.scene.promptBlock.visible = false;
+    }
+
+    close(): void {
+        this.hide();
+    }
 
     /* END-USER-CODE */
 }

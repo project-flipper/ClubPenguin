@@ -228,46 +228,54 @@ export default class Interface extends Phaser.Scene {
 
         // prompt
         const prompt = this.add.layer();
-        prompt.visible = false;
 
-        // block
-        const block = this.add.rectangle(0, 0, 1710, 1080);
-        block.setOrigin(0, 0);
-        block.isFilled = true;
-        block.fillColor = 0;
-        block.fillAlpha = 0.25;
-        prompt.add(block);
+        // promptBlock
+        const promptBlock = this.add.rectangle(0, 0, 1710, 1080);
+        promptBlock.setOrigin(0, 0);
+        promptBlock.visible = false;
+        promptBlock.isFilled = true;
+        promptBlock.fillColor = 0;
+        promptBlock.fillAlpha = 0.25;
+        prompt.add(promptBlock);
 
         // promptQuestion
         const promptQuestion = new PromptQuestion(this, 0, 0);
+        promptQuestion.visible = false;
         prompt.add(promptQuestion);
 
         // promptOkay
         const promptOkay = new PromptOkay(this, 0, 0);
+        promptOkay.visible = false;
         prompt.add(promptOkay);
 
         // promptSpinner
         const promptSpinner = new PromptSpinner(this, 0, 0);
+        promptSpinner.visible = false;
         prompt.add(promptSpinner);
 
         // promptIgloo
         const promptIgloo = new PromptIgloo(this, 0, 0);
+        promptIgloo.visible = false;
         prompt.add(promptIgloo);
 
         // promptShop
         const promptShop = new PromptShop(this, 0, 0);
+        promptShop.visible = false;
         prompt.add(promptShop);
 
         // promptCoin
         const promptCoin = new PromptCoin(this, 0, 0);
+        promptCoin.visible = false;
         prompt.add(promptCoin);
 
         // promptInput
         const promptInput = new PromptInput(this, 0, 0);
+        promptInput.visible = false;
         prompt.add(promptInput);
 
         // promptError
         const promptError = new PromptError(this, 0, 0);
+        promptError.visible = false;
         prompt.add(promptError);
 
         // hint
@@ -430,8 +438,8 @@ export default class Interface extends Phaser.Scene {
         phoneIconButtonComponent.handCursor = true;
         phoneIconButtonComponent.pixelPerfect = true;
 
-        // block (components)
-        new InputBlocker(block);
+        // promptBlock (components)
+        new InputBlocker(promptBlock);
 
         this.avatarOverlays = avatarOverlays;
         this.puffleButton = puffleButton;
@@ -464,6 +472,7 @@ export default class Interface extends Phaser.Scene {
         this.namecard = namecard;
         this.playerNamecard = playerNamecard;
         this.ui = ui;
+        this.promptBlock = promptBlock;
         this.promptQuestion = promptQuestion;
         this.promptOkay = promptOkay;
         this.promptSpinner = promptSpinner;
@@ -510,6 +519,7 @@ export default class Interface extends Phaser.Scene {
     public namecard!: Namecard;
     public playerNamecard!: PlayerNamecard;
     public ui!: Phaser.GameObjects.Layer;
+    public promptBlock!: Phaser.GameObjects.Rectangle;
     public promptQuestion!: PromptQuestion;
     public promptOkay!: PromptOkay;
     public promptSpinner!: PromptSpinner;
@@ -947,6 +957,20 @@ export default class Interface extends Phaser.Scene {
 
     hideHint(): void {
         this.hint.hide();
+    }
+
+    /* ============ PROMPT ============ */
+
+    closePrompt(): void {
+        this.promptCoin.close();
+        this.promptError.close();
+        this.promptIgloo.close();
+        this.promptInput.close();
+        this.promptOkay.close();
+        this.promptQuestion.close();
+        this.promptShop.close();
+        this.promptSpinner.close();
+        this.promptBlock.visible = false;
     }
 
     /* ============ CONTENT ============ */

@@ -7,6 +7,7 @@ import Phaser from "phaser";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
+import Interface from "../Interface";
 /* END-USER-IMPORTS */
 
 export default class PromptIgloo extends Phaser.GameObjects.Container {
@@ -52,17 +53,17 @@ export default class PromptIgloo extends Phaser.GameObjects.Container {
 
         // yesButton (components)
         const yesButtonButtonComponent = new ButtonComponent(yesButton);
-        yesButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptButton0001"};
-        yesButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptButton0002"};
-        yesButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/promptButton0003"};
+        yesButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/promptButton0001" };
+        yesButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/promptButton0002" };
+        yesButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/promptButton0003" };
         yesButtonButtonComponent.handCursor = true;
         yesButtonButtonComponent.pixelPerfect = true;
 
         // noButton (components)
         const noButtonButtonComponent = new ButtonComponent(noButton);
-        noButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptButton0001"};
-        noButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptButton0002"};
-        noButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/promptButton0003"};
+        noButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/promptButton0001" };
+        noButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/promptButton0002" };
+        noButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/promptButton0003" };
         noButtonButtonComponent.handCursor = true;
         noButtonButtonComponent.pixelPerfect = true;
 
@@ -75,11 +76,13 @@ export default class PromptIgloo extends Phaser.GameObjects.Container {
         no.boxWidth = 160.0875;
         no.boxHeight = 63;
         no.horizontalAlign = 1;
+        no.verticalAlign = 1;
 
         // yes (prefab fields)
         yes.boxWidth = 160.0875;
         yes.boxHeight = 63;
         yes.horizontalAlign = 1;
+        yes.verticalAlign = 1;
 
         this.bg = bg;
         this.yesButton = yesButton;
@@ -102,7 +105,48 @@ export default class PromptIgloo extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    // Write your code here.
+    declare scene: Interface;
+
+    public rejectCallback: (byUser: boolean) => void;
+    show(message: string, yes: string, no: string, confirmCallback: () => void, rejectCallback: (byUser: boolean) => void): void {
+        this.scene.closePrompt();
+
+        this.message.text = message;
+        this.yes.text = yes;
+        this.no.text = no;
+
+        this.yesButton.once('release', () => {
+            this.hide();
+            confirmCallback();
+        });
+        this.noButton.once('release', () => {
+            this.hide();
+            rejectCallback(true);
+        })
+        this.rejectCallback = rejectCallback;
+
+        this.visible = true;
+        this.scene.promptBlock.visible = true;
+    }
+
+    showLocalized(messageKey: string, confirmCallback: () => void, rejectCallback: (byUser: boolean) => void): void {
+        this.scene.game.locale.immediate(locale => this.show(locale.localize(messageKey), locale.localize('Yes'), locale.localize('No'), confirmCallback, rejectCallback));
+    }
+
+    hide(): void {
+        this.yesButton.off('release');
+        this.noButton.off('release');
+        this.visible = false;
+        this.scene.promptBlock.visible = false;
+    }
+
+    close(): void {
+        this.hide();
+        if (this.rejectCallback) {
+            this.rejectCallback(false);
+            this.rejectCallback = undefined;
+        }
+    }
 
     /* END-USER-CODE */
 }

@@ -77,13 +77,15 @@
                         "horizontalAlign",
                         "boxHeight",
                         "boxWidth",
-                        "text"
+                        "text",
+                        "verticalAlign"
                     ],
                     "label": "okay",
                     "scope": "PUBLIC",
                     "boxWidth": 160.0875,
                     "boxHeight": 63,
                     "horizontalAlign": 1,
+                    "verticalAlign": 1,
                     "x": 775.0125,
                     "y": 657,
                     "text": "Ok",

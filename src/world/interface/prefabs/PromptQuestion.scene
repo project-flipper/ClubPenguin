@@ -123,13 +123,15 @@
                         "horizontalAlign",
                         "boxHeight",
                         "boxWidth",
-                        "text"
+                        "text",
+                        "verticalAlign"
                     ],
                     "label": "yes",
                     "scope": "PUBLIC",
                     "boxWidth": 160.0875,
                     "boxHeight": 63,
                     "horizontalAlign": 1,
+                    "verticalAlign": 1,
                     "x": 652.275,
                     "y": 463.5,
                     "text": "Yes",
@@ -147,13 +149,15 @@
                         "horizontalAlign",
                         "boxHeight",
                         "boxWidth",
-                        "text"
+                        "text",
+                        "verticalAlign"
                     ],
                     "label": "no",
                     "scope": "PUBLIC",
                     "boxWidth": 160.0875,
                     "boxHeight": 63.675,
                     "horizontalAlign": 1,
+                    "verticalAlign": 1,
                     "x": 899.775,
                     "y": 463.5,
                     "text": "No",

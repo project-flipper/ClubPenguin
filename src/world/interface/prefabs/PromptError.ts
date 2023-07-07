@@ -7,6 +7,7 @@ import Phaser from "phaser";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
+import Interface from "../Interface";
 /* END-USER-IMPORTS */
 
 export default class PromptError extends Phaser.GameObjects.Container {
@@ -19,9 +20,9 @@ export default class PromptError extends Phaser.GameObjects.Container {
         bg.setOrigin(0, 0);
         this.add(bg);
 
-        // okButton
-        const okButton = scene.add.image(855, 492.975, "interface", "interface/promptErrorButton0001");
-        this.add(okButton);
+        // okayButton
+        const okayButton = scene.add.image(855, 492.975, "interface", "interface/promptErrorButton0001");
+        this.add(okayButton);
 
         // okay
         const okay = new TextBox(scene, 775.0125, 463.5, "BurbankSmallMedium");
@@ -40,18 +41,19 @@ export default class PromptError extends Phaser.GameObjects.Container {
         message.fontSize = -36;
         this.add(message);
 
-        // okButton (components)
-        const okButtonButtonComponent = new ButtonComponent(okButton);
-        okButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptErrorButton0001"};
-        okButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptErrorButton0002"};
-        okButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/promptErrorButton0003"};
-        okButtonButtonComponent.handCursor = true;
-        okButtonButtonComponent.pixelPerfect = true;
+        // okayButton (components)
+        const okayButtonButtonComponent = new ButtonComponent(okayButton);
+        okayButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/promptErrorButton0001" };
+        okayButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/promptErrorButton0002" };
+        okayButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/promptErrorButton0003" };
+        okayButtonButtonComponent.handCursor = true;
+        okayButtonButtonComponent.pixelPerfect = true;
 
         // okay (prefab fields)
         okay.boxWidth = 160.0875;
         okay.boxHeight = 63;
         okay.horizontalAlign = 1;
+        okay.verticalAlign = 1;
 
         // message (prefab fields)
         message.boxWidth = 642.15;
@@ -59,7 +61,7 @@ export default class PromptError extends Phaser.GameObjects.Container {
         message.horizontalAlign = 1;
 
         this.bg = bg;
-        this.okButton = okButton;
+        this.okayButton = okayButton;
         this.okay = okay;
         this.message = message;
 
@@ -69,13 +71,48 @@ export default class PromptError extends Phaser.GameObjects.Container {
     }
 
     public bg: Phaser.GameObjects.NineSlice;
-    public okButton: Phaser.GameObjects.Image;
+    public okayButton: Phaser.GameObjects.Image;
     public okay: TextBox;
     public message: TextBox;
 
     /* START-USER-CODE */
 
-    // Write your code here.
+    declare scene: Interface;
+
+    public rejectCallback: (byUser: boolean) => void;
+    show(message: string, okay: string, confirmCallback: () => void, rejectCallback: (byUser: boolean) => void): void {
+        this.scene.closePrompt();
+
+        this.message.text = message;
+        this.okay.text = okay;
+
+        this.okayButton.once('release', () => {
+            this.hide();
+            confirmCallback();
+        });
+        this.rejectCallback = rejectCallback;
+
+        this.visible = true;
+        this.scene.promptBlock.visible = true;
+    }
+
+    showLocalized(messageKey: string, confirmCallback: () => void, rejectCallback: (byUser: boolean) => void): void {
+        this.scene.game.locale.immediate(locale => this.show(locale.localize(messageKey), locale.localize('Ok'), confirmCallback, rejectCallback));
+    }
+
+    hide(): void {
+        this.okayButton.off('release');
+        this.visible = false;
+        this.scene.promptBlock.visible = false;
+    }
+
+    close(): void {
+        this.hide();
+        if (this.rejectCallback) {
+            this.rejectCallback(false);
+            this.rejectCallback = undefined;
+        }
+    }
 
     /* END-USER-CODE */
 }

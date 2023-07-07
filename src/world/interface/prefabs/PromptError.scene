@@ -41,7 +41,7 @@
                 {
                     "type": "Image",
                     "id": "46c6e101-f386-4738-85ad-383eabe31495",
-                    "label": "okButton",
+                    "label": "okayButton",
                     "scope": "PUBLIC",
                     "components": [
                         "ButtonComponent"
@@ -69,13 +69,15 @@
                         "horizontalAlign",
                         "boxHeight",
                         "boxWidth",
-                        "text"
+                        "text",
+                        "verticalAlign"
                     ],
                     "label": "okay",
                     "scope": "PUBLIC",
                     "boxWidth": 160.0875,
                     "boxHeight": 63,
                     "horizontalAlign": 1,
+                    "verticalAlign": 1,
                     "x": 775.0125,
                     "y": 463.5,
                     "text": "Ok",

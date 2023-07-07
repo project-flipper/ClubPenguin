@@ -59,6 +59,26 @@
                     "y": 686.475
                 },
                 {
+                    "type": "Image",
+                    "id": "3ee6ef88-f62e-4bd8-8dee-ad00cae7a893",
+                    "label": "closeButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/namecardClose0001"
+                    },
+                    "x": 1188.1125,
+                    "y": 231.8625
+                },
+                {
                     "type": "Container",
                     "id": "dbfc417f-bcfd-4099-9d2b-18fcf9b7c3ea",
                     "label": "icon",
@@ -111,13 +131,15 @@
                         "horizontalAlign",
                         "boxHeight",
                         "boxWidth",
-                        "text"
+                        "text",
+                        "verticalAlign"
                     ],
                     "label": "okay",
                     "scope": "PUBLIC",
                     "boxWidth": 259.875,
                     "boxHeight": 63,
                     "horizontalAlign": 1,
+                    "verticalAlign": 1,
                     "x": 723.2625,
                     "y": 657,
                     "text": "Continue",
