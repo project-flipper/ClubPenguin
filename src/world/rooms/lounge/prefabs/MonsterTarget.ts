@@ -20,8 +20,7 @@ export default class MonsterTarget extends Phaser.GameObjects.Container {
         this.add(art);
 
         // hitbox
-        const hitbox = scene.add.image(-58, -127, "lounge", "lounge/monsterhitbox");
-        hitbox.setOrigin(0, 0);
+        const hitbox = scene.add.image(2, -63, "lounge", "lounge/monsterhitbox");
         hitbox.visible = false;
         this.add(hitbox);
 
@@ -61,7 +60,6 @@ export default class MonsterTarget extends Phaser.GameObjects.Container {
     public ready: boolean;
 
     hit(): void {
-        console.log('HIT!');
         if (!this.ready) return;
         this.ready = false;
 
