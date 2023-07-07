@@ -462,7 +462,7 @@ export default class Cove extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.fire.play('fire-animation');
+        this.fire.play('cove-fire-animation');
 
         this.binoculars_btn.on('over', () => this.binoculars.setFrame('cove/binoculars0002'));
         this.binoculars_btn.on('out', () => this.binoculars.setFrame('cove/binoculars0001'));
@@ -482,7 +482,7 @@ export default class Cove extends Phaser.Scene implements Room {
         this.waves_btn.on('release', () => this.engine.movePlayer(1383.75, 787.5));
 
         this.catalogue_btn.on('over', () => {
-            this.catalogue.play('catalogue-animation');
+            this.catalogue.play('cove-catalogue-animation');
         });
         this.catalogue_btn.on('out', () => {
             this.catalogue.stop();

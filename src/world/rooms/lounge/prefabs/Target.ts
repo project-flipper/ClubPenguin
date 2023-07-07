@@ -66,7 +66,7 @@ export default class Target extends Phaser.GameObjects.Container {
         if (this.team == 'blue') this.scene.targetGame.blueScore += 1;
         else this.scene.targetGame.redScore += 1;
 
-        this.art.play(`${this.team}target-animation`);
+        this.art.play(`lounge-${this.team}target-animation`);
         this.art.once('animationcomplete', () => this.hide());
     }
 

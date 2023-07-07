@@ -61,13 +61,14 @@ export default class MonsterTarget extends Phaser.GameObjects.Container {
     public ready: boolean;
 
     hit(): void {
+        console.log('HIT!');
         if (!this.ready) return;
         this.ready = false;
 
         if (this.team == 'blue') this.scene.targetGame.blueScore += 1;
         else this.scene.targetGame.redScore += 1;
 
-        this.art.play(`${this.team}monster-animation`);
+        this.art.play(`lounge-${this.team}monster-animation`);
         this.art.once('animationcomplete', () => this.hide());
     }
 

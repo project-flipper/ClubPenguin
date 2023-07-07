@@ -613,17 +613,17 @@ export default class Lounge extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.dancefloor.play('dancefloor-animation');
-        this.penguin1.play('penguin1-animation');
-        this.penguin2.play('penguin2-animation');
-        this.penguin3.play('penguin3-animation');
-        this.penguin4.play('penguin4-animation');
-        this.penguin5.play('penguin1-animation');
-        this.penguin6.play('penguin4-animation');
-        this.speaker1.play('speaker1-animation');
-        this.speaker2.play('speaker2-animation');
+        this.dancefloor.play('lounge-dancefloor-animation');
+        this.penguin1.play('lounge-penguin1-animation');
+        this.penguin2.play('lounge-penguin2-animation');
+        this.penguin3.play('lounge-penguin3-animation');
+        this.penguin4.play('lounge-penguin4-animation');
+        this.penguin5.play('lounge-penguin1-animation');
+        this.penguin6.play('lounge-penguin4-animation');
+        this.speaker1.play('lounge-speaker1-animation');
+        this.speaker2.play('lounge-speaker2-animation');
 
-        this.bitsscreen.play('bits-animation');
+        this.bitsscreen.play('lounge-bits-animation');
 
         this.chairbutton11.on('release', () => this.engine.movePlayer(371.25, 810));
         this.chairbutton12.on('release', () => this.engine.movePlayer(450, 945));
@@ -641,13 +641,13 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.interface.showLocalizedHint({ x: 267.6375, y: 459.675 }, 'bitsandbolts');
         })
         this.bitsbutton.on('out', () => {
-            this.bitsscreen.play('bits-animation');
+            this.bitsscreen.play('lounge-bits-animation');
             this.bitslight.setFrame('lounge/bits_lightoff');
             this.interface.hideHint();
         })
         this.bitsbutton.on('release', () => this.engine.movePlayer(360, 551.25));
 
-        this.thinicescreen.play('thinice-animation');
+        this.thinicescreen.play('lounge-thinice-animation');
 
         this.thinicebutton.on('over', () => {
             this.thinicescreen.stop();
@@ -656,13 +656,13 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.interface.showLocalizedHint({ x: 1326.15, y: 345.9375 }, 'thinice_hint');
         })
         this.thinicebutton.on('out', () => {
-            this.thinicescreen.play('thinice-animation');
+            this.thinicescreen.play('lounge-thinice-animation');
             this.thinicelight.setFrame('lounge/thinice_lightoff');
             this.interface.hideHint();
         })
         this.thinicebutton.on('release', () => this.engine.movePlayer(1237.5, 427.5));
 
-        this.astroscreen.play('astro-animation');
+        this.astroscreen.play('lounge-astro-animation');
 
         this.astrobutton.on('over', () => {
             this.astroscreen.stop();
@@ -671,7 +671,7 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.interface.showLocalizedHint({ x: 1425.4875, y: 434.92500 }, 'astro_hint');
         })
         this.astrobutton.on('out', () => {
-            this.astroscreen.play('astro-animation');
+            this.astroscreen.play('lounge-astro-animation');
             this.astrolight.setFrame('lounge/astro_lightoff');
             this.interface.hideHint();
         })

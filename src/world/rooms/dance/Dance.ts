@@ -637,18 +637,18 @@ export default class Dance extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.dancefloor.play('dancefloor-animation');
-        this.speaker1.play('speaker1-animation');
-        this.speaker2.play('speaker2-animation');
-        this.speaker3.play('speaker3-animation');
-        this.boilerspeakercone.play('boilerspeakercone-animation');
-        this.neon.play('neon-animation');
-        this.djleft.play('djleft-animation');
-        this.djright.play('djright-animation');
+        this.dancefloor.play('dance-dancefloor-animation');
+        this.speaker1.play('dance-speaker1-animation');
+        this.speaker2.play('dance-speaker2-animation');
+        this.speaker3.play('dance-speaker3-animation');
+        this.boilerspeakercone.play('dance-boilerspeakercone-animation');
+        this.neon.play('dance-neon-animation');
+        this.djleft.play('dance-djleft-animation');
+        this.djright.play('dance-djright-animation');
 
         this.doorbehind.on('over', () => {
             this.sound.play('dance_door');
-            this.door.play('dooropen-animation');
+            this.door.play('dance-dooropen-animation');
         });
         this.doorbehind.on('out', () => {
             this.door.anims.stop();
@@ -663,7 +663,7 @@ export default class Dance extends Phaser.Scene implements Room {
         this.disksButton.on('over', () => {
             this.diskbox.visible = true;
             this.notice.visible = true;
-            this.notice.play('notice-animation');
+            this.notice.play('dance-notice-animation');
             this.disks.setFrame('dance/disks0002')
         });
         this.disksButton.on('out', () => {
@@ -691,26 +691,26 @@ export default class Dance extends Phaser.Scene implements Room {
 
             this.mixdisplay.visible = true;
             this.mixwave.visible = true;
-            this.mixwave.play('mixwave-start-animation').chain('mixwave-loop-animation');
+            this.mixwave.play('dance-mixwave-start-animation').chain('dance-mixwave-loop-animation');
             this.mixheadphonesback.visible = true;
-            this.mixheadphonesback.play('mixheadphonesback-animation');
+            this.mixheadphonesback.play('dance-mixheadphonesback-animation');
             this.mixheadphonesfront.visible = true;
-            this.mixheadphonesfront.play('mixheadphonesfront-animation');
+            this.mixheadphonesfront.play('dance-mixheadphonesfront-animation');
             this.mixspeaker.visible = true;
-            this.mixspeaker.play('mixspeaker-animation');
+            this.mixspeaker.play('dance-mixspeaker-animation');
             this.mixlights.visible = true;
-            this.mixlights.play('mixlights-start-animation').chain('mixlights-loop-animation');
+            this.mixlights.play('dance-mixlights-start-animation').chain('dance-mixlights-loop-animation');
             this.mixequalizer.visible = true;
-            this.mixequalizer.play('mixequalizer-start-animation').chain('mixequalizer-loop-animation');
+            this.mixequalizer.play('dance-mixequalizer-start-animation').chain('dance-mixequalizer-loop-animation');
             this.mixdisksbase.visible = true;
-            this.mixdisksbase.play('mixdisksbase-animation');
+            this.mixdisksbase.play('dance-mixdisksbase-animation');
             this.mixdisks.visible = true;
-            this.mixdisks.play('mixdisks-animation');
+            this.mixdisks.play('dance-mixdisks-animation');
             this.mixdiskreader.visible = true;
             this.mixvolume.visible = true;
-            this.mixvolume.play('mixvolume-animation');
+            this.mixvolume.play('dance-mixvolume-animation');
             this.mixsecondlights.visible = true;
-            this.mixsecondlights.play('mixsecondlights-animation');
+            this.mixsecondlights.play('dance-mixsecondlights-animation');
 
             this.interface.showLocalizedHint({ x: 787.5, y: 360 }, 'mixmaster_hint');
         });
@@ -746,10 +746,10 @@ export default class Dance extends Phaser.Scene implements Room {
 
         this.pufflehitbox.on('over', () => {
             this.puffle.anims.chain();
-            this.puffle.play('pufflejump-animation').chain('puffleidle-animation');
+            this.puffle.play('dance-pufflejump-animation').chain('dance-puffleidle-animation');
         });
 
-        this.puffle.play('puffleidle-animation');
+        this.puffle.play('dance-puffleidle-animation');
 
         this.game.locale.register(this.localize, this);
 
@@ -765,7 +765,7 @@ export default class Dance extends Phaser.Scene implements Room {
 
         this.contesthitbox.on('over', () => {
             this.contest.setFrame(`dance/contest${locale.frame}_0002`);
-            this.pencilWrite.play('pencilwrite-animation');
+            this.pencilWrite.play('dance-pencilwrite-animation');
             this.interface.showLocalizedHint({ x: 1323, y: 231.75 }, 'dancing_hint');
         });
         this.contesthitbox.on('out', () => {

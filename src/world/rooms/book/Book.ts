@@ -518,8 +518,8 @@ export default class Book extends Phaser.Scene implements Room {
         let active = trigger1.active || trigger2.active;
 
         if (active && !this.conveyoritems.anims.isPlaying) {
-            this.conveyoritems.play('conveyoritems-animation');
-            this.conveyorroll.play('conveyorroll-animation');
+            this.conveyoritems.play('book-conveyoritems-animation');
+            this.conveyorroll.play('book-conveyorroll-animation');
             this.sound.play('book_conveyor', {
                 loop: true
             });

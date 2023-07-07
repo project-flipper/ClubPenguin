@@ -408,10 +408,10 @@ export default class Forest extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.waterfallrolls.play('waterfallrolls-animation');
-        this.waterfallparticles.play('waterfallparticles-animation');
-        this.waterfallmidrolls.play('waterfallmidrolls-animation');
-        this.waterfallfoam.play('waterfallfoam-animation');
+        this.waterfallrolls.play('forest-waterfallrolls-animation');
+        this.waterfallparticles.play('forest-waterfallparticles-animation');
+        this.waterfallmidrolls.play('forest-waterfallmidrolls-animation');
+        this.waterfallfoam.play('forest-waterfallfoam-animation');
 
         this.trash1_btn.on('over', () => {
             this.trash1_btn.visible = false;

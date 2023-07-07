@@ -277,10 +277,10 @@ export default class Village extends Phaser.Scene implements Room {
         this.editorCreate();
 
         this.cable.on('animationupdate', this.updateCableDepth, this);
-        this.cable.play('cable-animation');
+        this.cable.play('village-cable-animation');
 
-        this.sleds.play('sleds-animation');
-        this.belt.play('belt-animation');
+        this.sleds.play('village-sleds-animation');
+        this.belt.play('village-belt-animation');
 
         this.lodge_btn.on('over', () => {
             this.lodge_door.setFrame('village/lodge_door0002');

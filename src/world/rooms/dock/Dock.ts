@@ -230,8 +230,8 @@ export default class Dock extends Phaser.Scene implements Room {
 
         // dock_catalogIcon (components)
         const dock_catalogIconButtonComponent = new ButtonComponent(dock_catalogIcon);
-        dock_catalogIconButtonComponent.upTexture = {"key":"dock","frame":"dock/catalogIcon"};
-        dock_catalogIconButtonComponent.overTexture = {"key":"dock","frame":"dock/catalogIconOver"};
+        dock_catalogIconButtonComponent.upTexture = { "key": "dock", "frame": "dock/catalogIcon" };
+        dock_catalogIconButtonComponent.overTexture = { "key": "dock", "frame": "dock/catalogIconOver" };
         dock_catalogIconButtonComponent.handCursor = true;
         dock_catalogIconButtonComponent.pixelPerfect = true;
         const dock_catalogIconDepthEnabled = new DepthEnabled(dock_catalogIcon);
@@ -334,7 +334,7 @@ export default class Dock extends Phaser.Scene implements Room {
         this.editorCreate();
 
         this.catalog_btn.on('over', () => {
-            this.catalog.play('catalog-animation');
+            this.catalog.play('dock-catalog-animation');
         });
         this.catalog_btn.on('out', () => {
             this.catalog.stop();
@@ -353,7 +353,7 @@ export default class Dock extends Phaser.Scene implements Room {
 
         this.tubes_btn.on('over', () => {
             this.sound.play('dock_tubes');
-            this.tubes.play('tubes-animation');
+            this.tubes.play('dock-tubes-animation');
         });
 
         this.town_btn.on('release', () => this.engine.movePlayer(1541.25, 371.25));

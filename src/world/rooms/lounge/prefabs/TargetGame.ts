@@ -208,12 +208,12 @@ export default class TargetGame extends Phaser.GameObjects.Container {
 
         /* START-USER-CTR-CODE */
 
-        this.light1.play('light1-animation');
-        this.light2.play('light2-animation');
-        this.light3.play('light1-animation');
-        this.light4.play('light1-animation');
-        this.light5.play('light2-animation');
-        this.light6.play('light1-animation');
+        this.light1.play('lounge-light1-animation');
+        this.light2.play('lounge-light2-animation');
+        this.light3.play('lounge-light1-animation');
+        this.light4.play('lounge-light1-animation');
+        this.light5.play('lounge-light2-animation');
+        this.light6.play('lounge-light1-animation');
 
         /* END-USER-CTR-CODE */
     }
@@ -272,7 +272,6 @@ export default class TargetGame extends Phaser.GameObjects.Container {
         if (!this._isActive) return;
 
         let currentProgress = Math.floor(Math.random() * (this.targets.length - 1));
-        this.registerTargets();
 
         this.tick = this.scene.time.addEvent({
             delay: 1000,
@@ -289,8 +288,10 @@ export default class TargetGame extends Phaser.GameObjects.Container {
                 if (nextTarget) {
                     nextTarget.team = seconds % 2 ? 'red' : 'blue';
                     nextTarget.show();
+                    this.registerTarget(nextTarget);
                     this.scene.time.delayedCall(4000, () => {
                         if (nextTarget.visible) nextTarget.hide();
+                        this.unregisterTarget(nextTarget);
                     });
                 }
 
@@ -336,10 +337,6 @@ export default class TargetGame extends Phaser.GameObjects.Container {
 
     unregisterTarget(target: MonsterTarget | SmallTarget | Target): void {
         if (this.scene.triggers.includes(target.hitbox)) this.scene.triggers.splice(this.scene.triggers.indexOf(target.hitbox), 1);
-    }
-
-    registerTargets(): void {
-        for (let target of this.targets) this.registerTarget(target);
     }
 
     unregisterTargets(): void {

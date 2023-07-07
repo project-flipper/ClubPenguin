@@ -66,7 +66,7 @@ export default class SmallTarget extends Phaser.GameObjects.Container {
         if (this.team == 'blue') this.scene.targetGame.blueScore += 1;
         else this.scene.targetGame.redScore += 1;
 
-        this.art.play(`small${this.team}target-animation`);
+        this.art.play(`lounge-small${this.team}target-animation`);
         this.art.once('animationcomplete', () => this.hide());
     }
 

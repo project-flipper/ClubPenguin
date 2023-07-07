@@ -287,18 +287,18 @@ export default class Binoculars extends Phaser.Scene implements Content {
 
         this.editorCreate();
 
-        this.fish.play('fish-animation');
-        this.penguin.play('penguin-animation');
-        for (let tide of this.tides) tide.play('tide-animation');
+        this.fish.play('binoculars-fish-animation');
+        this.penguin.play('binoculars-penguin-animation');
+        for (let tide of this.tides) tide.play('binoculars-tide-animation');
 
         for (let wave of this.waves1) {
-            this.randomPlayAnimation(wave, 0, 1000, 'wave1-animation');
-            wave.on('animationcomplete', () => this.randomPlayAnimation(wave, 0, 1000, 'wave1-animation'));
+            this.randomPlayAnimation(wave, 0, 1000, 'binoculars-wave1-animation');
+            wave.on('animationcomplete', () => this.randomPlayAnimation(wave, 0, 1000, 'binoculars-wave1-animation'));
         }
 
         for (let wave of this.waves2) {
             this.randomPlayAnimation(wave, 0, 1310.34483, 'wave2-animation');
-            wave.on('animationcomplete', () => this.randomPlayAnimation(wave, 0, 1310.34483, 'wave2-animation'));
+            wave.on('animationcomplete', () => this.randomPlayAnimation(wave, 0, 1310.34483, 'binoculars-wave2-animation'));
         }
 
         this.time.addEvent({
@@ -367,11 +367,11 @@ export default class Binoculars extends Phaser.Scene implements Content {
                             },
                             {
                                 at: 125,
-                                run: () => this.splash1.play('splash1-animation')
+                                run: () => this.splash1.play('binoculars-splash1-animation')
                             },
                             {
                                 at: 958.333333,
-                                run: () => this.splash2.play('splash2-animation')
+                                run: () => this.splash2.play('binoculars-splash2-animation')
                             }
                         ]).play();
                         break;

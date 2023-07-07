@@ -309,9 +309,9 @@ export default class Mtn extends Phaser.Scene implements Room {
         this.editorCreate();
 
         this.cablecar.on('animationupdate', this.updateCableDepth, this);
-        this.cablecar.play('cablecar-animation');
+        this.cablecar.play('mtn-cablecar-animation');
 
-        this.cat_btn.on('over', () => this.cat.play('cat-animation'));
+        this.cat_btn.on('over', () => this.cat.play('mtn-cat-animation'));
         this.cat_btn.on('out', () => {
             this.cat.stop();
             this.cat.setFrame('mtn/cat0001');
