@@ -84,7 +84,7 @@ module.exports = env => {
             },
             assetModuleFilename: 'assets/[hash][ext][query]',
             clean: true,
-            publicPath: env.playLink
+            publicPath: `${env.playLink}/`
         },
 
         module: {
