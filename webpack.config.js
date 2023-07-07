@@ -37,7 +37,8 @@ module.exports = env => {
             template: './index.template.html',
             filename: 'index.html',
             inject: 'body',
-            templateParameters: environment
+            templateParameters: environment,
+            publicPath: env.playLink || 'auto'
         })
     ];
 
@@ -49,12 +50,13 @@ module.exports = env => {
             templateParameters: {
                 ...environment,
                 links: {
-                    ...environment,
-                    home: `${env.playLink}/${lang}`,
+                    ...environment.links,
+                    home: `${env.homeLink}/${lang}`,
                     localPlay: `${env.playLink}/${lang}`
                 },
                 language: lang
-            }
+            },
+            publicPath: env.playLink || 'auto'
         }));
     }
 
