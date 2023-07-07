@@ -838,7 +838,11 @@
         {
             "type": "Image",
             "id": "37d9cdae-d362-4cc9-9d28-21a252f4d070",
-            "label": "lounge_bits_trigger",
+            "label": "bits_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
             "texture": {
                 "key": "lounge",
                 "frame": "lounge/bits_trigger"
@@ -850,7 +854,11 @@
         {
             "type": "Image",
             "id": "f3061163-dce2-4e0f-9398-04518c5e1a75",
-            "label": "lounge_astro_trigger",
+            "label": "astro_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
             "texture": {
                 "key": "lounge",
                 "frame": "lounge/astro_trigger"
@@ -862,7 +870,11 @@
         {
             "type": "Image",
             "id": "3a459bde-4011-438a-9a5c-00f912de8e07",
-            "label": "lounge_thinice_trigger",
+            "label": "thinice_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
             "texture": {
                 "key": "lounge",
                 "frame": "lounge/thinice_trigger"
@@ -1084,7 +1096,10 @@
             "label": "triggers",
             "objectIds": [
                 "dd4f7178-50ac-4214-869c-623fcbbfc20a",
-                "f942d317-1a96-4df8-b2be-dba103af356b"
+                "f942d317-1a96-4df8-b2be-dba103af356b",
+                "37d9cdae-d362-4cc9-9d28-21a252f4d070",
+                "3a459bde-4011-438a-9a5c-00f912de8e07",
+                "f3061163-dce2-4e0f-9398-04518c5e1a75"
             ],
             "scope": "PUBLIC"
         }
