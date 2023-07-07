@@ -149,6 +149,9 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     endGame(score: number, room: undefined): void {
+        let load = this.scene.get('Load') as Load;
+        if (!load.isShowing) load.show();
+
         this.container.visible = false;
         this.engine.endGame(score, room);
     }
