@@ -6,6 +6,7 @@ import Engine, { Game } from "./Engine";
 import { HybridBridge, type BridgeMessage } from "./hybridBridge";
 import { RufflePlayer } from "./ruffle";
 import type Load from '../../load/Load';
+import { Locale } from "../../app/locale";
 
 interface HybridContainer extends Phaser.GameObjects.DOMElement {
     node: RufflePlayer;
@@ -121,11 +122,16 @@ export class HybridGame extends Phaser.Scene implements Game {
         if (this.bridge) this.destroyBridge();
         this.bridge = new HybridBridge();
 
+        this.bridge.on('loaded', this.startHandshake, this);
         this.bridge.on('startMusicById', this.startMusicById, this);
         this.bridge.on('startGameMusic', this.startGameMusic, this);
         this.bridge.on('stopGameMusic', this.startGameMusic, this);
         this.bridge.on('hideLoading', this.hideLoading, this);
         this.bridge.on('endGame', this.endGame, this);
+    }
+
+    startHandshake(): void {
+        this.game.locale.register(this.localize, this);
     }
 
     startMusicById(musicId: number): void {
@@ -156,8 +162,21 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.engine.endGame(score, room);
     }
 
+    localize(locale: Locale): void {
+        if (this.bridge) {
+            this.bridge.send({
+                function: 'setLanguage',
+                parameters: [
+                    locale.abbreviation,
+                    locale.data['lang']
+                ]
+            });
+        }
+    }
+
     destroyBridge(): void {
         this.bridge = undefined;
+        this.game.locale.unregister(this.localize);
     }
 
     /* ================= CLEANUP ================= */
