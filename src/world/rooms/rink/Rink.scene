@@ -61,7 +61,8 @@
         {
             "type": "Image",
             "id": "2e4cceae-9b17-45fc-b48e-bcc517b256a0",
-            "label": "rink_leftgoal",
+            "label": "leftgoal",
+            "scope": "PUBLIC",
             "components": [
                 "DepthEnabled"
             ],
@@ -108,7 +109,8 @@
         {
             "type": "Image",
             "id": "a94d1310-7c5f-4014-8d87-b54d0816d9bd",
-            "label": "rink_rightgoal",
+            "label": "rightgoal",
+            "scope": "PUBLIC",
             "components": [
                 "DepthEnabled"
             ],
