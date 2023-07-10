@@ -40,24 +40,18 @@ export class HybridGame extends Phaser.Scene implements Game {
         let penguinData = this.engine.world.myPenguinData;
         let colorHex = this.game.gameConfig.player_colors;
 
-        this.createBridge();
         await this.play(`${this.load.baseURL}assets/world/games/loader.swf`, this.asFlashVars({
             locale: this.game.locale.language.toString(),
             media: this.load.baseURL,
-            game: this.url
+            game: this.url,
+            bridgeId: this.createBridge()
         }));
 
         this.bridge.player = this.player;
         this.bridge.once('ready', () => { if (data.onready) data.onready(this) });
 
         // Once the ruffle bridge has been loaded it sends everything the flash client needed, for now it only needs penguin's object and color crumbs
-        this.bridge.once('loaded', () => this.bridge.send({
-            function: "populateFlashData",
-            parameters: [
-                penguinData,
-                colorHex,
-            ]
-        } as BridgeMessage));
+        this.bridge.once('loaded', () => this.bridge.send('populateFlashData', penguinData, colorHex));
     }
 
     /* ================= FLASH ================= */
@@ -118,20 +112,29 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     bridge: HybridBridge;
 
-    createBridge(): void {
+    createBridge(): string {
         if (this.bridge) this.destroyBridge();
         this.bridge = new HybridBridge();
 
         this.bridge.on('loaded', this.startHandshake, this);
+        this.bridge.on('getLocalizedString', this.getLocalizedString, this);
         this.bridge.on('startMusicById', this.startMusicById, this);
         this.bridge.on('startGameMusic', this.startGameMusic, this);
         this.bridge.on('stopGameMusic', this.startGameMusic, this);
         this.bridge.on('hideLoading', this.hideLoading, this);
         this.bridge.on('endGame', this.endGame, this);
+
+        return this.bridge.register();
     }
 
     startHandshake(): void {
         this.game.locale.register(this.localize, this);
+    }
+
+    getLocalizedString(key: string): string {
+        let str = this.game.locale.localize(key);
+        console.log(key, str);
+        return str;
     }
 
     startMusicById(musicId: number): void {
@@ -164,13 +167,7 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     localize(locale: Locale): void {
         if (this.bridge) {
-            this.bridge.send({
-                function: 'setLanguage',
-                parameters: [
-                    locale.abbreviation,
-                    locale.data['lang']
-                ]
-            });
+            this.bridge.send('setLanguageAbbreviation', locale.abbreviation);
         }
     }
 
