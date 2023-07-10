@@ -14,14 +14,21 @@ export type BridgeMessage = {
  * Allows communication between 
  */
 export class HybridBridge extends Phaser.Events.EventEmitter {
+    public id: string;
+
     constructor() {
         super();
+    }
+
+    register(id?: string): string {
+        this.id = id ?? Phaser.Utils.String.UUID();
+        (window as any)[this.id] = this.messageFromFlash.bind(this);
+        return this.id;
     }
 
     #flash: BridgedPlayer;
     set player(player: RufflePlayer) {
         this.#flash = player as BridgedPlayer;
-        this.#flash.onFSCommand = this.messageFromFlash.bind(this);
     }
 
     /**
@@ -41,9 +48,10 @@ export class HybridBridge extends Phaser.Events.EventEmitter {
 
     /**
      * Sends a message to Flash.
-     * @param payload The payload to send to Flash. Will be serialized to JSON.
+     * @param op The function name.
+     * @param parameters The parameters to send. Will be serialized to JSON.
      */
-    send(payload: BridgeMessage): void {
-        this.#flash.messageFromHTML5(JSON.stringify(payload));
+    send(op: string, ...parameters: any): void {
+        this.#flash.messageFromHTML5(JSON.stringify({ function: op, parameters }));
     }
 }

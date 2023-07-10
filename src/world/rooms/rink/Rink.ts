@@ -11,6 +11,7 @@ import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 import { App } from "../../../app/app";
 import Engine, { Room } from "../../engine/Engine";
 import Interface from "../../interface/Interface";
+import { Avatar } from "../../avatar/avatar";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
@@ -43,9 +44,9 @@ export default class Rink extends Phaser.Scene implements Room {
         const rink_leftgoalbehind = this.add.image(304.875, 564.4125, "rink", "rink/leftgoalbehind");
         rink_leftgoalbehind.setOrigin(0.6480281690140844, 0.4164596273291925);
 
-        // rink_leftgoal
-        const rink_leftgoal = this.add.image(273.6, 628.3125, "rink", "rink/leftgoal");
-        rink_leftgoal.setOrigin(0.42636363636363633, 0.7543333333333333);
+        // leftgoal
+        const leftgoal = this.add.image(273.6, 628.3125, "rink", "rink/leftgoal");
+        leftgoal.setOrigin(0.42636363636363633, 0.7543333333333333);
 
         // puck
         const puck = this.add.image(859.5, 607.5, "rink", "rink/puck");
@@ -54,9 +55,9 @@ export default class Rink extends Phaser.Scene implements Room {
         const rink_rightgoalbehind = this.add.image(1407.15, 562.6125, "rink", "rink/rightgoalbehind");
         rink_rightgoalbehind.setOrigin(0.32161972, 0.41645963);
 
-        // rink_rightgoal
-        const rink_rightgoal = this.add.image(1439.1, 628.3125, "rink", "rink/rightgoal");
-        rink_rightgoal.setOrigin(0.5404195804195804, 0.7543333333333333);
+        // rightgoal
+        const rightgoal = this.add.image(1439.1, 628.3125, "rink", "rink/rightgoal");
+        rightgoal.setOrigin(0.5404195804195804, 0.7543333333333333);
 
         // rink_fishdog
         const rink_fishdog = this.add.image(169.425, 243.45, "rink", "rink/fishdog");
@@ -256,8 +257,8 @@ export default class Rink extends Phaser.Scene implements Room {
         // rink_leftgoalbehind (components)
         new DepthEnabled(rink_leftgoalbehind);
 
-        // rink_leftgoal (components)
-        new DepthEnabled(rink_leftgoal);
+        // leftgoal (components)
+        new DepthEnabled(leftgoal);
 
         // puck (components)
         new DepthEnabled(puck);
@@ -265,8 +266,8 @@ export default class Rink extends Phaser.Scene implements Room {
         // rink_rightgoalbehind (components)
         new DepthEnabled(rink_rightgoalbehind);
 
-        // rink_rightgoal (components)
-        new DepthEnabled(rink_rightgoal);
+        // rightgoal (components)
+        new DepthEnabled(rightgoal);
 
         // rink_fishdog (components)
         const rink_fishdogDepthEnabled = new DepthEnabled(rink_fishdog);
@@ -380,8 +381,8 @@ export default class Rink extends Phaser.Scene implements Room {
         catalogueDepthEnabled.automaticSort = false;
         catalogueDepthEnabled.depth = 1080;
         const catalogueButtonComponent = new ButtonComponent(catalogue);
-        catalogueButtonComponent.upTexture = {"key":"rink","frame":"rink/catalogue0001"};
-        catalogueButtonComponent.overTexture = {"key":"rink","frame":"rink/catalogue0002"};
+        catalogueButtonComponent.upTexture = { "key": "rink", "frame": "rink/catalogue0001" };
+        catalogueButtonComponent.overTexture = { "key": "rink", "frame": "rink/catalogue0002" };
         catalogueButtonComponent.handCursor = true;
         catalogueButtonComponent.pixelPerfect = true;
 
@@ -418,7 +419,9 @@ export default class Rink extends Phaser.Scene implements Room {
         const chair4_btnButtonComponent = new ButtonComponent(chair4_btn);
         chair4_btnButtonComponent.pixelPerfect = true;
 
+        this.leftgoal = leftgoal;
         this.puck = puck;
+        this.rightgoal = rightgoal;
         this.fishdogsign = fishdogsign;
         this.fishdog_btn = fishdog_btn;
         this.stadiumsign = stadiumsign;
@@ -441,7 +444,9 @@ export default class Rink extends Phaser.Scene implements Room {
         this.events.emit("scene-awake");
     }
 
+    public leftgoal!: Phaser.GameObjects.Image;
     public puck!: Phaser.GameObjects.Image;
+    public rightgoal!: Phaser.GameObjects.Image;
     public fishdogsign!: Phaser.GameObjects.Image;
     public fishdog_btn!: Phaser.GameObjects.Image;
     public stadiumsign!: Phaser.GameObjects.Image;
@@ -502,10 +507,82 @@ export default class Rink extends Phaser.Scene implements Room {
         this.snacksdoor_btn.on('out', () => this.snacksdoor.setFrame('rink/snacksdoor0001'));
         this.snacksdoor_btn.on('release', () => this.engine.movePlayer(1253.25, 252));
 
+        this.catalogue.on('over', () => this.catalogue_title.visible = false);
+        this.catalogue.on('out', () => this.catalogue_title.visible = true);
+
+        this.game.locale.register(this.localize, this);
+
         if (data.onready) data.onready(this);
+        this.engine.events.once('roomready', this.initPuck, this);
+    }
+
+    initPuck(scene: Rink): void {
+        if (scene !== this) return;
+
+        this.matter.world.setBounds(0, 0, this.cameras.main.width, this.cameras.main.height);
+
+        let bounds = new Phaser.Geom.Polygon([
+            new Phaser.Geom.Point(343.125, 455.625),
+            new Phaser.Geom.Point(543.375, 410.625),
+            new Phaser.Geom.Point(1184.625, 411.75),
+            new Phaser.Geom.Point(1360.125, 460.125),
+            new Phaser.Geom.Point(1459.125, 570.375),
+            new Phaser.Geom.Point(1483.875, 716.625),
+            new Phaser.Geom.Point(1402.875, 815.625),
+            new Phaser.Geom.Point(1261.125, 889.875),
+            new Phaser.Geom.Point(482.625, 894.375),
+            new Phaser.Geom.Point(322.875, 831.375),
+            new Phaser.Geom.Point(210.375, 732.375),
+            new Phaser.Geom.Point(226.125, 574.875),
+        ]);
+
+        /*
+        this.puck.setCircle(18);
+        this.puck.setBounce(1, 1);
+        this.puck.setFriction(0.1);
+        this.engine.enablePlayerPhysics();
+
+        this.physics.add.collider(this.puck, this.engine.player, this.onPlayerCollision, undefined, this);
+
+        this.leftgoal.body.setSize(116.8875, 94.1625);
+        this.rightgoal.body.setSize(116.8875, 94.1625);
+
+        this.physics.add.collider(this.puck, this.leftgoal, this.onGoalCollision, undefined, this);
+        this.physics.add.collider(this.puck, this.rightgoal, this.onGoalCollision, undefined, this);
+        */
+    }
+
+    onPlayerCollision(ob1: Phaser.Physics.Arcade.Image & { body: Phaser.Physics.Arcade.Body }, ob2: Avatar & { body: Phaser.Physics.Arcade.Body }): void {
+        let tweens = this.tweens.getTweensOf(ob2);
+        if (tweens.length == 0) return;
+
+        ob1.body.velocity.add
+
+        console.log('player', ob1, ob2);
+    }
+
+    onGoalCollision(ob1: Phaser.Physics.Arcade.Image & { body: Phaser.Physics.Arcade.Body }, ob2: Phaser.Physics.Arcade.Image): void {
+        this.resetPuck();
+        console.log('goal', ob1, ob2);
+    }
+
+    resetPuck(): void {
+        //this.puck.body.reset(859.5, 607.5);
+    }
+
+    update(): void {
+        this.puck.depth = this.puck.y;
+    }
+
+    localize(locale: Locale): void {
+        this.snackssign.setFrame(`rink/snackssign${locale.frame}`);
+        this.fishdogsign.setFrame(`rink/fishdog_sign${locale.frame}`);
+        this.stadiumsign.setFrame(`rink/stadiumsign${locale.frame}`);
+        this.catalogue_title.setFrame(`rink/catalogue_title${locale.frame}`);
     }
 
     unload(engine: Engine): void {
+        this.game.locale.unregister(this.localize);
         engine.game.unloadAssetPack('rink-pack');
     }
 

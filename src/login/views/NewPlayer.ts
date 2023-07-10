@@ -340,6 +340,9 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         this.forgotHitbox.on('pointerout', () => {
             this.forgotBar.visible = false;
         });
+        this.forgotHitbox.on('pointerup', () => {
+            this.scene.showWorldSelect();
+        });
 
         this.accountHitbox.setInteractive({ useHandCursor: true });
         this.accountHitbox.on('pointerover', () => {

@@ -297,7 +297,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
         }
 
         for (let wave of this.waves2) {
-            this.randomPlayAnimation(wave, 0, 1310.34483, 'wave2-animation');
+            this.randomPlayAnimation(wave, 0, 1310.34483, 'binoculars-wave2-animation');
             wave.on('animationcomplete', () => this.randomPlayAnimation(wave, 0, 1310.34483, 'binoculars-wave2-animation'));
         }
 
