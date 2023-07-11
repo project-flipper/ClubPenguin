@@ -40,11 +40,12 @@ export class HybridGame extends Phaser.Scene implements Game {
         let penguinData = this.engine.world.myPenguinData;
         let colorHex = this.game.gameConfig.player_colors;
 
-        await this.play(`${this.load.baseURL}assets/world/games/loader.swf`, this.asFlashVars({
+        await this.play(`${this.load.baseURL}assets/world/games/loader.swf?v=${this.game.minigameVersion}`, this.asFlashVars({
             locale: this.game.locale.language.toString(),
             media: this.load.baseURL,
             game: this.url,
-            bridgeId: this.createBridge()
+            bridgeId: this.createBridge(),
+            cacheVersion: this.game.minigameVersion
         }));
 
         this.bridge.player = this.player;
