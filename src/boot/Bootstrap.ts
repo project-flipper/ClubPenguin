@@ -10,6 +10,8 @@ import type Load from '../load/Load';
 import { LoaderTask } from '../load/tasks';
 import type InternalErrorArea from "../app/InternalErrorArea";
 import { Language } from "../app/locale";
+import TabId from "is-tab-duplicated";
+import type ErrorArea from "../app/ErrorArea";
 /* END-USER-IMPORTS */
 
 export default class Bootstrap extends Phaser.Scene {
@@ -193,11 +195,21 @@ export default class Bootstrap extends Phaser.Scene {
 
         await load.waitAllTasksComplete();
 
-        await new Promise<void>(resolve => this.scene.run('ErrorArea', {
-            onready: () => resolve()
+        let error = await new Promise<ErrorArea>(resolve => this.scene.run('ErrorArea', {
+            onready: (scene: ErrorArea) => resolve(scene)
         }));
 
         if (this.load.totalFailed > 0) return this.showLoadError();
+
+        TabId.initInstance();
+        if (TabId.isTabDuplicated()) {
+            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.MULTI_CONNECTIONS', 'error_lang'), this.game.locale.localize('Okay'), () => {
+                window.location.reload();
+                return false;
+            }, error.makeCode('c', error.MULTI_CONNECTIONS));
+
+            throw new Error('Multiple connections detected!');
+        }
 
         let path = 'start'; // TODO: get path
 
