@@ -204,7 +204,7 @@ export default class Bootstrap extends Phaser.Scene {
         TabId.initInstance();
         if (TabId.isTabDuplicated()) {
             error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.MULTI_CONNECTIONS', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                window.close();
+                window.location.reload();
                 return false;
             }, error.makeCode('c', error.MULTI_CONNECTIONS));
 
