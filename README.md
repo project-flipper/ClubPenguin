@@ -72,7 +72,7 @@ If you wish to fork this project, please give credits where credit is due. Thank
 Thank you for your interest! 😉. You may contribute to bug reports and fixes by submitting issues and pull requests through this repository. Together we will let Club Penguin's legacy live on.
 
 # Demo
-A live public build of the project will be made available soon.
+See [Project Flipper](https://projectflipper.live/) (non-affiliated with Disney).
 
 # Support
 <p>
