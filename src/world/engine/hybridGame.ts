@@ -49,10 +49,10 @@ export class HybridGame extends Phaser.Scene implements Game {
         }));
 
         this.bridge.player = this.player;
-        this.bridge.once('ready', () => { if (data.onready) data.onready(this) });
+        this.bridge.setHandler('ready', () => { if (data.onready) data.onready(this) });
 
         // Once the ruffle bridge has been loaded it sends everything the flash client needed, for now it only needs penguin's object and color crumbs
-        this.bridge.once('loaded', () => this.bridge.send('populateFlashData', penguinData, colorHex));
+        this.bridge.setHandler('loaded', () => this.bridge.send('populateFlashData', penguinData, colorHex));
     }
 
     /* ================= FLASH ================= */
@@ -117,13 +117,13 @@ export class HybridGame extends Phaser.Scene implements Game {
         if (this.bridge) this.destroyBridge();
         this.bridge = new HybridBridge();
 
-        this.bridge.on('loaded', this.startHandshake, this);
-        this.bridge.on('getLocalizedString', this.getLocalizedString, this);
-        this.bridge.on('startMusicById', this.startMusicById, this);
-        this.bridge.on('startGameMusic', this.startGameMusic, this);
-        this.bridge.on('stopGameMusic', this.startGameMusic, this);
-        this.bridge.on('hideLoading', this.hideLoading, this);
-        this.bridge.on('endGame', this.endGame, this);
+        this.bridge.setHandler('loaded', this.startHandshake, this);
+        this.bridge.setHandler('getLocalizedString', this.getLocalizedString, this);
+        this.bridge.setHandler('startMusicById', this.startMusicById, this);
+        this.bridge.setHandler('startGameMusic', this.startGameMusic, this);
+        this.bridge.setHandler('stopGameMusic', this.stopGameMusic, this);
+        this.bridge.setHandler('hideLoading', this.hideLoading, this);
+        this.bridge.setHandler('endGame', this.endGame, this);
 
         return this.bridge.register();
     }
@@ -168,7 +168,7 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     localize(locale: Locale): void {
         if (this.bridge) {
-            this.bridge.send('setLanguageAbbreviation', locale.abbreviation);
+            this.bridge.sendSafe('setLanguageAbbreviation', locale.abbreviation);
         }
     }
 
