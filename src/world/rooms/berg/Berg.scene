@@ -1,0 +1,119 @@
+{
+    "id": "0d6de159-69ca-4637-bc0f-43ef443ca9d1",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/berg/berg-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Berg",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "da2660c4-8a49-459e-91cf-5059f9d01e6e",
+            "label": "berg_sky",
+            "texture": {
+                "key": "berg",
+                "frame": "berg/sky"
+            },
+            "x": -22.5,
+            "y": -22.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "d04a984d-0452-407f-b148-87ba43556a22",
+            "label": "berg_island",
+            "texture": {
+                "key": "berg",
+                "frame": "berg/island"
+            },
+            "x": 774.7875,
+            "y": 83.475,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "b54f73da-70b6-4deb-b444-6205c51b1b0a",
+            "label": "berg_base",
+            "texture": {
+                "key": "berg",
+                "frame": "berg/base"
+            },
+            "x": -22.5,
+            "y": 193.1625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "9cb90f0c-4137-4384-83b4-1d79a3076951",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "berg",
+                "frame": "berg/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "prefabId": "54cc6564-07d4-49ee-a1d5-af8f0e7ccd14",
+            "id": "ffbcc80b-2c43-4c3e-8dc1-7f0c29125809",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "aqua",
+            "scope": "PUBLIC",
+            "x": 1246.275,
+            "y": 240.75
+        },
+        {
+            "type": "Image",
+            "id": "aecabf37-eaba-4e0a-add7-55313b26175b",
+            "label": "aqua_mc",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
+            "texture": {
+                "key": "berg",
+                "frame": "berg/aqua_mc"
+            },
+            "x": 1163.1375,
+            "y": 304.425,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    },
+    "lists": [
+        {
+            "id": "e843f372-d627-4398-8d66-db5aeebd173d",
+            "label": "triggers",
+            "objectIds": [
+                "aecabf37-eaba-4e0a-add7-55313b26175b"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}

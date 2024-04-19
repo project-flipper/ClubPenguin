@@ -38,6 +38,7 @@ import Load from "../../load/Load";
 import { LoaderTask } from "../../load/tasks";
 import ErrorArea from "../../app/ErrorArea";
 import { Emoji } from "../../net/types/chat/emoji";
+import { GameConfig } from "../../app/config";
 /* END-USER-IMPORTS */
 
 export default class Interface extends Phaser.Scene {
@@ -971,6 +972,12 @@ export default class Interface extends Phaser.Scene {
         this.promptShop.close();
         this.promptSpinner.close();
         this.promptBlock.visible = false;
+    }
+
+    /* ============ END GAME ============ */
+
+    showEndGame(score: number, gameData: GameConfig): void {
+
     }
 
     /* ============ CONTENT ============ */

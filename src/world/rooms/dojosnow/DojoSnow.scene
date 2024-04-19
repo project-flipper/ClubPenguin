@@ -1,0 +1,22 @@
+{
+    "id": "b55ac22d-8a38-4fd1-a7fe-e935257a910f",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "DojoSnow",
+        "compilerOutputLanguage": "TYPE_SCRIPT"
+    },
+    "displayList": [],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 4
+    }
+}

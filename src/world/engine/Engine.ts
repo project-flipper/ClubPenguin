@@ -433,7 +433,12 @@ export default class Engine extends Phaser.Scene {
         let load = this.scene.get('Load') as Load;
         if (!load.isShowing) load.show();
 
+        let gameData = this.currentGame.gameData;
         this.unloadGame();
+
+        this.events.on('roomready', () => {
+            this.interface.showEndGame(score, gameData);
+        });
 
         if (roomConfig) {
             console.log('join room');
