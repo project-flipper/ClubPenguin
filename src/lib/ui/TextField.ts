@@ -181,7 +181,7 @@ export default class TextField extends Phaser.GameObjects.Container {
     }
 
     set autocomplete(value: string) {
-        this.html.autocomplete = value;
+        this.html.autocomplete = value as AutoFill;
     }
 
     get value(): string {
