@@ -31,13 +31,6 @@ export class HybridBridge {
         this.clear();
     }
 
-    getUniqueId(): string {
-        let abc = 'abcdefghijklmnopqrstuvxyz';
-        let ABC = abc.toUpperCase();
-        let uuid = Phaser.Utils.String.UUID().replaceAll('-', '');
-        return Phaser.Utils.Array.GetRandom((abc + ABC).split('')) + uuid;
-    }
-
     setHandler<K extends keyof HybridHandlers>(op: K, handler: HybridHandlers[K], context?: any): void {
         this._handlers[op] = context ? handler.bind(context) : handler;
     }
@@ -57,6 +50,13 @@ export class HybridBridge {
     }
 
     /* ================ */
+
+    getUniqueId(): string {
+        let abc = 'abcdefghijklmnopqrstuvxyz';
+        let ABC = abc.toUpperCase();
+        let uuid = Phaser.Utils.String.UUID().replaceAll('-', '');
+        return Phaser.Utils.Array.GetRandom((abc + ABC).split('')) + uuid;
+    }
 
     public id: string;
 
