@@ -148,7 +148,7 @@ module.exports = env => {
             ]
         },
         resolve: {
-            extensions: ['.ts', '.tsx', '.mjs', '.js', '.json']
+            extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx', '.json']
         },
 
         optimization: {
@@ -175,6 +175,9 @@ module.exports = env => {
                     }
                 }
             }
+        },
+        performance: {
+            hints: false
         },
         devServer: {
             static: [
