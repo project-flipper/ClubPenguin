@@ -16,6 +16,7 @@
         "importHelpers": true,
         "alwaysStrict": true,
         "noImplicitAny": true,
-        "rootDir": "src"
-    }
+        "rootDir": "src",
+    },
+    "include": ["src/**/*"]
 }

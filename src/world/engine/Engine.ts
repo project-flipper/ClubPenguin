@@ -140,6 +140,7 @@ export default class Engine extends Phaser.Scene {
 
     async playMusic(id: number): Promise<void> {
         if (this.currentMusicId == id) return;
+        if (!id) return this.stopMusic();
         this.stopMusic();
 
         let key = `music-${id}`;

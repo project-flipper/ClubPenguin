@@ -14,7 +14,7 @@ export type HybridHandlers = {
     loaded(): void;
     ready(): void;
     getLocalizedString(key: string): string;
-    startMusicById(musicId: number): void;
+    startMusicById(musicId?: number): void;
     startGameMusic(): void;
     stopGameMusic(): void;
     hideLoading(): void;
@@ -51,10 +51,17 @@ export class HybridBridge {
 
     /* ================ */
 
+    getUniqueId(): string {
+        let abc = 'abcdefghijklmnopqrstuvxyz';
+        let ABC = abc.toUpperCase();
+        let uuid = Phaser.Utils.String.UUID().replaceAll('-', '');
+        return Phaser.Utils.Array.GetRandom((abc + ABC).split('')) + uuid;
+    }
+
     public id: string;
 
     register(id?: string): string {
-        this.id = id ?? Phaser.Utils.String.UUID();
+        this.id = id ?? this.getUniqueId();
         (window as any)[this.id] = this.messageFromFlash.bind(this);
         return this.id;
     }

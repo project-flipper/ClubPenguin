@@ -52,7 +52,12 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.bridge.setHandler('ready', () => { if (data.onready) data.onready(this) });
 
         // Once the ruffle bridge has been loaded it sends everything the flash client needed, for now it only needs penguin's object and color crumbs
-        this.bridge.setHandler('loaded', () => this.bridge.send('populateFlashData', penguinData, colorHex));
+        this.bridge.setHandler('loaded', () => this.bridge.send('populateFlashData', {
+            basePath: '',
+            baseConfigPath: '',
+            globalContentPath: `${this.load.baseURL}assets/world/`,
+            gamesPath: `${this.load.baseURL}assets/world/games/`
+        }, penguinData, colorHex));
     }
 
     /* ================= FLASH ================= */
@@ -138,7 +143,7 @@ export class HybridGame extends Phaser.Scene implements Game {
         return str;
     }
 
-    startMusicById(musicId: number): void {
+    startMusicById(musicId?: number): void {
         this.engine.playMusic(musicId);
     }
 
