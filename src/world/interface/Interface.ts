@@ -940,7 +940,7 @@ export default class Interface extends Phaser.Scene {
         let y = at.y;
 
         while ('parentContainer' in at && at.parentContainer != null) {
-            at = at.parentContainer
+            at = at.parentContainer as Phaser.Types.Math.Vector2Like;
             x += at.x;
             y += at.y;
         }
