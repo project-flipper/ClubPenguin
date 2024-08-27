@@ -10,14 +10,25 @@ export type BridgeMessage = {
     parameters: any[]
 };
 
+export type HybridHandlers = {
+    loaded(): void;
+    ready(): void;
+    getLocalizedString(key: string): string;
+    startMusicById(musicId?: number): void;
+    startGameMusic(): void;
+    stopGameMusic(): void;
+    hideLoading(): void;
+    endGame(score: number, room: undefined): void;
+};
+
 /**
  * Allows communication between 
  */
-export class HybridBridge extends Phaser.Events.EventEmitter {
-    public id: string;
+export class HybridBridge {
+    private _handlers: HybridHandlers;
 
     constructor() {
-        super();
+        this.clear();
     }
 
     getUniqueId(): string {
@@ -26,6 +37,28 @@ export class HybridBridge extends Phaser.Events.EventEmitter {
         let uuid = Phaser.Utils.String.UUID().replaceAll('-', '');
         return Phaser.Utils.Array.GetRandom((abc + ABC).split('')) + uuid;
     }
+
+    setHandler<K extends keyof HybridHandlers>(op: K, handler: HybridHandlers[K], context?: any): void {
+        this._handlers[op] = context ? handler.bind(context) : handler;
+    }
+
+    callHandler<K extends keyof HybridHandlers>(op: K, ...params: Parameters<HybridHandlers[K]>): ReturnType<HybridHandlers[K]> {
+        if (op in this._handlers) {
+            return this._handlers[op].apply(this, params);
+        }
+    }
+
+    removeHandler<K extends keyof HybridHandlers>(op: K): void {
+        delete this._handlers[op];
+    }
+
+    clear(): void {
+        this._handlers = {} as HybridHandlers;
+    }
+
+    /* ================ */
+
+    public id: string;
 
     register(id?: string): string {
         this.id = id ?? this.getUniqueId();
@@ -44,13 +77,11 @@ export class HybridBridge extends Phaser.Events.EventEmitter {
      * Instead, you should add a listener to this instance to receive data.
      * @param payload The serialized JSON received from Flash.
      */
-    protected messageFromFlash(op: string, params: string): boolean {
+    protected messageFromFlash(op: keyof HybridHandlers, params: string): any {
         let data = params ? JSON.parse(params) : [];
-        let param = Array.isArray(data) ? data : [data];
-        // I unfortunately have to delegate this to a setTimeout because ruffle cannot call itself (see ruffle issue #10791)
-        setTimeout(() => this.emit(op, ...param), 200);
-        console.log(op, params);
-        return true;
+        let args = Array.isArray(data) ? data : [data];
+        console.log(op, args);
+        return this.callHandler(op, ...(args as any));;
     }
 
     /**
@@ -60,5 +91,15 @@ export class HybridBridge extends Phaser.Events.EventEmitter {
      */
     send(op: string, ...parameters: any): void {
         this.#flash.messageFromHTML5(JSON.stringify({ function: op, parameters }));
+    }
+
+    /**
+     * Sends a message to Flash safely.
+     * @param _op The function name.
+     * @param _parameters The parameters to send. Will be serialized to JSON.
+     */
+    sendSafe(_op: string, ..._parameters: any): void {
+        // I unfortunately have to delegate this to a setTimeout because ruffle cannot call itself (see ruffle issue #10791)
+        setTimeout(() => this.send.apply(this, arguments), 200);
     }
 }
