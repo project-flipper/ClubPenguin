@@ -20,8 +20,15 @@ export class HybridBridge extends Phaser.Events.EventEmitter {
         super();
     }
 
+    getUniqueId(): string {
+        let abc = 'abcdefghijklmnopqrstuvxyz';
+        let ABC = abc.toUpperCase();
+        let uuid = Phaser.Utils.String.UUID().replaceAll('-', '');
+        return Phaser.Utils.Array.GetRandom((abc + ABC).split('')) + uuid;
+    }
+
     register(id?: string): string {
-        this.id = id ?? Phaser.Utils.String.UUID();
+        this.id = id ?? this.getUniqueId();
         (window as any)[this.id] = this.messageFromFlash.bind(this);
         return this.id;
     }
