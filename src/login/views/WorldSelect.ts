@@ -157,9 +157,9 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    setup(data: WorldDataPayload): void {
+    setup(data: WorldDataPayload[]): void {
         for (let i = 0; i < 5; i++) {
-            let world = data.worlds[i];
+            let world = data[i];
             let tile = this.suggestedWorlds[i];
 
             if (!world) {

@@ -236,17 +236,9 @@ export default class Login extends Phaser.Scene {
             throw e;
         }
 
-        this.worldSelect.setup({
-            worlds: [
-                {
-                    id: 0,
-                    name: 'Local test',
-                    population: 1,
-                    buddies: false,
-                    safeChat: false,
-                }
-            ], token: ''
-        });
+        let worlds = await this.game.airtower.getWorlds();
+
+        this.worldSelect.setup(worlds.data);
         this.showWorldSelect();
 
         load.hide();
