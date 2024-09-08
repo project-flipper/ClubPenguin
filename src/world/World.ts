@@ -72,35 +72,6 @@ export default class World extends Phaser.Scene {
 
     create(data: { id: number, name: string }): void {
         this.worldId = data.id;
-        this.myPenguinData = {
-            id: '1000',
-            username: data.name,
-            nickname: data.name,
-            avatar: {
-                color: 7,
-                head: 21073,
-                face: 2104,
-                neck: 10214,
-                body: 4449,
-                hand: 5501,
-                feet: 6050,
-                /*head: 0,
-                face: 101,
-                neck: 10214,
-                body: 0,
-                hand: 0,
-                feet: 0,*/
-                flag: 0,
-                photo: 9269
-            },
-            iglooId: 0,
-            member: {
-                level: 5,
-                since: ''
-            },
-            moderator: false,
-            stealth: false
-        };
 
         this.editorCreate();
 
@@ -110,6 +81,9 @@ export default class World extends Phaser.Scene {
     async startWorld(): Promise<void> {
         let load = this.scene.get('Load') as Load;
         load.track(new LoaderTask(this.load));
+
+        let myUser = await this.game.airtower.getMyUser()
+        this.myPenguinData = myUser.data;
 
         this.postload();
         // TODO: load world here
@@ -128,9 +102,11 @@ export default class World extends Phaser.Scene {
             onready: (scene: Engine) => resolve(scene)
         }));
 
-        this.game.friends.connect([], [
-            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '16', '28', '31', '32', '33'
-        ], true, true, true);
+        let myFriends = await this.game.airtower.getMyFriends();
+        let friends = myFriends.data.filter(penguin => penguin.mascotId == undefined);
+        let characters = myFriends.data.filter(penguin => penguin.mascotId != undefined).map(penguin => penguin.id);
+
+        this.game.friends.connect(friends, characters, true, true, true);
 
         let roomConfig = this.game.gameConfig.rooms[this.getRandomItem(SPAWN_ROOMS)];
         console.log('Mocking room join on room', roomConfig);

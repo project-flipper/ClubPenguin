@@ -1,3 +1,6 @@
+import { WorldDataPayload } from "./login/worldData";
+import { MyPenguinData, PenguinData } from "./penguin/penguin";
+
 export type ApiError = {
     error_type: string,
     error_code: number,
@@ -22,6 +25,12 @@ export type LoginResponse = ApiResponse<{
     session_key: string
 }, BanError>;
 
+export type WorldsResponse = ApiResponse<WorldDataPayload[]>;
+
 export type CreateAccountResponse = ApiResponse<{
     userId: number
 }>
+
+export type UserResponse = ApiResponse<MyPenguinData>;
+
+export type FriendsResponse = ApiResponse<PenguinData[]>;

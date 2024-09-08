@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 import type { App } from "../app/app";
-import { ApiResponse, CreateAccountResponse, LoginResponse } from "./types/api";
+import { ApiResponse, CreateAccountResponse, FriendsResponse, LoginResponse, UserResponse, WorldsResponse } from "./types/api";
 import { CreateAccountPayload } from "./types/account/createAccount";
 
 /**
@@ -238,8 +238,16 @@ export class Airtower extends Phaser.Events.EventEmitter {
         return response;
     }
 
-    async getWorlds(): Promise<Response> {
-        return await this.request<Response>(new Route('GET', '/worlds'), {});
+    async getWorlds(): Promise<WorldsResponse> {
+        return await this.request<WorldsResponse>(new Route('GET', '/worlds'), {});
+    }
+
+    async getMyUser(): Promise<UserResponse> {
+        return await this.request<UserResponse>(new Route('GET', '/users/@me'), {});
+    }
+
+    async getMyFriends(): Promise<FriendsResponse> {
+        return await this.request<FriendsResponse>(new Route('GET', '/users/@me/friends'), {});
     }
 
     /**
