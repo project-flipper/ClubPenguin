@@ -106,6 +106,10 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     stop(): void {
+        if (this.player) {
+            this.player.destroy();
+        }
+
         if (this.container) {
             this.container.destroy(true);
             this.container = undefined;
