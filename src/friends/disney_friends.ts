@@ -98,7 +98,7 @@ export class Friends extends Phaser.Events.EventEmitter {
             bestFriends.length, notificationsEnabled, friendsEnabled, bestFriendsEnabled
         ]);
         this.instance.Friends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id, name: data.nickname, presence: Presence.OFFLINE.toString() })));
-        this.instance.Friends.activeUser.roster.populateBestFriends([]);
+        this.instance.Friends.activeUser.roster.populateBestFriends(bestFriends);
         this.instance.Friends.activeUser.roster.populateCharacterRoster(characters.map(id => ({ id, presence: Presence.OFFLINE.toString() })));
     }
 
