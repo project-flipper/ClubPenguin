@@ -20,7 +20,7 @@ import ColorSwatch from './prefabs/ColorSwatch';
 import type { App } from "../app/app";
 import type { Locale } from "../app/locale";
 import ErrorArea from "../app/ErrorArea";
-import { HTTPError, digest } from "../net/airtower";
+import { HTTPError } from "../net/airtower";
 /* END-USER-IMPORTS */
 
 export default class Create extends Phaser.Scene {
@@ -643,7 +643,7 @@ export default class Create extends Phaser.Scene {
         return {
             name: this.chooseNameArea.textField.value,
             color: this.colorSelector.selected.colorId,
-            password: await digest(this.passwordArea.textField1.value),
+            password: this.passwordArea.textField1.value,
             email: this.emailArea.textField.value,
             token
         };
@@ -734,7 +734,7 @@ export default class Create extends Phaser.Scene {
 
         console.debug(response);
 
-        if (response.data?.create) this.show(this.confirmationState);
+        if (response.data?.userId) this.show(this.confirmationState);
         else {
             let error = this.scene.get('ErrorArea') as ErrorArea;
             error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {

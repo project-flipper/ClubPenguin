@@ -21,3 +21,7 @@ export type LoginResponse = ApiResponse<{
     token_type: string,
     session_key: string
 }, BanError>;
+
+export type CreateAccountResponse = ApiResponse<{
+    userId: number
+}>

@@ -1,7 +1,6 @@
 import Phaser from "phaser";
 import type { App } from "../app/app";
-import { ApiResponse, LoginResponse } from "./types/api";
-import { GraphQLResponse } from "./types/graphql";
+import { ApiResponse, CreateAccountResponse, LoginResponse } from "./types/api";
 import { CreateAccountPayload } from "./types/account/createAccount";
 
 /**
@@ -98,20 +97,16 @@ export class Route<M = string> {
     }
 }
 
+/**
+ * Creates a promise that fulfills after n milliseconds.
+ * @param ms The number of milliseconds to sleep for.
+ */
 export function sleep(ms?: number): Promise<void> {
     return new Promise<void>(resolve => {
         setTimeout(() => resolve(), ms);
     });
 }
 
-export async function digest(password: string): Promise<string> {
-    let buffer = new TextEncoder().encode(password);
-    let digest = await crypto.subtle.digest('SHA-256', buffer);
-    let hashArray = Array.from(new Uint8Array(digest));
-    return hashArray
-        .map((b) => b.toString(16).padStart(2, '0'))
-        .join('');
-}
 
 /**
  * The game API wrapper.
@@ -217,43 +212,23 @@ export class Airtower extends Phaser.Events.EventEmitter {
         throw new Error('HTTP request failed.');
     }
 
-    /**
-     * Requests a GraphQL resource.
-     * Only GET and POST methods are allowed.
-     */
-    graphQL<R extends GraphQLResponse<any, any>>(route: Route<'POST'>, body: any, { headers, handleRatelimit }: { headers?: Record<string, string>, handleRatelimit?: boolean }): Promise<R> {
-        let params: {
-            headers: Record<string, string>,
-            json?: any,
-            body?: string,
-            handleRatelimit?: boolean
-        } = {
-            headers,
-            handleRatelimit,
-            json: body
-        };
-
-        return this.request(route, params);
-    }
-
     /* REST ENDPOINTS */
 
     /**
-     * Logs into an existing account, and starts a session for further API requests.
+     * Logs into an existing account using credentials, and starts a session for further API requests.
      * This request should be made before attempting to call other game APIs.
      * @param username The username of the account.
-     * @param password The password to use. This is passed as-is to the request, so make sure to digest it first.
+     * @param password The password to use.
      * @param saveSession Whether the API should return a resumable token.
      * @returns The response from the API.
      */
     async logIn(username: string, password: string, saveSession: boolean): Promise<LoginResponse> {
-        let response = await this.request<LoginResponse>(new Route('POST', '/login/auth'), {
+        let response = await this.request<LoginResponse>(new Route('POST', '/auth/login'), {
             form: {
                 username: username,
                 password: password,
                 save_session: saveSession,
                 grant_type: 'password'
-
             },
             handleRatelimit: false
         });
@@ -261,6 +236,10 @@ export class Airtower extends Phaser.Events.EventEmitter {
         if (response.success) this.#token = response.data.access_token;
 
         return response;
+    }
+
+    async getWorlds(): Promise<Response> {
+        return await this.request<Response>(new Route('GET', '/worlds'), {});
     }
 
     /**
@@ -271,18 +250,9 @@ export class Airtower extends Phaser.Events.EventEmitter {
         return this.request(new Route('GET', '/login/test'), {});
     }
 
-    /* GRAPHL ENDPOINTS */
-
-    createAccount(payload: CreateAccountPayload): Promise<GraphQLResponse> {
-        return this.graphQL(new Route('POST', '/data/graphql/user'), {
-            query: `
-            mutation CreateAccount($data: CreateUserType!) {
-                create(userData: $data) {
-                    id
-                }
-            }
-            `,
-            variables: { data: payload }
-        }, {});
+    createAccount(payload: CreateAccountPayload): Promise<CreateAccountResponse> {
+        return this.request(new Route('POST', '/users'), {
+            json: payload
+        });
     }
 }

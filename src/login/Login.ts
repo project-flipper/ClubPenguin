@@ -10,7 +10,7 @@ import type Load from '../load/Load';
 import { LoaderTask } from '../load/tasks';
 import type { Locale } from "../app/locale";
 import type { App } from "../app/app";
-import { Airtower, HTTPError, digest } from "../net/airtower";
+import { HTTPError } from "../net/airtower";
 import { BanError, LoginResponse } from "../net/types/api";
 import ErrorArea from "../app/ErrorArea";
 /* END-USER-IMPORTS */
@@ -68,10 +68,6 @@ export default class Login extends Phaser.Scene {
     /* START-USER-CODE */
 
     declare game: App;
-
-    get airtower(): Airtower {
-        return this.game.airtower;
-    }
 
     init(): void {
         let load = this.scene.get('Load') as Load;
@@ -175,8 +171,9 @@ export default class Login extends Phaser.Scene {
 
         let response: LoginResponse;
         try {
-            response = await this.airtower.logIn(name, await digest(password), savePassword);
+            response = await this.game.airtower.logIn(name, password, savePassword);
         } catch (e) {
+            console.error(e);
             if (e instanceof HTTPError) {
                 if (e.response.status == 401) {
                     load.hide();
