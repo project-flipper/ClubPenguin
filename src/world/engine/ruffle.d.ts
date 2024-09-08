@@ -141,7 +141,7 @@ export interface RufflePlayer extends HTMLElement {
     downloadSwf(): Promise<void>;
     pause(): void;
     set traceObserver(observer: ((message: string) => void) | null);
-    destroy(): void;
+    PercentLoaded(): number;
 }
 
 export interface RuffleAPI {

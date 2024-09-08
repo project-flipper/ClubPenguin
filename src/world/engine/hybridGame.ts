@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import EventEmitter from "eventemitter3";
 import { App } from "../../app/app";
 import { GameConfig } from "../../app/config";
 import Interface from "../interface/Interface";
@@ -7,9 +8,44 @@ import { HybridBridge, type BridgeMessage } from "./hybridBridge";
 import { RufflePlayer } from "./ruffle";
 import type Load from '../../load/Load';
 import { Locale } from "../../app/locale";
+import { DonePayload, PromiseTask } from "../../load/tasks";
 
 interface HybridContainer extends Phaser.GameObjects.DOMElement {
     node: RufflePlayer;
+}
+
+export class RuffleTask extends PromiseTask {
+    player: RufflePlayer;
+
+    _lastProgress: number;
+
+    constructor(player: RufflePlayer) {
+        super(null);
+        this.player = player;
+    }
+
+    wrap(_: null): Promise<void> {
+        return super.wrap(new Promise<void>(resolve => {
+            if (this.getProgress() >= 100) return resolve();
+
+            let checkProgress = () => {
+                if (this.getProgress() >= 100) return resolve();    
+                setTimeout(checkProgress, 1000);
+            };
+            setTimeout(checkProgress, 1000);
+        }));
+    }
+
+    get progress(): number {
+        return this.player != undefined ? this.player.PercentLoaded() : 0;
+        
+    }
+
+    getProgress(): number {
+        let currentProgress = this.progress;
+        if (currentProgress != this._lastProgress) this.emit('progress', currentProgress);
+        return currentProgress;
+    }
 }
 
 export class HybridGame extends Phaser.Scene implements Game {
@@ -85,8 +121,10 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     async play(url: string, params?: string): Promise<void> {
+        let load = this.scene.get('Load') as Load;
         let ruffle = window.RufflePlayer.newest();
         this.player = ruffle.createPlayer();
+        load.track(new RuffleTask(this.player));
         await this.player.load({
             url,
             base: this.url,
@@ -107,7 +145,7 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     stop(): void {
         if (this.player) {
-            this.player.destroy();
+            this.player.remove();
         }
 
         if (this.container) {
