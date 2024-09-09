@@ -171,7 +171,7 @@ export default class Login extends Phaser.Scene {
 
         let response: LoginResponse;
         try {
-            response = await this.game.airtower.logIn(name, password, savePassword);
+            response = await this.game.airtower.logIn(name, password);
         } catch (e) {
             console.error(e);
             if (e instanceof HTTPError) {

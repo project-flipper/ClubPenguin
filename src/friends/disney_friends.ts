@@ -133,11 +133,16 @@ export class Friends extends Phaser.Events.EventEmitter {
     }
 
     async onFindPlayer(name: string) {
-        console.log('find')
-        let found = false;
-        let player = found ? {
-            playerId: 'response.d.id',
-            swid: 'response.d.swid',
+        let user;
+        try {
+            user = await this.app.airtower.getUserByName(name);
+        } catch(e) {
+            user = undefined;
+        }
+
+        let player = user != undefined ? {
+            playerId: user.data.id,
+            swid: user.data.id,
             name: name
         } : {
             playerId: 0
@@ -154,7 +159,7 @@ export class Friends extends Phaser.Events.EventEmitter {
     }
 
     sendAcceptBuddyRequest(swid: string): void {
-
+        this.sendBuddyRequest(swid);
     }
 
     sendRejectBuddyRequest(swid: string): void {

@@ -8,7 +8,7 @@ import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 import WorldTile from "../prefabs/WorldTile";
 /* START-USER-IMPORTS */
-import type { WorldDataPayload } from "../../net/types/login/worldData";
+import type { WorldData } from "../../net/types/login/world";
 import type { Locale } from "../../app/locale";
 /* END-USER-IMPORTS */
 
@@ -157,7 +157,7 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    setup(data: WorldDataPayload[]): void {
+    setup(data: WorldData[]): void {
         for (let i = 0; i < 5; i++) {
             let world = data[i];
             let tile = this.suggestedWorlds[i];

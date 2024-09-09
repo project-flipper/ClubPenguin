@@ -1,4 +1,4 @@
-import { WorldDataPayload } from "./login/worldData";
+import { WorldData } from "./login/world";
 import { MyPenguinData, PenguinData } from "./penguin/penguin";
 
 export type ApiError = {
@@ -25,12 +25,14 @@ export type LoginResponse = ApiResponse<{
     session_key: string
 }, BanError>;
 
-export type WorldsResponse = ApiResponse<WorldDataPayload[]>;
+export type WorldsResponse = ApiResponse<WorldData[]>;
 
 export type CreateAccountResponse = ApiResponse<{
     userId: number
 }>
 
-export type UserResponse = ApiResponse<MyPenguinData>;
+export type MyUserResponse = ApiResponse<MyPenguinData>;
 
 export type FriendsResponse = ApiResponse<PenguinData[]>;
+
+export type UserResponse = ApiResponse<PenguinData>;

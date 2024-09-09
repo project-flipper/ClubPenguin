@@ -1,7 +1,8 @@
-export type WorldDataPayload = {
+export type WorldData = {
     id: number,
     name: string,
     population: number,
     safeChat: boolean,
-    buddies: boolean
+    buddies: boolean,
+    url: string
 };

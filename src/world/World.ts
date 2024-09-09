@@ -158,29 +158,20 @@ export default class World extends Phaser.Scene {
         return data.relationship?.type == RelationshipType.IGNORED;
     }
 
-    openNamecardById(id: string): void {
+    async openNamecardById(id: string): Promise<void> {
         // TODO: fetch penguin data
-        this.interface.openNamecard({
-            id: id,
-            username: 'P' + id,
-            nickname: 'P' + id,
-            avatar: {
-                color: 2,
-                head: 0,
-                face: 0,
-                neck: 0,
-                body: 0,
-                hand: 0,
-                feet: 0,
-                photo: 0,
-                flag: 0
-            },
-            relationship: {
-                type: RelationshipType.FRIEND,
-                since: ''
-            },
-            publicStampbook: false
-        });
+        if (id == this.myPenguinData.id) {
+            this.openMyNamecard();
+            return;
+        }
+
+        let r = await this.game.airtower.getUserById(id);
+
+        this.interface.openNamecard(r.data);
+    }
+
+    openMyNamecard(): void {
+        this.interface.openMyNamecard();
     }
 
     /* END-USER-CODE */
