@@ -28,8 +28,9 @@ export type LoginResponse = ApiResponse<{
 export type WorldsResponse = ApiResponse<WorldData[]>;
 
 export type CreateAccountResponse = ApiResponse<{
-    userId: number
-}>
+    user_id?: string,
+    validation_errors: []
+}>;
 
 export type MyUserResponse = ApiResponse<MyPenguinData>;
 

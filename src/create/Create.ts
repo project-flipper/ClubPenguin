@@ -694,25 +694,22 @@ export default class Create extends Phaser.Scene {
             var response = await this.game.airtower.createAccount(await this.getFormData(token));
         } catch (e) {
             if (e instanceof HTTPError) {
-                if (e.data?.error && Array.isArray(e.data?.error)) {
-                    for (let error of e.data?.error) {
-                        if ('msg' in error && 'loc' in error) {
-                            for (let loc of error.loc) {
-                                switch (loc) {
-                                    case 'name':
-                                        this.chooseNameArea.showError(error.msg);
-                                        break;
-                                    case 'password':
-                                        this.passwordArea.showError(error.msg);
-                                        break;
-                                    case 'email':
-                                        this.emailArea.showError(error.msg);
-                                        break;
-                                    default:
-                                        console.warn('Unknown error location!', error);
-                                        break;
-                                }
-                            }
+                if (e.data?.validation_errors) {
+                    for (let error of e.data.validation_errors) {
+                        let msg = e.data.validation_errors[error];
+                        switch (error) {
+                            case 'name':
+                                this.chooseNameArea.showError(msg);
+                                break;
+                            case 'password':
+                                this.passwordArea.showError(msg);
+                                break;
+                            case 'email':
+                                this.emailArea.showError(msg);
+                                break;
+                            default:
+                                console.warn('Unknown error location!', error);
+                                break;
                         }
                     }
 
@@ -734,7 +731,7 @@ export default class Create extends Phaser.Scene {
 
         console.debug(response);
 
-        if (response.data?.userId) this.show(this.confirmationState);
+        if (response.data?.user_id) this.show(this.confirmationState);
         else {
             let error = this.scene.get('ErrorArea') as ErrorArea;
             error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
