@@ -693,30 +693,28 @@ export default class Create extends Phaser.Scene {
             let token = await grecaptcha.execute(__webpack_options__.RECAPTCHA_SITE_KEY, { action: 'register' });
             var response = await this.game.airtower.createAccount(await this.getFormData(token));
         } catch (e) {
-            if (e instanceof HTTPError) {
-                if (e.data?.validation_errors) {
-                    for (let error of e.data.validation_errors) {
-                        let msg = e.data.validation_errors[error];
-                        switch (error) {
-                            case 'name':
-                                this.chooseNameArea.showError(msg);
-                                break;
-                            case 'password':
-                                this.passwordArea.showError(msg);
-                                break;
-                            case 'email':
-                                this.emailArea.showError(msg);
-                                break;
-                            default:
-                                console.warn('Unknown error location!', error);
-                                break;
-                        }
+            if (e.data?.data?.validation_errors) {
+                for (let error in e.data?.data?.validation_errors) {
+                    let msg = e.data?.data?.validation_errors[error];
+                    switch (error) {
+                        case 'name':
+                            this.chooseNameArea.showError(msg);
+                            break;
+                        case 'password':
+                            this.passwordArea.showError(msg);
+                            break;
+                        case 'email':
+                            this.emailArea.showError(msg);
+                            break;
+                        default:
+                            console.warn('Unknown error location!', error);
+                            break;
                     }
-
-                    this.preloader.visible = false;
-                    this.unlock();
-                    return;
                 }
+
+                this.preloader.visible = false;
+                this.unlock();
+                return;
             }
 
             let error = this.scene.get('ErrorArea') as ErrorArea;
