@@ -311,7 +311,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
      * @returns The response from the API.
      */
     async getWorlds(): Promise<WorldsResponse> {
-        return await this.request<WorldsResponse>(new Route('GET', '/worlds').query({ lang: this.app.locale.bitmask }), {});
+        return await this.request<WorldsResponse>(new Route('GET', '/worlds/').query({ lang: this.app.locale.bitmask }), {});
     }
 
     /**
@@ -345,7 +345,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
      * @returns The response from the API.
      */
     async getUserByName(username: string): Promise<UserResponse> {
-        return await this.request<UserResponse>(new Route('GET', '/users').query({ username }), {});
+        return await this.request<UserResponse>(new Route('GET', '/users/').query({ username }), {});
     }
 
     /**
@@ -357,7 +357,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
     }
 
     createAccount(payload: CreateAccountPayload): Promise<CreateAccountResponse> {
-        return this.request(new Route('POST', '/users'), {
+        return this.request(new Route('PUT', '/users/'), {
             json: payload
         });
     }
