@@ -140,9 +140,6 @@ export function run(params: RunParams): void {
                 if (params.elementId) app.canvas.id = params.elementId;
                 if (params.elementClassName) app.canvas.className = params.elementClassName;
 
-                app.canvas.addEventListener('contextlost', onAppCrash);
-                app.canvas.addEventListener('webglcontextlost', onAppCrash);
-
                 app.friends.init(params.mediaPath, app.airtower.createAvatarUrlCallback());
             }
         }
