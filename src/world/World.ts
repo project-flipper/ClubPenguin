@@ -111,8 +111,6 @@ export default class World extends Phaser.Scene {
         let roomConfig = this.game.gameConfig.rooms[this.getRandomItem(SPAWN_ROOMS)];
         console.log('Mocking room join on room', roomConfig);
         await engine.joinRoom(roomConfig);
-
-        alert("Danysex");
     }
 
     public standardPenguinTimeOffset = 0;
