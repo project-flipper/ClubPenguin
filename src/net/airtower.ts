@@ -257,6 +257,8 @@ export class Airtower extends Phaser.Events.EventEmitter {
 
     /* REST ENDPOINTS */
 
+    /* ============ AUTH ============ */
+
     /**
      * Logs into an existing account using credentials, and starts a session for further API requests.
      * This request should be made before attempting to call other game APIs.
@@ -306,6 +308,8 @@ export class Airtower extends Phaser.Events.EventEmitter {
         return response;
     }
 
+    /* ============ WORLDS ============ */
+
     /**
      * Queries the API for a list of available worlds to connect to.
      * @returns The response from the API.
@@ -314,20 +318,25 @@ export class Airtower extends Phaser.Events.EventEmitter {
         return await this.request<WorldsResponse>(new Route('GET', '/worlds/').query({ lang: this.app.locale.bitmask }), {});
     }
 
+    /* ============ USERS ============ */
+
+    /**
+     * Creates a new user.
+     * @param payload The form to submit to create a new account.
+     * @returns The response from the API.
+     */
+    async createAccount(payload: CreateAccountPayload): Promise<CreateAccountResponse> {
+        return await this.request(new Route('PUT', '/users/'), {
+            json: payload
+        });
+    }
+
     /**
      * Queries the API for our current user data.
      * @returns The response from the API
      */
     async getMyUser(): Promise<MyUserResponse> {
-        return await this.request<MyUserResponse>(new Route('GET', '/users/@me'), {});
-    }
-
-    /**
-     * Queries the API for our current friends list.
-     * @returns The response from the API
-     */
-    async getMyFriends(): Promise<FriendsResponse> {
-        return await this.request<FriendsResponse>(new Route('GET', '/users/@me/friends'), {});
+        return await this.request<MyUserResponse>(new Route('GET', '/users/'), {});
     }
 
     /**
@@ -348,17 +357,13 @@ export class Airtower extends Phaser.Events.EventEmitter {
         return await this.request<UserResponse>(new Route('GET', '/users/').query({ username }), {});
     }
 
-    /**
-     * Tests for an OAuth session.
-     * @returns The response from the API.
-     */
-    test(): Promise<ApiResponse<any, any>> {
-        return this.request(new Route('GET', '/auth/test'), {});
-    }
+    /* ============ FRIENDS ============ */
 
-    createAccount(payload: CreateAccountPayload): Promise<CreateAccountResponse> {
-        return this.request(new Route('PUT', '/users/'), {
-            json: payload
-        });
+    /**
+     * Queries the API for our current friends list.
+     * @returns The response from the API
+     */
+    async getMyFriends(): Promise<FriendsResponse> {
+        return await this.request<FriendsResponse>(new Route('GET', '/friends/'), {});
     }
 }
