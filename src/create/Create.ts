@@ -693,22 +693,27 @@ export default class Create extends Phaser.Scene {
             let token = await grecaptcha.execute(__webpack_options__.RECAPTCHA_SITE_KEY, { action: 'register' });
             var response = await this.game.airtower.createAccount(await this.getFormData(token));
         } catch (e) {
-            if (e.data?.data?.validation_errors) {
-                for (let error in e.data?.data?.validation_errors) {
-                    let msg = e.data?.data?.validation_errors[error];
-                    switch (error) {
-                        case 'name':
-                            this.chooseNameArea.showError(msg);
-                            break;
-                        case 'password':
-                            this.passwordArea.showError(msg);
-                            break;
-                        case 'email':
-                            this.emailArea.showError(msg);
-                            break;
-                        default:
-                            console.warn('Unknown error location!', error);
-                            break;
+            if (e.data?.error) {
+                for (let error in e.data?.error) {
+                    let err: { type: string, loc: string[], msg: string } = e.data?.error[error];
+                    for (let loc of err.loc) {
+                        switch (loc) {
+                            case 'name':
+                                this.chooseNameArea.showError(err.msg);
+                                break;
+                            case 'password':
+                                this.passwordArea.showError(err.msg);
+                                break;
+                            case 'email':
+                                this.emailArea.showError(err.msg);
+                                break;
+                            case 'body':
+                                // Root loc
+                                break;
+                            default:
+                                console.warn('Unknown error location!', err.type, err.msg);
+                                break;
+                        }
                     }
                 }
 
