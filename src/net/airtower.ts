@@ -354,7 +354,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
      * @returns The response from the API.
      */
     async getUserByName(username: string): Promise<UserResponse> {
-        return await this.request<UserResponse>(new Route('GET', '/users/').query({ username }), {});
+        return await this.request<UserResponse>(new Route('GET', '/users/search').query({ username }), {});
     }
 
     /* ============ FRIENDS ============ */
