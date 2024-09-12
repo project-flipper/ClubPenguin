@@ -1,7 +1,7 @@
 import Phaser from "phaser";
-import type { App } from "./app";
-import type Load from "../load/Load";
-import { LoaderTask } from "../load/tasks";
+import { App } from "@clubpenguin/app/app";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
 
 export enum Language {
     EN = 1,

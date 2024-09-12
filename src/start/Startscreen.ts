@@ -5,11 +5,11 @@ import InputBlocker from "../lib/ui/components/InputBlocker";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 import TextBox from "../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import type Load from '../load/Load';
-import { LoaderTask } from '../load/tasks';
-import { Language, Locale } from "../app/locale";
-import type { App } from "../app/app";
-import type { BaseBillboard } from "./billboard/Billboard";
+import Load from '@clubpenguin/load/Load';
+import { LoaderTask } from '@clubpenguin/load/tasks';
+import { Language, Locale } from "@clubpenguin/app/locale";
+import { App } from "@clubpenguin/app/app";
+import { BaseBillboard } from "@clubpenguin/start/billboard/Billboard";
 /* END-USER-IMPORTS */
 
 export default class Startscreen extends Phaser.Scene {

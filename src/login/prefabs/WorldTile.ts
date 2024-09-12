@@ -7,7 +7,7 @@ import Phaser from "phaser";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import type Login from "../Login";
+import Login from "@clubpenguin/login/Login";
 /* END-USER-IMPORTS */
 
 export default class WorldTile extends Phaser.GameObjects.Container {

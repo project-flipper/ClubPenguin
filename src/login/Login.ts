@@ -6,13 +6,13 @@ import NewPlayer from "./views/NewPlayer";
 import PasswordPrompt from "./views/PasswordPrompt";
 import WorldSelect from "./views/WorldSelect";
 /* START-USER-IMPORTS */
-import type Load from '../load/Load';
-import { LoaderTask } from '../load/tasks';
-import type { Locale } from "../app/locale";
-import type { App } from "../app/app";
-import { HTTPError } from "../net/airtower";
-import { BanError, LoginResponse } from "../net/types/api";
-import ErrorArea from "../app/ErrorArea";
+import { App } from "@clubpenguin/app/app";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import { Locale } from "@clubpenguin/app/locale";
+import Load from '@clubpenguin/load/Load';
+import { LoaderTask } from '@clubpenguin/load/tasks';
+import { HTTPError } from "@clubpenguin/net/airtower";
+import { BanError, LoginResponse } from "@clubpenguin/net/types/api";
 /* END-USER-IMPORTS */
 
 export default class Login extends Phaser.Scene {

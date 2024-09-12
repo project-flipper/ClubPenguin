@@ -1,10 +1,10 @@
+import { App } from '@clubpenguin/app/app';
+import HandlerInit from '@clubpenguin/friends/legacy/legacy_handler';
+import { PenguinData } from '@clubpenguin/net/types/penguin/penguin';
+import { RelationshipType } from '@clubpenguin/net/types/penguin/relationship';
+import Interface from '@clubpenguin/world/interface/Interface';
+import World from '@clubpenguin/world/World';
 import Phaser from 'phaser';
-import type { App } from '../app/app';
-import type HandlerInit from './legacy/legacy_handler';
-import type Interface from '../world/interface/Interface';
-import type World from '../world/World';
-import { PenguinData } from '../net/types/penguin/penguin';
-import { RelationshipType } from '../net/types/penguin/relationship';
 
 export enum FriendsEvents {
     USER_PRESENCE_UPDATE = "userPresenceUpdate",

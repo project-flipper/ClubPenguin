@@ -4,7 +4,7 @@ import Phaser from "phaser";
 import Checkbox from "../prefabs/Checkbox";
 import ErrorBubbleModified from "../prefabs/ErrorBubbleModified";
 /* START-USER-IMPORTS */
-import { Locale } from "../../app/locale";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class CheckBoxTerms extends Phaser.GameObjects.Container {

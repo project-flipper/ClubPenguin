@@ -1,7 +1,7 @@
+import type { App } from "@clubpenguin/app/app";
+import { CreateAccountPayload } from "@clubpenguin/net/types/account/createAccount";
+import { ApiResponse, CreateAccountResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse } from "@clubpenguin/net/types/api";
 import Phaser from "phaser";
-import type { App } from "../app/app";
-import { ApiResponse, CreateAccountResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse } from "./types/api";
-import { CreateAccountPayload } from "./types/account/createAccount";
 
 /**
  * The base error used by Airtower.

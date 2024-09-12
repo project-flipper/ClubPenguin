@@ -7,7 +7,7 @@ import Phaser from "phaser";
 import TextBox from "../../lib/ui/TextBox";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import type { Locale } from "../../app/locale";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class SavePasswordPrompt extends Phaser.GameObjects.Container {

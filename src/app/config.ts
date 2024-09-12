@@ -1,6 +1,6 @@
-import type Load from "../load/Load";
-import { LoaderTask } from "../load/tasks";
-import type { App } from "./app";
+import { App } from "@clubpenguin/app/app";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
 import Phaser from "phaser";
 
 export interface GeneralConfig {

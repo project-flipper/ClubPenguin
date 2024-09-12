@@ -13,14 +13,13 @@ import CheckBoxRules from "./sections/CheckBoxRules";
 import PaperdollAlternate from "./prefabs/PaperdollAlternate";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 /* START-USER-IMPORTS */
-import type { CreateAccountPayload } from '../net/types/account/createAccount';
-import type Load from '../load/Load';
-import { LoaderTask } from '../load/tasks';
-import ColorSwatch from './prefabs/ColorSwatch';
-import type { App } from "../app/app";
-import type { Locale } from "../app/locale";
-import ErrorArea from "../app/ErrorArea";
-import { HTTPError } from "../net/airtower";
+import { App } from "@clubpenguin/app/app";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import { Locale } from "@clubpenguin/app/locale";
+import ColorSwatch from '@clubpenguin/create/prefabs/ColorSwatch';
+import Load from '@clubpenguin/load/Load';
+import { LoaderTask } from '@clubpenguin/load/tasks';
+import { CreateAccountPayload } from '@clubpenguin/net/types/account/createAccount';
 /* END-USER-IMPORTS */
 
 export default class Create extends Phaser.Scene {
