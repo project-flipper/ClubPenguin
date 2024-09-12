@@ -17,6 +17,11 @@
         "alwaysStrict": true,
         "noImplicitAny": true,
         "rootDir": "src",
+        "paths": {
+            "@clubpenguin/*": [
+                "./src/*"
+            ]
+        },
     },
     "include": ["src/**/*"]
 }
