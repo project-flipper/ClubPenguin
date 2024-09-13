@@ -36,7 +36,10 @@ export enum AnimationFrames {
     WAVE = 24,
     DANCE,
 
-    THROW_DOWN = 26,
+    THROW_DOWN_LEFT = 26,
+    THROW_UP_LEFT,
+    THROW_UP_RIGHT,
+    THROW_DOWN_RIGHT
 }
 
 export class Actions {
@@ -52,6 +55,10 @@ export class Actions {
 
     get engine(): Engine {
         return this.world.engine;
+    }
+
+    isIdle(): boolean {
+        return this.player.currentAnimation < AnimationFrames.WADDLE_DOWN;
     }
 
     lookAt(x: number, y: number): void {
@@ -182,7 +189,7 @@ export class Actions {
         let angle = getAngle(startX, startY, x, y);
         let direction = getDirectionQuarters(angle);
 
-        player.playAnimation(AnimationFrames.THROW_DOWN + direction);
+        player.playAnimation(AnimationFrames.THROW_DOWN_LEFT + direction);
 
         this.engine.snowballs.throw(snowball, x, y, player);
     }

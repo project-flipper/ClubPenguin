@@ -4,7 +4,7 @@ import Phaser from "phaser";
 import { App } from "@clubpenguin/app/app";
 import { GameConfig, RoomConfig } from "@clubpenguin/app/config";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
-import { getAngle, getDirection, randomRange } from "@clubpenguin/lib/math";
+import { randomRange } from "@clubpenguin/lib/math";
 import { TweenTracker } from "@clubpenguin/lib/tweenTracker";
 import ButtonComponent from "@clubpenguin/lib/ui/components/ButtonComponent";
 import PressureTrigger from "@clubpenguin/lib/ui/components/PressureTrigger";
@@ -69,7 +69,7 @@ export class Engine extends EventEmitter {
         this.snowballs = new SnowballManager(this);
 
         this.world.sound.pauseOnBlur = false;
-        this.world.game.events.on('focusregain', this.tweenTracker.seekTweens, this);
+        this.world.game.events.on('focusregain', (delta: number) => this.tweenTracker.seekTweens(delta));
     }
 
     get app(): App {
@@ -92,16 +92,19 @@ export class Engine extends EventEmitter {
 
     playerPointerMoveHandler(pointer: Phaser.Input.Pointer): void {
         let player = this.player;
-        if (!player.isIdle()) return;
+        if (!player || !player.actions.isIdle()) return;
 
         let objects = this.currentRoom.input.hitTestPointer(pointer);
         if (objects[0] != player.hitbox) player.actions.lookAt(pointer.worldX, pointer.worldY);
     }
 
     playerPointerUpHandler(pointer: Phaser.Input.Pointer): void {
+        let player = this.player;
+        if (!player) return;
+
         if (pointer.leftButtonReleased()) {
             let objects = this.currentRoom.input.hitTestPointer(pointer);
-            if (objects.length == 0) this.player.actions.move(pointer.worldX, pointer.worldY);
+            if (objects.length == 0) player.actions.move(pointer.worldX, pointer.worldY);
         }
     }
 
@@ -186,7 +189,6 @@ export class Engine extends EventEmitter {
 
     async joinRoom(config: RoomConfig, x?: number, y?: number): Promise<void> {
         if (config.room_id == this.currentRoomId) return;
-        let data = this.world.myPenguinData;
 
         let load = this.loadScreen;
         if (!load.isShowing) load.show();
@@ -219,9 +221,7 @@ export class Engine extends EventEmitter {
         this.interface.closeAll();
         this.interface.clearAvatarOverlays();
 
-        let avatarKey = data.avatar.transformation ?? 'penguin';
-
-        let penguin = await this.players.createPlayer(data);
+        let penguin = await this.players.createPlayer(this.world.myPenguinData, x, y);
         this.players.addPlayer(penguin);
 
         this.currentRoom.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.playerPointerUpHandler(pointer));
@@ -362,7 +362,7 @@ export class Engine extends EventEmitter {
             this.unlockRoom();
             let config = this.currentRoom.roomData;
 
-            this.music.playMusic(config.music_id);
+            await this.music.playMusic(config.music_id);
 
             this.interface.show();
             load.hide();

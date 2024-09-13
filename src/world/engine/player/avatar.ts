@@ -26,7 +26,6 @@ export interface Avatar extends Phaser.GameObjects.Container {
     playAnimation(index: number): boolean;
     playNextAnimation(index: number): void;
     isAnimating(): boolean;
-    isIdle(): boolean;
 }
 
 export type Player = Avatar & {

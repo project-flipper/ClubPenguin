@@ -3,8 +3,6 @@
 import Phaser from "phaser";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import { UserData } from "../../net/types/penguin/penguin";
-import AvatarOverlay from "../interface/prefabs/AvatarOverlay";
 import { Avatar } from "../engine/player/avatar";
 import { Engine } from "../engine/engine";
 import { ClothingSprite } from "../engine/clothing/clothingManager";
@@ -74,7 +72,6 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
     public overlay_art: Phaser.GameObjects.Sprite;
 
     /* START-USER-CODE */
-    public overlay: AvatarOverlay;
 
     public animations: { [frame: number]: { body: Phaser.Animations.Animation, overlay: Phaser.Animations.Animation } };
 
@@ -86,8 +83,6 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
     public snowballDelay = 833;
 
     public clothes: Map<number, ClothingSprite>;
-
-    public penguinData: UserData;
 
     createAnimations(engine: Engine): void {
         this.animations = {
@@ -247,10 +242,6 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
 
     isAnimating(): boolean {
         return this.body_art.anims.isPlaying;
-    }
-
-    isIdle(): boolean {
-        return this.currentAnimation < 8;
     }
 
     pause(): void {
