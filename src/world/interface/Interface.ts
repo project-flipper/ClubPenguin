@@ -669,7 +669,11 @@ export default class Interface extends Phaser.Scene {
         });
 
         this.engine.on('room:load', () => this.quickKeys = true);
-        this.engine.on('room:unload', () => this.quickKeys = false);
+        this.engine.on('room:unload', () => {
+            this.quickKeys = false;
+            this.closeAll();
+            this.clearAvatarOverlays();
+        });
 
         this.input.keyboard.createCombo('e1', { resetOnWrongKey: true, resetOnMatch: true });
         this.input.keyboard.createCombo('e2', { resetOnWrongKey: true, resetOnMatch: true });
