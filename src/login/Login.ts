@@ -9,8 +9,8 @@ import WorldSelect from "./views/WorldSelect";
 import { App } from "@clubpenguin/app/app";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
 import { Locale } from "@clubpenguin/app/locale";
-import Load from '@clubpenguin/load/Load';
-import { LoaderTask } from '@clubpenguin/load/tasks';
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
 import { HTTPError } from "@clubpenguin/net/airtower";
 import { BanError, LoginResponse } from "@clubpenguin/net/types/api";
 /* END-USER-IMPORTS */

@@ -1,5 +1,5 @@
-import EventEmitter from 'eventemitter3';
-import Phaser from 'phaser';
+import EventEmitter from "eventemitter3";
+import Phaser from "phaser";
 
 export type DonePayload = {
     ok: boolean,

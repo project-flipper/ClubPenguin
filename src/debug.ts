@@ -1,14 +1,14 @@
-import { App } from './app/app';
-import Config from './app/config';
-import { Airtower } from './net/airtower';
-import { Membership } from './net/types/membership';
-import { UserData } from './net/types/user';
-import { RelationshipType } from './net/types/relationship';
-import { Avatar as AvatarData } from './net/types/avatar';
-import World from './world/World';
-import { Avatar } from './world/engine/player/avatar';
-import Interface from './world/interface/Interface';
-import { Engine, Room } from './world/engine/engine';
+import { App } from "./app/app";
+import Config from "./app/config";
+import { Airtower } from "./net/airtower";
+import { Membership } from "./net/types/membership";
+import { UserData } from "./net/types/user";
+import { RelationshipType } from "./net/types/relationship";
+import { Avatar as AvatarData } from "./net/types/avatar";
+import World from "./world/World";
+import { Avatar } from "./world/engine/player/avatar";
+import Interface from "./world/interface/Interface";
+import { Engine, Room } from "./world/engine/engine";
 
 export class Debug {
     appCallback: () => App;

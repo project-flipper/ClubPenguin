@@ -16,10 +16,10 @@ import InputBlocker from "../lib/ui/components/InputBlocker";
 import { App } from "@clubpenguin/app/app";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
 import { Locale } from "@clubpenguin/app/locale";
-import ColorSwatch from '@clubpenguin/create/prefabs/ColorSwatch';
-import Load from '@clubpenguin/load/Load';
-import { LoaderTask } from '@clubpenguin/load/tasks';
-import { CreateUserForm } from '@clubpenguin/net/types/api';
+import ColorSwatch from "@clubpenguin/create/prefabs/ColorSwatch";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import { CreateUserForm } from "@clubpenguin/net/types/api";
 /* END-USER-IMPORTS */
 
 export default class Create extends Phaser.Scene {

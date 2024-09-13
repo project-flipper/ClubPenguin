@@ -1,9 +1,9 @@
-import Phaser from 'phaser';
+import Phaser from "phaser";
 
-import { Locale } from '@clubpenguin/app/locale';
-import Config from '@clubpenguin/app/config';
-import { Friends } from '@clubpenguin/friends/disney_friends';
-import { Airtower } from '@clubpenguin/net/airtower';
+import { Locale } from "@clubpenguin/app/locale";
+import Config from "@clubpenguin/app/config";
+import { Friends } from "@clubpenguin/friends/disney_friends";
+import { Airtower } from "@clubpenguin/net/airtower";
 
 interface AppParams {
     language: string,

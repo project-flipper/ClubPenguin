@@ -7,12 +7,12 @@ import ButtonComponent from "../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import TabId from "is-tab-duplicated";
 
-import { App } from '@clubpenguin/app/app';
+import { App } from "@clubpenguin/app/app";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
 import InternalErrorArea from "@clubpenguin/app/InternalErrorArea";
 import { Language } from "@clubpenguin/app/locale";
-import Load from '@clubpenguin/load/Load';
-import { LoaderTask } from '@clubpenguin/load/tasks';
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
 /* END-USER-IMPORTS */
 
 export default class Bootstrap extends Phaser.Scene {

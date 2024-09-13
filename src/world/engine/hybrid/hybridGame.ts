@@ -3,7 +3,7 @@ import Phaser from "phaser";
 import { App } from "@clubpenguin/app/app";
 import { GameConfig } from "@clubpenguin/app/config";
 import { Locale } from "@clubpenguin/app/locale";
-import Load from '@clubpenguin/load/Load';
+import Load from "@clubpenguin/load/Load";
 import { PromiseTask } from "@clubpenguin/load/tasks";
 import { Engine, Game } from "@clubpenguin/world/engine/engine";
 import Interface from "@clubpenguin/world/interface/Interface";

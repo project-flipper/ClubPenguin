@@ -1,24 +1,24 @@
-import 'devtools-detect';
-import Phaser from 'phaser';
+import "devtools-detect";
+import Phaser from "phaser";
 
 if ('Phaser' in global) delete global['Phaser'];
 Phaser.Plugins.PluginCache.register('Loader', LoaderPlugin, 'load');
 
-import { App } from '@clubpenguin/app/app';
-import Bootstrap from '@clubpenguin/boot/Bootstrap';
-import Startscreen from '@clubpenguin/start/Startscreen';
-import Create from '@clubpenguin/create/Create';
-import Login from '@clubpenguin/login/Login';
-import Redemption from '@clubpenguin/redemption/Redemption';
-import Load from '@clubpenguin/load/Load';
-import ErrorArea from '@clubpenguin/app/ErrorArea';
-import Notifications from '@clubpenguin/world/notifications/Notifications';
-import InternalErrorArea from '@clubpenguin/app/InternalErrorArea';
-import Logo from '@clubpenguin/logo/Logo';
-import World from '@clubpenguin/world/World';
-import Interface from '@clubpenguin/world/interface/Interface';
-import { Debug } from '@clubpenguin/debug';
-import { LoaderPlugin } from '@clubpenguin/app/loader';
+import { App } from "@clubpenguin/app/app";
+import Bootstrap from "@clubpenguin/boot/Bootstrap";
+import Startscreen from "@clubpenguin/start/Startscreen";
+import Create from "@clubpenguin/create/Create";
+import Login from "@clubpenguin/login/Login";
+import Redemption from "@clubpenguin/redemption/Redemption";
+import Load from "@clubpenguin/load/Load";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import Notifications from "@clubpenguin/world/notifications/Notifications";
+import InternalErrorArea from "@clubpenguin/app/InternalErrorArea";
+import Logo from "@clubpenguin/logo/Logo";
+import World from "@clubpenguin/world/World";
+import Interface from "@clubpenguin/world/interface/Interface";
+import { Debug } from "@clubpenguin/debug";
+import { LoaderPlugin } from "@clubpenguin/app/loader";
 
 let app: App;
 
