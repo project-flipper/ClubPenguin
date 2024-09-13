@@ -11,7 +11,7 @@ import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 import { App } from "../../../app/app";
 import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
-import { Player } from "../../engine/avatar/avatar";
+import { Player } from "../../engine/player/avatar";
 import { Locale } from "../../../app/locale";
 import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
@@ -382,8 +382,8 @@ export default class Rink extends Phaser.Scene implements Room {
         catalogueDepthEnabled.automaticSort = false;
         catalogueDepthEnabled.depth = 1080;
         const catalogueButtonComponent = new ButtonComponent(catalogue);
-        catalogueButtonComponent.upTexture = { "key": "rink", "frame": "rink/catalogue0001" };
-        catalogueButtonComponent.overTexture = { "key": "rink", "frame": "rink/catalogue0002" };
+        catalogueButtonComponent.upTexture = {"key":"rink","frame":"rink/catalogue0001"};
+        catalogueButtonComponent.overTexture = {"key":"rink","frame":"rink/catalogue0002"};
         catalogueButtonComponent.handCursor = true;
         catalogueButtonComponent.pixelPerfect = true;
 

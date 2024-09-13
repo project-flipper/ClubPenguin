@@ -2,7 +2,7 @@ import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import SnowballTrigger from "@clubpenguin/lib/ui/components/SnowballTrigger";
-import { Player } from "@clubpenguin/world/engine/avatar/avatar";
+import { Player } from "@clubpenguin/world/engine/player/avatar";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import Snowball from "@clubpenguin/world/interface/prefabs/Snowball";
 import World from "@clubpenguin/world/World";

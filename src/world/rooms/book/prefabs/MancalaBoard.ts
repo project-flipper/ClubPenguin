@@ -6,7 +6,7 @@
 import Phaser from "phaser";
 import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import { Player } from "@clubpenguin/world/engine/avatar/avatar";
+import { Player } from "@clubpenguin/world/engine/player/avatar";
 import Interface from "@clubpenguin/world/interface/Interface";
 import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */

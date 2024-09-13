@@ -6,7 +6,7 @@
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { Engine } from "@clubpenguin/world/engine/engine";
-import { Player } from "@clubpenguin/world/engine/avatar/avatar";
+import { Player } from "@clubpenguin/world/engine/player/avatar";
 /* END-USER-IMPORTS */
 
 export default class RoomTrigger {

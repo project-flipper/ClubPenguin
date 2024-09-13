@@ -6,7 +6,7 @@ import RoomTrigger from "@clubpenguin/lib/ui/components/RoomTrigger";
 import Trigger from "@clubpenguin/lib/ui/components/Trigger";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { MyUserData, UserData } from "@clubpenguin/net/types/penguin/penguin";
-import { Avatar, AvatarCls, Player } from "@clubpenguin/world/engine/avatar/avatar";
+import { Avatar, AvatarCls, Player } from "@clubpenguin/world/engine/player/avatar";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import { Actions } from "./actions";
@@ -20,6 +20,7 @@ export class PlayerManager {
         this.engine = engine;
 
         this.avatars = {};
+        this.players = {};
     }
 
     get world(): World {
@@ -31,6 +32,11 @@ export class PlayerManager {
     }
 
     public avatars: { [key: string]: AvatarCls };
+    public players: { [id: string]: Player };
+
+    get player(): Player {
+        return this.players[this.world.myPenguinData.id];
+    }
 
     async loadAvatar(key: string): Promise<AvatarCls> {
         if (key in this.avatars) return this.avatars[key];
@@ -41,7 +47,7 @@ export class PlayerManager {
         let load = this.engine.loadScreen;
 
         let task = load.track(new LoaderTask(this.world.load));
-        module.load(this);
+        module.load(this.world);
 
         this.world.load.start();
         await task.wait();
@@ -85,12 +91,6 @@ export class PlayerManager {
 
     getSpriteAnimationKey(assetKey: string, prefix: string, index: number): string {
         return `${assetKey}${prefix}_${index}animation`;
-    }
-
-    public players: { [id: string]: Player };
-
-    get player(): Player {
-        return this.players[this.world.myPenguinData.id];
     }
 
     avatarToPlayer(avatar: Avatar, data: UserData | MyUserData): Player {

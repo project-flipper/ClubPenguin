@@ -5,7 +5,7 @@ import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import { UserData } from "../../net/types/penguin/penguin";
 import AvatarOverlay from "../interface/prefabs/AvatarOverlay";
-import { Avatar } from "../engine/avatar/avatar";
+import { Avatar } from "../engine/player/avatar";
 import { Engine } from "../engine/engine";
 import { ClothingSprite } from "../engine/clothing/clothingManager";
 /* END-USER-IMPORTS */

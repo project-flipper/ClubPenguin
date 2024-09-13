@@ -6,7 +6,7 @@ import { UserData } from './net/types/penguin/penguin';
 import { RelationshipType } from './net/types/penguin/relationship';
 import { Avatar as AvatarData } from './net/types/penguin/avatar';
 import World from './world/World';
-import { Avatar } from './world/engine/avatar/avatar';
+import { Avatar } from './world/engine/player/avatar';
 import Interface from './world/interface/Interface';
 import { Engine, Room } from './world/engine/engine';
 
