@@ -221,8 +221,8 @@ export class Engine extends EventEmitter {
         this.interface.closeAll();
         this.interface.clearAvatarOverlays();
 
-        let penguin = await this.players.createPlayer(this.world.myPenguinData, x, y);
-        this.players.addPlayer(penguin);
+        let myPlayer = await this.players.createPlayer(this.world.myUser, x, y);
+        this.players.addPlayer(myPlayer);
 
         this.currentRoom.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.playerPointerUpHandler(pointer));
         this.currentRoom.input.on('pointermove', (pointer: Phaser.Input.Pointer) => this.playerPointerMoveHandler(pointer));

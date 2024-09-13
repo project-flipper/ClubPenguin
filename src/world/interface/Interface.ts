@@ -913,7 +913,7 @@ export default class Interface extends Phaser.Scene {
             this.playerNamecard.setPosition(this.namecard.x, this.namecard.y);
         }
 
-        let data = this.world.myPenguinData;
+        let data = this.world.myUser;
 
         this.playerNamecard.setup(data);
         this.playerNamecard.visible = true;

@@ -61,7 +61,7 @@ export default class World extends Phaser.Scene {
     }
 
     public worldId: number;
-    public myPenguinData: MyUserData;
+    public myUser: MyUserData;
 
     init(): void {
         let load = this.scene.get('Load') as Load;
@@ -81,7 +81,7 @@ export default class World extends Phaser.Scene {
         load.track(new LoaderTask(this.load));
 
         let myUser = await this.game.airtower.getMyUser()
-        this.myPenguinData = myUser.data;
+        this.myUser = myUser.data;
 
         this.postload();
         // TODO: load world here
@@ -99,8 +99,8 @@ export default class World extends Phaser.Scene {
         await load.waitAllTasksComplete();
 
         let friendList = await this.game.airtower.getFriends();
-        let friends = friendList.data.filter(penguin => penguin.mascotId == undefined);
-        let characters = friendList.data.filter(penguin => penguin.mascotId != undefined).map(penguin => penguin.id);
+        let friends = friendList.data.filter(user => user.mascotId == undefined);
+        let characters = friendList.data.filter(user => user.mascotId != undefined).map(user => user.id);
 
         this.game.friends.connect(friends, characters, true, true, true);
 
@@ -123,11 +123,11 @@ export default class World extends Phaser.Scene {
     }
 
     isPlayer(data: BaseUserData): data is MyUserData {
-        return data.id == this.myPenguinData.id;
+        return data.id == this.myUser.id;
     }
 
     isPlayerModerator(): boolean {
-        return this.myPenguinData.moderator;
+        return this.myUser.moderator;
     }
 
     isMascot(data: BaseUserData): boolean {
@@ -243,7 +243,7 @@ export default class World extends Phaser.Scene {
 
     async openNamecardById(id: string): Promise<void> {
         // TODO: fetch penguin data
-        if (id == this.myPenguinData.id) {
+        if (id == this.myUser.id) {
             this.openMyNamecard();
             return;
         }

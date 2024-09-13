@@ -500,8 +500,8 @@ export default class Cove extends Phaser.Scene implements Room {
             this.catalogue.setFrame('cove/catalogue0001');
         });
 
-        Trigger.getComponent(this.waves_trigger).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.waves_trigger).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('waves_prompt', () => {
                 this.world.startGame('waves', {});
             }, () => { });

@@ -114,8 +114,8 @@ export default class Berg extends Phaser.Scene implements Room {
         }]);
         aquaFloat.play();
 
-        Trigger.getComponent(this.aqua_mc).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.aqua_mc).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('aqua_prompt', () => {
                 this.world.startGame('aqua', {});
             }, () => { });

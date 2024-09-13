@@ -39,7 +39,7 @@ export class PlayerManager {
     public players: { [id: string]: Player };
 
     get player(): Player {
-        return this.players[this.world.myPenguinData.id];
+        return this.players[this.world.myUser.id];
     }
 
     async loadAvatar(key: string): Promise<AvatarCls> {
@@ -112,10 +112,10 @@ export class PlayerManager {
 
         let avatarKey = data.avatar.transformation ?? this.DEFAULT_AVATAR;
 
-        let avatar = await this.loadAvatar(avatarKey);
-        let penguin = new avatar(this.engine.currentRoom, x, y);
+        let avatarCls = await this.loadAvatar(avatarKey);
+        let avatar = new avatarCls(this.engine.currentRoom, x, y);
 
-        let player = this.avatarToPlayer(penguin, data);
+        let player = this.avatarToPlayer(avatar, data);
         return player;
     }
 
@@ -152,7 +152,7 @@ export class PlayerManager {
         this.players[player.penguinData.id] = player;
         this.testTriggers(player, true, undefined, undefined, true);
 
-        this.engine.emit('penguin:add', player);
+        this.engine.emit('player:add', player);
         return player;
     }
 

@@ -767,15 +767,15 @@ export default class Dance extends Phaser.Scene implements Room {
 
         this.puffle.play('dance-puffleidle-animation');
 
-        Trigger.getComponent(this.mix_trigger).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.mix_trigger).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('mixmaster_prompt', () => {
                 this.world.startGame('mixmaster', {});
             }, () => { });
         }
 
-        Trigger.getComponent(this.dancing_trigger).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.dancing_trigger).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('dancing_prompt', () => {
                 this.world.startGame('dancing', {});
             }, () => { });

@@ -576,15 +576,15 @@ export default class Coffee extends Phaser.Scene implements Room {
             }
         });
 
-        Trigger.getComponent(this.beans_trigger).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.beans_trigger).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('beans_prompt', () => {
                 this.world.startGame('beans', {});
             }, () => { });
         }
 
-        Trigger.getComponent(this.smoothie_trigger).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.smoothie_trigger).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('smoothie_prompt', () => {
                 this.world.startGame('smoothie', {});
             }, () => { });

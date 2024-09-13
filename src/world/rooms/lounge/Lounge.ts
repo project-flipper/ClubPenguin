@@ -702,22 +702,22 @@ export default class Lounge extends Phaser.Scene implements Room {
 
         SnowballTrigger.getComponent(this.snowballblock).execute = (_engine, _penguin, snowball) => snowball.destroy(true);
 
-        Trigger.getComponent(this.thinice_trigger).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.thinice_trigger).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('thinice_prompt', () => {
                 this.world.startGame('thinice', {});
             }, () => { });
         }
 
-        Trigger.getComponent(this.astro_trigger).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.astro_trigger).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('astro_prompt', () => {
                 this.world.startGame('astro', {});
             }, () => { });
         }
 
-        Trigger.getComponent(this.bits_trigger).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.bits_trigger).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('bitsandbolts_prompt', () => {
                 this.world.startGame('bitsandbolts', {});
             }, () => { });

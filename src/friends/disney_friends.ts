@@ -90,7 +90,7 @@ export class Friends extends Phaser.Events.EventEmitter {
     }
 
     connect(friends: UserData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean): void {
-        this.instance.Friends.API.connect(this.world.myPenguinData.id);
+        this.instance.Friends.API.connect(this.world.myUser.id);
 
         let roster = friends.filter(data => data.relationship.type == RelationshipType.FRIEND || data.relationship.type == RelationshipType.BEST_FRIEND);
         let bestFriends = friends.filter(data => data.relationship.type == RelationshipType.BEST_FRIEND).map(data => data.id);

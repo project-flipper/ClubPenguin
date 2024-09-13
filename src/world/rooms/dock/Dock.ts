@@ -378,8 +378,8 @@ export default class Dock extends Phaser.Scene implements Room {
             hold: 250
         });
 
-        Trigger.getComponent(this.boat_btn).execute = (engine, penguin) => {
-            if (engine.player != penguin) return;
+        Trigger.getComponent(this.boat_btn).execute = (engine, player) => {
+            if (engine.player != player) return;
             this.interface.promptQuestion.showLocalized('hydro_prompt', () => {
                 this.world.startGame('hydro', {});
             }, () => { });
