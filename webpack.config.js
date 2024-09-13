@@ -148,6 +148,9 @@ module.exports = env => {
             ]
         },
         resolve: {
+            alias: {
+                '@clubpenguin': path.resolve(__dirname, 'src/')
+            },
             extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx', '.json']
         },
 
