@@ -10,9 +10,10 @@ import Trigger from "../../../lib/ui/components/Trigger";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Dock extends Phaser.Scene implements Room {
@@ -318,13 +319,17 @@ export default class Dock extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -351,16 +356,16 @@ export default class Dock extends Phaser.Scene implements Room {
             this.tube.visible = false;
             this.interface.hideHint();
         });
-        this.boat_btn.on('release', () => this.engine.movePlayer(247.5, 720));
+        this.boat_btn.on('release', () => this.world.move(247.5, 720));
 
         this.tubes_btn.on('over', () => {
             this.sound.play('dock_tubes');
             this.tubes.play('dock-tubes-animation');
         });
 
-        this.town_btn.on('release', () => this.engine.movePlayer(1541.25, 371.25));
-        this.village_btn.on('release', () => this.engine.movePlayer(765, 326.25));
-        this.beach_btn.on('release', () => this.engine.movePlayer(405, 326.25));
+        this.town_btn.on('release', () => this.world.move(1541.25, 371.25));
+        this.village_btn.on('release', () => this.world.move(765, 326.25));
+        this.beach_btn.on('release', () => this.world.move(405, 326.25));
 
         this.tweens.add({
             targets: this.boat_container,
@@ -376,7 +381,7 @@ export default class Dock extends Phaser.Scene implements Room {
         Trigger.getComponent(this.boat_btn).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('hydro_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['hydro'], {});
+                this.world.startGame('hydro', {});
             }, () => { });
         }
 
@@ -391,7 +396,7 @@ export default class Dock extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('dock-pack');
+        engine.app.unloadAssetPack('dock-pack');
     }
 
     /* END-USER-CODE */

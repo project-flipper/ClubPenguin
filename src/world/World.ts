@@ -21,13 +21,13 @@ let SPAWN_ROOMS = [
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import type Load from "../load/Load";
-import { LoaderTask } from "../load/tasks";
-import type Interface from "./interface/Interface";
-import type { BasePenguinData, MyPenguinData, PenguinData } from '../net/types/penguin/penguin';
-import type Engine from "./engine/Engine";
-import type { App } from "../app/app";
-import { RelationshipType } from "../net/types/penguin/relationship";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import Interface from "./interface/Interface";
+import { BaseUserData, MyUserData, UserData } from '@clubpenguin/net/types/penguin/penguin';
+import { Engine } from "@clubpenguin/world/engine/engine";
+import { App } from "@clubpenguin/app/app";
+import { RelationshipType } from "@clubpenguin/net/types/penguin/relationship";
 /* END-USER-IMPORTS */
 
 export default class World extends Phaser.Scene {
@@ -53,17 +53,14 @@ export default class World extends Phaser.Scene {
     /* START-USER-CODE */
 
     declare public game: App;
-
-    get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
-    }
+    public engine: Engine;
 
     get interface(): Interface {
         return (this.scene.get('Interface') as Interface);
     }
 
     public worldId: number;
-    public myPenguinData: MyPenguinData;
+    public myPenguinData: MyUserData;
 
     init(): void {
         let load = this.scene.get('Load') as Load;
@@ -98,9 +95,7 @@ export default class World extends Phaser.Scene {
 
         await load.waitAllTasksComplete();
 
-        let engine = await new Promise<Engine>(resolve => this.scene.run('Engine', {
-            onready: (scene: Engine) => resolve(scene)
-        }));
+        this.engine = new Engine(this);
 
         let myFriends = await this.game.airtower.getMyFriends();
         let friends = myFriends.data.filter(penguin => penguin.mascotId == undefined);
@@ -110,7 +105,7 @@ export default class World extends Phaser.Scene {
 
         let roomConfig = this.game.gameConfig.rooms[this.getRandomItem(SPAWN_ROOMS)];
         console.log('Mocking room join on room', roomConfig);
-        await engine.joinRoom(roomConfig);
+        await this.engine.joinRoom(roomConfig);
     }
 
     public standardPenguinTimeOffset = 0;
@@ -126,7 +121,7 @@ export default class World extends Phaser.Scene {
         return array[idx];
     }
 
-    isPlayer(data: BasePenguinData): data is MyPenguinData {
+    isPlayer(data: BaseUserData): data is MyUserData {
         return data.id == this.myPenguinData.id;
     }
 
@@ -134,29 +129,116 @@ export default class World extends Phaser.Scene {
         return this.myPenguinData.moderator;
     }
 
-    isMascot(data: BasePenguinData): boolean {
+    isMascot(data: BaseUserData): boolean {
         return data.mascotId != undefined;
     }
 
-    isMember(data: BasePenguinData): boolean {
+    isMember(data: BaseUserData): boolean {
         return data?.member != undefined;
     }
 
-    isPending(data: PenguinData): boolean {
+    isPending(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.PENDING;
     }
 
-    isFriend(data: PenguinData): boolean {
+    isFriend(data: UserData): boolean {
         return [RelationshipType.FRIEND, RelationshipType.BEST_FRIEND].includes(data.relationship?.type);
     }
 
-    isBestFriend(data: PenguinData): boolean {
+    isBestFriend(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.BEST_FRIEND;
     }
 
-    isIgnored(data: PenguinData): boolean {
+    isIgnored(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.IGNORED;
     }
+
+    /* ========= PLAYER ========= */
+
+    move(x: number, y: number): void {
+        this.engine.player.actions.move(x, y);
+    }
+
+    sitDown(): void {
+        // TODO: Request
+        this.engine.player.actions.sitDown();
+    }
+
+    sitDownLeft(): void {
+        // TODO: Request
+        this.engine.player.actions.sitDownLeft();
+    }
+
+    sitLeft(): void {
+        // TODO: Request
+        this.engine.player.actions.sitLeft();
+    }
+
+    sitUpLeft(): void {
+        // TODO: Request
+        this.engine.player.actions.sitUpLeft();
+    }
+
+    sitUp(): void {
+        // TODO: Request
+        this.engine.player.actions.sitUp();
+    }
+
+    sitUpRight(): void {
+        // TODO: Request
+        this.engine.player.actions.sitUpRight();
+    }
+
+    sitRight(): void {
+        // TODO: Request
+        this.engine.player.actions.sitRight();
+    }
+
+    sitDownRight(): void {
+        // TODO: Request
+        this.engine.player.actions.sitDownRight();
+    }
+
+    wave(): void {
+        // TODO: Request
+        this.engine.player.actions.wave();
+    }
+
+    dance(): void {
+        // TODO: Request
+        this.engine.player.actions.dance();
+    }
+
+    throwSnowball(x: number, y: number): void {
+        // TODO: Request
+        this.engine.player.actions.throwSnowball(x, y);
+    }
+
+    /* ========= ENGINE ========= */
+
+    get currentRoomId(): number {
+        return this.engine.currentRoomId;
+    }
+
+    async joinRoom(roomId: string, x?: number, y?: number): Promise<void> {
+        let roomData = this.game.gameConfig.rooms[roomId];
+
+        if (roomData) {
+            // TODO: Request
+            this.engine.joinRoom(roomData, x, y);
+        } 
+    }
+
+    async startGame(gameId: string, options?: any): Promise<void> {
+        let gameData = this.game.gameConfig.games[gameId];
+
+        if (gameData) {
+            // TODO: Request
+            this.engine.startGame(gameData, options);
+        }
+    }
+
+    /* ======== INTERFACE ======== */
 
     async openNamecardById(id: string): Promise<void> {
         // TODO: fetch penguin data

@@ -8,8 +8,8 @@ import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 import WorldTile from "../prefabs/WorldTile";
 /* START-USER-IMPORTS */
-import type { WorldData } from "../../net/types/login/world";
-import type { Locale } from "../../app/locale";
+import { WorldData } from "@clubpenguin/net/types/login/world";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class WorldSelect extends Phaser.GameObjects.Container {

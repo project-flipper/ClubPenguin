@@ -10,9 +10,10 @@ import Trigger from "../../../lib/ui/components/Trigger";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Cove extends Phaser.Scene implements Room {
@@ -451,13 +452,17 @@ export default class Cove extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -485,7 +490,7 @@ export default class Cove extends Phaser.Scene implements Room {
             this.interface.hideHint();
             this.waves.setFrame('cove/waves0001');
         });
-        this.waves_btn.on('release', () => this.engine.movePlayer(1383.75, 787.5));
+        this.waves_btn.on('release', () => this.world.move(1383.75, 787.5));
 
         this.catalogue_btn.on('over', () => {
             this.catalogue.play('cove-catalogue-animation');
@@ -498,7 +503,7 @@ export default class Cove extends Phaser.Scene implements Room {
         Trigger.getComponent(this.waves_trigger).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('waves_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['waves'], {});
+                this.world.startGame('waves', {});
             }, () => { });
         }
 
@@ -513,7 +518,7 @@ export default class Cove extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('cove-pack');
+        engine.app.unloadAssetPack('cove-pack');
     }
 
     /* END-USER-CODE */

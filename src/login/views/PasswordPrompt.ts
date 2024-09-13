@@ -8,7 +8,7 @@ import InputBlocker from "../../lib/ui/components/InputBlocker";
 import SavePasswordPrompt from "../prefabs/SavePasswordPrompt";
 import PublicComputerPrompt from "../prefabs/PublicComputerPrompt";
 /* START-USER-IMPORTS */
-import type { Locale } from "../../app/locale";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class PasswordPrompt extends Phaser.GameObjects.Container {

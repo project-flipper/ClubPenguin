@@ -9,8 +9,8 @@ import Target from "./Target";
 import MonsterTarget from "./MonsterTarget";
 import TextBox from "../../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import type { Locale } from "../../../../app/locale";
-import type Lounge from "../Lounge";
+import { Locale } from "../../../../app/locale";
+import Lounge from "../Lounge";
 /* END-USER-IMPORTS */
 
 export default class TargetGame extends Phaser.GameObjects.Container {

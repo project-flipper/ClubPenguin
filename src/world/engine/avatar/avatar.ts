@@ -1,19 +1,17 @@
 
 import Phaser from "phaser";
-import type { MyPenguinData, PenguinData } from "../../net/types/penguin/penguin";
-import type AvatarOverlay from "../interface/prefabs/AvatarOverlay";
-import type Engine from "../engine/Engine";
-import type { ClothingSprite } from "../engine/Engine";
+
+import { MyUserData, UserData } from "@clubpenguin/net/types/penguin/penguin";
+import AvatarOverlay from "@clubpenguin/world/interface/prefabs/AvatarOverlay";
+import { Engine } from "@clubpenguin/world/engine/engine";
+import { ClothingSprite } from "@clubpenguin/world/engine/clothing/clothingManager";
+import { Actions } from "./actions";
 
 export interface Avatar extends Phaser.GameObjects.Container {
-    penguinData: PenguinData | MyPenguinData;
-
     hitbox: Phaser.GameObjects.Image;
     shadow: Phaser.GameObjects.Ellipse;
     ring: Phaser.GameObjects.Ellipse;
     body_art: Phaser.GameObjects.Sprite;
-
-    overlay: AvatarOverlay;
 
     attachClothing: boolean;
     spriteSpeed: number;
@@ -21,8 +19,6 @@ export interface Avatar extends Phaser.GameObjects.Container {
     nicknameOffset: { x: number, y: number };
     snowballOffset: { x: number, y: number };
     snowballDelay: number;
-
-    clothes: Map<number, ClothingSprite>;
 
     createAnimations(engine: Engine): void;
     currentAnimation: number;
@@ -32,6 +28,13 @@ export interface Avatar extends Phaser.GameObjects.Container {
     isAnimating(): boolean;
     isIdle(): boolean;
 }
+
+export type Player = Avatar & {
+    penguinData: UserData | MyUserData;
+    overlay: AvatarOverlay;
+    clothes: Map<number, ClothingSprite>;
+    actions: Actions;
+};
 
 export interface AvatarCls {
     new(scene: Phaser.Scene, x?: number, y?: number): Avatar;

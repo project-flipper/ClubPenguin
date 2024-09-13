@@ -9,10 +9,11 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
-import { Avatar } from "../../avatar/avatar";
+import { Player } from "../../engine/avatar/avatar";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Rink extends Phaser.Scene implements Room {
@@ -471,13 +472,17 @@ export default class Rink extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -492,20 +497,20 @@ export default class Rink extends Phaser.Scene implements Room {
 
         this.door_btn.on('over', () => this.door.setFrame('rink/door0002'));
         this.door_btn.on('out', () => this.door.setFrame('rink/door0001'));
-        this.door_btn.on('release', () => this.engine.movePlayer(866.25, 292.5));
+        this.door_btn.on('release', () => this.world.move(866.25, 292.5));
 
         this.snack_btn.on('release', () => this.snack_light.visible = !this.snack_light.visible);
 
-        this.fishdog_btn.on('release', () => this.engine.movePlayer(141.75, 256.5));
+        this.fishdog_btn.on('release', () => this.world.move(141.75, 256.5));
 
-        this.chair1_btn.on('release', () => this.engine.movePlayer(459, 184.5));
-        this.chair2_btn.on('release', () => this.engine.movePlayer(531, 177.75));
-        this.chair3_btn.on('release', () => this.engine.movePlayer(600.75, 173.25));
-        this.chair4_btn.on('release', () => this.engine.movePlayer(670.5, 166.5));
+        this.chair1_btn.on('release', () => this.world.move(459, 184.5));
+        this.chair2_btn.on('release', () => this.world.move(531, 177.75));
+        this.chair3_btn.on('release', () => this.world.move(600.75, 173.25));
+        this.chair4_btn.on('release', () => this.world.move(670.5, 166.5));
 
         this.snacksdoor_btn.on('over', () => this.snacksdoor.setFrame('rink/snacksdoor0002'));
         this.snacksdoor_btn.on('out', () => this.snacksdoor.setFrame('rink/snacksdoor0001'));
-        this.snacksdoor_btn.on('release', () => this.engine.movePlayer(1253.25, 252));
+        this.snacksdoor_btn.on('release', () => this.world.move(1253.25, 252));
 
         this.catalogue.on('over', () => this.catalogue_title.visible = false);
         this.catalogue.on('out', () => this.catalogue_title.visible = true);
@@ -513,7 +518,7 @@ export default class Rink extends Phaser.Scene implements Room {
         this.game.locale.register(this.localize, this);
 
         if (data.onready) data.onready(this);
-        this.engine.events.once('roomready', this.initPuck, this);
+        this.engine.once('room:ready', this.initPuck, this);
     }
 
     initPuck(scene: Rink): void {
@@ -552,7 +557,7 @@ export default class Rink extends Phaser.Scene implements Room {
         */
     }
 
-    onPlayerCollision(ob1: Phaser.Physics.Arcade.Image & { body: Phaser.Physics.Arcade.Body }, ob2: Avatar & { body: Phaser.Physics.Arcade.Body }): void {
+    onPlayerCollision(ob1: Phaser.Physics.Arcade.Image & { body: Phaser.Physics.Arcade.Body }, ob2: Player & { body: Phaser.Physics.Arcade.Body }): void {
         let tweens = this.tweens.getTweensOf(ob2);
         if (tweens.length == 0) return;
 
@@ -583,7 +588,7 @@ export default class Rink extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('rink-pack');
+        engine.app.unloadAssetPack('rink-pack');
     }
 
     /* END-USER-CODE */

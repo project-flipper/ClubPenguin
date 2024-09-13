@@ -9,9 +9,10 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Shop extends Phaser.Scene implements Room {
@@ -326,13 +327,17 @@ export default class Shop extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -355,7 +360,7 @@ export default class Shop extends Phaser.Scene implements Room {
             this.door.setFrame('shop/door0001');
             this.sound.play('shop_doorclose');
         });
-        this.door_btn.on('release', () => this.engine.movePlayer(1237.5, 405));
+        this.door_btn.on('release', () => this.world.move(1237.5, 405));
 
         this.changeroom_btn.on('over', () => {
             this.changeroom.setFrame('shop/changeroom0002');
@@ -365,7 +370,7 @@ export default class Shop extends Phaser.Scene implements Room {
             this.changeroom.setFrame('shop/changeroom0001');
             this.sound.play('shop_changeroomclose');
         });
-        this.changeroom_btn.on('release', () => this.engine.movePlayer(528.75, 438.75));
+        this.changeroom_btn.on('release', () => this.world.move(528.75, 438.75));
 
         this.chest_btn.on('over', () => {
             this.chest.setFrame('shop/chest0002');
@@ -375,7 +380,7 @@ export default class Shop extends Phaser.Scene implements Room {
             this.chest.setFrame('shop/chest0001');
             this.sound.play('shop_chestclose');
         });
-        this.chest_btn.on('release', () => this.engine.movePlayer(1485, 663.75));
+        this.chest_btn.on('release', () => this.world.move(1485, 663.75));
 
         this.registerOpen = false;
         this.register_button.on('over', () => {
@@ -420,7 +425,7 @@ export default class Shop extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('shop-pack');
+        engine.app.unloadAssetPack('shop-pack');
     }
 
     /* END-USER-CODE */

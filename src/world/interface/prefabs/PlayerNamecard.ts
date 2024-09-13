@@ -10,8 +10,8 @@ import Paperdoll from "../../../lib/ui/Paperdoll";
 import TextBox from "../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
 /* START-USER-IMPORTS */
-import type Interface from "../Interface";
-import type { MyPenguinData } from "../../../net/types/penguin/penguin";
+import Interface from "../Interface";
+import { MyUserData } from "../../../net/types/penguin/penguin";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
@@ -291,7 +291,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
 
     declare scene: Interface;
 
-    setup(data: MyPenguinData): void {
+    setup(data: MyUserData): void {
         this.closeInventory();
 
         this.nickname.text = data.nickname;

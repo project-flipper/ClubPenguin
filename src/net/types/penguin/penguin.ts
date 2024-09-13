@@ -3,7 +3,7 @@ import { Membership } from "./membership"
 import { Presence } from "./presence"
 import { Relationship } from "./relationship"
 
-export type BasePenguinData = {
+export type BaseUserData = {
     id: string,
     username: string,
     nickname: string,
@@ -13,13 +13,13 @@ export type BasePenguinData = {
     mascotId?: number
 }
 
-export type PenguinData = BasePenguinData & {
+export type UserData = BaseUserData & {
     relationship?: Relationship,
     publicStampbook: boolean,
     presence?: Presence
 }
 
-export type MyPenguinData = BasePenguinData & {
+export type MyUserData = BaseUserData & {
     moderator: boolean,
     iglooId: number,
     stealth: boolean

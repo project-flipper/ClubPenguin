@@ -6,9 +6,9 @@
 import Phaser from "phaser";
 import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import type { Avatar } from "../../../avatar/avatar";
-import type Engine from "../../../engine/Engine";
-import type Interface from "../../../interface/Interface";
+import { Player } from "@clubpenguin/world/engine/avatar/avatar";
+import Interface from "@clubpenguin/world/interface/Interface";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class MancalaBoard extends Phaser.GameObjects.Container {
@@ -54,10 +54,10 @@ export default class MancalaBoard extends Phaser.GameObjects.Container {
         });
         this.button.on('release', () => {
             (this.scene.scene.get('Interface') as Interface).hideHint();
-            let engine = this.scene.scene.get('Engine') as Engine;
+            let world = this.scene.scene.get('World') as World;
 
-            if (!this.player1) engine.movePlayer(this.x + this.seat1Offset.x, this.y + this.seat1Offset.y);
-            else if (!this.player2) engine.movePlayer(this.x + this.seat2Offset.x, this.y + this.seat2Offset.y);
+            if (!this.player1) world.move(this.x + this.seat1Offset.x, this.y + this.seat1Offset.y);
+            else if (!this.player2) world.move(this.x + this.seat2Offset.x, this.y + this.seat2Offset.y);
         });
 
         /* END-USER-CTR-CODE */
@@ -69,8 +69,8 @@ export default class MancalaBoard extends Phaser.GameObjects.Container {
     /* START-USER-CODE */
 
     private _occupied = false;
-    public player1: Avatar;
-    public player2: Avatar;
+    public player1: Player;
+    public player2: Player;
 
     public seat1Offset = { x: -67.5, y: -45 };
     public seat2Offset = { x: 67.5, y: 36 };

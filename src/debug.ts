@@ -2,13 +2,13 @@ import { App } from './app/app';
 import Config from './app/config';
 import { Airtower } from './net/airtower';
 import { Membership } from './net/types/penguin/membership';
-import { PenguinData } from './net/types/penguin/penguin';
+import { UserData } from './net/types/penguin/penguin';
 import { RelationshipType } from './net/types/penguin/relationship';
 import { Avatar as AvatarData } from './net/types/penguin/avatar';
 import World from './world/World';
-import { Avatar } from './world/avatar/avatar';
-import Engine, { Room } from './world/engine/Engine';
+import { Avatar } from './world/engine/avatar/avatar';
 import Interface from './world/interface/Interface';
+import { Engine, Room } from './world/engine/engine';
 
 export class Debug {
     appCallback: () => App;
@@ -30,7 +30,7 @@ export class Debug {
     }
 
     get engine(): Engine {
-        return this.app.scene.getScene('Engine') as Engine;
+        return this.world.engine;
     }
 
     get room(): Room {
@@ -57,7 +57,7 @@ export class Debug {
             since: ''
         } : undefined;
 
-        let data: PenguinData = {
+        let data: UserData = {
             id: this.INTERNAL_ID.toString(),
             username: name,
             nickname: name,
@@ -81,8 +81,8 @@ export class Debug {
             }
         };
 
-        let avatar = await this.engine.loadAvatar('penguin');
-        this.engine.addPenguin(data, avatar, this.engine.cameras.main.centerX, this.engine.cameras.main.centerY + 200);
+        let player = await this.engine.players.createPlayer(data, this.world.cameras.main.centerX, this.world.cameras.main.centerY + 200);
+        this.engine.players.addPlayer(player);
 
         this.INTERNAL_ID += 1;
     }
@@ -110,7 +110,7 @@ export class Debug {
             colors.push(parseInt(idx));
         }
 
-        let avatar = await this.engine.loadAvatar('penguin');
+        let avatar = await this.engine.players.loadAvatar('penguin');
         limit = limit ?? this.engine.currentRoom.roomData.max_users;
 
         let actions: number[] = [
@@ -125,7 +125,7 @@ export class Debug {
             } : undefined;
             let username = `P${this.INTERNAL_ID}`;
 
-            let data: PenguinData = {
+            let data: UserData = {
                 id: this.INTERNAL_ID.toString(),
                 username,
                 nickname: username,
@@ -148,8 +148,9 @@ export class Debug {
                 }
             };
 
-            let penguin = this.engine.addPenguin(data, avatar, this.engine.cameras.main.centerX + this.randomRange(-350, +350), this.engine.cameras.main.centerY + this.randomRange(0, +400));
-            penguin.playAnimation(this.getRandomItem(actions));
+            let player = await this.engine.players.createPlayer(data, this.world.cameras.main.centerX + this.randomRange(-350, +350), this.world.cameras.main.centerY + this.randomRange(0, +400));
+            this.engine.players.addPlayer(player);
+            player.playAnimation(this.getRandomItem(actions));
 
             this.INTERNAL_ID += 1;
         }
@@ -186,10 +187,7 @@ export class Debug {
     }
 
     teleport(roomId: number): void {
-        let roomConfig = this.gameConfig.rooms[roomId.toString()];
-        if (!roomConfig) return;
-        console.log('Mocking room join on room', roomConfig);
-        this.engine.joinRoom(roomConfig);
+        this.world.joinRoom(roomId.toString());
     }
 
     play(gameId: string): void {

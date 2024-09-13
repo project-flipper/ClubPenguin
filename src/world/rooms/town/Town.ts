@@ -6,9 +6,10 @@ import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Town extends Phaser.Scene implements Room {
@@ -402,13 +403,17 @@ export default class Town extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -501,11 +506,11 @@ export default class Town extends Phaser.Scene implements Room {
 
         this.coffeeDoor.on('over', () => this.sound.play('town_coffeeopen'));
         this.coffeeDoor.on('out', () => this.sound.play('town_coffeeclose'));
-        this.coffeeDoor.on('release', () => this.engine.movePlayer(483.75, 528.75));
+        this.coffeeDoor.on('release', () => this.world.move(483.75, 528.75));
 
         this.shopDoor.on('over', () => this.sound.play('town_shopopen'));
         this.shopDoor.on('out', () => this.sound.play('town_shopclose'));
-        this.shopDoor.on('release', () => this.engine.movePlayer(1226.25, 517.5));
+        this.shopDoor.on('release', () => this.world.move(1226.25, 517.5));
 
         this.danceDoorArea.on('over', () => {
             this.playDiscoAnimation();
@@ -532,12 +537,12 @@ export default class Town extends Phaser.Scene implements Room {
             });
 
         });
-        this.danceDoorArea.on('release', () => this.engine.movePlayer(956.25, 495));
+        this.danceDoorArea.on('release', () => this.world.move(956.25, 495));
 
-        this.dock_btn.on('release', () => this.engine.movePlayer(146.25, 652.5));
-        this.forts_btn.on('release', () => this.engine.movePlayer(1575, 663.75));
-        this.seat1_btn.on('release', () => this.engine.movePlayer(612, 526.5));
-        this.seat2_btn.on('release', () => this.engine.movePlayer(780.75, 522));
+        this.dock_btn.on('release', () => this.world.move(146.25, 652.5));
+        this.forts_btn.on('release', () => this.world.move(1575, 663.75));
+        this.seat1_btn.on('release', () => this.world.move(612, 526.5));
+        this.seat2_btn.on('release', () => this.world.move(780.75, 522));
 
         this.game.locale.register(this.localize, this);
 
@@ -589,7 +594,7 @@ export default class Town extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('town-pack');
+        engine.app.unloadAssetPack('town-pack');
     }
 
     /* END-USER-CODE */

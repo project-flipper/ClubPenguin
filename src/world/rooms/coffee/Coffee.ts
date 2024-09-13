@@ -10,9 +10,10 @@ import Trigger from "../../../lib/ui/components/Trigger";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Coffee extends Phaser.Scene implements Room {
@@ -482,13 +483,17 @@ export default class Coffee extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -510,7 +515,7 @@ export default class Coffee extends Phaser.Scene implements Room {
             this.sound.play('coffee_lightoff');
             this.stairslight.visible = false;
         });
-        this.stairs_btn.on('release', () => this.engine.movePlayer(1473.75, 573.75));
+        this.stairs_btn.on('release', () => this.world.move(1473.75, 573.75));
 
         this.smoothie_btn.on('over', () => {
             this.sound.play('coffee_blender', { loop: true });
@@ -524,11 +529,11 @@ export default class Coffee extends Phaser.Scene implements Room {
             this.smoothielight.visible = false;
             this.interface.hideHint();
         });
-        this.smoothie_btn.on('release', () => this.engine.movePlayer(153, 731.25));
+        this.smoothie_btn.on('release', () => this.world.move(153, 731.25));
 
         this.door.on('over', () => this.sound.play('coffee_dooropen'));
         this.door.on('out', () => this.sound.play('coffee_doorclose'));
-        this.door.on('release', () => this.engine.movePlayer(798.75, 337.5));
+        this.door.on('release', () => this.world.move(798.75, 337.5));
 
         this.beansarea.on('over', () => {
             this.sound.play('coffee_beans');
@@ -539,7 +544,7 @@ export default class Coffee extends Phaser.Scene implements Room {
             this.beans.play('coffee-beans-idle-animation');
             this.interface.hideHint();
         });
-        this.beansarea.on('release', () => this.engine.movePlayer(1552.5, 731.25));
+        this.beansarea.on('release', () => this.world.move(1552.5, 731.25));
 
         this.cashOpen = false;
         this.register_btn.on('over', () => {
@@ -574,14 +579,14 @@ export default class Coffee extends Phaser.Scene implements Room {
         Trigger.getComponent(this.beans_trigger).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('beans_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['beans'], {});
+                this.world.startGame('beans', {});
             }, () => { });
         }
 
         Trigger.getComponent(this.smoothie_trigger).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('smoothie_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['smoothie'], {});
+                this.world.startGame('smoothie', {});
             }, () => { });
         }
 
@@ -597,7 +602,7 @@ export default class Coffee extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('coffee-pack');
+        engine.app.unloadAssetPack('coffee-pack');
     }
 
     /* END-USER-CODE */

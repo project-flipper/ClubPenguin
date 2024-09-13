@@ -17,10 +17,10 @@ import Phaser from "phaser";
 import DepthEnabled from "./components/DepthEnabled";
 import ButtonComponent from "./components/ButtonComponent";
 /* START-USER-IMPORTS */
-import type { Avatar } from "../../net/types/penguin/avatar";
-import type { App } from "../../app/app";
-import type { PaperItemConfig } from "../../app/config";
-import { ItemType } from "../../world/engine/Engine";
+import { Avatar } from "@clubpenguin/net/types/penguin/avatar";
+import { App } from "@clubpenguin/app/app";
+import { PaperItemConfig } from "@clubpenguin/app/config";
+import { ItemType } from "@clubpenguin/world/engine/clothing/itemType";
 /* END-USER-IMPORTS */
 
 export default class Paperdoll extends Phaser.GameObjects.Container {

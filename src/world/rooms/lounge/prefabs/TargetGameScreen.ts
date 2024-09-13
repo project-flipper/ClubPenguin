@@ -6,10 +6,10 @@
 import Phaser from "phaser";
 import TextBox from "../../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import type { Locale } from "../../../../app/locale";
-import type Lounge from "../Lounge";
-import type { App } from "../../../../app/app";
-import type Load from "../../../../load/Load";
+import { Locale } from "../../../../app/locale";
+import Lounge from "../Lounge";
+import { App } from "../../../../app/app";
+import Load from "../../../../load/Load";
 import { LoaderTask } from "../../../../load/tasks";
 /* END-USER-IMPORTS */
 

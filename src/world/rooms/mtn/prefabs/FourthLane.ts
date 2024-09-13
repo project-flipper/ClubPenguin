@@ -6,7 +6,7 @@
 import Phaser from "phaser";
 import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import type Mtn from "../Mtn";
+import Mtn from "../Mtn";
 /* END-USER-IMPORTS */
 
 export default class FourthLane extends Phaser.GameObjects.Container {

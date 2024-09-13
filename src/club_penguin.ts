@@ -1,24 +1,24 @@
+import 'devtools-detect';
+import Phaser from 'phaser';
+
 if ('Phaser' in global) delete global['Phaser'];
 Phaser.Plugins.PluginCache.register('Loader', LoaderPlugin, 'load');
 
-import 'devtools-detect';
-import Phaser from 'phaser';
-import { App } from './app/app';
-import Bootstrap from './boot/Bootstrap';
-import Startscreen from './start/Startscreen';
-import Create from './create/Create';
-import Login from './login/Login';
-import Redemption from './redemption/Redemption';
-import Load from './load/Load';
-import ErrorArea from './app/ErrorArea';
-import Notifications from './world/notifications/Notifications';
-import Engine from './world/engine/Engine';
-import InternalErrorArea from './app/InternalErrorArea';
-import Logo from './logo/Logo';
-import World from './world/World';
-import Interface from './world/interface/Interface';
-import { Debug } from './debug';
-import { LoaderPlugin } from './app/loader';
+import { App } from '@clubpenguin/app/app';
+import Bootstrap from '@clubpenguin/boot/Bootstrap';
+import Startscreen from '@clubpenguin/start/Startscreen';
+import Create from '@clubpenguin/create/Create';
+import Login from '@clubpenguin/login/Login';
+import Redemption from '@clubpenguin/redemption/Redemption';
+import Load from '@clubpenguin/load/Load';
+import ErrorArea from '@clubpenguin/app/ErrorArea';
+import Notifications from '@clubpenguin/world/notifications/Notifications';
+import InternalErrorArea from '@clubpenguin/app/InternalErrorArea';
+import Logo from '@clubpenguin/logo/Logo';
+import World from '@clubpenguin/world/World';
+import Interface from '@clubpenguin/world/interface/Interface';
+import { Debug } from '@clubpenguin/debug';
+import { LoaderPlugin } from '@clubpenguin/app/loader';
 
 let app: App;
 
@@ -87,7 +87,6 @@ export function run(params: RunParams): void {
             Redemption,
             Startscreen,
             World,
-            Engine,
             Interface,
             Load,
             Logo,

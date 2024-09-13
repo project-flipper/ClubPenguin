@@ -1,10 +1,11 @@
+import Phaser from 'phaser';
+
 import { App } from '@clubpenguin/app/app';
 import HandlerInit from '@clubpenguin/friends/legacy/legacy_handler';
-import { PenguinData } from '@clubpenguin/net/types/penguin/penguin';
+import { UserData } from '@clubpenguin/net/types/penguin/penguin';
 import { RelationshipType } from '@clubpenguin/net/types/penguin/relationship';
 import Interface from '@clubpenguin/world/interface/Interface';
 import World from '@clubpenguin/world/World';
-import Phaser from 'phaser';
 
 export enum FriendsEvents {
     USER_PRESENCE_UPDATE = "userPresenceUpdate",
@@ -88,7 +89,7 @@ export class Friends extends Phaser.Events.EventEmitter {
         return this;
     }
 
-    connect(friends: PenguinData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean): void {
+    connect(friends: UserData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean): void {
         this.instance.Friends.API.connect(this.world.myPenguinData.id);
 
         let roster = friends.filter(data => data.relationship.type == RelationshipType.FRIEND || data.relationship.type == RelationshipType.BEST_FRIEND);

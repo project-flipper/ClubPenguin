@@ -27,13 +27,13 @@ import PromptInput from "./prefabs/PromptInput";
 import PromptError from "./prefabs/PromptError";
 import Hint from "./prefabs/Hint";
 /* START-USER-IMPORTS */
-import type { PenguinData } from "../../net/types/penguin/penguin";
-import type { Avatar } from "../avatar/avatar";
+import { UserData } from "../../net/types/penguin/penguin";
+import { Player } from "../engine/avatar/avatar";
 import AvatarOverlay from "./prefabs/AvatarOverlay";
-import type World from "../World";
-import type Engine from "../engine/Engine";
-import type { Locale } from "../../app/locale";
-import type { App } from "../../app/app";
+import World from "../World";
+import { Engine } from "../engine/engine";
+import { Locale } from "../../app/locale";
+import { App } from "../../app/app";
 import Load from "../../load/Load";
 import { LoaderTask } from "../../load/tasks";
 import ErrorArea from "../../app/ErrorArea";
@@ -554,7 +554,7 @@ export default class Interface extends Phaser.Scene {
         this.playerNamecard.paperdoll.mask = mask;
 
         this.snowballCrosshair.on('release', () => {
-            this.engine.throwSnowball(this.engine.player, this.snowballCrosshair.x, this.snowballCrosshair.y);
+            this.world.throwSnowball(this.snowballCrosshair.x, this.snowballCrosshair.y);
             this.snowballCrosshair.visible = false;
         });
 
@@ -668,8 +668,8 @@ export default class Interface extends Phaser.Scene {
             if (!this.input.hitTestPointer(pointer).includes(this.emoteMenu.bg) && !this.input.hitTestPointer(pointer).includes(this.emojiButton)) this.emoteMenu.visible = false;
         });
 
-        this.engine.events.on('roomload', () => this.quickKeys = true);
-        this.engine.events.on('roomunload', () => this.quickKeys = false);
+        this.engine.on('room:load', () => this.quickKeys = true);
+        this.engine.on('room:unload', () => this.quickKeys = false);
 
         this.input.keyboard.createCombo('e1', { resetOnWrongKey: true, resetOnMatch: true });
         this.input.keyboard.createCombo('e2', { resetOnWrongKey: true, resetOnMatch: true });
@@ -715,7 +715,7 @@ export default class Interface extends Phaser.Scene {
     }
 
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     localize(locale: Locale): void {
@@ -750,30 +750,30 @@ export default class Interface extends Phaser.Scene {
 
         switch (event.key) {
             case 'ArrowDown':
-                this.engine.actionSitDown();
+                this.world.sitDown();
                 event.stopPropagation();
                 break;
             case 'ArrowLeft':
-                this.engine.actionSitLeft();
+                this.world.sitLeft();
                 event.stopPropagation();
                 break;
             case 'ArrowUp':
-                this.engine.actionSitUp();
+                this.world.sitUp();
                 event.stopPropagation();
                 break;
             case 'ArrowRight':
-                this.engine.actionSitRight();
+                this.world.sitRight();
                 event.stopPropagation();
                 break;
             case 'Enter':
                 this.sendMessage();
                 break;
             case 'w':
-                this.engine.actionWave();
+                this.world.wave();
                 event.stopPropagation();
                 break;
             case 'd':
-                this.engine.actionDance();
+                this.world.dance();
                 event.stopPropagation();
                 break;
             case 't':
@@ -878,15 +878,15 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ AVATAR OVERLAYS ============ */
 
-    attachAvatarOverlay(penguin: Avatar): void {
-        let overlay = new AvatarOverlay(this, penguin.x, penguin.y);
+    attachPlayerOverlay(player: Player): void {
+        let overlay = new AvatarOverlay(this, player.x, player.y);
         this.avatarOverlays.add(overlay);
 
-        penguin.overlay = overlay;
+        player.overlay = overlay;
     }
 
-    removeAvatarOverlay(penguin: Avatar): void {
-        let overlay = penguin?.overlay;
+    removePlayerOverlay(player: Player): void {
+        let overlay = player?.overlay;
         this.avatarOverlays.remove(overlay);
     }
 
@@ -896,7 +896,7 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ NAMECARD ============ */
 
-    openNamecard(data: PenguinData): void {
+    openNamecard(data: UserData): void {
         if (this.world.isPlayer(data)) return this.openMyNamecard();
         if (this.playerNamecard.visible) {
             this.playerNamecard.visible = false;

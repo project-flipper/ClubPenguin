@@ -10,8 +10,8 @@ import TextBox from "../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import type Interface from "../Interface";
-import { PenguinData } from "../../../net/types/penguin/penguin";
+import Interface from "../Interface";
+import { UserData } from "../../../net/types/penguin/penguin";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 
@@ -438,7 +438,7 @@ export default class Namecard extends Phaser.GameObjects.Container {
     public ignoreHint: string;
     public reportHint: string;
 
-    setup(data: PenguinData): void {
+    setup(data: UserData): void {
         this.nickname.text = data.nickname;
 
         this.paperdoll.clear();

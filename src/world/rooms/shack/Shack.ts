@@ -10,9 +10,10 @@ import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 import PressureTrigger from "../../../lib/ui/components/PressureTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Shack extends Phaser.Scene implements Room {
@@ -494,13 +495,17 @@ export default class Shack extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -533,7 +538,7 @@ export default class Shack extends Phaser.Scene implements Room {
             this.minelight.visible = false;
             this.sound.play('shack_lightoff');
         });
-        this.mine_btn.on('release', () => this.engine.movePlayer(1113.75, 472.5));
+        this.mine_btn.on('release', () => this.world.move(1113.75, 472.5));
 
         this.schooldoor_btn.on('over', () => {
             this.schooldoor.setFrame('shack/schooldoor0002');
@@ -543,10 +548,10 @@ export default class Shack extends Phaser.Scene implements Room {
             this.schooldoor.setFrame('shack/schooldoor0001');
             this.sound.play('shack_doorclose');
         });
-        this.schooldoor_btn.on('release', () => this.engine.movePlayer(540, 450));
+        this.schooldoor_btn.on('release', () => this.world.move(540, 450));
 
-        this.exit_btn.on('release', () => this.engine.movePlayer(101.25, 922.5));
-        this.dojoext_btn.on('release', () => this.engine.movePlayer(832.5, 360));
+        this.exit_btn.on('release', () => this.world.move(101.25, 922.5));
+        this.dojoext_btn.on('release', () => this.world.move(832.5, 360));
 
         this.flag.play('shack-flag-animation');
 
@@ -580,7 +585,7 @@ export default class Shack extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('shack-pack');
+        engine.app.unloadAssetPack('shack-pack');
     }
 
     /* END-USER-CODE */

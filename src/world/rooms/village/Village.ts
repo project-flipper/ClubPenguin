@@ -9,9 +9,10 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Village extends Phaser.Scene implements Room {
@@ -259,13 +260,17 @@ export default class Village extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -290,7 +295,7 @@ export default class Village extends Phaser.Scene implements Room {
             this.lodge_door.setFrame('village/lodge_door0001');
             this.sound.play('village_doorclose');
         });
-        this.lodge_btn.on('release', () => this.engine.movePlayer(1181.25, 506.25));
+        this.lodge_btn.on('release', () => this.world.move(1181.25, 506.25));
 
         this.epf_btn.on('over', () => {
             this.epf_door.setFrame('village/epf_door0002');
@@ -300,7 +305,7 @@ export default class Village extends Phaser.Scene implements Room {
             this.epf_door.setFrame('village/epf_door0001');
             this.sound.play('village_doorclose1');
         });
-        this.epf_btn.on('release', () => this.engine.movePlayer(1485, 585));
+        this.epf_btn.on('release', () => this.world.move(1485, 585));
 
         this.game.locale.register(this.localize, this);
 
@@ -327,7 +332,7 @@ export default class Village extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('village-pack');
+        engine.app.unloadAssetPack('village-pack');
     }
 
     /* END-USER-CODE */

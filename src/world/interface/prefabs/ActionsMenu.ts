@@ -7,7 +7,8 @@ import Phaser from "phaser";
 import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import type Engine from "../../engine/Engine";
+import { Engine } from "../../engine/engine";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class ActionsMenu extends Phaser.GameObjects.Container {
@@ -106,38 +107,32 @@ export default class ActionsMenu extends Phaser.GameObjects.Container {
         /* START-USER-CTR-CODE */
 
         this.actionDance.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionDance();
+            this.world.dance();
             this.visible = false;
         });
 
         this.actionWave.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionWave();
+            this.world.wave();
             this.visible = false;
         });
 
         this.actionSitUpLeft.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionSitUpLeft();
+            this.world.sitUpLeft();
             this.visible = false;
         });
 
         this.actionSitUpRight.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionSitUpRight();
+            this.world.sitUpRight();
             this.visible = false;
         });
 
         this.actionSitDownLeft.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionSitDownLeft();
+            this.world.sitDownLeft();
             this.visible = false;
         });
 
         this.actionSitDownRight.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionSitDownRight();
+            this.world.sitDownRight();
             this.visible = false;
         });
 
@@ -154,7 +149,9 @@ export default class ActionsMenu extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    // Write your code here.
+    get world(): World{
+        return this.scene.scene.get('World') as World;
+    }
 
     /* END-USER-CODE */
 }

@@ -1,14 +1,15 @@
 import Phaser from "phaser";
-import EventEmitter from "eventemitter3";
-import { App } from "../../app/app";
-import { GameConfig } from "../../app/config";
-import Interface from "../interface/Interface";
-import Engine, { Game } from "./Engine";
-import { HybridBridge, type BridgeMessage } from "./hybridBridge";
+
+import { App } from "@clubpenguin/app/app";
+import { GameConfig } from "@clubpenguin/app/config";
+import { Locale } from "@clubpenguin/app/locale";
+import Load from '@clubpenguin/load/Load';
+import { PromiseTask } from "@clubpenguin/load/tasks";
+import { Engine, Game } from "@clubpenguin/world/engine/engine";
+import Interface from "@clubpenguin/world/interface/Interface";
+import { HybridBridge } from "./hybridBridge";
 import { RufflePlayer } from "./ruffle";
-import type Load from '../../load/Load';
-import { Locale } from "../../app/locale";
-import { DonePayload, PromiseTask } from "../../load/tasks";
+import World from "@clubpenguin/world/World";
 
 interface HybridContainer extends Phaser.GameObjects.DOMElement {
     node: RufflePlayer;
@@ -57,13 +58,17 @@ export class HybridGame extends Phaser.Scene implements Game {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return this.scene.get('World') as World;
+    }
+
     get engine(): Engine {
-        return this.scene.get('Engine') as Engine;
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -73,7 +78,7 @@ export class HybridGame extends Phaser.Scene implements Game {
     public gameData: GameConfig;
 
     async create(data: any): Promise<void> {
-        let penguinData = this.engine.world.myPenguinData;
+        let penguinData = this.world.myPenguinData;
         let colorHex = this.game.gameConfig.player_colors;
 
         await this.play(`${this.load.baseURL}assets/world/games/loader.swf?v=${this.game.minigameVersion}`, this.asFlashVars({
@@ -186,17 +191,17 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     startMusicById(musicId?: number): void {
-        this.engine.playMusic(musicId);
+        this.engine.music.playMusic(musicId);
     }
 
     startGameMusic(): void {
-        if (this.gameData.music_id && this.engine.currentMusicId != this.gameData.music_id) this.engine.playMusic(this.gameData.music_id);
-        else if (!this.gameData.music_id) this.engine.stopMusic();
+        if (this.gameData.music_id && this.engine.music.currentMusicId != this.gameData.music_id) this.engine.music.playMusic(this.gameData.music_id);
+        else if (!this.gameData.music_id) this.engine.music.stopMusic();
 
     }
 
     stopGameMusic(): void {
-        this.engine.stopMusic();
+        this.engine.music.stopMusic();
     }
 
     hideLoading(): void {

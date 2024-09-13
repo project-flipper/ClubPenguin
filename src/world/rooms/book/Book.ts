@@ -11,9 +11,10 @@ import MancalaBoard from "./prefabs/MancalaBoard";
 import PressureTrigger from "../../../lib/ui/components/PressureTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Book extends Phaser.Scene implements Room {
@@ -454,13 +455,17 @@ export default class Book extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -479,7 +484,7 @@ export default class Book extends Phaser.Scene implements Room {
             this.sound.play('book_lightoff');
             this.stairslight.visible = false;
         });
-        this.stairsbutton.on('release', () => this.engine.movePlayer(1419.75, 463.5));
+        this.stairsbutton.on('release', () => this.world.move(1419.75, 463.5));
 
         this.artshowcasebutton.on('over', () => this.artshowcase.setFrame('book/artshowcase0002'));
         this.artshowcasebutton.on('out', () => this.artshowcase.setFrame('book/artshowcase0001'));
@@ -534,7 +539,7 @@ export default class Book extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('book-pack');
+        engine.app.unloadAssetPack('book-pack');
     }
 
     /* END-USER-CODE */

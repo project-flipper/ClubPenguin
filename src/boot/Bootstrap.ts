@@ -5,13 +5,14 @@ import InputBlocker from "../lib/ui/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import type { App } from '@clubpenguin/app/app';
-import type ErrorArea from "@clubpenguin/app/ErrorArea";
-import type InternalErrorArea from "@clubpenguin/app/InternalErrorArea";
-import { Language } from "@clubpenguin/app/locale";
-import type Load from '@clubpenguin/load/Load';
-import { LoaderTask } from '@clubpenguin/load/tasks';
 import TabId from "is-tab-duplicated";
+
+import { App } from '@clubpenguin/app/app';
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import InternalErrorArea from "@clubpenguin/app/InternalErrorArea";
+import { Language } from "@clubpenguin/app/locale";
+import Load from '@clubpenguin/load/Load';
+import { LoaderTask } from '@clubpenguin/load/tasks';
 /* END-USER-IMPORTS */
 
 export default class Bootstrap extends Phaser.Scene {

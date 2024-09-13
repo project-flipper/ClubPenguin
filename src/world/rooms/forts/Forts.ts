@@ -11,9 +11,10 @@ import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Forts extends Phaser.Scene implements Room {
@@ -315,13 +316,17 @@ export default class Forts extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -355,9 +360,9 @@ export default class Forts extends Phaser.Scene implements Room {
             }
         });
 
-        this.town_btn.on('release', () => this.engine.movePlayer(180, 562.5));
-        this.rink_btn.on('release', () => this.engine.movePlayer(551.25, 450));
-        this.plaza_btn.on('release', () => this.engine.movePlayer(1541.25, 506.25));
+        this.town_btn.on('release', () => this.world.move(180, 562.5));
+        this.rink_btn.on('release', () => this.world.move(551.25, 450));
+        this.plaza_btn.on('release', () => this.world.move(1541.25, 506.25));
 
         SnowballTrigger.getComponent(this.snowball_target).execute = (_engine, _penguin, snowball) => {
             snowball.destroy(true);
@@ -378,7 +383,7 @@ export default class Forts extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('forts-pack');
+        engine.app.unloadAssetPack('forts-pack');
     }
 
     /* END-USER-CODE */

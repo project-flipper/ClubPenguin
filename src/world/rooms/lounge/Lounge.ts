@@ -13,9 +13,10 @@ import Trigger from "../../../lib/ui/components/Trigger";
 import SnowballTrigger from "../../../lib/ui/components/SnowballTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Lounge extends Phaser.Scene implements Room {
@@ -612,13 +613,17 @@ export default class Lounge extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -641,14 +646,14 @@ export default class Lounge extends Phaser.Scene implements Room {
 
         this.bitsscreen.play('lounge-bits-animation');
 
-        this.chairbutton11.on('release', () => this.engine.movePlayer(371.25, 810));
-        this.chairbutton12.on('release', () => this.engine.movePlayer(450, 945));
-        this.chairbutton13.on('release', () => this.engine.movePlayer(225, 990));
-        this.chairbutton14.on('release', () => this.engine.movePlayer(180, 855));
-        this.chairbutton21.on('release', () => this.engine.movePlayer(1338.75, 810));
-        this.chairbutton22.on('release', () => this.engine.movePlayer(1518.75, 855));
-        this.chairbutton23.on('release', () => this.engine.movePlayer(1485, 990));
-        this.chairbutton24.on('release', () => this.engine.movePlayer(1260, 945));
+        this.chairbutton11.on('release', () => this.world.move(371.25, 810));
+        this.chairbutton12.on('release', () => this.world.move(450, 945));
+        this.chairbutton13.on('release', () => this.world.move(225, 990));
+        this.chairbutton14.on('release', () => this.world.move(180, 855));
+        this.chairbutton21.on('release', () => this.world.move(1338.75, 810));
+        this.chairbutton22.on('release', () => this.world.move(1518.75, 855));
+        this.chairbutton23.on('release', () => this.world.move(1485, 990));
+        this.chairbutton24.on('release', () => this.world.move(1260, 945));
 
         this.bitsbutton.on('over', () => {
             this.bitsscreen.stop();
@@ -661,7 +666,7 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.bitslight.setFrame('lounge/bits_lightoff');
             this.interface.hideHint();
         })
-        this.bitsbutton.on('release', () => this.engine.movePlayer(360, 551.25));
+        this.bitsbutton.on('release', () => this.world.move(360, 551.25));
 
         this.thinicescreen.play('lounge-thinice-animation');
 
@@ -676,7 +681,7 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.thinicelight.setFrame('lounge/thinice_lightoff');
             this.interface.hideHint();
         })
-        this.thinicebutton.on('release', () => this.engine.movePlayer(1237.5, 427.5));
+        this.thinicebutton.on('release', () => this.world.move(1237.5, 427.5));
 
         this.astroscreen.play('lounge-astro-animation');
 
@@ -691,7 +696,7 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.astrolight.setFrame('lounge/astro_lightoff');
             this.interface.hideHint();
         })
-        this.astrobutton.on('release', () => this.engine.movePlayer(1338.75, 517.5));
+        this.astrobutton.on('release', () => this.world.move(1338.75, 517.5));
 
         this.game.locale.register(this.localize, this);
 
@@ -700,21 +705,21 @@ export default class Lounge extends Phaser.Scene implements Room {
         Trigger.getComponent(this.thinice_trigger).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('thinice_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['thinice'], {});
+                this.world.startGame('thinice', {});
             }, () => { });
         }
 
         Trigger.getComponent(this.astro_trigger).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('astro_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['astro'], {});
+                this.world.startGame('astro', {});
             }, () => { });
         }
 
         Trigger.getComponent(this.bits_trigger).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('bitsandbolts_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['bitsandbolts'], {});
+                this.world.startGame('bitsandbolts', {});
             }, () => { });
         }
 
@@ -735,8 +740,8 @@ export default class Lounge extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('lounge-pack');
-        this.screen.unload(engine.game);
+        engine.app.unloadAssetPack('lounge-pack');
+        this.screen.unload(engine.app);
     }
 
     /* END-USER-CODE */

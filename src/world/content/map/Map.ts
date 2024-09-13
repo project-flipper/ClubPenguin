@@ -15,10 +15,10 @@ import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import Navigation from "./prefabs/Navigation";
 /* START-USER-IMPORTS */
-import { App } from "../../../app/app";
-import Engine from "../../engine/Engine";
-import Interface, { Content } from "../../interface/Interface";
-import { Locale } from "../../../app/locale";
+import { App } from "@clubpenguin/app/app";
+import { Locale } from "@clubpenguin/app/locale";
+import Interface, { Content } from "@clubpenguin/world/interface/Interface";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Map extends Phaser.Scene implements Content {
@@ -1136,8 +1136,8 @@ export default class Map extends Phaser.Scene implements Content {
         if (data.oninit) data.oninit(this);
     }
 
-    get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+    get world(): World {
+        return (this.scene.get('World') as World);
     }
 
     get interface(): Interface {
@@ -1354,7 +1354,7 @@ export default class Map extends Phaser.Scene implements Content {
             button.on('out', () => this.interface.hideHint());
         }
         if (roomId) button.on('release', () => {
-            if (this.engine.currentRoomId.toString() != roomId) this.engine.joinRoom(this.game.gameConfig.rooms[roomId]);
+            if (this.world.currentRoomId.toString() != roomId) this.world.joinRoom(roomId);
             else this.interface.safeCloseContent();
             this.interface.hideHint();
         });

@@ -10,9 +10,10 @@ import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 import Trigger from "../../../lib/ui/components/Trigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Dance extends Phaser.Scene implements Room {
@@ -631,13 +632,17 @@ export default class Dance extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -665,11 +670,11 @@ export default class Dance extends Phaser.Scene implements Room {
             this.door.anims.stop();
             this.door.setFrame('dance/dooropen0001');
         });
-        this.doorbehind.on('release', () => this.engine.movePlayer(247.5, 551.25));
+        this.doorbehind.on('release', () => this.world.move(247.5, 551.25));
 
         this.stairs.on('over', () => this.sound.play('dance_lighton'));
         this.stairs.on('out', () => this.sound.play('dance_lightoff'));
-        this.stairs.on('release', () => this.engine.movePlayer(1518.75, 573.75));
+        this.stairs.on('release', () => this.world.move(1518.75, 573.75));
 
         this.disksButton.on('over', () => {
             this.diskbox.visible = true;
@@ -693,9 +698,9 @@ export default class Dance extends Phaser.Scene implements Room {
             this.boilerspeakercone.visible = true;
             this.boilerspeaker.setFrame('dance/boilerspeaker0001');
         });
-        this.boilerButton.on('release', () => this.engine.movePlayer(1136.25, 427.5));
+        this.boilerButton.on('release', () => this.world.move(1136.25, 427.5));
 
-        this.contesthitbox.on('release', () => this.engine.movePlayer(1226.25, 495));
+        this.contesthitbox.on('release', () => this.world.move(1226.25, 495));
 
         this.dj3k.on('over', () => {
             this.mix.setFrame('dance/mix0002');
@@ -753,7 +758,7 @@ export default class Dance extends Phaser.Scene implements Room {
 
             this.interface.hideHint();
         });
-        this.dj3k.on('release', () => this.engine.movePlayer(787.5, 371.25));
+        this.dj3k.on('release', () => this.world.move(787.5, 371.25));
 
         this.pufflehitbox.on('over', () => {
             this.puffle.anims.chain();
@@ -765,14 +770,14 @@ export default class Dance extends Phaser.Scene implements Room {
         Trigger.getComponent(this.mix_trigger).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('mixmaster_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['mixmaster'], {});
+                this.world.startGame('mixmaster', {});
             }, () => { });
         }
 
         Trigger.getComponent(this.dancing_trigger).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('dancing_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['dancing'], {});
+                this.world.startGame('dancing', {});
             }, () => { });
         }
 
@@ -803,7 +808,7 @@ export default class Dance extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('dance-pack');
+        engine.app.unloadAssetPack('dance-pack');
     }
 
     /* END-USER-CODE */

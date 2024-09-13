@@ -9,9 +9,10 @@ import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Plaza extends Phaser.Scene implements Room {
@@ -410,13 +411,17 @@ export default class Plaza extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -427,7 +432,7 @@ export default class Plaza extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.forts_btn.on('release', () => this.engine.movePlayer(101.25, 641.25));
+        this.forts_btn.on('release', () => this.world.move(101.25, 641.25));
 
         this.petdoor_btn.on('over', () => {
             this.petdoor.setFrame('plaza/petdoor0002');
@@ -437,7 +442,7 @@ export default class Plaza extends Phaser.Scene implements Room {
             this.petdoor.setFrame('plaza/petdoor0001');
             this.sound.play('plaza_doorclose');
         });
-        this.petdoor_btn.on('release', () => this.engine.movePlayer(360, 540));
+        this.petdoor_btn.on('release', () => this.world.move(360, 540));
 
         this.manhole_btn.on('over', () => {
             this.manhole.play('plaza-manholeopen-animation');
@@ -447,7 +452,7 @@ export default class Plaza extends Phaser.Scene implements Room {
             this.manhole.play('plaza-manholeclose-animation');
             this.sound.play('plaza_manholeclose');
         });
-        this.manhole_btn.on('release', () => this.engine.movePlayer(517.5, 630))
+        this.manhole_btn.on('release', () => this.world.move(517.5, 630))
 
         this.hoteldoor_btn.on('over', () => {
             this.hoteldoor.setFrame('plaza/hoteldoor0002');
@@ -457,7 +462,7 @@ export default class Plaza extends Phaser.Scene implements Room {
             this.hoteldoor.setFrame('plaza/hoteldoor0001');
             this.sound.play('plaza_doorclose1');
         });
-        this.hoteldoor_btn.on('release', () => this.engine.movePlayer(652.5, 540));
+        this.hoteldoor_btn.on('release', () => this.world.move(652.5, 540));
 
         this.stagedoor1_btn.on('over', () => {
             this.stagedoor1.setFrame('plaza/stagedoor10002');
@@ -467,9 +472,9 @@ export default class Plaza extends Phaser.Scene implements Room {
             this.stagedoor1.setFrame('plaza/stagedoor10001');
             this.sound.play('plaza_doorclose2');
         });
-        this.stagedoor1_btn.on('release', () => this.engine.movePlayer(855, 506.25));
+        this.stagedoor1_btn.on('release', () => this.world.move(855, 506.25));
 
-        this.tickets_btn.on('release', () => this.engine.movePlayer(967.5, 472.5));
+        this.tickets_btn.on('release', () => this.world.move(967.5, 472.5));
 
         this.stagedoor2_btn.on('over', () => {
             this.stagedoor2.setFrame('plaza/stagedoor20002');
@@ -479,7 +484,7 @@ export default class Plaza extends Phaser.Scene implements Room {
             this.stagedoor2.setFrame('plaza/stagedoor20001');
             this.sound.play('plaza_doorclose2');
         });
-        this.stagedoor2_btn.on('release', () => this.engine.movePlayer(1080, 506.25));
+        this.stagedoor2_btn.on('release', () => this.world.move(1080, 506.25));
 
         this.pizzadoor_btn.on('over', () => {
             this.pizzadoor.setFrame('plaza/pizzadoor0002');
@@ -489,9 +494,9 @@ export default class Plaza extends Phaser.Scene implements Room {
             this.pizzadoor.setFrame('plaza/pizzadoor0001');
             this.sound.play('plaza_doorclose3');
         });
-        this.pizzadoor_btn.on('release', () => this.engine.movePlayer(1327.5, 540));
+        this.pizzadoor_btn.on('release', () => this.world.move(1327.5, 540));
 
-        this.forest_btn.on('release', () => this.engine.movePlayer(1586.25, 630));
+        this.forest_btn.on('release', () => this.world.move(1586.25, 630));
 
         this.canon_btn.on('over', () => {
             this.canon.play('plaza-canon-animation');
@@ -514,7 +519,7 @@ export default class Plaza extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('plaza-pack');
+        engine.app.unloadAssetPack('plaza-pack');
     }
 
     /* END-USER-CODE */

@@ -6,7 +6,7 @@
 import Phaser from "phaser";
 import SnowballTrigger from "../../../../lib/ui/components/SnowballTrigger";
 /* START-USER-IMPORTS */
-import type Lounge from "../Lounge";
+import Lounge from "../Lounge";
 /* END-USER-IMPORTS */
 
 export default class SmallTarget extends Phaser.GameObjects.Container {

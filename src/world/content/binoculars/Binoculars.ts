@@ -7,9 +7,9 @@ import Phaser from "phaser";
 import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import { App } from "../../../app/app";
-import Engine from "../../engine/Engine";
-import Interface, { Content } from "../../interface/Interface";
+import { App } from "@clubpenguin/app/app";
+import Interface, { Content } from "@clubpenguin/world/interface/Interface";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Binoculars extends Phaser.Scene implements Content {
@@ -275,8 +275,8 @@ export default class Binoculars extends Phaser.Scene implements Content {
         if (data.oninit) data.oninit(this);
     }
 
-    get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+    get world(): World {
+        return (this.scene.get('World') as World);
     }
 
     get interface(): Interface {

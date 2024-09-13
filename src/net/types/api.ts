@@ -1,5 +1,5 @@
 import { WorldData } from "./login/world";
-import { MyPenguinData, PenguinData } from "./penguin/penguin";
+import { MyUserData, UserData } from "./penguin/penguin";
 
 export type ApiError = {
     error_type: string,
@@ -32,8 +32,8 @@ export type CreateAccountResponse = ApiResponse<{
     validation_errors: []
 }>;
 
-export type MyUserResponse = ApiResponse<MyPenguinData>;
+export type MyUserResponse = ApiResponse<MyUserData>;
 
-export type FriendsResponse = ApiResponse<PenguinData[]>;
+export type FriendsResponse = ApiResponse<UserData[]>;
 
-export type UserResponse = ApiResponse<PenguinData>;
+export type UserResponse = ApiResponse<UserData>;

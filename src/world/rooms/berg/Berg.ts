@@ -8,9 +8,10 @@ import Aqua from "./prefabs/Aqua";
 import Trigger from "../../../lib/ui/components/Trigger";
 /* START-USER-IMPORTS */
 import { App } from "../../../app/app";
-import Engine, { Room } from "../../engine/Engine";
+import { Engine,  Room } from "../../engine/engine";
 import Interface from "../../interface/Interface";
 import { Locale } from "../../../app/locale";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Berg extends Phaser.Scene implements Room {
@@ -80,13 +81,17 @@ export default class Berg extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Engine');
+        this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
     }
 
+    get world(): World {
+        return (this.scene.get('World') as World);
+    }
+
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     get interface(): Interface {
@@ -112,7 +117,7 @@ export default class Berg extends Phaser.Scene implements Room {
         Trigger.getComponent(this.aqua_mc).execute = (engine, penguin) => {
             if (engine.player != penguin) return;
             this.interface.promptQuestion.showLocalized('aqua_prompt', () => {
-                this.engine.startGame(engine.game.gameConfig.games['aqua'], {});
+                this.world.startGame('aqua', {});
             }, () => { });
         }
 
@@ -126,8 +131,8 @@ export default class Berg extends Phaser.Scene implements Room {
     }
 
     unload(engine: Engine): void {
-        this.game.locale.unregister(this.localize);
-        engine.game.unloadAssetPack('berg-pack');
+        engine.app.locale.unregister(this.localize);
+        engine.app.unloadAssetPack('berg-pack');
     }
 
     /* END-USER-CODE */
