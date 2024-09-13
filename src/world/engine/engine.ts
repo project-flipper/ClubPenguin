@@ -202,7 +202,7 @@ export class Engine extends EventEmitter {
         } catch (e) {
             if (this.currentRoom == undefined && this.previousRoomId) {
                 try {
-                    await this.joinRoom(this.app.gameConfig.rooms[this.previousRoomId.toString()], this.previousPlayerX, this.previousPlayerY);
+                    await this.world.joinRoom(this.previousRoomId.toString(), this.previousPlayerX, this.previousPlayerY);
                 } catch (ne) {
                     console.error('Failed to go back to previous room.', e, ne);
                 }
@@ -320,7 +320,7 @@ export class Engine extends EventEmitter {
         } catch (e) {
             if (this.currentRoom == undefined && this.previousRoomId) {
                 try {
-                    await this.joinRoom(this.app.gameConfig.rooms[this.previousRoomId.toString()], this.previousPlayerX, this.previousPlayerY);
+                    await this.world.joinRoom(this.previousRoomId.toString(), this.previousPlayerX, this.previousPlayerY);
                 } catch (ne) {
                     console.error('Failed to go back to previous room.', e, ne);
                 }
@@ -369,7 +369,7 @@ export class Engine extends EventEmitter {
         } else if (this.previousRoomId) {
             console.log('restoring room');
             try {
-                await this.joinRoom(this.app.gameConfig.rooms[this.previousRoomId.toString()], this.previousPlayerX, this.previousPlayerY);
+                await this.world.joinRoom(this.previousRoomId.toString(), this.previousPlayerX, this.previousPlayerY);
             } catch (e) {
                 console.error('Failed to go back to previous room.', e);
             }
