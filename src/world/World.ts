@@ -226,7 +226,7 @@ export default class World extends Phaser.Scene {
 
         if (roomData) {
             // TODO: Request
-            this.engine.joinRoom(roomData, x, y);
+            await this.engine.joinRoom(roomData, x, y);
         } 
     }
 
@@ -235,7 +235,7 @@ export default class World extends Phaser.Scene {
 
         if (gameData) {
             // TODO: Request
-            this.engine.startGame(gameData, options);
+            await this.engine.startGame(gameData, options);
         }
     }
 

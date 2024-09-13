@@ -12,6 +12,10 @@ export class SnowballManager {
 
     constructor(engine: Engine) {
         this.engine = engine;
+
+        this.reset();
+
+        this.engine.on('room:unload', () => this.reset());
     }
 
     get world(): World {
@@ -93,4 +97,7 @@ export class SnowballManager {
         }
     }
 
+    reset(): void {
+        this.snowballs = [];
+    }
 }

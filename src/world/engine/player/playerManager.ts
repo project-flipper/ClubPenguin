@@ -21,6 +21,10 @@ export class PlayerManager {
 
         this.avatars = {};
         this.players = {};
+
+        this.engine.on('room:unload', () => {
+            this.players = {};
+        });
     }
 
     get world(): World {
@@ -117,6 +121,7 @@ export class PlayerManager {
 
     setupPlayer(player: Player, data: UserData | MyUserData): void {
         player.createAnimations(this.engine);
+        player.actions.reset();
 
         let tintFill = this.app.gameConfig.player_colors[String(data.avatar.color)];
         player.body_art.setTintFill(Number(tintFill));

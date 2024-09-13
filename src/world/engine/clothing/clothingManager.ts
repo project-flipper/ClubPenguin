@@ -27,11 +27,8 @@ export class ClothingManager {
     constructor(engine: Engine) {
         this.engine = engine;
 
-        this.engine.on('player:add', async (player: Player) => {
-            if (player.attachClothing) {
-                await this.loadClothingSprites(player, player.penguinData.avatar);
-                this.engine.emit('player:clothing:load', player);
-            }
+        this.engine.on('player:add', (player: Player) => {
+            if (player.attachClothing) this.loadClothingSprites(player, player.penguinData.avatar);
         });
     }
 
@@ -56,7 +53,7 @@ export class ClothingManager {
         this.world.load.start();
         let sprites = await promise;
 
-        this.engine.emit('');
+        this.engine.emit('player:clothing:load', player);
 
         return sprites;
     }
