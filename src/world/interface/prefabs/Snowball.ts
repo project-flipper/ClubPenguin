@@ -37,7 +37,7 @@ export default class Snowball extends Phaser.GameObjects.Container {
     /* START-USER-CODE */
 
     get world(): World {
-        return this.scene.scene.get('World') as World;
+        return this.scene.game.scene.getScene('World') as World;
     }
 
     public speed = 800;
