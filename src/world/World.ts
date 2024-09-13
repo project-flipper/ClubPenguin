@@ -217,10 +217,6 @@ export default class World extends Phaser.Scene {
 
     /* ========= ENGINE ========= */
 
-    get currentRoomId(): number {
-        return this.engine.currentRoomId;
-    }
-
     async joinRoom(roomId: string, x?: number, y?: number): Promise<void> {
         let roomData = this.game.gameConfig.rooms[roomId];
 
