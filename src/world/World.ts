@@ -97,7 +97,7 @@ export default class World extends Phaser.Scene {
 
         await load.waitAllTasksComplete();
 
-        let friendList = await this.game.airtower.getMyFriends();
+        let friendList = await this.game.airtower.getFriends();
         let friends = friendList.data.filter(penguin => penguin.mascotId == undefined);
         let characters = friendList.data.filter(penguin => penguin.mascotId != undefined).map(penguin => penguin.id);
 

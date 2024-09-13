@@ -361,10 +361,10 @@ export class Airtower extends Phaser.Events.EventEmitter {
     /* ============ FRIENDS ============ */
 
     /**
-     * Queries the API for our current friends list.
+     * Queries the API for the current friends list.
      * @returns The response from the API
      */
-    async getMyFriends(): Promise<FriendsResponse> {
+    async getFriends(): Promise<FriendsResponse> {
         return await this.request<FriendsResponse>(new Route('GET', '/friends/'), {});
     }
 }
