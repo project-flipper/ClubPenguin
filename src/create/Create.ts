@@ -19,7 +19,7 @@ import { Locale } from "@clubpenguin/app/locale";
 import ColorSwatch from '@clubpenguin/create/prefabs/ColorSwatch';
 import Load from '@clubpenguin/load/Load';
 import { LoaderTask } from '@clubpenguin/load/tasks';
-import { CreateAccountPayload } from '@clubpenguin/net/types/account/createAccount';
+import { CreateUserForm } from '@clubpenguin/net/types/api';
 /* END-USER-IMPORTS */
 
 export default class Create extends Phaser.Scene {
@@ -638,7 +638,7 @@ export default class Create extends Phaser.Scene {
         this.emailArea.textField.locked = false;
     }
 
-    async getFormData(token: string): Promise<CreateAccountPayload> {
+    async getFormData(token: string): Promise<CreateUserForm> {
         return {
             name: this.chooseNameArea.textField.value,
             color: this.colorSelector.selected.colorId,

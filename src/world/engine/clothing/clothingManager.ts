@@ -1,6 +1,6 @@
 import { App } from "@clubpenguin/app/app";
 import { PaperItemConfig } from "@clubpenguin/app/config";
-import { Avatar } from "@clubpenguin/net/types/penguin/avatar";
+import { Avatar } from "@clubpenguin/net/types/avatar";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 import { Engine } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";

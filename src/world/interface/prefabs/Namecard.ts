@@ -11,7 +11,7 @@ import MemberBadge from "./MemberBadge";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
-import { UserData } from "../../../net/types/penguin/penguin";
+import { UserData } from "../../../net/types/user";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 

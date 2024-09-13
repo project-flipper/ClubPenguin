@@ -27,7 +27,7 @@ import PromptInput from "./prefabs/PromptInput";
 import PromptError from "./prefabs/PromptError";
 import Hint from "./prefabs/Hint";
 /* START-USER-IMPORTS */
-import { UserData } from "../../net/types/penguin/penguin";
+import { UserData } from "../../net/types/user";
 import { Player } from "../engine/player/avatar";
 import AvatarOverlay from "./prefabs/AvatarOverlay";
 import World from "../World";
@@ -37,7 +37,7 @@ import { App } from "../../app/app";
 import Load from "../../load/Load";
 import { LoaderTask } from "../../load/tasks";
 import ErrorArea from "../../app/ErrorArea";
-import { Emoji } from "../../net/types/chat/emoji";
+import { Emoji } from "../../net/types/emoji";
 import { GameConfig } from "../../app/config";
 /* END-USER-IMPORTS */
 

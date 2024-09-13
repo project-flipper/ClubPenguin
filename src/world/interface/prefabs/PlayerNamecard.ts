@@ -11,7 +11,7 @@ import TextBox from "../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
-import { MyUserData } from "../../../net/types/penguin/penguin";
+import { MyUserData } from "../../../net/types/user";
 import { Locale } from "../../../app/locale";
 /* END-USER-IMPORTS */
 

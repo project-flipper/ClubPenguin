@@ -8,7 +8,7 @@ import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
-import { Emoji } from "../../../net/types/chat/emoji";
+import { Emoji } from "../../../net/types/emoji";
 /* END-USER-IMPORTS */
 
 export default class EmoteMenu extends Phaser.GameObjects.Container {

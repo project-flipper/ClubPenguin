@@ -17,7 +17,7 @@ import Phaser from "phaser";
 import DepthEnabled from "./components/DepthEnabled";
 import ButtonComponent from "./components/ButtonComponent";
 /* START-USER-IMPORTS */
-import { Avatar } from "@clubpenguin/net/types/penguin/avatar";
+import { Avatar } from "@clubpenguin/net/types/avatar";
 import { App } from "@clubpenguin/app/app";
 import { PaperItemConfig } from "@clubpenguin/app/config";
 import { ItemType } from "@clubpenguin/world/engine/clothing/itemType";

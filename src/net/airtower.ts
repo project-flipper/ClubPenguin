@@ -1,8 +1,7 @@
 import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
-import { CreateAccountPayload } from "@clubpenguin/net/types/account/createAccount";
-import { ApiResponse, CreateAccountResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse } from "@clubpenguin/net/types/api";
+import { ApiResponse, CreateUserResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse, CreateUserForm } from "@clubpenguin/net/types/api";
 
 /**
  * The base error used by Airtower.
@@ -326,7 +325,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
      * @param payload The form to submit to create a new account.
      * @returns The response from the API.
      */
-    async createAccount(payload: CreateAccountPayload): Promise<CreateAccountResponse> {
+    async createAccount(payload: CreateUserForm): Promise<CreateUserResponse> {
         return await this.request(new Route('PUT', '/users/'), {
             json: payload
         });

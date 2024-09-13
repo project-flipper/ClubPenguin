@@ -2,8 +2,8 @@ import Phaser from 'phaser';
 
 import { App } from '@clubpenguin/app/app';
 import HandlerInit from '@clubpenguin/friends/legacy/legacy_handler';
-import { UserData } from '@clubpenguin/net/types/penguin/penguin';
-import { RelationshipType } from '@clubpenguin/net/types/penguin/relationship';
+import { UserData } from '@clubpenguin/net/types/user';
+import { RelationshipType } from '@clubpenguin/net/types/relationship';
 import Interface from '@clubpenguin/world/interface/Interface';
 import World from '@clubpenguin/world/World';
 

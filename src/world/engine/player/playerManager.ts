@@ -5,7 +5,7 @@ import PressureTrigger from "@clubpenguin/lib/ui/components/PressureTrigger";
 import RoomTrigger from "@clubpenguin/lib/ui/components/RoomTrigger";
 import Trigger from "@clubpenguin/lib/ui/components/Trigger";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { MyUserData, UserData } from "@clubpenguin/net/types/penguin/penguin";
+import { MyUserData, UserData } from "@clubpenguin/net/types/user";
 import { Avatar, AvatarCls, Player } from "@clubpenguin/world/engine/player/avatar";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";

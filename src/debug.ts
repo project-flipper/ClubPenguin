@@ -1,10 +1,10 @@
 import { App } from './app/app';
 import Config from './app/config';
 import { Airtower } from './net/airtower';
-import { Membership } from './net/types/penguin/membership';
-import { UserData } from './net/types/penguin/penguin';
-import { RelationshipType } from './net/types/penguin/relationship';
-import { Avatar as AvatarData } from './net/types/penguin/avatar';
+import { Membership } from './net/types/membership';
+import { UserData } from './net/types/user';
+import { RelationshipType } from './net/types/relationship';
+import { Avatar as AvatarData } from './net/types/avatar';
 import World from './world/World';
 import { Avatar } from './world/engine/player/avatar';
 import Interface from './world/interface/Interface';
