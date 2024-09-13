@@ -35,7 +35,7 @@ export class PlayerManager {
     async loadAvatar(key: string): Promise<AvatarCls> {
         if (key in this.avatars) return this.avatars[key];
 
-        let module = await import(/* webpackInclude: /\.ts$/ */`../avatar/${key}`);
+        let module = await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/avatar/${key}`);
         let avatar: AvatarCls = module.default;
 
         let load = this.engine.loadScreen;

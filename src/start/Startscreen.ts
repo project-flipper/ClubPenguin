@@ -228,7 +228,7 @@ export default class Startscreen extends Phaser.Scene {
         if (!load.isShowing) load.show();
 
         try {
-            let billboardCls = (await import('./billboard/Billboard')).default(this);
+            let billboardCls = (await import('@clubpenguin/start/billboard/Billboard')).default(this);
             let task = load.track(new LoaderTask(this.load));
             billboardCls.preload(this.load);
             this.load.start();

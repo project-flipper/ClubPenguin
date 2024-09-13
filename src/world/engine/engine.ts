@@ -117,7 +117,7 @@ export class Engine extends EventEmitter {
     async loadRoom(config: RoomConfig): Promise<void> {
         if (config.room_id == this.currentRoomId) return;
 
-        let room = (await import(/* webpackInclude: /\.ts$/ */`../rooms/${config.path}`)).default;
+        let room = (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/rooms/${config.path}`)).default;
 
         this.unloadRoom();
         this.unloadGame();
@@ -275,7 +275,7 @@ export class Engine extends EventEmitter {
         if (config.is_hybrid) {
             cls = new HybridGame(config);
         } else {
-            cls = (await import(/* webpackInclude: /\.ts$/ */`../games/${config.path}`)).default;
+            cls = (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/games/${config.path}`)).default;
         }
 
         if (!config.show_player_in_room) this.unloadRoom();

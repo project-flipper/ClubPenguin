@@ -67,7 +67,7 @@ export class Friends extends Phaser.Events.EventEmitter {
     async init(...params: Parameters<typeof HandlerInit>): Promise<void> {
         if (this.instance) return;
 
-        this.instance = (await import('./legacy/legacy_handler')).default(...params);
+        this.instance = (await import('@clubpenguin/friends/legacy/legacy_handler')).default(...params);
 
         this.on(FriendsEvents.CONNECTED, this.onConnected, this);
         this.on(FriendsEvents.DISCONNECTED, this.onDisconnected, this);
