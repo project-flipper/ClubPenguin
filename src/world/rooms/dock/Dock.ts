@@ -232,8 +232,8 @@ export default class Dock extends Phaser.Scene implements Room {
 
         // dock_catalogIcon (components)
         const dock_catalogIconButtonComponent = new ButtonComponent(dock_catalogIcon);
-        dock_catalogIconButtonComponent.upTexture = { "key": "dock", "frame": "dock/catalogIcon" };
-        dock_catalogIconButtonComponent.overTexture = { "key": "dock", "frame": "dock/catalogIconOver" };
+        dock_catalogIconButtonComponent.upTexture = {"key":"dock","frame":"dock/catalogIcon"};
+        dock_catalogIconButtonComponent.overTexture = {"key":"dock","frame":"dock/catalogIconOver"};
         dock_catalogIconButtonComponent.handCursor = true;
         dock_catalogIconButtonComponent.pixelPerfect = true;
         const dock_catalogIconDepthEnabled = new DepthEnabled(dock_catalogIcon);

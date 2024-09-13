@@ -42,7 +42,7 @@ export default class Village extends Phaser.Scene implements Room {
 
         // belt
         const belt = this.add.sprite(-207, 90, "village", "village/belt0001");
-        belt.angle = 28.4986;
+        belt.angle = 28.49860000000001;
         belt.setOrigin(0, 0);
 
         // cable

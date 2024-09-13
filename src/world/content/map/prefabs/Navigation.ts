@@ -172,9 +172,9 @@ export default class Navigation extends Phaser.GameObjects.Container {
 
         // hide_btn (components)
         const hide_btnButtonComponent = new ButtonComponent(hide_btn);
-        hide_btnButtonComponent.upTexture = { "key": "map", "frame": "map/hide_button0001" };
-        hide_btnButtonComponent.overTexture = { "key": "map", "frame": "map/hide_button0002" };
-        hide_btnButtonComponent.downTexture = { "key": "map", "frame": "map/hide_button0003" };
+        hide_btnButtonComponent.upTexture = {"key":"map","frame":"map/hide_button0001"};
+        hide_btnButtonComponent.overTexture = {"key":"map","frame":"map/hide_button0002"};
+        hide_btnButtonComponent.downTexture = {"key":"map","frame":"map/hide_button0003"};
         hide_btnButtonComponent.handCursor = true;
         hide_btnButtonComponent.pixelPerfect = true;
 

@@ -319,8 +319,8 @@ export default class Coffee extends Phaser.Scene implements Room {
 
         // door (components)
         const doorButtonComponent = new ButtonComponent(door);
-        doorButtonComponent.upTexture = { "key": "coffee", "frame": "coffee/door0001" };
-        doorButtonComponent.overTexture = { "key": "coffee", "frame": "coffee/door0002" };
+        doorButtonComponent.upTexture = {"key":"coffee","frame":"coffee/door0001"};
+        doorButtonComponent.overTexture = {"key":"coffee","frame":"coffee/door0002"};
         doorButtonComponent.handCursor = true;
         doorButtonComponent.pixelPerfect = true;
 

@@ -118,8 +118,8 @@ export default class Startscreen extends Phaser.Scene {
 
         // createAccountButton (components)
         const createAccountButtonButtonComponent = new ButtonComponent(createAccountButton);
-        createAccountButtonButtonComponent.upTexture = { "key": "start", "frame": "start-screen/mainButton" };
-        createAccountButtonButtonComponent.overTexture = { "key": "start", "frame": "start-screen/mainButtonHover" };
+        createAccountButtonButtonComponent.upTexture = {"key":"start","frame":"start-screen/mainButton"};
+        createAccountButtonButtonComponent.overTexture = {"key":"start","frame":"start-screen/mainButtonHover"};
         createAccountButtonButtonComponent.handCursor = true;
 
         // createPenguinTextBox (prefab fields)
@@ -130,8 +130,8 @@ export default class Startscreen extends Phaser.Scene {
 
         // loginButton (components)
         const loginButtonButtonComponent = new ButtonComponent(loginButton);
-        loginButtonButtonComponent.upTexture = { "key": "start", "frame": "start-screen/mainButton" };
-        loginButtonButtonComponent.overTexture = { "key": "start", "frame": "start-screen/mainButtonHover" };
+        loginButtonButtonComponent.upTexture = {"key":"start","frame":"start-screen/mainButton"};
+        loginButtonButtonComponent.overTexture = {"key":"start","frame":"start-screen/mainButtonHover"};
         loginButtonButtonComponent.handCursor = true;
 
         // loginTextBox (prefab fields)
@@ -146,8 +146,8 @@ export default class Startscreen extends Phaser.Scene {
 
         // memberButton (components)
         const memberButtonButtonComponent = new ButtonComponent(memberButton);
-        memberButtonButtonComponent.upTexture = { "key": "start", "frame": "start-screen/memberButton" };
-        memberButtonButtonComponent.overTexture = { "key": "start", "frame": "start-screen/memberButtonHover" };
+        memberButtonButtonComponent.upTexture = {"key":"start","frame":"start-screen/memberButton"};
+        memberButtonButtonComponent.overTexture = {"key":"start","frame":"start-screen/memberButtonHover"};
         memberButtonButtonComponent.handCursor = true;
 
         // membershipTextBox (prefab fields)

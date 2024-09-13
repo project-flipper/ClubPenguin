@@ -30,22 +30,19 @@
             "fillColor": "#000000",
             "fillAlpha": 0.4,
             "width": 1710,
-            "height": 1080,
-            "list": []
+            "height": 1080
         },
         {
             "type": "Container",
             "id": "0a843863-43fd-4fac-8ad2-704eac47bfc3",
             "label": "errorWindow",
             "scope": "PUBLIC",
-            "components": [],
             "list": [
                 {
                     "type": "NineSlice",
                     "id": "0f0e084b-14fa-445c-bc51-e19e4fee1350",
                     "label": "body",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "app",
                         "frame": "app/error"
@@ -58,8 +55,7 @@
                     "leftWidth": 46,
                     "rightWidth": 46,
                     "topHeight": 46,
-                    "bottomHeight": 46,
-                    "list": []
+                    "bottomHeight": 46
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -82,22 +78,18 @@
                     "boxHeight": 290.7,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 58.5,
                     "y": 18,
                     "text": " Error Message\n Error Message\n Error Message\n Error Message\n Error Message\n Error Message",
                     "font": "BurbankSmallMedium",
                     "align": 0,
-                    "fontSize": -36,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -36
                 },
                 {
                     "type": "Container",
                     "id": "5f3c0d5e-2934-4e33-9409-e0d351cf5363",
                     "label": "buttonContainer",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 216,
                     "y": 333,
                     "list": [
@@ -118,8 +110,7 @@
                                 "frame": "app/button"
                             },
                             "originX": 0,
-                            "originY": 0,
-                            "list": []
+                            "originY": 0
                         },
                         {
                             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -140,15 +131,12 @@
                             "boxWidth": 282.2625,
                             "boxHeight": 63,
                             "verticalAlign": 1,
-                            "components": [],
                             "x": 37.4625,
                             "y": 28.6875,
                             "text": "Ok",
                             "font": "BurbankSmallBold",
                             "align": 1,
-                            "fontSize": -45,
-                            "nestedPrefabs": [],
-                            "list": []
+                            "fontSize": -45
                         }
                     ]
                 },
@@ -178,7 +166,6 @@
                     "boxHeight": 38.7,
                     "horizontalAlign": 2,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 38.25,
                     "y": 427.5,
                     "tintTopLeft": "#983A02",
@@ -189,9 +176,7 @@
                     "text": "c0",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -22.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -22.5
                 }
             ]
         }
@@ -201,6 +186,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

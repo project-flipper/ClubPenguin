@@ -68,8 +68,8 @@ export default class WorldTile extends Phaser.GameObjects.Container {
 
         // tile (components)
         const tileButtonComponent = new ButtonComponent(tile);
-        tileButtonComponent.upTexture = { "key": "login", "frame": "login-screen/worldTile" };
-        tileButtonComponent.overTexture = { "key": "login", "frame": "login-screen/worldTileSelect" };
+        tileButtonComponent.upTexture = {"key":"login","frame":"login-screen/worldTile"};
+        tileButtonComponent.overTexture = {"key":"login","frame":"login-screen/worldTileSelect"};
         tileButtonComponent.handCursor = true;
         tileButtonComponent.pixelPerfect = true;
 

@@ -175,25 +175,25 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // moderatorEditButton (components)
         const moderatorEditButtonButtonComponent = new ButtonComponent(moderatorEditButton);
-        moderatorEditButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardModerator0001" };
-        moderatorEditButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardModerator0002" };
-        moderatorEditButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardModerator0003" };
+        moderatorEditButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardModerator0001"};
+        moderatorEditButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardModerator0002"};
+        moderatorEditButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardModerator0003"};
         moderatorEditButtonButtonComponent.handCursor = true;
         moderatorEditButtonButtonComponent.pixelPerfect = true;
 
         // closeButton (components)
         const closeButtonButtonComponent = new ButtonComponent(closeButton);
-        closeButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardClose0001" };
-        closeButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardClose0002" };
-        closeButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardClose0003" };
+        closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardClose0001"};
+        closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardClose0002"};
+        closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardClose0003"};
         closeButtonButtonComponent.handCursor = true;
         closeButtonButtonComponent.pixelPerfect = true;
 
         // friendButton (components)
         const friendButtonButtonComponent = new ButtonComponent(friendButton);
-        friendButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardButton0001" };
-        friendButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardButton0002" };
-        friendButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardButton0003" };
+        friendButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
+        friendButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
+        friendButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
         friendButtonButtonComponent.handCursor = true;
         friendButtonButtonComponent.pixelPerfect = true;
 
@@ -202,9 +202,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // locateButton (components)
         const locateButtonButtonComponent = new ButtonComponent(locateButton);
-        locateButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardButton0001" };
-        locateButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardButton0002" };
-        locateButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardButton0003" };
+        locateButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
+        locateButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
+        locateButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
         locateButtonButtonComponent.handCursor = true;
         locateButtonButtonComponent.pixelPerfect = true;
 
@@ -213,9 +213,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // iglooButton (components)
         const iglooButtonButtonComponent = new ButtonComponent(iglooButton);
-        iglooButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardButton0001" };
-        iglooButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardButton0002" };
-        iglooButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardButton0003" };
+        iglooButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
+        iglooButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
+        iglooButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
         iglooButtonButtonComponent.handCursor = true;
         iglooButtonButtonComponent.pixelPerfect = true;
 
@@ -224,9 +224,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // mailButton (components)
         const mailButtonButtonComponent = new ButtonComponent(mailButton);
-        mailButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardButton0001" };
-        mailButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardButton0002" };
-        mailButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardButton0003" };
+        mailButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
+        mailButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
+        mailButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
         mailButtonButtonComponent.handCursor = true;
         mailButtonButtonComponent.pixelPerfect = true;
 
@@ -235,9 +235,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // stampbookButton (components)
         const stampbookButtonButtonComponent = new ButtonComponent(stampbookButton);
-        stampbookButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardButton0001" };
-        stampbookButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardButton0002" };
-        stampbookButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardButton0003" };
+        stampbookButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
+        stampbookButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
+        stampbookButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
         stampbookButtonButtonComponent.handCursor = true;
         stampbookButtonButtonComponent.pixelPerfect = true;
 
@@ -246,9 +246,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // ignoreButton (components)
         const ignoreButtonButtonComponent = new ButtonComponent(ignoreButton);
-        ignoreButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardButton0001" };
-        ignoreButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardButton0002" };
-        ignoreButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardButton0003" };
+        ignoreButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
+        ignoreButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
+        ignoreButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
         ignoreButtonButtonComponent.handCursor = true;
         ignoreButtonButtonComponent.pixelPerfect = true;
 
@@ -257,9 +257,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // reportButton (components)
         const reportButtonButtonComponent = new ButtonComponent(reportButton);
-        reportButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardButton0001" };
-        reportButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardButton0002" };
-        reportButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardButton0003" };
+        reportButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
+        reportButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
+        reportButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
         reportButtonButtonComponent.handCursor = true;
         reportButtonButtonComponent.pixelPerfect = true;
 

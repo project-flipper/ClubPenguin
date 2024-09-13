@@ -306,8 +306,8 @@ export default class Dance extends Phaser.Scene implements Room {
 
         // stairs (components)
         const stairsButtonComponent = new ButtonComponent(stairs);
-        stairsButtonComponent.upTexture = { "key": "dance", "frame": "dance/stairs0001" };
-        stairsButtonComponent.overTexture = { "key": "dance", "frame": "dance/stairs0002" };
+        stairsButtonComponent.upTexture = {"key":"dance","frame":"dance/stairs0001"};
+        stairsButtonComponent.overTexture = {"key":"dance","frame":"dance/stairs0002"};
         stairsButtonComponent.handCursor = true;
         stairsButtonComponent.pixelPerfect = true;
 
@@ -530,8 +530,8 @@ export default class Dance extends Phaser.Scene implements Room {
 
         // catalog (components)
         const catalogButtonComponent = new ButtonComponent(catalog);
-        catalogButtonComponent.upTexture = { "key": "dance", "frame": "dance/catalog0001" };
-        catalogButtonComponent.overTexture = { "key": "dance", "frame": "dance/catalog0002" };
+        catalogButtonComponent.upTexture = {"key":"dance","frame":"dance/catalog0001"};
+        catalogButtonComponent.overTexture = {"key":"dance","frame":"dance/catalog0002"};
         catalogButtonComponent.handCursor = true;
         catalogButtonComponent.pixelPerfect = true;
         const catalogDepthEnabled = new DepthEnabled(catalog);

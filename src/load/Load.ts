@@ -115,7 +115,7 @@ export default class Load extends Phaser.Scene {
     public loadingDialog!: Phaser.GameObjects.Container;
     public spinnerMask!: Phaser.GameObjects.Image;
     public spinner!: Spinner;
-    public loadingAnimations!: Array<Phaser.GameObjects.Sprite | CartSurfer>;
+    public loadingAnimations!: Array<Phaser.GameObjects.Sprite|CartSurfer>;
 
     /* START-USER-CODE */
 

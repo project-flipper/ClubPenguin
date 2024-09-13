@@ -17,14 +17,12 @@
             "type": "Container",
             "id": "c5f6f0f1-4e6a-4376-b940-d73af3e6ee98",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "Sprite",
                     "id": "3bfbfc69-eb47-4ffd-bdd1-cfb3368ab648",
                     "label": "art",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "lounge",
                         "frame": "lounge/smallbluetarget"
@@ -32,8 +30,7 @@
                     "x": -28.5,
                     "y": -29,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
@@ -47,8 +44,7 @@
                         "key": "lounge",
                         "frame": "lounge/smalltargethitbox"
                     },
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 }
             ]
         }
@@ -58,7 +54,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     },
     "prefabProperties": [
         {

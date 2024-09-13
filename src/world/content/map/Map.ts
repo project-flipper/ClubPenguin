@@ -448,50 +448,50 @@ export default class Map extends Phaser.Scene implements Content {
 
         // dojoext (components)
         const dojoextButtonComponent = new ButtonComponent(dojoext);
-        dojoextButtonComponent.upTexture = { "key": "map", "frame": "map/dojo0001" };
-        dojoextButtonComponent.overTexture = { "key": "map", "frame": "map/dojo0002" };
+        dojoextButtonComponent.upTexture = {"key":"map","frame":"map/dojo0001"};
+        dojoextButtonComponent.overTexture = {"key":"map","frame":"map/dojo0002"};
         dojoextButtonComponent.handCursor = true;
         dojoextButtonComponent.pixelPerfect = true;
 
         // mtn (components)
         const mtnButtonComponent = new ButtonComponent(mtn);
-        mtnButtonComponent.upTexture = { "key": "map", "frame": "map/mtn0001" };
-        mtnButtonComponent.overTexture = { "key": "map", "frame": "map/mtn0002" };
+        mtnButtonComponent.upTexture = {"key":"map","frame":"map/mtn0001"};
+        mtnButtonComponent.overTexture = {"key":"map","frame":"map/mtn0002"};
         mtnButtonComponent.handCursor = true;
         mtnButtonComponent.pixelPerfect = true;
 
         // village (components)
         const villageButtonComponent = new ButtonComponent(village);
-        villageButtonComponent.upTexture = { "key": "map", "frame": "map/village0001" };
-        villageButtonComponent.overTexture = { "key": "map", "frame": "map/village0002" };
+        villageButtonComponent.upTexture = {"key":"map","frame":"map/village0001"};
+        villageButtonComponent.overTexture = {"key":"map","frame":"map/village0002"};
         villageButtonComponent.handCursor = true;
         villageButtonComponent.pixelPerfect = true;
 
         // dock (components)
         const dockButtonComponent = new ButtonComponent(dock);
-        dockButtonComponent.upTexture = { "key": "map", "frame": "map/dock0001" };
-        dockButtonComponent.overTexture = { "key": "map", "frame": "map/dock0002" };
+        dockButtonComponent.upTexture = {"key":"map","frame":"map/dock0001"};
+        dockButtonComponent.overTexture = {"key":"map","frame":"map/dock0002"};
         dockButtonComponent.handCursor = true;
         dockButtonComponent.pixelPerfect = true;
 
         // beach (components)
         const beachButtonComponent = new ButtonComponent(beach);
-        beachButtonComponent.upTexture = { "key": "map", "frame": "map/beach0001" };
-        beachButtonComponent.overTexture = { "key": "map", "frame": "map/beach0002" };
+        beachButtonComponent.upTexture = {"key":"map","frame":"map/beach0001"};
+        beachButtonComponent.overTexture = {"key":"map","frame":"map/beach0002"};
         beachButtonComponent.handCursor = true;
         beachButtonComponent.pixelPerfect = true;
 
         // igloos (components)
         const igloosButtonComponent = new ButtonComponent(igloos);
-        igloosButtonComponent.upTexture = { "key": "map", "frame": "map/igloos0001" };
-        igloosButtonComponent.overTexture = { "key": "map", "frame": "map/igloos0002" };
+        igloosButtonComponent.upTexture = {"key":"map","frame":"map/igloos0001"};
+        igloosButtonComponent.overTexture = {"key":"map","frame":"map/igloos0002"};
         igloosButtonComponent.handCursor = true;
         igloosButtonComponent.pixelPerfect = true;
 
         // shack (components)
         const shackButtonComponent = new ButtonComponent(shack);
-        shackButtonComponent.upTexture = { "key": "map", "frame": "map/shack0001" };
-        shackButtonComponent.overTexture = { "key": "map", "frame": "map/shack0002" };
+        shackButtonComponent.upTexture = {"key":"map","frame":"map/shack0001"};
+        shackButtonComponent.overTexture = {"key":"map","frame":"map/shack0002"};
         shackButtonComponent.handCursor = true;
         shackButtonComponent.pixelPerfect = true;
 
@@ -502,43 +502,43 @@ export default class Map extends Phaser.Scene implements Content {
 
         // town (components)
         const townButtonComponent = new ButtonComponent(town);
-        townButtonComponent.upTexture = { "key": "map", "frame": "map/town0001" };
-        townButtonComponent.overTexture = { "key": "map", "frame": "map/town0002" };
+        townButtonComponent.upTexture = {"key":"map","frame":"map/town0001"};
+        townButtonComponent.overTexture = {"key":"map","frame":"map/town0002"};
         townButtonComponent.handCursor = true;
         townButtonComponent.pixelPerfect = true;
 
         // plaza (components)
         const plazaButtonComponent = new ButtonComponent(plaza);
-        plazaButtonComponent.upTexture = { "key": "map", "frame": "map/plaza0001" };
-        plazaButtonComponent.overTexture = { "key": "map", "frame": "map/plaza0002" };
+        plazaButtonComponent.upTexture = {"key":"map","frame":"map/plaza0001"};
+        plazaButtonComponent.overTexture = {"key":"map","frame":"map/plaza0002"};
         plazaButtonComponent.handCursor = true;
         plazaButtonComponent.pixelPerfect = true;
 
         // forest (components)
         const forestButtonComponent = new ButtonComponent(forest);
-        forestButtonComponent.upTexture = { "key": "map", "frame": "map/forest0001" };
-        forestButtonComponent.overTexture = { "key": "map", "frame": "map/forest0002" };
+        forestButtonComponent.upTexture = {"key":"map","frame":"map/forest0001"};
+        forestButtonComponent.overTexture = {"key":"map","frame":"map/forest0002"};
         forestButtonComponent.handCursor = true;
         forestButtonComponent.pixelPerfect = true;
 
         // cove (components)
         const coveButtonComponent = new ButtonComponent(cove);
-        coveButtonComponent.upTexture = { "key": "map", "frame": "map/cove0001" };
-        coveButtonComponent.overTexture = { "key": "map", "frame": "map/cove0002" };
+        coveButtonComponent.upTexture = {"key":"map","frame":"map/cove0001"};
+        coveButtonComponent.overTexture = {"key":"map","frame":"map/cove0002"};
         coveButtonComponent.handCursor = true;
         coveButtonComponent.pixelPerfect = true;
 
         // forts (components)
         const fortsButtonComponent = new ButtonComponent(forts);
-        fortsButtonComponent.upTexture = { "key": "map", "frame": "map/forts0001" };
-        fortsButtonComponent.overTexture = { "key": "map", "frame": "map/forts0002" };
+        fortsButtonComponent.upTexture = {"key":"map","frame":"map/forts0001"};
+        fortsButtonComponent.overTexture = {"key":"map","frame":"map/forts0002"};
         fortsButtonComponent.handCursor = true;
         fortsButtonComponent.pixelPerfect = true;
 
         // rink (components)
         const rinkButtonComponent = new ButtonComponent(rink);
-        rinkButtonComponent.upTexture = { "key": "map", "frame": "map/rink0001" };
-        rinkButtonComponent.overTexture = { "key": "map", "frame": "map/rink0002" };
+        rinkButtonComponent.upTexture = {"key":"map","frame":"map/rink0001"};
+        rinkButtonComponent.overTexture = {"key":"map","frame":"map/rink0002"};
         rinkButtonComponent.handCursor = true;
         rinkButtonComponent.pixelPerfect = true;
 
@@ -547,92 +547,92 @@ export default class Map extends Phaser.Scene implements Content {
 
         // sshack (components)
         const sshackButtonComponent = new ButtonComponent(sshack);
-        sshackButtonComponent.upTexture = { "key": "map", "frame": "map/sshack0001" };
-        sshackButtonComponent.overTexture = { "key": "map", "frame": "map/sshack0002" };
+        sshackButtonComponent.upTexture = {"key":"map","frame":"map/sshack0001"};
+        sshackButtonComponent.overTexture = {"key":"map","frame":"map/sshack0002"};
         sshackButtonComponent.handCursor = true;
         sshackButtonComponent.pixelPerfect = true;
 
         // sbeach (components)
         const sbeachButtonComponent = new ButtonComponent(sbeach);
-        sbeachButtonComponent.upTexture = { "key": "map", "frame": "map/sbeach0001" };
-        sbeachButtonComponent.overTexture = { "key": "map", "frame": "map/sbeach0002" };
+        sbeachButtonComponent.upTexture = {"key":"map","frame":"map/sbeach0001"};
+        sbeachButtonComponent.overTexture = {"key":"map","frame":"map/sbeach0002"};
         sbeachButtonComponent.handCursor = true;
         sbeachButtonComponent.pixelPerfect = true;
 
         // scove (components)
         const scoveButtonComponent = new ButtonComponent(scove);
-        scoveButtonComponent.upTexture = { "key": "map", "frame": "map/scove0001" };
-        scoveButtonComponent.overTexture = { "key": "map", "frame": "map/scove0002" };
+        scoveButtonComponent.upTexture = {"key":"map","frame":"map/scove0001"};
+        scoveButtonComponent.overTexture = {"key":"map","frame":"map/scove0002"};
         scoveButtonComponent.handCursor = true;
         scoveButtonComponent.pixelPerfect = true;
 
         // sdock (components)
         const sdockButtonComponent = new ButtonComponent(sdock);
-        sdockButtonComponent.upTexture = { "key": "map", "frame": "map/sdock0001" };
-        sdockButtonComponent.overTexture = { "key": "map", "frame": "map/sdock0002" };
+        sdockButtonComponent.upTexture = {"key":"map","frame":"map/sdock0001"};
+        sdockButtonComponent.overTexture = {"key":"map","frame":"map/sdock0002"};
         sdockButtonComponent.handCursor = true;
         sdockButtonComponent.pixelPerfect = true;
 
         // sdojoext (components)
         const sdojoextButtonComponent = new ButtonComponent(sdojoext);
-        sdojoextButtonComponent.upTexture = { "key": "map", "frame": "map/sdojo0001" };
-        sdojoextButtonComponent.overTexture = { "key": "map", "frame": "map/sdojo0002" };
+        sdojoextButtonComponent.upTexture = {"key":"map","frame":"map/sdojo0001"};
+        sdojoextButtonComponent.overTexture = {"key":"map","frame":"map/sdojo0002"};
         sdojoextButtonComponent.handCursor = true;
         sdojoextButtonComponent.pixelPerfect = true;
 
         // sforest (components)
         const sforestButtonComponent = new ButtonComponent(sforest);
-        sforestButtonComponent.upTexture = { "key": "map", "frame": "map/sforest0001" };
-        sforestButtonComponent.overTexture = { "key": "map", "frame": "map/sforest0002" };
+        sforestButtonComponent.upTexture = {"key":"map","frame":"map/sforest0001"};
+        sforestButtonComponent.overTexture = {"key":"map","frame":"map/sforest0002"};
         sforestButtonComponent.handCursor = true;
         sforestButtonComponent.pixelPerfect = true;
 
         // sforts (components)
         const sfortsButtonComponent = new ButtonComponent(sforts);
-        sfortsButtonComponent.upTexture = { "key": "map", "frame": "map/sforts0001" };
-        sfortsButtonComponent.overTexture = { "key": "map", "frame": "map/sforts0002" };
+        sfortsButtonComponent.upTexture = {"key":"map","frame":"map/sforts0001"};
+        sfortsButtonComponent.overTexture = {"key":"map","frame":"map/sforts0002"};
         sfortsButtonComponent.handCursor = true;
         sfortsButtonComponent.pixelPerfect = true;
 
         // sigloos (components)
         const sigloosButtonComponent = new ButtonComponent(sigloos);
-        sigloosButtonComponent.upTexture = { "key": "map", "frame": "map/sigloos0001" };
-        sigloosButtonComponent.overTexture = { "key": "map", "frame": "map/sigloos0002" };
+        sigloosButtonComponent.upTexture = {"key":"map","frame":"map/sigloos0001"};
+        sigloosButtonComponent.overTexture = {"key":"map","frame":"map/sigloos0002"};
         sigloosButtonComponent.handCursor = true;
         sigloosButtonComponent.pixelPerfect = true;
 
         // smtn (components)
         const smtnButtonComponent = new ButtonComponent(smtn);
-        smtnButtonComponent.upTexture = { "key": "map", "frame": "map/smtn0001" };
-        smtnButtonComponent.overTexture = { "key": "map", "frame": "map/smtn0002" };
+        smtnButtonComponent.upTexture = {"key":"map","frame":"map/smtn0001"};
+        smtnButtonComponent.overTexture = {"key":"map","frame":"map/smtn0002"};
         smtnButtonComponent.handCursor = true;
         smtnButtonComponent.pixelPerfect = true;
 
         // splaza (components)
         const splazaButtonComponent = new ButtonComponent(splaza);
-        splazaButtonComponent.upTexture = { "key": "map", "frame": "map/splaza0001" };
-        splazaButtonComponent.overTexture = { "key": "map", "frame": "map/splaza0002" };
+        splazaButtonComponent.upTexture = {"key":"map","frame":"map/splaza0001"};
+        splazaButtonComponent.overTexture = {"key":"map","frame":"map/splaza0002"};
         splazaButtonComponent.handCursor = true;
         splazaButtonComponent.pixelPerfect = true;
 
         // srink (components)
         const srinkButtonComponent = new ButtonComponent(srink);
-        srinkButtonComponent.upTexture = { "key": "map", "frame": "map/srink0001" };
-        srinkButtonComponent.overTexture = { "key": "map", "frame": "map/srink0002" };
+        srinkButtonComponent.upTexture = {"key":"map","frame":"map/srink0001"};
+        srinkButtonComponent.overTexture = {"key":"map","frame":"map/srink0002"};
         srinkButtonComponent.handCursor = true;
         srinkButtonComponent.pixelPerfect = true;
 
         // stown (components)
         const stownButtonComponent = new ButtonComponent(stown);
-        stownButtonComponent.upTexture = { "key": "map", "frame": "map/stown0001" };
-        stownButtonComponent.overTexture = { "key": "map", "frame": "map/stown0002" };
+        stownButtonComponent.upTexture = {"key":"map","frame":"map/stown0001"};
+        stownButtonComponent.overTexture = {"key":"map","frame":"map/stown0002"};
         stownButtonComponent.handCursor = true;
         stownButtonComponent.pixelPerfect = true;
 
         // svillage (components)
         const svillageButtonComponent = new ButtonComponent(svillage);
-        svillageButtonComponent.upTexture = { "key": "map", "frame": "map/svillage0001" };
-        svillageButtonComponent.overTexture = { "key": "map", "frame": "map/svillage0002" };
+        svillageButtonComponent.upTexture = {"key":"map","frame":"map/svillage0001"};
+        svillageButtonComponent.overTexture = {"key":"map","frame":"map/svillage0002"};
         svillageButtonComponent.handCursor = true;
         svillageButtonComponent.pixelPerfect = true;
 
@@ -643,317 +643,317 @@ export default class Map extends Phaser.Scene implements Content {
 
         // aqua (components)
         const aquaButtonComponent = new ButtonComponent(aqua);
-        aquaButtonComponent.upTexture = { "key": "map", "frame": "map/aqua0001" };
-        aquaButtonComponent.overTexture = { "key": "map", "frame": "map/aqua0002" };
+        aquaButtonComponent.upTexture = {"key":"map","frame":"map/aqua0001"};
+        aquaButtonComponent.overTexture = {"key":"map","frame":"map/aqua0002"};
         aquaButtonComponent.handCursor = true;
         aquaButtonComponent.pixelPerfect = true;
 
         // arcade (components)
         const arcadeButtonComponent = new ButtonComponent(arcade);
-        arcadeButtonComponent.upTexture = { "key": "map", "frame": "map/arcade0001" };
-        arcadeButtonComponent.overTexture = { "key": "map", "frame": "map/arcade0002" };
+        arcadeButtonComponent.upTexture = {"key":"map","frame":"map/arcade0001"};
+        arcadeButtonComponent.overTexture = {"key":"map","frame":"map/arcade0002"};
         arcadeButtonComponent.handCursor = true;
         arcadeButtonComponent.pixelPerfect = true;
 
         // bean (components)
         const beanButtonComponent = new ButtonComponent(bean);
-        beanButtonComponent.upTexture = { "key": "map", "frame": "map/bean0001" };
-        beanButtonComponent.overTexture = { "key": "map", "frame": "map/bean0002" };
+        beanButtonComponent.upTexture = {"key":"map","frame":"map/bean0001"};
+        beanButtonComponent.overTexture = {"key":"map","frame":"map/bean0002"};
         beanButtonComponent.handCursor = true;
         beanButtonComponent.pixelPerfect = true;
 
         // cardjitsu (components)
         const cardjitsuButtonComponent = new ButtonComponent(cardjitsu);
-        cardjitsuButtonComponent.upTexture = { "key": "map", "frame": "map/cardjitsu0001" };
-        cardjitsuButtonComponent.overTexture = { "key": "map", "frame": "map/cardjitsu0002" };
+        cardjitsuButtonComponent.upTexture = {"key":"map","frame":"map/cardjitsu0001"};
+        cardjitsuButtonComponent.overTexture = {"key":"map","frame":"map/cardjitsu0002"};
         cardjitsuButtonComponent.handCursor = true;
         cardjitsuButtonComponent.pixelPerfect = true;
 
         // cart (components)
         const cartButtonComponent = new ButtonComponent(cart);
-        cartButtonComponent.upTexture = { "key": "map", "frame": "map/cart0001" };
-        cartButtonComponent.overTexture = { "key": "map", "frame": "map/cart0002" };
+        cartButtonComponent.upTexture = {"key":"map","frame":"map/cart0001"};
+        cartButtonComponent.overTexture = {"key":"map","frame":"map/cart0002"};
         cartButtonComponent.handCursor = true;
         cartButtonComponent.pixelPerfect = true;
 
         // dance (components)
         const danceButtonComponent = new ButtonComponent(dance);
-        danceButtonComponent.upTexture = { "key": "map", "frame": "map/dance0001" };
-        danceButtonComponent.overTexture = { "key": "map", "frame": "map/dance0002" };
+        danceButtonComponent.upTexture = {"key":"map","frame":"map/dance0001"};
+        danceButtonComponent.overTexture = {"key":"map","frame":"map/dance0002"};
         danceButtonComponent.handCursor = true;
         danceButtonComponent.pixelPerfect = true;
 
         // dj (components)
         const djButtonComponent = new ButtonComponent(dj);
-        djButtonComponent.upTexture = { "key": "map", "frame": "map/dj0001" };
-        djButtonComponent.overTexture = { "key": "map", "frame": "map/dj0002" };
+        djButtonComponent.upTexture = {"key":"map","frame":"map/dj0001"};
+        djButtonComponent.overTexture = {"key":"map","frame":"map/dj0002"};
         djButtonComponent.handCursor = true;
         djButtonComponent.pixelPerfect = true;
 
         // fish (components)
         const fishButtonComponent = new ButtonComponent(fish);
-        fishButtonComponent.upTexture = { "key": "map", "frame": "map/fish0001" };
-        fishButtonComponent.overTexture = { "key": "map", "frame": "map/fish0002" };
+        fishButtonComponent.upTexture = {"key":"map","frame":"map/fish0001"};
+        fishButtonComponent.overTexture = {"key":"map","frame":"map/fish0002"};
         fishButtonComponent.handCursor = true;
         fishButtonComponent.pixelPerfect = true;
 
         // escape (components)
         const escapeButtonComponent = new ButtonComponent(escape);
-        escapeButtonComponent.upTexture = { "key": "map", "frame": "map/escape0001" };
-        escapeButtonComponent.overTexture = { "key": "map", "frame": "map/escape0002" };
+        escapeButtonComponent.upTexture = {"key":"map","frame":"map/escape0001"};
+        escapeButtonComponent.overTexture = {"key":"map","frame":"map/escape0002"};
         escapeButtonComponent.handCursor = true;
         escapeButtonComponent.pixelPerfect = true;
 
         // sledrace (components)
         const sledraceButtonComponent = new ButtonComponent(sledrace);
-        sledraceButtonComponent.upTexture = { "key": "map", "frame": "map/sledrace0001" };
-        sledraceButtonComponent.overTexture = { "key": "map", "frame": "map/sledrace0002" };
+        sledraceButtonComponent.upTexture = {"key":"map","frame":"map/sledrace0001"};
+        sledraceButtonComponent.overTexture = {"key":"map","frame":"map/sledrace0002"};
         sledraceButtonComponent.handCursor = true;
         sledraceButtonComponent.pixelPerfect = true;
 
         // jetpack (components)
         const jetpackButtonComponent = new ButtonComponent(jetpack);
-        jetpackButtonComponent.upTexture = { "key": "map", "frame": "map/jetpack0001" };
-        jetpackButtonComponent.overTexture = { "key": "map", "frame": "map/jetpack0002" };
+        jetpackButtonComponent.upTexture = {"key":"map","frame":"map/jetpack0001"};
+        jetpackButtonComponent.overTexture = {"key":"map","frame":"map/jetpack0002"};
         jetpackButtonComponent.handCursor = true;
         jetpackButtonComponent.pixelPerfect = true;
 
         // launch (components)
         const launchButtonComponent = new ButtonComponent(launch);
-        launchButtonComponent.upTexture = { "key": "map", "frame": "map/launch0001" };
-        launchButtonComponent.overTexture = { "key": "map", "frame": "map/launch0002" };
+        launchButtonComponent.upTexture = {"key":"map","frame":"map/launch0001"};
+        launchButtonComponent.overTexture = {"key":"map","frame":"map/launch0002"};
         launchButtonComponent.handCursor = true;
         launchButtonComponent.pixelPerfect = true;
 
         // pizza (components)
         const pizzaButtonComponent = new ButtonComponent(pizza);
-        pizzaButtonComponent.upTexture = { "key": "map", "frame": "map/pizza0001" };
-        pizzaButtonComponent.overTexture = { "key": "map", "frame": "map/pizza0002" };
+        pizzaButtonComponent.upTexture = {"key":"map","frame":"map/pizza0001"};
+        pizzaButtonComponent.overTexture = {"key":"map","frame":"map/pizza0002"};
         pizzaButtonComponent.handCursor = true;
         pizzaButtonComponent.pixelPerfect = true;
 
         // roundup (components)
         const roundupButtonComponent = new ButtonComponent(roundup);
-        roundupButtonComponent.upTexture = { "key": "map", "frame": "map/roundup0001" };
-        roundupButtonComponent.overTexture = { "key": "map", "frame": "map/roundup0002" };
+        roundupButtonComponent.upTexture = {"key":"map","frame":"map/roundup0001"};
+        roundupButtonComponent.overTexture = {"key":"map","frame":"map/roundup0002"};
         roundupButtonComponent.handCursor = true;
         roundupButtonComponent.pixelPerfect = true;
 
         // rescue (components)
         const rescueButtonComponent = new ButtonComponent(rescue);
-        rescueButtonComponent.upTexture = { "key": "map", "frame": "map/rescue0001" };
-        rescueButtonComponent.overTexture = { "key": "map", "frame": "map/rescue0002" };
+        rescueButtonComponent.upTexture = {"key":"map","frame":"map/rescue0001"};
+        rescueButtonComponent.overTexture = {"key":"map","frame":"map/rescue0002"};
         rescueButtonComponent.handCursor = true;
         rescueButtonComponent.pixelPerfect = true;
 
         // smoothie (components)
         const smoothieButtonComponent = new ButtonComponent(smoothie);
-        smoothieButtonComponent.upTexture = { "key": "map", "frame": "map/smoothie0001" };
-        smoothieButtonComponent.overTexture = { "key": "map", "frame": "map/smoothie0002" };
+        smoothieButtonComponent.upTexture = {"key":"map","frame":"map/smoothie0001"};
+        smoothieButtonComponent.overTexture = {"key":"map","frame":"map/smoothie0002"};
         smoothieButtonComponent.handCursor = true;
         smoothieButtonComponent.pixelPerfect = true;
 
         // hydro (components)
         const hydroButtonComponent = new ButtonComponent(hydro);
-        hydroButtonComponent.upTexture = { "key": "map", "frame": "map/hydro0001" };
-        hydroButtonComponent.overTexture = { "key": "map", "frame": "map/hydro0002" };
+        hydroButtonComponent.upTexture = {"key":"map","frame":"map/hydro0001"};
+        hydroButtonComponent.overTexture = {"key":"map","frame":"map/hydro0002"};
         hydroButtonComponent.handCursor = true;
         hydroButtonComponent.pixelPerfect = true;
 
         // waves (components)
         const wavesButtonComponent = new ButtonComponent(waves);
-        wavesButtonComponent.upTexture = { "key": "map", "frame": "map/waves0001" };
-        wavesButtonComponent.overTexture = { "key": "map", "frame": "map/waves0002" };
+        wavesButtonComponent.upTexture = {"key":"map","frame":"map/waves0001"};
+        wavesButtonComponent.overTexture = {"key":"map","frame":"map/waves0002"};
         wavesButtonComponent.handCursor = true;
         wavesButtonComponent.pixelPerfect = true;
 
         // cardcat (components)
         const cardcatButtonComponent = new ButtonComponent(cardcat);
-        cardcatButtonComponent.upTexture = { "key": "map", "frame": "map/cardcat0001" };
-        cardcatButtonComponent.overTexture = { "key": "map", "frame": "map/cardcat0002" };
+        cardcatButtonComponent.upTexture = {"key":"map","frame":"map/cardcat0001"};
+        cardcatButtonComponent.overTexture = {"key":"map","frame":"map/cardcat0002"};
         cardcatButtonComponent.handCursor = true;
         cardcatButtonComponent.pixelPerfect = true;
 
         // clothescat (components)
         const clothescatButtonComponent = new ButtonComponent(clothescat);
-        clothescatButtonComponent.upTexture = { "key": "map", "frame": "map/clothescat0001" };
-        clothescatButtonComponent.overTexture = { "key": "map", "frame": "map/clothescat0002" };
+        clothescatButtonComponent.upTexture = {"key":"map","frame":"map/clothescat0001"};
+        clothescatButtonComponent.overTexture = {"key":"map","frame":"map/clothescat0002"};
         clothescatButtonComponent.handCursor = true;
         clothescatButtonComponent.pixelPerfect = true;
 
         // dancecat (components)
         const dancecatButtonComponent = new ButtonComponent(dancecat);
-        dancecatButtonComponent.upTexture = { "key": "map", "frame": "map/dancecat0001" };
-        dancecatButtonComponent.overTexture = { "key": "map", "frame": "map/dancecat0002" };
+        dancecatButtonComponent.upTexture = {"key":"map","frame":"map/dancecat0001"};
+        dancecatButtonComponent.overTexture = {"key":"map","frame":"map/dancecat0002"};
         dancecatButtonComponent.handCursor = true;
         dancecatButtonComponent.pixelPerfect = true;
 
         // fishcat (components)
         const fishcatButtonComponent = new ButtonComponent(fishcat);
-        fishcatButtonComponent.upTexture = { "key": "map", "frame": "map/fishcat0001" };
-        fishcatButtonComponent.overTexture = { "key": "map", "frame": "map/fishcat0002" };
+        fishcatButtonComponent.upTexture = {"key":"map","frame":"map/fishcat0001"};
+        fishcatButtonComponent.overTexture = {"key":"map","frame":"map/fishcat0002"};
         fishcatButtonComponent.handCursor = true;
         fishcatButtonComponent.pixelPerfect = true;
 
         // sledcat (components)
         const sledcatButtonComponent = new ButtonComponent(sledcat);
-        sledcatButtonComponent.upTexture = { "key": "map", "frame": "map/sledcat0001" };
-        sledcatButtonComponent.overTexture = { "key": "map", "frame": "map/sledcat0002" };
+        sledcatButtonComponent.upTexture = {"key":"map","frame":"map/sledcat0001"};
+        sledcatButtonComponent.overTexture = {"key":"map","frame":"map/sledcat0002"};
         sledcatButtonComponent.handCursor = true;
         sledcatButtonComponent.pixelPerfect = true;
 
         // hydrocat (components)
         const hydrocatButtonComponent = new ButtonComponent(hydrocat);
-        hydrocatButtonComponent.upTexture = { "key": "map", "frame": "map/hydrocat0001" };
-        hydrocatButtonComponent.overTexture = { "key": "map", "frame": "map/hydrocat0002" };
+        hydrocatButtonComponent.upTexture = {"key":"map","frame":"map/hydrocat0001"};
+        hydrocatButtonComponent.overTexture = {"key":"map","frame":"map/hydrocat0002"};
         hydrocatButtonComponent.handCursor = true;
         hydrocatButtonComponent.pixelPerfect = true;
 
         // instcat (components)
         const instcatButtonComponent = new ButtonComponent(instcat);
-        instcatButtonComponent.upTexture = { "key": "map", "frame": "map/instcat0001" };
-        instcatButtonComponent.overTexture = { "key": "map", "frame": "map/instcat0002" };
+        instcatButtonComponent.upTexture = {"key":"map","frame":"map/instcat0001"};
+        instcatButtonComponent.overTexture = {"key":"map","frame":"map/instcat0002"};
         instcatButtonComponent.handCursor = true;
         instcatButtonComponent.pixelPerfect = true;
 
         // pufflecat (components)
         const pufflecatButtonComponent = new ButtonComponent(pufflecat);
-        pufflecatButtonComponent.upTexture = { "key": "map", "frame": "map/pufflecat0001" };
-        pufflecatButtonComponent.overTexture = { "key": "map", "frame": "map/pufflecat0002" };
+        pufflecatButtonComponent.upTexture = {"key":"map","frame":"map/pufflecat0001"};
+        pufflecatButtonComponent.overTexture = {"key":"map","frame":"map/pufflecat0002"};
         pufflecatButtonComponent.handCursor = true;
         pufflecatButtonComponent.pixelPerfect = true;
 
         // sportscat (components)
         const sportscatButtonComponent = new ButtonComponent(sportscat);
-        sportscatButtonComponent.upTexture = { "key": "map", "frame": "map/sportscat0001" };
-        sportscatButtonComponent.overTexture = { "key": "map", "frame": "map/sportscat0002" };
+        sportscatButtonComponent.upTexture = {"key":"map","frame":"map/sportscat0001"};
+        sportscatButtonComponent.overTexture = {"key":"map","frame":"map/sportscat0002"};
         sportscatButtonComponent.handCursor = true;
         sportscatButtonComponent.pixelPerfect = true;
 
         // stagecat (components)
         const stagecatButtonComponent = new ButtonComponent(stagecat);
-        stagecatButtonComponent.upTexture = { "key": "map", "frame": "map/stagecat0001" };
-        stagecatButtonComponent.overTexture = { "key": "map", "frame": "map/stagecat0002" };
+        stagecatButtonComponent.upTexture = {"key":"map","frame":"map/stagecat0001"};
+        stagecatButtonComponent.overTexture = {"key":"map","frame":"map/stagecat0002"};
         stagecatButtonComponent.handCursor = true;
         stagecatButtonComponent.pixelPerfect = true;
 
         // wavescat (components)
         const wavescatButtonComponent = new ButtonComponent(wavescat);
-        wavescatButtonComponent.upTexture = { "key": "map", "frame": "map/wavescat0001" };
-        wavescatButtonComponent.overTexture = { "key": "map", "frame": "map/wavescat0002" };
+        wavescatButtonComponent.upTexture = {"key":"map","frame":"map/wavescat0001"};
+        wavescatButtonComponent.overTexture = {"key":"map","frame":"map/wavescat0002"};
         wavescatButtonComponent.handCursor = true;
         wavescatButtonComponent.pixelPerfect = true;
 
         // pescape (components)
         const pescapeButtonComponent = new ButtonComponent(pescape);
-        pescapeButtonComponent.upTexture = { "key": "map", "frame": "map/pescape0001" };
-        pescapeButtonComponent.overTexture = { "key": "map", "frame": "map/pescape0002" };
+        pescapeButtonComponent.upTexture = {"key":"map","frame":"map/pescape0001"};
+        pescapeButtonComponent.overTexture = {"key":"map","frame":"map/pescape0002"};
         pescapeButtonComponent.handCursor = true;
         pescapeButtonComponent.pixelPerfect = true;
 
         // pigloo (components)
         const piglooButtonComponent = new ButtonComponent(pigloo);
-        piglooButtonComponent.upTexture = { "key": "map", "frame": "map/pigloo0001" };
-        piglooButtonComponent.overTexture = { "key": "map", "frame": "map/pigloo0002" };
+        piglooButtonComponent.upTexture = {"key":"map","frame":"map/pigloo0001"};
+        piglooButtonComponent.overTexture = {"key":"map","frame":"map/pigloo0002"};
         piglooButtonComponent.handCursor = true;
         piglooButtonComponent.pixelPerfect = true;
 
         // ppuffle (components)
         const ppuffleButtonComponent = new ButtonComponent(ppuffle);
-        ppuffleButtonComponent.upTexture = { "key": "map", "frame": "map/ppuffle0001" };
-        ppuffleButtonComponent.overTexture = { "key": "map", "frame": "map/ppuffle0002" };
+        ppuffleButtonComponent.upTexture = {"key":"map","frame":"map/ppuffle0001"};
+        ppuffleButtonComponent.overTexture = {"key":"map","frame":"map/ppuffle0002"};
         ppuffleButtonComponent.handCursor = true;
         ppuffleButtonComponent.pixelPerfect = true;
 
         // plaunch (components)
         const plaunchButtonComponent = new ButtonComponent(plaunch);
-        plaunchButtonComponent.upTexture = { "key": "map", "frame": "map/plaunch0001" };
-        plaunchButtonComponent.overTexture = { "key": "map", "frame": "map/plaunch0002" };
+        plaunchButtonComponent.upTexture = {"key":"map","frame":"map/plaunch0001"};
+        plaunchButtonComponent.overTexture = {"key":"map","frame":"map/plaunch0002"};
         plaunchButtonComponent.handCursor = true;
         plaunchButtonComponent.pixelPerfect = true;
 
         // prainbow (components)
         const prainbowButtonComponent = new ButtonComponent(prainbow);
-        prainbowButtonComponent.upTexture = { "key": "map", "frame": "map/prainbow0001" };
-        prainbowButtonComponent.overTexture = { "key": "map", "frame": "map/prainbow0002" };
+        prainbowButtonComponent.upTexture = {"key":"map","frame":"map/prainbow0001"};
+        prainbowButtonComponent.overTexture = {"key":"map","frame":"map/prainbow0002"};
         prainbowButtonComponent.handCursor = true;
         prainbowButtonComponent.pixelPerfect = true;
 
         // pshop (components)
         const pshopButtonComponent = new ButtonComponent(pshop);
-        pshopButtonComponent.upTexture = { "key": "map", "frame": "map/pshop0001" };
-        pshopButtonComponent.overTexture = { "key": "map", "frame": "map/pshop0002" };
+        pshopButtonComponent.upTexture = {"key":"map","frame":"map/pshop0001"};
+        pshopButtonComponent.overTexture = {"key":"map","frame":"map/pshop0002"};
         pshopButtonComponent.handCursor = true;
         pshopButtonComponent.pixelPerfect = true;
 
         // proundup (components)
         const proundupButtonComponent = new ButtonComponent(proundup);
-        proundupButtonComponent.upTexture = { "key": "map", "frame": "map/proundup0001" };
-        proundupButtonComponent.overTexture = { "key": "map", "frame": "map/proundup0002" };
+        proundupButtonComponent.upTexture = {"key":"map","frame":"map/proundup0001"};
+        proundupButtonComponent.overTexture = {"key":"map","frame":"map/proundup0002"};
         proundupButtonComponent.handCursor = true;
         proundupButtonComponent.pixelPerfect = true;
 
         // paqua (components)
         const paquaButtonComponent = new ButtonComponent(paqua);
-        paquaButtonComponent.upTexture = { "key": "map", "frame": "map/paqua0001" };
-        paquaButtonComponent.overTexture = { "key": "map", "frame": "map/paqua0002" };
+        paquaButtonComponent.upTexture = {"key":"map","frame":"map/paqua0001"};
+        paquaButtonComponent.overTexture = {"key":"map","frame":"map/paqua0002"};
         paquaButtonComponent.handCursor = true;
         paquaButtonComponent.pixelPerfect = true;
 
         // parcade (components)
         const parcadeButtonComponent = new ButtonComponent(parcade);
-        parcadeButtonComponent.upTexture = { "key": "map", "frame": "map/parcade0001" };
-        parcadeButtonComponent.overTexture = { "key": "map", "frame": "map/parcade0002" };
+        parcadeButtonComponent.upTexture = {"key":"map","frame":"map/parcade0001"};
+        parcadeButtonComponent.overTexture = {"key":"map","frame":"map/parcade0002"};
         parcadeButtonComponent.handCursor = true;
         parcadeButtonComponent.pixelPerfect = true;
 
         // pcart (components)
         const pcartButtonComponent = new ButtonComponent(pcart);
-        pcartButtonComponent.upTexture = { "key": "map", "frame": "map/pcart0001" };
-        pcartButtonComponent.overTexture = { "key": "map", "frame": "map/pcart0002" };
+        pcartButtonComponent.upTexture = {"key":"map","frame":"map/pcart0001"};
+        pcartButtonComponent.overTexture = {"key":"map","frame":"map/pcart0002"};
         pcartButtonComponent.handCursor = true;
         pcartButtonComponent.pixelPerfect = true;
 
         // pdance (components)
         const pdanceButtonComponent = new ButtonComponent(pdance);
-        pdanceButtonComponent.upTexture = { "key": "map", "frame": "map/pdance0001" };
-        pdanceButtonComponent.overTexture = { "key": "map", "frame": "map/pdance0002" };
+        pdanceButtonComponent.upTexture = {"key":"map","frame":"map/pdance0001"};
+        pdanceButtonComponent.overTexture = {"key":"map","frame":"map/pdance0002"};
         pdanceButtonComponent.handCursor = true;
         pdanceButtonComponent.pixelPerfect = true;
 
         // pdj (components)
         const pdjButtonComponent = new ButtonComponent(pdj);
-        pdjButtonComponent.upTexture = { "key": "map", "frame": "map/pdj0001" };
-        pdjButtonComponent.overTexture = { "key": "map", "frame": "map/pdj0002" };
+        pdjButtonComponent.upTexture = {"key":"map","frame":"map/pdj0001"};
+        pdjButtonComponent.overTexture = {"key":"map","frame":"map/pdj0002"};
         pdjButtonComponent.handCursor = true;
         pdjButtonComponent.pixelPerfect = true;
 
         // prescue (components)
         const prescueButtonComponent = new ButtonComponent(prescue);
-        prescueButtonComponent.upTexture = { "key": "map", "frame": "map/prescue0001" };
-        prescueButtonComponent.overTexture = { "key": "map", "frame": "map/prescue0002" };
+        prescueButtonComponent.upTexture = {"key":"map","frame":"map/prescue0001"};
+        prescueButtonComponent.overTexture = {"key":"map","frame":"map/prescue0002"};
         prescueButtonComponent.handCursor = true;
         prescueButtonComponent.pixelPerfect = true;
 
         // pjetpack (components)
         const pjetpackButtonComponent = new ButtonComponent(pjetpack);
-        pjetpackButtonComponent.upTexture = { "key": "map", "frame": "map/pjetpack0001" };
-        pjetpackButtonComponent.overTexture = { "key": "map", "frame": "map/pjetpack0002" };
+        pjetpackButtonComponent.upTexture = {"key":"map","frame":"map/pjetpack0001"};
+        pjetpackButtonComponent.overTexture = {"key":"map","frame":"map/pjetpack0002"};
         pjetpackButtonComponent.handCursor = true;
         pjetpackButtonComponent.pixelPerfect = true;
 
         // pwaves (components)
         const pwavesButtonComponent = new ButtonComponent(pwaves);
-        pwavesButtonComponent.upTexture = { "key": "map", "frame": "map/pwaves0001" };
-        pwavesButtonComponent.overTexture = { "key": "map", "frame": "map/pwaves0002" };
+        pwavesButtonComponent.upTexture = {"key":"map","frame":"map/pwaves0001"};
+        pwavesButtonComponent.overTexture = {"key":"map","frame":"map/pwaves0002"};
         pwavesButtonComponent.handCursor = true;
         pwavesButtonComponent.pixelPerfect = true;
 
         // close (components)
         const closeButtonComponent = new ButtonComponent(close);
-        closeButtonComponent.upTexture = { "key": "map", "frame": "map/close0001" };
-        closeButtonComponent.overTexture = { "key": "map", "frame": "map/close0002" };
-        closeButtonComponent.downTexture = { "key": "map", "frame": "map/close0003" };
+        closeButtonComponent.upTexture = {"key":"map","frame":"map/close0001"};
+        closeButtonComponent.overTexture = {"key":"map","frame":"map/close0002"};
+        closeButtonComponent.downTexture = {"key":"map","frame":"map/close0003"};
         closeButtonComponent.handCursor = true;
         closeButtonComponent.pixelPerfect = true;
 

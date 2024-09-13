@@ -26,31 +26,26 @@
                 "key": "club_penguin"
             },
             "originX": 0,
-            "originY": 0,
-            "list": []
+            "originY": 0
         },
         {
             "type": "Container",
             "id": "5d568b1f-7d2e-4fd7-ad0c-563cdc4baa52",
             "label": "billboardContainer",
             "scope": "PUBLIC",
-            "components": [],
             "x": 157.5,
-            "y": 28.125,
-            "list": []
+            "y": 28.125
         },
         {
             "type": "Container",
             "id": "189b701c-15bc-4143-b6bd-f4828d0d8610",
             "label": "startscreen",
             "scope": "PUBLIC",
-            "components": [],
             "list": [
                 {
                     "type": "Rectangle",
                     "id": "108ec538-7601-4c4c-97e1-bd37ad6d0202",
                     "label": "backingGraphic",
-                    "components": [],
                     "x": 990,
                     "y": 645.75,
                     "originX": 0,
@@ -59,29 +54,25 @@
                     "fillColor": "#FFFFFF",
                     "fillAlpha": 0.45,
                     "width": 562.5,
-                    "height": 112.5,
-                    "list": []
+                    "height": 112.5
                 },
                 {
                     "type": "Image",
                     "id": "e3d9adf8-594e-4725-b555-1d0993e0e65c",
                     "label": "module",
-                    "components": [],
                     "texture": {
                         "key": "start",
                         "frame": "start-screen/module"
                     },
                     "x": 855,
                     "y": 650.9250000000001,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
                     "id": "50c61570-a26e-4f06-ac8d-352df4304cca",
                     "label": "createAccountGraphic",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "start",
                         "frame": "start-screen/createPenguinGraphic0001"
@@ -89,8 +80,7 @@
                     "x": 225,
                     "y": 808.425,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
@@ -110,8 +100,7 @@
                     "x": 405,
                     "y": 888.75,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -133,14 +122,11 @@
                     "boxHeight": 103,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 405,
                     "y": 888.75,
                     "text": "Create a Penguin",
                     "font": "BurbankSmallBold",
-                    "fontSize": -40,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -40
                 },
                 {
                     "type": "Image",
@@ -160,8 +146,7 @@
                     "x": 922.5,
                     "y": 888.75,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -183,21 +168,17 @@
                     "boxHeight": 103,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 922.5,
                     "y": 888.75,
                     "text": "Login",
                     "font": "BurbankSmallBold",
-                    "fontSize": -45,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -45
                 },
                 {
                     "type": "Image",
                     "id": "8b7f69f5-e8d2-4370-8c6b-733307a241ab",
                     "label": "loginButtonGraphic",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "start",
                         "frame": "start-screen/loginGraphic0001"
@@ -205,8 +186,7 @@
                     "x": 1285.0875,
                     "y": 798.75,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
@@ -223,8 +203,7 @@
                     },
                     "x": 855,
                     "y": 686.25,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
@@ -244,8 +223,7 @@
                     "x": 1113.75,
                     "y": 654.75,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -272,7 +250,6 @@
                     "boxHeight": 73,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 1185.75,
                     "y": 654.75,
                     "tintTopLeft": "#00529b",
@@ -282,16 +259,13 @@
                     "tintFill": false,
                     "text": "Learn More About Membership",
                     "font": "BurbankSmallBold",
-                    "fontSize": -18,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -18
                 },
                 {
                     "type": "Image",
                     "id": "df722f69-567e-4ee7-ac08-3fda36617eb3",
                     "label": "memberBadge",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "start",
                         "frame": "start-screen/memberBadge0001"
@@ -299,8 +273,7 @@
                     "x": 1120.5,
                     "y": 664.75,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 }
             ]
         },
@@ -316,8 +289,7 @@
                 "key": "club_penguin"
             },
             "originX": 0,
-            "originY": 0,
-            "list": []
+            "originY": 0
         }
     ],
     "plainObjects": [],
@@ -325,6 +297,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

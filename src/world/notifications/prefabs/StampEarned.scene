@@ -16,9 +16,7 @@
         {
             "type": "Container",
             "id": "37235343-25b5-4c34-bb81-cf1fb288802b",
-            "label": "container_1",
-            "components": [],
-            "list": []
+            "label": "container_1"
         }
     ],
     "plainObjects": [],
@@ -26,6 +24,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

@@ -26,9 +26,9 @@ export default class ButtonComponent {
     }
 
     private gameObject: Phaser.GameObjects.Image;
-    public upTexture!: { key: string, frame?: string | number };
-    public overTexture!: { key: string, frame?: string | number };
-    public downTexture!: { key: string, frame?: string | number };
+    public upTexture!: {key:string,frame?:string|number};
+    public overTexture!: {key:string,frame?:string|number};
+    public downTexture!: {key:string,frame?:string|number};
 
     /* START-USER-CODE */
 

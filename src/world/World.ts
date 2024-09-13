@@ -43,6 +43,7 @@ export default class World extends Phaser.Scene {
     postload(): void {
 
         this.load.pack("world-pack", "assets/app/world-pack.json");
+        this.load.pack("engine-pack", "assets/world/engine/engine-pack.json");
     }
 
     editorCreate(): void {

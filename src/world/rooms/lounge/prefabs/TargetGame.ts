@@ -237,7 +237,7 @@ export default class TargetGame extends Phaser.GameObjects.Container {
     public light6: Phaser.GameObjects.Sprite;
     public redScoreText: TextBox;
     public blueScoreText: TextBox;
-    public targets: Array<Target | SmallTarget | MonsterTarget>;
+    public targets: Array<Target|SmallTarget|MonsterTarget>;
 
     /* START-USER-CODE */
 

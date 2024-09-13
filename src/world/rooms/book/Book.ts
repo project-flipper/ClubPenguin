@@ -261,8 +261,8 @@ export default class Book extends Phaser.Scene implements Room {
 
         // mancalanotice (components)
         const mancalanoticeButtonComponent = new ButtonComponent(mancalanotice);
-        mancalanoticeButtonComponent.upTexture = { "key": "book", "frame": "book/mancalanotice0001" };
-        mancalanoticeButtonComponent.overTexture = { "key": "book", "frame": "book/mancalanotice0002" };
+        mancalanoticeButtonComponent.upTexture = {"key":"book","frame":"book/mancalanotice0001"};
+        mancalanoticeButtonComponent.overTexture = {"key":"book","frame":"book/mancalanotice0002"};
         mancalanoticeButtonComponent.handCursor = true;
         mancalanoticeButtonComponent.pixelPerfect = true;
 
@@ -295,8 +295,8 @@ export default class Book extends Phaser.Scene implements Room {
 
         // books (components)
         const booksButtonComponent = new ButtonComponent(books);
-        booksButtonComponent.upTexture = { "key": "book", "frame": "book/books0001" };
-        booksButtonComponent.overTexture = { "key": "book", "frame": "book/books0002" };
+        booksButtonComponent.upTexture = {"key":"book","frame":"book/books0001"};
+        booksButtonComponent.overTexture = {"key":"book","frame":"book/books0002"};
         booksButtonComponent.handCursor = true;
         booksButtonComponent.pixelPerfect = true;
 
@@ -388,8 +388,8 @@ export default class Book extends Phaser.Scene implements Room {
 
         // book (components)
         const bookButtonComponent = new ButtonComponent(book);
-        bookButtonComponent.upTexture = { "key": "book", "frame": "book/book0001" };
-        bookButtonComponent.overTexture = { "key": "book", "frame": "book/book0002" };
+        bookButtonComponent.upTexture = {"key":"book","frame":"book/book0001"};
+        bookButtonComponent.overTexture = {"key":"book","frame":"book/book0002"};
         bookButtonComponent.handCursor = true;
         bookButtonComponent.pixelPerfect = true;
         const bookDepthEnabled = new DepthEnabled(book);

@@ -18,7 +18,6 @@
             "id": "96a946e2-f2ff-4816-abdb-8fa973af89d4",
             "label": "colorSelectorSection",
             "scope": "PUBLIC",
-            "components": [],
             "list": [
                 {
                     "prefabId": "96d328dc-d6ed-4dcf-a7a6-a0378647b922",
@@ -31,18 +30,14 @@
                     "label": "progressBubble",
                     "scope": "PUBLIC",
                     "text": "2.",
-                    "components": [],
                     "x": 0,
-                    "y": 0,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 0
                 },
                 {
                     "type": "BitmapText",
                     "id": "d4abbfa9-a7c1-4e69-b787-9baa88fa57d9",
                     "label": "titleTextBox",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 112.5,
                     "y": 19.6875,
                     "tintTopLeft": "#2C2C2E",
@@ -51,8 +46,7 @@
                     "tintBottomRight": "#2C2C2E",
                     "text": "Choose a color:",
                     "font": "BurbankSmallBold",
-                    "fontSize": -27,
-                    "list": []
+                    "fontSize": -27
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -68,11 +62,8 @@
                     "scope": "PUBLIC",
                     "color": "#02a797",
                     "colorId": 15,
-                    "components": [],
                     "x": 112.5,
-                    "y": 65.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 65.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -87,11 +78,8 @@
                     "scope": "PUBLIC",
                     "color": "#003366",
                     "colorId": 1,
-                    "components": [],
                     "x": 193.95,
-                    "y": 65.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 65.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -106,11 +94,8 @@
                     "scope": "PUBLIC",
                     "color": "#009900",
                     "colorId": 2,
-                    "components": [],
                     "x": 275.4,
-                    "y": 65.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 65.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -125,11 +110,8 @@
                     "scope": "PUBLIC",
                     "color": "#ff6565",
                     "colorId": 10,
-                    "components": [],
                     "x": 356.85,
-                    "y": 65.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 65.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -144,11 +126,8 @@
                     "scope": "PUBLIC",
                     "color": "#ffcc00",
                     "colorId": 7,
-                    "components": [],
                     "x": 438.3,
-                    "y": 65.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 65.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -163,11 +142,8 @@
                     "scope": "PUBLIC",
                     "color": "#650099",
                     "colorId": 8,
-                    "components": [],
                     "x": 519.75,
-                    "y": 65.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 65.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -182,11 +158,8 @@
                     "scope": "PUBLIC",
                     "color": "#006600",
                     "colorId": 11,
-                    "components": [],
                     "x": 601.2,
-                    "y": 65.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 65.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -201,11 +174,8 @@
                     "scope": "PUBLIC",
                     "color": "#ff6500",
                     "colorId": 6,
-                    "components": [],
                     "x": 112.5,
-                    "y": 137.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 137.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -220,11 +190,8 @@
                     "scope": "PUBLIC",
                     "color": "#333333",
                     "colorId": 4,
-                    "components": [],
                     "x": 193.95,
-                    "y": 137.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 137.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -239,11 +206,8 @@
                     "scope": "PUBLIC",
                     "color": "#0099cc",
                     "colorId": 12,
-                    "components": [],
                     "x": 275.4,
-                    "y": 137.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 137.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -258,11 +222,8 @@
                     "scope": "PUBLIC",
                     "color": "#8ae802",
                     "colorId": 13,
-                    "components": [],
                     "x": 356.85,
-                    "y": 137.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 137.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -277,11 +238,8 @@
                     "scope": "PUBLIC",
                     "color": "#996600",
                     "colorId": 9,
-                    "components": [],
                     "x": 438.3,
-                    "y": 137.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 137.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -296,11 +254,8 @@
                     "scope": "PUBLIC",
                     "color": "#ff3299",
                     "colorId": 3,
-                    "components": [],
                     "x": 519.75,
-                    "y": 137.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 137.25
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",
@@ -315,11 +270,8 @@
                     "scope": "PUBLIC",
                     "color": "#cc0000",
                     "colorId": 5,
-                    "components": [],
                     "x": 601.2,
-                    "y": 137.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 137.25
                 }
             ]
         }
@@ -329,7 +281,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     },
     "lists": [
         {

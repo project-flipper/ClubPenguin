@@ -19,13 +19,11 @@
             "type": "Image",
             "id": "18f1335b-94f8-4c80-9101-b26fe1698b30",
             "label": "club_penguin",
-            "components": [],
             "texture": {
                 "key": "club_penguin"
             },
             "originX": 0,
-            "originY": 0,
-            "list": []
+            "originY": 0
         },
         {
             "type": "Rectangle",
@@ -42,15 +40,13 @@
             "fillColor": "#000000",
             "fillAlpha": 0.4,
             "width": 1710,
-            "height": 1080,
-            "list": []
+            "height": 1080
         },
         {
             "type": "Container",
             "id": "329bf3a4-cd76-4190-b489-1c37336a6fcd",
             "label": "embeddedErrorDialog",
             "scope": "PUBLIC",
-            "components": [],
             "visible": false,
             "list": [
                 {
@@ -58,7 +54,6 @@
                     "id": "a71bd0e7-7b9a-42a2-b699-8a2c3ef31c5c",
                     "label": "dialogBody",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "boot",
                         "frame": "boot/dialog"
@@ -70,8 +65,7 @@
                     "leftWidth": 47,
                     "rightWidth": 47,
                     "topHeight": 47,
-                    "bottomHeight": 47,
-                    "list": []
+                    "bottomHeight": 47
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -99,7 +93,6 @@
                     "boxHeight": 257.9625,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 34.537498474121094,
                     "y": 29.924999237060547,
                     "tintTopLeft": "#000000",
@@ -110,9 +103,7 @@
                     "text": "Load Error\nSorry, there's been an error loading\nClub Penguin. Please try logging in\nlater. If the problem continues please\ncontact support@clubpenguin.com",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -40.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -40.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -140,7 +131,6 @@
                     "boxHeight": 38.7,
                     "horizontalAlign": 2,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 38.25,
                     "y": 427.5,
                     "tintTopLeft": "#983A02",
@@ -151,9 +141,7 @@
                     "text": "c0",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -24.75,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -24.75
                 },
                 {
                     "type": "Image",
@@ -175,8 +163,7 @@
                     "x": 219.60000610351562,
                     "y": 301.1625061035156,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -204,7 +191,6 @@
                     "boxHeight": 70.2,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 230.1750030517578,
                     "y": 321.63751220703125,
                     "tintTopLeft": "#FFFFFF",
@@ -215,9 +201,7 @@
                     "text": "OK",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -42.75,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -42.75
                 }
             ]
         }
@@ -227,6 +211,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

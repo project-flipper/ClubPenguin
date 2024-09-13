@@ -121,9 +121,9 @@ export default class Bootstrap extends Phaser.Scene {
 
         // dialogButton (components)
         const dialogButtonButtonComponent = new ButtonComponent(dialogButton);
-        dialogButtonButtonComponent.upTexture = { "key": "boot", "frame": "boot/button" };
-        dialogButtonButtonComponent.overTexture = { "key": "boot", "frame": "boot/buttonHover" };
-        dialogButtonButtonComponent.downTexture = { "key": "boot", "frame": "boot/buttonDown" };
+        dialogButtonButtonComponent.upTexture = {"key":"boot","frame":"boot/button"};
+        dialogButtonButtonComponent.overTexture = {"key":"boot","frame":"boot/buttonHover"};
+        dialogButtonButtonComponent.downTexture = {"key":"boot","frame":"boot/buttonDown"};
         dialogButtonButtonComponent.handCursor = true;
         dialogButtonButtonComponent.pixelPerfect = true;
 

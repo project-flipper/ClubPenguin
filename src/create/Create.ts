@@ -331,8 +331,8 @@ export default class Create extends Phaser.Scene {
 
         // nextButton (components)
         const nextButtonButtonComponent = new ButtonComponent(nextButton);
-        nextButtonButtonComponent.upTexture = { "key": "create", "frame": "create-module/nextButton" };
-        nextButtonButtonComponent.overTexture = { "key": "create", "frame": "create-module/nextButtonHover" };
+        nextButtonButtonComponent.upTexture = {"key":"create","frame":"create-module/nextButton"};
+        nextButtonButtonComponent.overTexture = {"key":"create","frame":"create-module/nextButtonHover"};
         nextButtonButtonComponent.handCursor = true;
 
         // nextButtonLabelTextBox (prefab fields)
@@ -413,8 +413,8 @@ export default class Create extends Phaser.Scene {
 
         // memberButton (components)
         const memberButtonButtonComponent = new ButtonComponent(memberButton);
-        memberButtonButtonComponent.upTexture = { "key": "create", "frame": "create-module/memberButton" };
-        memberButtonButtonComponent.overTexture = { "key": "create", "frame": "create-module/memberButtonHover" };
+        memberButtonButtonComponent.upTexture = {"key":"create","frame":"create-module/memberButton"};
+        memberButtonButtonComponent.overTexture = {"key":"create","frame":"create-module/memberButtonHover"};
         memberButtonButtonComponent.handCursor = true;
 
         // memberButtonTextBox (prefab fields)

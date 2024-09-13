@@ -17,7 +17,6 @@
             "type": "Container",
             "id": "e022191d-2516-4155-b041-ad34578f896e",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "Image",
@@ -36,14 +35,12 @@
                     "x": 1336.3875,
                     "y": 608.7375000000001,
                     "originX": 0.0379108635097493,
-                    "originY": 0.24303135888501742,
-                    "list": []
+                    "originY": 0.24303135888501742
                 },
                 {
                     "type": "Image",
                     "id": "5d18d62e-e689-4deb-981b-13b7999a8941",
                     "label": "login_screen_buddies",
-                    "components": [],
                     "texture": {
                         "key": "login",
                         "frame": "login-screen/buddies"
@@ -51,14 +48,12 @@
                     "x": 217.575,
                     "y": 1004.7375,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
                     "id": "12fa8aec-de20-44d6-9763-5fcd75549b4d",
                     "label": "login_screen_population",
-                    "components": [],
                     "texture": {
                         "key": "login",
                         "frame": "login-screen/population"
@@ -66,14 +61,12 @@
                     "x": 622.125,
                     "y": 1008.45,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
                     "id": "0ec638dd-fc61-48ea-a3b8-455cbb307bc1",
                     "label": "login_screen_chat",
-                    "components": [],
                     "texture": {
                         "key": "login",
                         "frame": "login-screen/chat"
@@ -81,8 +74,7 @@
                     "x": 1138.6125,
                     "y": 1015.9875,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
@@ -101,8 +93,7 @@
                     "x": 1482.6375,
                     "y": 44.4375,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -127,7 +118,6 @@
                     "boxHeight": 66.6,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 208.2375,
                     "y": 67.5,
                     "originX": 0,
@@ -135,9 +125,7 @@
                     "text": "Your Suggested Servers",
                     "font": "CCComiccrazy-BoldItalicShadow",
                     "align": 1,
-                    "fontSize": 45,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": 45
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -157,14 +145,11 @@
                     "boxWidth": 273.0375,
                     "boxHeight": 47.25,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 262.4625,
                     "y": 998.775,
                     "text": "Buddies online",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -31.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -31.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -184,14 +169,11 @@
                     "boxWidth": 452.925,
                     "boxHeight": 47.25,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 656.2125,
                     "y": 1005.3,
                     "text": "Amount of penguins online",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -31.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -31.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -211,14 +193,11 @@
                     "boxWidth": 464.0625,
                     "boxHeight": 47.25,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 1182.825,
                     "y": 1005.525,
                     "text": "Ultimate safe chat",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -31.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -31.5
                 },
                 {
                     "prefabId": "b5fff2dc-7ff0-4f5d-a287-4afddb10f16a",
@@ -229,11 +208,8 @@
                     ],
                     "label": "world5",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 420.75,
-                    "y": 663.75,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 663.75
                 },
                 {
                     "prefabId": "b5fff2dc-7ff0-4f5d-a287-4afddb10f16a",
@@ -244,11 +220,8 @@
                     ],
                     "label": "world4",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 420.75,
-                    "y": 549,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 549
                 },
                 {
                     "prefabId": "b5fff2dc-7ff0-4f5d-a287-4afddb10f16a",
@@ -259,11 +232,8 @@
                     ],
                     "label": "world3",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 420.75,
-                    "y": 434.25,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 434.25
                 },
                 {
                     "prefabId": "b5fff2dc-7ff0-4f5d-a287-4afddb10f16a",
@@ -274,11 +244,8 @@
                     ],
                     "label": "world2",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 420.75,
-                    "y": 319.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 319.5
                 },
                 {
                     "prefabId": "b5fff2dc-7ff0-4f5d-a287-4afddb10f16a",
@@ -289,11 +256,8 @@
                     ],
                     "label": "world1",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 420.75,
-                    "y": 204.75,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 204.75
                 }
             ]
         }
@@ -303,7 +267,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     },
     "lists": [
         {

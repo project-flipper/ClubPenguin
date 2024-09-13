@@ -56,17 +56,17 @@ export default class PromptInput extends Phaser.GameObjects.Container {
 
         // okayButton (components)
         const okayButtonButtonComponent = new ButtonComponent(okayButton);
-        okayButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/promptOkayButton0001" };
-        okayButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/promptOkayButton0002" };
-        okayButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/promptOkayButton0003" };
+        okayButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptOkayButton0001"};
+        okayButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptOkayButton0002"};
+        okayButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/promptOkayButton0003"};
         okayButtonButtonComponent.handCursor = true;
         okayButtonButtonComponent.pixelPerfect = true;
 
         // closeButton (components)
         const closeButtonButtonComponent = new ButtonComponent(closeButton);
-        closeButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardClose0001" };
-        closeButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardClose0002" };
-        closeButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardClose0003" };
+        closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardClose0001"};
+        closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardClose0002"};
+        closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardClose0003"};
         closeButtonButtonComponent.handCursor = true;
         closeButtonButtonComponent.pixelPerfect = true;
 

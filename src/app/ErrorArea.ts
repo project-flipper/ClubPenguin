@@ -85,9 +85,9 @@ export default class ErrorArea extends Phaser.Scene {
 
         // button (components)
         const buttonButtonComponent = new ButtonComponent(button);
-        buttonButtonComponent.upTexture = { "key": "app", "frame": "app/button" };
-        buttonButtonComponent.overTexture = { "key": "app", "frame": "app/buttonHover" };
-        buttonButtonComponent.downTexture = { "key": "app", "frame": "app/buttonDown" };
+        buttonButtonComponent.upTexture = {"key":"app","frame":"app/button"};
+        buttonButtonComponent.overTexture = {"key":"app","frame":"app/buttonHover"};
+        buttonButtonComponent.downTexture = {"key":"app","frame":"app/buttonDown"};
         buttonButtonComponent.handCursor = true;
 
         // buttonLabel (prefab fields)

@@ -28,7 +28,7 @@ import PromptError from "./prefabs/PromptError";
 import Hint from "./prefabs/Hint";
 /* START-USER-IMPORTS */
 import { UserData } from "../../net/types/penguin/penguin";
-import { Player } from "../engine/avatar/avatar";
+import { Player } from "../engine/player/avatar";
 import AvatarOverlay from "./prefabs/AvatarOverlay";
 import World from "../World";
 import { Engine } from "../engine/engine";
@@ -308,33 +308,33 @@ export default class Interface extends Phaser.Scene {
 
         // puffleButton (components)
         const puffleButtonButtonComponent = new ButtonComponent(puffleButton);
-        puffleButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        puffleButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        puffleButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        puffleButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        puffleButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        puffleButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         puffleButtonButtonComponent.handCursor = true;
         puffleButtonButtonComponent.pixelPerfect = true;
 
         // emojiButton (components)
         const emojiButtonButtonComponent = new ButtonComponent(emojiButton);
-        emojiButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        emojiButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        emojiButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        emojiButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        emojiButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        emojiButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         emojiButtonButtonComponent.handCursor = true;
         emojiButtonButtonComponent.pixelPerfect = true;
 
         // actionButton (components)
         const actionButtonButtonComponent = new ButtonComponent(actionButton);
-        actionButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        actionButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        actionButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        actionButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        actionButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        actionButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         actionButtonButtonComponent.handCursor = true;
         actionButtonButtonComponent.pixelPerfect = true;
 
         // snowballButton (components)
         const snowballButtonButtonComponent = new ButtonComponent(snowballButton);
-        snowballButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        snowballButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        snowballButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        snowballButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        snowballButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        snowballButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         snowballButtonButtonComponent.handCursor = true;
         snowballButtonButtonComponent.pixelPerfect = true;
 
@@ -354,49 +354,49 @@ export default class Interface extends Phaser.Scene {
 
         // chatButton (components)
         const chatButtonButtonComponent = new ButtonComponent(chatButton);
-        chatButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        chatButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        chatButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        chatButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        chatButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        chatButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         chatButtonButtonComponent.handCursor = true;
         chatButtonButtonComponent.pixelPerfect = true;
 
         // sendButton (components)
         const sendButtonButtonComponent = new ButtonComponent(sendButton);
-        sendButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        sendButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        sendButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        sendButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        sendButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        sendButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         sendButtonButtonComponent.handCursor = true;
         sendButtonButtonComponent.pixelPerfect = true;
 
         // playerButton (components)
         const playerButtonButtonComponent = new ButtonComponent(playerButton);
-        playerButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        playerButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        playerButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        playerButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        playerButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        playerButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         playerButtonButtonComponent.handCursor = true;
         playerButtonButtonComponent.pixelPerfect = true;
 
         // friendsButton (components)
         const friendsButtonButtonComponent = new ButtonComponent(friendsButton);
-        friendsButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        friendsButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        friendsButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        friendsButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        friendsButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        friendsButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         friendsButtonButtonComponent.handCursor = true;
         friendsButtonButtonComponent.pixelPerfect = true;
 
         // iglooButton (components)
         const iglooButtonButtonComponent = new ButtonComponent(iglooButton);
-        iglooButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        iglooButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        iglooButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        iglooButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        iglooButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        iglooButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         iglooButtonButtonComponent.handCursor = true;
         iglooButtonButtonComponent.pixelPerfect = true;
 
         // settingsButton (components)
         const settingsButtonButtonComponent = new ButtonComponent(settingsButton);
-        settingsButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        settingsButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        settingsButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        settingsButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        settingsButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        settingsButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         settingsButtonButtonComponent.handCursor = true;
         settingsButtonButtonComponent.pixelPerfect = true;
 
@@ -406,36 +406,36 @@ export default class Interface extends Phaser.Scene {
 
         // mailIcon (components)
         const mailIconButtonComponent = new ButtonComponent(mailIcon);
-        mailIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/mailIcon0001" };
-        mailIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/mailIcon0002" };
+        mailIconButtonComponent.upTexture = {"key":"interface","frame":"interface/mailIcon0001"};
+        mailIconButtonComponent.overTexture = {"key":"interface","frame":"interface/mailIcon0002"};
         mailIconButtonComponent.handCursor = true;
         mailIconButtonComponent.pixelPerfect = true;
 
         // newsIcon (components)
         const newsIconButtonComponent = new ButtonComponent(newsIcon);
-        newsIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/newsIcon0001" };
-        newsIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/newsIcon0002" };
+        newsIconButtonComponent.upTexture = {"key":"interface","frame":"interface/newsIcon0001"};
+        newsIconButtonComponent.overTexture = {"key":"interface","frame":"interface/newsIcon0002"};
         newsIconButtonComponent.handCursor = true;
         newsIconButtonComponent.pixelPerfect = true;
 
         // safetyIcon (components)
         const safetyIconButtonComponent = new ButtonComponent(safetyIcon);
-        safetyIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/safetyIcon0001" };
-        safetyIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/safetyIcon0002" };
+        safetyIconButtonComponent.upTexture = {"key":"interface","frame":"interface/safetyIcon0001"};
+        safetyIconButtonComponent.overTexture = {"key":"interface","frame":"interface/safetyIcon0002"};
         safetyIconButtonComponent.handCursor = true;
         safetyIconButtonComponent.pixelPerfect = true;
 
         // mapIcon (components)
         const mapIconButtonComponent = new ButtonComponent(mapIcon);
-        mapIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/mapIcon0001" };
-        mapIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/mapIcon0002" };
+        mapIconButtonComponent.upTexture = {"key":"interface","frame":"interface/mapIcon0001"};
+        mapIconButtonComponent.overTexture = {"key":"interface","frame":"interface/mapIcon0002"};
         mapIconButtonComponent.handCursor = true;
         mapIconButtonComponent.pixelPerfect = true;
 
         // phoneIcon (components)
         const phoneIconButtonComponent = new ButtonComponent(phoneIcon);
-        phoneIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/phoneIcon0001" };
-        phoneIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/phoneIconOver" };
+        phoneIconButtonComponent.upTexture = {"key":"interface","frame":"interface/phoneIcon0001"};
+        phoneIconButtonComponent.overTexture = {"key":"interface","frame":"interface/phoneIconOver"};
         phoneIconButtonComponent.handCursor = true;
         phoneIconButtonComponent.pixelPerfect = true;
 

@@ -17,13 +17,11 @@
             "type": "Container",
             "id": "10a9a11a-6373-4f82-a7de-25bdbd8b8cbf",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "NineSlice",
                     "id": "7b140526-08f9-4a7d-999a-84edebfdbeb1",
                     "label": "bg",
-                    "components": [],
                     "texture": {
                         "key": "login",
                         "frame": "login-screen/publicpromptbg"
@@ -37,8 +35,7 @@
                     "leftWidth": 46,
                     "rightWidth": 46,
                     "topHeight": 46,
-                    "bottomHeight": 46,
-                    "list": []
+                    "bottomHeight": 46
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -62,16 +59,13 @@
                     "boxHeight": 275.8625,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 556.9875,
                     "y": 341.1,
                     "text": "WAIT!\nDo other people use \nthis computer?",
                     "font": "BurbankSmallMedium",
                     "align": 1,
                     "fontSize": -40.5,
-                    "maxWidth": 609.975,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "maxWidth": 609.975
                 },
                 {
                     "type": "Image",
@@ -91,8 +85,7 @@
                     "x": 573.525,
                     "y": 598.05,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -115,15 +108,12 @@
                     "boxHeight": 105,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 573.525,
                     "y": 598.05,
                     "text": "Yes",
                     "font": "BurbankSmallBold",
                     "align": 1,
-                    "fontSize": -40.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -40.5
                 },
                 {
                     "type": "Image",
@@ -143,8 +133,7 @@
                     "x": 888.6375,
                     "y": 598.05,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -167,15 +156,12 @@
                     "boxHeight": 105,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 888.6375,
                     "y": 598.05,
                     "text": "No",
                     "font": "BurbankSmallBold",
                     "align": 1,
-                    "fontSize": -40.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -40.5
                 }
             ]
         }
@@ -185,6 +171,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

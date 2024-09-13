@@ -20,7 +20,6 @@
             "id": "fac8d96f-0bde-42ec-a667-04e94c9523e7",
             "label": "logo",
             "scope": "PUBLIC",
-            "components": [],
             "x": 871.4249,
             "y": 518.2875,
             "list": [
@@ -29,40 +28,34 @@
                     "id": "2b207c35-1f51-482d-8e50-94a33b14abe1",
                     "label": "logoEn",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "logo",
                         "frame": "logo/logo"
-                    },
-                    "list": []
+                    }
                 },
                 {
                     "type": "Image",
                     "id": "bb540087-87ee-4375-a46a-b5756cc1354b",
                     "label": "logo_shine1",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "logo",
                         "frame": "logo/shine"
                     },
                     "x": -551,
-                    "y": 54,
-                    "list": []
+                    "y": 54
                 },
                 {
                     "type": "Image",
                     "id": "0b7b44de-8bf4-411c-af8e-cee31eb06f65",
                     "label": "logo_shine2",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "logo",
                         "frame": "logo/shine"
                     },
                     "x": -565,
-                    "y": 54,
-                    "list": []
+                    "y": 54
                 }
             ]
         },
@@ -71,30 +64,26 @@
             "id": "50ccb446-7fbb-4d4a-87b1-aac2185c598a",
             "label": "logo_mask2",
             "scope": "PUBLIC",
-            "components": [],
             "texture": {
                 "key": "logo",
                 "frame": "logo/mask2"
             },
             "x": 850.4249267578125,
             "y": 569.2874755859375,
-            "visible": false,
-            "list": []
+            "visible": false
         },
         {
             "type": "Image",
             "id": "35bb3e4f-30d0-4fd2-a2eb-869b8fdbde3e",
             "label": "logo_mask1",
             "scope": "PUBLIC",
-            "components": [],
             "texture": {
                 "key": "logo",
                 "frame": "logo/mask"
             },
             "x": 850.4249267578125,
             "y": 569.2874755859375,
-            "visible": false,
-            "list": []
+            "visible": false
         }
     ],
     "plainObjects": [],
@@ -102,6 +91,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

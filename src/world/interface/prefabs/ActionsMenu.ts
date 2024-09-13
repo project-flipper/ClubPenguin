@@ -62,38 +62,38 @@ export default class ActionsMenu extends Phaser.GameObjects.Container {
 
         // actionDance (components)
         const actionDanceButtonComponent = new ButtonComponent(actionDance);
-        actionDanceButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsButton0001" };
-        actionDanceButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsButton0002" };
+        actionDanceButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsButton0001"};
+        actionDanceButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsButton0002"};
         actionDanceButtonComponent.handCursor = true;
 
         // actionWave (components)
         const actionWaveButtonComponent = new ButtonComponent(actionWave);
-        actionWaveButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsButton0001" };
-        actionWaveButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsButton0002" };
+        actionWaveButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsButton0001"};
+        actionWaveButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsButton0002"};
         actionWaveButtonComponent.handCursor = true;
 
         // actionSitUpLeft (components)
         const actionSitUpLeftButtonComponent = new ButtonComponent(actionSitUpLeft);
-        actionSitUpLeftButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsMiniButton0001" };
-        actionSitUpLeftButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsMiniButton0002" };
+        actionSitUpLeftButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsMiniButton0001"};
+        actionSitUpLeftButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsMiniButton0002"};
         actionSitUpLeftButtonComponent.handCursor = true;
 
         // actionSitUpRight (components)
         const actionSitUpRightButtonComponent = new ButtonComponent(actionSitUpRight);
-        actionSitUpRightButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsMiniButton0001" };
-        actionSitUpRightButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsMiniButton0002" };
+        actionSitUpRightButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsMiniButton0001"};
+        actionSitUpRightButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsMiniButton0002"};
         actionSitUpRightButtonComponent.handCursor = true;
 
         // actionSitDownLeft (components)
         const actionSitDownLeftButtonComponent = new ButtonComponent(actionSitDownLeft);
-        actionSitDownLeftButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsMiniButton0001" };
-        actionSitDownLeftButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsMiniButton0002" };
+        actionSitDownLeftButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsMiniButton0001"};
+        actionSitDownLeftButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsMiniButton0002"};
         actionSitDownLeftButtonComponent.handCursor = true;
 
         // actionSitDownRight (components)
         const actionSitDownRightButtonComponent = new ButtonComponent(actionSitDownRight);
-        actionSitDownRightButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsMiniButton0001" };
-        actionSitDownRightButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsMiniButton0002" };
+        actionSitDownRightButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsMiniButton0001"};
+        actionSitDownRightButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsMiniButton0002"};
         actionSitDownRightButtonComponent.handCursor = true;
 
         this.bg = bg;

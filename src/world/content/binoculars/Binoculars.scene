@@ -84,7 +84,7 @@
             "y": 481.725,
             "scaleX": 1.09,
             "scaleY": 1.09,
-            "angle": 1.5506000000000002,
+            "angle": 1.5506000000000313,
             "originX": 0.15454954954954955,
             "originY": 0.7876666666666666,
             "visible": false
@@ -129,7 +129,7 @@
             },
             "x": 678.375,
             "y": 460.0125,
-            "angle": 6.709700000000001,
+            "angle": 6.709699999999998,
             "originX": 0.15454954954954955,
             "originY": 0.7876666666666666,
             "visible": false
@@ -146,7 +146,7 @@
             "y": 467.775,
             "scaleX": 1.099411,
             "scaleY": 1.099411,
-            "angle": 9.5553,
+            "angle": 9.555299999999988,
             "originX": 0.15454954954954955,
             "originY": 0.7876666666666666,
             "visible": false
@@ -177,7 +177,7 @@
             "y": 445.275,
             "scaleX": 0.799973,
             "scaleY": 0.799973,
-            "angle": 10.0011,
+            "angle": 10.001099999999951,
             "originX": 0.15454954954954955,
             "originY": 0.7876666666666666,
             "visible": false
@@ -192,7 +192,7 @@
             },
             "x": 1033.65,
             "y": 466.3125,
-            "angle": 14.999700000000002,
+            "angle": 14.999700000000075,
             "originX": 0.15454954954954955,
             "originY": 0.7876666666666666,
             "visible": false
@@ -209,7 +209,7 @@
             "y": 463.6125,
             "scaleX": 0.999374,
             "scaleY": 0.999374,
-            "angle": 11.2686,
+            "angle": 11.268599999999992,
             "originX": 0.2965454545454545,
             "originY": 0.5628571428571428,
             "visible": false
@@ -226,7 +226,7 @@
             "y": 456.75,
             "scaleX": 0.800003,
             "scaleY": 0.800003,
-            "angle": 14.999700000000002,
+            "angle": 14.999700000000075,
             "originX": 0.15454954954954955,
             "originY": 0.7876666666666666,
             "visible": false
@@ -485,7 +485,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 4
+        "version": 5
     },
     "lists": [
         {
