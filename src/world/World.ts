@@ -88,6 +88,8 @@ export default class World extends Phaser.Scene {
 
         await load.waitAllTasksComplete();
 
+        this.engine = new Engine(this);
+
         await new Promise<void>(resolve => this.scene.run('Interface', {
             oninit: (scene: Interface) => load.track(new LoaderTask(scene.load)),
             onready: () => resolve()
@@ -95,11 +97,9 @@ export default class World extends Phaser.Scene {
 
         await load.waitAllTasksComplete();
 
-        this.engine = new Engine(this);
-
-        let myFriends = await this.game.airtower.getMyFriends();
-        let friends = myFriends.data.filter(penguin => penguin.mascotId == undefined);
-        let characters = myFriends.data.filter(penguin => penguin.mascotId != undefined).map(penguin => penguin.id);
+        let friendList = await this.game.airtower.getMyFriends();
+        let friends = friendList.data.filter(penguin => penguin.mascotId == undefined);
+        let characters = friendList.data.filter(penguin => penguin.mascotId != undefined).map(penguin => penguin.id);
 
         this.game.friends.connect(friends, characters, true, true, true);
 
