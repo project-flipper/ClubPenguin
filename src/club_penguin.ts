@@ -19,6 +19,11 @@ import World from "@clubpenguin/world/World";
 import Interface from "@clubpenguin/world/interface/Interface";
 import { Debug } from "@clubpenguin/debug";
 import { LoaderPlugin } from "@clubpenguin/app/loader";
+import { Formatter, getLogger, LogLevel } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP');
+logger.level = LogLevel.TRACE;
+logger.formatter = new Formatter('%c[%c{now}%c] [%c{name}%c] %c{msg}', ['color:#616161', 'color:#0052AF', 'color:#616161', 'color:#22A4F3', 'color:#616161', '']);
 
 let app: App;
 
@@ -72,6 +77,7 @@ export function isBrowserCompatible(): boolean {
 export function run(params: RunParams): void {
     stop();
 
+    logger.info('Starting app');
     app = new App({
         parent: params.parentId,
         fullscreenTarget: params.parentId,
@@ -161,6 +167,8 @@ export function isRunning(): boolean {
 export function sizeChange(repositionFriends = false): void {
     if (!isRunning()) return;
 
+    logger.info('Repositioning app');
+
     if (app.scale.getParentBounds()) app.scale.refresh();
     if (repositionFriends) app.friends.reposition();
 }
@@ -221,10 +229,13 @@ export function sendToggleBestCharacter(id: string): void {
 
 export function stop(terminate = false): void {
     if (isRunning()) {
+        logger.info('Stopping app');
         //app.airtower.close();
         app.destroy(false, terminate);
     }
 }
+
+logger.info('Club Penguin ready');
 
 export let debug: Debug;
 
