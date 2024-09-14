@@ -1,20 +1,24 @@
-import { App } from "./app/app";
-import Config from "./app/config";
-import { Airtower } from "./net/airtower";
-import { Membership } from "./net/types/membership";
-import { UserData } from "./net/types/user";
-import { RelationshipType } from "./net/types/relationship";
-import { Avatar as AvatarData } from "./net/types/avatar";
-import World from "./world/World";
-import { Avatar } from "./world/engine/player/avatar";
-import Interface from "./world/interface/Interface";
-import { Engine, Room } from "./world/engine/engine";
+import { App } from "@clubpenguin/app/app";
+import Config from "@clubpenguin/app/config";
+import { Airtower } from "@clubpenguin/net/airtower";
+import { MembershipData } from "@clubpenguin/net/types/membership";
+import { UserData } from "@clubpenguin/net/types/user";
+import { RelationshipType } from "@clubpenguin/net/types/relationship";
+import { AvatarData as AvatarData } from "@clubpenguin/net/types/avatar";
+import World from "@clubpenguin/world/World";
+import { Avatar } from "@clubpenguin/world/engine/player/avatar";
+import Interface from "@clubpenguin/world/interface/Interface";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.debug');
 
 export class Debug {
     appCallback: () => App;
 
     constructor(callback: () => App) {
         this.appCallback = callback;
+        logger.info('Debug layer available under %cCP.debug', 'font-weight: bold');
     }
 
     get app(): App {
@@ -52,7 +56,7 @@ export class Debug {
     INTERNAL_ID = 10000;
 
     async spawn(name: string, color: number, member?: number, mascotId?: number): Promise<void> {
-        let membership: Membership = member != undefined ? {
+        let membership: MembershipData = member != undefined ? {
             level: member,
             since: ''
         } : undefined;
@@ -85,6 +89,7 @@ export class Debug {
         this.engine.players.addPlayer(player);
 
         this.INTERNAL_ID += 1;
+        logger.debug('Added mock player with ID', player.userData.id);
     }
 
     getItemsByType() {
@@ -110,16 +115,16 @@ export class Debug {
             colors.push(parseInt(idx));
         }
 
-        let avatar = await this.engine.players.loadAvatar('penguin');
         limit = limit ?? this.engine.currentRoom.roomData.max_users;
 
         let actions: number[] = [
             0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
         ];
 
+        logger.debug('Starting stress test using', limit, 'mocked players');
         for (let i = 0; i < limit; i++) {
             let randomRank = Math.floor(Math.random() * 5);
-            let member: Membership = randomRank > 0 ? {
+            let member: MembershipData = randomRank > 0 ? {
                 level: randomRank,
                 since: ''
             } : undefined;
@@ -150,7 +155,7 @@ export class Debug {
 
             let player = await this.engine.players.createPlayer(data, this.world.cameras.main.centerX + this.randomRange(-350, +350), this.world.cameras.main.centerY + this.randomRange(0, +400));
             this.engine.players.addPlayer(player);
-            player.playAnimation(this.getRandomItem(actions));
+            player.actions.set({ frame: this.getRandomItem(actions) });
 
             this.INTERNAL_ID += 1;
         }
@@ -187,7 +192,7 @@ export class Debug {
     }
 
     teleport(roomId: number): void {
-        this.world.joinRoom(roomId.toString());
+        this.world.joinRoom(roomId);
     }
 
     play(gameId: string): void {
