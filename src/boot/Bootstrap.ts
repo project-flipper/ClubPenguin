@@ -212,13 +212,13 @@ export default class Bootstrap extends Phaser.Scene {
             throw new Error('Multiple connections detected!');
         }
 
-        let path = 'start'; // TODO: get path
+        let path = window.location.hash;
 
-        if (path === 'login') {
+        if (path === '#login') {
             this.scene.start('Login');
-        } else if (path === 'create') {
+        } else if (path === '#create') {
             this.scene.start('Create');
-        } else if (path === 'redeem') {
+        } else if (path === '#redeem') {
             this.scene.start('Redemption');
         } else {
             this.scene.start('Startscreen');
