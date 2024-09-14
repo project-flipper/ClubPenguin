@@ -11,8 +11,8 @@ import MemberBadge from "./MemberBadge";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
-import { UserData } from "../../../net/types/user";
-import { Locale } from "../../../app/locale";
+import { UserData } from "@clubpenguin/net/types/user";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class Namecard extends Phaser.GameObjects.Container {

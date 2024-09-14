@@ -25,7 +25,7 @@ import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import Interface from "./interface/Interface";
 import { BaseUserData, MyUserData, UserData } from "@clubpenguin/net/types/user";
-import { Engine } from "@clubpenguin/world/engine/engine";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import { App } from "@clubpenguin/app/app";
 import { RelationshipType } from "@clubpenguin/net/types/relationship";
 /* END-USER-IMPORTS */

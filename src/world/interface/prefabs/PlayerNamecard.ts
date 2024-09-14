@@ -11,8 +11,8 @@ import TextBox from "../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
-import { MyUserData } from "../../../net/types/user";
-import { Locale } from "../../../app/locale";
+import { MyUserData } from "@clubpenguin/net/types/user";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class PlayerNamecard extends Phaser.GameObjects.Container {

@@ -114,8 +114,8 @@ export default class WorldTile extends Phaser.GameObjects.Container {
     public id: string;
 
     setPopulation(value: number): void {
-        let off = "login-screen/populationOff";
-        let on = "login-screen/populationOn";
+        let off = 'login-screen/populationOff';
+        let on = 'login-screen/populationOn';
 
         this.population1.setFrame(value > 0 ? on : off);
         this.population2.setFrame(value > 1 ? on : off);

@@ -27,18 +27,18 @@ import PromptInput from "./prefabs/PromptInput";
 import PromptError from "./prefabs/PromptError";
 import Hint from "./prefabs/Hint";
 /* START-USER-IMPORTS */
-import { UserData } from "../../net/types/user";
-import { Player } from "../engine/player/avatar";
+import { UserData } from "@clubpenguin/net/types/user";
+import { Player } from "@clubpenguin/world/engine/player/avatar";
 import AvatarOverlay from "./prefabs/AvatarOverlay";
-import World from "../World";
-import { Engine } from "../engine/engine";
-import { Locale } from "../../app/locale";
-import { App } from "../../app/app";
-import Load from "../../load/Load";
-import { LoaderTask } from "../../load/tasks";
-import ErrorArea from "../../app/ErrorArea";
-import { Emoji } from "../../net/types/emoji";
-import { GameConfig } from "../../app/config";
+import World from "@clubpenguin/world/World";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Locale } from "@clubpenguin/app/locale";
+import { App } from "@clubpenguin/app/app";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import { Emoji } from "@clubpenguin/net/types/emoji";
+import { GameConfig } from "@clubpenguin/app/config";
 /* END-USER-IMPORTS */
 
 export default class Interface extends Phaser.Scene {

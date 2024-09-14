@@ -9,10 +9,10 @@ import DepthEnabled from "../../../lib/ui/components/DepthEnabled";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 import Trigger from "../../../lib/ui/components/Trigger";
 /* START-USER-IMPORTS */
-import { App } from "../../../app/app";
-import { Engine,  Room } from "../../engine/engine";
-import Interface from "../../interface/Interface";
-import { Locale } from "../../../app/locale";
+import { App } from "@clubpenguin/app/app";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import Interface from "@clubpenguin/world/interface/Interface";
+import { Locale } from "@clubpenguin/app/locale";
 import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 

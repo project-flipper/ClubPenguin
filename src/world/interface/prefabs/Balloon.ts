@@ -6,7 +6,7 @@
 import Phaser from "phaser";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import { Emoji } from "../../../net/types/emoji";
+import { Emoji } from "@clubpenguin/net/types/emoji";
 /* END-USER-IMPORTS */
 
 export default class Balloon extends Phaser.GameObjects.Container {

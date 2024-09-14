@@ -12,9 +12,9 @@ import ThirdLane from "./prefabs/ThirdLane";
 import FourthLane from "./prefabs/FourthLane";
 import RoomTrigger from "../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
-import { App } from "../../../app/app";
-import { Engine,  Room } from "../../engine/engine";
-import Interface from "../../interface/Interface";
+import { App } from "@clubpenguin/app/app";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import Interface from "@clubpenguin/world/interface/Interface";
 import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 

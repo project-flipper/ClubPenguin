@@ -6,11 +6,11 @@
 import Phaser from "phaser";
 import TextBox from "../../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import { Locale } from "../../../../app/locale";
+import { Locale } from "@clubpenguin/app/locale";
 import Lounge from "../Lounge";
-import { App } from "../../../../app/app";
-import Load from "../../../../load/Load";
-import { LoaderTask } from "../../../../load/tasks";
+import { App } from "@clubpenguin/app/app";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
 /* END-USER-IMPORTS */
 
 export default class TargetGameScreen extends Phaser.GameObjects.Container {

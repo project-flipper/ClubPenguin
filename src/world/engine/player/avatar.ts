@@ -3,7 +3,7 @@ import Phaser from "phaser";
 
 import { MyUserData, UserData } from "@clubpenguin/net/types/user";
 import AvatarOverlay from "@clubpenguin/world/interface/prefabs/AvatarOverlay";
-import { Engine } from "@clubpenguin/world/engine/engine";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import { ClothingSprite } from "@clubpenguin/world/engine/clothing/clothingManager";
 import { Actions } from "./actions";
 

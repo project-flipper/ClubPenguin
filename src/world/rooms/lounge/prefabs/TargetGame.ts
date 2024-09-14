@@ -9,7 +9,7 @@ import Target from "./Target";
 import MonsterTarget from "./MonsterTarget";
 import TextBox from "../../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import { Locale } from "../../../../app/locale";
+import { Locale } from "@clubpenguin/app/locale";
 import Lounge from "../Lounge";
 /* END-USER-IMPORTS */
 

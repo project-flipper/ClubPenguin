@@ -5,7 +5,7 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import { Engine } from "@clubpenguin/world/engine/engine";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 /* END-USER-IMPORTS */
 

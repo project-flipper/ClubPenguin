@@ -1,7 +1,7 @@
 import Phaser from "phaser";
-import Load from "../../../load/Load";
-import { LoaderTask } from "../../../load/tasks";
-import { Engine } from "@clubpenguin/world/engine/engine";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 
 export class MusicManager {
