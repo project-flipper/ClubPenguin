@@ -2,6 +2,9 @@ import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import { ApiResponse, CreateUserResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse, CreateUserForm } from "@clubpenguin/net/types/api";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.net.airtower');
 
 /**
  * The base error used by Airtower.
@@ -202,9 +205,11 @@ export class Airtower extends Phaser.Events.EventEmitter {
         let response: Response;
         let data: R;
         for (let tries = 0; tries < 5; tries++) {
+            logger.info(route.method, route.path);
             response = await fetch(route.getURL(this.basePath), params);
 
             data = await response.json();
+            logger.debug(route.method, route.path, 'has received', data);
 
             if (response.status >= 200 && 300 > response.status) {
                 return data;
@@ -234,7 +239,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
                         headers['Authorization'] = `Bearer ${this.#token}`;
                         continue;
                     } catch(e) {
-                        console.error(e);
+                        logger.error('Unable to refresh token', e);
                     }
                 }
 
@@ -267,6 +272,8 @@ export class Airtower extends Phaser.Events.EventEmitter {
      * @returns The response from the API.
      */
     async logIn(username: string, password: string): Promise<LoginResponse> {
+        logger.info('Logging in');
+
         let response = await this.request<LoginResponse>(new Route('POST', '/auth/login'), {
             form: {
                 username: username,
@@ -293,6 +300,8 @@ export class Airtower extends Phaser.Events.EventEmitter {
     async refresh(): Promise<LoginResponse> {
         if (!this.#key) throw new Error('Cannot refresh without logging in');
 
+        logger.info('Refreshing access token');
+
         let response = await this.request<LoginResponse>(new Route('POST', '/auth/refresh'), {
             authorization: this.#key,
             handleRatelimit: false,
@@ -300,9 +309,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
         });
 
         if (response.success) {
-            console.log('setting access token')
             this.#token = response.data.access_token;
-            console.log('ok')
         }
 
         return response;

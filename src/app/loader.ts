@@ -1,4 +1,7 @@
+import { getLogger } from "@clubpenguin/lib/log";
 import Phaser from "phaser";
+
+let logger = getLogger('CP.app.loader');
 
 export function setQuery(url: string, key: string, value: string, shouldReplace = true): string {
     let re = new RegExp(`([?&])${key}=.*?(&|#|$)(.*)`, 'gi');
@@ -41,6 +44,10 @@ export class LoaderPlugin extends Phaser.Loader.LoaderPlugin {
         if ((file.url as string).match(/^(?:blob:|data:|capacitor:\/\/|http:\/\/|https:\/\/|\/\/)/)) return;
 
         let cacheVersion = LoaderPlugin.cacheVersion;
-        if (cacheVersion !== undefined) file.url = setQuery(file.url as string, 'v', cacheVersion, false);
+        if (cacheVersion !== undefined) {
+            let rewritten = setQuery(file.url as string, 'v', cacheVersion, false);
+            logger.debug('Rewriting the URL', file.url, 'to', rewritten);
+            file.url = rewritten;
+        }
     }
 }

@@ -192,18 +192,23 @@ export class Debug {
     }
 
     teleport(roomId: number): void {
+        logger.debug('Joining room', roomId);
         this.world.joinRoom(roomId);
     }
 
     play(gameId: string): void {
-        let gameConfig = this.gameConfig.games[gameId];
-        if (!gameConfig) return;
-        console.log('Loading game', gameConfig);
-        this.engine.startGame(gameConfig);
+        logger.debug('Starting game', gameId);
+        this.world.startGame(gameId);
     }
 
-    changeLanguage(language: string): void {
+    async changeLanguage(language: string): Promise<void> {
+        logger.debug('Changing game language to', language);
         this.app.locale.setLanguage(language);
-        this.app.locale.load();
+        try {
+            await this.app.locale.load();
+            logger.warn('Game language successfully changed. Some features will remain unchanged until a full reload is performed');
+        } catch(e) {
+            logger.error('Couldn\'t change game language', e);
+        }
     }
 }

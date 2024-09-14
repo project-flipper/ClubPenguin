@@ -3,6 +3,9 @@ import Phaser from "phaser";
 import { App } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.app.locale');
 
 export enum Language {
     EN = 1,
@@ -71,6 +74,8 @@ export class Locale extends Phaser.Events.EventEmitter {
         this.string = this.getLanguageString(this.language);
         this.frame = this.getLanguageFrame(this.language);
 
+        logger.info('Language set to', lang);
+
         this.emit(LocaleEvents.LANGUAGE_CHANGE, this.language);
     }
 
@@ -133,18 +138,20 @@ export class Locale extends Phaser.Events.EventEmitter {
         let load = this.app.scene.getScene('Load') as Load;
         let loader = load.load;
         let cache = load.cache;
-        load.track(new LoaderTask(loader));
+        load.track(new LoaderTask('Locale loader', loader));
 
         let key = `locale-${this.abbreviation}`
         if (cache.json.exists(key)) cache.json.remove(key);
 
         loader.json(key, `config/${this.abbreviation}/game_strings.json`)
 
+        logger.info('Loading locale');
         loader.start();
         await load.waitAllTasksComplete();
         if (loader.totalFailed > 0) throw new Error(`Locale files failed to load! ${loader.totalFailed} failed out of ${loader.totalToLoad}`);
 
         this.data = cache.json.get(key);
+        logger.info('Locale received');
         this.emit(LocaleEvents.DATA_LOADED, this.data);
     }
 
@@ -159,7 +166,7 @@ export class Locale extends Phaser.Events.EventEmitter {
             try {
                 task.callback.call(task.context, this);
             } catch (e) {
-                console.error('Localization task threw an error!', e);
+                logger.error('Localization task threw an error!', e);
             }
         }
     }
@@ -171,7 +178,7 @@ export class Locale extends Phaser.Events.EventEmitter {
             try {
                 task.call(context, this);
             } catch (e) {
-                console.error('Localization task threw an error!', e);
+                logger.error('Localization task threw an error!', e);
             }
         } else {
             this.once(LocaleEvents.DATA_LOADED, () => task.call(context, this));
@@ -186,7 +193,7 @@ export class Locale extends Phaser.Events.EventEmitter {
             try {
                 task.call(context, this);
             } catch (e) {
-                console.error('Localization task threw an error!', e);
+                logger.error('Localization task threw an error!', e);
             }
         }
     }

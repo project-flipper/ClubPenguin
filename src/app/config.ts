@@ -3,6 +3,9 @@ import Phaser from "phaser";
 import { App } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.app.config');
 
 export interface GeneralConfig {
     mascot_options: {
@@ -105,22 +108,18 @@ export default class Config {
     public paper_items: { [itemId: string]: PaperItemConfig; };
     public rooms: { [roomId: string]: RoomConfig; };
 
-    addGlobalConfig(loader: Phaser.Loader.LoaderPlugin, cache: Phaser.Cache.CacheManager, key: string): void {
-        if (cache.json.exists(`config-global-${key}`)) cache.json.remove(`config-global-${key}`);
-        loader.json(`config-global-${key}`, `config/${key}.json`);
+    addGlobalConfig(loader: Phaser.Loader.LoaderPlugin, cache: Phaser.Cache.CacheManager, key: string): string {
+        let cacheKey = `config-global-${key}`;
+        if (cache.json.exists(cacheKey)) cache.json.remove(cacheKey);
+        loader.json(cacheKey, `config/${key}.json`);
+        return cacheKey;
     }
 
-    getGlobalConfig(cache: Phaser.Cache.CacheManager, key: string): any {
-        return cache.json.get(`config-global-${key}`);
-    }
-
-    addLocalConfig(loader: Phaser.Loader.LoaderPlugin, cache: Phaser.Cache.CacheManager, locale: string, key: string): void {
-        if (cache.json.exists(`config-${locale}-${key}`)) cache.json.remove(`config-${locale}-${key}`);
-        loader.json(`config-${locale}-${key}`, `config/${locale}/${key}.json`);
-    }
-
-    getLocalConfig(cache: Phaser.Cache.CacheManager, locale: string, key: string): any {
-        return cache.json.get(`config-${locale}-${key}`);
+    addLocalConfig(loader: Phaser.Loader.LoaderPlugin, cache: Phaser.Cache.CacheManager, locale: string, key: string): string {
+        let cacheKey = `config-${locale}-${key}`;
+        if (cache.json.exists(`config-${locale}-${key}`)) cache.json.remove(cacheKey);
+        loader.json(cacheKey, `config/${locale}/${key}.json`);
+        return cacheKey;
     }
 
     async load(locale: string): Promise<void> {
@@ -128,42 +127,45 @@ export default class Config {
         let loader = load.load;
         let cache = load.cache;
 
-        let task = load.track(new LoaderTask(loader));
+        let task = load.track(new LoaderTask('Configs loader', loader));
 
-        this.addGlobalConfig(loader, cache, 'general');
-        this.addGlobalConfig(loader, cache, 'penguin_action_frames');
-        this.addGlobalConfig(loader, cache, 'player_colors');
+        let general = this.addGlobalConfig(loader, cache, 'general');
+        let penguin_action_frames = this.addGlobalConfig(loader, cache, 'penguin_action_frames');
+        let player_colors = this.addGlobalConfig(loader, cache, 'player_colors');
 
-        this.addLocalConfig(loader, cache, locale, 'games');
-        this.addLocalConfig(loader, cache, locale, 'furniture_items');
-        this.addLocalConfig(loader, cache, locale, 'igloo_floors');
-        this.addLocalConfig(loader, cache, locale, 'igloo_locations');
-        this.addLocalConfig(loader, cache, locale, 'igloo_music_tracks');
-        this.addLocalConfig(loader, cache, locale, 'igloos');
-        this.addLocalConfig(loader, cache, locale, 'jokes');
-        this.addLocalConfig(loader, cache, locale, 'mascot_messages');
-        this.addLocalConfig(loader, cache, locale, 'mascots');
-        this.addLocalConfig(loader, cache, locale, 'paper_items');
-        this.addLocalConfig(loader, cache, locale, 'rooms');
+        let games = this.addLocalConfig(loader, cache, locale, 'games');
+        let furniture_items = this.addLocalConfig(loader, cache, locale, 'furniture_items');
+        let igloo_floors = this.addLocalConfig(loader, cache, locale, 'igloo_floors');
+        let igloo_locations = this.addLocalConfig(loader, cache, locale, 'igloo_locations');
+        let igloo_music_tracks = this.addLocalConfig(loader, cache, locale, 'igloo_music_tracks');
+        let igloos = this.addLocalConfig(loader, cache, locale, 'igloos');
+        let jokes = this.addLocalConfig(loader, cache, locale, 'jokes');
+        let mascot_messages = this.addLocalConfig(loader, cache, locale, 'mascot_messages');
+        let mascots = this.addLocalConfig(loader, cache, locale, 'mascots');
+        let paper_items = this.addLocalConfig(loader, cache, locale, 'paper_items');
+        let rooms = this.addLocalConfig(loader, cache, locale, 'rooms');
 
+        logger.info('Loading game configs');
         loader.start();
         let result = await task.wait();
         if (result.data.totalFailed > 0) throw new Error(`Game configs failed to load! ${result.data.totalFailed} failed out of ${result.data.totalFailed + result.data.totalComplete}`);
 
-        this.general = this.getGlobalConfig(cache, 'general');
-        this.penguin_action_frames = this.getGlobalConfig(cache, 'penguin_action_frames');
-        this.player_colors = this.getGlobalConfig(cache, 'player_colors');
+        this.general = cache.json.get(general);
+        this.penguin_action_frames = cache.json.get(penguin_action_frames);
+        this.player_colors = cache.json.get(player_colors);
 
-        this.games = this.getLocalConfig(cache, locale, 'games');
-        this.furniture_items = this.getLocalConfig(cache, locale, 'furniture_items');
-        this.igloo_floors = this.getLocalConfig(cache, locale, 'igloo_floors');
-        this.igloo_locations = this.getLocalConfig(cache, locale, 'igloo_locations');
-        this.igloo_music_tracks = this.getLocalConfig(cache, locale, 'igloo_music_tracks');
-        this.igloos = this.getLocalConfig(cache, locale, 'igloos');
-        this.jokes = this.getLocalConfig(cache, locale, 'jokes');
-        this.mascot_messages = this.getLocalConfig(cache, locale, 'mascot_messages');
-        this.mascots = this.getLocalConfig(cache, locale, 'mascots');
-        this.paper_items = this.getLocalConfig(cache, locale, 'paper_items');
-        this.rooms = this.getLocalConfig(cache, locale, 'rooms');
+        this.games = cache.json.get(games);
+        this.furniture_items = cache.json.get(furniture_items);
+        this.igloo_floors = cache.json.get(igloo_floors);
+        this.igloo_locations = cache.json.get(igloo_locations);
+        this.igloo_music_tracks = cache.json.get(igloo_music_tracks);
+        this.igloos = cache.json.get(igloos);
+        this.jokes = cache.json.get(jokes);
+        this.mascot_messages = cache.json.get(mascot_messages);
+        this.mascots = cache.json.get(mascots);
+        this.paper_items = cache.json.get(paper_items);
+        this.rooms = cache.json.get(rooms);
+
+        logger.info('Game configs received');
     }
 }
