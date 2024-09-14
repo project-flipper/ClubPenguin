@@ -96,7 +96,7 @@ export function run(params: RunParams): void {
         ],
         width: 1710,
         height: 1080,
-        type: Phaser.AUTO,
+        type: Phaser.WEBGL,
         scale: {
             mode: Phaser.Scale.FIT,
             autoCenter: Phaser.Scale.CENTER_BOTH
