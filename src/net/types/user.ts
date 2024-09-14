@@ -1,22 +1,22 @@
-import { Avatar } from "./avatar"
-import { Membership } from "./membership"
-import { Presence } from "./presence"
-import { Relationship } from "./relationship"
+import { AvatarData } from "./avatar"
+import { MembershipData } from "./membership"
+import { PresenceData } from "./presence"
+import { RelationshipData } from "./relationship"
 
 export type BaseUserData = {
     id: string,
     username: string,
     nickname: string,
-    avatar: Avatar,
-    member?: Membership,
+    avatar: AvatarData,
+    member?: MembershipData,
     iglooId?: number,
     mascotId?: number
 }
 
 export type UserData = BaseUserData & {
-    relationship?: Relationship,
+    relationship?: RelationshipData,
     publicStampbook: boolean,
-    presence?: Presence
+    presence?: PresenceData
 }
 
 export type MyUserData = BaseUserData & {
@@ -24,3 +24,5 @@ export type MyUserData = BaseUserData & {
     iglooId: number,
     stealth: boolean
 };
+
+export type AnyUserData = UserData | MyUserData;

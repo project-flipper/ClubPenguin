@@ -5,7 +5,7 @@ export enum RelationshipType {
     BEST_FRIEND = 'bestfriend'
 }
 
-export type Relationship = {
+export type RelationshipData = {
     type: RelationshipType,
     since: string
 };

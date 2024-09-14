@@ -1,4 +1,4 @@
-export type Presence = {
+export type PresenceData = {
     worldId: number,
     roomId: number,
     isMobile: boolean

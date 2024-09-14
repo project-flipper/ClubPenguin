@@ -17,7 +17,7 @@ import Phaser from "phaser";
 import DepthEnabled from "./components/DepthEnabled";
 import ButtonComponent from "./components/ButtonComponent";
 /* START-USER-IMPORTS */
-import { Avatar } from "@clubpenguin/net/types/avatar";
+import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { App } from "@clubpenguin/app/app";
 import { PaperItemConfig } from "@clubpenguin/app/config";
 import { ItemType } from "@clubpenguin/world/engine/clothing/itemType";
@@ -121,10 +121,10 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
     public game: App;
 
-    public avatarData: Avatar;
+    public avatarData: AvatarData;
     public items: Map<ItemType, Phaser.GameObjects.Image[]>;
 
-    setup(data: Avatar): void {
+    setup(data: AvatarData): void {
         this.photo_button.visible = false;
         this.avatarData = data;
         console.log(data);
@@ -135,7 +135,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         this.load(data);
     }
 
-    async load(data: Avatar): Promise<void> {
+    async load(data: AvatarData): Promise<void> {
         let loader = this.scene.load;
         Promise.all([
             this.loadItem(ItemType.HEAD, data.head),

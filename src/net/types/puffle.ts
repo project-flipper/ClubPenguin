@@ -1,4 +1,4 @@
-export type Puffle = {
+export type PuffleData = {
     id: number,
 
 };

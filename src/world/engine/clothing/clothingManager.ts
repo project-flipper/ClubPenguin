@@ -1,8 +1,8 @@
 import { App } from "@clubpenguin/app/app";
 import { PaperItemConfig } from "@clubpenguin/app/config";
-import { Avatar } from "@clubpenguin/net/types/avatar";
+import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import Phaser from "phaser";
 
@@ -40,7 +40,7 @@ export class ClothingManager {
         return this.engine.app;
     }
 
-    async loadClothingSprites(player: Player, avatar: Avatar): Promise<ClothingSprite[]> {
+    async loadClothingSprites(player: Player, avatar: AvatarData): Promise<ClothingSprite[]> {
         let promise = Promise.all([
             this.loadClothingSprite(player, avatar.head),
             this.loadClothingSprite(player, avatar.face),

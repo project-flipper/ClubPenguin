@@ -5,7 +5,7 @@ import PressureTrigger from "@clubpenguin/lib/ui/components/PressureTrigger";
 import RoomTrigger from "@clubpenguin/lib/ui/components/RoomTrigger";
 import Trigger from "@clubpenguin/lib/ui/components/Trigger";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { MyUserData, UserData } from "@clubpenguin/net/types/user";
+import { AnyUserData } from "@clubpenguin/net/types/user";
 import { Avatar, AvatarCls, Player } from "@clubpenguin/world/engine/player/avatar";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
@@ -97,7 +97,7 @@ export class PlayerManager {
         return `${assetKey}${prefix}_${index}animation`;
     }
 
-    avatarToPlayer(avatar: Avatar, data: UserData | MyUserData): Player {
+    avatarToPlayer(avatar: Avatar, data: AnyUserData): Player {
         let player = avatar as Player;
 
         player.penguinData = data;
@@ -107,7 +107,7 @@ export class PlayerManager {
         return player;
     }
 
-    async createPlayer(data: UserData | MyUserData, x?: number, y?: number): Promise<Player> {
+    async createPlayer(data: AnyUserData, x?: number, y?: number): Promise<Player> {
         if (!this.engine.currentRoom) throw new Error('Players cannot exist without a room');
 
         let avatarKey = data.avatar.transformation ?? this.DEFAULT_AVATAR;
@@ -119,7 +119,7 @@ export class PlayerManager {
         return player;
     }
 
-    setupPlayer(player: Player, data: UserData | MyUserData): void {
+    setupPlayer(player: Player, data: AnyUserData): void {
         player.createAnimations(this.engine);
         player.actions.reset();
 

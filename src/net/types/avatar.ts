@@ -1,4 +1,4 @@
-export type Avatar = {
+export type AvatarData = {
     color: number,
     head: number,
     face: number,

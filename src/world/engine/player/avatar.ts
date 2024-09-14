@@ -1,9 +1,9 @@
 
 import Phaser from "phaser";
 
-import { MyUserData, UserData } from "@clubpenguin/net/types/user";
+import { AnyUserData } from "@clubpenguin/net/types/user";
 import AvatarOverlay from "@clubpenguin/world/interface/prefabs/AvatarOverlay";
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine } from "@clubpenguin/world/engine/engine";
 import { ClothingSprite } from "@clubpenguin/world/engine/clothing/clothingManager";
 import { Actions } from "./actions";
 
@@ -29,7 +29,7 @@ export interface Avatar extends Phaser.GameObjects.Container {
 }
 
 export type Player = Avatar & {
-    penguinData: UserData | MyUserData;
+    penguinData: AnyUserData;
     overlay: AvatarOverlay;
     clothes: Map<number, ClothingSprite>;
     actions: Actions;
