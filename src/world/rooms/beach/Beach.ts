@@ -188,25 +188,25 @@ export default class Beach extends Phaser.Scene implements Room {
 
         // beach_dock_mc (components)
         const beach_dock_mcRoomTrigger = new RoomTrigger(beach_dock_mc);
-        beach_dock_mcRoomTrigger.destination = "800";
+        beach_dock_mcRoomTrigger.destination = 800;
         beach_dock_mcRoomTrigger.playerX = 517.5;
         beach_dock_mcRoomTrigger.playerY = 405;
 
         // beach_village_mc (components)
         const beach_village_mcRoomTrigger = new RoomTrigger(beach_village_mc);
-        beach_village_mcRoomTrigger.destination = "200";
+        beach_village_mcRoomTrigger.destination = 200;
         beach_village_mcRoomTrigger.playerX = 360;
         beach_village_mcRoomTrigger.playerY = 888.75;
 
         // ship_mc (components)
         const ship_mcRoomTrigger = new RoomTrigger(ship_mc);
-        ship_mcRoomTrigger.destination = "420";
+        ship_mcRoomTrigger.destination = 420;
         ship_mcRoomTrigger.playerX = 990;
         ship_mcRoomTrigger.playerY = 675;
 
         // beach_light_mc (components)
         const beach_light_mcRoomTrigger = new RoomTrigger(beach_light_mc);
-        beach_light_mcRoomTrigger.destination = "410";
+        beach_light_mcRoomTrigger.destination = 410;
         beach_light_mcRoomTrigger.playerX = 675;
         beach_light_mcRoomTrigger.playerY = 618.75;
 

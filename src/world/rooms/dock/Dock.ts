@@ -269,19 +269,19 @@ export default class Dock extends Phaser.Scene implements Room {
 
         // dock_village_trigger (components)
         const dock_village_triggerRoomTrigger = new RoomTrigger(dock_village_trigger);
-        dock_village_triggerRoomTrigger.destination = "200";
+        dock_village_triggerRoomTrigger.destination = 200;
         dock_village_triggerRoomTrigger.playerX = 1496.25;
         dock_village_triggerRoomTrigger.playerY = 787.5;
 
         // dock_town_trigger (components)
         const dock_town_triggerRoomTrigger = new RoomTrigger(dock_town_trigger);
-        dock_town_triggerRoomTrigger.destination = "100";
+        dock_town_triggerRoomTrigger.destination = 100;
         dock_town_triggerRoomTrigger.playerX = 213.75;
         dock_town_triggerRoomTrigger.playerY = 720;
 
         // dock_beach_trigger (components)
         const dock_beach_triggerRoomTrigger = new RoomTrigger(dock_beach_trigger);
-        dock_beach_triggerRoomTrigger.destination = "400";
+        dock_beach_triggerRoomTrigger.destination = 400;
         dock_beach_triggerRoomTrigger.playerX = 1271.25;
         dock_beach_triggerRoomTrigger.playerY = 461.25;
 

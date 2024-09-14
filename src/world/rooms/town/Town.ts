@@ -315,31 +315,31 @@ export default class Town extends Phaser.Scene implements Room {
 
         // town_coffee_trigger (components)
         const town_coffee_triggerRoomTrigger = new RoomTrigger(town_coffee_trigger);
-        town_coffee_triggerRoomTrigger.destination = "110";
+        town_coffee_triggerRoomTrigger.destination = 110;
         town_coffee_triggerRoomTrigger.playerX = 798.75;
         town_coffee_triggerRoomTrigger.playerY = 450;
 
         // town_dance_trigger (components)
         const town_dance_triggerRoomTrigger = new RoomTrigger(town_dance_trigger);
-        town_dance_triggerRoomTrigger.destination = "120";
+        town_dance_triggerRoomTrigger.destination = 120;
         town_dance_triggerRoomTrigger.playerX = 382.5;
         town_dance_triggerRoomTrigger.playerY = 607.5;
 
         // town_dock_trigger (components)
         const town_dock_triggerRoomTrigger = new RoomTrigger(town_dock_trigger);
-        town_dock_triggerRoomTrigger.destination = "800";
+        town_dock_triggerRoomTrigger.destination = 800;
         town_dock_triggerRoomTrigger.playerX = 1428.75;
         town_dock_triggerRoomTrigger.playerY = 438.75;
 
         // town_forts_trigger (components)
         const town_forts_triggerRoomTrigger = new RoomTrigger(town_forts_trigger);
-        town_forts_triggerRoomTrigger.destination = "801";
+        town_forts_triggerRoomTrigger.destination = 801;
         town_forts_triggerRoomTrigger.playerX = 247.5;
         town_forts_triggerRoomTrigger.playerY = 585;
 
         // town_shop_trigger (components)
         const town_shop_triggerRoomTrigger = new RoomTrigger(town_shop_trigger);
-        town_shop_triggerRoomTrigger.destination = "130";
+        town_shop_triggerRoomTrigger.destination = 130;
         town_shop_triggerRoomTrigger.playerX = 1248.75;
         town_shop_triggerRoomTrigger.playerY = 472.5;
 

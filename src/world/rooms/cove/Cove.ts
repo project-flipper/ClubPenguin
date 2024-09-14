@@ -389,7 +389,7 @@ export default class Cove extends Phaser.Scene implements Room {
 
         // cove_forest_mc (components)
         const cove_forest_mcRoomTrigger = new RoomTrigger(cove_forest_mc);
-        cove_forest_mcRoomTrigger.destination = "809";
+        cove_forest_mcRoomTrigger.destination = 809;
         cove_forest_mcRoomTrigger.playerX = 1338.75;
         cove_forest_mcRoomTrigger.playerY = 843.75;
 

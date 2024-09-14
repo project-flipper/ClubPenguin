@@ -4,46 +4,11 @@ import { getAngle, getDirection, getDirectionQuarters } from "@clubpenguin/lib/m
 import World from "@clubpenguin/world/World";
 import { Engine } from "../engine";
 import { Player } from "./avatar";
-
-export enum AnimationFrames {
-    IDLE_DOWN = 0,
-    IDLE_DOWN_LEFT,
-    IDLE_LEFT,
-    IDLE_UP_LEFT,
-    IDLE_UP,
-    IDLE_UP_RIGHT,
-    IDLE_RIGHT,
-    IDLE_DOWN_RIGHT,
-
-    WADDLE_DOWN = 8,
-    WADDLE_DOWN_LEFT,
-    WADDLE_LEFT,
-    WADDLE_UP_LEFT,
-    WADDLE_UP,
-    WADDLE_UP_RIGHT,
-    WADDLE_RIGHT,
-    WADDLE_DOWN_RIGHT,
-
-    SIT_DOWN = 16,
-    SIT_DOWN_LEFT,
-    SIT_LEFT,
-    SIT_UP_LEFT,
-    SIT_UP,
-    SIT_UP_RIGHT,
-    SIT_RIGHT,
-    SIT_DOWN_RIGHT,
-
-    WAVE = 24,
-    DANCE,
-
-    THROW_DOWN_LEFT = 26,
-    THROW_UP_LEFT,
-    THROW_UP_RIGHT,
-    THROW_DOWN_RIGHT
-}
+import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
 
 export class Actions {
     public player: Player;
+    public moveTween: Phaser.Tweens.Tween;
 
     constructor(player: Player) {
         this.player = player;
@@ -58,7 +23,7 @@ export class Actions {
     }
 
     isIdle(): boolean {
-        return this.player.currentAnimation < AnimationFrames.WADDLE_DOWN;
+        return this.player.currentAnimation < ActionFrame.WADDLE_DOWN;
     }
 
     lookAt(x: number, y: number): void {
@@ -66,12 +31,11 @@ export class Actions {
 
         let angle = getAngle(this.player.x, this.player.y, x, y);
         let direction = getDirection(angle);
-        this.player.playAnimation(AnimationFrames.IDLE_DOWN + direction);
+        this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
     }
 
     move(x: number, y: number, originalX?: number, originalY?: number): void {
-        // stop moving first
-        this.player.scene.tweens.killTweensOf(this.player);
+        this.stopMoving();
 
         let distance = Phaser.Math.Distance.BetweenPoints(this.player, { x, y });
 
@@ -84,13 +48,13 @@ export class Actions {
             let angle = getAngle(this.player.x, this.player.y, originalX, originalY);
             let direction = getDirection(angle);
 
-            this.player.playAnimation(AnimationFrames.IDLE_DOWN + direction);
+            this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
             this.engine.players.testTriggers(this.player, true);
             return;
         }
 
-        this.player.playAnimation(AnimationFrames.WADDLE_DOWN + direction);
-        this.player.scene.tweens.add({
+        this.player.playAnimation(ActionFrame.WADDLE_DOWN + direction);
+        this.moveTween = this.player.scene.tweens.add({
             targets: this.player,
             x: x,
             y: y,
@@ -104,7 +68,7 @@ export class Actions {
             },
             onComplete: (tween: Phaser.Tweens.Tween) => {
                 this.engine.tweenTracker.untrackTween(tween);
-                this.player.playAnimation(AnimationFrames.IDLE_DOWN + direction);
+                this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
                 this.engine.players.testTriggers(this.player, true);
             },
             duration: (distance / this.player.spriteSpeed) * 1000
@@ -112,94 +76,81 @@ export class Actions {
     }
 
     stopMoving(): void {
-        this.player.scene.tweens.killTweensOf(this.player);
+        if (this.moveTween) this.moveTween.destroy();
     }
 
-    sitDown(): void {
+    throw(x: number, y: number): void {
         this.stopMoving();
-        this.player.playAnimation(AnimationFrames.SIT_DOWN);
-        // TODO: send actions
-    }
-
-    sitDownLeft(): void {
-        this.stopMoving();
-        this.player.playAnimation(AnimationFrames.SIT_DOWN_LEFT);
-        // TODO: send actions
-    }
-
-    sitLeft(): void {
-        this.stopMoving();
-        this.player.playAnimation(AnimationFrames.SIT_LEFT);
-        // TODO: send actions
-    }
-
-    sitUpLeft(): void {
-        this.stopMoving();
-        this.player.playAnimation(AnimationFrames.SIT_UP_LEFT);
-        // TODO: send actions
-    }
-
-    sitUp(): void {
-        this.stopMoving();
-        this.player.playAnimation(AnimationFrames.SIT_UP);
-        // TODO: send actions
-    }
-
-    sitUpRight(): void {
-        this.stopMoving();
-        this.player.playAnimation(AnimationFrames.SIT_UP_RIGHT);
-        // TODO: send actions
-    }
-
-    sitRight(): void {
-        this.stopMoving();
-        this.player.playAnimation(AnimationFrames.SIT_RIGHT);
-        // TODO: send actions
-    }
-
-    sitDownRight(): void {
-        this.stopMoving();
-        this.player.playAnimation(AnimationFrames.SIT_DOWN_RIGHT);
-        // TODO: send actions
-    }
-
-    wave(): void {
-        this.stopMoving();
-        this.player.playAnimation(AnimationFrames.WAVE);
-        // TODO: send actions
-    }
-
-    dance(): void {
-        this.stopMoving();
-        this.player.playAnimation(AnimationFrames.DANCE);
-        // TODO: send actions
-    }
-
-    throwSnowball(x: number, y: number): void {
-        let player = this.player;
-
-        if (player == this.engine.player) this.stopMoving();
-        else player.scene.tweens.killTweensOf(player);
     
-        let startX = player.x + player.snowballOffset.x;
-        let startY = player.y + player.snowballOffset.y;
+        let startX = this.player.x + this.player.snowballOffset.x;
+        let startY = this.player.y + this.player.snowballOffset.y;
 
         let snowball = this.engine.snowballs.create(startX, startY);
 
         let angle = getAngle(startX, startY, x, y);
         let direction = getDirectionQuarters(angle);
 
-        player.playAnimation(AnimationFrames.THROW_DOWN_LEFT + direction);
+        this.player.playAnimation(ActionFrame.THROW_DOWN_LEFT + direction);
 
-        this.engine.snowballs.throw(snowball, x, y, player);
+        this.engine.snowballs.throw(snowball, x, y, this.player);
+    }
+
+    set(data: ActionData): void {
+        console.log('Setting action to', data);
+        switch (data.frame) {
+            case ActionFrame.IDLE_DOWN:
+            case ActionFrame.IDLE_DOWN_LEFT:
+            case ActionFrame.IDLE_LEFT:
+            case ActionFrame.IDLE_UP_LEFT:
+            case ActionFrame.IDLE_UP:
+            case ActionFrame.IDLE_UP_RIGHT:
+            case ActionFrame.IDLE_RIGHT:
+            case ActionFrame.IDLE_DOWN_RIGHT:
+            case ActionFrame.SIT_DOWN:
+            case ActionFrame.SIT_DOWN_LEFT:
+            case ActionFrame.SIT_LEFT:
+            case ActionFrame.SIT_UP_LEFT:
+            case ActionFrame.SIT_UP:
+            case ActionFrame.SIT_UP_RIGHT:
+            case ActionFrame.SIT_RIGHT:
+            case ActionFrame.SIT_DOWN_RIGHT:
+            case ActionFrame.WAVE:
+            case ActionFrame.DANCE:
+                this.stopMoving();
+                this.player.playAnimation(data.frame);
+                break;
+            case ActionFrame.WADDLE:
+            case ActionFrame.WADDLE_DOWN:
+            case ActionFrame.WADDLE_DOWN_LEFT:
+            case ActionFrame.WADDLE_LEFT:
+            case ActionFrame.WADDLE_UP_LEFT:
+            case ActionFrame.WADDLE_UP:
+            case ActionFrame.WADDLE_UP_RIGHT:
+            case ActionFrame.WADDLE_RIGHT:
+            case ActionFrame.WADDLE_DOWN_RIGHT:
+                this.move(data.destinationX, data.destinationY, data.fromX, data.fromY);
+                if (data.since) {
+                    // Server sync
+                    let delta = Date.now() - data.since;
+                    this.moveTween.seek(delta);
+                }
+                break;
+            case ActionFrame.THROW:
+            case ActionFrame.THROW_DOWN_LEFT:
+            case ActionFrame.THROW_UP_LEFT:
+            case ActionFrame.THROW_UP_RIGHT:
+            case ActionFrame.THROW_DOWN_RIGHT:
+                this.throw(data.destinationX, data.destinationY);
+                break;
+            default:
+                console.warn('Unknown action received');
+        }
     }
 
     reset(): void {
         this.stopMoving();
-        // TODO: send move complete
         this.engine.players.testTriggers(this.player, true, undefined, undefined, true);
 
-        this.player.playAnimation(AnimationFrames.IDLE_DOWN);
-        // TODO: send actions
+        this.player.playAnimation(ActionFrame.IDLE_DOWN);
     }
 }

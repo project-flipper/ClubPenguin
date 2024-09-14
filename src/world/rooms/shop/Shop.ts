@@ -249,7 +249,7 @@ export default class Shop extends Phaser.Scene implements Room {
 
         // shop_town_trigger (components)
         const shop_town_triggerRoomTrigger = new RoomTrigger(shop_town_trigger);
-        shop_town_triggerRoomTrigger.destination = "100";
+        shop_town_triggerRoomTrigger.destination = 100;
         shop_town_triggerRoomTrigger.playerX = 1192.5;
         shop_town_triggerRoomTrigger.playerY = 551.25;
 

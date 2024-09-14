@@ -44,7 +44,7 @@ export class MusicManager {
         }
 
         this.currentMusicId = id;
-        this.world.sound.play(key, { loop: true, mute: this._musicMuted });
+        this.world.sound.play(key, { loop: true });
     }
 
     get musicMuted(): boolean {

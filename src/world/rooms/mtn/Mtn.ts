@@ -244,13 +244,13 @@ export default class Mtn extends Phaser.Scene implements Room {
 
         // mtn_village_mc (components)
         const mtn_village_mcRoomTrigger = new RoomTrigger(mtn_village_mc);
-        mtn_village_mcRoomTrigger.destination = "200";
+        mtn_village_mcRoomTrigger.destination = 200;
         mtn_village_mcRoomTrigger.playerX = 501.75;
         mtn_village_mcRoomTrigger.playerY = 657;
 
         // mtn_plaza_mc (components)
         const mtn_plaza_mcRoomTrigger = new RoomTrigger(mtn_plaza_mc);
-        mtn_plaza_mcRoomTrigger.destination = "200";
+        mtn_plaza_mcRoomTrigger.destination = 200;
         mtn_plaza_mcRoomTrigger.playerX = 501.75;
         mtn_plaza_mcRoomTrigger.playerY = 657;
 

@@ -5,7 +5,7 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine } from "@clubpenguin/world/engine/engine";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 /* END-USER-IMPORTS */
 
@@ -25,7 +25,7 @@ export default class RoomTrigger {
     }
 
     private gameObject: Phaser.GameObjects.Image;
-    public destination: string = "";
+    public destination: number = 0;
     public playerX: number = 0;
     public playerY: number = 0;
 

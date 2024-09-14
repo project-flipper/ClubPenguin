@@ -150,13 +150,13 @@ export default class DojoExt extends Phaser.Scene implements Room {
 
         // dojoext_dojo_mc (components)
         const dojoext_dojo_mcRoomTrigger = new RoomTrigger(dojoext_dojo_mc);
-        dojoext_dojo_mcRoomTrigger.destination = "320";
+        dojoext_dojo_mcRoomTrigger.destination = 320;
         dojoext_dojo_mcRoomTrigger.playerX = 855;
         dojoext_dojo_mcRoomTrigger.playerY = 798.75;
 
         // dojoext_shack_mc (components)
         const dojoext_shack_mcRoomTrigger = new RoomTrigger(dojoext_shack_mc);
-        dojoext_shack_mcRoomTrigger.destination = "807";
+        dojoext_shack_mcRoomTrigger.destination = 807;
         dojoext_shack_mcRoomTrigger.playerX = 900;
         dojoext_shack_mcRoomTrigger.playerY = 483.75;
 

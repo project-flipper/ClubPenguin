@@ -342,25 +342,25 @@ export default class Forest extends Phaser.Scene implements Room {
 
         // forest_plaza_mc (components)
         const forest_plaza_mcRoomTrigger = new RoomTrigger(forest_plaza_mc);
-        forest_plaza_mcRoomTrigger.destination = "300";
+        forest_plaza_mcRoomTrigger.destination = 300;
         forest_plaza_mcRoomTrigger.playerX = 1395;
         forest_plaza_mcRoomTrigger.playerY = 742.5;
 
         // forest_cove_mc (components)
         const forest_cove_mcRoomTrigger = new RoomTrigger(forest_cove_mc);
-        forest_cove_mcRoomTrigger.destination = "810";
+        forest_cove_mcRoomTrigger.destination = 810;
         forest_cove_mcRoomTrigger.playerX = 585;
         forest_cove_mcRoomTrigger.playerY = 468;
 
         // forest_shack_mc (components)
         const forest_shack_mcRoomTrigger = new RoomTrigger(forest_shack_mc);
-        forest_shack_mcRoomTrigger.destination = "807";
+        forest_shack_mcRoomTrigger.destination = 807;
         forest_shack_mcRoomTrigger.playerX = 450;
         forest_shack_mcRoomTrigger.playerY = 742.5;
 
         // forest_what_mc (components)
         const forest_what_mcRoomTrigger = new RoomTrigger(forest_what_mc);
-        forest_what_mcRoomTrigger.destination = "814";
+        forest_what_mcRoomTrigger.destination = 814;
         forest_what_mcRoomTrigger.playerX = 495;
         forest_what_mcRoomTrigger.playerY = 360;
 

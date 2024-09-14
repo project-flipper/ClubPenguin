@@ -421,25 +421,25 @@ export default class Shack extends Phaser.Scene implements Room {
 
         // shack_dojo_mc (components)
         const shack_dojo_mcRoomTrigger = new RoomTrigger(shack_dojo_mc);
-        shack_dojo_mcRoomTrigger.destination = "321";
+        shack_dojo_mcRoomTrigger.destination = 321;
         shack_dojo_mcRoomTrigger.playerX = 877.5;
         shack_dojo_mcRoomTrigger.playerY = 855;
 
         // shack_school_mc (components)
         const shack_school_mcRoomTrigger = new RoomTrigger(shack_school_mc);
-        shack_school_mcRoomTrigger.destination = "122";
+        shack_school_mcRoomTrigger.destination = 122;
         shack_school_mcRoomTrigger.playerX = 1451.25;
         shack_school_mcRoomTrigger.playerY = 832.5;
 
         // shack_mine_mc (components)
         const shack_mine_mcRoomTrigger = new RoomTrigger(shack_mine_mc);
-        shack_mine_mcRoomTrigger.destination = "808";
+        shack_mine_mcRoomTrigger.destination = 808;
         shack_mine_mcRoomTrigger.playerX = 888.75;
         shack_mine_mcRoomTrigger.playerY = 393.75;
 
         // shack_forest_mc (components)
         const shack_forest_mcRoomTrigger = new RoomTrigger(shack_forest_mc);
-        shack_forest_mcRoomTrigger.destination = "809";
+        shack_forest_mcRoomTrigger.destination = 809;
         shack_forest_mcRoomTrigger.playerX = 1417.5;
         shack_forest_mcRoomTrigger.playerY = 461.25;
 

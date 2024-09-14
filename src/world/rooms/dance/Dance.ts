@@ -501,19 +501,19 @@ export default class Dance extends Phaser.Scene implements Room {
 
         // dance_town_trigger (components)
         const dance_town_triggerRoomTrigger = new RoomTrigger(dance_town_trigger);
-        dance_town_triggerRoomTrigger.destination = "100";
+        dance_town_triggerRoomTrigger.destination = 100;
         dance_town_triggerRoomTrigger.playerX = 956.25;
         dance_town_triggerRoomTrigger.playerY = 562.5;
 
         // dance_lounge_trigger (components)
         const dance_lounge_triggerRoomTrigger = new RoomTrigger(dance_lounge_trigger);
-        dance_lounge_triggerRoomTrigger.destination = "121";
+        dance_lounge_triggerRoomTrigger.destination = 121;
         dance_lounge_triggerRoomTrigger.playerX = 1271.25;
         dance_lounge_triggerRoomTrigger.playerY = 686.25;
 
         // dance_boiler_trigger (components)
         const dance_boiler_triggerRoomTrigger = new RoomTrigger(dance_boiler_trigger);
-        dance_boiler_triggerRoomTrigger.destination = "804";
+        dance_boiler_triggerRoomTrigger.destination = 804;
         dance_boiler_triggerRoomTrigger.playerX = 1260;
         dance_boiler_triggerRoomTrigger.playerY = 720;
 

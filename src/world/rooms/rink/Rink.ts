@@ -394,13 +394,13 @@ export default class Rink extends Phaser.Scene implements Room {
 
         // rink_forts_mc (components)
         const rink_forts_mcRoomTrigger = new RoomTrigger(rink_forts_mc);
-        rink_forts_mcRoomTrigger.destination = "801";
+        rink_forts_mcRoomTrigger.destination = 801;
         rink_forts_mcRoomTrigger.playerX = 652.5;
         rink_forts_mcRoomTrigger.playerY = 459;
 
         // rink_shack_mc (components)
         const rink_shack_mcRoomTrigger = new RoomTrigger(rink_shack_mc);
-        rink_shack_mcRoomTrigger.destination = "122";
+        rink_shack_mcRoomTrigger.destination = 122;
         rink_shack_mcRoomTrigger.playerX = 123.75;
         rink_shack_mcRoomTrigger.playerY = 810;
 

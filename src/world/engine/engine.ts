@@ -22,6 +22,7 @@ import { ClothingManager } from "./clothing/clothingManager";
 import { HybridGame } from "./hybrid/hybridGame";
 import { MusicManager } from "./music/musicManager";
 import { SnowballManager } from "./snowballs/snowballManager";
+import { PlayerData } from "@clubpenguin/net/types/player";
 
 export type Trigger =
     | RoomTrigger
@@ -104,7 +105,10 @@ export class Engine extends EventEmitter {
 
         if (pointer.leftButtonReleased()) {
             let objects = this.currentRoom.input.hitTestPointer(pointer);
-            if (objects.length == 0) player.actions.move(pointer.worldX, pointer.worldY);
+            if (objects.length == 0) {
+                let safe = this.players.findPlayerPath(player, pointer.worldX, pointer.worldY);
+                this.world.move(safe.x, safe.y);
+            }
         }
     }
 
@@ -187,22 +191,18 @@ export class Engine extends EventEmitter {
         }
     }
 
-    async joinRoom(config: RoomConfig, x?: number, y?: number): Promise<void> {
+    async joinRoom(config: RoomConfig, players: PlayerData[]): Promise<void> {
         if (config.room_id == this.currentRoomId) return;
 
         let load = this.loadScreen;
         if (!load.isShowing) load.show();
-
-        let position = this.findSafePoint(config);
-        x = x ?? position.x;
-        y = y ?? position.y;
 
         try {
             await this.loadRoom(config);
         } catch (e) {
             if (this.currentRoom == undefined && this.previousRoomId) {
                 try {
-                    await this.world.joinRoom(this.previousRoomId.toString(), this.previousPlayerX, this.previousPlayerY);
+                    await this.world.joinRoom(this.previousRoomId, this.previousPlayerX, this.previousPlayerY);
                 } catch (ne) {
                     console.error('Failed to go back to previous room.', e, ne);
                 }
@@ -221,8 +221,11 @@ export class Engine extends EventEmitter {
         this.interface.closeAll();
         this.interface.clearAvatarOverlays();
 
-        let myPlayer = await this.players.createPlayer(this.world.myUser, x, y);
-        this.players.addPlayer(myPlayer);
+        for (let playerData of players) {
+            let player = await this.players.createPlayer(playerData.user, playerData.x, playerData.y);
+            this.players.addPlayer(player);
+            player.actions.set(playerData.action);
+        }
 
         this.currentRoom.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.playerPointerUpHandler(pointer));
         this.currentRoom.input.on('pointermove', (pointer: Phaser.Input.Pointer) => this.playerPointerMoveHandler(pointer));
@@ -320,7 +323,7 @@ export class Engine extends EventEmitter {
         } catch (e) {
             if (this.currentRoom == undefined && this.previousRoomId) {
                 try {
-                    await this.world.joinRoom(this.previousRoomId.toString(), this.previousPlayerX, this.previousPlayerY);
+                    await this.world.joinRoom(this.previousRoomId, this.previousPlayerX, this.previousPlayerY);
                 } catch (ne) {
                     console.error('Failed to go back to previous room.', e, ne);
                 }
@@ -337,9 +340,6 @@ export class Engine extends EventEmitter {
         }
 
         this.interface.hide();
-        if (!(this.currentGame instanceof HybridGame)) {
-            load.hide();
-        }
         this.emit('game:ready', this.currentGame);
     }
 
@@ -356,7 +356,7 @@ export class Engine extends EventEmitter {
 
         if (roomConfig) {
             console.log('join room');
-            await this.joinRoom(roomConfig);
+            await this.world.joinRoom(roomConfig.room_id);
         } else if (this.currentRoom) {
             console.log('unlocking room');
             this.unlockRoom();
@@ -369,7 +369,7 @@ export class Engine extends EventEmitter {
         } else if (this.previousRoomId) {
             console.log('restoring room');
             try {
-                await this.world.joinRoom(this.previousRoomId.toString(), this.previousPlayerX, this.previousPlayerY);
+                await this.world.joinRoom(this.previousRoomId, this.previousPlayerX, this.previousPlayerY);
             } catch (e) {
                 console.error('Failed to go back to previous room.', e);
             }

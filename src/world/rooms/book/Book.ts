@@ -268,7 +268,7 @@ export default class Book extends Phaser.Scene implements Room {
 
         // coffee_trigger (components)
         const coffee_triggerRoomTrigger = new RoomTrigger(coffee_trigger);
-        coffee_triggerRoomTrigger.destination = "110";
+        coffee_triggerRoomTrigger.destination = 110;
         coffee_triggerRoomTrigger.playerX = 1428.75;
         coffee_triggerRoomTrigger.playerY = 708.75;
 

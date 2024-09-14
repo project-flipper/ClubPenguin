@@ -303,49 +303,49 @@ export default class Plaza extends Phaser.Scene implements Room {
 
         // plaza_forts_mc (components)
         const plaza_forts_mcRoomTrigger = new RoomTrigger(plaza_forts_mc);
-        plaza_forts_mcRoomTrigger.destination = "801";
+        plaza_forts_mcRoomTrigger.destination = 801;
         plaza_forts_mcRoomTrigger.playerX = 1473.75;
         plaza_forts_mcRoomTrigger.playerY = 528.75;
 
         // plaza_pet_mc (components)
         const plaza_pet_mcRoomTrigger = new RoomTrigger(plaza_pet_mc);
-        plaza_pet_mcRoomTrigger.destination = "310";
+        plaza_pet_mcRoomTrigger.destination = 310;
         plaza_pet_mcRoomTrigger.playerX = 855;
         plaza_pet_mcRoomTrigger.playerY = 472.5;
 
         // plaza_cave_mc (components)
         const plaza_cave_mcRoomTrigger = new RoomTrigger(plaza_cave_mc);
-        plaza_cave_mcRoomTrigger.destination = "806";
+        plaza_cave_mcRoomTrigger.destination = 806;
         plaza_cave_mcRoomTrigger.playerX = 1327.5;
         plaza_cave_mcRoomTrigger.playerY = 690.75;
 
         // plaza_hotel_mc (components)
         const plaza_hotel_mcRoomTrigger = new RoomTrigger(plaza_hotel_mc);
-        plaza_hotel_mcRoomTrigger.destination = "430";
+        plaza_hotel_mcRoomTrigger.destination = 430;
         plaza_hotel_mcRoomTrigger.playerX = 855;
         plaza_hotel_mcRoomTrigger.playerY = 472.5;
 
         // plaza_stage_mc (components)
         const plaza_stage_mcRoomTrigger = new RoomTrigger(plaza_stage_mc);
-        plaza_stage_mcRoomTrigger.destination = "340";
+        plaza_stage_mcRoomTrigger.destination = 340;
         plaza_stage_mcRoomTrigger.playerX = 236.25;
         plaza_stage_mcRoomTrigger.playerY = 742.5;
 
         // plaza_stage_mc_1 (components)
         const plaza_stage_mc_1RoomTrigger = new RoomTrigger(plaza_stage_mc_1);
-        plaza_stage_mc_1RoomTrigger.destination = "340";
+        plaza_stage_mc_1RoomTrigger.destination = 340;
         plaza_stage_mc_1RoomTrigger.playerX = 236.25;
         plaza_stage_mc_1RoomTrigger.playerY = 742.5;
 
         // plaza_pizza_mc (components)
         const plaza_pizza_mcRoomTrigger = new RoomTrigger(plaza_pizza_mc);
-        plaza_pizza_mcRoomTrigger.destination = "330";
+        plaza_pizza_mcRoomTrigger.destination = 330;
         plaza_pizza_mcRoomTrigger.playerX = 821.25;
         plaza_pizza_mcRoomTrigger.playerY = 438.75;
 
         // plaza_forest_mc (components)
         const plaza_forest_mcRoomTrigger = new RoomTrigger(plaza_forest_mc);
-        plaza_forest_mcRoomTrigger.destination = "809";
+        plaza_forest_mcRoomTrigger.destination = 809;
         plaza_forest_mcRoomTrigger.playerX = 303.75;
         plaza_forest_mcRoomTrigger.playerY = 483.75;
 

@@ -260,19 +260,19 @@ export default class Forts extends Phaser.Scene implements Room {
 
         // forts_plaza_trigger (components)
         const forts_plaza_triggerRoomTrigger = new RoomTrigger(forts_plaza_trigger);
-        forts_plaza_triggerRoomTrigger.destination = "300";
+        forts_plaza_triggerRoomTrigger.destination = 300;
         forts_plaza_triggerRoomTrigger.playerX = 191.25;
         forts_plaza_triggerRoomTrigger.playerY = 742.5;
 
         // forts_rink_trigger (components)
         const forts_rink_triggerRoomTrigger = new RoomTrigger(forts_rink_trigger);
-        forts_rink_triggerRoomTrigger.destination = "802";
+        forts_rink_triggerRoomTrigger.destination = 802;
         forts_rink_triggerRoomTrigger.playerX = 855;
         forts_rink_triggerRoomTrigger.playerY = 303.75;
 
         // forts_town_trigger (components)
         const forts_town_triggerRoomTrigger = new RoomTrigger(forts_town_trigger);
-        forts_town_triggerRoomTrigger.destination = "100";
+        forts_town_triggerRoomTrigger.destination = 100;
         forts_town_triggerRoomTrigger.playerX = 1485;
         forts_town_triggerRoomTrigger.playerY = 731.25;
 

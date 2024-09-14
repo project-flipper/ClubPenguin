@@ -671,7 +671,7 @@
             "components": [
                 "RoomTrigger"
             ],
-            "RoomTrigger.destination": "110",
+            "RoomTrigger.destination": 110,
             "RoomTrigger.playerX": 798.75,
             "RoomTrigger.playerY": 450,
             "texture": {
@@ -689,7 +689,7 @@
             "components": [
                 "RoomTrigger"
             ],
-            "RoomTrigger.destination": "120",
+            "RoomTrigger.destination": 120,
             "RoomTrigger.playerX": 382.5,
             "RoomTrigger.playerY": 607.5,
             "texture": {
@@ -707,7 +707,7 @@
             "components": [
                 "RoomTrigger"
             ],
-            "RoomTrigger.destination": "800",
+            "RoomTrigger.destination": 800,
             "RoomTrigger.playerX": 1428.75,
             "RoomTrigger.playerY": 438.75,
             "texture": {
@@ -725,7 +725,7 @@
             "components": [
                 "RoomTrigger"
             ],
-            "RoomTrigger.destination": "801",
+            "RoomTrigger.destination": 801,
             "RoomTrigger.playerX": 247.5,
             "RoomTrigger.playerY": 585,
             "texture": {
@@ -743,7 +743,7 @@
             "components": [
                 "RoomTrigger"
             ],
-            "RoomTrigger.destination": "130",
+            "RoomTrigger.destination": 130,
             "RoomTrigger.playerX": 1248.75,
             "RoomTrigger.playerY": 472.5,
             "texture": {

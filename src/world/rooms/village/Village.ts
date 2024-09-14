@@ -198,31 +198,31 @@ export default class Village extends Phaser.Scene implements Room {
 
         // village_beach_mc (components)
         const village_beach_mcRoomTrigger = new RoomTrigger(village_beach_mc);
-        village_beach_mcRoomTrigger.destination = "400";
+        village_beach_mcRoomTrigger.destination = 400;
         village_beach_mcRoomTrigger.playerX = 1001.25;
         village_beach_mcRoomTrigger.playerY = 393.75;
 
         // village_mtn_mc (components)
         const village_mtn_mcRoomTrigger = new RoomTrigger(village_mtn_mc);
-        village_mtn_mcRoomTrigger.destination = "230";
+        village_mtn_mcRoomTrigger.destination = 230;
         village_mtn_mcRoomTrigger.playerX = 945;
         village_mtn_mcRoomTrigger.playerY = 360;
 
         // village_lodge_mc (components)
         const village_lodge_mcRoomTrigger = new RoomTrigger(village_lodge_mc);
-        village_lodge_mcRoomTrigger.destination = "220";
+        village_lodge_mcRoomTrigger.destination = 220;
         village_lodge_mcRoomTrigger.playerX = 360;
         village_lodge_mcRoomTrigger.playerY = 720;
 
         // village_epf_mc (components)
         const village_epf_mcRoomTrigger = new RoomTrigger(village_epf_mc);
-        village_epf_mcRoomTrigger.destination = "212";
+        village_epf_mcRoomTrigger.destination = 212;
         village_epf_mcRoomTrigger.playerX = 405;
         village_epf_mcRoomTrigger.playerY = 596.25;
 
         // village_dock_mc (components)
         const village_dock_mcRoomTrigger = new RoomTrigger(village_dock_mc);
-        village_dock_mcRoomTrigger.destination = "800";
+        village_dock_mcRoomTrigger.destination = 800;
         village_dock_mcRoomTrigger.playerX = 776.25;
         village_dock_mcRoomTrigger.playerY = 405;
 

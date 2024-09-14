@@ -464,7 +464,7 @@ export default class Lounge extends Phaser.Scene implements Room {
 
         // lounge_dance_trigger (components)
         const lounge_dance_triggerRoomTrigger = new RoomTrigger(lounge_dance_trigger);
-        lounge_dance_triggerRoomTrigger.destination = "120";
+        lounge_dance_triggerRoomTrigger.destination = 120;
         lounge_dance_triggerRoomTrigger.playerX = 1541.25;
         lounge_dance_triggerRoomTrigger.playerY = 652.5;
 

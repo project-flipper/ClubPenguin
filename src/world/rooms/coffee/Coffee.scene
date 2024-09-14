@@ -884,7 +884,7 @@
             "components": [
                 "RoomTrigger"
             ],
-            "RoomTrigger.destination": "100",
+            "RoomTrigger.destination": 100,
             "RoomTrigger.playerX": 652.5,
             "RoomTrigger.playerY": 585,
             "texture": {
@@ -918,7 +918,7 @@
             "components": [
                 "RoomTrigger"
             ],
-            "RoomTrigger.destination": "111",
+            "RoomTrigger.destination": 111,
             "RoomTrigger.playerX": 1406.25,
             "RoomTrigger.playerY": 551.25,
             "texture": {

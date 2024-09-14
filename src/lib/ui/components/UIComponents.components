@@ -98,11 +98,11 @@
                 {
                     "name": "destination",
                     "label": "Destination",
-                    "tooltip": "The room key of where this trigger leads to.",
+                    "tooltip": "The room ID of where this trigger leads to.",
                     "defValue": "",
                     "customDefinition": false,
                     "type": {
-                        "id": "string"
+                        "id": "number"
                     }
                 },
                 {

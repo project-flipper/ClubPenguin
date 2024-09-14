@@ -2,18 +2,18 @@
 // You can write more code here
 
 let SPAWN_ROOMS = [
-    '100', // town
-    '200', // village
-    '230', // mtn
-    '300', // plaza
-    '400', // beach
-    '800', // dock
-    '801', // forts
-    '802', // rink
-    //'805', // berg
-    '807', // shack
-    '809', // forest
-    '810', // cove
+    100, // town
+    200, // village
+    230, // mtn
+    300, // plaza
+    400, // beach
+    800, // dock
+    801, // forts
+    802, // rink
+    //805, // berg
+    807, // shack
+    809, // forest
+    810, // cove
 
 ];
 
@@ -28,6 +28,8 @@ import { BaseUserData, MyUserData, UserData } from "@clubpenguin/net/types/user"
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import { App } from "@clubpenguin/app/app";
 import { RelationshipType } from "@clubpenguin/net/types/relationship";
+import { PlayerData } from "@clubpenguin/net/types/player";
+import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
 /* END-USER-IMPORTS */
 
 export default class World extends Phaser.Scene {
@@ -104,9 +106,9 @@ export default class World extends Phaser.Scene {
 
         this.game.friends.connect(friends, characters, true, true, true);
 
-        let roomConfig = this.game.gameConfig.rooms[this.getRandomItem(SPAWN_ROOMS)];
-        console.log('Mocking room join on room', roomConfig);
-        await this.engine.joinRoom(roomConfig);
+        let roomId = this.getRandomItem(SPAWN_ROOMS);
+        console.log('Mocking room join on room', roomId);
+        await this.joinRoom(roomId);
     }
 
     public standardPenguinTimeOffset = 0;
@@ -157,72 +159,130 @@ export default class World extends Phaser.Scene {
     /* ========= PLAYER ========= */
 
     move(x: number, y: number): void {
-        this.engine.player.actions.move(x, y);
+        let action: ActionData = {
+            frame: ActionFrame.WADDLE,
+            fromX: this.engine.player.x,
+            fromY: this.engine.player.y,
+            destinationX: x,
+            destinationY: y
+        };
+        this.engine.player.actions.set(action);
+        // TODO: Request
     }
 
     sitDown(): void {
+        let action: ActionData = {
+            frame: ActionFrame.SIT_DOWN
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.sitDown();
     }
 
     sitDownLeft(): void {
+        let action: ActionData = {
+            frame: ActionFrame.SIT_DOWN_LEFT
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.sitDownLeft();
     }
 
     sitLeft(): void {
+        let action: ActionData = {
+            frame: ActionFrame.SIT_UP_LEFT
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.sitLeft();
     }
 
     sitUpLeft(): void {
+        let action: ActionData = {
+            frame: ActionFrame.SIT_UP_LEFT
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.sitUpLeft();
     }
 
     sitUp(): void {
+        let action: ActionData = {
+            frame: ActionFrame.SIT_UP
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.sitUp();
     }
 
     sitUpRight(): void {
+        let action: ActionData = {
+            frame: ActionFrame.SIT_UP_RIGHT
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.sitUpRight();
     }
 
     sitRight(): void {
+        let action: ActionData = {
+            frame: ActionFrame.SIT_RIGHT
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.sitRight();
     }
 
     sitDownRight(): void {
+        let action: ActionData = {
+            frame: ActionFrame.SIT_DOWN_RIGHT
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.sitDownRight();
     }
 
     wave(): void {
+        let action: ActionData = {
+            frame: ActionFrame.WAVE
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.wave();
     }
 
     dance(): void {
+        let action: ActionData = {
+            frame: ActionFrame.DANCE
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.dance();
     }
 
     throwSnowball(x: number, y: number): void {
+        let action: ActionData = {
+            frame: ActionFrame.THROW,
+            fromX: this.engine.player.x,
+            fromY: this.engine.player.y,
+            destinationX: x,
+            destinationY: y
+        };
+        this.engine.player.actions.set(action);
         // TODO: Request
-        this.engine.player.actions.throwSnowball(x, y);
     }
 
     /* ========= ENGINE ========= */
 
-    async joinRoom(roomId: string, x?: number, y?: number): Promise<void> {
+    async joinRoom(roomId: number, x?: number, y?: number): Promise<void> {
         let roomData = this.game.gameConfig.rooms[roomId];
 
         if (roomData) {
+            let position = this.engine.findSafePoint(roomData);
+            x = x ?? position.x;
+            y = y ?? position.y;
+    
             // TODO: Request
-            await this.engine.joinRoom(roomData, x, y);
+            let players: PlayerData[] = [{ user: this.myUser, x: x, y: y, action: { frame: 0 } }];
+            for (let userId of ['5', '6', '8', '9', '10']) {
+                let position = this.engine.findSafePoint(roomData);
+                try {
+                    players.push({ user: (await this.game.airtower.getUserById(userId)).data, x: position.x, y: position.y, action: { frame: 0 } });
+                } catch(e) {
+
+                }
+            }
+            await this.engine.joinRoom(roomData, players);
         } 
     }
 

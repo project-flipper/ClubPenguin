@@ -418,7 +418,7 @@ export default class Coffee extends Phaser.Scene implements Room {
 
         // coffee_door_trigger (components)
         const coffee_door_triggerRoomTrigger = new RoomTrigger(coffee_door_trigger);
-        coffee_door_triggerRoomTrigger.destination = "100";
+        coffee_door_triggerRoomTrigger.destination = 100;
         coffee_door_triggerRoomTrigger.playerX = 652.5;
         coffee_door_triggerRoomTrigger.playerY = 585;
 
@@ -427,7 +427,7 @@ export default class Coffee extends Phaser.Scene implements Room {
 
         // coffee_upstairs_trigger (components)
         const coffee_upstairs_triggerRoomTrigger = new RoomTrigger(coffee_upstairs_trigger);
-        coffee_upstairs_triggerRoomTrigger.destination = "111";
+        coffee_upstairs_triggerRoomTrigger.destination = 111;
         coffee_upstairs_triggerRoomTrigger.playerX = 1406.25;
         coffee_upstairs_triggerRoomTrigger.playerY = 551.25;
 

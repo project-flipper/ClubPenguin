@@ -1213,96 +1213,96 @@ export default class Map extends Phaser.Scene implements Content {
 
         /* BASE MAP */
 
-        this.setupButton(this.town, { x: 640.9125, y: 654.525 }, 'town', '100');
-        this.setupButton(this.village, { x: 415.35, y: 517.725 }, 'ski_village', '200');
-        this.setupButton(this.mtn, { x: 366.525, y: 410.5125 }, 'ski_hill', '230');
-        this.setupButton(this.plaza, { x: 1122.975, y: 617.0625 }, 'plaza', '300');
-        this.setupButton(this.dojoext, { x: 1022.4, y: 310.1625 }, 'dojo', '321');
-        this.setupButton(this.beach, { x: 150.4125, y: 696.7125 }, 'beach', '400');
-        this.setupButton(this.dock, { x: 337.1625, y: 889.425 }, 'dock', '800');
-        this.setupButton(this.forts, { x: 866.8125, y: 587.1375 }, 'forts', '801');
-        this.setupButton(this.rink, { x: 734.0625, y: 494.55 }, 'ice_rink', '802');
-        this.setupButton(this.berg, undefined, undefined, '805');
-        this.setupButton(this.shack, { x: 1377.7875, y: 536.175 }, 'mine_shack', '807');
-        this.setupButton(this.forest, { x: 1330.425, y: 710.4375 }, 'forest', '809');
-        this.setupButton(this.cove, { x: 1572.75, y: 735.4125 }, 'cove', '810');
+        this.setupButton(this.town, { x: 640.9125, y: 654.525 }, 'town', 100);
+        this.setupButton(this.village, { x: 415.35, y: 517.725 }, 'ski_village', 200);
+        this.setupButton(this.mtn, { x: 366.525, y: 410.5125 }, 'ski_hill', 230);
+        this.setupButton(this.plaza, { x: 1122.975, y: 617.0625 }, 'plaza', 300);
+        this.setupButton(this.dojoext, { x: 1022.4, y: 310.1625 }, 'dojo', 321);
+        this.setupButton(this.beach, { x: 150.4125, y: 696.7125 }, 'beach', 400);
+        this.setupButton(this.dock, { x: 337.1625, y: 889.425 }, 'dock', 800);
+        this.setupButton(this.forts, { x: 866.8125, y: 587.1375 }, 'forts', 801);
+        this.setupButton(this.rink, { x: 734.0625, y: 494.55 }, 'ice_rink', 802);
+        this.setupButton(this.berg, undefined, undefined, 805);
+        this.setupButton(this.shack, { x: 1377.7875, y: 536.175 }, 'mine_shack', 807);
+        this.setupButton(this.forest, { x: 1330.425, y: 710.4375 }, 'forest', 809);
+        this.setupButton(this.cove, { x: 1572.75, y: 735.4125 }, 'cove', 810);
         this.setupButton(this.igloos, { x: 664.3125, y: 836.6625 }, 'open_igloos', undefined);
         this.igloos.on('release', this.openIglooList, this);
 
         /* PLACES */
 
-        this.setupButton(this.stown, { x: 640.9125, y: 654.525 }, 'town', '100');
-        this.setupButton(this.svillage, { x: 415.35, y: 517.725 }, 'ski_village', '200');
-        this.setupButton(this.smtn, { x: 366.525, y: 410.5125 }, 'ski_hill', '230');
-        this.setupButton(this.splaza, { x: 1122.975, y: 617.0625 }, 'plaza', '300');
-        this.setupButton(this.sdojoext, { x: 1022.4, y: 310.1625 }, 'dojo', '321');
-        this.setupButton(this.sbeach, { x: 150.4125, y: 696.7125 }, 'beach', '400');
-        this.setupButton(this.sdock, { x: 337.1625, y: 889.425 }, 'dock', '800');
-        this.setupButton(this.sforts, { x: 866.8125, y: 587.1375 }, 'forts', '801');
-        this.setupButton(this.srink, { x: 734.0625, y: 494.55 }, 'ice_rink', '802');
-        this.setupButton(this.sberg, undefined, undefined, '805');
-        this.setupButton(this.sshack, { x: 1377.7875, y: 536.175 }, 'mine_shack', '807');
-        this.setupButton(this.sforest, { x: 1330.425, y: 710.4375 }, 'forest', '809');
-        this.setupButton(this.scove, { x: 1572.75, y: 735.4125 }, 'cove', '810');
+        this.setupButton(this.stown, { x: 640.9125, y: 654.525 }, 'town', 100);
+        this.setupButton(this.svillage, { x: 415.35, y: 517.725 }, 'ski_village', 200);
+        this.setupButton(this.smtn, { x: 366.525, y: 410.5125 }, 'ski_hill', 230);
+        this.setupButton(this.splaza, { x: 1122.975, y: 617.0625 }, 'plaza', 300);
+        this.setupButton(this.sdojoext, { x: 1022.4, y: 310.1625 }, 'dojo', 321);
+        this.setupButton(this.sbeach, { x: 150.4125, y: 696.7125 }, 'beach', 400);
+        this.setupButton(this.sdock, { x: 337.1625, y: 889.425 }, 'dock', 800);
+        this.setupButton(this.sforts, { x: 866.8125, y: 587.1375 }, 'forts', 801);
+        this.setupButton(this.srink, { x: 734.0625, y: 494.55 }, 'ice_rink', 802);
+        this.setupButton(this.sberg, undefined, undefined, 805);
+        this.setupButton(this.sshack, { x: 1377.7875, y: 536.175 }, 'mine_shack', 807);
+        this.setupButton(this.sforest, { x: 1330.425, y: 710.4375 }, 'forest', 809);
+        this.setupButton(this.scove, { x: 1572.75, y: 735.4125 }, 'cove', 810);
         this.setupButton(this.sigloos, { x: 664.3125, y: 836.6625 }, 'open_igloos', undefined);
         this.sigloos.on('release', this.openIglooList, this);
 
         /* GAMES */
 
-        this.setupButton(this.waves, this.waves, 'catchin_waves', '810');
-        this.setupButton(this.hydro, this.hydro, 'hydro_hopper', '800');
-        this.setupButton(this.smoothie, this.smoothie, 'smoothie_smash', '110');
-        this.setupButton(this.rescue, this.rescue, 'puffle_rescue', '808');
-        this.setupButton(this.roundup, this.roundup, 'puffle_round_up', '310');
-        this.setupButton(this.pizza, this.pizza, 'pizzatron_3000', '330');
-        this.setupButton(this.launch, this.launch, 'puffle_launch', '310');
-        this.setupButton(this.jetpack, this.jetpack, 'jet_pack_adventure', '411');
-        this.setupButton(this.sledrace, this.sledrace, 'sled_racing', '230');
-        this.setupButton(this.escape, this.escape, 'pufflescape', '310');
-        this.setupButton(this.fish, this.fish, 'ice_fishing', '220');
-        this.setupButton(this.dj, this.dj, 'dj3k', '120');
-        this.setupButton(this.dance, this.dance, 'dance_contest', '120');
-        this.setupButton(this.cart, this.cart, 'cart_surfer', '808');
-        this.setupButton(this.cardjitsu, this.cardjitsu, 'card_jitsu', '320');
-        this.setupButton(this.bean, this.bean, 'bean_counters', '110');
-        this.setupButton(this.arcade, this.arcade, 'arcade', '121');
-        this.setupButton(this.aqua, this.aqua, 'aqua_grabber', '805');
+        this.setupButton(this.waves, this.waves, 'catchin_waves', 810);
+        this.setupButton(this.hydro, this.hydro, 'hydro_hopper', 800);
+        this.setupButton(this.smoothie, this.smoothie, 'smoothie_smash', 110);
+        this.setupButton(this.rescue, this.rescue, 'puffle_rescue', 808);
+        this.setupButton(this.roundup, this.roundup, 'puffle_round_up', 310);
+        this.setupButton(this.pizza, this.pizza, 'pizzatron_3000', 330);
+        this.setupButton(this.launch, this.launch, 'puffle_launch', 310);
+        this.setupButton(this.jetpack, this.jetpack, 'jet_pack_adventure', 411);
+        this.setupButton(this.sledrace, this.sledrace, 'sled_racing', 230);
+        this.setupButton(this.escape, this.escape, 'pufflescape', 310);
+        this.setupButton(this.fish, this.fish, 'ice_fishing', 220);
+        this.setupButton(this.dj, this.dj, 'dj3k', 120);
+        this.setupButton(this.dance, this.dance, 'dance_contest', 120);
+        this.setupButton(this.cart, this.cart, 'cart_surfer', 808);
+        this.setupButton(this.cardjitsu, this.cardjitsu, 'card_jitsu', 320);
+        this.setupButton(this.bean, this.bean, 'bean_counters', 110);
+        this.setupButton(this.arcade, this.arcade, 'arcade', 121);
+        this.setupButton(this.aqua, this.aqua, 'aqua_grabber', 805);
 
         /* SHOP */
 
-        this.setupButton(this.wavescat, this.wavescat, 'surf_upgrade', '810');
-        this.setupButton(this.stagecat, this.stagecat, 'costume_trunk', '340');
-        this.setupButton(this.sportscat, this.sportscat, 'snow_and_sports', '802');
-        this.setupButton(this.pufflecat, this.pufflecat, 'pet_furniture', '310');
-        this.setupButton(this.instcat, this.instcat, 'music_catalogue', '410');
-        this.setupButton(this.hydrocat, this.hydrocat, 'tubing_upgrade', '800');
-        this.setupButton(this.sledcat, this.sledcat, 'sled_upgrade', '230');
-        this.setupButton(this.fishcat, this.fishcat, 'fishing_upgrade', '220');
-        this.setupButton(this.dancecat, this.dancecat, 'dj3k_upgrade', '120');
-        this.setupButton(this.clothescat, this.clothescat, 'penguin_style', '130');
-        this.setupButton(this.cardcat, this.cardcat, 'martial_arts', '320');
+        this.setupButton(this.wavescat, this.wavescat, 'surf_upgrade', 810);
+        this.setupButton(this.stagecat, this.stagecat, 'costume_trunk', 340);
+        this.setupButton(this.sportscat, this.sportscat, 'snow_and_sports', 802);
+        this.setupButton(this.pufflecat, this.pufflecat, 'pet_furniture', 310);
+        this.setupButton(this.instcat, this.instcat, 'music_catalogue', 410);
+        this.setupButton(this.hydrocat, this.hydrocat, 'tubing_upgrade', 800);
+        this.setupButton(this.sledcat, this.sledcat, 'sled_upgrade', 230);
+        this.setupButton(this.fishcat, this.fishcat, 'fishing_upgrade', 220);
+        this.setupButton(this.dancecat, this.dancecat, 'dj3k_upgrade', 120);
+        this.setupButton(this.clothescat, this.clothescat, 'penguin_style', 130);
+        this.setupButton(this.cardcat, this.cardcat, 'martial_arts', 320);
 
         /* PET */
 
-        this.setupButton(this.proundup, this.proundup, 'puffle_round_up', '310');
-        this.setupButton(this.pshop, this.pshop, 'pet_furniture', '310');
-        this.setupButton(this.prainbow, this.prainbow, 'hotel_lobby', '430');
-        this.setupButton(this.plaunch, this.plaunch, 'puffle_launch', '310');
-        this.setupButton(this.ppuffle, this.ppuffle, 'puffle_adoption', '310');
-        this.setupButton(this.pescape, this.pescape, 'pufflescape', '310');
+        this.setupButton(this.proundup, this.proundup, 'puffle_round_up', 310);
+        this.setupButton(this.pshop, this.pshop, 'pet_furniture', 310);
+        this.setupButton(this.prainbow, this.prainbow, 'hotel_lobby', 430);
+        this.setupButton(this.plaunch, this.plaunch, 'puffle_launch', 310);
+        this.setupButton(this.ppuffle, this.ppuffle, 'puffle_adoption', 310);
+        this.setupButton(this.pescape, this.pescape, 'pufflescape', 310);
         this.setupButton(this.pigloo, this.pigloo, 'igloo', undefined);
         this.pigloo.on('release', this.goToMyIgloo, this);
 
         /* PET GAMES */
 
-        this.setupButton(this.pjetpack, this.pjetpack, 'jet_pack_adventure', '310');
-        this.setupButton(this.prescue, this.prescue, 'puffle_rescue', '310');
-        this.setupButton(this.pdj, this.pdj, 'dj3k', '120');
-        this.setupButton(this.pdance, this.pdance, 'dance_contest', '120');
-        this.setupButton(this.pcart, this.pcart, 'cart_surfer', '808');
-        this.setupButton(this.parcade, this.parcade, 'arcade', '121');
-        this.setupButton(this.paqua, this.paqua, 'aqua_grabber', '805');
-        this.setupButton(this.pwaves, this.pwaves, 'catchin_waves', '810');
+        this.setupButton(this.pjetpack, this.pjetpack, 'jet_pack_adventure', 310);
+        this.setupButton(this.prescue, this.prescue, 'puffle_rescue', 310);
+        this.setupButton(this.pdj, this.pdj, 'dj3k', 120);
+        this.setupButton(this.pdance, this.pdance, 'dance_contest', 120);
+        this.setupButton(this.pcart, this.pcart, 'cart_surfer', 808);
+        this.setupButton(this.parcade, this.parcade, 'arcade', 121);
+        this.setupButton(this.paqua, this.paqua, 'aqua_grabber', 805);
+        this.setupButton(this.pwaves, this.pwaves, 'catchin_waves', 810);
 
         this.game.locale.register(this.localize, this);
 
@@ -1348,7 +1348,7 @@ export default class Map extends Phaser.Scene implements Content {
         interface_.game.unloadAssetPack('map-pack');
     }
 
-    setupButton(button: Phaser.GameObjects.Image, at: Phaser.Types.Math.Vector2Like, hint: string, roomId: string): void {
+    setupButton(button: Phaser.GameObjects.Image, at: Phaser.Types.Math.Vector2Like, hint: string, roomId: number): void {
         if (hint) {
             button.on('over', () => this.interface.showLocalizedHint(at, `w.map.${hint}`, 0, 63));
             button.on('out', () => this.interface.hideHint());
