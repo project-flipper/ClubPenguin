@@ -12,7 +12,12 @@ export type BridgeMessage = {
 
 export type HybridHandlers = {
     loaded(): void;
+    progress(progress: number): void;
     ready(): void;
+    getCacheUrl(url: string): string;
+    muteMusic(): void;
+    unmuteMusic(): void;
+    isMusicMuted(): boolean;
     getLocalizedString(key: string): string;
     startMusicById(musicId?: number): void;
     startGameMusic(): void;

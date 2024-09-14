@@ -1,15 +1,17 @@
 import Phaser from "phaser";
+import EventEmitter from "eventemitter3";
 
 import { App } from "@clubpenguin/app/app";
 import { GameConfig } from "@clubpenguin/app/config";
 import { Locale } from "@clubpenguin/app/locale";
 import Load from "@clubpenguin/load/Load";
-import { PromiseTask } from "@clubpenguin/load/tasks";
+import { DonePayload, PromiseTask, Task } from "@clubpenguin/load/tasks";
 import { Engine, Game } from "@clubpenguin/world/engine/engine";
 import Interface from "@clubpenguin/world/interface/Interface";
 import { HybridBridge } from "./hybridBridge";
 import { RufflePlayer } from "./ruffle";
 import World from "@clubpenguin/world/World";
+import { LoaderPlugin, setQuery } from "@clubpenguin/app/loader";
 
 interface HybridContainer extends Phaser.GameObjects.DOMElement {
     node: RufflePlayer;
@@ -49,6 +51,45 @@ export class RuffleTask extends PromiseTask {
     }
 }
 
+export class GameLoaderTask extends EventEmitter implements Task {
+    label?: string;
+    _progress: number;
+    important: boolean;
+
+    didFail: boolean;
+
+    get progress(): number {
+        return this._progress;
+    }
+    set progress(value: number) {
+        this._progress = value;
+
+        if (this.isDone) {
+            this._result = { ok: true, data: {} }
+            this.emit('done', this._result);
+        }
+    }
+
+    get isDone(): boolean {
+        return this._progress >= 1;
+    }
+
+    private _result: { ok: boolean, data: {} };
+
+    wait(): Promise<DonePayload> {
+        return new Promise(resolve => {
+            if (this._result) return resolve(this._result);
+            this.once('done', payload => resolve(payload));
+        });
+    }
+    bind(): void {
+
+    }
+    unbind(): void {
+
+    }
+}
+
 export class HybridGame extends Phaser.Scene implements Game {
     constructor(config: GameConfig) {
         super(config.name);
@@ -73,6 +114,10 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     get interface(): Interface {
         return (this.scene.get('Interface') as Interface);
+    }
+
+    get loadScreen(): Load {
+        return (this.scene.get('Load') as Load);
     }
 
     public gameData: GameConfig;
@@ -126,10 +171,9 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     async play(url: string, params?: string): Promise<void> {
-        let load = this.scene.get('Load') as Load;
         let ruffle = window.RufflePlayer.newest();
         this.player = ruffle.createPlayer();
-        load.track(new RuffleTask(this.player));
+        this.loadScreen.track(new RuffleTask(this.player));
         await this.player.load({
             url,
             base: this.url,
@@ -170,6 +214,11 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.bridge = new HybridBridge();
 
         this.bridge.setHandler('loaded', this.startHandshake, this);
+        this.bridge.setHandler('progress', this.progress, this);
+        this.bridge.setHandler('getCacheUrl', this.getCacheUrl, this);
+        this.bridge.setHandler('muteMusic', this.muteMusic, this);
+        this.bridge.setHandler('unmuteMusic', this.unmuteMusic, this);
+        this.bridge.setHandler('isMusicMuted', this.isMusicMuted, this);
         this.bridge.setHandler('getLocalizedString', this.getLocalizedString, this);
         this.bridge.setHandler('startMusicById', this.startMusicById, this);
         this.bridge.setHandler('startGameMusic', this.startGameMusic, this);
@@ -180,8 +229,32 @@ export class HybridGame extends Phaser.Scene implements Game {
         return this.bridge.register();
     }
 
+    public loaderTask: Task;
+
     startHandshake(): void {
         this.game.locale.register(this.localize, this);
+        this.loaderTask = new GameLoaderTask();
+        this.loadScreen.track(this.loaderTask);
+    }
+
+    progress(progress: number): void {
+        if (this.loaderTask) this.loaderTask.progress = progress;
+    }
+
+    getCacheUrl(url: string): string {
+        return setQuery(url, 'v', LoaderPlugin.cacheVersion, true);
+    }
+
+    muteMusic(): void {
+        this.engine.music.musicMuted = true;
+    }
+
+    unmuteMusic(): void {
+        this.engine.music.musicMuted = false;
+    }
+
+    isMusicMuted(): boolean {
+        return this.engine.music.musicMuted;
     }
 
     getLocalizedString(key: string): string {
@@ -215,7 +288,7 @@ export class HybridGame extends Phaser.Scene implements Game {
         if (!load.isShowing) load.show();
 
         this.container.visible = false;
-        this.engine.endGame(score, room);
+        setTimeout(() => this.engine.endGame(score, room), 200);
     }
 
     localize(locale: Locale): void {
