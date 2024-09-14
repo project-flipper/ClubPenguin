@@ -10,6 +10,9 @@ import { LoaderTask } from "@clubpenguin/load/tasks";
 import { Language, Locale } from "@clubpenguin/app/locale";
 import { App } from "@clubpenguin/app/app";
 import { BaseBillboard } from "@clubpenguin/start/billboard/Billboard";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.start');
 /* END-USER-IMPORTS */
 
 export default class Startscreen extends Phaser.Scene {
@@ -231,16 +234,18 @@ export default class Startscreen extends Phaser.Scene {
             let billboardCls = (await import('@clubpenguin/start/billboard/Billboard')).default(this);
             let task = load.track(new LoaderTask('Billboard loader', this.load));
             billboardCls.preload(this.load);
-            this.load.start();
 
+            logger.info('Loading billboard');
+            this.load.start();
             await task.wait();
 
             let billboard = new billboardCls(this, 0, 0);
             this.billboardContainer.add(billboard);
 
+            logger.info('Billboard ready');
             this.billboard = billboard;
         } catch (e) {
-            console.error('Billboard failed to load', e)
+            logger.error('Billboard failed to load', e);
         }
 
         this.game.locale.register(this.localize, this);
