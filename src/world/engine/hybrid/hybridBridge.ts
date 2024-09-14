@@ -1,5 +1,8 @@
 import Phaser from "phaser"
 import { RufflePlayer } from "./ruffle";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.world.engine.hybrid.hybridBridge');
 
 export type BridgedPlayer = RufflePlayer & {
     messageFromHTML5(payload: string): void;
@@ -67,6 +70,7 @@ export class HybridBridge {
 
     register(id?: string): string {
         this.id = id ?? this.getUniqueId();
+        logger.info('Registering bridge in playpage under', this.id);
         (window as any)[this.id] = this.messageFromFlash.bind(this);
         return this.id;
     }
@@ -85,7 +89,7 @@ export class HybridBridge {
     protected messageFromFlash(op: keyof HybridHandlers, params: string): any {
         let data = params ? JSON.parse(params) : [];
         let args = Array.isArray(data) ? data : [data];
-        console.log(op, args);
+        logger.info('Message from Flash', op, args);
         return this.callHandler(op, ...(args as any));;
     }
 
@@ -96,6 +100,7 @@ export class HybridBridge {
      */
     send(op: string, ...parameters: any): void {
         this.#flash.messageFromHTML5(JSON.stringify({ function: op, parameters }));
+        logger.info('Message to Flash', op, parameters);
     }
 
     /**
