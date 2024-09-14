@@ -28,7 +28,7 @@ export class ClothingManager {
         this.engine = engine;
 
         this.engine.on('player:add', (player: Player) => {
-            if (player.attachClothing) this.loadClothingSprites(player, player.penguinData.avatar);
+            if (player.attachClothing) this.loadClothingSprites(player, player.userData.avatar);
         });
     }
 

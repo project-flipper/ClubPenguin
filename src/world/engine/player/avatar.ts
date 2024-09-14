@@ -29,7 +29,7 @@ export interface Avatar extends Phaser.GameObjects.Container {
 }
 
 export type Player = Avatar & {
-    penguinData: AnyUserData;
+    userData: AnyUserData;
     overlay: AvatarOverlay;
     clothes: Map<number, ClothingSprite>;
     actions: Actions;

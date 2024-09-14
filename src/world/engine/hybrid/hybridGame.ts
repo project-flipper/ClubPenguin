@@ -123,7 +123,7 @@ export class HybridGame extends Phaser.Scene implements Game {
     public gameData: GameConfig;
 
     async create(data: any): Promise<void> {
-        let penguinData = this.world.myUser;
+        let userData = this.world.myUser;
         let colorHex = this.game.gameConfig.player_colors;
 
         await this.play(`${this.load.baseURL}assets/world/games/loader.swf?v=${this.game.minigameVersion}`, this.asFlashVars({
@@ -143,7 +143,7 @@ export class HybridGame extends Phaser.Scene implements Game {
             baseConfigPath: '',
             globalContentPath: `${this.load.baseURL}assets/world/`,
             gamesPath: `${this.load.baseURL}assets/world/games/`
-        }, penguinData, colorHex));
+        }, userData, colorHex));
     }
 
     /* ================= FLASH ================= */

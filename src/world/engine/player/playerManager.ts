@@ -100,7 +100,7 @@ export class PlayerManager {
     avatarToPlayer(avatar: Avatar, data: AnyUserData): Player {
         let player = avatar as Player;
 
-        player.penguinData = data;
+        player.userData = data;
         player.clothes = new Map();
         player.actions = new Actions(player);
 
@@ -143,13 +143,13 @@ export class PlayerManager {
     }
 
     addPlayer(player: Player): Avatar {
-        if (player.penguinData.id in this.players) return;
+        if (player.userData.id in this.players) return;
 
-        this.setupPlayer(player, player.penguinData);
+        this.setupPlayer(player, player.userData);
         player.depth = player.y + 1;
         this.engine.currentRoom.add.existing(player);
 
-        this.players[player.penguinData.id] = player;
+        this.players[player.userData.id] = player;
         this.testTriggers(player, true, undefined, undefined, true);
 
         this.engine.emit('player:add', player);
@@ -163,7 +163,7 @@ export class PlayerManager {
         this.engine.emit('player:remove', player);
 
         player.destroy();
-        delete this.players[player.penguinData.id];
+        delete this.players[player.userData.id];
 
     }
 
