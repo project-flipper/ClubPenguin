@@ -45,7 +45,6 @@ export class LoaderTask extends EventEmitter implements Task {
     }
 
     bind(): void {
-        console.log(this.loader.isLoading());
         this.loader.on('fileprogress', this.onFileProgress, this);
         this.loader.on('complete', this.onComplete, this);
     }
