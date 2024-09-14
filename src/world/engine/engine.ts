@@ -133,7 +133,7 @@ export class Engine extends EventEmitter {
         let roomScene = await new Promise<Room>(resolve => {
             this.world.scene.add(`room-${config.room_id}`, room, true, {
                 config,
-                oninit: (scene: Room) => load.track(new LoaderTask(scene.load)),
+                oninit: (scene: Room) => load.track(new LoaderTask('Room loader', scene.load)),
                 onready: (scene: Room) => resolve(scene)
             });
         });
@@ -142,7 +142,7 @@ export class Engine extends EventEmitter {
             let key = `clothing-icons-${config.pin_id}`;
 
             if (!this.world.textures.exists(key)) {
-                let task = load.track(new LoaderTask(roomScene.load));
+                let task = load.track(new LoaderTask('Pin loader', roomScene.load));
                 roomScene.load.multiatlas({
                     key,
                     atlasURL: `assets/clothing/icons/${config.pin_id}.json`,
@@ -290,7 +290,7 @@ export class Engine extends EventEmitter {
             this.world.scene.add(`game-${config.name}`, cls, true, {
                 config,
                 options,
-                oninit: (scene: Game) => load.track(new LoaderTask(scene.load)),
+                oninit: (scene: Game) => load.track(new LoaderTask('Game loader', scene.load)),
                 onready: (scene: Game) => resolve(scene)
             });
         });

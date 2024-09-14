@@ -148,7 +148,7 @@ export default class TargetGameScreen extends Phaser.GameObjects.Container {
         if (this.scene.textures.exists(key)) this.scene.game.unloadMultiatlas(key);
 
         let load = this.scene.scene.get('Load') as Load;
-        load.track(new LoaderTask(this.scene.load));
+        load.track(new LoaderTask('Lounge screen loadder', this.scene.load));
 
         this.scene.load.multiatlas({
             key,

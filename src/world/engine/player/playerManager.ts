@@ -50,7 +50,7 @@ export class PlayerManager {
 
         let load = this.engine.loadScreen;
 
-        let task = load.track(new LoaderTask(this.world.load));
+        let task = load.track(new LoaderTask('Avatar loader', this.world.load));
         module.load(this.world);
 
         this.world.load.start();

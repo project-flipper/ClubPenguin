@@ -72,7 +72,7 @@ export default class Login extends Phaser.Scene {
     init(): void {
         let load = this.scene.get('Load') as Load;
 
-        load.track(new LoaderTask(this.load));
+        load.track(new LoaderTask('Login loader', this.load));
         if (!load.isShowing) load.show();
     }
 

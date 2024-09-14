@@ -1001,7 +1001,7 @@ export default class Interface extends Phaser.Scene {
             let contentScene = await new Promise<Content>(resolve => {
                 this.scene.add('interface-content', contentCls, true, {
                     ...data,
-                    oninit: (scene: Content) => load.track(new LoaderTask(scene.load)),
+                    oninit: (scene: Content) => load.track(new LoaderTask('Content loader', scene.load)),
                     onready: (scene: Content) => resolve(scene)
                 });
             });

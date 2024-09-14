@@ -31,7 +31,7 @@ export default class Redemption extends Phaser.Scene {
     init(): void {
         let load = this.scene.get('Load') as Load;
 
-        load.track(new LoaderTask(this.load));
+        load.track(new LoaderTask('Redemption loader', this.load));
         if (!load.isShowing) load.show();
     }
 

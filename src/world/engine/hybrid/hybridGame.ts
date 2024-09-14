@@ -64,6 +64,8 @@ export class GameLoaderTask extends EventEmitter implements Task {
     set progress(value: number) {
         this._progress = value;
 
+        this.emit('progress', value);
+
         if (this.isDone) {
             this._result = { ok: true, data: {} }
             this.emit('done', this._result);
@@ -102,6 +104,10 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.scene.moveBelow('Interface');
 
         if (data.oninit) data.oninit(this);
+    }
+
+    preload(): void {
+
     }
 
     get world(): World {
@@ -226,6 +232,8 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.bridge.setHandler('hideLoading', this.hideLoading, this);
         this.bridge.setHandler('endGame', this.endGame, this);
 
+        this.loaderTask = new GameLoaderTask();
+        this.loadScreen.track(this.loaderTask);
         return this.bridge.register();
     }
 
@@ -233,12 +241,12 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     startHandshake(): void {
         this.game.locale.register(this.localize, this);
-        this.loaderTask = new GameLoaderTask();
-        this.loadScreen.track(this.loaderTask);
     }
 
     progress(progress: number): void {
-        if (this.loaderTask) this.loaderTask.progress = progress;
+        if (this.loaderTask) {
+            this.loaderTask.progress = progress;
+        }
     }
 
     getCacheUrl(url: string): string {

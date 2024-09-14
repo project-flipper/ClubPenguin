@@ -80,7 +80,7 @@ export default class World extends Phaser.Scene {
 
     async startWorld(): Promise<void> {
         let load = this.scene.get('Load') as Load;
-        load.track(new LoaderTask(this.load));
+        load.track(new LoaderTask('World loader', this.load));
 
         let myUser = await this.game.airtower.getMyUser()
         this.myUser = myUser.data;
@@ -94,7 +94,7 @@ export default class World extends Phaser.Scene {
         this.engine = new Engine(this);
 
         await new Promise<void>(resolve => this.scene.run('Interface', {
-            oninit: (scene: Interface) => load.track(new LoaderTask(scene.load)),
+            oninit: (scene: Interface) => load.track(new LoaderTask('Interface loader', scene.load)),
             onready: () => resolve()
         }));
 

@@ -35,15 +35,17 @@ export class LoaderTask extends EventEmitter implements Task {
 
     loader: Phaser.Loader.LoaderPlugin;
 
-    constructor(loader: Phaser.Loader.LoaderPlugin) {
+    constructor(label: string, loader: Phaser.Loader.LoaderPlugin) {
         super();
 
+        this.label = label;
         this.loader = loader;
         this.important = false;
         this.didFail = false;
     }
 
     bind(): void {
+        console.log(this.loader.isLoading());
         this.loader.on('fileprogress', this.onFileProgress, this);
         this.loader.on('complete', this.onComplete, this);
     }

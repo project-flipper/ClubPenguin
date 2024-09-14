@@ -13,6 +13,9 @@ import InternalErrorArea from "@clubpenguin/app/InternalErrorArea";
 import { Language } from "@clubpenguin/app/locale";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.boot');
 /* END-USER-IMPORTS */
 
 export default class Bootstrap extends Phaser.Scene {
@@ -170,6 +173,8 @@ export default class Bootstrap extends Phaser.Scene {
     }
 
     async loadClubPenguin(): Promise<void> {
+        logger.info('Starting Club Penguin');
+
         await new Promise<void>(resolve => this.scene.run('Load', {
             onready: () => resolve()
         }));
@@ -185,12 +190,13 @@ export default class Bootstrap extends Phaser.Scene {
             throw e;
         }
 
-        load.track(new LoaderTask(this.load)).important = true;
+        let task = load.track(new LoaderTask('Bootstrap loader', this.load));
+        task.important = true;
 
         this.load.pack("app-pack", "assets/app/app-pack.json");
         this.load.pack("font-library", "assets/lib/fonts/font-library.json");
         this.scene.run('Logo', {
-            oninit: (scene: Phaser.Scene) => load.track(new LoaderTask(scene.load))
+            oninit: (scene: Phaser.Scene) => load.track(new LoaderTask('Logo loader', scene.load))
         });
         this.load.start();
 
@@ -215,12 +221,16 @@ export default class Bootstrap extends Phaser.Scene {
         let path = window.location.hash;
 
         if (path === '#login') {
+            logger.info('Setting initial landing to login screen');
             this.scene.start('Login');
         } else if (path === '#create') {
+            logger.info('Setting initial landing to create screen');
             this.scene.start('Create');
         } else if (path === '#redeem') {
+            logger.info('Setting initial landing to redemption screen');
             this.scene.start('Redemption');
         } else {
+            logger.info('Defaulting to startscreen landing');
             this.scene.start('Startscreen');
         }
     }

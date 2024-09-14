@@ -20,6 +20,9 @@ import ColorSwatch from "@clubpenguin/create/prefabs/ColorSwatch";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { CreateUserForm } from "@clubpenguin/net/types/api";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.create');
 /* END-USER-IMPORTS */
 
 export default class Create extends Phaser.Scene {
@@ -508,9 +511,10 @@ export default class Create extends Phaser.Scene {
     declare public game: App;
 
     init(): void {
+        logger.info('Starting create screen');
         let load = this.scene.get('Load') as Load;
 
-        load.track(new LoaderTask(this.load));
+        load.track(new LoaderTask('Create loader', this.load));
         if (!load.isShowing) load.show();
     }
 
@@ -539,12 +543,15 @@ export default class Create extends Phaser.Scene {
 
         this.game.locale.register(this.localize, this);
         this.events.on('shutdown', () => {
+            logger.info('Restoring playpage');
+
             if (window.jsAPI) window.jsAPI.showNav();
 
             this.game.locale.unregister(this.localize);
             this.game.unloadAssetPack('create-pack');
         });
 
+        logger.info('Hiding playpage navigation');
         if (window.jsAPI) window.jsAPI.hideNav();
 
         this.brandingContainer = this.game.fixDomGO(this.add.dom(
@@ -559,7 +566,10 @@ export default class Create extends Phaser.Scene {
             '<a href="https://policies.google.com/terms">Terms of Service</a> apply.'
         );
 
+        logger.info('Waiting for reCaptcha availability');
         grecaptcha.ready(() => {
+            logger.info('reCaptcha ready');
+
             let load = this.scene.get('Load') as Load;
             if (load.isShowing) load.waitAllTasksComplete().then(() => load.hide());
 
@@ -649,6 +659,7 @@ export default class Create extends Phaser.Scene {
     }
 
     async post(): Promise<void> {
+        logger.info('Checking for input errors before submission');
         this.lock();
 
         let hasErrors = false;
@@ -684,7 +695,11 @@ export default class Create extends Phaser.Scene {
             this.rulesArea.showError(this.game.locale.localize('create.NOT_AGREED_RULES', 'error_lang'));
         }
 
-        if (hasErrors) return this.unlock();
+        if (hasErrors) {
+            logger.info('Aborting submission due to input errors');
+            this.unlock();
+            return;
+        }
 
         this.preloader.visible = true;
 
@@ -710,7 +725,7 @@ export default class Create extends Phaser.Scene {
                                 // Root loc
                                 break;
                             default:
-                                console.warn('Unknown error location!', err.type, err.msg);
+                                logger.warn('Unknown error location!', err.type, err.msg);
                                 break;
                         }
                     }
@@ -730,8 +745,6 @@ export default class Create extends Phaser.Scene {
 
             throw e;
         }
-
-        console.debug(response);
 
         if (response.success) this.show(this.confirmationState);
         else {
