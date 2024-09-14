@@ -733,7 +733,7 @@ export default class Create extends Phaser.Scene {
 
         console.debug(response);
 
-        if (response.data?.user_id) this.show(this.confirmationState);
+        if (response.success) this.show(this.confirmationState);
         else {
             let error = this.scene.get('ErrorArea') as ErrorArea;
             error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
