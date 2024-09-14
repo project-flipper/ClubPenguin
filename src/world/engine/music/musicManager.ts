@@ -1,21 +1,24 @@
 import Phaser from "phaser";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 
 export class MusicManager {
     public engine: Engine;
 
+    public currentMusicId: number;
+    private _musicMuted: boolean;
+
     constructor(engine: Engine) {
         this.engine = engine;
+
+        this._musicMuted = false;
     }
 
     get world(): World {
         return this.engine.world;
     }
-    
-    public currentMusicId: number;
 
     async playMusic(id: number): Promise<void> {
         if (this.currentMusicId == id) return;
@@ -43,8 +46,6 @@ export class MusicManager {
         this.currentMusicId = id;
         this.world.sound.play(key, { loop: true, mute: this._musicMuted });
     }
-
-    private _musicMuted: boolean;
 
     get musicMuted(): boolean {
         return this._musicMuted;
