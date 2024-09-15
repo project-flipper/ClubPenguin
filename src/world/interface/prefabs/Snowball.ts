@@ -61,7 +61,7 @@ export default class Snowball extends Phaser.GameObjects.Container {
     }
 
     destroy(fromScene?: boolean): void {
-        if (this.world.engine) {
+        if (this.scene && this.world.engine) {
             let snowballs = this.world.engine.snowballs.snowballs;
             if (snowballs.includes(this)) snowballs.splice(snowballs.indexOf(this), 1);
         }
