@@ -118,7 +118,7 @@ module.exports = env => {
                                     '@babel/preset-env',
                                     {
                                         useBuiltIns: 'usage',
-                                        corejs: { version: 3, proposals: true }
+                                        corejs: { version: '3.31', proposals: true }
                                     }
                                 ]
                             ],
@@ -128,6 +128,12 @@ module.exports = env => {
                                     {
                                         useESModules: true,
                                         corejs: { version: 3, proposals: true }
+                                    }
+                                ],
+                                [
+                                    '@babel/plugin-syntax-decorators',
+                                    {
+                                        'version': '2023-11'
                                     }
                                 ]
                             ],

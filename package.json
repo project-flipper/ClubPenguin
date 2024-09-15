@@ -6,8 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "serve": "webpack serve",
-    "dev-serve": "webpack serve --env development --env mediaPath=\"http://localhost:8080/media\" --env homeLink=\"http://localhost:8080\" --env playLink=\"http://localhost:8080\"",
-    "dev-serve-net": "webpack serve --env development --env mediaPath=\"http://192.168.100.59:8080/media\" --env homeLink=\"http://192.168.100.59:8080\" --env playLink=\"http://192.168.100.59:8080\""
+    "dev-serve": "webpack serve --env development --env mediaPath=\"https://localhost:8080/media\" --env homeLink=\"https://localhost:8080\" --env playLink=\"https://localhost:8080\" --env apiPath=\"https://192.168.100.59:8000\""
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +18,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.21.4",
+    "@babel/plugin-syntax-decorators": "^7.24.7",
     "@babel/plugin-transform-runtime": "^7.21.4",
     "@babel/preset-env": "^7.21.4",
     "@babel/runtime-corejs3": "^7.22.5",
