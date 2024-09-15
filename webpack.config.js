@@ -208,7 +208,8 @@ module.exports = env => {
             new DefinePlugin({
                 '__webpack_options__': JSON.stringify({
                     EXPOSE_DEBUG: env.development,
-                    RECAPTCHA_SITE_KEY: env.recaptchaSiteKey
+                    RECAPTCHA_SITE_KEY: env.recaptchaSiteKey,
+                    LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3)
                 })
             }),
             ...playPages,
