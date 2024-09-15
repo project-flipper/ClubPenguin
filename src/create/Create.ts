@@ -21,6 +21,7 @@ import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { CreateUserForm } from "@clubpenguin/net/types/api";
 import { getLogger } from "@clubpenguin/lib/log";
+import { HTTPError } from "@clubpenguin/net/airtower";
 
 let logger = getLogger('CP.create');
 /* END-USER-IMPORTS */
@@ -702,12 +703,28 @@ export default class Create extends Phaser.Scene {
         }
 
         this.preloader.visible = true;
+        let error = this.scene.get('ErrorArea') as ErrorArea;
 
+        logger.info('Creating user');
         try {
+            var { result: response } = await error.shield(async () => {
             let token = await grecaptcha.execute(__webpack_options__.RECAPTCHA_SITE_KEY, { action: 'register' });
-            var response = await this.game.airtower.createAccount(await this.getFormData(token));
+            return await this.game.airtower.createAccount(await this.getFormData(token));
+        }, e => {
+            if (e instanceof HTTPError && e.response.status == 422) throw e;
+
+            logger.error('Unhandled error during submission', e);
+
+            return error.createError({
+                buttonCallback: () => {
+                    this.preloader.visible = false;
+                    this.unlock();
+                    return true;
+                }
+            });
+        });
         } catch (e) {
-            if (e.data?.error) {
+            if (e instanceof HTTPError && e.response.status == 422) {
                 for (let error in e.data?.error) {
                     let err: { type: string, loc: string[], msg: string } = e.data?.error[error];
                     for (let loc of err.loc) {
@@ -735,26 +752,16 @@ export default class Create extends Phaser.Scene {
                 this.unlock();
                 return;
             }
-
-            let error = this.scene.get('ErrorArea') as ErrorArea;
-            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.preloader.visible = false;
-                this.unlock();
-                return true;
-            }, error.makeCode('c', error.DEFAULT_ERROR));
-
-            throw e;
+            return;
         }
 
-        if (response.success) this.show(this.confirmationState);
-        else {
-            let error = this.scene.get('ErrorArea') as ErrorArea;
-            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.preloader.visible = false;
+        if (response && response.success) this.show(this.confirmationState);
+        else error.show(error.createError({
+            buttonCallback: () => {
                 this.unlock();
                 return true;
-            }, error.makeCode('c', error.DEFAULT_ERROR));
-        }
+            },
+        }));
 
         this.preloader.visible = false;
     }
