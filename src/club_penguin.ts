@@ -157,6 +157,7 @@ export function run(params: RunParams): void {
         minigameVersion: params.minigameVersion,
         environmentType: params.environmentType
     });
+    app.onCrash = onAppCrash;
 
     LoaderPlugin.cacheVersion = params.cacheVersion;
 }

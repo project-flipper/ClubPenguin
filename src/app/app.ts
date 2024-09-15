@@ -46,6 +46,19 @@ export class App extends Phaser.Game {
         this.minigameVersion = params.minigameVersion;
     }
 
+    step(time: number, delta: number): void {
+        try {
+            super.step(time, delta);
+        } catch(e) {
+            this.onCrash(e);
+            throw e;
+        }
+    }
+
+    onCrash(e: any): void {
+
+    }
+
     fixDomGO<T extends Phaser.GameObjects.DOMElement>(dom: T): T {
         logger.debug('Removing Phaser reference from DOM element', dom);
         if ('phaser' in dom.node) delete dom.node['phaser'];
