@@ -147,7 +147,7 @@ export default class Login extends Phaser.Scene {
             else if (password.length == 0) throw { message: 'shell.PASSWORD_REQUIRED', buttonCallback, type: 'c', code: error.PASSWORD_REQUIRED };
             else if (password.length < this.MIN_PASS_LENGTH) throw { message: 'shell.PASSWORD_SHORT', buttonCallback, type: 'c', code: error.PASSWORD_SHORT };
             else if (password.length > this.MAX_PASS_LENGTH) throw { message: 'shell.PASSWORD_LONG', buttonCallback, type: 'c', code: error.PASSWORD_LONG };
-        }, e => error.createError(e));
+        }, e => e);
 
         if (!ok) return;
 

@@ -375,6 +375,8 @@ export default class ErrorArea extends Phaser.Scene {
             return this.localize(e);
         } else if (e instanceof HTTPError) {
             return this.createError();
+        } else {
+            this.createError();
         }
     }
 
