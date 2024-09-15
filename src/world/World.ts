@@ -25,11 +25,14 @@ import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import Interface from "./interface/Interface";
 import { BaseUserData, MyUserData, UserData } from "@clubpenguin/net/types/user";
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine } from "@clubpenguin/world/engine/engine";
 import { App } from "@clubpenguin/app/app";
 import { RelationshipType } from "@clubpenguin/net/types/relationship";
 import { PlayerData } from "@clubpenguin/net/types/player";
 import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
 
 export default class World extends Phaser.Scene {
@@ -107,7 +110,7 @@ export default class World extends Phaser.Scene {
         this.game.friends.connect(friends, characters, true, true, true);
 
         let roomId = this.getRandomItem(SPAWN_ROOMS);
-        console.log('Mocking room join on room', roomId);
+        logger.info('Mocking room join on room', roomId);
         await this.joinRoom(roomId);
     }
 

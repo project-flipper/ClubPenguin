@@ -1,5 +1,8 @@
+import { getLogger } from "@clubpenguin/lib/log";
 import EventEmitter from "eventemitter3";
 import Phaser from "phaser";
+
+let logger = getLogger('CP.load.tasks');
 
 export type DonePayload = {
     ok: boolean,
@@ -126,7 +129,7 @@ export class PromiseTask extends EventEmitter implements Task {
             this._result = { ok: true, data: { value: result, reason: undefined } };
             this.emit('done', this._result);
         } catch (e) {
-            console.error('An error occurred on PromiseTask:', e);
+            logger.error('An error occurred on PromiseTask:', e);
 
             this.isDone = true;
             this.didFail = true;

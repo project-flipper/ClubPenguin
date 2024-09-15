@@ -5,6 +5,9 @@ import { Player } from "@clubpenguin/world/engine/player/avatar";
 import { Engine } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import Phaser from "phaser";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.world.engine.clothing');
 
 export type ClothingSprite = Phaser.GameObjects.Sprite & { config: PaperItemConfig, animations: { [frame: number]: Phaser.Animations.Animation } };
 
@@ -139,7 +142,7 @@ export class ClothingManager {
                 this.world.load.on('loaderror', errorCallback);
             });
         } catch (e) {
-            console.error(e);
+            logger.error(e);
             return;
         }
 
@@ -168,8 +171,6 @@ export class ClothingManager {
     addClothingSprite(player: Player, key: string, animationsKey: string, config: PaperItemConfig): ClothingSprite {
         if (!this.world.textures.exists(key)) return;
 
-        console.log('Adding sprite item', key);
-
         let sprite = this.world.add.sprite(0, 0, key, `${config.paper_item_id}/0`) as ClothingSprite;
         sprite.depth = this.getClothingDepth(config);
         sprite.config = config;
@@ -195,7 +196,7 @@ export class ClothingManager {
             if (animation != false) {
                 let frameIndex = parseInt(anim.index);
                 animations[frameIndex] = animation;
-            } else console.warn(`Animation ${anim.key} failed to be created. Skipping.`);
+            } else logger.warn(`Animation ${anim.key} failed to be created. Skipping.`);
         }
 
         return animations;

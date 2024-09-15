@@ -127,7 +127,6 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
     setup(data: AvatarData): void {
         this.photo_button.visible = false;
         this.avatarData = data;
-        console.log(data);
 
         let tintFill = this.game.gameConfig.player_colors[String(data.color)];
         this.body_art.setTintFill(Number(tintFill));
@@ -240,8 +239,6 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
     addItem(type: ItemType, config: PaperItemConfig, key: string, path: string, isBack: boolean): void {
         if (!this.scene.textures.exists(key)) return;
-
-        console.log('Adding item', key, 'with path', path);
 
         let image = this.scene.add.image(0, 0, key, `${path}/0`);
         image.alpha = 0;

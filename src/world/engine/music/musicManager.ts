@@ -3,6 +3,9 @@ import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { Engine } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.world.engine.music');
 
 export class MusicManager {
     public engine: Engine;
@@ -38,7 +41,7 @@ export class MusicManager {
             await task.wait();
 
             if (!this.world.load.cacheManager.audio.has(key)) {
-                console.warn('Music could not be loaded. ID:', id);
+                logger.warn('Music could not be loaded. ID:', id);
                 return;
             }
         }

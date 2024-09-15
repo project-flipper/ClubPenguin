@@ -5,6 +5,9 @@ import World from "@clubpenguin/world/World";
 import { Engine } from "../engine";
 import { Player } from "./avatar";
 import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.world.engine.player');
 
 export class Actions {
     public player: Player;
@@ -96,7 +99,6 @@ export class Actions {
     }
 
     set(data: ActionData): void {
-        console.log('Setting action to', data);
         switch (data.frame) {
             case ActionFrame.IDLE_DOWN:
             case ActionFrame.IDLE_DOWN_LEFT:
@@ -143,7 +145,7 @@ export class Actions {
                 this.throw(data.destinationX, data.destinationY);
                 break;
             default:
-                console.warn('Unknown action received');
+                logger.warn('Unknown action received', data);
         }
     }
 

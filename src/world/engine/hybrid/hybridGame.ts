@@ -267,7 +267,6 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     getLocalizedString(key: string): string {
         let str = this.game.locale.localize(key);
-        console.log(key, str);
         return str;
     }
 
