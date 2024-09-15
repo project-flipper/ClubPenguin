@@ -23,6 +23,9 @@ import { HybridGame } from "./hybrid/hybridGame";
 import { MusicManager } from "./music/musicManager";
 import { SnowballManager } from "./snowballs/snowballManager";
 import { PlayerData } from "@clubpenguin/net/types/player";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.world.engine');
 
 export type Trigger =
     | RoomTrigger
@@ -204,15 +207,19 @@ export class Engine extends EventEmitter {
                 try {
                     await this.world.joinRoom(this.previousRoomId, this.previousPlayerX, this.previousPlayerY);
                 } catch (ne) {
-                    console.error('Failed to go back to previous room.', e, ne);
+                    logger.error('Failed to go back to previous room.', e, ne);
                 }
             }
 
             let error = this.world.scene.get('ErrorArea') as ErrorArea;
-            error.showError(error.WINDOW_SMALL, this.app.locale.localize('shell.ROOM_FULL', 'error_lang'), this.app.locale.localize('Okay'), () => {
-                this.interface.showMap();
-                return true;
-            }, error.makeCode('c', error.ROOM_FULL));
+            error.show(error.createError({
+                message: 'shell.ROOM_FULL',
+                buttonCallback: () => {
+                    this.interface.showMap();
+                    return true;
+                },
+                code: error.ROOM_FULL
+            }));
 
             load.hide();
             throw e;
@@ -281,8 +288,10 @@ export class Engine extends EventEmitter {
             cls = (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/games/${config.path}`)).default;
         }
 
-        if (!config.show_player_in_room) this.unloadRoom();
-        else this.lockRoom();
+        if (config.room_id != 0) {
+            this.unloadRoom();
+            this.currentRoomId = config.room_id;
+        } else this.lockRoom();
         this.unloadGame();
 
         let load = this.loadScreen;
@@ -325,15 +334,19 @@ export class Engine extends EventEmitter {
                 try {
                     await this.world.joinRoom(this.previousRoomId, this.previousPlayerX, this.previousPlayerY);
                 } catch (ne) {
-                    console.error('Failed to go back to previous room.', e, ne);
+                    logger.error('Failed to go back to previous room.', e, ne);
                 }
             }
 
             let error = this.world.scene.get('ErrorArea') as ErrorArea;
-            error.showError(error.WINDOW_SMALL, this.app.locale.localize('shell.GAME_FULL', 'error_lang'), this.app.locale.localize('Okay'), () => {
-                this.interface.showMap();
-                return true;
-            }, error.makeCode('c', error.GAME_FULL));
+            error.show(error.createError({
+                message: 'shell.GAME_FULL',
+                buttonCallback: () => {
+                    if (config.room_id != 0) this.interface.showMap();
+                    return true;
+                },
+                code: error.GAME_FULL
+            }));
 
             load.hide();
             throw e;
@@ -355,10 +368,8 @@ export class Engine extends EventEmitter {
         });
 
         if (roomConfig) {
-            console.log('join room');
             await this.world.joinRoom(roomConfig.room_id);
         } else if (this.currentRoom) {
-            console.log('unlocking room');
             this.unlockRoom();
             let config = this.currentRoom.roomData;
 
@@ -367,11 +378,10 @@ export class Engine extends EventEmitter {
             this.interface.show();
             load.hide();
         } else if (this.previousRoomId) {
-            console.log('restoring room');
             try {
                 await this.world.joinRoom(this.previousRoomId, this.previousPlayerX, this.previousPlayerY);
             } catch (e) {
-                console.error('Failed to go back to previous room.', e);
+                logger.error('Failed to go back to previous room.', e);
             }
         } else this.interface.showMap();
     }
