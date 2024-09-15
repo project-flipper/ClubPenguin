@@ -162,14 +162,16 @@ export default class World extends Phaser.Scene {
     /* ========= PLAYER ========= */
 
     move(x: number, y: number): void {
+        let player = this.engine.player;
+        let safe = this.engine.players.findPlayerPath(player, x, y)
         let action: ActionData = {
             frame: ActionFrame.WADDLE,
             fromX: this.engine.player.x,
             fromY: this.engine.player.y,
-            destinationX: x,
-            destinationY: y
+            destinationX: safe.x,
+            destinationY: safe.y
         };
-        this.engine.player.actions.set(action);
+        player.actions.set(action);
         // TODO: Request
     }
 

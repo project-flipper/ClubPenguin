@@ -108,10 +108,7 @@ export class Engine extends EventEmitter {
 
         if (pointer.leftButtonReleased()) {
             let objects = this.currentRoom.input.hitTestPointer(pointer);
-            if (objects.length == 0) {
-                let safe = this.players.findPlayerPath(player, pointer.worldX, pointer.worldY);
-                this.world.move(safe.x, safe.y);
-            }
+            if (objects.length == 0) this.world.move(pointer.worldX, pointer.worldY);
         }
     }
 

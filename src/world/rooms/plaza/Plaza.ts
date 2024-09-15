@@ -474,7 +474,7 @@ export default class Plaza extends Phaser.Scene implements Room {
         });
         this.stagedoor1_btn.on('release', () => this.world.move(855, 506.25));
 
-        this.tickets_btn.on('release', () => this.world.move(967.5, 474.1));
+        this.tickets_btn.on('release', () => this.world.move(967.5, 472.5));
 
         this.stagedoor2_btn.on('over', () => {
             this.stagedoor2.setFrame('plaza/stagedoor20002');
