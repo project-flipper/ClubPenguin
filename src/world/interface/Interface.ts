@@ -37,7 +37,7 @@ import { App } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
-import { Emoji } from "@clubpenguin/net/types/emoji";
+import { Emoji } from "@clubpenguin/net/types/message";
 import { GameConfig } from "@clubpenguin/app/config";
 /* END-USER-IMPORTS */
 
@@ -700,7 +700,7 @@ export default class Interface extends Phaser.Scene {
         this.chat.handleKeyUp = (event) => {
             if (event.key == 'Enter') {
                 event.preventDefault();
-                this.sendMessage();
+                this.world.sendMessage();
                 return false;
             } else return true;
         }
@@ -770,7 +770,7 @@ export default class Interface extends Phaser.Scene {
                 event.stopPropagation();
                 break;
             case 'Enter':
-                this.sendMessage();
+                this.world.sendMessage();
                 break;
             case 'w':
                 this.world.wave();
@@ -789,15 +789,15 @@ export default class Interface extends Phaser.Scene {
                 break;
             case 'j':
                 let joke = Phaser.Math.RND.pick(this.game.gameConfig.jokes);
-                this.sendMessage(joke, true);
+                this.world.sendMessage(joke, true);
                 event.stopPropagation();
                 break;
             case '?':
-                this.sendEmoji('QUESTION');
+                this.world.sendEmoji(Emoji.QUESTION);
                 event.stopPropagation();
                 break;
             case '!':
-                this.sendEmoji('EXCLAMATION');
+                this.world.sendEmoji(Emoji.EXCLAMATION);
                 event.stopPropagation();
                 break;
         }
@@ -808,58 +808,58 @@ export default class Interface extends Phaser.Scene {
 
         switch (combo.keyCodes[1]) {
             case 49:
-                this.sendEmoji('LAUGHING');
+                this.world.sendEmoji(Emoji.LAUGHING);
                 break;
             case 50:
-                this.sendEmoji('HAPPY');
+                this.world.sendEmoji(Emoji.HAPPY);
                 break;
             case 51:
-                this.sendEmoji('INDIFFERENT');
+                this.world.sendEmoji(Emoji.INDIFFERENT);
                 break;
             case 52:
-                this.sendEmoji('SAD');
+                this.world.sendEmoji(Emoji.SAD);
                 break;
             case 53:
-                this.sendEmoji('SURPRISED');
+                this.world.sendEmoji(Emoji.SURPRISED);
                 break;
             case 54:
-                this.sendEmoji('POKING_OUT_TONGUE');
+                this.world.sendEmoji(Emoji.POKING_OUT_TONGUE);
                 break;
             case 55:
-                this.sendEmoji('WINKING');
+                this.world.sendEmoji(Emoji.WINKING);
                 break;
             case 56:
-                this.sendEmoji('SICK');
+                this.world.sendEmoji(Emoji.SICK);
                 break;
             case 57:
-                this.sendEmoji('MAD');
+                this.world.sendEmoji(Emoji.MAD);
                 break;
             case 48:
-                this.sendEmoji('UPSET');
+                this.world.sendEmoji(Emoji.UPSET);
                 break;
             case 70:
-                this.sendEmoji('FLOWER');
+                this.world.sendEmoji(Emoji.FLOWER);
                 break;
             case 71:
-                this.sendEmoji('CONTROLLER');
+                this.world.sendEmoji(Emoji.CONTROLLER);
                 break;
             case 72:
-                this.sendEmoji('HEART');
+                this.world.sendEmoji(Emoji.HEART);
                 break;
             case 80:
-                this.sendEmoji('PUFFLE');
+                this.world.sendEmoji(Emoji.PUFFLE);
                 break;
             case 77:
-                this.sendEmoji('COIN');
+                this.world.sendEmoji(Emoji.COIN);
                 break;
             case 76:
-                this.sendEmoji('SHAMROCK');
+                this.world.sendEmoji(Emoji.SHAMROCK);
                 break;
             case 67:
-                this.sendEmoji('COFFEE');
+                this.world.sendEmoji(Emoji.COFFEE);
                 break;
             case 84:
-                this.sendEmoji('TOOT');
+                this.world.sendEmoji(Emoji.TOOT);
                 this.lastFart = window.performance.now();
                 break;
         }

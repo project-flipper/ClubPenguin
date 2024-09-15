@@ -6,7 +6,7 @@
 import Phaser from "phaser";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import { Emoji } from "@clubpenguin/net/types/emoji";
+import { Emoji } from "@clubpenguin/net/types/message";
 /* END-USER-IMPORTS */
 
 export default class Balloon extends Phaser.GameObjects.Container {
@@ -145,7 +145,7 @@ export default class Balloon extends Phaser.GameObjects.Container {
         this.emoji.setFrame(this.getEmojiFrame(emoji));
         this.emoji.visible = true;
 
-        if (emoji == 'TOOT') this.scene.sound.play('interface_fart');
+        if (emoji == Emoji.TOOT) this.scene.sound.play('interface_fart');
 
         this.visible = true;
         this.startHideTimer();
@@ -153,65 +153,65 @@ export default class Balloon extends Phaser.GameObjects.Container {
 
     getEmojiFrame(emoji: Emoji): string {
         switch (emoji) {
-            case 'LAUGHING':
+            case Emoji.LAUGHING:
                 return 'interface/emojiLaughing';
-            case 'HAPPY':
+            case Emoji.HAPPY:
                 return 'interface/emojiHappy';
-            case 'COFFEE':
+            case Emoji.COFFEE:
                 return 'interface/emojiCoffee';
-            case 'INDIFFERENT':
+            case Emoji.INDIFFERENT:
                 return 'interface/emojiIndifferent';
-            case 'SAD':
+            case Emoji.SAD:
                 return 'interface/emojiSad';
-            case 'CONTROLLER':
+            case Emoji.CONTROLLER:
                 return 'interface/emojiController';
-            case 'SURPRISED':
+            case Emoji.SURPRISED:
                 return 'interface/emojiSurprised';
-            case 'POKING_OUT_TONGUE':
+            case Emoji.POKING_OUT_TONGUE:
                 return 'interface/emojiPokingOutTongue';
-            case 'POPCORN':
+            case Emoji.POPCORN:
                 return 'interface/emojiPopcorn';
-            case 'WINKING':
+            case Emoji.WINKING:
                 return 'interface/emojiWinking';
-            case 'SICK':
+            case Emoji.SICK:
                 return 'interface/emojiSick';
-            case 'PIZZA':
+            case Emoji.PIZZA:
                 return 'interface/emojiPizza';
-            case 'MAD':
+            case Emoji.MAD:
                 return 'interface/emojiMad';
-            case 'UPSET':
+            case Emoji.UPSET:
                 return 'interface/emojiUpset';
-            case 'STRAWBERRY_ICE_CREAM':
+            case Emoji.STRAWBERRY_ICE_CREAM:
                 return 'interface/emojiStrawberryIceCream';
-            case 'MEH':
+            case Emoji.MEH:
                 return 'interface/emojiMeh';
-            case 'CAKE':
+            case Emoji.CAKE:
                 return 'interface/emojiCake';
-            case 'SHAMROCK':
+            case Emoji.SHAMROCK:
                 return 'interface/emojiShamrock';
-            case 'HEART':
+            case Emoji.HEART:
                 return 'interface/emojiHeart';
-            case 'LIGHTBULB':
+            case Emoji.LIGHTBULB:
                 return 'interface/emojiLightBulb';
-            case 'FLOWER':
+            case Emoji.FLOWER:
                 return 'interface/emojiFlower';
-            case 'CHOCOLATE_ICE_CREAM':
+            case Emoji.CHOCOLATE_ICE_CREAM:
                 return 'interface/emojiChocolateIceCream';
-            case 'COIN':
+            case Emoji.COIN:
                 return 'interface/emojiCoin';
-            case 'EXCLAMATION':
+            case Emoji.EXCLAMATION:
                 return 'interface/emojiExclamation';
-            case 'IGLOO':
+            case Emoji.IGLOO:
                 return 'interface/emojiIgloo';
-            case 'MOON':
+            case Emoji.MOON:
                 return 'interface/emojiMoon';
-            case 'PUFFLE':
+            case Emoji.PUFFLE:
                 return 'interface/emojiPuffle';
-            case 'QUESTION':
+            case Emoji.QUESTION:
                 return 'interface/emojiQuestion';
-            case 'SUN':
+            case Emoji.SUN:
                 return 'interface/emojiSun';
-            case 'TOOT':
+            case Emoji.TOOT:
                 return 'interface/emojiToot';
         }
     }

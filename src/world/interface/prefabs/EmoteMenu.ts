@@ -8,7 +8,7 @@ import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
-import { Emoji } from "@clubpenguin/net/types/emoji";
+import { Emoji } from "@clubpenguin/net/types/message";
 /* END-USER-IMPORTS */
 
 export default class EmoteMenu extends Phaser.GameObjects.Container {
@@ -406,27 +406,27 @@ export default class EmoteMenu extends Phaser.GameObjects.Container {
 
         /* START-USER-CTR-CODE */
 
-        this.laughing_btn.on('release', () => this.send('LAUGHING'));
-        this.happy_btn.on('release', () => this.send('HAPPY'));
-        this.coffee_btn.on('release', () => this.send('COFFEE'));
-        this.indifferent_btn.on('release', () => this.send('INDIFFERENT'));
-        this.sad_btn.on('release', () => this.send('SAD'));
-        this.controller_btn.on('release', () => this.send('CONTROLLER'));
-        this.surprised_btn.on('release', () => this.send('SURPRISED'));
-        this.pokingOutTongue_btn.on('release', () => this.send('POKING_OUT_TONGUE'));
-        this.popcorn_btn.on('release', () => this.send('POPCORN'));
-        this.winking_btn.on('release', () => this.send('WINKING'));
-        this.sick_btn.on('release', () => this.send('SICK'));
-        this.pizza_btn.on('release', () => this.send('PIZZA'));
-        this.mad_btn.on('release', () => this.send('MAD'));
-        this.upset_btn.on('release', () => this.send('UPSET'));
-        this.strawberryIceCream_btn.on('release', () => this.send('STRAWBERRY_ICE_CREAM'));
-        this.meh_btn.on('release', () => this.send('MEH'));
-        this.cake_btn.on('release', () => this.send('CAKE'));
-        this.shamrock_btn.on('release', () => this.send('SHAMROCK'));
-        this.heart_btn.on('release', () => this.send('HEART'));
-        this.lightbulb_btn.on('release', () => this.send('LIGHTBULB'));
-        this.flower_btn.on('release', () => this.send('FLOWER'));
+        this.laughing_btn.on('release', () => this.send(Emoji.LAUGHING));
+        this.happy_btn.on('release', () => this.send(Emoji.HAPPY));
+        this.coffee_btn.on('release', () => this.send(Emoji.COFFEE));
+        this.indifferent_btn.on('release', () => this.send(Emoji.INDIFFERENT));
+        this.sad_btn.on('release', () => this.send(Emoji.SAD));
+        this.controller_btn.on('release', () => this.send(Emoji.CONTROLLER));
+        this.surprised_btn.on('release', () => this.send(Emoji.SURPRISED));
+        this.pokingOutTongue_btn.on('release', () => this.send(Emoji.POKING_OUT_TONGUE));
+        this.popcorn_btn.on('release', () => this.send(Emoji.POPCORN));
+        this.winking_btn.on('release', () => this.send(Emoji.WINKING));
+        this.sick_btn.on('release', () => this.send(Emoji.SICK));
+        this.pizza_btn.on('release', () => this.send(Emoji.PIZZA));
+        this.mad_btn.on('release', () => this.send(Emoji.MAD));
+        this.upset_btn.on('release', () => this.send(Emoji.UPSET));
+        this.strawberryIceCream_btn.on('release', () => this.send(Emoji.STRAWBERRY_ICE_CREAM));
+        this.meh_btn.on('release', () => this.send(Emoji.MEH));
+        this.cake_btn.on('release', () => this.send(Emoji.CAKE));
+        this.shamrock_btn.on('release', () => this.send(Emoji.SHAMROCK));
+        this.heart_btn.on('release', () => this.send(Emoji.HEART));
+        this.lightbulb_btn.on('release', () => this.send(Emoji.LIGHTBULB));
+        this.flower_btn.on('release', () => this.send(Emoji.FLOWER));
 
         /* END-USER-CTR-CODE */
     }
@@ -459,7 +459,7 @@ export default class EmoteMenu extends Phaser.GameObjects.Container {
     declare scene: Interface;
 
     send(emoji: Emoji): void {
-        this.scene.sendEmoji(emoji);
+        this.scene.world.sendEmoji(emoji);
         this.visible = false;
     }
 

@@ -155,7 +155,7 @@ export class Debug {
 
             let player = await this.engine.players.createPlayer(data, this.world.cameras.main.centerX + this.randomRange(-350, +350), this.world.cameras.main.centerY + this.randomRange(0, +400));
             this.engine.players.addPlayer(player);
-            player.actions.set({ frame: this.getRandomItem(actions) });
+            player.actions.set({ player: data.id, frame: this.getRandomItem(actions) });
 
             this.INTERNAL_ID += 1;
         }

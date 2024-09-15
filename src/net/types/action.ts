@@ -41,6 +41,7 @@ export enum ActionFrame {
 }
 
 export type ActionData = {
+    player: string,
     frame: ActionFrame,
     fromX?: number,
     fromY?: number,

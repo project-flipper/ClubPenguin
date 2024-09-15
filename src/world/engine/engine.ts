@@ -94,6 +94,10 @@ export class Engine extends EventEmitter {
         return this.players.player;
     }
 
+    getPlayer(id: string): Player {
+        return this.players.players[id];
+    }
+
     playerPointerMoveHandler(pointer: Phaser.Input.Pointer): void {
         let player = this.player;
         if (!player || !player.actions.isIdle()) return;
@@ -321,8 +325,10 @@ export class Engine extends EventEmitter {
     async startGame(config: GameConfig, options?: any): Promise<void> {
         if (this.currentGame && config == this.currentGame.gameData) return;
 
+        let isWidgetLike = config.room_id == 0;
+
         let load = this.loadScreen;
-        if (!load.isShowing) load.show();
+        if (!load.isShowing) load.show({ mini: isWidgetLike });
 
         try {
             await this.loadGame(config, options);
@@ -349,7 +355,7 @@ export class Engine extends EventEmitter {
             throw e;
         }
 
-        this.interface.hide();
+        if (!isWidgetLike) this.interface.hide();
         this.emit('game:ready', this.currentGame);
     }
 

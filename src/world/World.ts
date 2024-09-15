@@ -17,6 +17,17 @@ let SPAWN_ROOMS = [
 
 ];
 
+export type WorldHandler<D = any> = (data: D) => (Promise<any> | any);
+export const WORLD_HANDLERS: Record<string, WorldHandler> = {};
+
+export function handle<K extends keyof Payloads, T extends WorldHandler<Payloads[K]>>(op: K) {
+    return function (handler: T, context: ClassMethodDecoratorContext): T {
+        logger.info(handler, context);
+        WORLD_HANDLERS[op] = handler;
+        return handler;
+    }
+}
+
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -31,6 +42,8 @@ import { RelationshipType } from "@clubpenguin/net/types/relationship";
 import { PlayerData } from "@clubpenguin/net/types/player";
 import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
 import { getLogger } from "@clubpenguin/lib/log";
+import { Payload, Payloads } from "@clubpenguin/net/types/payload";
+import { Emoji, MessageData } from "@clubpenguin/net/types/message";
 
 let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
@@ -165,106 +178,154 @@ export default class World extends Phaser.Scene {
         let player = this.engine.player;
         let safe = this.engine.players.findPlayerPath(player, x, y)
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.WADDLE,
             fromX: this.engine.player.x,
             fromY: this.engine.player.y,
             destinationX: safe.x,
             destinationY: safe.y
         };
-        player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     sitDown(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.SIT_DOWN
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     sitDownLeft(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.SIT_DOWN_LEFT
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     sitLeft(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.SIT_UP_LEFT
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     sitUpLeft(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.SIT_UP_LEFT
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     sitUp(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.SIT_UP
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     sitUpRight(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.SIT_UP_RIGHT
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     sitRight(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.SIT_RIGHT
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     sitDownRight(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.SIT_DOWN_RIGHT
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     wave(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.WAVE
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     dance(): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.DANCE
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     throwSnowball(x: number, y: number): void {
         let action: ActionData = {
+            player: this.engine.player.userData.id,
             frame: ActionFrame.THROW,
             fromX: this.engine.player.x,
             fromY: this.engine.player.y,
             destinationX: x,
             destinationY: y
         };
-        this.engine.player.actions.set(action);
         // TODO: Request
+        this.handle({
+            op: 'player:action',
+            d: action
+        });
     }
 
     /* ========= ENGINE ========= */
@@ -276,11 +337,18 @@ export default class World extends Phaser.Scene {
             let position = this.engine.findSafePoint(roomData);
             x = x ?? position.x;
             y = y ?? position.y;
-    
+
             // TODO: Request
-            let players: PlayerData[] = [{ user: this.myUser, x: x, y: y, action: { frame: 0 } }];
-            await this.engine.joinRoom(roomData, players);
-        } 
+            this.handle({
+                op: 'room:join',
+                d: {
+                    roomId: roomId,
+                    players: [
+                        { user: this.myUser, x: x, y: y, action: { player: this.myUser.id, frame: 0 } }
+                    ]
+                }
+            });
+        }
     }
 
     async startGame(gameId: string, options?: any): Promise<void> {
@@ -293,6 +361,14 @@ export default class World extends Phaser.Scene {
     }
 
     /* ======== INTERFACE ======== */
+
+    async sendMessage(message?: string, allowAutopart: boolean = false): Promise<void> {
+        this.interface.sendMessage(message, allowAutopart);
+    }
+
+    async sendEmoji(emoji: Emoji): Promise<void> {
+        this.interface.sendEmoji(emoji);
+    }
 
     async openNamecardById(id: string): Promise<void> {
         // TODO: fetch penguin data
@@ -308,6 +384,50 @@ export default class World extends Phaser.Scene {
 
     openMyNamecard(): void {
         this.interface.openMyNamecard();
+    }
+
+    /* ========== HANDLERS ========== */
+
+    handle<O extends keyof Payloads, D extends Payloads[O]>(payload: Payload<Payloads, O, D>): void {
+        if (payload.op in WORLD_HANDLERS) {
+            logger.info('Handling', payload.op);
+            try {
+                WORLD_HANDLERS[payload.op].call(this, payload.d);
+            } catch (e) {
+                logger.error('Uncaught error in world handler', payload.op, e);
+            }
+        } else {
+            logger.warn('Missing handler for op', payload.op, 'ignoring');
+        }
+    }
+
+    @handle('room:join')
+    async handleRoomJoin(data: Payloads['room:join']): Promise<void> {
+        let roomData = this.game.gameConfig.rooms[data.roomId];
+
+        if (roomData) {
+            await this.engine.joinRoom(roomData, data.players);
+        } 
+    }
+
+    @handle('message:create')
+    async handleMessageCreate(data: Payloads['message:create']): Promise<void> {
+        let author = this.engine.getPlayer(data.author);
+        if (author) {
+            if (data.type == 'TEXT') author.overlay.balloon.showMessage(data.message, data.multipart);
+            else if (data.type == 'EMOJI') author.overlay.balloon.showEmoji(data.emoji);
+            else logger.warn('Received unknown message type!', data);
+
+            author.overlay.balloon.setBanned(data.banned);
+        }
+    }
+
+    @handle('player:action')
+    async handlePlayerAction(data: Payloads['player:action']): Promise<void> {
+        let player = this.engine.getPlayer(data.player);
+        if (player) {
+            player.actions.set(data);
+        }
     }
 
     /* END-USER-CODE */
