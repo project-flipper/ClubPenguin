@@ -163,7 +163,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
      */
     createAvatarUrlCallback(): (id: string, params: { size: number, language: string, photo: boolean, bypassPlayerSettingCache: boolean }) => string {
         return (id: string, params: { size: number, language: string, photo: boolean, bypassPlayerSettingCache: boolean }) => {
-            return new Route('GET', `/users/${id}/avatar`).query(params).getURL(this.basePath).href;
+            return new Route('GET', `/avatars/${id}`).query(params).getURL(this.basePath).href;
         };
     }
 
