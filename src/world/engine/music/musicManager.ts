@@ -1,4 +1,3 @@
-import Phaser from "phaser";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { Engine } from "@clubpenguin/world/engine/engine";
@@ -46,8 +45,10 @@ export class MusicManager {
             }
         }
 
+        logger.info('Playing music by ID', id);
+
         this.currentMusicId = id;
-        this.world.sound.play(key, { loop: true });
+        if (!this.musicMuted) this.world.sound.play(key, { loop: true });
     }
 
     get musicMuted(): boolean {
@@ -58,8 +59,11 @@ export class MusicManager {
         this._musicMuted = value;
         if (this.currentMusicId) {
             let key = `music-${this.currentMusicId}`;
-            let sound = this.world.sound.get(key) as Phaser.Sound.HTML5AudioSound;
-            if (sound?.setMute) sound?.setMute(value);
+            if (value) {
+                this.world.sound.stopByKey(key);
+            } else if (!this.world.load.cacheManager.audio.has(key)) {
+                this.world.sound.play(key, { loop: true });
+            }
         }
     }
 
