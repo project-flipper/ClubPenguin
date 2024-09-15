@@ -22,7 +22,7 @@ import { LoaderPlugin } from "@clubpenguin/app/loader";
 import { Formatter, getLogger, LogLevel } from "@clubpenguin/lib/log";
 
 let logger = getLogger('CP');
-logger.level = LogLevel.TRACE;
+logger.level = __webpack_options__.LOG_LEVEL ?? LogLevel.WARN;
 logger.formatter = new Formatter('%c[%c{now}%c] [%c{name}%c] %c{msg}', ['color:#616161', 'color:#0052AF', 'color:#616161', 'color:#22A4F3', 'color:#616161', '']);
 
 let app: App;
@@ -45,7 +45,8 @@ declare global {
     /* ========== WEBPACK VARIABLES ========== */
     const __webpack_options__: {
         EXPOSE_DEBUG: boolean,
-        RECAPTCHA_SITE_KEY: string
+        RECAPTCHA_SITE_KEY: string,
+        LOG_LEVEL: number
     };
     const __webpack_public_path__: string;
 
