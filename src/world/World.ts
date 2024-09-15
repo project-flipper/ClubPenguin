@@ -277,14 +277,6 @@ export default class World extends Phaser.Scene {
     
             // TODO: Request
             let players: PlayerData[] = [{ user: this.myUser, x: x, y: y, action: { frame: 0 } }];
-            for (let userId of ['5', '6', '8', '9', '10']) {
-                let position = this.engine.findSafePoint(roomData);
-                try {
-                    players.push({ user: (await this.game.airtower.getUserById(userId)).data, x: position.x, y: position.y, action: { frame: 0 } });
-                } catch(e) {
-
-                }
-            }
             await this.engine.joinRoom(roomData, players);
         } 
     }
