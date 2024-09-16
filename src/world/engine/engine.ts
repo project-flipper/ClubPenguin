@@ -221,7 +221,7 @@ export class Engine extends EventEmitter {
             this.tweenTracker.reset();
         }
 
-        this.cleaner.run();
+        this.cleaner.collectAll();
     }
 
     async joinRoom(config: RoomConfig, players: PlayerData[]): Promise<void> {
@@ -346,7 +346,7 @@ export class Engine extends EventEmitter {
             this.currentGame = undefined;
         }
 
-        this.cleaner.run();
+        this.cleaner.collectAll();
     }
 
     async startGame(config: GameConfig, options?: any): Promise<void> {

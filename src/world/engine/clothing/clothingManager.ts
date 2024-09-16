@@ -23,12 +23,14 @@ export class ClothingManager {
         });
         this.engine.on('player:update', (player: Player) => {
             if (player.attachClothing) this.addClothingSprites(player, player.userData.avatar);
+            this.engine.cleaner.collect();
         });
         this.engine.on('player:remove', (player: Player) => {
             for (let [_, clothing] of player.clothes) {
-                this.engine.cleaner.freeResource('multiatlas', this.getSpriteKey(clothing.config.paper_item_id), player.userData.id);
-                this.engine.cleaner.freeResource('json', this.getSpriteAnimationsKey(clothing.config.paper_item_id), player.userData.id);
+                this.engine.cleaner.deallocateResource('multiatlas', this.getSpriteKey(clothing.config.paper_item_id), player.userData.id);
+                this.engine.cleaner.deallocateResource('json', this.getSpriteAnimationsKey(clothing.config.paper_item_id), player.userData.id);
             }
+            this.engine.cleaner.collect();
         });
     }
 
@@ -88,7 +90,7 @@ export class ClothingManager {
                     this.world.load.off('filecomplete', completeCallback);
                     this.world.load.off('loaderror', errorCallback);
 
-                    this.engine.cleaner.takeResource(type_, key_);
+                    this.engine.cleaner.allocateResource(type_, key_);
                     resolve();
                 }
             }
@@ -118,7 +120,7 @@ export class ClothingManager {
                     this.world.load.off('filecomplete', completeCallback);
                     this.world.load.off('loaderror', errorCallback);
 
-                    this.engine.cleaner.takeResource(type_, key_);
+                    this.engine.cleaner.allocateResource(type_, key_);
                     resolve();
                 }
             }
@@ -150,8 +152,8 @@ export class ClothingManager {
                 let key = this.getSpriteKey(clothing.config.paper_item_id);
                 let animationsKey = this.getSpriteAnimationsKey(clothing.config.paper_item_id);
 
-                this.engine.cleaner.freeResource('multiatlas', key, player.userData.id);
-                this.engine.cleaner.freeResource('json', animationsKey, player.userData.id);
+                this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
+                this.engine.cleaner.deallocateResource('json', animationsKey, player.userData.id);
                 clothing.destroy();
                 player.clothes.delete(type);
             }
@@ -171,8 +173,8 @@ export class ClothingManager {
             let animationsKey = this.getSpriteAnimationsKey(clothing.config.paper_item_id);
     
             if (slot == config.type) {
-                this.engine.cleaner.freeResource('multiatlas', key, player.userData.id);
-                this.engine.cleaner.freeResource('json', animationsKey, player.userData.id);
+                this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
+                this.engine.cleaner.deallocateResource('json', animationsKey, player.userData.id);
                 clothing.destroy();
                 player.clothes.delete(slot);
                 break;
@@ -186,8 +188,8 @@ export class ClothingManager {
             return;
         }
 
-        this.engine.cleaner.takeResource('multiatlas', key, player.userData.id);
-        this.engine.cleaner.takeResource('json', animationsKey, player.userData.id);
+        this.engine.cleaner.allocateResource('multiatlas', key, player.userData.id);
+        this.engine.cleaner.allocateResource('json', animationsKey, player.userData.id);
 
         logger.info('Attaching sprite', config);
         let sprite = this.attachClothingSprite(player, config);
