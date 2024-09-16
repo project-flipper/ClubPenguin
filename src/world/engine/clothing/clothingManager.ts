@@ -6,23 +6,11 @@ import { Engine } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import Phaser from "phaser";
 import { getLogger } from "@clubpenguin/lib/log";
+import { ItemType } from "./itemType";
 
 let logger = getLogger('CP.world.engine.clothing');
 
 export type ClothingSprite = Phaser.GameObjects.Sprite & { config: PaperItemConfig, animations: { [frame: number]: Phaser.Animations.Animation } };
-
-export enum ItemType {
-    COLOR = 1,
-    HEAD,
-    FACE,
-    NECK,
-    BODY,
-    HAND,
-    FEET,
-    FLAG,
-    PHOTO,
-    BOOK
-};
 
 export class ClothingManager {
     public engine: Engine;
@@ -31,7 +19,16 @@ export class ClothingManager {
         this.engine = engine;
 
         this.engine.on('player:add', (player: Player) => {
-            if (player.attachClothing) this.loadClothingSprites(player, player.userData.avatar);
+            if (player.attachClothing) this.addClothingSprites(player, player.userData.avatar);
+        });
+        this.engine.on('player:update', (player: Player) => {
+            if (player.attachClothing) this.addClothingSprites(player, player.userData.avatar);
+        });
+        this.engine.on('player:remove', (player: Player) => {
+            for (let [_, clothing] of player.clothes) {
+                this.engine.cleaner.freeResource('multiatlas', this.getSpriteKey(clothing.config.paper_item_id), player.userData.id);
+                this.engine.cleaner.freeResource('json', this.getSpriteAnimationsKey(clothing.config.paper_item_id), player.userData.id);
+            }
         });
     }
 
@@ -43,110 +40,162 @@ export class ClothingManager {
         return this.engine.app;
     }
 
-    async loadClothingSprites(player: Player, avatar: AvatarData): Promise<ClothingSprite[]> {
+    async addClothingSprites(player: Player, avatar: AvatarData): Promise<ClothingSprite[]> {
         let promise = Promise.all([
-            this.loadClothingSprite(player, avatar.head),
-            this.loadClothingSprite(player, avatar.face),
-            this.loadClothingSprite(player, avatar.neck),
-            this.loadClothingSprite(player, avatar.body),
-            this.loadClothingSprite(player, avatar.hand),
-            this.loadClothingSprite(player, avatar.feet)
+            this.addClothingSprite(player, ItemType.HEAD, avatar.head, false),
+            this.addClothingSprite(player, ItemType.FACE, avatar.face, false),
+            this.addClothingSprite(player, ItemType.NECK, avatar.neck, false),
+            this.addClothingSprite(player, ItemType.BODY, avatar.body, false),
+            this.addClothingSprite(player, ItemType.HAND, avatar.hand, false),
+            this.addClothingSprite(player, ItemType.FEET, avatar.feet, false)
         ]);
 
         this.world.load.start();
         let sprites = await promise;
 
-        this.engine.emit('player:clothing:load', player);
+        this.engine.emit('clothing:ready', player);
 
         return sprites;
     }
 
-    async loadClothingSprite(player: Player, id: number): Promise<ClothingSprite> {
-        if (id == 0) return;
+    getSpriteKey(id: number): string {
+        return `clothing-sprites-${id}`;
+    }
+
+    getSpriteAnimationsKey(id: number): string {
+        return `${this.getSpriteKey(id)}-animations`;
+    }
+
+    async loadClothingSprite(config: PaperItemConfig, startLoading: boolean): Promise<void> {
+        let id = config.paper_item_id;
+
+        let key = this.getSpriteKey(id);
+        let animationsKey = this.getSpriteAnimationsKey(id);
+
+        logger.info('Loading sprite', key, animationsKey);
+
+        let loadSprite = new Promise<void>((resolve, reject) => {
+            if (this.world.textures.exists(key)) return resolve();
+
+            this.world.load.multiatlas({
+                key,
+                atlasURL: `assets/clothing/sprites/${id}.json`,
+                path: `assets/clothing/sprites`
+            });
+
+            let completeCallback = (key_: string, type_: string) => {
+                if (key_ == key && type_ == 'multiatlas') {
+                    this.world.load.off('filecomplete', completeCallback);
+                    this.world.load.off('loaderror', errorCallback);
+
+                    this.engine.cleaner.takeResource(type_, key_);
+                    resolve();
+                }
+            }
+            this.world.load.on('filecomplete', completeCallback);
+
+            let errorCallback = (file: Phaser.Loader.File) => {
+                if (file.key == key && file.type == 'json') {
+                    this.world.load.off('filecomplete', completeCallback);
+                    this.world.load.off('loaderror', errorCallback);
+
+                    reject(new Error(`Sprite ${id} failed to load!`));
+                }
+            }
+            this.world.load.on('loaderror', errorCallback);
+        });
+
+        let loadAnimations = new Promise<void>((resolve, reject) => {
+            if (this.world.cache.json.exists(animationsKey)) return resolve();
+
+            this.world.load.json({
+                key: animationsKey,
+                url: `assets/clothing/sprites/${id}.anims.json`
+            });
+
+            let completeCallback = (key_: string, type_: string) => {
+                if (key_ == animationsKey && type_ == 'json') {
+                    this.world.load.off('filecomplete', completeCallback);
+                    this.world.load.off('loaderror', errorCallback);
+
+                    this.engine.cleaner.takeResource(type_, key_);
+                    resolve();
+                }
+            }
+            this.world.load.on('filecomplete', completeCallback);
+
+            let errorCallback = (file: Phaser.Loader.File) => {
+                if (file.key == animationsKey && file.type == 'json') {
+                    this.world.load.off('filecomplete', completeCallback);
+                    this.world.load.off('loaderror', errorCallback);
+
+                    reject(new Error(`Animations for sprite ${id} failed to load!`));
+                }
+            }
+            this.world.load.on('loaderror', errorCallback);
+        });
+
+        if (startLoading) this.world.load.start();
+
+        await Promise.all([
+            loadSprite,
+            loadAnimations
+        ]);
+    }
+
+    async addClothingSprite(player: Player, type: ItemType, id: number, startLoading = true): Promise<ClothingSprite> {
+        if (!id) {
+            let clothing = player.clothes.get(type);
+            if (clothing) {
+                let key = this.getSpriteKey(clothing.config.paper_item_id);
+                let animationsKey = this.getSpriteAnimationsKey(clothing.config.paper_item_id);
+
+                this.engine.cleaner.freeResource('multiatlas', key, player.userData.id);
+                this.engine.cleaner.freeResource('json', animationsKey, player.userData.id);
+                clothing.destroy();
+                player.clothes.delete(type);
+            }
+            return;
+        }
 
         let config = this.app.gameConfig.paper_items[id];
+        logger.info('Adding sprite', config);
+
+        let key = this.getSpriteKey(id);
+        let animationsKey = this.getSpriteAnimationsKey(id);
 
         for (let [slot, clothing] of player.clothes) {
             if (clothing.config.paper_item_id == id) return;
 
+            let key = this.getSpriteKey(clothing.config.paper_item_id);
+            let animationsKey = this.getSpriteAnimationsKey(clothing.config.paper_item_id);
+    
             if (slot == config.type) {
+                this.engine.cleaner.freeResource('multiatlas', key, player.userData.id);
+                this.engine.cleaner.freeResource('json', animationsKey, player.userData.id);
                 clothing.destroy();
                 player.clothes.delete(slot);
                 break;
             }
         }
 
-        let key = `clothing-sprites-${id}`;
-        let animationsKey = `${key}-animations`;
-
         try {
-            await new Promise<void>((resolve, reject) => {
-                if (this.world.textures.exists(key)) return resolve();
-
-                this.world.load.multiatlas({
-                    key,
-                    atlasURL: `assets/clothing/sprites/${id}.json`,
-                    path: `assets/clothing/sprites`
-                });
-
-                let completeCallback = (key_: string, type_: string) => {
-                    if (key_ == key && type_ == 'multiatlas') {
-                        this.world.load.off('filecomplete', completeCallback);
-                        this.world.load.off('loaderror', errorCallback);
-
-                        let item = player.clothes.get(config.type);
-                        if (item && item.config.paper_item_id != id) reject(new Error(`Sprite ID mismatch (${item.config.paper_item_id} != ${id}). Avatar might have changed before file finished loading.`));
-                        else resolve();
-                    }
-                }
-                this.world.load.on('filecomplete', completeCallback);
-
-                let errorCallback = (file: Phaser.Loader.File) => {
-                    if (file.key == key && file.type == 'json') {
-                        this.world.load.off('filecomplete', completeCallback);
-                        this.world.load.off('loaderror', errorCallback);
-
-                        reject(new Error(`Sprite ${id} failed to load!`));
-                    }
-                }
-                this.world.load.on('loaderror', errorCallback);
-            });
-            await new Promise<void>((resolve, reject) => {
-                if (this.world.cache.json.exists(animationsKey)) return resolve();
-
-                this.world.load.json({
-                    key: animationsKey,
-                    url: `assets/clothing/sprites/${id}.anims.json`
-                });
-
-                let completeCallback = (key_: string, type_: string) => {
-                    if (key_ == animationsKey && type_ == 'json') {
-                        this.world.load.off('filecomplete', completeCallback);
-                        this.world.load.off('loaderror', errorCallback);
-
-                        let item = player.clothes.get(config.type);
-                        if (item && item.config.paper_item_id != id) reject(new Error(`Sprite ID mismatch (${item.config.paper_item_id} != ${id}). Avatar might have changed before file finished loading.`));
-                        else resolve();
-                    }
-                }
-                this.world.load.on('filecomplete', completeCallback);
-
-                let errorCallback = (file: Phaser.Loader.File) => {
-                    if (file.key == animationsKey && file.type == 'json') {
-                        this.world.load.off('filecomplete', completeCallback);
-                        this.world.load.off('loaderror', errorCallback);
-
-                        reject(new Error(`Animations for sprite ${id} failed to load!`));
-                    }
-                }
-                this.world.load.on('loaderror', errorCallback);
-            });
+            await this.loadClothingSprite(config, startLoading);
         } catch (e) {
-            logger.error(e);
+            logger.warn(`Error loading sprite ${id} ignoring...`);
             return;
         }
 
-        return this.addClothingSprite(player, key, animationsKey, config);
+        this.engine.cleaner.takeResource('multiatlas', key, player.userData.id);
+        this.engine.cleaner.takeResource('json', animationsKey, player.userData.id);
+
+        logger.info('Attaching sprite', config);
+        let sprite = this.attachClothingSprite(player, config);
+        player.clothes.set(config.type, sprite);
+
+        this.engine.emit('clothing:add', player, sprite);
+
+        return sprite;
     }
 
     getClothingDepth(config: PaperItemConfig): number {
@@ -168,8 +217,14 @@ export class ClothingManager {
         }
     }
 
-    addClothingSprite(player: Player, key: string, animationsKey: string, config: PaperItemConfig): ClothingSprite {
-        if (!this.world.textures.exists(key)) return;
+    attachClothingSprite(player: Player, config: PaperItemConfig): ClothingSprite {
+        let key = this.getSpriteKey(config.paper_item_id);
+        let animationsKey = this.getSpriteAnimationsKey(config.paper_item_id);
+
+        if (!this.world.textures.exists(key)) {
+            logger.warn('Could not attach clothing (file missing)', player, config);
+            return;
+        }
 
         let sprite = this.world.add.sprite(0, 0, key, `${config.paper_item_id}/0`) as ClothingSprite;
         sprite.depth = this.getClothingDepth(config);
@@ -179,8 +234,6 @@ export class ClothingManager {
         player.add(sprite);
         player.sort('depth');
 
-        player.clothes.set(config.type, sprite);
-        player.actions.reset();
         return sprite;
     }
 

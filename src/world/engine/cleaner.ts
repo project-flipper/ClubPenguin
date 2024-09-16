@@ -1,12 +1,5 @@
 import { Engine } from "./engine";
 
-export type FileType =
-    | 'animation'
-    | 'json'
-    | 'multiatlas';
-
-export type AssetIndex = `${FileType}:${string}`;
-
 export default class Cleaner {
     engine: Engine;
 
@@ -14,4 +7,15 @@ export default class Cleaner {
         this.engine = engine;
     }
 
+    takeResource(type: string, key: string, playerId?: string): void {
+
+    }
+
+    freeResource(type: string, key: string, playerId?: string): void {
+
+    }
+
+    run(): void {
+        
+    }
 }

@@ -422,12 +422,30 @@ export default class World extends Phaser.Scene {
         }
     }
 
+    @handle('player:add')
+    async handlePlayerAdd(data: Payloads['player:add']): Promise<void> {
+        this.engine.addPlayer(data);
+    }
+
+    @handle('player:update')
+    async handlePlayerUpdate(data: Payloads['player:update']): Promise<void> {
+        this.engine.updatePlayer(data);
+    }
+
     @handle('player:action')
     async handlePlayerAction(data: Payloads['player:action']): Promise<void> {
+        // TODO: maybe better sync?
+        //if (this.myUser.id == data.player) return;
+
         let player = this.engine.getPlayer(data.player);
         if (player) {
             player.actions.set(data);
         }
+    }
+
+    @handle('player:remove')
+    async handlePlayerRemove(data: Payloads['player:remove']): Promise<void> {
+        this.engine.removePlayer(data);
     }
 
     /* END-USER-CODE */

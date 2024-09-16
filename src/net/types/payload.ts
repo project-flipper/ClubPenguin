@@ -8,7 +8,10 @@ export type Payloads = {
         players: PlayerData[]
     },
     'message:create': MessageData,
-    'player:action': ActionData
+    'player:add': PlayerData,
+    'player:update': PlayerData,
+    'player:action': ActionData,
+    'player:remove': PlayerData
 };
 
 export type Payload<P extends any, O extends keyof P, D extends P[O]> = {

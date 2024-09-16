@@ -10,6 +10,7 @@ import { Avatar, AvatarCls, Player } from "@clubpenguin/world/engine/player/avat
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import { Actions } from "./actions";
+import { ClothingSprite } from "../clothing/clothingManager";
 
 export class PlayerManager {
     public DEFAULT_AVATAR = 'penguin';
@@ -22,6 +23,8 @@ export class PlayerManager {
         this.avatars = {};
         this.players = {};
 
+        this.engine.on('clothing:ready', (player: Player) => player.actions.reset());
+        this.engine.on('clothing:add', (player: Player, sprite: ClothingSprite) => player.actions.reset());
         this.engine.on('room:unload', () => {
             this.players = {};
         });
@@ -123,6 +126,13 @@ export class PlayerManager {
         player.createAnimations(this.engine);
         player.actions.reset();
 
+        player.hitbox.on('release', () => this.world.isPlayer(data) ? this.world.interface.openMyNamecard() : this.world.interface.openNamecard(data));
+        this.world.interface.attachPlayerOverlay(player);
+
+        this._updatePlayer(player, data);
+    }
+
+    _updatePlayer(player: Player, data: AnyUserData): void {
         let tintFill = this.app.gameConfig.player_colors[String(data.avatar.color)];
         player.body_art.setTintFill(Number(tintFill));
 
@@ -133,9 +143,6 @@ export class PlayerManager {
             player.ring.visible = true;
             player.ring.strokeColor = 0x009900;
         } else player.ring.visible = false;
-
-        player.hitbox.on('release', () => this.world.isPlayer(data) ? this.world.interface.openMyNamecard() : this.world.interface.openNamecard(data));
-        this.world.interface.attachPlayerOverlay(player);
 
         player.overlay.nickname.text = data.nickname;
         player.overlay.balloon.x = player.speechBubbleOffset.x;
@@ -154,6 +161,12 @@ export class PlayerManager {
 
         this.engine.emit('player:add', player);
         return player;
+    }
+
+    updatePlayer(player: Player, data: AnyUserData): void {
+        this._updatePlayer(player, data);
+        player.userData = data;
+        this.engine.emit('player:update', player);
     }
 
     removePlayer(player: Player): void {

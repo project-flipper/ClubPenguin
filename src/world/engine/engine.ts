@@ -94,8 +94,35 @@ export class Engine extends EventEmitter {
         return this.players.player;
     }
 
+    playerExists(id: string): boolean {
+        return id in this.players.players;
+    }
+
     getPlayer(id: string): Player {
         return this.players.players[id];
+    }
+
+    async addPlayer(data: PlayerData): Promise<void> {
+        if (this.playerExists(data.user.id)) return this.updatePlayer(data);
+
+        let player = await this.players.createPlayer(data.user, data.x, data.y);
+        this.players.addPlayer(player);
+        player.actions.set(data.action);
+    }
+
+    updatePlayer(data: PlayerData): void {
+        let player = this.getPlayer(data.user.id);
+        this.players.updatePlayer(player, data.user);
+        player.x = data.x;
+        player.y = data.y;
+        player.actions.set(data.action);
+    }
+
+    removePlayer(data: PlayerData): void {
+        let player = this.getPlayer(data.user.id);
+        if (!player) return;
+
+        this.players.removePlayer(player);
     }
 
     playerPointerMoveHandler(pointer: Phaser.Input.Pointer): void {
@@ -193,6 +220,8 @@ export class Engine extends EventEmitter {
 
             this.tweenTracker.reset();
         }
+
+        this.cleaner.run();
     }
 
     async joinRoom(config: RoomConfig, players: PlayerData[]): Promise<void> {
@@ -229,11 +258,7 @@ export class Engine extends EventEmitter {
         this.interface.closeAll();
         this.interface.clearAvatarOverlays();
 
-        for (let playerData of players) {
-            let player = await this.players.createPlayer(playerData.user, playerData.x, playerData.y);
-            this.players.addPlayer(player);
-            player.actions.set(playerData.action);
-        }
+        for (let playerData of players) await this.addPlayer(playerData);
 
         this.currentRoom.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.playerPointerUpHandler(pointer));
         this.currentRoom.input.on('pointermove', (pointer: Phaser.Input.Pointer) => this.playerPointerMoveHandler(pointer));
@@ -320,6 +345,8 @@ export class Engine extends EventEmitter {
             this.emit('game:unload', this.currentGame);
             this.currentGame = undefined;
         }
+
+        this.cleaner.run();
     }
 
     async startGame(config: GameConfig, options?: any): Promise<void> {
