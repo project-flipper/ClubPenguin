@@ -25,7 +25,7 @@ export default class RoomTrigger {
     }
 
     private gameObject: Phaser.GameObjects.Image;
-    public destination: number = 0;
+    public destination: number;
     public playerX: number = 0;
     public playerY: number = 0;
 
