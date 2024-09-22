@@ -101,7 +101,11 @@ export default class Cleaner {
     }
 
     computeGarbage(): string[] {
-        return this.resources.filter(res => this.resourceUsages[res].length == 0);
+        return this.resources.filter(res => {
+            let usages = this.resourceUsages[res];
+            if (!usages) return true;
+            return this.resourceUsages[res].length == 0
+        });
     }
 
     collect(): void {
