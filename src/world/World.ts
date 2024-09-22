@@ -218,7 +218,7 @@ export default class World extends Phaser.Scene {
     sitLeft(): void {
         let action: ActionData = {
             player: this.engine.player.userData.id,
-            frame: ActionFrame.SIT_UP_LEFT
+            frame: ActionFrame.SIT_LEFT
         };
         // TODO: Request
         this.handle({
