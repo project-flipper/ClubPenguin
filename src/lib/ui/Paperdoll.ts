@@ -10,6 +10,7 @@ function pathByItemType(type: ItemType): string {
 }
 
 type ItemPromiseReturn = () => void;
+type PaperItem = Phaser.GameObjects.Image & { config: PaperItemConfig, isBack: boolean };
 
 /* START OF COMPILED CODE */
 
@@ -21,6 +22,8 @@ import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { App } from "@clubpenguin/app/app";
 import { PaperItemConfig } from "@clubpenguin/app/config";
 import { ItemType } from "@clubpenguin/world/engine/clothing/itemType";
+import { Engine } from "@clubpenguin/world/engine/engine";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Paperdoll extends Phaser.GameObjects.Container {
@@ -122,9 +125,20 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
     public game: App;
 
     public avatarData: AvatarData;
-    public items: Map<ItemType, Phaser.GameObjects.Image[]>;
+    public items: Map<ItemType, PaperItem[]>;
 
-    setup(data: AvatarData): void {
+    get world(): World {
+        return this.scene.scene.get('World') as World;
+    }
+
+    get engine(): Engine {
+        return this.world?.engine;
+    }
+
+    public playerId: string;
+
+    setup(data: AvatarData, playerId: string): void {
+        this.playerId = playerId;
         this.photo_button.visible = false;
         this.avatarData = data;
 
@@ -136,7 +150,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
     async load(data: AvatarData): Promise<void> {
         let loader = this.scene.load;
-        Promise.all([
+        let promises = Promise.all([
             this.loadItem(ItemType.HEAD, data.head),
             this.loadItem(ItemType.FACE, data.face),
             this.loadItem(ItemType.NECK, data.neck),
@@ -145,16 +159,23 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             this.loadItem(ItemType.FEET, data.feet),
             this.loadItem(ItemType.PHOTO, data.photo),
             this.loadItem(ItemType.FLAG, data.flag)
-        ]).then(callbacks => {
-            for (let callback of callbacks.flat()) callback();
-        });
+        ].flat()).then(callbacks => { for (let callback of callbacks) callback(); });
         loader.start();
+        await promises;
     }
 
-    loadItem(type: ItemType, id: number): Promise<ItemPromiseReturn[]> {
-        if (id == 0) return Promise.resolve([]);
+    loadItem(type: ItemType, id: number): Promise<ItemPromiseReturn>[] {
+        if (id == 0) return [];
 
         let config = this.game.gameConfig.paper_items[id];
+        
+        if (this.items.has(type)) {
+            let array = this.items.get(type);
+            if (array[0].config.paper_item_id == id) return [];
+
+            this.removeItem(type);
+        }
+
         let path = pathByItemType(type);
         let key = `clothing-${path}-${id}`;
 
@@ -174,6 +195,8 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                     if (key_ == key && type_ == 'multiatlas') {
                         this.scene.load.off('filecomplete', completeCallback);
                         this.scene.load.off('loaderror', errorCallback);
+
+                        if (this.engine) this.engine.cleaner.allocateResource(type_, key_, this.playerId);
 
                         if (!this.hasItem(id)) return resolve(() => { });
                         resolve(() => this.addItem(type, config, key, id.toString(), false))
@@ -211,6 +234,8 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                             this.scene.load.off('filecomplete', completeCallback);
                             this.scene.load.off('loaderror', errorCallback);
 
+                            if (this.engine) this.engine.cleaner.allocateResource(type_, key_, this.playerId);
+
                             if (!this.hasItem(id)) return resolve(() => { });
                             resolve(() => this.addItem(type, config, back_key, `${id}_back`, true))
                         }
@@ -230,7 +255,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             }
         }
 
-        return Promise.all(promises);
+        return promises;
     }
 
     loadPuffleItem(id: number): Promise<ItemPromiseReturn> {
@@ -240,9 +265,11 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
     addItem(type: ItemType, config: PaperItemConfig, key: string, path: string, isBack: boolean): void {
         if (!this.scene.textures.exists(key)) return;
 
-        let image = this.scene.add.image(0, 0, key, `${path}/0`);
+        let image = this.scene.add.image(0, 0, key, `${path}/0`) as PaperItem;
         image.alpha = 0;
         image.depth = config.layer;
+        image.config = config;
+        image.isBack = isBack;
 
         this.attachItem(type, image, isBack);
 
@@ -276,7 +303,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         );
     }
 
-    attachItem(type: ItemType, image: Phaser.GameObjects.Image, isBack: boolean): void {
+    attachItem(type: ItemType, image: PaperItem, isBack: boolean): void {
         if (!this.items.has(type)) this.items.set(type, []);
 
         let array = this.items.get(type);
@@ -307,18 +334,14 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         for (let item of array) {
             let key = item.texture.key;
             item.destroy();
-            this.game.unloadMultiatlas(key);
+            if (this.engine) this.engine.cleaner.deallocateResource('multiatlas', key, this.playerId);
         }
+
+        this.items.delete(type);
     }
 
     clear(): void {
-        for (let [_type, items] of this.items) {
-            for (let item of items) {
-                let key = item.texture.key;
-                item.destroy();
-                this.game.unloadMultiatlas(key);
-            }
-        }
+        for (let [type, _] of this.items) this.removeItem(type);
         this.items.clear();
     }
 

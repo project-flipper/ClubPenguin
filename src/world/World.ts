@@ -35,15 +35,14 @@ import Phaser from "phaser";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import Interface from "./interface/Interface";
-import { BaseUserData, MyUserData, UserData } from "@clubpenguin/net/types/user";
+import { AnyUserData, MyUserData, UserData } from "@clubpenguin/net/types/user";
 import { Engine } from "@clubpenguin/world/engine/engine";
 import { App } from "@clubpenguin/app/app";
 import { RelationshipType } from "@clubpenguin/net/types/relationship";
-import { PlayerData } from "@clubpenguin/net/types/player";
 import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
 import { getLogger } from "@clubpenguin/lib/log";
 import { Payload, Payloads } from "@clubpenguin/net/types/payload";
-import { Emoji, MessageData } from "@clubpenguin/net/types/message";
+import { Emoji } from "@clubpenguin/net/types/message";
 
 let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
@@ -140,7 +139,7 @@ export default class World extends Phaser.Scene {
         return array[idx];
     }
 
-    isPlayer(data: BaseUserData): data is MyUserData {
+    isMyPlayer(data: AnyUserData): data is MyUserData {
         return data.id == this.myUser.id;
     }
 
@@ -148,11 +147,11 @@ export default class World extends Phaser.Scene {
         return this.myUser.moderator;
     }
 
-    isMascot(data: BaseUserData): boolean {
+    isMascot(data: AnyUserData): boolean {
         return data.mascotId != undefined;
     }
 
-    isMember(data: BaseUserData): boolean {
+    isMember(data: AnyUserData): boolean {
         return data?.member != undefined;
     }
 
@@ -430,6 +429,8 @@ export default class World extends Phaser.Scene {
     @handle('player:update')
     async handlePlayerUpdate(data: Payloads['player:update']): Promise<void> {
         this.engine.updatePlayer(data);
+        if (this.interface.playerNamecard.visible && this.isMyPlayer(data.user)) this.interface.playerNamecard.setup(data.user);
+        else if (this.interface.namecard.visible && !this.isMyPlayer(data.user) && data.user.id == this.interface.namecard.userId) this.interface.namecard.setup(data.user);
     }
 
     @handle('player:action')

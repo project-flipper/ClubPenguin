@@ -68,7 +68,7 @@ export class ClothingManager {
         return `${this.getSpriteKey(id)}-animations`;
     }
 
-    async loadClothingSprite(config: PaperItemConfig, startLoading: boolean): Promise<void> {
+    async loadClothingSprite(config: PaperItemConfig, startLoading: boolean, playerId?: string): Promise<void> {
         let id = config.paper_item_id;
 
         let key = this.getSpriteKey(id);
@@ -90,7 +90,7 @@ export class ClothingManager {
                     this.world.load.off('filecomplete', completeCallback);
                     this.world.load.off('loaderror', errorCallback);
 
-                    this.engine.cleaner.allocateResource(type_, key_);
+                    this.engine.cleaner.allocateResource(type_, key_, playerId);
                     resolve();
                 }
             }
@@ -120,7 +120,7 @@ export class ClothingManager {
                     this.world.load.off('filecomplete', completeCallback);
                     this.world.load.off('loaderror', errorCallback);
 
-                    this.engine.cleaner.allocateResource(type_, key_);
+                    this.engine.cleaner.allocateResource(type_, key_, playerId);
                     resolve();
                 }
             }
@@ -182,14 +182,11 @@ export class ClothingManager {
         }
 
         try {
-            await this.loadClothingSprite(config, startLoading);
+            await this.loadClothingSprite(config, startLoading, player.userData.id);
         } catch (e) {
             logger.warn(`Error loading sprite ${id} ignoring...`);
             return;
         }
-
-        this.engine.cleaner.allocateResource('multiatlas', key, player.userData.id);
-        this.engine.cleaner.allocateResource('json', animationsKey, player.userData.id);
 
         logger.info('Attaching sprite', config);
         let sprite = this.attachClothingSprite(player, config);

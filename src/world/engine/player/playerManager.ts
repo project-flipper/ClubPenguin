@@ -126,7 +126,7 @@ export class PlayerManager {
         player.createAnimations(this.engine);
         player.actions.reset();
 
-        player.hitbox.on('release', () => this.world.isPlayer(data) ? this.world.interface.openMyNamecard() : this.world.interface.openNamecard(data));
+        player.hitbox.on('release', () => this.world.isMyPlayer(data) ? this.world.interface.openMyNamecard() : this.world.interface.openNamecard(data));
         this.world.interface.attachPlayerOverlay(player);
 
         this._updatePlayer(player, data);
@@ -136,7 +136,7 @@ export class PlayerManager {
         let tintFill = this.app.gameConfig.player_colors[String(data.avatar.color)];
         player.body_art.setTintFill(Number(tintFill));
 
-        if (this.world.isPlayer(data)) {
+        if (this.world.isMyPlayer(data)) {
             player.ring.visible = true;
             player.ring.strokeColor = 0x3399FF;
         } else if (this.world.isFriend(data)) {

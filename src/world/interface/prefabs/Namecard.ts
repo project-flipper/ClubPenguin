@@ -433,20 +433,22 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
     declare scene: Interface;
 
+    public userId: string;
+
     public friendHint: string;
     public locateHint: string;
     public ignoreHint: string;
     public reportHint: string;
 
     setup(data: UserData): void {
+        this.userId = data.id;
         this.nickname.text = data.nickname;
 
-        this.paperdoll.clear();
         if (data.avatar.transformation) {
             this.avatar.visible = true;
         } else {
             this.avatar.visible = false;
-            this.paperdoll.setup(data.avatar);
+            this.paperdoll.setup(data.avatar, data.id);
         }
 
         if (this.scene.world.isMember(data)) {

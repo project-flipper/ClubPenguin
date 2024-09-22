@@ -31,7 +31,7 @@ import { UserData } from "@clubpenguin/net/types/user";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 import AvatarOverlay from "./prefabs/AvatarOverlay";
 import World from "@clubpenguin/world/World";
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine } from "@clubpenguin/world/engine/engine";
 import { Locale } from "@clubpenguin/app/locale";
 import { App } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
@@ -901,12 +901,13 @@ export default class Interface extends Phaser.Scene {
     /* ============ NAMECARD ============ */
 
     openNamecard(data: UserData): void {
-        if (this.world.isPlayer(data)) return this.openMyNamecard();
+        if (this.world.isMyPlayer(data)) return this.openMyNamecard();
         if (this.playerNamecard.visible) {
             this.playerNamecard.visible = false;
             this.namecard.setPosition(this.playerNamecard.x, this.playerNamecard.y);
         }
 
+        this.namecard.paperdoll.clear();
         this.namecard.setup(data);
         this.namecard.visible = true;
     }
@@ -919,7 +920,9 @@ export default class Interface extends Phaser.Scene {
 
         let data = this.world.myUser;
 
+        this.playerNamecard.paperdoll.clear();
         this.playerNamecard.setup(data);
+        this.playerNamecard.closeInventory();
         this.playerNamecard.visible = true;
     }
 
