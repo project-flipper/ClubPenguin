@@ -76,6 +76,7 @@ export interface PaperItemConfig {
 }
 
 export interface GameConfig {
+    game_key: string,
     name: string,
     room_id: number,
     music_id: number,
