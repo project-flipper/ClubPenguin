@@ -20,7 +20,10 @@ export class Debug {
     constructor(callback: () => App) {
         this.appCallback = callback;
         logger.info('Debug layer available under %cCP.debug', 'font-weight: bold');
-        window.addEventListener("error", e => localStorage.setItem('lastError', `"${e.message}" thrown at ${e.filename}:${e.lineno}`));
+        window.addEventListener("error", e => {
+            console.error(e.error);
+            localStorage.setItem('lastError', `"${e.message}" thrown at ${e.filename}:${e.lineno}`);
+        });
     }
 
     get app(): App {

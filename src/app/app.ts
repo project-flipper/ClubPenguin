@@ -50,6 +50,7 @@ export class App extends Phaser.Game {
         try {
             super.step(time, delta);
         } catch(e) {
+            console.error(e);
             this.onCrash(e);
             throw e;
         }
