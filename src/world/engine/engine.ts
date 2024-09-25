@@ -155,14 +155,18 @@ export class Engine extends EventEmitter {
     async loadRoom(config: RoomConfig): Promise<void> {
         if (config.room_id == this.currentRoomId) return;
 
+        logger.info('Loading room by path', config.path);
         let room = (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/rooms/${config.path}`)).default;
 
         this.unloadRoom();
         this.unloadGame();
 
+        let key = `room-${config.room_id}`;
+        logger.info('Creating room scene by key', key);
+
         let load = this.loadScreen;
         let roomScene = await new Promise<Room>(resolve => {
-            this.world.scene.add(`room-${config.room_id}`, room, true, {
+            this.world.scene.add(key, room, true, {
                 config,
                 oninit: (scene: Room) => load.track(new LoaderTask('Room loader', scene.load)),
                 onready: (scene: Room) => resolve(scene)
@@ -170,6 +174,7 @@ export class Engine extends EventEmitter {
         });
 
         if (config.pin_id !== undefined) {
+            logger.info('Loading room pin');
             let key = `clothing-icons-${config.pin_id}`;
 
             if (!this.world.textures.exists(key)) {
@@ -193,7 +198,7 @@ export class Engine extends EventEmitter {
             });
         }
 
-        await this.music.playMusic(config.music_id);
+        await this.music.play(config.music_id);
 
         this.currentRoomId = config.room_id;
 
@@ -252,8 +257,10 @@ export class Engine extends EventEmitter {
             }));
 
             load.hide();
-            throw e;
+            logger.error('Room failed to load', e);
         }
+
+        logger.debug('Setting up room');
 
         this.interface.closeAll();
         this.interface.clearAvatarOverlays();
@@ -330,7 +337,7 @@ export class Engine extends EventEmitter {
             });
         });
 
-        await this.music.playMusic(config.music_id);
+        await this.music.play(config.music_id);
 
         this.currentGame = game;
         this.currentGame.gameData = config;
@@ -379,7 +386,7 @@ export class Engine extends EventEmitter {
             }));
 
             load.hide();
-            throw e;
+            logger.error('Game failed to load', e);
         }
 
         if (!isWidgetLike) this.interface.hide();
@@ -403,7 +410,7 @@ export class Engine extends EventEmitter {
             this.unlockRoom();
             let config = this.currentRoom.roomData;
 
-            await this.music.playMusic(config.music_id);
+            await this.music.play(config.music_id);
 
             this.interface.show();
             load.hide();
