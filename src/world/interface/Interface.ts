@@ -39,6 +39,9 @@ import { LoaderTask } from "@clubpenguin/load/tasks";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
 import { Emoji } from "@clubpenguin/net/types/message";
 import { GameConfig } from "@clubpenguin/app/config";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.world.interface');
 /* END-USER-IMPORTS */
 
 export default class Interface extends Phaser.Scene {
@@ -1031,7 +1034,7 @@ export default class Interface extends Phaser.Scene {
                 return true;
             }, error.makeCode('c', error.LOAD_ERROR));
 
-            throw e;
+            logger.error('Content failed to load', e);
         }
     }
 
