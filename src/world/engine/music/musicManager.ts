@@ -22,10 +22,10 @@ export class MusicManager {
         return this.engine.world;
     }
 
-    async playMusic(id: number): Promise<void> {
+    async play(id: number): Promise<void> {
         if (this.currentMusicId == id) return;
-        if (!id) return this.stopMusic();
-        this.stopMusic();
+        if (!id) return this.stop();
+        this.stop();
 
         let key = `music-${id}`;
 
@@ -48,14 +48,14 @@ export class MusicManager {
         logger.info('Playing music by ID', id);
 
         this.currentMusicId = id;
-        if (!this.musicMuted) this.world.sound.play(key, { loop: true });
+        if (!this.muted) this.world.sound.play(key, { loop: true });
     }
 
-    get musicMuted(): boolean {
+    get muted(): boolean {
         return this._musicMuted;
     }
 
-    set musicMuted(value: boolean) {
+    set muted(value: boolean) {
         this._musicMuted = value;
         if (this.currentMusicId) {
             let key = `music-${this.currentMusicId}`;
@@ -67,7 +67,7 @@ export class MusicManager {
         }
     }
 
-    stopMusic(): void {
+    stop(): void {
         if (this.currentMusicId) {
             let key = `music-${this.currentMusicId}`;
             this.world.sound.stopByKey(key);
