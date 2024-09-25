@@ -709,20 +709,20 @@ export default class Create extends Phaser.Scene {
         try {
             var { result: response } = await error.shield(async () => {
             let token = await grecaptcha.execute(__webpack_options__.RECAPTCHA_SITE_KEY, { action: 'register' });
-            return await this.game.airtower.createAccount(await this.getFormData(token));
-        }, e => {
-            if (e instanceof HTTPError && e.response.status == 422) throw e;
+                return await this.game.airtower.createAccount(await this.getFormData(token));
+            }, e => {
+                if (e instanceof HTTPError && e.response.status == 422) throw e;
 
-            logger.error('Unhandled error during submission', e);
+                logger.error('Unhandled error during submission', e);
 
-            return error.createError({
-                buttonCallback: () => {
-                    this.preloader.visible = false;
-                    this.unlock();
-                    return true;
-                }
+                return error.createError({
+                    buttonCallback: () => {
+                        this.preloader.visible = false;
+                        this.unlock();
+                        return true;
+                    }
+                });
             });
-        });
         } catch (e) {
             if (e instanceof HTTPError && e.response.status == 422) {
                 for (let error in e.data?.error) {
