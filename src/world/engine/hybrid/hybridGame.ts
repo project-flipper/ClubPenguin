@@ -3,7 +3,6 @@ import EventEmitter from "eventemitter3";
 
 import { App } from "@clubpenguin/app/app";
 import { GameConfig } from "@clubpenguin/app/config";
-import { Locale } from "@clubpenguin/app/locale";
 import Load from "@clubpenguin/load/Load";
 import { DonePayload, PromiseTask, Task } from "@clubpenguin/load/tasks";
 import { Engine, Game } from "@clubpenguin/world/engine/engine";
@@ -12,6 +11,7 @@ import { HybridBridge } from "./hybridBridge";
 import { RufflePlayer } from "./ruffle";
 import World from "@clubpenguin/world/World";
 import { LoaderPlugin, setQuery } from "@clubpenguin/app/loader";
+import { AirtowerProxy } from "./airtowerProxy";
 
 interface HybridContainer extends Phaser.GameObjects.DOMElement {
     node: RufflePlayer;
@@ -129,27 +129,16 @@ export class HybridGame extends Phaser.Scene implements Game {
     public gameData: GameConfig;
 
     async create(data: any): Promise<void> {
-        let userData = this.world.myUser;
-        let colorHex = this.game.gameConfig.player_colors;
-
         await this.play(`${this.load.baseURL}assets/world/games/loader.swf?v=${this.game.minigameVersion}`, this.asFlashVars({
-            locale: this.game.locale.language.toString(),
             media: this.load.baseURL,
             game: this.url,
-            bridgeId: this.createBridge(),
-            cacheVersion: this.game.minigameVersion
+            bridgeId: this.createBridge()
         }));
 
         this.bridge.player = this.player;
         this.bridge.setHandler('ready', () => { if (data.onready) data.onready(this) });
 
         // Once the ruffle bridge has been loaded it sends everything the flash client needed, for now it only needs penguin's object and color crumbs
-        this.bridge.setHandler('loaded', () => this.bridge.send('populateFlashData', {
-            basePath: '',
-            baseConfigPath: '',
-            globalContentPath: `${this.load.baseURL}assets/world/`,
-            gamesPath: `${this.load.baseURL}assets/world/games/`
-        }, userData, colorHex));
     }
 
     /* ================= FLASH ================= */
@@ -214,12 +203,14 @@ export class HybridGame extends Phaser.Scene implements Game {
     /* ================= COMMUNICATION ================= */
 
     bridge: HybridBridge;
+    airtower: AirtowerProxy;
 
     createBridge(): string {
         if (this.bridge) this.destroyBridge();
         this.bridge = new HybridBridge();
+        this.airtower = new AirtowerProxy(this.bridge, this.gameData.game_key);
 
-        this.bridge.setHandler('loaded', this.startHandshake, this);
+        this.bridge.setHandler('loaded', this.loaded, this);
         this.bridge.setHandler('progress', this.progress, this);
         this.bridge.setHandler('getCacheUrl', this.getCacheUrl, this);
         this.bridge.setHandler('muteMusic', this.muteMusic, this);
@@ -230,6 +221,7 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.bridge.setHandler('startGameMusic', this.startGameMusic, this);
         this.bridge.setHandler('stopGameMusic', this.stopGameMusic, this);
         this.bridge.setHandler('hideLoading', this.hideLoading, this);
+        this.bridge.setHandler('airtowerMessage', this.airtowerMessage, this);
         this.bridge.setHandler('endGame', this.endGame, this);
 
         this.loaderTask = new GameLoaderTask();
@@ -239,8 +231,16 @@ export class HybridGame extends Phaser.Scene implements Game {
 
     public loaderTask: Task;
 
-    startHandshake(): void {
-        this.game.locale.register(this.localize, this);
+    loaded(): void {
+        let userData = this.world.myUser;
+        let colorHex = this.game.gameConfig.player_colors;
+
+        this.bridge.send('populateFlashData', {
+            basePath: '',
+            baseConfigPath: '',
+            globalContentPath: `${this.load.baseURL}assets/world/`,
+            gamesPath: `${this.load.baseURL}assets/world/games/`
+        }, userData, colorHex, this.game.locale.abbreviation);
     }
 
     progress(progress: number): void {
@@ -254,15 +254,15 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     muteMusic(): void {
-        this.engine.music.musicMuted = true;
+        this.engine.music.muted = true;
     }
 
     unmuteMusic(): void {
-        this.engine.music.musicMuted = false;
+        this.engine.music.muted = false;
     }
 
     isMusicMuted(): boolean {
-        return this.engine.music.musicMuted;
+        return this.engine.music.muted;
     }
 
     getLocalizedString(key: string): string {
@@ -271,23 +271,27 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     startMusicById(musicId?: number): void {
-        this.engine.music.playMusic(musicId);
+        this.engine.music.play(musicId);
     }
 
     startGameMusic(): void {
-        if (this.gameData.music_id && this.engine.music.currentMusicId != this.gameData.music_id) this.engine.music.playMusic(this.gameData.music_id);
-        else if (!this.gameData.music_id) this.engine.music.stopMusic();
+        if (this.gameData.music_id && this.engine.music.currentMusicId != this.gameData.music_id) this.engine.music.play(this.gameData.music_id);
+        else if (!this.gameData.music_id) this.engine.music.stop();
 
     }
 
     stopGameMusic(): void {
-        this.engine.music.stopMusic();
+        this.engine.music.stop();
     }
 
     hideLoading(): void {
         let load = this.scene.get('Load') as Load;
         if (load.isShowing) load.hide();
         this.container.visible = true;
+    }
+
+    airtowerMessage(command: string, args: any[]): void {
+        this.airtower.messageFromFlash(command, args);
     }
 
     endGame(score: number, room: undefined): void {
@@ -298,15 +302,8 @@ export class HybridGame extends Phaser.Scene implements Game {
         setTimeout(() => this.engine.endGame(score, room), 200);
     }
 
-    localize(locale: Locale): void {
-        if (this.bridge) {
-            this.bridge.sendSafe('setLanguageAbbreviation', locale.abbreviation);
-        }
-    }
-
     destroyBridge(): void {
         this.bridge = undefined;
-        this.game.locale.unregister(this.localize);
     }
 
     /* ================= CLEANUP ================= */

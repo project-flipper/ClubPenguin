@@ -26,6 +26,7 @@ export type HybridHandlers = {
     startGameMusic(): void;
     stopGameMusic(): void;
     hideLoading(): void;
+    airtowerMessage(command: string, args: any[]): void;
     endGame(score: number, room: undefined): void;
 };
 
