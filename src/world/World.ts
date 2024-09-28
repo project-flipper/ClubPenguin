@@ -43,6 +43,7 @@ import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
 import { getLogger } from "@clubpenguin/lib/log";
 import { Payload, Payloads } from "@clubpenguin/net/types/payload";
 import { Emoji } from "@clubpenguin/net/types/message";
+import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
 
 let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
@@ -97,7 +98,19 @@ export default class World extends Phaser.Scene {
         let load = this.scene.get('Load') as Load;
         load.track(new LoaderTask('World loader', this.load));
 
-        let myUser = await this.game.airtower.getMyUser()
+        let error = this.scene.get('ErrorArea') as ErrorArea;
+
+        if (!this.game.airtower.isConnected()) error.show(error.createError({ message: 'shell.CONNECTION_LOST', buttonCallback: () => {
+            window.location.reload();
+            return false;
+        }, type: 'c', code: error.CONNECTION_LOST}));
+
+        this.game.airtower.on('ws:message', this.onWorldMessage, this);
+        this.game.airtower.on('ws:close', this.onWorldClose, this);
+
+        await this.game.airtower.sendAuth();
+
+        let myUser = await this.game.airtower.getMyUser();
         this.myUser = myUser.data;
 
         this.postload();
@@ -124,6 +137,26 @@ export default class World extends Phaser.Scene {
         let roomId = this.getRandomItem(SPAWN_ROOMS);
         logger.info('Mocking room join on room', roomId);
         await this.joinRoom(roomId);
+    }
+
+    onWorldMessage(data: any) {
+        let payload = JSON.parse(data);
+        this.handle(payload);
+    }
+
+    onWorldClose(code: number, reason: string): void {
+        let error = this.scene.get('ErrorArea') as ErrorArea;
+
+        let err: Partial<CPError> = { message: 'shell.CONNECTION_LOST', buttonCallback: () => {
+            window.location.reload();
+            return false;
+        }, type: 'c', code: error.CONNECTION_LOST};
+
+        if (code == 4000) {
+            // TODO: Add close codes
+        }
+
+        error.show(error.createError(err));
     }
 
     public standardPenguinTimeOffset = 0;
@@ -177,151 +210,186 @@ export default class World extends Phaser.Scene {
         let player = this.engine.player;
         let safe = this.engine.players.findPlayerPath(player, x, y)
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.WADDLE,
-            fromX: this.engine.player.x,
-            fromY: this.engine.player.y,
+            fromX: player.x,
+            fromY: player.y,
             destinationX: safe.x,
             destinationY: safe.y
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     sitDown(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.SIT_DOWN
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     sitDownLeft(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.SIT_DOWN_LEFT
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     sitLeft(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.SIT_LEFT
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     sitUpLeft(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.SIT_UP_LEFT
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     sitUp(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.SIT_UP
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     sitUpRight(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.SIT_UP_RIGHT
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     sitRight(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.SIT_RIGHT
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     sitDownRight(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.SIT_DOWN_RIGHT
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     wave(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.WAVE
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     dance(): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.DANCE
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
     }
 
     throwSnowball(x: number, y: number): void {
+        let player = this.engine.player;
         let action: ActionData = {
-            player: this.engine.player.userData.id,
+            player: player.userData.id,
             frame: ActionFrame.THROW,
-            fromX: this.engine.player.x,
-            fromY: this.engine.player.y,
+            fromX: player.x,
+            fromY: player.y,
             destinationX: x,
             destinationY: y
         };
-        // TODO: Request
-        this.handle({
+
+        player.actions.set(action);
+
+        this.send({
             op: 'player:action',
             d: action
         });
@@ -387,6 +455,10 @@ export default class World extends Phaser.Scene {
 
     /* ========== HANDLERS ========== */
 
+    send<O extends keyof Payloads, D extends Payloads[O]>(payload: Payload<Payloads, O, D>): void {
+        this.game.airtower.send(payload);
+    }
+
     handle<O extends keyof Payloads, D extends Payloads[O]>(payload: Payload<Payloads, O, D>): void {
         if (payload.op in WORLD_HANDLERS) {
             logger.info('Handling', payload.op);
@@ -436,7 +508,7 @@ export default class World extends Phaser.Scene {
     @handle('player:action')
     async handlePlayerAction(data: Payloads['player:action']): Promise<void> {
         // TODO: maybe better sync?
-        //if (this.myUser.id == data.player) return;
+        if (this.myUser.id == data.player) return;
 
         let player = this.engine.getPlayer(data.player);
         if (player) {

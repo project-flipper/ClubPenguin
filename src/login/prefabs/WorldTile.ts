@@ -8,6 +8,7 @@ import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import Login from "@clubpenguin/login/Login";
+import { WorldData } from "@clubpenguin/net/types/world";
 /* END-USER-IMPORTS */
 
 export default class WorldTile extends Phaser.GameObjects.Container {
@@ -92,7 +93,7 @@ export default class WorldTile extends Phaser.GameObjects.Container {
         /* START-USER-CTR-CODE */
 
         this.tile.on('release', () => {
-            (this.scene as Login).selectWorld(this.id);
+            (this.scene as Login).joinWorld(this.worldData);
         });
 
         /* END-USER-CTR-CODE */
@@ -111,7 +112,7 @@ export default class WorldTile extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    public id: string;
+    public worldData: WorldData;
 
     setPopulation(value: number): void {
         let off = 'login-screen/populationOff';

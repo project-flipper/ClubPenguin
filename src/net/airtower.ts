@@ -143,6 +143,7 @@ type RequestOptions = {
  */
 export class Airtower extends Phaser.Events.EventEmitter {
     Route = Route;
+
     public app: App;
     public basePath: string;
 
@@ -169,6 +170,8 @@ export class Airtower extends Phaser.Events.EventEmitter {
 
     #token: string;
     #key: string;
+
+    #ws: WebSocket;
 
     /**
      * Makes a request to the game API.
@@ -323,6 +326,62 @@ export class Airtower extends Phaser.Events.EventEmitter {
      */
     async getWorlds(): Promise<WorldsResponse> {
         return await this.request<WorldsResponse>(new Route('GET', '/worlds/').query({ lang: this.app.locale.bitmask }), {});
+    }
+
+    connect(url: string): Promise<void> {
+        return new Promise((resolve, reject) => {
+            this.disconnect(1000);
+            this.#ws = new WebSocket(url);
+            this.#ws.onopen = () => {
+                logger.info('WebSocket connection opened');
+                this.emit('ws:open');
+                resolve();
+            };
+            this.#ws.onerror = () => {
+                logger.error('WebSocket connection closed due to an error');
+                this.emit('ws:error');
+                this.#ws = undefined;
+                reject();
+            };
+            this.#ws.onmessage = event => {
+                logger.debug('WS ->', event.data);
+                this.emit('ws:message', event.data);
+            };
+            this.#ws.onclose = event => {
+                logger.info('WebSocket connection closed', event.code, event.reason);
+                this.emit('ws:close', event.code, event.reason);
+                this.#ws = undefined;
+            };
+        });
+    }
+
+    isConnected(): boolean {
+        return this.#ws && this.#ws.readyState == this.#ws.OPEN;
+    }
+
+    send(payload: any): void {
+        if (this.isConnected()) {
+            let data = JSON.stringify(payload);
+            this.#ws.send(data);
+            logger.debug('WS <-', data);
+        } else throw new Error('Connection not yet established');
+    }
+
+    async sendAuth(): Promise<void> {
+        let response = await this.refresh();
+        this.send({
+            op: 'auth',
+            d: {
+                token: response.data.access_token
+            }
+        });
+    }
+
+    disconnect(code?: number, reason?: string): void {
+        if (this.#ws) {
+            this.#ws.close(code, reason);
+            this.#ws = undefined;
+        }
     }
 
     /* ============ USERS ============ */

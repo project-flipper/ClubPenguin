@@ -7,12 +7,13 @@ import PasswordPrompt from "./views/PasswordPrompt";
 import WorldSelect from "./views/WorldSelect";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
-import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
 import { Locale } from "@clubpenguin/app/locale";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { HTTPError } from "@clubpenguin/net/airtower";
-import { BanError, LoginResponse } from "@clubpenguin/net/types/api";
+import { BanError } from "@clubpenguin/net/types/api";
+import { WorldData } from "@clubpenguin/net/types/world";
 /* END-USER-IMPORTS */
 
 export default class Login extends Phaser.Scene {
@@ -191,13 +192,20 @@ export default class Login extends Phaser.Scene {
         load.hide();
     }
 
-    selectWorld(id: string): void {
+    async joinWorld(world: WorldData): Promise<void> {
         let load = this.scene.get('Load') as Load;
         load.show({ logo: true });
 
-        // TODO: access world
+        let error = this.scene.get('ErrorArea') as ErrorArea;
 
-        this.scene.start('World', { id });
+        let { ok } = await error.shield(this.game.airtower.connect(world.url), e => {
+            load.hide();
+            return { message: 'shell.NO_SOCKET_CONNECTION', type: 'c', code: error.NO_SOCKET_CONNECTION};
+        });
+
+        if (!ok) return;
+
+        this.scene.start('World', world);
     }
 
     goToStart(): void {
