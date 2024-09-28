@@ -44,6 +44,7 @@ import { getLogger } from "@clubpenguin/lib/log";
 import { Payload, Payloads } from "@clubpenguin/net/types/payload";
 import { Emoji } from "@clubpenguin/net/types/message";
 import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
+import { WorldData } from "@clubpenguin/net/types/world";
 
 let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
@@ -86,7 +87,7 @@ export default class World extends Phaser.Scene {
         if (!load.isShowing) load.show({ logo: true });
     }
 
-    create(data: { id: number, name: string }): void {
+    create(data: WorldData): void {
         this.worldId = data.id;
 
         this.editorCreate();
