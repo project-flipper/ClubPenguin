@@ -33,9 +33,9 @@ export class RuffleTask extends PromiseTask {
 
             let checkProgress = () => {
                 if (this.getProgress() >= 100) return resolve();    
-                setTimeout(checkProgress, 1000);
+                setTimeout(checkProgress, 100);
             };
-            setTimeout(checkProgress, 1000);
+            setTimeout(checkProgress, 100);
         }));
     }
 
@@ -169,6 +169,7 @@ export class HybridGame extends Phaser.Scene implements Game {
         let ruffle = window.RufflePlayer.newest();
         this.player = ruffle.createPlayer();
         this.loadScreen.track(new RuffleTask(this.player));
+
         await this.player.load({
             url,
             base: this.url,
