@@ -19,11 +19,18 @@ import World from "@clubpenguin/world/World";
 import Interface from "@clubpenguin/world/interface/Interface";
 import { Debug } from "@clubpenguin/debug";
 import { LoaderPlugin } from "@clubpenguin/app/loader";
-import { Formatter, getLogger, LogLevel } from "@clubpenguin/lib/log";
+import { ColorLevelFormatter, getLogger, LogLevel } from "@clubpenguin/lib/log";
 
 let logger = getLogger('CP');
 logger.level = __webpack_options__.LOG_LEVEL ?? LogLevel.WARN;
-logger.formatter = new Formatter('%c[%c{now}%c] [%c{name}%c] %c{msg}', ['color:#616161', 'color:#0052AF', 'color:#616161', 'color:#22A4F3', 'color:#616161', '']);
+let colorFormat = {
+    [LogLevel.TRACE]: 'color:#FFFFFF;background-color:#616161',
+    [LogLevel.DEBUG]: 'color:#00021C;background-color:#1C608A',
+    [LogLevel.INFO]: 'color:#FFFFFF;background-color:#22A4F3',
+    [LogLevel.WARN]: 'color:#000000;background-color:#FFBC3A',
+    [LogLevel.ERROR]: 'color:#FFFFFF;background-color:#DB2C2C'
+};
+logger.formatter = new ColorLevelFormatter('%c{level}%c %c[%c{now}%c] [%c{name}%c] %c{msg}', ['', '', 'color:#616161', 'color:#0052AF', 'color:#616161', 'color:#22A4F3', 'color:#616161', ''], colorFormat);
 
 let app: App;
 

@@ -8,6 +8,23 @@ export enum LogLevel {
     CRITICAL = ERROR
 }
 
+export function getLevelName(level: LogLevel): string {
+    switch (level) {
+        case LogLevel.TRACE:
+            return 'TRACE';
+        case LogLevel.DEBUG:
+            return 'DEBUG';
+        case LogLevel.INFO:
+            return 'INFO';
+        case LogLevel.WARN:
+            return 'WARN';
+        case LogLevel.ERROR:
+            return 'ERROR';
+        default:
+            return 'UNKNOWN';
+    }
+}
+
 export const DEFAULT_LEVEL = LogLevel.WARN;
 
 export class LogRecord {
@@ -42,7 +59,7 @@ export class Formatter {
         this.afterMsg = afterMsg;
     }
 
-    getConsoleArgs(record: LogRecord): any[] {
+    getConsoleArgs(level: LogLevel, record: LogRecord): any[] {
         let msg = this.msgFormat;
 
         for (let key in record.mappings) {
@@ -50,6 +67,26 @@ export class Formatter {
         }
 
         return [msg, ...this.afterMsg, ...record.args];
+    }
+}
+
+export class ColorLevelFormatter extends Formatter {
+    colors: Record<LogLevel, string>;
+    colorArgIndex: number;
+
+    constructor(msgFormat: string, afterMsg: any[], colors: Record<LogLevel, string>, colorArgIndex = 0) {
+        super(msgFormat, afterMsg);
+
+        this.colors = colors;
+        this.colorArgIndex = colorArgIndex;
+    }
+
+    getConsoleArgs(level: LogLevel, record: LogRecord): any[] {
+        record.mappings.level = record.mappings.level ?? getLevelName(level);
+
+        this.afterMsg[this.colorArgIndex] = this.colors[level] ?? '';
+
+        return super.getConsoleArgs(level, record);
     }
 }
 
@@ -90,7 +127,7 @@ export class Logger {
     }
 
     _log(level: LogLevel, record: LogRecord): void {
-        let args = this.formatter.getConsoleArgs(record);
+        let args = this.formatter.getConsoleArgs(level, record);
 
         if (level < this.level) return;
 
