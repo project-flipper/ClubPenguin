@@ -17,7 +17,6 @@
             "type": "Container",
             "id": "dea5b704-17fc-4884-ab9f-c447a7686ed1",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "Image",
@@ -32,8 +31,7 @@
                         "frame": "interface/actionsBg"
                     },
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
@@ -51,21 +49,18 @@
                         "frame": "interface/actionsButton0001"
                     },
                     "x": 78.6375,
-                    "y": 78.75,
-                    "list": []
+                    "y": 78.75
                 },
                 {
                     "type": "Image",
                     "id": "7f4c10c9-2a17-45ce-95c2-e8764ac86c24",
                     "label": "interface_actionDance",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/actionDance"
                     },
                     "x": 78.6375,
-                    "y": 78.75,
-                    "list": []
+                    "y": 78.75
                 },
                 {
                     "type": "Image",
@@ -83,21 +78,18 @@
                         "frame": "interface/actionsButton0001"
                     },
                     "x": 78.6375,
-                    "y": 222.75,
-                    "list": []
+                    "y": 222.75
                 },
                 {
                     "type": "Image",
                     "id": "6421799c-7063-4929-94df-07940356c48e",
                     "label": "interface_actionWave",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/actionWave"
                     },
                     "x": 78.6375,
-                    "y": 222.75,
-                    "list": []
+                    "y": 222.75
                 },
                 {
                     "type": "Image",
@@ -115,8 +107,7 @@
                         "frame": "interface/actionsMiniButton0001"
                     },
                     "x": 42.6375,
-                    "y": 330.75,
-                    "list": []
+                    "y": 330.75
                 },
                 {
                     "type": "Image",
@@ -134,8 +125,7 @@
                         "frame": "interface/actionsMiniButton0001"
                     },
                     "x": 114.525,
-                    "y": 330.75,
-                    "list": []
+                    "y": 330.75
                 },
                 {
                     "type": "Image",
@@ -153,8 +143,7 @@
                         "frame": "interface/actionsMiniButton0001"
                     },
                     "x": 42.6375,
-                    "y": 403,
-                    "list": []
+                    "y": 403
                 },
                 {
                     "type": "Image",
@@ -172,21 +161,18 @@
                         "frame": "interface/actionsMiniButton0001"
                     },
                     "x": 114.525,
-                    "y": 403,
-                    "list": []
+                    "y": 403
                 },
                 {
                     "type": "Image",
                     "id": "f2aee3b7-a09f-45a5-96ea-147dd96d599a",
                     "label": "interface_actionSit",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/actionSit"
                     },
                     "x": 76.1625,
-                    "y": 368.325,
-                    "list": []
+                    "y": 368.325
                 }
             ]
         }
@@ -196,6 +182,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

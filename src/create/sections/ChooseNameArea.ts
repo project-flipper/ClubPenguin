@@ -6,7 +6,7 @@ import TextBox from "../../lib/ui/TextBox";
 import TextField from "../../lib/ui/TextField";
 import ErrorBubble from "../prefabs/ErrorBubble";
 /* START-USER-IMPORTS */
-import { Locale } from "../../app/locale";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class ChooseNameArea extends Phaser.GameObjects.Container {

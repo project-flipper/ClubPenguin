@@ -118,7 +118,7 @@ module.exports = env => {
                                     '@babel/preset-env',
                                     {
                                         useBuiltIns: 'usage',
-                                        corejs: { version: 3, proposals: true }
+                                        corejs: { version: '3.31', proposals: true }
                                     }
                                 ]
                             ],
@@ -128,6 +128,12 @@ module.exports = env => {
                                     {
                                         useESModules: true,
                                         corejs: { version: 3, proposals: true }
+                                    }
+                                ],
+                                [
+                                    '@babel/plugin-syntax-decorators',
+                                    {
+                                        'version': '2023-11'
                                     }
                                 ]
                             ],
@@ -148,7 +154,10 @@ module.exports = env => {
             ]
         },
         resolve: {
-            extensions: ['.ts', '.tsx', '.mjs', '.js', '.json']
+            alias: {
+                '@clubpenguin': path.resolve(__dirname, 'src/')
+            },
+            extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx', '.json']
         },
 
         optimization: {
@@ -176,6 +185,9 @@ module.exports = env => {
                 }
             }
         },
+        performance: {
+            hints: false
+        },
         devServer: {
             static: [
                 {
@@ -202,7 +214,8 @@ module.exports = env => {
             new DefinePlugin({
                 '__webpack_options__': JSON.stringify({
                     EXPOSE_DEBUG: env.development,
-                    RECAPTCHA_SITE_KEY: env.recaptchaSiteKey
+                    RECAPTCHA_SITE_KEY: env.recaptchaSiteKey,
+                    LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3)
                 })
             }),
             ...playPages,

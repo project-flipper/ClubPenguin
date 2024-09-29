@@ -5,9 +5,9 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import type Engine from "../../../world/engine/Engine";
-import type { Avatar } from "../../../world/avatar/avatar";
-import type Snowball from "../../../world/interface/prefabs/Snowball";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import Snowball from "@clubpenguin/world/interface/prefabs/Snowball";
+import { Player } from "@clubpenguin/world/engine/player/avatar";
 /* END-USER-IMPORTS */
 
 export default class SnowballTrigger {
@@ -49,7 +49,7 @@ export default class SnowballTrigger {
         return test({}, point.x, point.y, this.gameObject);
     }
 
-    execute(engine: Engine, penguin: Avatar, snowball: Snowball): void { }
+    execute(engine: Engine, player: Player, snowball: Snowball): void { }
 
     /* END-USER-CODE */
 }

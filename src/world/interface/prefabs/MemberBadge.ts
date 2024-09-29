@@ -5,7 +5,7 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import { Locale } from "../../../app/locale";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class MemberBadge extends Phaser.GameObjects.Container {

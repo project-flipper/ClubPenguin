@@ -1,8 +1,12 @@
-import Phaser from 'phaser';
-import { Locale } from './locale';
-import Config from './config';
-import { Friends } from '../friends/disney_friends';
-import { Airtower } from '../net/airtower';
+import Phaser from "phaser";
+
+import { Locale } from "@clubpenguin/app/locale";
+import Config from "@clubpenguin/app/config";
+import { Friends } from "@clubpenguin/friends/disney_friends";
+import { Airtower } from "@clubpenguin/net/airtower";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.app');
 
 interface AppParams {
     language: string,
@@ -42,18 +46,35 @@ export class App extends Phaser.Game {
         this.minigameVersion = params.minigameVersion;
     }
 
+    step(time: number, delta: number): void {
+        try {
+            super.step(time, delta);
+        } catch(e) {
+            console.error(e);
+            this.onCrash(e);
+            throw e;
+        }
+    }
+
+    onCrash(e: any): void {
+
+    }
+
     fixDomGO<T extends Phaser.GameObjects.DOMElement>(dom: T): T {
+        logger.debug('Removing Phaser reference from DOM element', dom);
         if ('phaser' in dom.node) delete dom.node['phaser'];
         return dom;
     }
 
     protected onBlur(): void {
         this.lastBlur = window.performance.now();
+        logger.info('Snapshotting blur event');
         super.onBlur();
     }
 
     protected onFocus(): void {
         let now = window.performance.now();
+        logger.info('Dispatching focusregain event');
         this.events.emit('focusregain', now - this.lastBlur);
         super.onFocus();
     }
@@ -128,7 +149,7 @@ export class App extends Phaser.Game {
                             this.unloadBitmapFont(assetKey);
                             break;
                         default:
-                            console.warn('Could not remove unknown pack asset type!', type);
+                            logger.warn('Could not remove unknown pack asset type!', type);
                             break;
                     }
                 }

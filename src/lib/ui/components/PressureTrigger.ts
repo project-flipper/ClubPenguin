@@ -5,8 +5,8 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import type { Avatar } from "../../../world/avatar/avatar";
-import Engine from "../../../world/engine/Engine";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Player } from "@clubpenguin/world/engine/player/avatar";
 /* END-USER-IMPORTS */
 
 export default class PressureTrigger {
@@ -52,7 +52,7 @@ export default class PressureTrigger {
         return test({}, point.x, point.y, this.gameObject);
     }
 
-    execute(engine: Engine, penguin: Avatar): void { }
+    execute(engine: Engine, player: Player): void { }
 
     /* END-USER-CODE */
 }

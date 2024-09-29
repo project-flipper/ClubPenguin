@@ -5,13 +5,17 @@ import InputBlocker from "../lib/ui/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import type { App } from '../app/app';
-import type Load from '../load/Load';
-import { LoaderTask } from '../load/tasks';
-import type InternalErrorArea from "../app/InternalErrorArea";
-import { Language } from "../app/locale";
 import TabId from "is-tab-duplicated";
-import type ErrorArea from "../app/ErrorArea";
+
+import { App } from "@clubpenguin/app/app";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import InternalErrorArea from "@clubpenguin/app/InternalErrorArea";
+import { Language } from "@clubpenguin/app/locale";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.boot');
 /* END-USER-IMPORTS */
 
 export default class Bootstrap extends Phaser.Scene {
@@ -120,9 +124,9 @@ export default class Bootstrap extends Phaser.Scene {
 
         // dialogButton (components)
         const dialogButtonButtonComponent = new ButtonComponent(dialogButton);
-        dialogButtonButtonComponent.upTexture = { "key": "boot", "frame": "boot/button" };
-        dialogButtonButtonComponent.overTexture = { "key": "boot", "frame": "boot/buttonHover" };
-        dialogButtonButtonComponent.downTexture = { "key": "boot", "frame": "boot/buttonDown" };
+        dialogButtonButtonComponent.upTexture = {"key":"boot","frame":"boot/button"};
+        dialogButtonButtonComponent.overTexture = {"key":"boot","frame":"boot/buttonHover"};
+        dialogButtonButtonComponent.downTexture = {"key":"boot","frame":"boot/buttonDown"};
         dialogButtonButtonComponent.handCursor = true;
         dialogButtonButtonComponent.pixelPerfect = true;
 
@@ -169,6 +173,8 @@ export default class Bootstrap extends Phaser.Scene {
     }
 
     async loadClubPenguin(): Promise<void> {
+        logger.info('Starting Club Penguin');
+
         await new Promise<void>(resolve => this.scene.run('Load', {
             onready: () => resolve()
         }));
@@ -184,12 +190,13 @@ export default class Bootstrap extends Phaser.Scene {
             throw e;
         }
 
-        load.track(new LoaderTask(this.load)).important = true;
+        let task = load.track(new LoaderTask('Bootstrap loader', this.load));
+        task.important = true;
 
         this.load.pack("app-pack", "assets/app/app-pack.json");
         this.load.pack("font-library", "assets/lib/fonts/font-library.json");
         this.scene.run('Logo', {
-            oninit: (scene: Phaser.Scene) => load.track(new LoaderTask(scene.load))
+            oninit: (scene: Phaser.Scene) => load.track(new LoaderTask('Logo loader', scene.load))
         });
         this.load.start();
 
@@ -202,7 +209,7 @@ export default class Bootstrap extends Phaser.Scene {
         if (this.load.totalFailed > 0) return this.showLoadError();
 
         TabId.initInstance();
-        if (TabId.isTabDuplicated()) {
+        if (TabId.isTabDuplicated() && this.game.environmentType == 'prod') {
             error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.MULTI_CONNECTIONS', 'error_lang'), this.game.locale.localize('Okay'), () => {
                 window.location.reload();
                 return false;
@@ -211,15 +218,19 @@ export default class Bootstrap extends Phaser.Scene {
             throw new Error('Multiple connections detected!');
         }
 
-        let path = 'start'; // TODO: get path
+        let path = window.location.hash;
 
-        if (path === 'login') {
+        if (path === '#login') {
+            logger.info('Setting initial landing to login screen');
             this.scene.start('Login');
-        } else if (path === 'create') {
+        } else if (path === '#create') {
+            logger.info('Setting initial landing to create screen');
             this.scene.start('Create');
-        } else if (path === 'redeem') {
+        } else if (path === '#redeem') {
+            logger.info('Setting initial landing to redemption screen');
             this.scene.start('Redemption');
         } else {
+            logger.info('Defaulting to startscreen landing');
             this.scene.start('Startscreen');
         }
     }

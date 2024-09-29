@@ -7,7 +7,7 @@ import Phaser from "phaser";
 import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import type Engine from "../../engine/Engine";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class ActionsMenu extends Phaser.GameObjects.Container {
@@ -61,38 +61,38 @@ export default class ActionsMenu extends Phaser.GameObjects.Container {
 
         // actionDance (components)
         const actionDanceButtonComponent = new ButtonComponent(actionDance);
-        actionDanceButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsButton0001" };
-        actionDanceButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsButton0002" };
+        actionDanceButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsButton0001"};
+        actionDanceButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsButton0002"};
         actionDanceButtonComponent.handCursor = true;
 
         // actionWave (components)
         const actionWaveButtonComponent = new ButtonComponent(actionWave);
-        actionWaveButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsButton0001" };
-        actionWaveButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsButton0002" };
+        actionWaveButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsButton0001"};
+        actionWaveButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsButton0002"};
         actionWaveButtonComponent.handCursor = true;
 
         // actionSitUpLeft (components)
         const actionSitUpLeftButtonComponent = new ButtonComponent(actionSitUpLeft);
-        actionSitUpLeftButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsMiniButton0001" };
-        actionSitUpLeftButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsMiniButton0002" };
+        actionSitUpLeftButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsMiniButton0001"};
+        actionSitUpLeftButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsMiniButton0002"};
         actionSitUpLeftButtonComponent.handCursor = true;
 
         // actionSitUpRight (components)
         const actionSitUpRightButtonComponent = new ButtonComponent(actionSitUpRight);
-        actionSitUpRightButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsMiniButton0001" };
-        actionSitUpRightButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsMiniButton0002" };
+        actionSitUpRightButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsMiniButton0001"};
+        actionSitUpRightButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsMiniButton0002"};
         actionSitUpRightButtonComponent.handCursor = true;
 
         // actionSitDownLeft (components)
         const actionSitDownLeftButtonComponent = new ButtonComponent(actionSitDownLeft);
-        actionSitDownLeftButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsMiniButton0001" };
-        actionSitDownLeftButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsMiniButton0002" };
+        actionSitDownLeftButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsMiniButton0001"};
+        actionSitDownLeftButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsMiniButton0002"};
         actionSitDownLeftButtonComponent.handCursor = true;
 
         // actionSitDownRight (components)
         const actionSitDownRightButtonComponent = new ButtonComponent(actionSitDownRight);
-        actionSitDownRightButtonComponent.upTexture = { "key": "interface", "frame": "interface/actionsMiniButton0001" };
-        actionSitDownRightButtonComponent.overTexture = { "key": "interface", "frame": "interface/actionsMiniButton0002" };
+        actionSitDownRightButtonComponent.upTexture = {"key":"interface","frame":"interface/actionsMiniButton0001"};
+        actionSitDownRightButtonComponent.overTexture = {"key":"interface","frame":"interface/actionsMiniButton0002"};
         actionSitDownRightButtonComponent.handCursor = true;
 
         this.bg = bg;
@@ -106,38 +106,32 @@ export default class ActionsMenu extends Phaser.GameObjects.Container {
         /* START-USER-CTR-CODE */
 
         this.actionDance.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionDance();
+            this.world.dance();
             this.visible = false;
         });
 
         this.actionWave.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionWave();
+            this.world.wave();
             this.visible = false;
         });
 
         this.actionSitUpLeft.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionSitUpLeft();
+            this.world.sitUpLeft();
             this.visible = false;
         });
 
         this.actionSitUpRight.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionSitUpRight();
+            this.world.sitUpRight();
             this.visible = false;
         });
 
         this.actionSitDownLeft.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionSitDownLeft();
+            this.world.sitDownLeft();
             this.visible = false;
         });
 
         this.actionSitDownRight.on('release', () => {
-            let engine = this.scene.scene.get('Engine') as Engine;
-            engine.actionSitDownRight();
+            this.world.sitDownRight();
             this.visible = false;
         });
 
@@ -154,7 +148,9 @@ export default class ActionsMenu extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    // Write your code here.
+    get world(): World{
+        return this.scene.scene.get('World') as World;
+    }
 
     /* END-USER-CODE */
 }

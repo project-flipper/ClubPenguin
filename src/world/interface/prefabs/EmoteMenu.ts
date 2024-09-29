@@ -8,7 +8,7 @@ import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
-import { Emoji } from "../../../net/types/chat/emoji";
+import { Emoji } from "@clubpenguin/net/types/message";
 /* END-USER-IMPORTS */
 
 export default class EmoteMenu extends Phaser.GameObjects.Container {
@@ -236,148 +236,148 @@ export default class EmoteMenu extends Phaser.GameObjects.Container {
 
         // laughing_btn (components)
         const laughing_btnButtonComponent = new ButtonComponent(laughing_btn);
-        laughing_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        laughing_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        laughing_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        laughing_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         laughing_btnButtonComponent.handCursor = true;
         laughing_btnButtonComponent.pixelPerfect = true;
 
         // happy_btn (components)
         const happy_btnButtonComponent = new ButtonComponent(happy_btn);
-        happy_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        happy_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        happy_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        happy_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         happy_btnButtonComponent.handCursor = true;
         happy_btnButtonComponent.pixelPerfect = true;
 
         // coffee_btn (components)
         const coffee_btnButtonComponent = new ButtonComponent(coffee_btn);
-        coffee_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        coffee_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        coffee_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        coffee_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         coffee_btnButtonComponent.handCursor = true;
         coffee_btnButtonComponent.pixelPerfect = true;
 
         // indifferent_btn (components)
         const indifferent_btnButtonComponent = new ButtonComponent(indifferent_btn);
-        indifferent_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        indifferent_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        indifferent_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        indifferent_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         indifferent_btnButtonComponent.handCursor = true;
         indifferent_btnButtonComponent.pixelPerfect = true;
 
         // sad_btn (components)
         const sad_btnButtonComponent = new ButtonComponent(sad_btn);
-        sad_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        sad_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        sad_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        sad_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         sad_btnButtonComponent.handCursor = true;
         sad_btnButtonComponent.pixelPerfect = true;
 
         // controller_btn (components)
         const controller_btnButtonComponent = new ButtonComponent(controller_btn);
-        controller_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        controller_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        controller_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        controller_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         controller_btnButtonComponent.handCursor = true;
         controller_btnButtonComponent.pixelPerfect = true;
 
         // surprised_btn (components)
         const surprised_btnButtonComponent = new ButtonComponent(surprised_btn);
-        surprised_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        surprised_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        surprised_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        surprised_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         surprised_btnButtonComponent.handCursor = true;
         surprised_btnButtonComponent.pixelPerfect = true;
 
         // pokingOutTongue_btn (components)
         const pokingOutTongue_btnButtonComponent = new ButtonComponent(pokingOutTongue_btn);
-        pokingOutTongue_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        pokingOutTongue_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        pokingOutTongue_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        pokingOutTongue_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         pokingOutTongue_btnButtonComponent.handCursor = true;
         pokingOutTongue_btnButtonComponent.pixelPerfect = true;
 
         // popcorn_btn (components)
         const popcorn_btnButtonComponent = new ButtonComponent(popcorn_btn);
-        popcorn_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        popcorn_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        popcorn_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        popcorn_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         popcorn_btnButtonComponent.handCursor = true;
         popcorn_btnButtonComponent.pixelPerfect = true;
 
         // winking_btn (components)
         const winking_btnButtonComponent = new ButtonComponent(winking_btn);
-        winking_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        winking_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        winking_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        winking_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         winking_btnButtonComponent.handCursor = true;
         winking_btnButtonComponent.pixelPerfect = true;
 
         // sick_btn (components)
         const sick_btnButtonComponent = new ButtonComponent(sick_btn);
-        sick_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        sick_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        sick_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        sick_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         sick_btnButtonComponent.handCursor = true;
         sick_btnButtonComponent.pixelPerfect = true;
 
         // pizza_btn (components)
         const pizza_btnButtonComponent = new ButtonComponent(pizza_btn);
-        pizza_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        pizza_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        pizza_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        pizza_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         pizza_btnButtonComponent.handCursor = true;
         pizza_btnButtonComponent.pixelPerfect = true;
 
         // mad_btn (components)
         const mad_btnButtonComponent = new ButtonComponent(mad_btn);
-        mad_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        mad_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        mad_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        mad_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         mad_btnButtonComponent.handCursor = true;
         mad_btnButtonComponent.pixelPerfect = true;
 
         // upset_btn (components)
         const upset_btnButtonComponent = new ButtonComponent(upset_btn);
-        upset_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        upset_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        upset_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        upset_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         upset_btnButtonComponent.handCursor = true;
         upset_btnButtonComponent.pixelPerfect = true;
 
         // strawberryIceCream_btn (components)
         const strawberryIceCream_btnButtonComponent = new ButtonComponent(strawberryIceCream_btn);
-        strawberryIceCream_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        strawberryIceCream_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        strawberryIceCream_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        strawberryIceCream_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         strawberryIceCream_btnButtonComponent.handCursor = true;
         strawberryIceCream_btnButtonComponent.pixelPerfect = true;
 
         // meh_btn (components)
         const meh_btnButtonComponent = new ButtonComponent(meh_btn);
-        meh_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        meh_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        meh_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        meh_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         meh_btnButtonComponent.handCursor = true;
         meh_btnButtonComponent.pixelPerfect = true;
 
         // cake_btn (components)
         const cake_btnButtonComponent = new ButtonComponent(cake_btn);
-        cake_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        cake_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        cake_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        cake_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         cake_btnButtonComponent.handCursor = true;
         cake_btnButtonComponent.pixelPerfect = true;
 
         // shamrock_btn (components)
         const shamrock_btnButtonComponent = new ButtonComponent(shamrock_btn);
-        shamrock_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        shamrock_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        shamrock_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        shamrock_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         shamrock_btnButtonComponent.handCursor = true;
         shamrock_btnButtonComponent.pixelPerfect = true;
 
         // heart_btn (components)
         const heart_btnButtonComponent = new ButtonComponent(heart_btn);
-        heart_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        heart_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        heart_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        heart_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         heart_btnButtonComponent.handCursor = true;
         heart_btnButtonComponent.pixelPerfect = true;
 
         // lightbulb_btn (components)
         const lightbulb_btnButtonComponent = new ButtonComponent(lightbulb_btn);
-        lightbulb_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        lightbulb_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        lightbulb_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        lightbulb_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         lightbulb_btnButtonComponent.handCursor = true;
         lightbulb_btnButtonComponent.pixelPerfect = true;
 
         // flower_btn (components)
         const flower_btnButtonComponent = new ButtonComponent(flower_btn);
-        flower_btnButtonComponent.upTexture = { "key": "interface", "frame": "interface/emote0001" };
-        flower_btnButtonComponent.overTexture = { "key": "interface", "frame": "interface/emote0002" };
+        flower_btnButtonComponent.upTexture = {"key":"interface","frame":"interface/emote0001"};
+        flower_btnButtonComponent.overTexture = {"key":"interface","frame":"interface/emote0002"};
         flower_btnButtonComponent.handCursor = true;
         flower_btnButtonComponent.pixelPerfect = true;
 
@@ -406,27 +406,27 @@ export default class EmoteMenu extends Phaser.GameObjects.Container {
 
         /* START-USER-CTR-CODE */
 
-        this.laughing_btn.on('release', () => this.send('LAUGHING'));
-        this.happy_btn.on('release', () => this.send('HAPPY'));
-        this.coffee_btn.on('release', () => this.send('COFFEE'));
-        this.indifferent_btn.on('release', () => this.send('INDIFFERENT'));
-        this.sad_btn.on('release', () => this.send('SAD'));
-        this.controller_btn.on('release', () => this.send('CONTROLLER'));
-        this.surprised_btn.on('release', () => this.send('SURPRISED'));
-        this.pokingOutTongue_btn.on('release', () => this.send('POKING_OUT_TONGUE'));
-        this.popcorn_btn.on('release', () => this.send('POPCORN'));
-        this.winking_btn.on('release', () => this.send('WINKING'));
-        this.sick_btn.on('release', () => this.send('SICK'));
-        this.pizza_btn.on('release', () => this.send('PIZZA'));
-        this.mad_btn.on('release', () => this.send('MAD'));
-        this.upset_btn.on('release', () => this.send('UPSET'));
-        this.strawberryIceCream_btn.on('release', () => this.send('STRAWBERRY_ICE_CREAM'));
-        this.meh_btn.on('release', () => this.send('MEH'));
-        this.cake_btn.on('release', () => this.send('CAKE'));
-        this.shamrock_btn.on('release', () => this.send('SHAMROCK'));
-        this.heart_btn.on('release', () => this.send('HEART'));
-        this.lightbulb_btn.on('release', () => this.send('LIGHTBULB'));
-        this.flower_btn.on('release', () => this.send('FLOWER'));
+        this.laughing_btn.on('release', () => this.send(Emoji.LAUGHING));
+        this.happy_btn.on('release', () => this.send(Emoji.HAPPY));
+        this.coffee_btn.on('release', () => this.send(Emoji.COFFEE));
+        this.indifferent_btn.on('release', () => this.send(Emoji.INDIFFERENT));
+        this.sad_btn.on('release', () => this.send(Emoji.SAD));
+        this.controller_btn.on('release', () => this.send(Emoji.CONTROLLER));
+        this.surprised_btn.on('release', () => this.send(Emoji.SURPRISED));
+        this.pokingOutTongue_btn.on('release', () => this.send(Emoji.POKING_OUT_TONGUE));
+        this.popcorn_btn.on('release', () => this.send(Emoji.POPCORN));
+        this.winking_btn.on('release', () => this.send(Emoji.WINKING));
+        this.sick_btn.on('release', () => this.send(Emoji.SICK));
+        this.pizza_btn.on('release', () => this.send(Emoji.PIZZA));
+        this.mad_btn.on('release', () => this.send(Emoji.MAD));
+        this.upset_btn.on('release', () => this.send(Emoji.UPSET));
+        this.strawberryIceCream_btn.on('release', () => this.send(Emoji.STRAWBERRY_ICE_CREAM));
+        this.meh_btn.on('release', () => this.send(Emoji.MEH));
+        this.cake_btn.on('release', () => this.send(Emoji.CAKE));
+        this.shamrock_btn.on('release', () => this.send(Emoji.SHAMROCK));
+        this.heart_btn.on('release', () => this.send(Emoji.HEART));
+        this.lightbulb_btn.on('release', () => this.send(Emoji.LIGHTBULB));
+        this.flower_btn.on('release', () => this.send(Emoji.FLOWER));
 
         /* END-USER-CTR-CODE */
     }
@@ -459,7 +459,7 @@ export default class EmoteMenu extends Phaser.GameObjects.Container {
     declare scene: Interface;
 
     send(emoji: Emoji): void {
-        this.scene.sendEmoji(emoji);
+        this.scene.world.sendEmoji(emoji);
         this.visible = false;
     }
 

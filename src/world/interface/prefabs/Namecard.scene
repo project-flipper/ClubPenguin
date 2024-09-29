@@ -17,7 +17,6 @@
             "type": "Container",
             "id": "4e76d93f-82b2-4001-b329-d6a67fe89885",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "NineSlice",
@@ -40,15 +39,13 @@
                     "leftWidth": 46,
                     "rightWidth": 46,
                     "topHeight": 46,
-                    "bottomHeight": 46,
-                    "list": []
+                    "bottomHeight": 46
                 },
                 {
                     "type": "Image",
                     "id": "ce61ec61-7c95-438a-93bd-bba4c2351166",
                     "label": "tab",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardTab"
@@ -56,14 +53,12 @@
                     "x": 135,
                     "y": -52.52,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
                     "id": "6bb28f73-1616-4e98-a4b2-7c2e0f45a67a",
                     "label": "photo",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardPhoto"
@@ -71,8 +66,7 @@
                     "x": 18,
                     "y": 90,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "4eac8cdf-d82e-412f-a999-0b6285431970",
@@ -85,18 +79,14 @@
                     "label": "paperdoll",
                     "scope": "PUBLIC",
                     "interactive": false,
-                    "components": [],
                     "x": 249.075,
-                    "y": 321.525,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 321.525
                 },
                 {
                     "type": "Image",
                     "id": "b9272ea5-eb8b-4ca4-ae0b-9f5210de72c5",
                     "label": "avatar",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardAvatar0001"
@@ -105,8 +95,7 @@
                     "y": 113.175,
                     "originX": -0.0208,
                     "originY": 0.05,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -134,7 +123,6 @@
                     "boxHeight": 60.75,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 66.6,
                     "y": 37,
                     "tintTopLeft": "#000000",
@@ -145,9 +133,7 @@
                     "text": "Nickname",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -36
                 },
                 {
                     "prefabId": "c2e8ed2b-a322-4448-9419-abe9122cc497",
@@ -158,11 +144,8 @@
                     ],
                     "label": "badge",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 72.5625,
-                    "y": 67.6125,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 67.6125
                 },
                 {
                     "type": "Image",
@@ -184,8 +167,7 @@
                     "x": 387,
                     "y": 89.8875,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
@@ -205,8 +187,7 @@
                         "frame": "interface/namecardClose0001"
                     },
                     "x": 450,
-                    "y": 54,
-                    "list": []
+                    "y": 54
                 },
                 {
                     "type": "Image",
@@ -226,8 +207,7 @@
                         "frame": "interface/namecardButton0001"
                     },
                     "x": 49.6125,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -243,22 +223,19 @@
                     },
                     "x": 49.6125,
                     "y": 616.5,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "type": "Image",
                     "id": "9bf00de4-d765-479d-a06b-42c326d0ff40",
                     "label": "friendsButtonIcon",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardFriendsButtonDisabled"
                     },
                     "x": 49.6125,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -278,8 +255,7 @@
                         "frame": "interface/namecardButton0001"
                     },
                     "x": 117.1125,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -295,22 +271,19 @@
                     },
                     "x": 117.1125,
                     "y": 616.5,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "type": "Image",
                     "id": "b2c12e01-95a7-4868-bf49-adbad241508b",
                     "label": "locateButtonIcon",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardLocateButtonDisabled"
                     },
                     "x": 117.1125,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -330,8 +303,7 @@
                         "frame": "interface/namecardButton0001"
                     },
                     "x": 184.5,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -347,22 +319,19 @@
                     },
                     "x": 184.5,
                     "y": 616.5,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "type": "Image",
                     "id": "3da8468d-31c5-4e91-b891-6da56dc16e13",
                     "label": "iglooButtonIcon",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardIglooButtonDisabled"
                     },
                     "x": 184.5,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -382,8 +351,7 @@
                         "frame": "interface/namecardButton0001"
                     },
                     "x": 252,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -399,22 +367,19 @@
                     },
                     "x": 252,
                     "y": 616.5,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "type": "Image",
                     "id": "a38bbb7a-170f-4207-a8ef-71de8947d994",
                     "label": "mailButtonIcon",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardMailButtonDisabled"
                     },
                     "x": 252,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -434,8 +399,7 @@
                         "frame": "interface/namecardButton0001"
                     },
                     "x": 319.5,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -451,22 +415,19 @@
                     },
                     "x": 319.5,
                     "y": 616.5,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "type": "Image",
                     "id": "9c5aede3-a946-40f8-9358-c5c6434fee84",
                     "label": "stampbookButtonIcon",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardStampbookButtonDisabled"
                     },
                     "x": 319.5,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -486,8 +447,7 @@
                         "frame": "interface/namecardButton0001"
                     },
                     "x": 387,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -503,22 +463,19 @@
                     },
                     "x": 387,
                     "y": 616.5,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "type": "Image",
                     "id": "56e67ddd-0f2b-4f5c-bec9-4d5728ccc8e1",
                     "label": "ignoreButtonIcon",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardIgnoreButtonDisabled"
                     },
                     "x": 387,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -538,8 +495,7 @@
                         "frame": "interface/namecardButton0001"
                     },
                     "x": 454.5,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 },
                 {
                     "type": "Image",
@@ -555,22 +511,19 @@
                     },
                     "x": 454.5,
                     "y": 616.5,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "type": "Image",
                     "id": "63d6367b-3889-4fc5-8ecf-62218cea127d",
                     "label": "reportButtonIcon",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardReportButtonDisabled"
                     },
                     "x": 454.5,
-                    "y": 616.5,
-                    "list": []
+                    "y": 616.5
                 }
             ]
         }
@@ -580,6 +533,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

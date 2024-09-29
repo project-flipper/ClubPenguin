@@ -1,10 +1,11 @@
-import Phaser from 'phaser';
-import type { App } from '../app/app';
-import type HandlerInit from './legacy/legacy_handler';
-import type Interface from '../world/interface/Interface';
-import type World from '../world/World';
-import { PenguinData } from '../net/types/penguin/penguin';
-import { RelationshipType } from '../net/types/penguin/relationship';
+import Phaser from "phaser";
+
+import { App } from "@clubpenguin/app/app";
+import HandlerInit from "@clubpenguin/friends/legacy/legacy_handler";
+import { UserData } from "@clubpenguin/net/types/user";
+import { RelationshipType } from "@clubpenguin/net/types/relationship";
+import Interface from "@clubpenguin/world/interface/Interface";
+import World from "@clubpenguin/world/World";
 
 export enum FriendsEvents {
     USER_PRESENCE_UPDATE = "userPresenceUpdate",
@@ -66,7 +67,7 @@ export class Friends extends Phaser.Events.EventEmitter {
     async init(...params: Parameters<typeof HandlerInit>): Promise<void> {
         if (this.instance) return;
 
-        this.instance = (await import('./legacy/legacy_handler')).default(...params);
+        this.instance = (await import('@clubpenguin/friends/legacy/legacy_handler')).default(...params);
 
         this.on(FriendsEvents.CONNECTED, this.onConnected, this);
         this.on(FriendsEvents.DISCONNECTED, this.onDisconnected, this);
@@ -88,17 +89,17 @@ export class Friends extends Phaser.Events.EventEmitter {
         return this;
     }
 
-    connect(friends: PenguinData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean): void {
-        this.instance.Friends.API.connect(this.world.myPenguinData.id);
+    connect(user_id: string, friends: UserData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean): void {
+        this.instance.Friends.API.connect(user_id);
 
         let roster = friends.filter(data => data.relationship.type == RelationshipType.FRIEND || data.relationship.type == RelationshipType.BEST_FRIEND);
-        let bestFriends = friends.filter(data => data.relationship.type == RelationshipType.BEST_FRIEND).map(data => data.id);
+        let bestFriends = friends.filter(data => data.relationship.type == RelationshipType.BEST_FRIEND).map(data => data.id.toString());
 
         this.instance.Friends.activeUser.settings.settingRequestResultHandler([
             bestFriends.length, notificationsEnabled, friendsEnabled, bestFriendsEnabled
         ]);
-        this.instance.Friends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id, name: data.nickname, presence: Presence.OFFLINE.toString() })));
-        this.instance.Friends.activeUser.roster.populateBestFriends([]);
+        this.instance.Friends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id.toString(), name: data.nickname, presence: Presence.OFFLINE.toString() })));
+        this.instance.Friends.activeUser.roster.populateBestFriends(bestFriends);
         this.instance.Friends.activeUser.roster.populateCharacterRoster(characters.map(id => ({ id, presence: Presence.OFFLINE.toString() })));
     }
 
@@ -125,22 +126,27 @@ export class Friends extends Phaser.Events.EventEmitter {
     }
 
     onShowPlayerCard(swid: string) {
-        this.world.openNamecardById(swid);
+        this.world.openNamecardById(parseInt(swid));
     }
 
     onShowCharacterCard(id: string) {
-        this.world.openNamecardById(id);
+        this.world.openNamecardById(parseInt(id));
     }
 
     async onFindPlayer(name: string) {
-        console.log('find')
-        let found = false;
-        let player = found ? {
-            playerId: 'response.d.id',
-            swid: 'response.d.swid',
+        let user;
+        try {
+            user = await this.app.airtower.getUserByName(name);
+        } catch(e) {
+            user = undefined;
+        }
+
+        let player = user != undefined ? {
+            playerId: user.data.id.toString(),
+            swid: user.data.id.toString(),
             name: name
         } : {
-            playerId: 0
+            playerId: '0'
         };
         this.instance.Friends.API.foundPlayer(player);
     }
@@ -154,7 +160,7 @@ export class Friends extends Phaser.Events.EventEmitter {
     }
 
     sendAcceptBuddyRequest(swid: string): void {
-
+        this.sendBuddyRequest(swid);
     }
 
     sendRejectBuddyRequest(swid: string): void {

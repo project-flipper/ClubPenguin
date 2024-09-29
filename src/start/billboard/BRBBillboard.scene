@@ -17,34 +17,29 @@
             "type": "Container",
             "id": "a06c4dd9-bbd5-4a8a-8345-160e1ff4d92a",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "Image",
                     "id": "b6b8ed63-145f-4ba2-8567-30faaec1cdf8",
                     "label": "billboardShadow",
-                    "components": [],
                     "texture": {
                         "key": "billboardShadow"
                     },
                     "x": -13.5,
                     "y": -12.5,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
                     "id": "6a4445b2-ef2f-4180-821d-fb484d1c0870",
                     "label": "graphic",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "billboard"
                     },
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -67,7 +62,6 @@
                     "scope": "PUBLIC",
                     "boxWidth": 0,
                     "boxHeight": 0,
-                    "components": [],
                     "x": 49.5,
                     "y": 188.10000000000002,
                     "tintTopLeft": "#0053AF",
@@ -77,9 +71,7 @@
                     "tintFill": false,
                     "text": "BRB!",
                     "font": "BurbankSmallBlack",
-                    "fontSize": -72,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -72
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -102,7 +94,6 @@
                     "scope": "PUBLIC",
                     "boxWidth": 708.75,
                     "boxHeight": 149.4,
-                    "components": [],
                     "x": 49.387499999999996,
                     "y": 269.66249999999997,
                     "tintTopLeft": "#000000",
@@ -112,9 +103,7 @@
                     "tintFill": false,
                     "text": "We're busy updating stuff behind the scenes. \n\nWe'll be fully up and running again soon. \n\nThanks for your patience!",
                     "font": "MyriadPro",
-                    "fontSize": -31.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -31.5
                 }
             ]
         }
@@ -124,6 +113,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

@@ -6,7 +6,7 @@ import Phaser from "phaser";
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ColorSwatch from "../prefabs/ColorSwatch";
 /* START-USER-IMPORTS */
-import { Locale } from "../../app/locale";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class ColorSelector extends Phaser.GameObjects.Container {

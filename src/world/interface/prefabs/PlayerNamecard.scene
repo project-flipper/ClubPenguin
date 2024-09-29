@@ -17,14 +17,12 @@
             "type": "Container",
             "id": "5461e1a1-d1b3-4aed-82ce-05127d7cd2f1",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "Container",
                     "id": "8a5922a3-6d19-4be2-a523-5cc35bd0ef0e",
                     "label": "inventory",
                     "scope": "PUBLIC",
-                    "components": [],
                     "list": [
                         {
                             "type": "Image",
@@ -40,21 +38,18 @@
                             "x": 247.1625,
                             "y": -8.4375,
                             "originX": 0,
-                            "originY": 0,
-                            "list": []
+                            "originY": 0
                         },
                         {
                             "type": "Image",
                             "id": "6536678e-5217-4c89-b8a5-855d32e2bd97",
                             "label": "interface_inventorySortBg",
-                            "components": [],
                             "texture": {
                                 "key": "interface",
                                 "frame": "interface/inventorySortBg"
                             },
                             "x": 767.25,
-                            "y": 668.475,
-                            "list": []
+                            "y": 668.475
                         },
                         {
                             "type": "Image",
@@ -72,21 +67,18 @@
                             },
                             "x": 1064.25,
                             "y": 180,
-                            "originX": 0.09,
-                            "list": []
+                            "originX": 0.09
                         },
                         {
                             "type": "Image",
                             "id": "d26cb02b-a7da-461d-9039-49394ee10a3f",
                             "label": "interface_inventoryScroll",
-                            "components": [],
                             "texture": {
                                 "key": "interface",
                                 "frame": "interface/inventoryScroll"
                             },
                             "x": 1012.3875,
-                            "y": 319.275,
-                            "list": []
+                            "y": 319.275
                         },
                         {
                             "type": "Image",
@@ -106,8 +98,7 @@
                                 "frame": "interface/inventoryBackButton0001"
                             },
                             "x": 1012.5,
-                            "y": 55.0125,
-                            "list": []
+                            "y": 55.0125
                         },
                         {
                             "type": "Image",
@@ -127,8 +118,7 @@
                                 "frame": "interface/inventoryBackButton0001"
                             },
                             "x": 1012.5,
-                            "y": 583.7625,
-                            "list": []
+                            "y": 583.7625
                         }
                     ]
                 },
@@ -153,15 +143,13 @@
                     "leftWidth": 46,
                     "rightWidth": 46,
                     "topHeight": 46,
-                    "bottomHeight": 46,
-                    "list": []
+                    "bottomHeight": 46
                 },
                 {
                     "type": "Image",
                     "id": "6194dac0-3f34-48dc-99a6-25bec4152f93",
                     "label": "tab",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardTab"
@@ -169,14 +157,12 @@
                     "x": 135,
                     "y": -52.52,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
                     "id": "296422ce-dd02-42ed-93c7-90e21cd9b780",
                     "label": "photo",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardPhoto"
@@ -184,8 +170,7 @@
                     "x": 18,
                     "y": 90,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "4eac8cdf-d82e-412f-a999-0b6285431970",
@@ -196,18 +181,14 @@
                     ],
                     "label": "paperdoll",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 249.075,
-                    "y": 321.525,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 321.525
                 },
                 {
                     "type": "Image",
                     "id": "bda24176-957b-4249-9c33-4fc6aab7c642",
                     "label": "avatar",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardAvatar0001"
@@ -216,8 +197,7 @@
                     "y": 113.175,
                     "originX": -0.0208,
                     "originY": 0.05,
-                    "visible": false,
-                    "list": []
+                    "visible": false
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -245,7 +225,6 @@
                     "boxHeight": 60.75,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 66.6,
                     "y": 37,
                     "tintTopLeft": "#000000",
@@ -256,9 +235,7 @@
                     "text": "Nickname",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -36
                 },
                 {
                     "prefabId": "c2e8ed2b-a322-4448-9419-abe9122cc497",
@@ -269,25 +246,20 @@
                     ],
                     "label": "badge",
                     "scope": "PUBLIC",
-                    "components": [],
                     "x": 72.5625,
-                    "y": 67.6125,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 67.6125
                 },
                 {
                     "type": "Image",
                     "id": "3e007426-dd6f-467e-a048-916c71b259db",
                     "label": "star",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/playerStar"
                     },
                     "x": 67.5,
-                    "y": 67.5,
-                    "list": []
+                    "y": 67.5
                 },
                 {
                     "type": "Image",
@@ -309,8 +281,7 @@
                     "x": 387,
                     "y": 89.8875,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
@@ -330,21 +301,18 @@
                         "frame": "interface/namecardClose0001"
                     },
                     "x": 450,
-                    "y": 54,
-                    "list": []
+                    "y": 54
                 },
                 {
                     "type": "Image",
                     "id": "e91c4ba4-73a0-49ff-964f-028798d29646",
                     "label": "interface_coin",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/coin"
                     },
                     "x": 48.0375,
-                    "y": 578.025,
-                    "list": []
+                    "y": 578.025
                 },
                 {
                     "type": "Image",
@@ -364,21 +332,18 @@
                         "frame": "interface/namecardButton0001"
                     },
                     "x": 48.825,
-                    "y": 638.775,
-                    "list": []
+                    "y": 638.775
                 },
                 {
                     "type": "Image",
                     "id": "b59b6e28-1a4e-42e4-a828-e0ac085d84e1",
                     "label": "stampbookButtonIcon",
-                    "components": [],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardStampbookButtonIcon"
                     },
                     "x": 48.825,
-                    "y": 638.775,
-                    "list": []
+                    "y": 638.775
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -403,7 +368,6 @@
                     "boxWidth": 249.525,
                     "boxHeight": 38.7,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 83.475,
                     "y": 566.1,
                     "tintTopLeft": "#000000",
@@ -413,9 +377,7 @@
                     "tintFill": true,
                     "text": "Your Coins: 000000",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -22.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -22.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -440,7 +402,6 @@
                     "boxWidth": 256.275,
                     "boxHeight": 36,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 83.475,
                     "y": 618.975,
                     "tintTopLeft": "#000000",
@@ -450,9 +411,7 @@
                     "tintFill": true,
                     "text": "Your Stamps: 355/355",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -22.5,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -22.5
                 },
                 {
                     "type": "Image",
@@ -470,8 +429,7 @@
                     },
                     "x": 504,
                     "y": 180,
-                    "originX": 0.09,
-                    "list": []
+                    "originX": 0.09
                 }
             ]
         }
@@ -481,6 +439,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

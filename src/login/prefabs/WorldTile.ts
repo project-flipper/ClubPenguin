@@ -7,7 +7,8 @@ import Phaser from "phaser";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import type Login from "../Login";
+import Login from "@clubpenguin/login/Login";
+import { WorldData } from "@clubpenguin/net/types/world";
 /* END-USER-IMPORTS */
 
 export default class WorldTile extends Phaser.GameObjects.Container {
@@ -68,8 +69,8 @@ export default class WorldTile extends Phaser.GameObjects.Container {
 
         // tile (components)
         const tileButtonComponent = new ButtonComponent(tile);
-        tileButtonComponent.upTexture = { "key": "login", "frame": "login-screen/worldTile" };
-        tileButtonComponent.overTexture = { "key": "login", "frame": "login-screen/worldTileSelect" };
+        tileButtonComponent.upTexture = {"key":"login","frame":"login-screen/worldTile"};
+        tileButtonComponent.overTexture = {"key":"login","frame":"login-screen/worldTileSelect"};
         tileButtonComponent.handCursor = true;
         tileButtonComponent.pixelPerfect = true;
 
@@ -92,7 +93,7 @@ export default class WorldTile extends Phaser.GameObjects.Container {
         /* START-USER-CTR-CODE */
 
         this.tile.on('release', () => {
-            (this.scene as Login).selectWorld(this.id);
+            (this.scene as Login).joinWorld(this.worldData);
         });
 
         /* END-USER-CTR-CODE */
@@ -111,11 +112,11 @@ export default class WorldTile extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    public id: string;
+    public worldData: WorldData;
 
     setPopulation(value: number): void {
-        let off = "login-screen/populationOff";
-        let on = "login-screen/populationOn";
+        let off = 'login-screen/populationOff';
+        let on = 'login-screen/populationOn';
 
         this.population1.setFrame(value > 0 ? on : off);
         this.population2.setFrame(value > 1 ? on : off);

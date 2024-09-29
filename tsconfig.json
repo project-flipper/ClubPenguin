@@ -16,6 +16,13 @@
         "importHelpers": true,
         "alwaysStrict": true,
         "noImplicitAny": true,
-        "rootDir": "src"
-    }
+        "rootDir": "src",
+        "paths": {
+            "@clubpenguin/*": [
+                "./src/*"
+            ]
+        },
+        "useDefineForClassFields": false
+    },
+    "include": ["src/**/*"]
 }

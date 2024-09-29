@@ -2,6 +2,8 @@
     "components": [
         {
             "name": "ButtonComponent",
+            "displayName": "",
+            "objectDisplayFormat": "",
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.Image",
             "properties": [
@@ -59,12 +61,16 @@
         },
         {
             "name": "InputBlocker",
+            "displayName": "",
+            "objectDisplayFormat": "",
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.GameObject",
             "properties": []
         },
         {
             "name": "DepthEnabled",
+            "displayName": "",
+            "objectDisplayFormat": "",
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.GameObject & Phaser.GameObjects.Components.Transform & Phaser.GameObjects.Components.Depth",
             "properties": [
@@ -92,17 +98,19 @@
         },
         {
             "name": "RoomTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.Image",
             "properties": [
                 {
                     "name": "destination",
                     "label": "Destination",
-                    "tooltip": "The room key of where this trigger leads to.",
+                    "tooltip": "The room ID of where this trigger leads to.",
                     "defValue": "",
                     "customDefinition": false,
                     "type": {
-                        "id": "string"
+                        "id": "number"
                     }
                 },
                 {
@@ -129,18 +137,24 @@
         },
         {
             "name": "PressureTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.Image",
             "properties": []
         },
         {
             "name": "SnowballTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.Image",
             "properties": []
         },
         {
             "name": "Trigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.Image",
             "properties": []

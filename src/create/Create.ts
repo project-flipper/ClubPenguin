@@ -13,14 +13,17 @@ import CheckBoxRules from "./sections/CheckBoxRules";
 import PaperdollAlternate from "./prefabs/PaperdollAlternate";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 /* START-USER-IMPORTS */
-import type { CreateAccountPayload } from '../net/types/account/createAccount';
-import type Load from '../load/Load';
-import { LoaderTask } from '../load/tasks';
-import ColorSwatch from './prefabs/ColorSwatch';
-import type { App } from "../app/app";
-import type { Locale } from "../app/locale";
-import ErrorArea from "../app/ErrorArea";
-import { HTTPError, digest } from "../net/airtower";
+import { App } from "@clubpenguin/app/app";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import { Locale } from "@clubpenguin/app/locale";
+import ColorSwatch from "@clubpenguin/create/prefabs/ColorSwatch";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import { CreateUserForm } from "@clubpenguin/net/types/api";
+import { getLogger } from "@clubpenguin/lib/log";
+import { HTTPError } from "@clubpenguin/net/airtower";
+
+let logger = getLogger('CP.create');
 /* END-USER-IMPORTS */
 
 export default class Create extends Phaser.Scene {
@@ -332,8 +335,8 @@ export default class Create extends Phaser.Scene {
 
         // nextButton (components)
         const nextButtonButtonComponent = new ButtonComponent(nextButton);
-        nextButtonButtonComponent.upTexture = { "key": "create", "frame": "create-module/nextButton" };
-        nextButtonButtonComponent.overTexture = { "key": "create", "frame": "create-module/nextButtonHover" };
+        nextButtonButtonComponent.upTexture = {"key":"create","frame":"create-module/nextButton"};
+        nextButtonButtonComponent.overTexture = {"key":"create","frame":"create-module/nextButtonHover"};
         nextButtonButtonComponent.handCursor = true;
 
         // nextButtonLabelTextBox (prefab fields)
@@ -414,8 +417,8 @@ export default class Create extends Phaser.Scene {
 
         // memberButton (components)
         const memberButtonButtonComponent = new ButtonComponent(memberButton);
-        memberButtonButtonComponent.upTexture = { "key": "create", "frame": "create-module/memberButton" };
-        memberButtonButtonComponent.overTexture = { "key": "create", "frame": "create-module/memberButtonHover" };
+        memberButtonButtonComponent.upTexture = {"key":"create","frame":"create-module/memberButton"};
+        memberButtonButtonComponent.overTexture = {"key":"create","frame":"create-module/memberButtonHover"};
         memberButtonButtonComponent.handCursor = true;
 
         // memberButtonTextBox (prefab fields)
@@ -509,9 +512,10 @@ export default class Create extends Phaser.Scene {
     declare public game: App;
 
     init(): void {
+        logger.info('Starting create screen');
         let load = this.scene.get('Load') as Load;
 
-        load.track(new LoaderTask(this.load));
+        load.track(new LoaderTask('Create loader', this.load));
         if (!load.isShowing) load.show();
     }
 
@@ -540,12 +544,15 @@ export default class Create extends Phaser.Scene {
 
         this.game.locale.register(this.localize, this);
         this.events.on('shutdown', () => {
+            logger.info('Restoring playpage');
+
             if (window.jsAPI) window.jsAPI.showNav();
 
             this.game.locale.unregister(this.localize);
             this.game.unloadAssetPack('create-pack');
         });
 
+        logger.info('Hiding playpage navigation');
         if (window.jsAPI) window.jsAPI.hideNav();
 
         this.brandingContainer = this.game.fixDomGO(this.add.dom(
@@ -560,7 +567,10 @@ export default class Create extends Phaser.Scene {
             '<a href="https://policies.google.com/terms">Terms of Service</a> apply.'
         );
 
+        logger.info('Waiting for reCaptcha availability');
         grecaptcha.ready(() => {
+            logger.info('reCaptcha ready');
+
             let load = this.scene.get('Load') as Load;
             if (load.isShowing) load.waitAllTasksComplete().then(() => load.hide());
 
@@ -639,17 +649,18 @@ export default class Create extends Phaser.Scene {
         this.emailArea.textField.locked = false;
     }
 
-    async getFormData(token: string): Promise<CreateAccountPayload> {
+    async getFormData(token: string): Promise<CreateUserForm> {
         return {
             name: this.chooseNameArea.textField.value,
             color: this.colorSelector.selected.colorId,
-            password: await digest(this.passwordArea.textField1.value),
+            password: this.passwordArea.textField1.value,
             email: this.emailArea.textField.value,
             token
         };
     }
 
     async post(): Promise<void> {
+        logger.info('Checking for input errors before submission');
         this.lock();
 
         let hasErrors = false;
@@ -685,64 +696,72 @@ export default class Create extends Phaser.Scene {
             this.rulesArea.showError(this.game.locale.localize('create.NOT_AGREED_RULES', 'error_lang'));
         }
 
-        if (hasErrors) return this.unlock();
+        if (hasErrors) {
+            logger.info('Aborting submission due to input errors');
+            this.unlock();
+            return;
+        }
 
         this.preloader.visible = true;
+        let error = this.scene.get('ErrorArea') as ErrorArea;
 
+        logger.info('Creating user');
         try {
+            var { result: response } = await error.shield(async () => {
             let token = await grecaptcha.execute(__webpack_options__.RECAPTCHA_SITE_KEY, { action: 'register' });
-            var response = await this.game.airtower.createAccount(await this.getFormData(token));
+                return await this.game.airtower.createAccount(await this.getFormData(token));
+            }, e => {
+                if (e instanceof HTTPError && e.response.status == 422) throw e;
+
+                logger.error('Unhandled error during submission', e);
+
+                return error.createError({
+                    buttonCallback: () => {
+                        this.preloader.visible = false;
+                        this.unlock();
+                        return true;
+                    }
+                });
+            });
         } catch (e) {
-            if (e instanceof HTTPError) {
-                if (e.data?.error && Array.isArray(e.data?.error)) {
-                    for (let error of e.data?.error) {
-                        if ('msg' in error && 'loc' in error) {
-                            for (let loc of error.loc) {
-                                switch (loc) {
-                                    case 'name':
-                                        this.chooseNameArea.showError(error.msg);
-                                        break;
-                                    case 'password':
-                                        this.passwordArea.showError(error.msg);
-                                        break;
-                                    case 'email':
-                                        this.emailArea.showError(error.msg);
-                                        break;
-                                    default:
-                                        console.warn('Unknown error location!', error);
-                                        break;
-                                }
-                            }
+            if (e instanceof HTTPError && e.response.status == 422) {
+                for (let error in e.data?.error) {
+                    let err: { type: string, loc: string[], msg: string } = e.data?.error[error];
+                    for (let loc of err.loc) {
+                        switch (loc) {
+                            case 'name':
+                                this.chooseNameArea.showError(err.msg);
+                                break;
+                            case 'password':
+                                this.passwordArea.showError(err.msg);
+                                break;
+                            case 'email':
+                                this.emailArea.showError(err.msg);
+                                break;
+                            case 'body':
+                                // Root loc
+                                break;
+                            default:
+                                logger.warn('Unknown error location!', err.type, err.msg);
+                                break;
                         }
                     }
-
-                    this.preloader.visible = false;
-                    this.unlock();
-                    return;
                 }
+
+                this.preloader.visible = false;
+                this.unlock();
+                return;
             }
-
-            let error = this.scene.get('ErrorArea') as ErrorArea;
-            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.preloader.visible = false;
-                this.unlock();
-                return true;
-            }, error.makeCode('c', error.DEFAULT_ERROR));
-
-            throw e;
+            return;
         }
 
-        console.debug(response);
-
-        if (response.data?.create) this.show(this.confirmationState);
-        else {
-            let error = this.scene.get('ErrorArea') as ErrorArea;
-            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.DEFAULT_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.preloader.visible = false;
+        if (response && response.success) this.show(this.confirmationState);
+        else error.show(error.createError({
+            buttonCallback: () => {
                 this.unlock();
                 return true;
-            }, error.makeCode('c', error.DEFAULT_ERROR));
-        }
+            },
+        }));
 
         this.preloader.visible = false;
     }

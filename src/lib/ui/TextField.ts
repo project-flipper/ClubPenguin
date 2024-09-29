@@ -5,7 +5,7 @@ export type InputType = 'text' | 'password' | 'email';
 import Phaser from "phaser";
 import TextBox from "./TextBox";
 /* START-USER-IMPORTS */
-import { App } from "../../app/app";
+import { App } from "@clubpenguin/app/app";
 /* END-USER-IMPORTS */
 
 export default class TextField extends Phaser.GameObjects.Container {
@@ -181,7 +181,7 @@ export default class TextField extends Phaser.GameObjects.Container {
     }
 
     set autocomplete(value: string) {
-        this.html.autocomplete = value;
+        this.html.autocomplete = value as AutoFill;
     }
 
     get value(): string {

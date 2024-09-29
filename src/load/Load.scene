@@ -20,7 +20,6 @@
             "id": "e9ae3beb-d335-43e2-a74b-f96f7e4cc297",
             "label": "loadingScreen",
             "scope": "PUBLIC",
-            "components": [],
             "list": [
                 {
                     "type": "Image",
@@ -33,15 +32,13 @@
                         "key": "club_penguin"
                     },
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Sprite",
                     "id": "12bf1e6a-e579-4daf-adda-61d4d3773264",
                     "label": "pizzaToss",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "load",
                         "frame": "load-screen/pizzatoss0001"
@@ -49,15 +46,13 @@
                     "x": 665.7750244140625,
                     "y": 50.625,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Sprite",
                     "id": "5812f7c4-b1ec-42cd-bf0a-bac53edcd8b4",
                     "label": "snowShovel",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "load",
                         "frame": "load-screen/snowshovel0001"
@@ -65,8 +60,7 @@
                     "x": 576.3375244140625,
                     "y": 238.83749389648438,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "prefabId": "10612b7e-0951-4f04-b041-0dedb27bcf4f",
@@ -76,11 +70,8 @@
                         "y"
                     ],
                     "label": "cartSurfer",
-                    "components": [],
                     "x": 0,
-                    "y": 0,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "y": 0
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -103,15 +94,12 @@
                     "boxHeight": 52.2,
                     "horizontalAlign": 1,
                     "verticalAlign": 1,
-                    "components": [],
                     "x": 498.375,
                     "y": 657,
                     "text": "Loading Description Message Text",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36,
-                    "nestedPrefabs": [],
-                    "list": []
+                    "fontSize": -36
                 }
             ]
         },
@@ -120,7 +108,6 @@
             "id": "3c33c6cc-a4c3-43d0-b81d-969028caae4e",
             "label": "loadingDialog",
             "scope": "PUBLIC",
-            "components": [],
             "visible": false,
             "list": [
                 {
@@ -135,14 +122,12 @@
                     "alpha": 0.01,
                     "isFilled": true,
                     "width": 1710,
-                    "height": 1080,
-                    "list": []
+                    "height": 1080
                 },
                 {
                     "type": "NineSlice",
                     "id": "62855e84-16ff-4136-b3f0-fd478df18037",
                     "label": "dialog",
-                    "components": [],
                     "texture": {
                         "key": "load",
                         "frame": "load-screen/dialog"
@@ -156,8 +141,7 @@
                     "leftWidth": 112.5,
                     "rightWidth": 112.5,
                     "topHeight": 112.5,
-                    "bottomHeight": 112.5,
-                    "list": []
+                    "bottomHeight": 112.5
                 }
             ]
         },
@@ -166,7 +150,6 @@
             "id": "16fa91f8-2d33-42cc-8810-3af905cc77a6",
             "label": "spinnerMask",
             "scope": "PUBLIC",
-            "components": [],
             "texture": {
                 "key": "load",
                 "frame": "load-screen/mask"
@@ -175,8 +158,7 @@
             "y": 658.8,
             "originX": 0,
             "originY": 0,
-            "visible": false,
-            "list": []
+            "visible": false
         },
         {
             "prefabId": "8196999d-200a-46b7-a3f0-cbd391f66f97",
@@ -187,11 +169,8 @@
             ],
             "label": "spinner",
             "scope": "PUBLIC",
-            "components": [],
             "x": 730.8,
-            "y": 643.16,
-            "nestedPrefabs": [],
-            "list": []
+            "y": 643.16
         }
     ],
     "plainObjects": [],
@@ -199,7 +178,7 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     },
     "lists": [
         {

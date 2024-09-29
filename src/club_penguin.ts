@@ -1,24 +1,36 @@
+import "devtools-detect";
+import Phaser from "phaser";
+
 if ('Phaser' in global) delete global['Phaser'];
 Phaser.Plugins.PluginCache.register('Loader', LoaderPlugin, 'load');
 
-import 'devtools-detect';
-import Phaser from 'phaser';
-import { App } from './app/app';
-import Bootstrap from './boot/Bootstrap';
-import Startscreen from './start/Startscreen';
-import Create from './create/Create';
-import Login from './login/Login';
-import Redemption from './redemption/Redemption';
-import Load from './load/Load';
-import ErrorArea from './app/ErrorArea';
-import Notifications from './world/notifications/Notifications';
-import Engine from './world/engine/Engine';
-import InternalErrorArea from './app/InternalErrorArea';
-import Logo from './logo/Logo';
-import World from './world/World';
-import Interface from './world/interface/Interface';
-import { Debug } from './debug';
-import { LoaderPlugin } from './app/loader';
+import { App } from "@clubpenguin/app/app";
+import Bootstrap from "@clubpenguin/boot/Bootstrap";
+import Startscreen from "@clubpenguin/start/Startscreen";
+import Create from "@clubpenguin/create/Create";
+import Login from "@clubpenguin/login/Login";
+import Redemption from "@clubpenguin/redemption/Redemption";
+import Load from "@clubpenguin/load/Load";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import Notifications from "@clubpenguin/world/notifications/Notifications";
+import InternalErrorArea from "@clubpenguin/app/InternalErrorArea";
+import Logo from "@clubpenguin/logo/Logo";
+import World from "@clubpenguin/world/World";
+import Interface from "@clubpenguin/world/interface/Interface";
+import { Debug } from "@clubpenguin/debug";
+import { LoaderPlugin } from "@clubpenguin/app/loader";
+import { ColorLevelFormatter, getLogger, LogLevel } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP');
+logger.level = __webpack_options__.LOG_LEVEL ?? LogLevel.WARN;
+let colorFormat = {
+    [LogLevel.TRACE]: 'color:#FFFFFF;background-color:#616161',
+    [LogLevel.DEBUG]: 'color:#00021C;background-color:#1C608A',
+    [LogLevel.INFO]: 'color:#FFFFFF;background-color:#22A4F3',
+    [LogLevel.WARN]: 'color:#000000;background-color:#FFBC3A',
+    [LogLevel.ERROR]: 'color:#FFFFFF;background-color:#DB2C2C'
+};
+logger.formatter = new ColorLevelFormatter('%c{level}%c %c[%c{now}%c] [%c{name}%c] %c{msg}', ['', '', 'color:#616161', 'color:#0052AF', 'color:#616161', 'color:#22A4F3', 'color:#616161', ''], colorFormat);
 
 let app: App;
 
@@ -40,7 +52,8 @@ declare global {
     /* ========== WEBPACK VARIABLES ========== */
     const __webpack_options__: {
         EXPOSE_DEBUG: boolean,
-        RECAPTCHA_SITE_KEY: string
+        RECAPTCHA_SITE_KEY: string,
+        LOG_LEVEL: number
     };
     const __webpack_public_path__: string;
 
@@ -72,6 +85,7 @@ export function isBrowserCompatible(): boolean {
 export function run(params: RunParams): void {
     stop();
 
+    logger.info('Starting app');
     app = new App({
         parent: params.parentId,
         fullscreenTarget: params.parentId,
@@ -87,7 +101,6 @@ export function run(params: RunParams): void {
             Redemption,
             Startscreen,
             World,
-            Engine,
             Interface,
             Load,
             Logo,
@@ -97,7 +110,7 @@ export function run(params: RunParams): void {
         ],
         width: 1710,
         height: 1080,
-        type: Phaser.AUTO,
+        type: Phaser.WEBGL,
         scale: {
             mode: Phaser.Scale.FIT,
             autoCenter: Phaser.Scale.CENTER_BOTH
@@ -121,6 +134,7 @@ export function run(params: RunParams): void {
             default: 'matter',
             matter: {
                 gravity: {
+                    x: 0,
                     y: 0
                 },
                 enableSleeping: true,
@@ -139,9 +153,6 @@ export function run(params: RunParams): void {
                 if (params.elementId) app.canvas.id = params.elementId;
                 if (params.elementClassName) app.canvas.className = params.elementClassName;
 
-                app.canvas.addEventListener('contextlost', onAppCrash);
-                app.canvas.addEventListener('webglcontextlost', onAppCrash);
-
                 app.friends.init(params.mediaPath, app.airtower.createAvatarUrlCallback());
             }
         }
@@ -153,6 +164,7 @@ export function run(params: RunParams): void {
         minigameVersion: params.minigameVersion,
         environmentType: params.environmentType
     });
+    app.onCrash = onAppCrash;
 
     LoaderPlugin.cacheVersion = params.cacheVersion;
 }
@@ -163,6 +175,8 @@ export function isRunning(): boolean {
 
 export function sizeChange(repositionFriends = false): void {
     if (!isRunning()) return;
+
+    logger.info('Repositioning app');
 
     if (app.scale.getParentBounds()) app.scale.refresh();
     if (repositionFriends) app.friends.reposition();
@@ -224,10 +238,13 @@ export function sendToggleBestCharacter(id: string): void {
 
 export function stop(terminate = false): void {
     if (isRunning()) {
+        logger.info('Stopping app');
         //app.airtower.close();
         app.destroy(false, terminate);
     }
 }
+
+logger.info('Club Penguin ready');
 
 export let debug: Debug;
 

@@ -5,7 +5,7 @@ import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ErrorBubble from "../prefabs/ErrorBubble";
 import TextField from "../../lib/ui/TextField";
 /* START-USER-IMPORTS */
-import { Locale } from "../../app/locale";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class EmailArea extends Phaser.GameObjects.Container {

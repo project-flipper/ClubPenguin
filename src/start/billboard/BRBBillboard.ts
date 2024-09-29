@@ -3,8 +3,8 @@
 import Phaser from "phaser";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import type { App } from "../../app/app";
-import type { Locale } from "../../app/locale";
+import { App } from "@clubpenguin/app/app";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class BRBBillboard extends Phaser.GameObjects.Container {

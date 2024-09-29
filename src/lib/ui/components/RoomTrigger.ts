@@ -5,8 +5,8 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import type Engine from "../../../world/engine/Engine";
-import type { Avatar } from "../../../world/avatar/avatar";
+import { Engine } from "@clubpenguin/world/engine/engine";
+import { Player } from "@clubpenguin/world/engine/player/avatar";
 /* END-USER-IMPORTS */
 
 export default class RoomTrigger {
@@ -25,7 +25,7 @@ export default class RoomTrigger {
     }
 
     private gameObject: Phaser.GameObjects.Image;
-    public destination: string = "";
+    public destination: number;
     public playerX: number = 0;
     public playerY: number = 0;
 
@@ -51,12 +51,10 @@ export default class RoomTrigger {
         return test({}, point.x, point.y, this.gameObject);
     }
 
-    execute(engine: Engine, penguin: Avatar): void {
-        if (engine.player != penguin) return;
+    execute(engine: Engine, player: Player): void {
+        if (engine.player != player) return;
 
-        let room = engine.game.gameConfig.rooms[this.destination];
-        if (room) engine.joinRoom(room, this.playerX, this.playerY); // TODO: send join room instead
-        else console.warn(`Unknown room ID: ${this.destination}`)
+        engine.world.joinRoom(this.destination, this.playerX, this.playerY); // TODO: send join room instead
     }
 
     /* END-USER-CODE */

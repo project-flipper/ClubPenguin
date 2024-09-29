@@ -6,8 +6,8 @@ import CartSurfer from "./prefabs/CartSurfer";
 import TextBox from "../lib/ui/TextBox";
 import Spinner from "./prefabs/Spinner";
 /* START-USER-IMPORTS */
-import type { Task } from './tasks';
-import Logo from "../logo/Logo";
+import { Task } from "@clubpenguin/load/tasks";
+import Logo from "@clubpenguin/logo/Logo";
 /* END-USER-IMPORTS */
 
 export default class Load extends Phaser.Scene {
@@ -115,7 +115,7 @@ export default class Load extends Phaser.Scene {
     public loadingDialog!: Phaser.GameObjects.Container;
     public spinnerMask!: Phaser.GameObjects.Image;
     public spinner!: Spinner;
-    public loadingAnimations!: Array<Phaser.GameObjects.Sprite | CartSurfer>;
+    public loadingAnimations!: Array<Phaser.GameObjects.Sprite|CartSurfer>;
 
     /* START-USER-CODE */
 

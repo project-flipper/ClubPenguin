@@ -8,8 +8,8 @@ import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 import WorldTile from "../prefabs/WorldTile";
 /* START-USER-IMPORTS */
-import type { WorldDataPayload } from "../../net/types/login/worldData";
-import type { Locale } from "../../app/locale";
+import { WorldData } from "@clubpenguin/net/types/world";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class WorldSelect extends Phaser.GameObjects.Container {
@@ -157,9 +157,9 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    setup(data: WorldDataPayload): void {
+    setup(data: WorldData[]): void {
         for (let i = 0; i < 5; i++) {
-            let world = data.worlds[i];
+            let world = data[i];
             let tile = this.suggestedWorlds[i];
 
             if (!world) {
@@ -167,9 +167,11 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
                 continue;
             }
 
+            tile.worldData = world;
+
             tile.worldName.text = world.name;
             tile.buddy.visible = world.buddies;
-            tile.safeChat.visible = world.safeChat;
+            tile.safeChat.visible = world.safe_chat;
             tile.setPopulation(world.population);
         }
     }

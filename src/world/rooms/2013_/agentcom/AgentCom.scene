@@ -1,0 +1,22 @@
+{
+    "id": "32eb84bd-ab61-4490-be0d-f70d89819a1d",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "AgentCom",
+        "compilerOutputLanguage": "TYPE_SCRIPT"
+    },
+    "displayList": [],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

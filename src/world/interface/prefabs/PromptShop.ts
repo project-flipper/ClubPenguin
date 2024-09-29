@@ -57,17 +57,17 @@ export default class PromptShop extends Phaser.GameObjects.Container {
 
         // yesButton (components)
         const yesButtonButtonComponent = new ButtonComponent(yesButton);
-        yesButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/promptButton0001" };
-        yesButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/promptButton0002" };
-        yesButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/promptButton0003" };
+        yesButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptButton0001"};
+        yesButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptButton0002"};
+        yesButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/promptButton0003"};
         yesButtonButtonComponent.handCursor = true;
         yesButtonButtonComponent.pixelPerfect = true;
 
         // noButton (components)
         const noButtonButtonComponent = new ButtonComponent(noButton);
-        noButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/promptButton0001" };
-        noButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/promptButton0002" };
-        noButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/promptButton0003" };
+        noButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptButton0001"};
+        noButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptButton0002"};
+        noButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/promptButton0003"};
         noButtonButtonComponent.handCursor = true;
         noButtonButtonComponent.pixelPerfect = true;
 

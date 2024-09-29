@@ -1,0 +1,876 @@
+{
+    "id": "649d0f8c-7804-4619-94f6-0d33b4bb06fc",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/2013/book/book-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Book",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "805a340a-fe47-4735-bf52-f12a09b55a34",
+            "label": "book_base",
+            "texture": {
+                "key": "book",
+                "frame": "book/base"
+            },
+            "x": -136.35,
+            "y": -11.25,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "1834c96f-b2d5-4cec-9527-5dbbad5e2385",
+            "label": "artshowcase",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "book",
+                "frame": "book/artshowcase0001"
+            },
+            "x": 704.475,
+            "y": 187.2,
+            "originX": 0.48079,
+            "originY": 0.51911
+        },
+        {
+            "type": "Image",
+            "id": "59ae3dea-b6a1-41ac-8c7e-e6a74bb53b7d",
+            "label": "artshowcasebutton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "book",
+                "frame": "book/artshowcase0004"
+            },
+            "x": 704.475,
+            "y": 187.2,
+            "originX": 0.48079,
+            "originY": 0.51911,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "3f01315b-15b0-4f48-b0d5-73d7037a5b21",
+            "label": "mancalanotice",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"book\",\"frame\":\"book/mancalanotice0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"book\",\"frame\":\"book/mancalanotice0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "book",
+                "frame": "book/mancalanotice0001"
+            },
+            "x": 1571.4,
+            "y": 206.6625,
+            "originX": -0.01566,
+            "originY": -0.04476
+        },
+        {
+            "type": "Image",
+            "id": "c8003b98-14ff-4038-8411-aed5646602e5",
+            "label": "mancalatitle",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "book",
+                "frame": "book/mancalatitle0001"
+            },
+            "x": 1634,
+            "y": 342
+        },
+        {
+            "type": "Image",
+            "id": "4877aa13-0d67-443e-a505-3f421ae82fc9",
+            "label": "book_logo",
+            "texture": {
+                "key": "book",
+                "frame": "book/logo"
+            },
+            "x": 1140.4125,
+            "y": 219.825,
+            "originX": 0.49074803,
+            "originY": 0.49232472
+        },
+        {
+            "type": "Image",
+            "id": "571773b4-a63d-4cc2-8655-0b700285d040",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "book",
+                "frame": "book/block"
+            },
+            "x": -112.5,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "f0456b68-6bd5-466f-bd1f-d20a2ce430c3",
+            "label": "coffee_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 110,
+            "RoomTrigger.playerX": 1428.75,
+            "RoomTrigger.playerY": 708.75,
+            "texture": {
+                "key": "book",
+                "frame": "book/coffee_trigger"
+            },
+            "x": 1425.6,
+            "y": 458.55,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "4eafe303-0831-4ac0-92e6-29cd2d2721ed",
+            "label": "book_couch1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/couch1"
+            },
+            "x": 1578.15,
+            "y": 492.525,
+            "originX": 0.48875598,
+            "originY": 0.22683128
+        },
+        {
+            "type": "Image",
+            "id": "eb7b4727-a10c-40a9-a5a7-00a31383e16c",
+            "label": "book_table",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/table"
+            },
+            "x": 1598.9625,
+            "y": 738.9,
+            "originX": 0.49496296,
+            "originY": 0.19293103
+        },
+        {
+            "type": "Image",
+            "id": "420a3ff5-0b38-4ba6-816c-6755c4ab310a",
+            "label": "book_tableplant",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/tableplant"
+            },
+            "x": 1630.125,
+            "y": 670.5,
+            "originX": 0.44354286,
+            "originY": 0.45810811
+        },
+        {
+            "type": "Image",
+            "id": "578a7b6d-fbae-4c93-a3b2-ff02a7b82893",
+            "label": "book_couch2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/couch2"
+            },
+            "x": 1554.75,
+            "y": 824.85,
+            "originX": 0.49038462,
+            "originY": 0.12903226
+        },
+        {
+            "type": "Image",
+            "id": "b44e1663-b57b-4243-9ed6-c74516fbac21",
+            "label": "book_cubicleseparator",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/cubicleseparator"
+            },
+            "x": 999.1125,
+            "y": 774.675,
+            "originX": 0.4889011,
+            "originY": 0.87415301
+        },
+        {
+            "type": "Image",
+            "id": "f29d0615-8009-4bca-acfd-67c2c4d55a86",
+            "label": "book_deskback1",
+            "texture": {
+                "key": "book",
+                "frame": "book/deskback1"
+            },
+            "x": 1127.8125,
+            "y": 787.95,
+            "originX": 0.46936364,
+            "originY": 0.18685121
+        },
+        {
+            "type": "Image",
+            "id": "4214e0b7-5030-4c8d-adeb-e89e0a76d75a",
+            "label": "book_chair3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/chair3"
+            },
+            "x": 838.125,
+            "y": 808.9875,
+            "originX": 0.04968992,
+            "originY": 0.40934911
+        },
+        {
+            "type": "Image",
+            "id": "d2082e81-fb85-401f-bee7-d8d25a491938",
+            "label": "book_desk3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/desk3"
+            },
+            "x": 1004.85,
+            "y": 809.1,
+            "originX": 0.48333333,
+            "originY": 0.366139
+        },
+        {
+            "type": "Image",
+            "id": "4a39ff7e-054e-4e69-90bf-ca1eae6f356a",
+            "label": "books",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"book\",\"frame\":\"book/books0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"book\",\"frame\":\"book/books0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "book",
+                "frame": "book/books0001"
+            },
+            "x": 477.7875,
+            "y": 360.1125,
+            "originX": 0.48173387,
+            "originY": 0.48567976
+        },
+        {
+            "type": "Image",
+            "id": "71a651a2-2d72-4666-ada6-b1c171fe48df",
+            "label": "book_chair2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/chair2"
+            },
+            "x": 731.25,
+            "y": 339.1875,
+            "originX": 0.48772455,
+            "originY": 0.48151515
+        },
+        {
+            "type": "Image",
+            "id": "530365f0-8f4c-458e-920a-8d2f907a4cca",
+            "label": "book_desk2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/desk2"
+            },
+            "x": 700.425,
+            "y": 443.5875,
+            "originX": 0.49054264,
+            "originY": 0.43826389
+        },
+        {
+            "type": "Image",
+            "id": "eaa67936-c241-487d-af8b-536999bb39f1",
+            "label": "book_rack",
+            "texture": {
+                "key": "book",
+                "frame": "book/rack"
+            },
+            "x": 895.725,
+            "y": 375.75,
+            "originX": 0.50410714,
+            "originY": 0.72337748
+        },
+        {
+            "type": "Image",
+            "id": "1320b511-b52f-47d5-a27a-077c62629b58",
+            "label": "book_plant",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/plant"
+            },
+            "x": 897.525,
+            "y": 468.45,
+            "originX": 0.4795614,
+            "originY": 0.55837838
+        },
+        {
+            "type": "Image",
+            "id": "034d9144-2cf3-448c-9a63-020db5c6ff8f",
+            "label": "book_deskback",
+            "texture": {
+                "key": "book",
+                "frame": "book/deskback"
+            },
+            "x": 1133.1,
+            "y": 401.4,
+            "originX": 0.53571429,
+            "originY": 0.57698454
+        },
+        {
+            "type": "Image",
+            "id": "d1ecf102-9c64-4ebc-895d-9bf839ee3824",
+            "label": "book_separator",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/separator"
+            },
+            "x": 942.975,
+            "y": 523.35,
+            "originX": 0.4205681818181818,
+            "originY": 0.9438053097345133
+        },
+        {
+            "type": "Image",
+            "id": "eca095f8-c702-41a7-8e56-1135d81add5e",
+            "label": "book_railing",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/railing"
+            },
+            "x": 993.15,
+            "y": 531.675,
+            "originX": 0.6383720930232558,
+            "originY": 0.4775471698113207
+        },
+        {
+            "type": "Image",
+            "id": "25ff93e0-cdf9-4e9e-836a-aad6b0916ee7",
+            "label": "book_chair1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/chair1"
+            },
+            "x": 1202.0625,
+            "y": 460.2375,
+            "originX": 0.48316547,
+            "originY": 0.57979021
+        },
+        {
+            "type": "Image",
+            "id": "d5bf8594-2703-4c2c-9d84-e086f3069a0c",
+            "label": "book_desk1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/desk1"
+            },
+            "x": 1228.05,
+            "y": 487.9125,
+            "originX": 0.48892683,
+            "originY": 0.31981132
+        },
+        {
+            "type": "Image",
+            "id": "4eef0c76-5d79-472b-98ae-d4a690ccec47",
+            "label": "book_chair",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/chair"
+            },
+            "x": 540.45,
+            "y": 801.3375,
+            "originX": 0.41670455,
+            "originY": 0.07494624
+        },
+        {
+            "type": "Image",
+            "id": "51b5d829-b424-45ee-8289-0aac1f9437cf",
+            "label": "book_chair_1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/chair"
+            },
+            "x": 675.45,
+            "y": 801.3375,
+            "originX": 0.41670455,
+            "originY": 0.07494624
+        },
+        {
+            "type": "Image",
+            "id": "f454b73a-c508-4b0a-b1b2-a34060146832",
+            "label": "book_archives",
+            "texture": {
+                "key": "book",
+                "frame": "book/archives"
+            },
+            "x": 360.3375,
+            "y": 492.3,
+            "originX": 0.48373333,
+            "originY": 0.45182186
+        },
+        {
+            "type": "Image",
+            "id": "72378a70-c067-4290-a690-456c291bc45a",
+            "label": "book_box",
+            "texture": {
+                "key": "book",
+                "frame": "book/box"
+            },
+            "x": 108.9,
+            "y": 917.1,
+            "originX": 0.4880597,
+            "originY": 0.49017857
+        },
+        {
+            "type": "Image",
+            "id": "135cbc8b-c4c1-43b3-8af7-11a08e56a95a",
+            "label": "book_newspaperpile",
+            "texture": {
+                "key": "book",
+                "frame": "book/newspaperpile"
+            },
+            "x": 211.6125,
+            "y": 1028.1375,
+            "originX": 0.48302521,
+            "originY": 0.44313043
+        },
+        {
+            "type": "Image",
+            "id": "037c475a-6ad2-4d57-a19e-80b451c1e81e",
+            "label": "book_board",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/board"
+            },
+            "x": 317.025,
+            "y": 759.15,
+            "originX": 0.46631372549019606,
+            "originY": 0.7605633802816901
+        },
+        {
+            "type": "Image",
+            "id": "48426ae0-e797-4269-912d-ab50c39b9ec5",
+            "label": "boardLabel",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 760.15,
+            "texture": {
+                "key": "book",
+                "frame": "book/boardLabel0001"
+            },
+            "x": 360,
+            "y": 623
+        },
+        {
+            "type": "Image",
+            "id": "e511e5f0-ef0d-4f85-a479-489ac1bfd983",
+            "label": "times",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "book",
+                "frame": "book/times0001"
+            },
+            "x": 1154,
+            "y": 234
+        },
+        {
+            "prefabId": "515c2c01-ebbe-46d3-8f3d-47016c86159a",
+            "id": "8b7b13bb-0064-40e7-b33e-4a5b6bd516fb",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mancalaBoard1",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "x": 1399.1625,
+            "y": 640.575
+        },
+        {
+            "prefabId": "515c2c01-ebbe-46d3-8f3d-47016c86159a",
+            "id": "c01afb5d-65a1-405f-8978-aec1eaa715b5",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mancalaBoard2",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "x": 1260.7875,
+            "y": 739.575
+        },
+        {
+            "prefabId": "515c2c01-ebbe-46d3-8f3d-47016c86159a",
+            "id": "20a97269-9c00-495c-9b64-2febb734b931",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mancalaBoard3",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "x": 1447.2,
+            "y": 773.4375
+        },
+        {
+            "prefabId": "515c2c01-ebbe-46d3-8f3d-47016c86159a",
+            "id": "de063fe9-f1a5-4050-b273-569d17e96409",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "mancalaBoard4",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "x": 1319.175,
+            "y": 900.45
+        },
+        {
+            "type": "Image",
+            "id": "21a68f67-9815-4900-ad93-02d4c7f3f68e",
+            "label": "book_conveyorbelt",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 937.01,
+            "texture": {
+                "key": "book",
+                "frame": "book/conveyorbelt"
+            },
+            "x": -4.275,
+            "y": 571.725,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "ca110d99-ba35-452b-a235-7ef456836da6",
+            "label": "book_conveyorbase",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 937.01,
+            "texture": {
+                "key": "book",
+                "frame": "book/conveyorbase"
+            },
+            "x": -4.275,
+            "y": 571.725,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "c59c8ba7-daf0-4ef7-a6d7-f94e501b85e7",
+            "label": "conveyoritems",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 937.01,
+            "texture": {
+                "key": "book",
+                "frame": "book/conveyoritems0001"
+            },
+            "x": -130.5,
+            "y": 519.1875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "9a98bbcd-8825-444a-994c-ccd84d355e7a",
+            "label": "book_conveyorcover",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 937.01,
+            "texture": {
+                "key": "book",
+                "frame": "book/conveyorcover"
+            },
+            "x": 259.9875,
+            "y": 813.4875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "df2712c9-0099-4e40-a7f8-d15b2616df5e",
+            "label": "conveyorroll",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 937.01,
+            "texture": {
+                "key": "book",
+                "frame": "book/conveyorroll0001"
+            },
+            "x": 344.475,
+            "y": 836.2125,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "47084c08-ca84-477c-af40-152166b07d1e",
+            "label": "book_foreground",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/foreground"
+            },
+            "x": 857.1125,
+            "y": 1107.6,
+            "originY": 1
+        },
+        {
+            "type": "Image",
+            "id": "77811a42-4789-48d4-95ee-a62999260c9e",
+            "label": "book_arttitle",
+            "texture": {
+                "key": "book",
+                "frame": "book/arttitle"
+            },
+            "x": 710.325,
+            "y": 85.5
+        },
+        {
+            "type": "Image",
+            "id": "2f896680-9c63-4d8c-976b-b6d4faafd61d",
+            "label": "artlabel",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "book",
+                "frame": "book/artlabel0001"
+            },
+            "x": 710,
+            "y": 84
+        },
+        {
+            "type": "Image",
+            "id": "07abec02-4c1f-4a28-9ac8-fc81b2d794bd",
+            "label": "stairsbutton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "book",
+                "frame": "book/stairs0004"
+            },
+            "x": 1356.4125,
+            "y": 276.525,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "9301c76d-b109-4c72-83c2-495867aaf935",
+            "label": "stairslight",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "book",
+                "frame": "book/stairs0002"
+            },
+            "x": 1360,
+            "y": 278,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "3f7144dc-91d7-410b-bc9c-32c5f13de3d6",
+            "label": "chair1_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "PressureTrigger"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/chair1_trigger"
+            },
+            "x": 515.1375,
+            "y": 809.8875,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "78ce897e-88e8-42cf-b334-a09944e3e7a2",
+            "label": "chair2_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "PressureTrigger"
+            ],
+            "texture": {
+                "key": "book",
+                "frame": "book/chair2_trigger"
+            },
+            "x": 645.6375,
+            "y": 807.6375,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "e5dc897c-95eb-4b42-a094-ef399aeb3dd3",
+            "label": "book",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent",
+                "DepthEnabled"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"book\",\"frame\":\"book/book0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"book\",\"frame\":\"book/book0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1108,
+            "texture": {
+                "key": "book",
+                "frame": "book/book0001"
+            },
+            "x": 1566.5625,
+            "y": 909.3375,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "46350d44-1386-41f5-a013-59d71330a5b2",
+            "label": "booklabel",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1108,
+            "texture": {
+                "key": "book",
+                "frame": "book/booklabel0001"
+            },
+            "x": 1584,
+            "y": 942,
+            "originX": 0,
+            "originY": 0
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "c8859f73-2b60-430d-a6f3-ab7fe7cbae24",
+            "label": "triggers",
+            "objectIds": [
+                "f0456b68-6bd5-466f-bd1f-d20a2ce430c3",
+                "78ce897e-88e8-42cf-b334-a09944e3e7a2",
+                "3f7144dc-91d7-410b-bc9c-32c5f13de3d6"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}

@@ -1,5 +1,8 @@
-import EventEmitter from 'eventemitter3';
-import Phaser from 'phaser';
+import { getLogger } from "@clubpenguin/lib/log";
+import EventEmitter from "eventemitter3";
+import Phaser from "phaser";
+
+let logger = getLogger('CP.load.tasks');
 
 export type DonePayload = {
     ok: boolean,
@@ -13,9 +16,18 @@ export interface Task extends EventEmitter {
     didFail: boolean;
     isDone: boolean;
 
+    /**
+     * Wait until this task resolves. Custom data may be returned inside the data property of the result payload.
+     */
     wait(): Promise<DonePayload>;
 
+    /**
+     * Initializes binding. Useful to link together event systems.
+     */
     bind(): void;
+    /**
+     * Undoes any binding done previously as part of a cleanup.
+     */
     unbind(): void;
 }
 
@@ -26,9 +38,10 @@ export class LoaderTask extends EventEmitter implements Task {
 
     loader: Phaser.Loader.LoaderPlugin;
 
-    constructor(loader: Phaser.Loader.LoaderPlugin) {
+    constructor(label: string, loader: Phaser.Loader.LoaderPlugin) {
         super();
 
+        this.label = label;
         this.loader = loader;
         this.important = false;
         this.didFail = false;
@@ -101,27 +114,28 @@ export class PromiseTask extends EventEmitter implements Task {
         this.important = false;
         this.didFail = false;
 
-        this.wrapper = new Promise(async () => {
-            this.isDone = false;
+        this.wrap(callback);
+    }
 
-            try {
-                if (typeof callback === 'function') callback = callback(this);
+    async wrap(callback: ((task?: PromiseTask) => any) | Promise<any>): Promise<void> {
+        this.isDone = false;
 
-                let result = await Promise.resolve(callback);
+        try {
+            if (typeof callback === 'function') callback = callback(this);
 
-                this.isDone = true;
-                this._result = { ok: true, data: { value: result, reason: undefined } };
-                this.emit('done', this._result);
-            } catch (e) {
-                console.error('An error occurred on PromiseTask:', e);
+            let result = await Promise.resolve(callback);
 
-                this.isDone = true;
-                this.didFail = true;
-                this._result = { ok: false, data: { value: undefined, reason: e } };
-                this.emit('done', this._result);
-            }
+            this.isDone = true;
+            this._result = { ok: true, data: { value: result, reason: undefined } };
+            this.emit('done', this._result);
+        } catch (e) {
+            logger.error('An error occurred on PromiseTask:', e);
 
-        });
+            this.isDone = true;
+            this.didFail = true;
+            this._result = { ok: false, data: { value: undefined, reason: e } };
+            this.emit('done', this._result);
+        }
     }
 
     bind(): void { }

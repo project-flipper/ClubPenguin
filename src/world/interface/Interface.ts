@@ -27,17 +27,21 @@ import PromptInput from "./prefabs/PromptInput";
 import PromptError from "./prefabs/PromptError";
 import Hint from "./prefabs/Hint";
 /* START-USER-IMPORTS */
-import type { PenguinData } from "../../net/types/penguin/penguin";
-import type { Avatar } from "../avatar/avatar";
+import { UserData } from "@clubpenguin/net/types/user";
+import { Player } from "@clubpenguin/world/engine/player/avatar";
 import AvatarOverlay from "./prefabs/AvatarOverlay";
-import type World from "../World";
-import type Engine from "../engine/Engine";
-import type { Locale } from "../../app/locale";
-import type { App } from "../../app/app";
-import Load from "../../load/Load";
-import { LoaderTask } from "../../load/tasks";
-import ErrorArea from "../../app/ErrorArea";
-import { Emoji } from "../../net/types/chat/emoji";
+import World from "@clubpenguin/world/World";
+import { Engine } from "@clubpenguin/world/engine/engine";
+import { Locale } from "@clubpenguin/app/locale";
+import { App } from "@clubpenguin/app/app";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import { Emoji } from "@clubpenguin/net/types/message";
+import { GameConfig } from "@clubpenguin/app/config";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.world.interface');
 /* END-USER-IMPORTS */
 
 export default class Interface extends Phaser.Scene {
@@ -307,33 +311,33 @@ export default class Interface extends Phaser.Scene {
 
         // puffleButton (components)
         const puffleButtonButtonComponent = new ButtonComponent(puffleButton);
-        puffleButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        puffleButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        puffleButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        puffleButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        puffleButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        puffleButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         puffleButtonButtonComponent.handCursor = true;
         puffleButtonButtonComponent.pixelPerfect = true;
 
         // emojiButton (components)
         const emojiButtonButtonComponent = new ButtonComponent(emojiButton);
-        emojiButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        emojiButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        emojiButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        emojiButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        emojiButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        emojiButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         emojiButtonButtonComponent.handCursor = true;
         emojiButtonButtonComponent.pixelPerfect = true;
 
         // actionButton (components)
         const actionButtonButtonComponent = new ButtonComponent(actionButton);
-        actionButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        actionButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        actionButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        actionButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        actionButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        actionButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         actionButtonButtonComponent.handCursor = true;
         actionButtonButtonComponent.pixelPerfect = true;
 
         // snowballButton (components)
         const snowballButtonButtonComponent = new ButtonComponent(snowballButton);
-        snowballButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        snowballButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        snowballButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        snowballButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        snowballButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        snowballButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         snowballButtonButtonComponent.handCursor = true;
         snowballButtonButtonComponent.pixelPerfect = true;
 
@@ -353,49 +357,49 @@ export default class Interface extends Phaser.Scene {
 
         // chatButton (components)
         const chatButtonButtonComponent = new ButtonComponent(chatButton);
-        chatButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        chatButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        chatButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        chatButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        chatButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        chatButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         chatButtonButtonComponent.handCursor = true;
         chatButtonButtonComponent.pixelPerfect = true;
 
         // sendButton (components)
         const sendButtonButtonComponent = new ButtonComponent(sendButton);
-        sendButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        sendButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        sendButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        sendButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        sendButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        sendButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         sendButtonButtonComponent.handCursor = true;
         sendButtonButtonComponent.pixelPerfect = true;
 
         // playerButton (components)
         const playerButtonButtonComponent = new ButtonComponent(playerButton);
-        playerButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        playerButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        playerButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        playerButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        playerButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        playerButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         playerButtonButtonComponent.handCursor = true;
         playerButtonButtonComponent.pixelPerfect = true;
 
         // friendsButton (components)
         const friendsButtonButtonComponent = new ButtonComponent(friendsButton);
-        friendsButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        friendsButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        friendsButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        friendsButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        friendsButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        friendsButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         friendsButtonButtonComponent.handCursor = true;
         friendsButtonButtonComponent.pixelPerfect = true;
 
         // iglooButton (components)
         const iglooButtonButtonComponent = new ButtonComponent(iglooButton);
-        iglooButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        iglooButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        iglooButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        iglooButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        iglooButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        iglooButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         iglooButtonButtonComponent.handCursor = true;
         iglooButtonButtonComponent.pixelPerfect = true;
 
         // settingsButton (components)
         const settingsButtonButtonComponent = new ButtonComponent(settingsButton);
-        settingsButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/dockButton0001" };
-        settingsButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/dockButton0002" };
-        settingsButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/dockButton0003" };
+        settingsButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/dockButton0001"};
+        settingsButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/dockButton0002"};
+        settingsButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/dockButton0003"};
         settingsButtonButtonComponent.handCursor = true;
         settingsButtonButtonComponent.pixelPerfect = true;
 
@@ -405,36 +409,36 @@ export default class Interface extends Phaser.Scene {
 
         // mailIcon (components)
         const mailIconButtonComponent = new ButtonComponent(mailIcon);
-        mailIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/mailIcon0001" };
-        mailIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/mailIcon0002" };
+        mailIconButtonComponent.upTexture = {"key":"interface","frame":"interface/mailIcon0001"};
+        mailIconButtonComponent.overTexture = {"key":"interface","frame":"interface/mailIcon0002"};
         mailIconButtonComponent.handCursor = true;
         mailIconButtonComponent.pixelPerfect = true;
 
         // newsIcon (components)
         const newsIconButtonComponent = new ButtonComponent(newsIcon);
-        newsIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/newsIcon0001" };
-        newsIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/newsIcon0002" };
+        newsIconButtonComponent.upTexture = {"key":"interface","frame":"interface/newsIcon0001"};
+        newsIconButtonComponent.overTexture = {"key":"interface","frame":"interface/newsIcon0002"};
         newsIconButtonComponent.handCursor = true;
         newsIconButtonComponent.pixelPerfect = true;
 
         // safetyIcon (components)
         const safetyIconButtonComponent = new ButtonComponent(safetyIcon);
-        safetyIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/safetyIcon0001" };
-        safetyIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/safetyIcon0002" };
+        safetyIconButtonComponent.upTexture = {"key":"interface","frame":"interface/safetyIcon0001"};
+        safetyIconButtonComponent.overTexture = {"key":"interface","frame":"interface/safetyIcon0002"};
         safetyIconButtonComponent.handCursor = true;
         safetyIconButtonComponent.pixelPerfect = true;
 
         // mapIcon (components)
         const mapIconButtonComponent = new ButtonComponent(mapIcon);
-        mapIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/mapIcon0001" };
-        mapIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/mapIcon0002" };
+        mapIconButtonComponent.upTexture = {"key":"interface","frame":"interface/mapIcon0001"};
+        mapIconButtonComponent.overTexture = {"key":"interface","frame":"interface/mapIcon0002"};
         mapIconButtonComponent.handCursor = true;
         mapIconButtonComponent.pixelPerfect = true;
 
         // phoneIcon (components)
         const phoneIconButtonComponent = new ButtonComponent(phoneIcon);
-        phoneIconButtonComponent.upTexture = { "key": "interface", "frame": "interface/phoneIcon0001" };
-        phoneIconButtonComponent.overTexture = { "key": "interface", "frame": "interface/phoneIconOver" };
+        phoneIconButtonComponent.upTexture = {"key":"interface","frame":"interface/phoneIcon0001"};
+        phoneIconButtonComponent.overTexture = {"key":"interface","frame":"interface/phoneIconOver"};
         phoneIconButtonComponent.handCursor = true;
         phoneIconButtonComponent.pixelPerfect = true;
 
@@ -553,7 +557,7 @@ export default class Interface extends Phaser.Scene {
         this.playerNamecard.paperdoll.mask = mask;
 
         this.snowballCrosshair.on('release', () => {
-            this.engine.throwSnowball(this.engine.player, this.snowballCrosshair.x, this.snowballCrosshair.y);
+            this.world.throwSnowball(this.snowballCrosshair.x, this.snowballCrosshair.y);
             this.snowballCrosshair.visible = false;
         });
 
@@ -667,8 +671,12 @@ export default class Interface extends Phaser.Scene {
             if (!this.input.hitTestPointer(pointer).includes(this.emoteMenu.bg) && !this.input.hitTestPointer(pointer).includes(this.emojiButton)) this.emoteMenu.visible = false;
         });
 
-        this.engine.events.on('roomload', () => this.quickKeys = true);
-        this.engine.events.on('roomunload', () => this.quickKeys = false);
+        this.engine.on('room:load', () => this.quickKeys = true);
+        this.engine.on('room:unload', () => {
+            this.quickKeys = false;
+            this.closeAll();
+            this.clearAvatarOverlays();
+        });
 
         this.input.keyboard.createCombo('e1', { resetOnWrongKey: true, resetOnMatch: true });
         this.input.keyboard.createCombo('e2', { resetOnWrongKey: true, resetOnMatch: true });
@@ -695,7 +703,7 @@ export default class Interface extends Phaser.Scene {
         this.chat.handleKeyUp = (event) => {
             if (event.key == 'Enter') {
                 event.preventDefault();
-                this.sendMessage();
+                this.world.sendMessage();
                 return false;
             } else return true;
         }
@@ -714,7 +722,7 @@ export default class Interface extends Phaser.Scene {
     }
 
     get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+        return this.world.engine;
     }
 
     localize(locale: Locale): void {
@@ -732,7 +740,7 @@ export default class Interface extends Phaser.Scene {
     }
 
     showMap(): void {
-        this.loadContent(async () => (await import('../content/map/Map')).default);
+        this.loadContent(async () => (await import('@clubpenguin/world/content/map/Map')).default);
     }
 
     /* ============ INPUT ============ */
@@ -749,30 +757,30 @@ export default class Interface extends Phaser.Scene {
 
         switch (event.key) {
             case 'ArrowDown':
-                this.engine.actionSitDown();
+                this.world.sitDown();
                 event.stopPropagation();
                 break;
             case 'ArrowLeft':
-                this.engine.actionSitLeft();
+                this.world.sitLeft();
                 event.stopPropagation();
                 break;
             case 'ArrowUp':
-                this.engine.actionSitUp();
+                this.world.sitUp();
                 event.stopPropagation();
                 break;
             case 'ArrowRight':
-                this.engine.actionSitRight();
+                this.world.sitRight();
                 event.stopPropagation();
                 break;
             case 'Enter':
-                this.sendMessage();
+                this.world.sendMessage();
                 break;
             case 'w':
-                this.engine.actionWave();
+                this.world.wave();
                 event.stopPropagation();
                 break;
             case 'd':
-                this.engine.actionDance();
+                this.world.dance();
                 event.stopPropagation();
                 break;
             case 't':
@@ -784,15 +792,15 @@ export default class Interface extends Phaser.Scene {
                 break;
             case 'j':
                 let joke = Phaser.Math.RND.pick(this.game.gameConfig.jokes);
-                this.sendMessage(joke, true);
+                this.world.sendMessage(joke, true);
                 event.stopPropagation();
                 break;
             case '?':
-                this.sendEmoji('QUESTION');
+                this.world.sendEmoji(Emoji.QUESTION);
                 event.stopPropagation();
                 break;
             case '!':
-                this.sendEmoji('EXCLAMATION');
+                this.world.sendEmoji(Emoji.EXCLAMATION);
                 event.stopPropagation();
                 break;
         }
@@ -803,58 +811,58 @@ export default class Interface extends Phaser.Scene {
 
         switch (combo.keyCodes[1]) {
             case 49:
-                this.sendEmoji('LAUGHING');
+                this.world.sendEmoji(Emoji.LAUGHING);
                 break;
             case 50:
-                this.sendEmoji('HAPPY');
+                this.world.sendEmoji(Emoji.HAPPY);
                 break;
             case 51:
-                this.sendEmoji('INDIFFERENT');
+                this.world.sendEmoji(Emoji.INDIFFERENT);
                 break;
             case 52:
-                this.sendEmoji('SAD');
+                this.world.sendEmoji(Emoji.SAD);
                 break;
             case 53:
-                this.sendEmoji('SURPRISED');
+                this.world.sendEmoji(Emoji.SURPRISED);
                 break;
             case 54:
-                this.sendEmoji('POKING_OUT_TONGUE');
+                this.world.sendEmoji(Emoji.POKING_OUT_TONGUE);
                 break;
             case 55:
-                this.sendEmoji('WINKING');
+                this.world.sendEmoji(Emoji.WINKING);
                 break;
             case 56:
-                this.sendEmoji('SICK');
+                this.world.sendEmoji(Emoji.SICK);
                 break;
             case 57:
-                this.sendEmoji('MAD');
+                this.world.sendEmoji(Emoji.MAD);
                 break;
             case 48:
-                this.sendEmoji('UPSET');
+                this.world.sendEmoji(Emoji.UPSET);
                 break;
             case 70:
-                this.sendEmoji('FLOWER');
+                this.world.sendEmoji(Emoji.FLOWER);
                 break;
             case 71:
-                this.sendEmoji('CONTROLLER');
+                this.world.sendEmoji(Emoji.CONTROLLER);
                 break;
             case 72:
-                this.sendEmoji('HEART');
+                this.world.sendEmoji(Emoji.HEART);
                 break;
             case 80:
-                this.sendEmoji('PUFFLE');
+                this.world.sendEmoji(Emoji.PUFFLE);
                 break;
             case 77:
-                this.sendEmoji('COIN');
+                this.world.sendEmoji(Emoji.COIN);
                 break;
             case 76:
-                this.sendEmoji('SHAMROCK');
+                this.world.sendEmoji(Emoji.SHAMROCK);
                 break;
             case 67:
-                this.sendEmoji('COFFEE');
+                this.world.sendEmoji(Emoji.COFFEE);
                 break;
             case 84:
-                this.sendEmoji('TOOT');
+                this.world.sendEmoji(Emoji.TOOT);
                 this.lastFart = window.performance.now();
                 break;
         }
@@ -877,15 +885,15 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ AVATAR OVERLAYS ============ */
 
-    attachAvatarOverlay(penguin: Avatar): void {
-        let overlay = new AvatarOverlay(this, penguin.x, penguin.y);
+    attachPlayerOverlay(player: Player): void {
+        let overlay = new AvatarOverlay(this, player.x, player.y);
         this.avatarOverlays.add(overlay);
 
-        penguin.overlay = overlay;
+        player.overlay = overlay;
     }
 
-    removeAvatarOverlay(penguin: Avatar): void {
-        let overlay = penguin?.overlay;
+    removePlayerOverlay(player: Player): void {
+        let overlay = player?.overlay;
         this.avatarOverlays.remove(overlay);
     }
 
@@ -895,13 +903,14 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ NAMECARD ============ */
 
-    openNamecard(data: PenguinData): void {
-        if (this.world.isPlayer(data)) return this.openMyNamecard();
+    openNamecard(data: UserData): void {
+        if (this.world.isMyPlayer(data)) return this.openMyNamecard();
         if (this.playerNamecard.visible) {
             this.playerNamecard.visible = false;
             this.namecard.setPosition(this.playerNamecard.x, this.playerNamecard.y);
         }
 
+        this.namecard.paperdoll.clear();
         this.namecard.setup(data);
         this.namecard.visible = true;
     }
@@ -912,9 +921,11 @@ export default class Interface extends Phaser.Scene {
             this.playerNamecard.setPosition(this.namecard.x, this.namecard.y);
         }
 
-        let data = this.world.myPenguinData;
+        let data = this.world.myUser;
 
+        this.playerNamecard.paperdoll.clear();
         this.playerNamecard.setup(data);
+        this.playerNamecard.closeInventory();
         this.playerNamecard.visible = true;
     }
 
@@ -940,7 +951,7 @@ export default class Interface extends Phaser.Scene {
         let y = at.y;
 
         while ('parentContainer' in at && at.parentContainer != null) {
-            at = at.parentContainer
+            at = at.parentContainer as Phaser.Types.Math.Vector2Like;
             x += at.x;
             y += at.y;
         }
@@ -973,6 +984,12 @@ export default class Interface extends Phaser.Scene {
         this.promptBlock.visible = false;
     }
 
+    /* ============ END GAME ============ */
+
+    showEndGame(score: number, gameData: GameConfig): void {
+
+    }
+
     /* ============ CONTENT ============ */
 
     public currentContent: Content;
@@ -990,7 +1007,7 @@ export default class Interface extends Phaser.Scene {
             let contentScene = await new Promise<Content>(resolve => {
                 this.scene.add('interface-content', contentCls, true, {
                     ...data,
-                    oninit: (scene: Content) => load.track(new LoaderTask(scene.load)),
+                    oninit: (scene: Content) => load.track(new LoaderTask('Content loader', scene.load)),
                     onready: (scene: Content) => resolve(scene)
                 });
             });
@@ -1017,7 +1034,7 @@ export default class Interface extends Phaser.Scene {
                 return true;
             }, error.makeCode('c', error.LOAD_ERROR));
 
-            throw e;
+            logger.error('Content failed to load', e);
         }
     }
 

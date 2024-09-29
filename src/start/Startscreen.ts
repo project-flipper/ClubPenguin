@@ -5,11 +5,14 @@ import InputBlocker from "../lib/ui/components/InputBlocker";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 import TextBox from "../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import type Load from '../load/Load';
-import { LoaderTask } from '../load/tasks';
-import { Language, Locale } from "../app/locale";
-import type { App } from "../app/app";
-import type { BaseBillboard } from "./billboard/Billboard";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import { Language, Locale } from "@clubpenguin/app/locale";
+import { App } from "@clubpenguin/app/app";
+import { BaseBillboard } from "@clubpenguin/start/billboard/Billboard";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.start');
 /* END-USER-IMPORTS */
 
 export default class Startscreen extends Phaser.Scene {
@@ -118,8 +121,8 @@ export default class Startscreen extends Phaser.Scene {
 
         // createAccountButton (components)
         const createAccountButtonButtonComponent = new ButtonComponent(createAccountButton);
-        createAccountButtonButtonComponent.upTexture = { "key": "start", "frame": "start-screen/mainButton" };
-        createAccountButtonButtonComponent.overTexture = { "key": "start", "frame": "start-screen/mainButtonHover" };
+        createAccountButtonButtonComponent.upTexture = {"key":"start","frame":"start-screen/mainButton"};
+        createAccountButtonButtonComponent.overTexture = {"key":"start","frame":"start-screen/mainButtonHover"};
         createAccountButtonButtonComponent.handCursor = true;
 
         // createPenguinTextBox (prefab fields)
@@ -130,8 +133,8 @@ export default class Startscreen extends Phaser.Scene {
 
         // loginButton (components)
         const loginButtonButtonComponent = new ButtonComponent(loginButton);
-        loginButtonButtonComponent.upTexture = { "key": "start", "frame": "start-screen/mainButton" };
-        loginButtonButtonComponent.overTexture = { "key": "start", "frame": "start-screen/mainButtonHover" };
+        loginButtonButtonComponent.upTexture = {"key":"start","frame":"start-screen/mainButton"};
+        loginButtonButtonComponent.overTexture = {"key":"start","frame":"start-screen/mainButtonHover"};
         loginButtonButtonComponent.handCursor = true;
 
         // loginTextBox (prefab fields)
@@ -146,8 +149,8 @@ export default class Startscreen extends Phaser.Scene {
 
         // memberButton (components)
         const memberButtonButtonComponent = new ButtonComponent(memberButton);
-        memberButtonButtonComponent.upTexture = { "key": "start", "frame": "start-screen/memberButton" };
-        memberButtonButtonComponent.overTexture = { "key": "start", "frame": "start-screen/memberButtonHover" };
+        memberButtonButtonComponent.upTexture = {"key":"start","frame":"start-screen/memberButton"};
+        memberButtonButtonComponent.overTexture = {"key":"start","frame":"start-screen/memberButtonHover"};
         memberButtonButtonComponent.handCursor = true;
 
         // membershipTextBox (prefab fields)
@@ -198,7 +201,7 @@ export default class Startscreen extends Phaser.Scene {
     init(): void {
         let load = this.scene.get('Load') as Load;
 
-        load.track(new LoaderTask(this.load));
+        load.track(new LoaderTask('Startscreen loader', this.load));
         if (!load.isShowing) load.show();
     }
 
@@ -228,19 +231,21 @@ export default class Startscreen extends Phaser.Scene {
         if (!load.isShowing) load.show();
 
         try {
-            let billboardCls = (await import('./billboard/Billboard')).default(this);
-            let task = load.track(new LoaderTask(this.load));
+            let billboardCls = (await import('@clubpenguin/start/billboard/Billboard')).default(this);
+            let task = load.track(new LoaderTask('Billboard loader', this.load));
             billboardCls.preload(this.load);
-            this.load.start();
 
+            logger.info('Loading billboard');
+            this.load.start();
             await task.wait();
 
             let billboard = new billboardCls(this, 0, 0);
             this.billboardContainer.add(billboard);
 
+            logger.info('Billboard ready');
             this.billboard = billboard;
         } catch (e) {
-            console.error('Billboard failed to load', e)
+            logger.error('Billboard failed to load', e);
         }
 
         this.game.locale.register(this.localize, this);

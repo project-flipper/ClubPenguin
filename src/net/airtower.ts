@@ -1,8 +1,10 @@
 import Phaser from "phaser";
-import type { App } from "../app/app";
-import { ApiResponse, LoginResponse } from "./types/api";
-import { GraphQLResponse } from "./types/graphql";
-import { CreateAccountPayload } from "./types/account/createAccount";
+
+import { App } from "@clubpenguin/app/app";
+import { ApiResponse, CreateUserResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse, CreateUserForm } from "@clubpenguin/net/types/api";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.net.airtower');
 
 /**
  * The base error used by Airtower.
@@ -28,6 +30,11 @@ export class HTTPError extends Error {
         this.data = data;
     }
 }
+
+/**
+ * Represents a 401 HTTP request.
+ */
+export class Unauthorized extends HTTPError { }
 
 /**
  * Represents a 403 HTTP request.
@@ -60,16 +67,18 @@ export class ServerError extends HTTPError { }
 export class Route<M = string> {
     public method: M;
     public path: string;
+    public mapping: Record<string, any>;
     public searchParams: Record<string, any>;
 
     /**
      * @param method The HTTP method to which this route will be requested.
-     * @param path A relative URL that will be appended to the base API path.
-     * @param searchParams The mapped querystring to add to this request.
+     * @param path A relative URL that will be appended to the base API path. Do NOT include entity data, use the mapping parameter instead.
+     * @param mapping The mapped object for path replacement when resolving to a URL.
      */
-    constructor(method: M, path: string) {
+    constructor(method: M, path: string, mapping?: Record<string, any>) {
         this.method = method;
         this.path = path;
+        this.mapping = mapping;
     }
 
     /**
@@ -88,7 +97,13 @@ export class Route<M = string> {
      * @returns The constructed URL.
      */
     getURL(base: string): URL {
-        let url = new URL(base + this.path);
+        let path = this.path;
+
+        for (let key in this.mapping) {
+            path = path.replace(new RegExp('{' + key + '}', 'gi'), this.mapping[key]);
+        }
+
+        let url = new URL(base + path);
 
         if (this.searchParams) {
             for (let prop in this.searchParams) url.searchParams.append(prop, this.searchParams[prop]);
@@ -98,20 +113,28 @@ export class Route<M = string> {
     }
 }
 
+/**
+ * Creates a promise that fulfills after n milliseconds.
+ * @param ms The number of milliseconds to sleep for.
+ */
 export function sleep(ms?: number): Promise<void> {
     return new Promise<void>(resolve => {
         setTimeout(() => resolve(), ms);
     });
 }
 
-export async function digest(password: string): Promise<string> {
-    let buffer = new TextEncoder().encode(password);
-    let digest = await crypto.subtle.digest('SHA-256', buffer);
-    let hashArray = Array.from(new Uint8Array(digest));
-    return hashArray
-        .map((b) => b.toString(16).padStart(2, '0'))
-        .join('');
-}
+/**
+ * The available options to perform a request with {@link Airtower.request}.
+ */
+type RequestOptions = {
+    headers?: Record<string, string>,
+    json?: any,
+    form?: { [key: string]: any },
+    body?: any,
+    handleRatelimit?: boolean,
+    handleUnauthorized?: boolean,
+    authorization?: string
+};
 
 /**
  * The game API wrapper.
@@ -120,6 +143,7 @@ export async function digest(password: string): Promise<string> {
  */
 export class Airtower extends Phaser.Events.EventEmitter {
     Route = Route;
+
     public app: App;
     public basePath: string;
 
@@ -140,11 +164,14 @@ export class Airtower extends Phaser.Events.EventEmitter {
      */
     createAvatarUrlCallback(): (id: string, params: { size: number, language: string, photo: boolean, bypassPlayerSettingCache: boolean }) => string {
         return (id: string, params: { size: number, language: string, photo: boolean, bypassPlayerSettingCache: boolean }) => {
-            return new Route('GET', `/penguin/${id}/avatar`).query(params).getURL(this.basePath).href;
+            return new Route('GET', `/avatars/${id}`).query(params).getURL(this.basePath).href;
         };
     }
 
     #token: string;
+    #key: string;
+
+    #ws: WebSocket;
 
     /**
      * Makes a request to the game API.
@@ -152,10 +179,13 @@ export class Airtower extends Phaser.Events.EventEmitter {
      * @param param1 The parameters to use for this request.
      * @returns The response from the API.
      */
-    async request<R = ApiResponse<any, any>>(route: Route, { headers: extraHeaders, json, form, body, handleRatelimit }: { headers?: Record<string, string>, json?: any, form?: { [key: string]: any }, body?: any, handleRatelimit?: boolean }): Promise<R> {
+    async request<R = ApiResponse<any, any>>(route: Route, { headers: extraHeaders, json, form, body, handleRatelimit, handleUnauthorized, authorization }: RequestOptions): Promise<R> {
         let params: RequestInit = {
             method: route.method
         };
+
+        if (handleRatelimit == undefined) handleRatelimit = true;
+        if (handleUnauthorized == undefined) handleUnauthorized = true;
 
         let headers: HeadersInit = {
             'Accept-Language': this.app.locale.abbreviation,
@@ -170,16 +200,19 @@ export class Airtower extends Phaser.Events.EventEmitter {
             for (let prop in form) params.body.append(prop, form[prop]);
         } else params.body = body;
 
-        if (this.#token) headers['Authorization'] = `Bearer ${this.#token}`;
+        if (authorization) headers['Authorization'] = `Bearer ${authorization}`;
+        else if (this.#token) headers['Authorization'] = `Bearer ${this.#token}`;
 
         params.headers = headers;
 
         let response: Response;
         let data: R;
         for (let tries = 0; tries < 5; tries++) {
+            logger.info(route.method, route.path);
             response = await fetch(route.getURL(this.basePath), params);
 
             data = await response.json();
+            logger.debug(route.method, route.path, 'has received', data);
 
             if (response.status >= 200 && 300 > response.status) {
                 return data;
@@ -202,7 +235,20 @@ export class Airtower extends Phaser.Events.EventEmitter {
                 continue;
             }
 
-            if (response.status == 403) throw new Forbidden(response, data);
+            if (response.status == 401) {
+                if (handleUnauthorized) {
+                    try {
+                        await this.refresh();
+                        headers['Authorization'] = `Bearer ${this.#token}`;
+                        continue;
+                    } catch(e) {
+                        logger.error('Unable to refresh token', e);
+                    }
+                }
+
+                throw new Unauthorized(response, data);
+            }
+            else if (response.status == 403) throw new Forbidden(response, data);
             else if (response.status == 404) throw new NotFound(response, data);
             else if (response.status >= 500) throw new ServerError(response, data);
             else throw new HTTPError(response, data);
@@ -217,72 +263,173 @@ export class Airtower extends Phaser.Events.EventEmitter {
         throw new Error('HTTP request failed.');
     }
 
-    /**
-     * Requests a GraphQL resource.
-     * Only GET and POST methods are allowed.
-     */
-    graphQL<R extends GraphQLResponse<any, any>>(route: Route<'POST'>, body: any, { headers, handleRatelimit }: { headers?: Record<string, string>, handleRatelimit?: boolean }): Promise<R> {
-        let params: {
-            headers: Record<string, string>,
-            json?: any,
-            body?: string,
-            handleRatelimit?: boolean
-        } = {
-            headers,
-            handleRatelimit,
-            json: body
-        };
-
-        return this.request(route, params);
-    }
-
     /* REST ENDPOINTS */
 
+    /* ============ AUTH ============ */
+
     /**
-     * Logs into an existing account, and starts a session for further API requests.
+     * Logs into an existing account using credentials, and starts a session for further API requests.
      * This request should be made before attempting to call other game APIs.
      * @param username The username of the account.
-     * @param password The password to use. This is passed as-is to the request, so make sure to digest it first.
-     * @param saveSession Whether the API should return a resumable token.
+     * @param password The password to use.
      * @returns The response from the API.
      */
-    async logIn(username: string, password: string, saveSession: boolean): Promise<LoginResponse> {
-        let response = await this.request<LoginResponse>(new Route('POST', '/login/auth'), {
+    async logIn(username: string, password: string): Promise<LoginResponse> {
+        logger.info('Logging in');
+
+        let response = await this.request<LoginResponse>(new Route('POST', '/auth/login'), {
             form: {
                 username: username,
                 password: password,
-                save_session: saveSession,
+                save_session: true,
                 grant_type: 'password'
-
             },
-            handleRatelimit: false
+            handleRatelimit: false,
+            handleUnauthorized: false
         });
 
-        if (response.success) this.#token = response.data.access_token;
+        if (response.success) {
+            this.#token = response.data.access_token;
+            this.#key = response.data.session_key;
+        }
 
         return response;
     }
 
     /**
-     * Tests for an OAuth session.
+     * Refreshes a connection using an access token. Must have previously called {@link Airtower.logIn}.
      * @returns The response from the API.
      */
-    test(): Promise<ApiResponse<any, any>> {
-        return this.request(new Route('GET', '/login/test'), {});
+    async refresh(): Promise<LoginResponse> {
+        if (!this.#key) throw new Error('Cannot refresh without logging in');
+
+        logger.info('Refreshing access token');
+
+        let response = await this.request<LoginResponse>(new Route('POST', '/auth/refresh'), {
+            authorization: this.#key,
+            handleRatelimit: false,
+            handleUnauthorized: false
+        });
+
+        if (response.success) {
+            this.#token = response.data.access_token;
+        }
+
+        return response;
     }
 
-    /* GRAPHL ENDPOINTS */
+    /* ============ WORLDS ============ */
 
-    createAccount(payload: CreateAccountPayload): Promise<GraphQLResponse> {
-        return this.graphQL(new Route('POST', '/data/graphql/user'), {
-            query: `
-            mutation CreateAccount($data: CreateUserType!) {
-                create(userData: $data) {
-                    id
-                }
+    /**
+     * Queries the API for a list of available worlds to connect to.
+     * @returns The response from the API.
+     */
+    async getWorlds(): Promise<WorldsResponse> {
+        return await this.request<WorldsResponse>(new Route('GET', '/worlds/').query({ lang: this.app.locale.bitmask }), {});
+    }
+
+    connect(url: string): Promise<void> {
+        return new Promise((resolve, reject) => {
+            this.disconnect(1000);
+            this.#ws = new WebSocket(url);
+            this.#ws.onopen = () => {
+                logger.info('WebSocket connection opened');
+                this.emit('ws:open');
+                resolve();
+            };
+            this.#ws.onerror = () => {
+                logger.error('WebSocket connection closed due to an error');
+                this.emit('ws:error');
+                this.#ws = undefined;
+                reject();
+            };
+            this.#ws.onmessage = event => {
+                logger.debug('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', event.data);
+                this.emit('ws:message', event.data);
+            };
+            this.#ws.onclose = event => {
+                logger.info('WebSocket connection closed', event.code, event.reason);
+                this.emit('ws:close', event.code, event.reason);
+                this.#ws = undefined;
+            };
+        });
+    }
+
+    isConnected(): boolean {
+        return this.#ws && this.#ws.readyState == this.#ws.OPEN;
+    }
+
+    send(payload: any): void {
+        if (this.isConnected()) {
+            let data = JSON.stringify(payload);
+            this.#ws.send(data);
+            logger.debug('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', data);
+        } else throw new Error('Connection not yet established');
+    }
+
+    async sendAuth(): Promise<void> {
+        let response = await this.refresh();
+        this.send({
+            op: 'auth',
+            d: {
+                token: response.data.access_token
             }
-            `,
-            variables: { data: payload }
-        }, {});
+        });
+    }
+
+    disconnect(code?: number, reason?: string): void {
+        if (this.#ws) {
+            this.#ws.close(code, reason);
+            this.#ws = undefined;
+        }
+    }
+
+    /* ============ USERS ============ */
+
+    /**
+     * Creates a new user.
+     * @param payload The form to submit to create a new account.
+     * @returns The response from the API.
+     */
+    async createAccount(payload: CreateUserForm): Promise<CreateUserResponse> {
+        return await this.request(new Route('PUT', '/users/'), {
+            json: payload
+        });
+    }
+
+    /**
+     * Queries the API for our current user data.
+     * @returns The response from the API
+     */
+    async getMyUser(): Promise<MyUserResponse> {
+        return await this.request<MyUserResponse>(new Route('GET', '/users/'), {});
+    }
+
+    /**
+     * Queries for a specific user.
+     * @param userId The user ID to query.
+     * @returns The response from the API.
+     */
+    async getUserById(userId: number): Promise<UserResponse> {
+        return await this.request<UserResponse>(new Route('GET', '/users/{userId}', { userId }), {});
+    }
+
+    /**
+     * Queries for a specific user.
+     * @param username The username to query.
+     * @returns The response from the API.
+     */
+    async getUserByName(username: string): Promise<UserResponse> {
+        return await this.request<UserResponse>(new Route('GET', '/users/search').query({ username }), {});
+    }
+
+    /* ============ FRIENDS ============ */
+
+    /**
+     * Queries the API for the current friends list.
+     * @returns The response from the API
+     */
+    async getFriends(): Promise<FriendsResponse> {
+        return await this.request<FriendsResponse>(new Route('GET', '/friends/'), {});
     }
 }

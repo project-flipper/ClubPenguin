@@ -1,3 +1,6 @@
+import { WorldData } from "./world";
+import { MyUserData, UserData } from "./user";
+
 export type ApiError = {
     error_type: string,
     error_code: number,
@@ -21,3 +24,21 @@ export type LoginResponse = ApiResponse<{
     token_type: string,
     session_key: string
 }, BanError>;
+
+export type WorldsResponse = ApiResponse<WorldData[]>;
+
+export type CreateUserForm = {
+    name: string,
+    color: number,
+    password: string,
+    email: string,
+    token: string,
+};
+
+export type CreateUserResponse = ApiResponse<number>;
+
+export type MyUserResponse = ApiResponse<MyUserData>;
+
+export type FriendsResponse = ApiResponse<UserData[]>;
+
+export type UserResponse = ApiResponse<UserData>;

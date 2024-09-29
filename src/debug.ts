@@ -1,20 +1,29 @@
-import { App } from './app/app';
-import Config from './app/config';
-import { Airtower } from './net/airtower';
-import { Membership } from './net/types/penguin/membership';
-import { PenguinData } from './net/types/penguin/penguin';
-import { RelationshipType } from './net/types/penguin/relationship';
-import { Avatar as AvatarData } from './net/types/penguin/avatar';
-import World from './world/World';
-import { Avatar } from './world/avatar/avatar';
-import Engine, { Room } from './world/engine/Engine';
-import Interface from './world/interface/Interface';
+import { App } from "@clubpenguin/app/app";
+import Config from "@clubpenguin/app/config";
+import { Airtower } from "@clubpenguin/net/airtower";
+import { MembershipData } from "@clubpenguin/net/types/membership";
+import { UserData } from "@clubpenguin/net/types/user";
+import { RelationshipType } from "@clubpenguin/net/types/relationship";
+import { AvatarData as AvatarData } from "@clubpenguin/net/types/avatar";
+import World from "@clubpenguin/world/World";
+import { Avatar } from "@clubpenguin/world/engine/player/avatar";
+import Interface from "@clubpenguin/world/interface/Interface";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { getLogger } from "@clubpenguin/lib/log";
+import { ItemType } from "./world/engine/clothing/itemType";
+
+let logger = getLogger('CP.debug');
 
 export class Debug {
     appCallback: () => App;
 
     constructor(callback: () => App) {
         this.appCallback = callback;
+        logger.info('Debug layer available under %cCP.debug', 'font-weight: bold');
+        window.addEventListener("error", e => {
+            console.error(e.error);
+            localStorage.setItem('lastError', `"${e.message}" thrown at ${e.filename}:${e.lineno}`);
+        });
     }
 
     get app(): App {
@@ -30,7 +39,7 @@ export class Debug {
     }
 
     get engine(): Engine {
-        return this.app.scene.getScene('Engine') as Engine;
+        return this.world.engine;
     }
 
     get room(): Room {
@@ -52,13 +61,13 @@ export class Debug {
     INTERNAL_ID = 10000;
 
     async spawn(name: string, color: number, member?: number, mascotId?: number): Promise<void> {
-        let membership: Membership = member != undefined ? {
+        let membership: MembershipData = member != undefined ? {
             level: member,
             since: ''
         } : undefined;
 
-        let data: PenguinData = {
-            id: this.INTERNAL_ID.toString(),
+        let data: UserData = {
+            id: this.INTERNAL_ID,
             username: name,
             nickname: name,
             avatar: {
@@ -72,19 +81,20 @@ export class Debug {
                 photo: 0,
                 flag: 0
             },
-            publicStampbook: false,
+            public_stampbook: false,
             member: membership,
-            mascotId,
+            mascot_id: mascotId,
             relationship: {
                 type: RelationshipType.FRIEND,
                 since: ''
             }
         };
 
-        let avatar = await this.engine.loadAvatar('penguin');
-        this.engine.addPenguin(data, avatar, this.engine.cameras.main.centerX, this.engine.cameras.main.centerY + 200);
+        let player = await this.engine.players.createPlayer(data, this.world.cameras.main.centerX, this.world.cameras.main.centerY + 200);
+        this.engine.players.addPlayer(player);
 
         this.INTERNAL_ID += 1;
+        logger.debug('Added mock player with ID', player.userData.id);
     }
 
     getItemsByType() {
@@ -110,23 +120,23 @@ export class Debug {
             colors.push(parseInt(idx));
         }
 
-        let avatar = await this.engine.loadAvatar('penguin');
         limit = limit ?? this.engine.currentRoom.roomData.max_users;
 
         let actions: number[] = [
             0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
         ];
 
+        logger.debug('Starting stress test using', limit, 'mocked players');
         for (let i = 0; i < limit; i++) {
             let randomRank = Math.floor(Math.random() * 5);
-            let member: Membership = randomRank > 0 ? {
+            let member: MembershipData = randomRank > 0 ? {
                 level: randomRank,
                 since: ''
             } : undefined;
             let username = `P${this.INTERNAL_ID}`;
 
-            let data: PenguinData = {
-                id: this.INTERNAL_ID.toString(),
+            let data: UserData = {
+                id: this.INTERNAL_ID,
                 username,
                 nickname: username,
                 avatar: {
@@ -140,7 +150,7 @@ export class Debug {
                     photo: this.getRandomItem(itemsByType[9]),
                     flag: 0,
                 },
-                publicStampbook: Boolean(Math.floor(Math.random() * 2)),
+                public_stampbook: Boolean(Math.floor(Math.random() * 2)),
                 member,
                 relationship: {
                     type: RelationshipType.FRIEND,
@@ -148,11 +158,69 @@ export class Debug {
                 }
             };
 
-            let penguin = this.engine.addPenguin(data, avatar, this.engine.cameras.main.centerX + this.randomRange(-350, +350), this.engine.cameras.main.centerY + this.randomRange(0, +400));
-            penguin.playAnimation(this.getRandomItem(actions));
+            let player = await this.engine.players.createPlayer(data, this.world.cameras.main.centerX + this.randomRange(-350, +350), this.world.cameras.main.centerY + this.randomRange(0, +400));
+            this.engine.players.addPlayer(player);
+            player.actions.set({ player: data.id, frame: this.getRandomItem(actions) });
 
             this.INTERNAL_ID += 1;
         }
+    }
+
+    putItem(id: number): void {
+        let item = this.app.gameConfig.paper_items[id];
+        if (!item) {
+            logger.error('Item not found');
+            return;
+        }
+
+        let player = this.world.engine.player;
+        let user = player.userData;
+        switch (item.type) {
+            case ItemType.COLOR:
+                user.avatar.color = id;
+                break;
+            case ItemType.HEAD:
+                user.avatar.color = id;
+                break;
+            case ItemType.FACE:
+                user.avatar.face = id;
+                break;
+            case ItemType.NECK:
+                user.avatar.neck = id;
+                break;
+            case ItemType.BODY:
+                user.avatar.body = id;
+                break;
+            case ItemType.HAND:
+                user.avatar.hand = id;
+                break;
+            case ItemType.FEET:
+                user.avatar.feet = id;
+                break;
+            case ItemType.FLAG:
+                user.avatar.flag = id;
+                break;
+            case ItemType.PHOTO:
+                user.avatar.photo = id;
+                break;
+            case ItemType.BOOK:
+            default:
+                logger.error('Item type invalid', item.type);
+                return;
+        }
+
+        this.world.handle({
+            op: 'player:update',
+            d: {
+                user,
+                x: player.x,
+                y: player.y,
+                action: {
+                    frame: 0,
+                    player: user.id
+                }
+            }
+        });
     }
 
     getRandomAvatar(): AvatarData {
@@ -186,21 +254,23 @@ export class Debug {
     }
 
     teleport(roomId: number): void {
-        let roomConfig = this.gameConfig.rooms[roomId.toString()];
-        if (!roomConfig) return;
-        console.log('Mocking room join on room', roomConfig);
-        this.engine.joinRoom(roomConfig);
+        logger.debug('Joining room', roomId);
+        this.world.joinRoom(roomId);
     }
 
     play(gameId: string): void {
-        let gameConfig = this.gameConfig.games[gameId];
-        if (!gameConfig) return;
-        console.log('Loading game', gameConfig);
-        this.engine.startGame(gameConfig);
+        logger.debug('Starting game', gameId);
+        this.world.startGame(gameId);
     }
 
-    changeLanguage(language: string): void {
+    async changeLanguage(language: string): Promise<void> {
+        logger.debug('Changing game language to', language);
         this.app.locale.setLanguage(language);
-        this.app.locale.load();
+        try {
+            await this.app.locale.load();
+            logger.warn('Game language successfully changed. Some features will remain unchanged until a full reload is performed');
+        } catch(e) {
+            logger.error('Couldn\'t change game language', e);
+        }
     }
 }

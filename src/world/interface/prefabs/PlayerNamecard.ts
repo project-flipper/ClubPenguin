@@ -10,9 +10,9 @@ import Paperdoll from "../../../lib/ui/Paperdoll";
 import TextBox from "../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
 /* START-USER-IMPORTS */
-import type Interface from "../Interface";
-import type { MyPenguinData } from "../../../net/types/penguin/penguin";
-import { Locale } from "../../../app/locale";
+import Interface from "../Interface";
+import { MyUserData } from "@clubpenguin/net/types/user";
+import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 
 export default class PlayerNamecard extends Phaser.GameObjects.Container {
@@ -153,17 +153,17 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
 
         // inventoryBackButton (components)
         const inventoryBackButtonButtonComponent = new ButtonComponent(inventoryBackButton);
-        inventoryBackButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/inventoryBackButton0001" };
-        inventoryBackButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/inventoryBackButton0002" };
-        inventoryBackButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/inventoryBackButton0003" };
+        inventoryBackButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryBackButton0001"};
+        inventoryBackButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryBackButton0002"};
+        inventoryBackButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryBackButton0003"};
         inventoryBackButtonButtonComponent.handCursor = true;
         inventoryBackButtonButtonComponent.pixelPerfect = true;
 
         // inventoryNextButton (components)
         const inventoryNextButtonButtonComponent = new ButtonComponent(inventoryNextButton);
-        inventoryNextButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/inventoryNextButton0001" };
-        inventoryNextButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/inventoryNextButton0002" };
-        inventoryNextButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/inventoryNextButton0003" };
+        inventoryNextButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryNextButton0001"};
+        inventoryNextButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryNextButton0002"};
+        inventoryNextButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryNextButton0003"};
         inventoryNextButtonButtonComponent.handCursor = true;
         inventoryNextButtonButtonComponent.pixelPerfect = true;
 
@@ -178,25 +178,25 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
 
         // moderatorEditButton (components)
         const moderatorEditButtonButtonComponent = new ButtonComponent(moderatorEditButton);
-        moderatorEditButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardModerator0001" };
-        moderatorEditButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardModerator0002" };
-        moderatorEditButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardModerator0003" };
+        moderatorEditButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardModerator0001"};
+        moderatorEditButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardModerator0002"};
+        moderatorEditButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardModerator0003"};
         moderatorEditButtonButtonComponent.handCursor = true;
         moderatorEditButtonButtonComponent.pixelPerfect = true;
 
         // closeButton (components)
         const closeButtonButtonComponent = new ButtonComponent(closeButton);
-        closeButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardClose0001" };
-        closeButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardClose0002" };
-        closeButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardClose0003" };
+        closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardClose0001"};
+        closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardClose0002"};
+        closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardClose0003"};
         closeButtonButtonComponent.handCursor = true;
         closeButtonButtonComponent.pixelPerfect = true;
 
         // stampbookButton (components)
         const stampbookButtonButtonComponent = new ButtonComponent(stampbookButton);
-        stampbookButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/namecardButton0001" };
-        stampbookButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/namecardButton0002" };
-        stampbookButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/namecardButton0003" };
+        stampbookButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
+        stampbookButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
+        stampbookButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
         stampbookButtonButtonComponent.handCursor = true;
         stampbookButtonButtonComponent.pixelPerfect = true;
 
@@ -291,17 +291,18 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
 
     declare scene: Interface;
 
-    setup(data: MyPenguinData): void {
-        this.closeInventory();
+    public userId: number;
+
+    setup(data: MyUserData): void {
+        this.userId = data.id;
 
         this.nickname.text = data.nickname;
 
-        this.paperdoll.clear();
         if (data.avatar.transformation) {
             this.avatar.visible = true;
         } else {
             this.avatar.visible = false;
-            this.paperdoll.setup(data.avatar);
+            this.paperdoll.setup(data.avatar, data.id);
         }
 
         if (this.scene.world.isMember(data)) {

@@ -7,9 +7,9 @@ import Phaser from "phaser";
 import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import { App } from "../../../app/app";
-import Engine from "../../engine/Engine";
-import Interface, { Content } from "../../interface/Interface";
+import { App } from "@clubpenguin/app/app";
+import Interface, { Content } from "@clubpenguin/world/interface/Interface";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Binoculars extends Phaser.Scene implements Content {
@@ -53,7 +53,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
         const binoculars_wave = this.add.sprite(449.775, 481.725, "binoculars", "binoculars/wave10001");
         binoculars_wave.scaleX = 1.09;
         binoculars_wave.scaleY = 1.09;
-        binoculars_wave.angle = 1.5506000000000002;
+        binoculars_wave.angle = 1.5506000000000313;
         binoculars_wave.setOrigin(0.15454954954954955, 0.7876666666666666);
         binoculars_wave.visible = false;
 
@@ -71,7 +71,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
 
         // binoculars_wave_3
         const binoculars_wave_3 = this.add.sprite(678.375, 460.0125, "binoculars", "binoculars/wave10001");
-        binoculars_wave_3.angle = 6.709700000000001;
+        binoculars_wave_3.angle = 6.709699999999998;
         binoculars_wave_3.setOrigin(0.15454954954954955, 0.7876666666666666);
         binoculars_wave_3.visible = false;
 
@@ -79,7 +79,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
         const binoculars_wave_4 = this.add.sprite(797.4, 467.775, "binoculars", "binoculars/wave10001");
         binoculars_wave_4.scaleX = 1.099411;
         binoculars_wave_4.scaleY = 1.099411;
-        binoculars_wave_4.angle = 9.5553;
+        binoculars_wave_4.angle = 9.555299999999988;
         binoculars_wave_4.setOrigin(0.15454954954954955, 0.7876666666666666);
         binoculars_wave_4.visible = false;
 
@@ -92,13 +92,13 @@ export default class Binoculars extends Phaser.Scene implements Content {
         const binoculars_wave_6 = this.add.sprite(976.275, 445.275, "binoculars", "binoculars/wave10001");
         binoculars_wave_6.scaleX = 0.799973;
         binoculars_wave_6.scaleY = 0.799973;
-        binoculars_wave_6.angle = 10.0011;
+        binoculars_wave_6.angle = 10.001099999999951;
         binoculars_wave_6.setOrigin(0.15454954954954955, 0.7876666666666666);
         binoculars_wave_6.visible = false;
 
         // binoculars_wave_7
         const binoculars_wave_7 = this.add.sprite(1033.65, 466.3125, "binoculars", "binoculars/wave10001");
-        binoculars_wave_7.angle = 14.999700000000002;
+        binoculars_wave_7.angle = 14.999700000000075;
         binoculars_wave_7.setOrigin(0.15454954954954955, 0.7876666666666666);
         binoculars_wave_7.visible = false;
 
@@ -106,7 +106,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
         const binoculars_wave_8 = this.add.sprite(1154.7, 463.6125, "binoculars", "binoculars/wave20001");
         binoculars_wave_8.scaleX = 0.999374;
         binoculars_wave_8.scaleY = 0.999374;
-        binoculars_wave_8.angle = 11.2686;
+        binoculars_wave_8.angle = 11.268599999999992;
         binoculars_wave_8.setOrigin(0.2965454545454545, 0.5628571428571428);
         binoculars_wave_8.visible = false;
 
@@ -114,7 +114,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
         const binoculars_wave_9 = this.add.sprite(1205.775, 456.75, "binoculars", "binoculars/wave10001");
         binoculars_wave_9.scaleX = 0.800003;
         binoculars_wave_9.scaleY = 0.800003;
-        binoculars_wave_9.angle = 14.999700000000002;
+        binoculars_wave_9.angle = 14.999700000000075;
         binoculars_wave_9.setOrigin(0.15454954954954955, 0.7876666666666666);
         binoculars_wave_9.visible = false;
 
@@ -228,9 +228,9 @@ export default class Binoculars extends Phaser.Scene implements Content {
 
         // close (components)
         const closeButtonComponent = new ButtonComponent(close);
-        closeButtonComponent.upTexture = { "key": "binoculars", "frame": "binoculars/close0001" };
-        closeButtonComponent.overTexture = { "key": "binoculars", "frame": "binoculars/close0002" };
-        closeButtonComponent.downTexture = { "key": "binoculars", "frame": "binoculars/close0003" };
+        closeButtonComponent.upTexture = {"key":"binoculars","frame":"binoculars/close0001"};
+        closeButtonComponent.overTexture = {"key":"binoculars","frame":"binoculars/close0002"};
+        closeButtonComponent.downTexture = {"key":"binoculars","frame":"binoculars/close0003"};
         closeButtonComponent.handCursor = true;
         closeButtonComponent.pixelPerfect = true;
 
@@ -275,8 +275,8 @@ export default class Binoculars extends Phaser.Scene implements Content {
         if (data.oninit) data.oninit(this);
     }
 
-    get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
+    get world(): World {
+        return (this.scene.get('World') as World);
     }
 
     get interface(): Interface {

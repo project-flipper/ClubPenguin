@@ -5,7 +5,7 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import Engine from "../../engine/Engine";
+import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
 export default class Snowball extends Phaser.GameObjects.Container {
@@ -26,7 +26,6 @@ export default class Snowball extends Phaser.GameObjects.Container {
 
         /* START-USER-CTR-CODE */
 
-        this.engine = this.scene.scene.get('Engine') as Engine;
         this.visible = false;
 
         /* END-USER-CTR-CODE */
@@ -37,7 +36,10 @@ export default class Snowball extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
-    public engine: Engine;
+    get world(): World {
+        return this.scene.game.scene.getScene('World') as World;
+    }
+
     public speed = 800;
 
     start(tween: Phaser.Tweens.Tween): void {
@@ -59,8 +61,8 @@ export default class Snowball extends Phaser.GameObjects.Container {
     }
 
     destroy(fromScene?: boolean): void {
-        if (this.engine) {
-            let snowballs = this.engine.snowballs;
+        if (this.scene && this.world.engine) {
+            let snowballs = this.world.engine.snowballs.snowballs;
             if (snowballs.includes(this)) snowballs.splice(snowballs.indexOf(this), 1);
         }
         super.destroy(fromScene);

@@ -1,33 +1,36 @@
 
 // You can write more code here
 
-let SPAWN_ROOMS = [
-    '100', // town
-    '200', // village
-    '230', // mtn
-    '300', // plaza
-    '400', // beach
-    '800', // dock
-    '801', // forts
-    '802', // rink
-    //'805', // berg
-    '807', // shack
-    '809', // forest
-    '810', // cove
+export type WorldHandler<D = any> = (data: D) => (Promise<any> | any);
+export const WORLD_HANDLERS: Record<string, WorldHandler> = {};
 
-];
+export function handle<K extends keyof Payloads, T extends WorldHandler<Payloads[K]>>(op: K) {
+    return function (handler: T, context: ClassMethodDecoratorContext): T {
+        logger.info(handler, context);
+        WORLD_HANDLERS[op] = handler;
+        return handler;
+    }
+}
 
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import type Load from "../load/Load";
-import { LoaderTask } from "../load/tasks";
-import type Interface from "./interface/Interface";
-import type { BasePenguinData, MyPenguinData, PenguinData } from '../net/types/penguin/penguin';
-import type Engine from "./engine/Engine";
-import type { App } from "../app/app";
-import { RelationshipType } from "../net/types/penguin/relationship";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import Interface from "./interface/Interface";
+import { AnyUserData, MyUserData, UserData } from "@clubpenguin/net/types/user";
+import { Engine } from "@clubpenguin/world/engine/engine";
+import { App } from "@clubpenguin/app/app";
+import { RelationshipType } from "@clubpenguin/net/types/relationship";
+import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
+import { getLogger } from "@clubpenguin/lib/log";
+import { ClientPayload, ClientPayloads, Payload, Payloads } from "@clubpenguin/net/types/payload";
+import { Emoji } from "@clubpenguin/net/types/message";
+import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
+import { WorldData } from "@clubpenguin/net/types/world";
+
+let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
 
 export default class World extends Phaser.Scene {
@@ -43,6 +46,7 @@ export default class World extends Phaser.Scene {
     postload(): void {
 
         this.load.pack("world-pack", "assets/app/world-pack.json");
+        this.load.pack("engine-pack", "assets/world/engine/engine-pack.json");
     }
 
     editorCreate(): void {
@@ -53,54 +57,22 @@ export default class World extends Phaser.Scene {
     /* START-USER-CODE */
 
     declare public game: App;
-
-    get engine(): Engine {
-        return (this.scene.get('Engine') as Engine);
-    }
+    public engine: Engine;
 
     get interface(): Interface {
         return (this.scene.get('Interface') as Interface);
     }
 
     public worldId: number;
-    public myPenguinData: MyPenguinData;
+    public myUser: MyUserData;
 
     init(): void {
         let load = this.scene.get('Load') as Load;
         if (!load.isShowing) load.show({ logo: true });
     }
 
-    create(data: { id: number, name: string }): void {
+    create(data: WorldData): void {
         this.worldId = data.id;
-        this.myPenguinData = {
-            id: '1000',
-            username: data.name,
-            nickname: data.name,
-            avatar: {
-                color: 7,
-                head: 21073,
-                face: 2104,
-                neck: 10214,
-                body: 4449,
-                hand: 5501,
-                feet: 6050,
-                /*head: 0,
-                face: 101,
-                neck: 10214,
-                body: 0,
-                hand: 0,
-                feet: 0,*/
-                flag: 0,
-                photo: 9269
-            },
-            iglooId: 0,
-            member: {
-                level: 5,
-                since: ''
-            },
-            moderator: false,
-            stealth: false
-        };
 
         this.editorCreate();
 
@@ -109,7 +81,22 @@ export default class World extends Phaser.Scene {
 
     async startWorld(): Promise<void> {
         let load = this.scene.get('Load') as Load;
-        load.track(new LoaderTask(this.load));
+        load.track(new LoaderTask('World loader', this.load));
+
+        let error = this.scene.get('ErrorArea') as ErrorArea;
+
+        if (!this.game.airtower.isConnected()) error.show(error.createError({ message: 'shell.CONNECTION_LOST', buttonCallback: () => {
+            window.location.reload();
+            return false;
+        }, type: 'c', code: error.CONNECTION_LOST}));
+
+        this.game.airtower.on('ws:message', this.onWorldMessage, this);
+        this.game.airtower.on('ws:close', this.onWorldClose, this);
+
+        await this.game.airtower.sendAuth();
+
+        let myUser = await this.game.airtower.getMyUser();
+        this.myUser = myUser.data;
 
         this.postload();
         // TODO: load world here
@@ -117,24 +104,42 @@ export default class World extends Phaser.Scene {
 
         await load.waitAllTasksComplete();
 
+        this.engine = new Engine(this);
+
         await new Promise<void>(resolve => this.scene.run('Interface', {
-            oninit: (scene: Interface) => load.track(new LoaderTask(scene.load)),
+            oninit: (scene: Interface) => load.track(new LoaderTask('Interface loader', scene.load)),
             onready: () => resolve()
         }));
 
         await load.waitAllTasksComplete();
 
-        let engine = await new Promise<Engine>(resolve => this.scene.run('Engine', {
-            onready: (scene: Engine) => resolve(scene)
-        }));
+        let friendList = await this.game.airtower.getFriends();
+        let friends = friendList.data.filter(user => user.mascot_id == undefined);
+        let characters = friendList.data.filter(user => user.mascot_id != undefined).map(user => user.id.toString());
 
-        this.game.friends.connect([], [
-            '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '16', '28', '31', '32', '33'
-        ], true, true, true);
+        this.game.friends.connect(this.myUser.id.toString(), friends, characters, true, true, true);
 
-        let roomConfig = this.game.gameConfig.rooms[this.getRandomItem(SPAWN_ROOMS)];
-        console.log('Mocking room join on room', roomConfig);
-        await engine.joinRoom(roomConfig);
+        await this.spawnRoom();
+    }
+
+    onWorldMessage(data: any) {
+        let payload = JSON.parse(data);
+        this.handle(payload);
+    }
+
+    onWorldClose(code: number, reason: string): void {
+        let error = this.scene.get('ErrorArea') as ErrorArea;
+
+        let err: Partial<CPError> = { message: 'shell.CONNECTION_LOST', buttonCallback: () => {
+            window.location.reload();
+            return false;
+        }, type: 'c', code: error.CONNECTION_LOST};
+
+        if (code == 4000) {
+            // TODO: Add close codes
+        }
+
+        error.show(error.createError(err));
     }
 
     public standardPenguinTimeOffset = 0;
@@ -150,61 +155,346 @@ export default class World extends Phaser.Scene {
         return array[idx];
     }
 
-    isPlayer(data: BasePenguinData): data is MyPenguinData {
-        return data.id == this.myPenguinData.id;
+    isMyPlayer(data: AnyUserData): data is MyUserData {
+        return data.id == this.myUser.id;
     }
 
     isPlayerModerator(): boolean {
-        return this.myPenguinData.moderator;
+        return this.myUser.is_moderator;
     }
 
-    isMascot(data: BasePenguinData): boolean {
-        return data.mascotId != undefined;
+    isMascot(data: AnyUserData): boolean {
+        return data.mascot_id != undefined;
     }
 
-    isMember(data: BasePenguinData): boolean {
+    isMember(data: AnyUserData): boolean {
         return data?.member != undefined;
     }
 
-    isPending(data: PenguinData): boolean {
+    isPending(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.PENDING;
     }
 
-    isFriend(data: PenguinData): boolean {
+    isFriend(data: UserData): boolean {
         return [RelationshipType.FRIEND, RelationshipType.BEST_FRIEND].includes(data.relationship?.type);
     }
 
-    isBestFriend(data: PenguinData): boolean {
+    isBestFriend(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.BEST_FRIEND;
     }
 
-    isIgnored(data: PenguinData): boolean {
+    isIgnored(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.IGNORED;
     }
 
-    openNamecardById(id: string): void {
-        // TODO: fetch penguin data
-        this.interface.openNamecard({
-            id: id,
-            username: 'P' + id,
-            nickname: 'P' + id,
-            avatar: {
-                color: 2,
-                head: 0,
-                face: 0,
-                neck: 0,
-                body: 0,
-                hand: 0,
-                feet: 0,
-                photo: 0,
-                flag: 0
-            },
-            relationship: {
-                type: RelationshipType.FRIEND,
-                since: ''
-            },
-            publicStampbook: false
+    /* ========= PLAYER ========= */
+
+    move(x: number, y: number): void {
+        let player = this.engine.player;
+        let safe = this.engine.players.findPlayerPath(player, x, y)
+        let action: ActionData = {
+            frame: ActionFrame.WADDLE,
+            from_x: player.x,
+            from_y: player.y,
+            destination_x: safe.x,
+            destination_y: safe.y
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
         });
+    }
+
+    sitDown(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.SIT_DOWN
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    sitDownLeft(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.SIT_DOWN_LEFT
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    sitLeft(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.SIT_LEFT
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    sitUpLeft(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.SIT_UP_LEFT
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    sitUp(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.SIT_UP
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    sitUpRight(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.SIT_UP_RIGHT
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    sitRight(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.SIT_RIGHT
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    sitDownRight(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.SIT_DOWN_RIGHT
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    wave(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.WAVE
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    dance(): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.DANCE
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    throwSnowball(x: number, y: number): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.THROW,
+            from_x: player.x,
+            from_y: player.y,
+            destination_x: x,
+            destination_y: y
+        };
+
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    /* ========= ENGINE ========= */
+
+    async spawnRoom(): Promise<void> {
+        this.send({
+            op: 'room:spawn',
+            d: {}
+        });
+    }
+
+    async joinRoom(roomId: number, x?: number, y?: number): Promise<void> {
+        let roomData = this.game.gameConfig.rooms[roomId];
+
+        if (roomData) {
+            let position = this.engine.findSafePoint(roomData);
+            x = x ?? position.x;
+            y = y ?? position.y;
+
+            this.send({
+                op: 'room:join',
+                d: {
+                    room_id: roomId,
+                    x,
+                    y
+                }
+            });
+        }
+    }
+
+    async startGame(gameId: string, options?: any): Promise<void> {
+        let gameData = this.game.gameConfig.games[gameId];
+
+        if (gameData) {
+            // TODO: Request
+            await this.engine.startGame(gameData, options);
+        }
+    }
+
+    /* ======== INTERFACE ======== */
+
+    async sendMessage(message?: string, allowAutopart: boolean = false): Promise<void> {
+        this.interface.sendMessage(message, allowAutopart);
+    }
+
+    async sendEmoji(emoji: Emoji): Promise<void> {
+        this.interface.sendEmoji(emoji);
+    }
+
+    async openNamecardById(id: number): Promise<void> {
+        // TODO: fetch penguin data
+        if (id == this.myUser.id) {
+            this.openMyNamecard();
+            return;
+        }
+
+        let r = await this.game.airtower.getUserById(id);
+
+        this.interface.openNamecard(r.data);
+    }
+
+    openMyNamecard(): void {
+        this.interface.openMyNamecard();
+    }
+
+    /* ========== HANDLERS ========== */
+
+    send<O extends keyof ClientPayloads, D extends ClientPayloads[O]>(payload: ClientPayload<ClientPayloads, O, D>): void {
+        this.game.airtower.send(payload);
+    }
+
+    handle<O extends keyof Payloads, D extends Payloads[O]>(payload: Payload<Payloads, O, D>): void {
+        if (payload.op in WORLD_HANDLERS) {
+            logger.debug('Handling', payload.op);
+            try {
+                WORLD_HANDLERS[payload.op].call(this, payload.d);
+            } catch (e) {
+                logger.error('Uncaught error in world handler', payload.op, e);
+            }
+        } else {
+            logger.warn('Missing handler for op', payload.op, 'ignoring');
+        }
+    }
+
+    @handle('room:join')
+    async handleRoomJoin(data: Payloads['room:join']): Promise<void> {
+        let roomData = this.game.gameConfig.rooms[data.room_id];
+
+        if (roomData) {
+            await this.engine.joinRoom(roomData, data.players);
+        } 
+    }
+
+    @handle('message:create')
+    async handleMessageCreate(data: Payloads['message:create']): Promise<void> {
+        let author = this.engine.getPlayer(data.player_id);
+        if (author) {
+            if (data.type == 'TEXT') author.overlay.balloon.showMessage(data.message, data.multipart);
+            else if (data.type == 'EMOJI') author.overlay.balloon.showEmoji(data.emoji);
+            else logger.warn('Received unknown message type!', data);
+
+            author.overlay.balloon.setBanned(data.banned);
+        }
+    }
+
+    @handle('player:add')
+    async handlePlayerAdd(data: Payloads['player:add']): Promise<void> {
+        this.engine.addPlayer(data);
+    }
+
+    @handle('player:update')
+    async handlePlayerUpdate(data: Payloads['player:update']): Promise<void> {
+        this.engine.updatePlayer(data);
+        if (this.interface.playerNamecard.visible && this.isMyPlayer(data.user)) this.interface.playerNamecard.setup(data.user);
+        else if (this.interface.namecard.visible && !this.isMyPlayer(data.user) && data.user.id == this.interface.namecard.userId) this.interface.namecard.setup(data.user);
+    }
+
+    @handle('player:action')
+    async handlePlayerAction(data: Payloads['player:action']): Promise<void> {
+        // TODO: maybe better sync?
+        if (this.myUser.id == data.player) return;
+
+        let player = this.engine.getPlayer(data.player);
+        if (player) {
+            player.actions.set(data);
+        }
+    }
+
+    @handle('player:remove')
+    async handlePlayerRemove(data: Payloads['player:remove']): Promise<void> {
+        this.engine.removePlayer(data);
     }
 
     /* END-USER-CODE */

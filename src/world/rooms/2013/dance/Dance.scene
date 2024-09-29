@@ -1,0 +1,1098 @@
+{
+    "id": "352ccae1-f616-41d9-9717-1fe7eae2084d",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/2013/dance/dance-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Dance",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "dd93c4fc-d69f-4f93-8045-659715f8ea3b",
+            "label": "stairs",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"dance\",\"frame\":\"dance/stairs0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"dance\",\"frame\":\"dance/stairs0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/stairs0001"
+            },
+            "x": 1417.275,
+            "y": 197.325,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "e298eeb8-4d3f-4532-a24d-2fdd88759ee3",
+            "label": "dancefloor",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": -1,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/dancefloor0001"
+            },
+            "x": 293.0625,
+            "y": 548.6625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "0a65a247-877e-45ba-8d89-5066e6ef35f0",
+            "label": "doorbehind",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/doorbehind"
+            },
+            "x": 121.95,
+            "y": 235.6875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "7475ff44-0226-4792-ba60-3b0939fc3d67",
+            "label": "door",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dance",
+                "frame": "dance/dooropen0001"
+            },
+            "x": 260.7625,
+            "y": 634.275,
+            "originX": 1,
+            "originY": 1
+        },
+        {
+            "type": "Image",
+            "id": "6d93f46d-c36e-484d-9c5e-6aa291de1e31",
+            "label": "dance_base",
+            "texture": {
+                "key": "dance",
+                "frame": "dance/base"
+            },
+            "x": -140,
+            "y": -135,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "04400522-95db-47cc-84f9-e9bb59e7edae",
+            "label": "dance_djbase",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/djbase"
+            },
+            "x": 781.5375,
+            "y": 469.125,
+            "originX": 0.49411765,
+            "originY": 0.69893491
+        },
+        {
+            "type": "Image",
+            "id": "9fe7d440-0b4d-4eff-a6f6-d934b00c2dbe",
+            "label": "mixdisplay",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixdisplay"
+            },
+            "x": 758.3625,
+            "y": 384.075,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "adf3da10-e7ce-4c63-8c16-e2d94a7fdd25",
+            "label": "mixwave",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixwave0001"
+            },
+            "x": 723.0375,
+            "y": 389.8125,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "8dc437d8-13d4-4acb-8a39-0ab4f5ebc091",
+            "label": "mixheadphonesback",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixheadphonesback0001"
+            },
+            "x": 586,
+            "y": 284,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "6dee4e72-eda3-438a-9bbd-119923a1aeb3",
+            "label": "mix",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mix0001"
+            },
+            "x": 585.9,
+            "y": 278.325,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "4a43c6b2-2152-439f-9abd-945e381cf659",
+            "label": "mixheadphonesfront",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixheadphonesfront0001"
+            },
+            "x": 612,
+            "y": 283,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "38d1e88f-7f35-403e-85aa-2b2cf8b6d085",
+            "label": "mixspeaker",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixspeaker0001"
+            },
+            "x": 902.125,
+            "y": 299.675,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "3cf9cc87-b04b-42d1-9867-943be6de301a",
+            "label": "mixlights",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixlights0001"
+            },
+            "x": 677.7,
+            "y": 287.325,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "8e740bec-01c6-4135-b2be-0efb1e0995b9",
+            "label": "mixequalizer",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixequalizer0001"
+            },
+            "x": 655.7625,
+            "y": 352.4625,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "dfc639eb-56fb-44ae-beb1-2e016ff1bb90",
+            "label": "mixdisksbase",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixdisksbase0001"
+            },
+            "x": 694.575,
+            "y": 359.2125,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "179b523e-9d7c-4879-8ebc-3b4ac8be6d61",
+            "label": "mixdisks",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixdisks0001"
+            },
+            "x": 699.8625,
+            "y": 360.5625,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "a570f8d0-8e72-4952-91ad-30b4749e50aa",
+            "label": "mixdiskreader",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixdiskreader"
+            },
+            "x": 681.3,
+            "y": 364.95,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "a9eca4b2-ce05-40cf-9d0a-f4aca43ec76c",
+            "label": "mixvolume",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixvolume0001"
+            },
+            "x": 768.4875,
+            "y": 357.3,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "8b840229-c35f-48ca-8400-bf5e2573c2a9",
+            "label": "mixsecondlights",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 488.3625,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mixsecondlights0001"
+            },
+            "x": 764.2125,
+            "y": 358.2,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "26799520-a0df-44df-9176-df81af07d260",
+            "label": "dance_railing2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/railing2"
+            },
+            "x": 179.4375,
+            "y": 649.35,
+            "originX": 0.47930434782608694,
+            "originY": 0.6607947019867549
+        },
+        {
+            "type": "Image",
+            "id": "2bc6c2a0-41fe-41a9-ad6e-ef1b936f477d",
+            "label": "dance_couch",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/couch"
+            },
+            "x": 130.725,
+            "y": 682.5375,
+            "originX": 0.49399441,
+            "originY": 0.12313063
+        },
+        {
+            "type": "Sprite",
+            "id": "06fcdcbd-5f9b-4bf6-acdb-5bcb04a3f74c",
+            "label": "speaker1",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dance",
+                "frame": "dance/speaker10001"
+            },
+            "x": 303.525,
+            "y": 24.4125,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "a3e8b68e-7cb5-4d96-86b0-0478353c3217",
+            "label": "speaker2",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dance",
+                "frame": "dance/speaker20001"
+            },
+            "x": 389.5875,
+            "y": 91.4625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "7e6b1333-6446-4371-9529-cb0971d24ce3",
+            "label": "speaker3",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dance",
+                "frame": "dance/speaker30001"
+            },
+            "x": 1201.6125,
+            "y": 19.575,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3c44fd91-8e5e-413d-b021-21552e7c5382",
+            "label": "boilerspeaker",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 355.6125,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/boilerspeaker0001"
+            },
+            "x": 1028.025,
+            "y": 247.05,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "46e260fe-a3cb-4217-930d-4ef4771e26bb",
+            "label": "puffle",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 355.7,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/puffle0001"
+            },
+            "x": 1176.6375,
+            "y": 247.275,
+            "originX": 0.453474,
+            "originY": 0.782609
+        },
+        {
+            "type": "Image",
+            "id": "7433fc24-c29a-4fc8-9754-889f3cd5f73c",
+            "label": "pufflehitbox",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/pufflehitbox0004"
+            },
+            "x": 1176.6375,
+            "y": 247.275,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Sprite",
+            "id": "b7984f1d-8f3c-46ec-ada0-4176346b63ea",
+            "label": "boilerspeakercone",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 355.6125,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/boilerspeakercone0001"
+            },
+            "x": 1118.1375,
+            "y": 293.85,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "085b4e3c-82df-4046-b67d-73c918899707",
+            "label": "boilerButton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/boilerspeaker0004"
+            },
+            "x": 1028.025,
+            "y": 247.05,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "30dfcb01-f950-4645-9739-f176c3a88716",
+            "label": "contesthitbox",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/contesthitbox"
+            },
+            "x": 1205.1,
+            "y": 141.1875,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "277f0a3f-5a5a-4c92-96d3-fa84c4396bfe",
+            "label": "contest",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 360,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/contest0001_0001"
+            },
+            "x": 1204.1,
+            "y": 140.1875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "93c6945e-3883-4ec0-9332-a3f26c8d0332",
+            "label": "signuptable",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 360.2,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/signup_table"
+            },
+            "x": 1294.2125,
+            "y": 476.125
+        },
+        {
+            "type": "Sprite",
+            "id": "d1d29fd2-cf79-4a32-a0b9-fee388a56d5d",
+            "label": "pencilWrite",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 360.4,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/pencilstill"
+            },
+            "x": 1307,
+            "y": 461,
+            "originX": 0.85297,
+            "originY": 0.64478
+        },
+        {
+            "type": "Image",
+            "id": "ae51ae70-40b4-4ba9-bca7-2375f621885d",
+            "label": "dance_stairscover",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 365,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/stairscover"
+            },
+            "x": 1210.05,
+            "y": -29.5875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "25ddec4c-254d-4c0c-8176-5ed6940a716e",
+            "label": "neon",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 366,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/neon0001"
+            },
+            "x": 1228.725,
+            "y": 60.6375,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "26670a73-0811-4f6d-9ccc-55f84d4cc036",
+            "label": "djleft",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dance",
+                "frame": "dance/dj_left0001"
+            },
+            "x": 522.45,
+            "y": 109.8,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "2c14a141-a11b-4ecd-9351-a6f3b057592c",
+            "label": "djright",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dance",
+                "frame": "dance/dj_right0001"
+            },
+            "x": 935.1,
+            "y": 105.3,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "84506d8c-351e-4348-b042-d1a8d80d403d",
+            "label": "disks",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/disks0001"
+            },
+            "x": 363.2625,
+            "y": 455.5125,
+            "originX": 0.53205405,
+            "originY": 0.74149635
+        },
+        {
+            "type": "Sprite",
+            "id": "dbef7f8e-1d7e-4ec6-8365-89fa7b343298",
+            "label": "notice",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 455.7,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/notice0001"
+            },
+            "x": 325.125,
+            "y": 319.275,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "33ef08b2-1883-4806-8264-420abcdf6f9f",
+            "label": "diskbox",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 455.8,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/diskbox"
+            },
+            "x": 319.95,
+            "y": 365.075,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "607f34fa-c46c-4919-ba98-af7b3b38423e",
+            "label": "dance_railing1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/railing1"
+            },
+            "x": 313.425,
+            "y": 480.0375,
+            "originX": 0.47867346938775507,
+            "originY": 0.4714285714285714
+        },
+        {
+            "type": "Image",
+            "id": "fcdad205-c930-4184-9da8-b3e4a04118b6",
+            "label": "disksButton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/disks0004"
+            },
+            "x": 363.2625,
+            "y": 455.5125,
+            "originX": 0.53205405,
+            "originY": 0.74149635,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "2ee0780f-46fe-4bfa-a7f3-8997f4d8ea1a",
+            "label": "dance_railing",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/railing"
+            },
+            "x": 1324.9125,
+            "y": 537.975,
+            "originX": 0.48131148,
+            "originY": 0.38683673
+        },
+        {
+            "type": "Image",
+            "id": "6aafad17-3009-4722-814f-8115b4ed8880",
+            "label": "dance_chair2cushion",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/chair2cushion"
+            },
+            "x": 1509.975,
+            "y": 905.0625,
+            "originX": 0.37190083,
+            "originY": 0.07377049
+        },
+        {
+            "type": "Image",
+            "id": "1b93372a-152d-46ff-8312-b8c48a8542ab",
+            "label": "dance_chair2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/chair2"
+            },
+            "x": 1466.8875,
+            "y": 981.225,
+            "originX": 0.41284404,
+            "originY": 0.58112583
+        },
+        {
+            "type": "Image",
+            "id": "a905814e-6736-4a13-b977-26e25f613bc9",
+            "label": "dance_chair1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/chair1"
+            },
+            "x": 1628.55,
+            "y": 769.5,
+            "originX": 0.4815286624203821,
+            "originY": 0.45416149068322986
+        },
+        {
+            "type": "Image",
+            "id": "ffe8fb21-953b-41af-b2c1-e2b6e39b0e64",
+            "label": "dance_table",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/table"
+            },
+            "x": 1607.2875,
+            "y": 868.5,
+            "originX": 0.48541096,
+            "originY": 0.38370968
+        },
+        {
+            "type": "Image",
+            "id": "f4a76ee0-bb87-4629-9fa5-8f7061669cbd",
+            "label": "dance_foregroundtop",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1107.6,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/foregroundtop"
+            },
+            "x": -168.4125,
+            "y": 29.3625,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "0fb4da54-92f6-45ef-bc18-10324906b006",
+            "label": "dance_foregroundbottom",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1107.6,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/foregroundbottom"
+            },
+            "x": -45.675,
+            "y": 837.7875,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "8dc36cf1-f473-419e-b2e6-34c6bdd43bd5",
+            "label": "dance_foregroundside",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.depth": 1108,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/foregroundside"
+            },
+            "x": -230.5125,
+            "y": 810.3375,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "0be5ff1e-7584-4fe3-8a8a-68fdfd955526",
+            "label": "dance_town_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 100,
+            "RoomTrigger.playerX": 956.25,
+            "RoomTrigger.playerY": 562.5,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/town_trigger"
+            },
+            "x": 228.2625,
+            "y": 555.6375,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "5a26f0ae-bb75-4df6-b327-a7ac2b3729f8",
+            "label": "dance_lounge_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 121,
+            "RoomTrigger.playerX": 1271.25,
+            "RoomTrigger.playerY": 686.25,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/lounge_trigger"
+            },
+            "x": 1518.6375,
+            "y": 540,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "3184f5d8-635e-4403-bf76-a29b2a1f6958",
+            "label": "dance_boiler_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 804,
+            "RoomTrigger.playerX": 1260,
+            "RoomTrigger.playerY": 720,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/boiler_trigger"
+            },
+            "x": 1158.8625,
+            "y": 409.6125,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "0b432b48-e824-4099-ae56-0f8d5af27927",
+            "label": "dancing_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/dancing_trigger"
+            },
+            "x": 1277.325,
+            "y": 476.1,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "45a4b18d-420b-4e9a-9673-b0a22769115a",
+            "label": "mix_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "Trigger"
+            ],
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mix_trigger"
+            },
+            "x": 781.875,
+            "y": 393.75,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "f4619f18-0821-4ea9-96b7-3672d92c54ac",
+            "label": "dj3k",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/mix_button"
+            },
+            "x": 585.9,
+            "y": 278.325,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "d4c706e6-ba05-4ca6-9025-935906fa8a0e",
+            "label": "catalog",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent",
+                "DepthEnabled"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"dance\",\"frame\":\"dance/catalog0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"dance\",\"frame\":\"dance/catalog0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1108,
+            "texture": {
+                "key": "dance",
+                "frame": "dance/catalog0001"
+            },
+            "x": 1620,
+            "y": 1002.375
+        },
+        {
+            "type": "Image",
+            "id": "a065f791-07d0-4c6e-8b73-fed75cfb74a5",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "dance",
+                "frame": "dance/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "b6bdfa0e-c21f-4e98-b3a9-f64f9f0d44c7",
+            "label": "triggers",
+            "objectIds": [
+                "221855d1-987b-4eca-b76b-34ae0ce59270",
+                "1dcf365c-78ff-47b7-8a6c-12e8f936547c",
+                "0be5ff1e-7584-4fe3-8a8a-68fdfd955526",
+                "5a26f0ae-bb75-4df6-b327-a7ac2b3729f8",
+                "3184f5d8-635e-4403-bf76-a29b2a1f6958",
+                "45a4b18d-420b-4e9a-9673-b0a22769115a",
+                "0b432b48-e824-4099-ae56-0f8d5af27927"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}

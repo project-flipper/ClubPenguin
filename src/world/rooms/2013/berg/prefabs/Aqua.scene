@@ -1,0 +1,78 @@
+{
+    "id": "54cc6564-07d4-49ee-a1d5-af8f0e7ccd14",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "b9d74867-49d0-4227-b16a-ba185426c575",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "ab0a1c22-f8fc-4bfc-abda-23839242c325",
+                    "label": "aqua",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "berg",
+                        "frame": "berg/aqua"
+                    },
+                    "originX": 0,
+                    "originY": 0.00852
+                },
+                {
+                    "type": "Sprite",
+                    "id": "4d59a0a6-3247-40b2-bf61-e0caf3d755fa",
+                    "label": "inside",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "berg",
+                        "frame": "berg/aqua_inside0001"
+                    },
+                    "x": 58,
+                    "y": 4.85,
+                    "originX": 0.26832685,
+                    "originY": -0.18965116,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "565b3545-feb6-4c15-b5f6-4901712e76cf",
+                    "label": "lights",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "berg",
+                        "frame": "berg/aqua_lights0015"
+                    },
+                    "x": 54.5,
+                    "y": 132.25,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

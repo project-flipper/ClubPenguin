@@ -2,8 +2,8 @@
 
 import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import type Load from '../load/Load';
-import { LoaderTask } from '../load/tasks';
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
 /* END-USER-IMPORTS */
 
 export default class Redemption extends Phaser.Scene {
@@ -31,7 +31,7 @@ export default class Redemption extends Phaser.Scene {
     init(): void {
         let load = this.scene.get('Load') as Load;
 
-        load.track(new LoaderTask(this.load));
+        load.track(new LoaderTask('Redemption loader', this.load));
         if (!load.isShowing) load.show();
     }
 

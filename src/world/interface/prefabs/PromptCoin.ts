@@ -47,9 +47,9 @@ export default class PromptCoin extends Phaser.GameObjects.Container {
 
         // okayButton (components)
         const okayButtonButtonComponent = new ButtonComponent(okayButton);
-        okayButtonButtonComponent.upTexture = { "key": "interface", "frame": "interface/promptOkayButton0001" };
-        okayButtonButtonComponent.overTexture = { "key": "interface", "frame": "interface/promptOkayButton0002" };
-        okayButtonButtonComponent.downTexture = { "key": "interface", "frame": "interface/promptOkayButton0003" };
+        okayButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptOkayButton0001"};
+        okayButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptOkayButton0002"};
+        okayButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/promptOkayButton0003"};
         okayButtonButtonComponent.handCursor = true;
         okayButtonButtonComponent.pixelPerfect = true;
 

@@ -1,3 +1,39 @@
+export type CPErrorSize = { w: number, h: number };
+
+export type CPErrorType = 'c' | 's';
+
+export type CPErrorData = {
+    size: CPErrorSize,
+    message: string,
+    buttonLabel: string,
+    buttonCallback: () => boolean,
+    type: CPErrorType,
+    code: number,
+    localized?: boolean
+};
+
+export class CPError extends Error {
+    public size: CPErrorSize;
+    public message: string;
+    public buttonLabel: string;
+    public buttonCallback: () => boolean;
+    public type: CPErrorType;
+    public code: number;
+    public localized?: boolean;
+
+    constructor(data: CPErrorData) {
+        super('This error object should be raised inside ErrorArea.shield');
+
+        this.size = data.size;
+        this.message = data.message;
+        this.buttonLabel = data.buttonLabel;
+        this.buttonCallback = data.buttonCallback;
+        this.type = data.type;
+        this.code = data.code;
+        this.localized = data.localized ?? false;
+    }
+}
+
 /* START OF COMPILED CODE */
 
 import Phaser from "phaser";
@@ -5,6 +41,11 @@ import InputBlocker from "../lib/ui/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
+import { App } from "./app";
+import { HTTPError } from "@clubpenguin/net/airtower";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.app.error');
 /* END-USER-IMPORTS */
 
 export default class ErrorArea extends Phaser.Scene {
@@ -85,9 +126,9 @@ export default class ErrorArea extends Phaser.Scene {
 
         // button (components)
         const buttonButtonComponent = new ButtonComponent(button);
-        buttonButtonComponent.upTexture = { "key": "app", "frame": "app/button" };
-        buttonButtonComponent.overTexture = { "key": "app", "frame": "app/buttonHover" };
-        buttonButtonComponent.downTexture = { "key": "app", "frame": "app/buttonDown" };
+        buttonButtonComponent.upTexture = {"key":"app","frame":"app/button"};
+        buttonButtonComponent.overTexture = {"key":"app","frame":"app/buttonHover"};
+        buttonButtonComponent.downTexture = {"key":"app","frame":"app/buttonDown"};
         buttonButtonComponent.handCursor = true;
 
         // buttonLabel (prefab fields)
@@ -124,6 +165,8 @@ export default class ErrorArea extends Phaser.Scene {
 
     /* START-USER-CODE */
 
+    declare game: App;
+
     public WINDOW_SMALL = { w: 796.5, h: 450 };
     public WINDOW_MEDIUM = { w: 796.5, h: 540 };
     public WINDOW_LARGE = { w: 796.5, h: 585 };
@@ -138,9 +181,8 @@ export default class ErrorArea extends Phaser.Scene {
         if (data.onready) data.onready(this);
     }
 
-    showError(size: { w: number, h: number } = this.WINDOW_SMALL, message: string, buttonLabel: string, buttonCallback: () => boolean, code: string): void {
-        // hide error while it's being set up
-        this.errorWindow.visible = false;
+    showError(size: CPErrorSize = this.WINDOW_SMALL, message: string, buttonLabel: string, buttonCallback: () => boolean, code: string): void {
+        logger.info('Showing game error');
 
         this.body.width = size.w;
         this.body.height = size.h;
@@ -171,6 +213,10 @@ export default class ErrorArea extends Phaser.Scene {
         this.errorWindow.visible = true;
     }
 
+    show(error: CPErrorData): void {
+        this.showError(error.size, error.message, error.buttonLabel, error.buttonCallback, this.makeCode(error.type, error.code));
+    }
+
     hide(): void {
         this.cover.visible = false;
         this.errorWindow.visible = false;
@@ -180,7 +226,7 @@ export default class ErrorArea extends Phaser.Scene {
 
     /* CODE */
 
-    makeCode(type: 'c' | 's', code: number): string {
+    makeCode(type: CPErrorType, code: number): string {
         return `${type}${code}`
     }
 
@@ -279,6 +325,60 @@ export default class ErrorArea extends Phaser.Scene {
     public REDEMPTION_CODE_TOO_LONG = 21703;
     public GOLDEN_CODE_NOT_READY = 21704;
     public REDEMPTION_PUFFLE_NAME_EMPTY = 21705;
+
+    async shield<T>(func: Promise<T> | (() => T), err_func?: (e: any) => Partial<CPErrorData> | undefined): Promise<{ ok: boolean, result: Awaited<T> }> {
+        try {
+            let promise: Promise<T>;
+
+            if (typeof func === 'function') promise = Promise.resolve(func());
+            else promise = Promise.resolve(func);
+
+            return { ok: true, result: await promise };
+        } catch (e) {
+            let error: CPErrorData;
+            try {
+                error = err_func ? this.createError(err_func(e)) : this.inferError(e);
+            } catch (_) {
+                throw e;
+            }
+
+            this.show(error);
+
+            return { ok: false, result: undefined }
+        }
+    }
+
+    createError(data?: Partial<CPErrorData>): CPErrorData {
+        return this.localize({
+            size: data?.size ?? this.WINDOW_SMALL,
+            message: data?.message ?? 'shell.DEFAULT_ERROR',
+            buttonLabel: data?.buttonLabel ?? 'Okay',
+            buttonCallback: data?.buttonCallback ?? (() => true),
+            type: data?.type ?? 'c',
+            code: data?.code ?? this.DEFAULT_ERROR,
+            localized: data?.localized ?? false
+        });
+    }
+
+    localize(e: CPErrorData): CPErrorData {
+        if (e.localized) return e;
+
+        let copy = { ...e };
+        copy.message = this.game.locale.localize(e.message, 'error_lang');
+        copy.buttonLabel = this.game.locale.localize(e.buttonLabel, 'error_lang');
+        copy.localized = true;
+        return copy;
+    }
+
+    inferError(e: any): CPErrorData {
+        if (e instanceof CPError) {
+            return this.localize(e);
+        } else if (e instanceof HTTPError) {
+            return this.createError();
+        } else {
+            this.createError();
+        }
+    }
 
     /* END-USER-CODE */
 }

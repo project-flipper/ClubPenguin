@@ -17,26 +17,22 @@
             "type": "Container",
             "id": "e5ed00d5-1a31-4e3d-a30b-605a020f499d",
             "label": "container_1",
-            "components": [],
             "list": [
                 {
                     "type": "Image",
                     "id": "f489243c-35a8-4120-91ca-1133f8e643ce",
                     "label": "background",
-                    "components": [],
                     "texture": {
                         "key": "load",
                         "frame": "load-screen/background"
                     },
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Sprite",
                     "id": "6a4a238f-bd0b-47b3-a877-741088add2a4",
                     "label": "spinner",
-                    "components": [],
                     "texture": {
                         "key": "load",
                         "frame": "load-screen/spinner0001"
@@ -44,15 +40,13 @@
                     "x": 7.287499999999998,
                     "y": 6.162499999999998,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 },
                 {
                     "type": "Image",
                     "id": "ff46b4c9-cd7d-49cc-b54c-4fa5c74fb1d0",
                     "label": "content",
                     "scope": "PUBLIC",
-                    "components": [],
                     "texture": {
                         "key": "load",
                         "frame": "load-screen/content"
@@ -60,8 +54,7 @@
                     "x": 52.3125,
                     "y": 15.6375,
                     "originX": 0,
-                    "originY": 0,
-                    "list": []
+                    "originY": 0
                 }
             ]
         }
@@ -71,6 +64,6 @@
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
-        "version": 3
+        "version": 5
     }
 }

@@ -6,13 +6,14 @@ import NewPlayer from "./views/NewPlayer";
 import PasswordPrompt from "./views/PasswordPrompt";
 import WorldSelect from "./views/WorldSelect";
 /* START-USER-IMPORTS */
-import type Load from '../load/Load';
-import { LoaderTask } from '../load/tasks';
-import type { Locale } from "../app/locale";
-import type { App } from "../app/app";
-import { Airtower, HTTPError, digest } from "../net/airtower";
-import { BanError, LoginResponse } from "../net/types/api";
-import ErrorArea from "../app/ErrorArea";
+import { App } from "@clubpenguin/app/app";
+import ErrorArea from "@clubpenguin/app/ErrorArea";
+import { Locale } from "@clubpenguin/app/locale";
+import Load from "@clubpenguin/load/Load";
+import { LoaderTask } from "@clubpenguin/load/tasks";
+import { HTTPError } from "@clubpenguin/net/airtower";
+import { BanError } from "@clubpenguin/net/types/api";
+import { WorldData } from "@clubpenguin/net/types/world";
 /* END-USER-IMPORTS */
 
 export default class Login extends Phaser.Scene {
@@ -69,14 +70,10 @@ export default class Login extends Phaser.Scene {
 
     declare game: App;
 
-    get airtower(): Airtower {
-        return this.game.airtower;
-    }
-
     init(): void {
         let load = this.scene.get('Load') as Load;
 
-        load.track(new LoaderTask(this.load));
+        load.track(new LoaderTask('Login loader', this.load));
         if (!load.isShowing) load.show();
     }
 
@@ -138,130 +135,77 @@ export default class Login extends Phaser.Scene {
         savePassword: boolean
     }): Promise<void> {
         let error = this.scene.get('ErrorArea') as ErrorArea;
-        if (name.length == 0) {
-            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NAME_REQUIRED', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.unlock();
-                return true;
-            }, error.makeCode('c', error.NAME_REQUIRED));
-        } else if (name.length < this.MIN_USERNAME_LENGTH) {
-            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NAME_SHORT', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.unlock();
-                return true;
-            }, error.makeCode('c', error.NAME_SHORT));
-        } else if (name.length > this.MAX_USERNAME_LENGTH) {
-            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NAME_LONG', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.unlock();
-                return true;
-            }, error.makeCode('c', error.NAME_LONG));
-        } else if (password.length == 0) {
-            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.PASSWORD_REQUIRED', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.unlock();
-                return true;
-            }, error.makeCode('c', error.PASSWORD_REQUIRED));
-        } else if (password.length < this.MIN_PASS_LENGTH) {
-            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.PASSWORD_SHORT', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.unlock();
-                return true;
-            }, error.makeCode('c', error.PASSWORD_SHORT));
-        } else if (password.length > this.MAX_PASS_LENGTH) {
-            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.PASSWORD_LONG', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                this.unlock();
-                return true;
-            }, error.makeCode('c', error.PASSWORD_LONG));
-        }
-
         let load = this.scene.get('Load') as Load;
+        let buttonCallback = () => {
+            this.unlock();
+            return true;
+        };
+
+        let { ok } = await error.shield(() => {
+            if (name.length == 0) throw { message: 'shell.NAME_REQUIRED', buttonCallback, type: 'c', code: error.NAME_REQUIRED };
+            else if (name.length < this.MIN_USERNAME_LENGTH) throw { message: 'shell.NAME_SHORT', buttonCallback, type: 'c', code: error.NAME_SHORT };
+            else if (name.length > this.MAX_USERNAME_LENGTH) throw { message: 'shell.NAME_LONG', buttonCallback, type: 'c', code: error.NAME_LONG };
+            else if (password.length == 0) throw { message: 'shell.PASSWORD_REQUIRED', buttonCallback, type: 'c', code: error.PASSWORD_REQUIRED };
+            else if (password.length < this.MIN_PASS_LENGTH) throw { message: 'shell.PASSWORD_SHORT', buttonCallback, type: 'c', code: error.PASSWORD_SHORT };
+            else if (password.length > this.MAX_PASS_LENGTH) throw { message: 'shell.PASSWORD_LONG', buttonCallback, type: 'c', code: error.PASSWORD_LONG };
+        }, e => e);
+
+        if (!ok) return;
+
         load.show({ text: `${this.game.locale.localize('Logging in')} ${name}` });
 
-        let response: LoginResponse;
-        try {
-            response = await this.airtower.logIn(name, await digest(password), savePassword);
-        } catch (e) {
+        await error.shield(this.game.airtower.logIn(name, password), e => {
             if (e instanceof HTTPError) {
-                if (e.response.status == 401) {
-                    load.hide();
-                    return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.PASSWORD_WRONG', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                        this.unlock();
-                        return true;
-                    }, error.makeCode('c', error.PASSWORD_WRONG));
-                }
+                load.hide();
+    
+                if (e.response.status == 401) return { message: 'shell.PASSWORD_WRONG', buttonCallback, type: 'c', code: error.PASSWORD_WRONG };
                 else if (e.response.status == 403) {
                     // we might have a ban
                     let err = e.data?.error as BanError;
                     if ([601, 610, 611].includes(err?.error_type)) {
                         let duration = err?.ban_dur;
-                        load.hide();
-
-                        if (duration == -1) {
-                            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.BAN_FOREVER', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                                this.unlock();
-                                return true;
-                            }, error.makeCode('c', error.BAN_FOREVER));
-                        }
+                        if (duration == -1) return { message: 'shell.BAN_FOREVER', buttonCallback, type: 'c', code: error.BAN_FOREVER };
 
                         let hours = duration / 60;
-
-                        if (hours < 1) {
-                            return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.BAN_AN_HOUR', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                                this.unlock();
-                                return true;
-                            }, error.makeCode('c', error.BAN_AN_HOUR));
-                        } else {
-                            let desc = this.game.locale.localize('shell.BAN_DURATION', 'error_lang').replace('%0 %1', `${Math.ceil(hours)} ${this.game.locale.localize('hours')}`);
-                            return error.showError(error.WINDOW_SMALL, desc, this.game.locale.localize('Okay'), () => {
-                                this.unlock();
-                                return true;
-                            }, error.makeCode('c', error.BAN_DURATION));
+                        if (hours < 1) return { message:'shell.BAN_AN_HOUR', buttonCallback, type: 'c', code: error.BAN_AN_HOUR };
+                        else {
+                            let cperror = error.createError({ message: 'shell.BAN_DURATION', buttonCallback, type: 'c', code: error.BAN_DURATION });
+                            cperror.message.replace('%0 %1', `${Math.ceil(hours)} ${this.game.locale.localize('hours')}`);
+                            return cperror;
                         }
                     }
-                    throw e;
-                } else if (e.response.status == 404) {
-                    load.hide();
-                    return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NAME_NOT_FOUND', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                        this.unlock();
-                        return true;
-                    }, error.makeCode('c', error.NAME_NOT_FOUND));
-                } else if (e.response.status == 429) {
-                    load.hide();
-                    return error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.LOGIN_FLOODING', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                        this.unlock();
-                        return true;
-                    }, error.makeCode('c', error.LOGIN_FLOODING));
-                }
-
+                } else if (e.response.status == 404) return { message: 'shell.NAME_NOT_FOUND', buttonCallback, type: 'c', code: error.NAME_NOT_FOUND };
+                else if (e.response.status == 429) return { message: 'shell.LOGIN_FLOODING', buttonCallback, type: 'c', code: error.LOGIN_FLOODING };
             }
 
-            error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.NO_SOCKET_CONNECTION', 'error_lang'), this.game.locale.localize('Okay'), () => {
+            return { message: 'shell.NO_SOCKET_CONNECTION', buttonCallback: () => {
                 window.location.reload();
                 return false;
-            }, error.makeCode('c', error.NO_SOCKET_CONNECTION));
-
-            throw e;
-        }
-
-        this.worldSelect.setup({
-            worlds: [
-                {
-                    id: 0,
-                    name: 'Local test',
-                    population: 1,
-                    buddies: false,
-                    safeChat: false,
-                }
-            ], token: ''
+            }, type: 'c', code: error.NO_SOCKET_CONNECTION};
         });
+
+        let worlds = await this.game.airtower.getWorlds();
+
+        this.worldSelect.setup(worlds.data);
         this.showWorldSelect();
 
         load.hide();
     }
 
-    selectWorld(id: string): void {
+    async joinWorld(world: WorldData): Promise<void> {
         let load = this.scene.get('Load') as Load;
         load.show({ logo: true });
 
-        // TODO: access world
+        let error = this.scene.get('ErrorArea') as ErrorArea;
 
-        this.scene.start('World', { id });
+        let { ok } = await error.shield(this.game.airtower.connect(world.url), e => {
+            load.hide();
+            return { message: 'shell.NO_SOCKET_CONNECTION', type: 'c', code: error.NO_SOCKET_CONNECTION};
+        });
+
+        if (!ok) return;
+
+        this.scene.start('World', world);
     }
 
     goToStart(): void {
