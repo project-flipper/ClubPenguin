@@ -171,7 +171,7 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
 
             tile.worldName.text = world.name;
             tile.buddy.visible = world.buddies;
-            tile.safeChat.visible = world.safeChat;
+            tile.safeChat.visible = world.safe_chat;
             tile.setPopulation(world.population);
         }
     }

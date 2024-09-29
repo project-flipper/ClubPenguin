@@ -135,9 +135,9 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         return this.world?.engine;
     }
 
-    public playerId: string;
+    public playerId: number;
 
-    setup(data: AvatarData, playerId: string): void {
+    setup(data: AvatarData, playerId: number): void {
         this.playerId = playerId;
         this.photo_button.visible = false;
         this.avatarData = data;

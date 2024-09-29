@@ -1,22 +1,6 @@
 
 // You can write more code here
 
-let SPAWN_ROOMS = [
-    100, // town
-    200, // village
-    230, // mtn
-    300, // plaza
-    400, // beach
-    800, // dock
-    801, // forts
-    802, // rink
-    //805, // berg
-    807, // shack
-    809, // forest
-    810, // cove
-
-];
-
 export type WorldHandler<D = any> = (data: D) => (Promise<any> | any);
 export const WORLD_HANDLERS: Record<string, WorldHandler> = {};
 
@@ -41,7 +25,7 @@ import { App } from "@clubpenguin/app/app";
 import { RelationshipType } from "@clubpenguin/net/types/relationship";
 import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
 import { getLogger } from "@clubpenguin/lib/log";
-import { Payload, Payloads } from "@clubpenguin/net/types/payload";
+import { ClientPayload, ClientPayloads, Payload, Payloads } from "@clubpenguin/net/types/payload";
 import { Emoji } from "@clubpenguin/net/types/message";
 import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
 import { WorldData } from "@clubpenguin/net/types/world";
@@ -130,14 +114,12 @@ export default class World extends Phaser.Scene {
         await load.waitAllTasksComplete();
 
         let friendList = await this.game.airtower.getFriends();
-        let friends = friendList.data.filter(user => user.mascotId == undefined);
-        let characters = friendList.data.filter(user => user.mascotId != undefined).map(user => user.id);
+        let friends = friendList.data.filter(user => user.mascot_id == undefined);
+        let characters = friendList.data.filter(user => user.mascot_id != undefined).map(user => user.id.toString());
 
-        this.game.friends.connect(friends, characters, true, true, true);
+        this.game.friends.connect(this.myUser.id.toString(), friends, characters, true, true, true);
 
-        let roomId = this.getRandomItem(SPAWN_ROOMS);
-        logger.info('Mocking room join on room', roomId);
-        await this.joinRoom(roomId);
+        await this.spawnRoom();
     }
 
     onWorldMessage(data: any) {
@@ -178,11 +160,11 @@ export default class World extends Phaser.Scene {
     }
 
     isPlayerModerator(): boolean {
-        return this.myUser.moderator;
+        return this.myUser.is_moderator;
     }
 
     isMascot(data: AnyUserData): boolean {
-        return data.mascotId != undefined;
+        return data.mascot_id != undefined;
     }
 
     isMember(data: AnyUserData): boolean {
@@ -211,12 +193,11 @@ export default class World extends Phaser.Scene {
         let player = this.engine.player;
         let safe = this.engine.players.findPlayerPath(player, x, y)
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.WADDLE,
-            fromX: player.x,
-            fromY: player.y,
-            destinationX: safe.x,
-            destinationY: safe.y
+            from_x: player.x,
+            from_y: player.y,
+            destination_x: safe.x,
+            destination_y: safe.y
         };
 
         player.actions.set(action);
@@ -230,7 +211,6 @@ export default class World extends Phaser.Scene {
     sitDown(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.SIT_DOWN
         };
 
@@ -245,7 +225,6 @@ export default class World extends Phaser.Scene {
     sitDownLeft(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.SIT_DOWN_LEFT
         };
 
@@ -260,7 +239,6 @@ export default class World extends Phaser.Scene {
     sitLeft(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.SIT_LEFT
         };
 
@@ -275,7 +253,6 @@ export default class World extends Phaser.Scene {
     sitUpLeft(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.SIT_UP_LEFT
         };
 
@@ -290,7 +267,6 @@ export default class World extends Phaser.Scene {
     sitUp(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.SIT_UP
         };
 
@@ -305,7 +281,6 @@ export default class World extends Phaser.Scene {
     sitUpRight(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.SIT_UP_RIGHT
         };
 
@@ -320,7 +295,6 @@ export default class World extends Phaser.Scene {
     sitRight(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.SIT_RIGHT
         };
 
@@ -335,7 +309,6 @@ export default class World extends Phaser.Scene {
     sitDownRight(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.SIT_DOWN_RIGHT
         };
 
@@ -350,7 +323,6 @@ export default class World extends Phaser.Scene {
     wave(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.WAVE
         };
 
@@ -365,7 +337,6 @@ export default class World extends Phaser.Scene {
     dance(): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.DANCE
         };
 
@@ -380,12 +351,11 @@ export default class World extends Phaser.Scene {
     throwSnowball(x: number, y: number): void {
         let player = this.engine.player;
         let action: ActionData = {
-            player: player.userData.id,
             frame: ActionFrame.THROW,
-            fromX: player.x,
-            fromY: player.y,
-            destinationX: x,
-            destinationY: y
+            from_x: player.x,
+            from_y: player.y,
+            destination_x: x,
+            destination_y: y
         };
 
         player.actions.set(action);
@@ -398,6 +368,13 @@ export default class World extends Phaser.Scene {
 
     /* ========= ENGINE ========= */
 
+    async spawnRoom(): Promise<void> {
+        this.send({
+            op: 'room:spawn',
+            d: {}
+        });
+    }
+
     async joinRoom(roomId: number, x?: number, y?: number): Promise<void> {
         let roomData = this.game.gameConfig.rooms[roomId];
 
@@ -406,14 +383,12 @@ export default class World extends Phaser.Scene {
             x = x ?? position.x;
             y = y ?? position.y;
 
-            // TODO: Request
-            this.handle({
+            this.send({
                 op: 'room:join',
                 d: {
-                    roomId: roomId,
-                    players: [
-                        { user: this.myUser, x: x, y: y, action: { player: this.myUser.id, frame: 0 } }
-                    ]
+                    room_id: roomId,
+                    x,
+                    y
                 }
             });
         }
@@ -438,7 +413,7 @@ export default class World extends Phaser.Scene {
         this.interface.sendEmoji(emoji);
     }
 
-    async openNamecardById(id: string): Promise<void> {
+    async openNamecardById(id: number): Promise<void> {
         // TODO: fetch penguin data
         if (id == this.myUser.id) {
             this.openMyNamecard();
@@ -456,13 +431,13 @@ export default class World extends Phaser.Scene {
 
     /* ========== HANDLERS ========== */
 
-    send<O extends keyof Payloads, D extends Payloads[O]>(payload: Payload<Payloads, O, D>): void {
+    send<O extends keyof ClientPayloads, D extends ClientPayloads[O]>(payload: ClientPayload<ClientPayloads, O, D>): void {
         this.game.airtower.send(payload);
     }
 
     handle<O extends keyof Payloads, D extends Payloads[O]>(payload: Payload<Payloads, O, D>): void {
         if (payload.op in WORLD_HANDLERS) {
-            logger.info('Handling', payload.op);
+            logger.debug('Handling', payload.op);
             try {
                 WORLD_HANDLERS[payload.op].call(this, payload.d);
             } catch (e) {
@@ -475,7 +450,7 @@ export default class World extends Phaser.Scene {
 
     @handle('room:join')
     async handleRoomJoin(data: Payloads['room:join']): Promise<void> {
-        let roomData = this.game.gameConfig.rooms[data.roomId];
+        let roomData = this.game.gameConfig.rooms[data.room_id];
 
         if (roomData) {
             await this.engine.joinRoom(roomData, data.players);
@@ -484,7 +459,7 @@ export default class World extends Phaser.Scene {
 
     @handle('message:create')
     async handleMessageCreate(data: Payloads['message:create']): Promise<void> {
-        let author = this.engine.getPlayer(data.author);
+        let author = this.engine.getPlayer(data.player_id);
         if (author) {
             if (data.type == 'TEXT') author.overlay.balloon.showMessage(data.message, data.multipart);
             else if (data.type == 'EMOJI') author.overlay.balloon.showEmoji(data.emoji);

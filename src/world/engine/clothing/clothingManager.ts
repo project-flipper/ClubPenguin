@@ -68,7 +68,7 @@ export class ClothingManager {
         return `${this.getSpriteKey(id)}-animations`;
     }
 
-    async loadClothingSprite(config: PaperItemConfig, startLoading: boolean, playerId?: string): Promise<void> {
+    async loadClothingSprite(config: PaperItemConfig, startLoading: boolean, playerId?: number): Promise<void> {
         let id = config.paper_item_id;
 
         let key = this.getSpriteKey(id);

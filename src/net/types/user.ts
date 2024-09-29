@@ -4,25 +4,25 @@ import { PresenceData } from "./presence"
 import { RelationshipData } from "./relationship"
 
 export type BaseUserData = {
-    id: string,
+    id: number,
     username: string,
     nickname: string,
     avatar: AvatarData,
     member?: MembershipData,
-    iglooId?: number,
-    mascotId?: number
+    igloo_id?: number,
+    mascot_id?: number
 }
 
 export type UserData = BaseUserData & {
     relationship?: RelationshipData,
-    publicStampbook: boolean,
+    public_stampbook: boolean,
     presence?: PresenceData
 }
 
 export type MyUserData = BaseUserData & {
-    moderator: boolean,
-    iglooId: number,
-    stealth: boolean
+    igloo_id: number,
+    is_moderator: boolean,
+    is_stealth: boolean
 };
 
 export type AnyUserData = UserData | MyUserData;

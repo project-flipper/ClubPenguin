@@ -94,11 +94,11 @@ export class Engine extends EventEmitter {
         return this.players.player;
     }
 
-    playerExists(id: string): boolean {
+    playerExists(id: number): boolean {
         return id in this.players.players;
     }
 
-    getPlayer(id: string): Player {
+    getPlayer(id: number): Player {
         return this.players.players[id];
     }
 

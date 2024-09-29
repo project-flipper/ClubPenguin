@@ -2,7 +2,7 @@ export type WorldData = {
     id: number,
     name: string,
     population: number,
-    safeChat: boolean,
+    safe_chat: boolean,
     buddies: boolean,
     url: string
 };

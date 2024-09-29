@@ -4,7 +4,7 @@ import { PlayerData } from "./player";
 
 export type Payloads = {
     'room:join': {
-        roomId: number,
+        room_id: number,
         players: PlayerData[]
     },
     'message:create': MessageData,
@@ -18,3 +18,19 @@ export type Payload<P extends any, O extends keyof P, D extends P[O]> = {
     op: O,
     d: D
 };
+
+export type ClientPayloads = {
+    'room:join': {
+        room_id: number,
+        x: number,
+        y: number
+    },
+    'room:spawn': {},
+    'player:action': ActionData,
+};
+
+export type ClientPayload<P extends any, O extends keyof P, D extends P[O]> = {
+    op: O,
+    d: D
+};
+

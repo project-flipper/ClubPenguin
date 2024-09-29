@@ -35,10 +35,7 @@ export type CreateUserForm = {
     token: string,
 };
 
-export type CreateUserResponse = ApiResponse<{
-    user_id?: string,
-    validation_errors: []
-}>;
+export type CreateUserResponse = ApiResponse<number>;
 
 export type MyUserResponse = ApiResponse<MyUserData>;
 

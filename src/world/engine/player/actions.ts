@@ -130,7 +130,7 @@ export class Actions {
             case ActionFrame.WADDLE_UP_RIGHT:
             case ActionFrame.WADDLE_RIGHT:
             case ActionFrame.WADDLE_DOWN_RIGHT:
-                this.move(data.destinationX, data.destinationY, data.fromX, data.fromY);
+                this.move(data.destination_x, data.destination_y, data.from_x, data.from_y);
                 if (data.since) {
                     // Server sync
                     let delta = Date.now() - data.since;
@@ -142,7 +142,7 @@ export class Actions {
             case ActionFrame.THROW_UP_LEFT:
             case ActionFrame.THROW_UP_RIGHT:
             case ActionFrame.THROW_DOWN_RIGHT:
-                this.throw(data.destinationX, data.destinationY);
+                this.throw(data.destination_x, data.destination_y);
                 break;
             default:
                 logger.warn('Unknown action received', data);

@@ -1,5 +1,5 @@
 export type PresenceData = {
-    worldId: number,
-    roomId: number,
-    isMobile: boolean
+    world_id: number,
+    room_id: number,
+    is_mobile: boolean
 };

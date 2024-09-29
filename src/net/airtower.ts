@@ -344,7 +344,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
                 reject();
             };
             this.#ws.onmessage = event => {
-                logger.debug('WS ->', event.data);
+                logger.debug('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', event.data);
                 this.emit('ws:message', event.data);
             };
             this.#ws.onclose = event => {
@@ -363,7 +363,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
         if (this.isConnected()) {
             let data = JSON.stringify(payload);
             this.#ws.send(data);
-            logger.debug('WS <-', data);
+            logger.debug('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', data);
         } else throw new Error('Connection not yet established');
     }
 
@@ -410,7 +410,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
      * @param userId The user ID to query.
      * @returns The response from the API.
      */
-    async getUserById(userId: string): Promise<UserResponse> {
+    async getUserById(userId: number): Promise<UserResponse> {
         return await this.request<UserResponse>(new Route('GET', '/users/{userId}', { userId }), {});
     }
 

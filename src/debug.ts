@@ -67,7 +67,7 @@ export class Debug {
         } : undefined;
 
         let data: UserData = {
-            id: this.INTERNAL_ID.toString(),
+            id: this.INTERNAL_ID,
             username: name,
             nickname: name,
             avatar: {
@@ -81,9 +81,9 @@ export class Debug {
                 photo: 0,
                 flag: 0
             },
-            publicStampbook: false,
+            public_stampbook: false,
             member: membership,
-            mascotId,
+            mascot_id: mascotId,
             relationship: {
                 type: RelationshipType.FRIEND,
                 since: ''
@@ -136,7 +136,7 @@ export class Debug {
             let username = `P${this.INTERNAL_ID}`;
 
             let data: UserData = {
-                id: this.INTERNAL_ID.toString(),
+                id: this.INTERNAL_ID,
                 username,
                 nickname: username,
                 avatar: {
@@ -150,7 +150,7 @@ export class Debug {
                     photo: this.getRandomItem(itemsByType[9]),
                     flag: 0,
                 },
-                publicStampbook: Boolean(Math.floor(Math.random() * 2)),
+                public_stampbook: Boolean(Math.floor(Math.random() * 2)),
                 member,
                 relationship: {
                     type: RelationshipType.FRIEND,

@@ -291,7 +291,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
 
     declare scene: Interface;
 
-    public userId: string;
+    public userId: number;
 
     setup(data: MyUserData): void {
         this.userId = data.id;

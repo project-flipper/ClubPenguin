@@ -39,7 +39,7 @@ export class PlayerManager {
     }
 
     public avatars: { [key: string]: AvatarCls };
-    public players: { [id: string]: Player };
+    public players: { [id: number]: Player };
 
     get player(): Player {
         return this.players[this.world.myUser.id];

@@ -433,7 +433,7 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
     declare scene: Interface;
 
-    public userId: string;
+    public userId: number;
 
     public friendHint: string;
     public locateHint: string;
@@ -477,13 +477,13 @@ export default class Namecard extends Phaser.GameObjects.Container {
             this.locateButtonIcon.setFrame('interface/namecardLocateButtonMute');
             this.locateHint = 'mute_player_hint';
         } else {
-            this.locateButton.visible = this.scene.world.isFriend(data) ? (data.presence ? data.presence.worldId == this.scene.world.worldId : false) : false;
+            this.locateButton.visible = this.scene.world.isFriend(data) ? (data.presence ? data.presence.world_id == this.scene.world.worldId : false) : false;
             this.locateButtonIcon.setFrame(this.locateButton.visible ? 'interface/namecardLocateButtonIcon' : 'interface/namecardLocateButtonDisabled');
             this.locateHint = 'online_hint';
         }
         this.locateButtonDisabled.visible = !this.locateButton.visible;
 
-        this.iglooButton.visible = data?.iglooId != undefined;
+        this.iglooButton.visible = data?.igloo_id != undefined;
         this.iglooButtonIcon.setFrame(this.iglooButton.visible ? 'interface/namecardIglooButtonIcon' : 'interface/namecardIglooButtonDisabled');
         this.iglooButtonDisabled.visible = !this.iglooButton.visible;
 
@@ -491,7 +491,7 @@ export default class Namecard extends Phaser.GameObjects.Container {
         this.mailButtonIcon.setFrame(this.mailButton.visible ? 'interface/namecardMailButtonIcon' : 'interface/namecardMailButtonDisabled');
         this.mailButtonDisabled.visible = !this.mailButton.visible;
 
-        this.stampbookButton.visible = data.publicStampbook ? true : false;
+        this.stampbookButton.visible = data.public_stampbook ? true : false;
         this.stampbookButtonIcon.setFrame(this.stampbookButton.visible ? 'interface/namecardStampbookButtonIcon' : 'interface/namecardStampbookButtonDisabled');
         this.stampbookButtonDisabled.visible = !this.stampbookButton.visible;
 

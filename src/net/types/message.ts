@@ -33,7 +33,7 @@ export enum Emoji {
 
 export type TextMessageData = {
     type: 'TEXT',
-    author: string,
+    player_id: number,
     message: string,
     multipart: boolean,
     banned: boolean
@@ -41,7 +41,7 @@ export type TextMessageData = {
 
 export type EmojiMessageData = {
     type: 'EMOJI',
-    author: string,
+    player_id: number,
     emoji: Emoji,
     multipart: boolean,
     banned: boolean

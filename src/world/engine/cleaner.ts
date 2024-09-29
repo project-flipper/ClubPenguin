@@ -6,8 +6,8 @@ let logger = getLogger('CP.world.engine.cleaner');
 export default class Cleaner {
     public engine: Engine;
     public resources: string[];
-    public resourceUsages: Record<string, string[]>;
-    public fromPlayers: Record<string, string[]>;
+    public resourceUsages: Record<string, number[]>;
+    public fromPlayers: Record<number, string[]>;
 
     constructor(engine: Engine) {
         this.engine = engine;
@@ -25,7 +25,7 @@ export default class Cleaner {
         return [first, rest.join(':')];
     }
 
-    allocateResource(type: string, key: string, playerId?: string): void {
+    allocateResource(type: string, key: string, playerId?: number): void {
         let resKey = this.getKey(type, key);
         if (!this.resources.includes(resKey)) this.resources.push(resKey);
 
@@ -48,7 +48,7 @@ export default class Cleaner {
         }
     }
 
-    deallocateResource(type: string, key: string, playerId?: string): void {
+    deallocateResource(type: string, key: string, playerId?: number): void {
         let resKey = this.getKey(type, key);
         if (!this.resources.includes(resKey)) return;
 
@@ -62,7 +62,7 @@ export default class Cleaner {
 
             logger.info(`Deallocated resource ${resKey} from player ${playerId}`);
         } else {
-            let players: string[] = [];
+            let players: number[] = [];
             if (resKey in this.resourceUsages) this.resourceUsages[resKey] = [];
 
             for (let playerId of players) {

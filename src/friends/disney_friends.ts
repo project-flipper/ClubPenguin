@@ -89,16 +89,16 @@ export class Friends extends Phaser.Events.EventEmitter {
         return this;
     }
 
-    connect(friends: UserData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean): void {
-        this.instance.Friends.API.connect(this.world.myUser.id);
+    connect(user_id: string, friends: UserData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean): void {
+        this.instance.Friends.API.connect(user_id);
 
         let roster = friends.filter(data => data.relationship.type == RelationshipType.FRIEND || data.relationship.type == RelationshipType.BEST_FRIEND);
-        let bestFriends = friends.filter(data => data.relationship.type == RelationshipType.BEST_FRIEND).map(data => data.id);
+        let bestFriends = friends.filter(data => data.relationship.type == RelationshipType.BEST_FRIEND).map(data => data.id.toString());
 
         this.instance.Friends.activeUser.settings.settingRequestResultHandler([
             bestFriends.length, notificationsEnabled, friendsEnabled, bestFriendsEnabled
         ]);
-        this.instance.Friends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id, name: data.nickname, presence: Presence.OFFLINE.toString() })));
+        this.instance.Friends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id.toString(), name: data.nickname, presence: Presence.OFFLINE.toString() })));
         this.instance.Friends.activeUser.roster.populateBestFriends(bestFriends);
         this.instance.Friends.activeUser.roster.populateCharacterRoster(characters.map(id => ({ id, presence: Presence.OFFLINE.toString() })));
     }
@@ -126,11 +126,11 @@ export class Friends extends Phaser.Events.EventEmitter {
     }
 
     onShowPlayerCard(swid: string) {
-        this.world.openNamecardById(swid);
+        this.world.openNamecardById(parseInt(swid));
     }
 
     onShowCharacterCard(id: string) {
-        this.world.openNamecardById(id);
+        this.world.openNamecardById(parseInt(id));
     }
 
     async onFindPlayer(name: string) {
@@ -142,11 +142,11 @@ export class Friends extends Phaser.Events.EventEmitter {
         }
 
         let player = user != undefined ? {
-            playerId: user.data.id,
-            swid: user.data.id,
+            playerId: user.data.id.toString(),
+            swid: user.data.id.toString(),
             name: name
         } : {
-            playerId: 0
+            playerId: '0'
         };
         this.instance.Friends.API.foundPlayer(player);
     }
