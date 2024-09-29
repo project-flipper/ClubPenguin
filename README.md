@@ -27,7 +27,7 @@ Next, install the mediaserver. If you plan on running a [webpack DevServer](http
 Finally, build the game source:
 
 - To output a build, run `npm run build`. This will output the game files and play page to a directory called `dist` in the project root.
-- To run a DevServer instead, run `npm run serve` instead. This option is best for development, but keep in mind **it will run under a production environment if no options are given**.
+- To run a DevServer instead, run `npm run serve`. This option is best for development, but keep in mind **it will run under a production environment if no options are given**.
 
 ### Options
 Both `npm run build` and `npm run serve` run `webpack` under the hood, so you may pass options to it. It is encouraged to customize your builds as the default options may not apply to your environment.
@@ -60,7 +60,7 @@ Below is a list of valid options.
 # Modifications
 You may have noticed `.scene` files (amongst others) that are left unused in the source. These files are editable using [Phaser Editor 2D](https://phasereditor2d.com/), and the editor will compile TypeScript files upon change. It is adviced you only modify TypeScript files in the project that **are not compiled by the editor**, and in case they are, **make sure you are editing a section that is not compiled**.
 
-To ensure whether a section is compiled, look for block comments in the desired TypeScript file that look like this: `/* START-USER-CODE */`. This indicates the start of a section that will not be overwritten by the editor, and likewise a comment like `/* END-USER-CODE */` indicates the end of it.
+To check whether a section is compiled, look for block comments in the desired TypeScript file that look like this: `/* START-USER-CODE */`. This indicates the start of a section that will not be overwritten by the editor, and likewise a comment like `/* END-USER-CODE */` indicates the end of it.
 
 Phaser Editor 2D will also need to read asset files from the mediaserver, so you will need to make it available inside of the project root as a directory. For the editor to recognize the mediaserver as an extension of the project root (needed for asset loading), you must include an empty file called `projectroot` (without an extension) inside of the mediaserver root. This will hint the editor that the mediaserver is used for asset loading, and you will be able to edit freely the scenes.
 
@@ -72,7 +72,7 @@ If you wish to fork this project, please give credits where credit is due. Thank
 Thank you for your interest! 😉. You may contribute to bug reports and fixes by submitting issues and pull requests through this repository. Together we will let Club Penguin's legacy live on.
 
 # Demo
-See [Project Flipper](https://projectflipper.live/) (non-affiliated with Disney).
+See [Project Flipper](https://projectflipper.me/) (non-affiliated with Disney).
 
 # Support
 <p>
