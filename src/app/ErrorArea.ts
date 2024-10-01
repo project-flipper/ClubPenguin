@@ -365,7 +365,7 @@ export default class ErrorArea extends Phaser.Scene {
 
         let copy = { ...e };
         copy.message = this.game.locale.localize(e.message, 'error_lang');
-        copy.buttonLabel = this.game.locale.localize(e.buttonLabel, 'error_lang');
+        copy.buttonLabel = this.game.locale.localize(e.buttonLabel);
         copy.localized = true;
         return copy;
     }
