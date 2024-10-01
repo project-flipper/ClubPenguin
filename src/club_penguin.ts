@@ -68,11 +68,18 @@ declare global {
     }
 }
 
+/**
+ * Handles the app crashing by delegating to a handler in the playpage, if available.
+ */
 function onAppCrash(): void {
     if (window.handleGameError) window.handleGameError({ handled: false });
     stop(true);
 }
 
+/**
+ * Checks if the browser is compatible with Club Penguin.
+ * @returns Whether the browser is compatible with Club Penguin.
+ */
 export function isBrowserCompatible(): boolean {
     return (
         typeof fetch == 'function' &&
@@ -82,6 +89,10 @@ export function isBrowserCompatible(): boolean {
     );
 }
 
+/**
+ * Runs the Club Penguin app.
+ * @param params The parameters to run the app with.
+ */
 export function run(params: RunParams): void {
     stop();
 
@@ -169,10 +180,18 @@ export function run(params: RunParams): void {
     LoaderPlugin.cacheVersion = params.cacheVersion;
 }
 
+/**
+ * Checks if the Club Penguin app is currently running.
+ * @returns Whether the Club Penguin app is currently running.
+ */
 export function isRunning(): boolean {
     return app !== undefined;
 }
 
+/**
+ * Handles the window resize event, or forces a reposition.
+ * @param repositionFriends Whether to reposition the friends list.
+ */
 export function sizeChange(repositionFriends = false): void {
     if (!isRunning()) return;
 
@@ -182,60 +201,106 @@ export function sizeChange(repositionFriends = false): void {
     if (repositionFriends) app.friends.reposition();
 }
 
+/**
+ * Handles navigating to a new page.
+ * @param redirectUrl The URL to redirect to after logging off.
+ */
 export function handleLogOff(redirectUrl: string): void {
     stop(true);
 
     if (redirectUrl) window.location.href = redirectUrl;
 }
 
+/**
+ * Alias for {@link handleLogOff}.
+ */
 export let handleWindowUnload = handleLogOff;
 
+/**
+ * Alias for {@link handleLogOff}.
+ */
 export let handleBack = handleLogOff;
 
+/**
+ * Handles resubmitting a name for approval.
+ */
 export function handleNameResubmit(): void {
 
 }
 
+/**
+ * Handles showing the preactivation screen.
+ */
 export function handleShowPreactivation(): void {
 
 }
 
+/**
+ * Handles an external event from the friends list.
+ * @param event The event to handle.
+ * @param params The parameters to handle the event with.
+ */
 export function friendsEventHandler(event: string, params: any[]): void {
     if (!isRunning()) return;
 
     app.friends.friendsEventHandler(event, params);
 }
 
+/**
+ * Sends a buddy request to a buddy.
+ * @param swid The SWID of the buddy to send a request to.
+ */
 export function sendBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
     app.friends.sendBuddyRequest(swid);
 }
 
+/**
+ * Accepts a buddy request from a buddy.
+ * @param swid The SWID of the buddy to accept a request from.
+ */
 export function sendAcceptBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
     app.friends.sendAcceptBuddyRequest(swid);
 }
 
+/**
+ * Rejects a buddy request from a buddy.
+ * @param swid The SWID of the buddy to reject a request from.
+ */
 export function sendRejectBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
     app.friends.sendRejectBuddyRequest(swid);
 }
 
+/**
+ * Toggles a buddy's best friend status.
+ * @param swid The SWID of the buddy to toggle the best friend status of.
+ * @returns 
+ */
 export function sendToggleBestFriend(swid: string): void {
     if (!isRunning()) return;
 
     app.friends.sendToggleBestFriend(swid);
 }
 
+/**
+ * Toggles a character's best friend status.
+ * @param id The ID of the character to toggle the best friend status of.
+ */
 export function sendToggleBestCharacter(id: string): void {
     if (!isRunning()) return;
 
     app.friends.sendToggleBestCharacter(id);
 }
 
+/**
+ * Stops the Club Penguin app.
+ * @param terminate Whether to destroy all game systems.
+ */
 export function stop(terminate = false): void {
     if (isRunning()) {
         logger.info('Stopping app');
@@ -246,6 +311,10 @@ export function stop(terminate = false): void {
 
 logger.info('Club Penguin ready');
 
+/**
+ * The debug instance for Club Penguin.
+ * Only available if the debug mode is enabled.
+ */
 export let debug: Debug;
 
 if (__webpack_options__.EXPOSE_DEBUG) debug = new Debug(() => app);
