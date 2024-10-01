@@ -1,5 +1,5 @@
 import { App } from "@clubpenguin/app/app";
-import Config from "@clubpenguin/app/config";
+import { Config } from "@clubpenguin/app/config";
 import { Airtower } from "@clubpenguin/net/airtower";
 import { MembershipData } from "@clubpenguin/net/types/membership";
 import { UserData } from "@clubpenguin/net/types/user";
