@@ -4,6 +4,7 @@ import { App } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { getLogger } from "@clubpenguin/lib/log";
+import { LoaderPlugin } from "./loader";
 
 let logger = getLogger('CP.app.locale');
 
@@ -183,7 +184,7 @@ export class Locale extends Phaser.Events.EventEmitter {
         let key = `locale-${this.abbreviation}`
         if (cache.json.exists(key)) cache.json.remove(key);
 
-        loader.json(key, `config/${this.abbreviation}/game_strings.json`)
+        loader.json(key, this.app.airtower.getAbsoluteUrl(`web_service/${this.abbreviation}/game_strings.json`, { v: LoaderPlugin.cacheVersion }))
 
         logger.info('Loading locale');
         loader.start();

@@ -136,6 +136,13 @@ type RequestOptions = {
     authorization?: string
 };
 
+type DisneyFriendsCallbackParams = {
+    size: number;
+    language: string;
+    photo: boolean;
+    bypassPlayerSettingCache: boolean;
+};
+
 /**
  * The game API wrapper.
  * It acts as a bridge between the game client and the game server, as it implements any logic
@@ -159,12 +166,23 @@ export class Airtower extends Phaser.Events.EventEmitter {
     }
 
     /**
+     * Transforms a relative path into an absolute URL for the game API.
+     * This is typically used when external routing is needed externally.
+     * @param path The path to resolve.
+     * @param query An optional object to use as querystring.
+     * @returns The absolute URL.
+     */
+    getAbsoluteUrl(path: string, query?: Record<string, any>): string {
+        return new Route('GET', path).query(query).getURL(this.basePath).href
+    }
+
+    /**
      * Utility for Disney's Friend List to access the Avatar endpoint.
      * @returns A callback that generates an absolute URL to the requested asset.
      */
-    createAvatarUrlCallback(): (id: string, params: { size: number, language: string, photo: boolean, bypassPlayerSettingCache: boolean }) => string {
-        return (id: string, params: { size: number, language: string, photo: boolean, bypassPlayerSettingCache: boolean }) => {
-            return new Route('GET', `/avatars/${id}`).query(params).getURL(this.basePath).href;
+    createAvatarUrlCallback(): (id: string, params: DisneyFriendsCallbackParams) => string {
+        return (id: string, params: DisneyFriendsCallbackParams) => {
+            return this.getAbsoluteUrl(`/avatars/${id}`, params);
         };
     }
 

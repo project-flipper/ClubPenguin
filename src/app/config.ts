@@ -4,6 +4,7 @@ import { App } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { getLogger } from "@clubpenguin/lib/log";
+import { LoaderPlugin } from "./loader";
 
 let logger = getLogger('CP.app.config');
 
@@ -113,7 +114,7 @@ export class Config {
         let cacheKey = `config-global-${key}`;
         if (cache.json.exists(cacheKey)) cache.json.remove(cacheKey);
 
-        loader.json(cacheKey, this.app.airtower.getAbsoluteUrl(`/web_service/${key}.json`));
+        loader.json(cacheKey, this.app.airtower.getAbsoluteUrl(`/web_service/${key}.json`, { v: LoaderPlugin.cacheVersion }));
         return cacheKey;
     }
 
@@ -121,7 +122,7 @@ export class Config {
         let cacheKey = `config-${locale}-${key}`;
         if (cache.json.exists(cacheKey)) cache.json.remove(cacheKey);
 
-        loader.json(cacheKey, this.app.airtower.getAbsoluteUrl(`/web_service/${locale}/${key}.json`));
+        loader.json(cacheKey, this.app.airtower.getAbsoluteUrl(`/web_service/${locale}/${key}.json`, { v: LoaderPlugin.cacheVersion }));
         return cacheKey;
     }
 
