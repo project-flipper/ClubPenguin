@@ -136,7 +136,7 @@ export class SnowballManager {
      * Resets the snowball manager by clearing and destroying all snowballs.
      */
     reset(): void {
-        for (let snowball of this.snowballs) snowball.destroy();
+        if (this.snowballs) for (let snowball of this.snowballs) snowball.destroy();
         this.snowballs = [];
     }
 }
