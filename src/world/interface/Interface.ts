@@ -732,6 +732,12 @@ export default class Interface extends Phaser.Scene {
         this.chat.filterRegex = new RegExp(locale.localize('chat_restrict'), 'g');
     }
 
+    /**
+     * If the snowball crosshair is visible, updates its position to the current pointer position.
+     * If any namecard is visible, updates the photo mask position to the other namecard's position.
+     * @param time The current time.
+     * @param delta The delta time in ms since the last frame.
+     */
     update(time: number, delta: number): void {
         if (this.snowballCrosshair.visible) this.snowballCrosshair.setPosition(this.input.activePointer.x, this.input.activePointer.y);
 
@@ -739,12 +745,18 @@ export default class Interface extends Phaser.Scene {
         else if (this.playerNamecard.visible) this.photo_mask.setPosition(this.playerNamecard.x + 18, this.playerNamecard.y + 90);
     }
 
+    /**
+     * Shorthand method to show the map.
+     */
     showMap(): void {
         this.loadContent(async () => (await import('@clubpenguin/world/content/map/Map')).default);
     }
 
     /* ============ INPUT ============ */
 
+    /**
+     * Whether the interface should process input.
+     */
     get canProcessInput(): boolean {
         // Canvas elements cannot have be set as active, so body it is.
         return this.game.hasFocus && document.activeElement == document.body && !this.engine.currentGame;
@@ -752,6 +764,10 @@ export default class Interface extends Phaser.Scene {
 
     public lastFart: number;
 
+    /**
+     * Handles keyboard input for player actions, such as sitting, waving, and sending messages.
+     * @param event The keyboard event.
+     */
     keydownHandler(event: KeyboardEvent): void {
         if (!this.canProcessInput) return;
 
@@ -806,6 +822,10 @@ export default class Interface extends Phaser.Scene {
         }
     }
 
+    /**
+     * Processes an emoji combo.
+     * @param combo The combo that was matched.
+     */
     processEmojiCombo(combo: Phaser.Input.Keyboard.KeyCombo): void {
         if (!this.canProcessInput) return;
 
@@ -869,6 +889,9 @@ export default class Interface extends Phaser.Scene {
 
     }
 
+    /**
+     * Sends the current typed message in the chat.
+     */
     sendMessage(): void {
         this.hideHint();
 
@@ -881,6 +904,10 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ AVATAR OVERLAYS ============ */
 
+    /**
+     * Attaches an overlay to the specified player.
+     * @param player The player to whom the overlay will be attached.
+     */
     attachPlayerOverlay(player: Player): void {
         let overlay = new AvatarOverlay(this, player.x, player.y);
         this.avatarOverlays.add(overlay);
@@ -888,17 +915,28 @@ export default class Interface extends Phaser.Scene {
         player.overlay = overlay;
     }
 
+    /**
+     * Removes the overlay associated with the given player.
+     * @param player The player whose overlay is to be removed.
+     */
     removePlayerOverlay(player: Player): void {
         let overlay = player?.overlay;
         this.avatarOverlays.remove(overlay);
     }
 
+    /**
+     * Clears avatar overlays from all players.
+     */
     clearAvatarOverlays(): void {
         this.avatarOverlays.removeAll(true);
     }
 
     /* ============ NAMECARD ============ */
 
+    /**
+     * Opens the namecard for a given user. If the user is the current player, the player's namecard is opened.
+     * @param data The user data for the player whose namecard is to be opened.
+     */
     openNamecard(data: UserData): void {
         if (this.world.isMyPlayer(data)) return this.openMyNamecard();
         if (this.playerNamecard.visible) {
@@ -911,6 +949,9 @@ export default class Interface extends Phaser.Scene {
         this.namecard.visible = true;
     }
 
+    /**
+     * Opens the player's namecard interface.
+     */
     openMyNamecard(): void {
         if (this.namecard.visible) {
             this.namecard.visible = false;
@@ -925,14 +966,25 @@ export default class Interface extends Phaser.Scene {
         this.playerNamecard.visible = true;
     }
 
+    /**
+     * Checks if the namecard is currently open.
+     * @returns Whether the namecard is open.
+     */
     isNamecardOpen(): boolean {
         return this.namecard.visible;
     }
 
+    /**
+     * Checks if the player's namecard is currently open.
+     * @returns Whether the player's namecard is open.
+     */
     isPlayerNamecardOpen(): boolean {
         return this.playerNamecard.visible;
     }
 
+    /**
+     * Closes the namecard.
+     */
     closeNamecard(): void {
         this.namecard.visible = false;
         this.playerNamecard.visible = false;
@@ -940,6 +992,13 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ HINT ============ */
 
+    /**
+     * Displays a hint message at a specified position.
+     * @param at The initial position where the hint should be displayed. This can be a vector or an object with a parent container.
+     * @param message The hint message to be displayed.
+     * @param offsetX Optional horizontal offset for the hint position.
+     * @param offsetY Optional vertical offset for the hint position.
+     */
     showHint(at: Phaser.Types.Math.Vector2Like, message: string, offsetX = 0, offsetY = -63): void {
         this.hint.hide();
 
@@ -958,16 +1017,29 @@ export default class Interface extends Phaser.Scene {
         this.hint.show(message);
     }
 
+    /**
+     * Displays a hint message at a specified position when the locale is available.
+     * @param at The initial position where the hint should be displayed. This can be a vector or an object with a parent container.
+     * @param message The localized hint message to be displayed.
+     * @param offsetX Optional horizontal offset for the hint position.
+     * @param offsetY Optional vertical offset for the hint position.
+     */
     showLocalizedHint(at: Phaser.Types.Math.Vector2Like, message: string, offsetX?: number, offsetY?: number): void {
         this.game.locale.immediate((locale: Locale) => this.showHint(at, locale.localize(message), offsetX, offsetY));
     }
 
+    /**
+     * Hides the hint message.
+     */
     hideHint(): void {
         this.hint.hide();
     }
 
     /* ============ PROMPT ============ */
 
+    /**
+     * Closes all prompt dialogs.
+     */
     closePrompt(): void {
         this.promptCoin.close();
         this.promptError.close();
@@ -982,6 +1054,11 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ END GAME ============ */
 
+    /**
+     * Displays the end game screen with the final score and game configuration data.
+     * @param score The final score achieved in the game.
+     * @param gameData The configuration data for the game.
+     */
     showEndGame(score: number, gameData: GameConfig): void {
 
     }
@@ -991,6 +1068,11 @@ export default class Interface extends Phaser.Scene {
     public currentContent: Content;
     private _prevVisible: boolean;
 
+    /**
+     * Loads and shows dynamic content.
+     * @param callback A promise that resolves to the content class to be loaded.
+     * @param data Any additional data to be passed to the content class.
+     */
     async loadContent(callback: () => Promise<ContentCls>, data?: any): Promise<void> {
         try {
             this.closeContent();
@@ -1034,6 +1116,9 @@ export default class Interface extends Phaser.Scene {
         }
     }
 
+    /**
+     * Closes the current content.
+     */
     closeContent(): void {
         if (!this.currentContent) return;
 
@@ -1051,6 +1136,9 @@ export default class Interface extends Phaser.Scene {
         }
     }
 
+    /**
+     * Safely closes the current content.
+     */
     safeCloseContent(): void {
         // ensure the pointerup event finishes before re-allowing room input
         setTimeout(() => this.closeContent(), 10);
@@ -1058,16 +1146,26 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ VISIBILITY ============ */
 
+    /**
+     * Shows the interface.
+     */
     show(): void {
         this.ui.visible = true;
         this.avatarOverlays.visible = true;
         this.chat.locked = false;
     }
 
+    /**
+     * Whether the interface is currently showing.
+     */
     get isShowing(): boolean {
         return this.ui.visible;
     }
 
+    /**
+     * Hides the interface.
+     * @param closeAll Whether to close all interface elements.
+     */
     hide(closeAll = true): void {
         this.ui.visible = false;
         this.avatarOverlays.visible = false;
@@ -1075,6 +1173,9 @@ export default class Interface extends Phaser.Scene {
         this.chat.locked = true;
     }
 
+    /**
+     * Closes all interface elements.
+     */
     closeAll(): void {
         this.closeNamecard();
         this.hideHint();
