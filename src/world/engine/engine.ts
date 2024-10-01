@@ -1,3 +1,9 @@
+/**
+ * The `Engine` class is responsible for managing the game world, including players, rooms, and games.
+ * It extends `EventEmitter` to handle various events within the game.
+ * 
+ * @extends EventEmitter
+ */
 import EventEmitter from "eventemitter3";
 import Phaser from "phaser";
 
@@ -48,6 +54,10 @@ export interface Game extends Phaser.Scene {
 }
 
 
+/**
+ * The Engine is responsible for managing the game world, including players, rooms, and games.
+ * It extends EventEmitter to handle various events regarding room and game management.
+ */
 export class Engine extends EventEmitter {
     public world: World;
 
@@ -90,18 +100,35 @@ export class Engine extends EventEmitter {
 
     /* ============ PLAYER ============ */
 
+    /**
+     * Gets the current player instance.
+     */
     get player(): Player {
         return this.players.player;
     }
 
+    /**
+     * Checks if a player with the given ID exists in the game world.
+     * @param id The unique ID of the player.
+     * @returns Whether the player exists.
+     */
     playerExists(id: number): boolean {
         return id in this.players.players;
     }
 
+    /**
+     * Retrieves a player by their ID.
+     * @param id The ID of the player.
+     * @returns The player associated with the given ID.
+     */
     getPlayer(id: number): Player {
         return this.players.players[id];
     }
 
+    /**
+     * Adds a player to the game world. If the player already exists, updates the player's data.
+     * @param data - The data of the player to be added or updated.
+     */
     async addPlayer(data: PlayerData): Promise<void> {
         if (this.playerExists(data.user.id)) return this.updatePlayer(data);
 
@@ -110,6 +137,10 @@ export class Engine extends EventEmitter {
         player.actions.set(data.action);
     }
 
+    /**
+     * Updates the player's state with the provided data.
+     * @param data The data containing the player's new state.
+     */
     updatePlayer(data: PlayerData): void {
         let player = this.getPlayer(data.user.id);
         this.players.updatePlayer(player, data.user);
@@ -118,13 +149,28 @@ export class Engine extends EventEmitter {
         player.actions.set(data.action);
     }
 
-    removePlayer(data: PlayerData): void {
-        let player = this.getPlayer(data.user.id);
-        if (!player) return;
+    /**
+     * Removes a player from the game world by their ID.
+     * @param id The ID of the player to be removed.
+     * @returns Whether the player was successfully removed.
+     */
+    removePlayer(id: number): boolean {
+        let player = this.getPlayer(id);
+        if (!player) return false;
 
         this.players.removePlayer(player);
+        return true;
     }
 
+    /**
+     * Handles the player's pointer move event.
+     * 
+     * This method checks if the player is idle and if so, it performs a hit test
+     * to determine if the pointer is over any objects in the current room. If the 
+     * pointer is not over the player's hitbox, the player will look at the pointer's 
+     * world coordinates.
+     * @param pointer The pointer that triggered the event.
+     */
     playerPointerMoveHandler(pointer: Phaser.Input.Pointer): void {
         let player = this.player;
         if (!player || !player.actions.isIdle()) return;
@@ -133,6 +179,13 @@ export class Engine extends EventEmitter {
         if (objects[0] != player.hitbox) player.actions.lookAt(pointer.worldX, pointer.worldY);
     }
 
+    /**
+     * Handles the player's pointer up event.
+     * 
+     * This method checks if the left mouse button was released. If so, it performs a hit test to determine
+     * if any objects were clicked. If no objects were clicked, it moves the player to the pointer's world coordinates.
+     * @param pointer The pointer that triggered the event.
+     */
     playerPointerUpHandler(pointer: Phaser.Input.Pointer): void {
         let player = this.player;
         if (!player) return;
@@ -152,6 +205,13 @@ export class Engine extends EventEmitter {
 
     public currentRoom: Room;
 
+    /**
+     * Loads a room based on the provided configuration.
+     * If a pin ID is specified in the configuration, the corresponding pin is loaded and added to the room.
+     * The room's background music is played based on the music ID in the configuration.
+     * An event 'room:load' is emitted when the room is successfully loaded.
+     * @param config The configuration object for the room to be loaded.
+     */
     async loadRoom(config: RoomConfig): Promise<void> {
         if (config.room_id == this.currentRoomId) return;
 
@@ -210,6 +270,10 @@ export class Engine extends EventEmitter {
         this.emit('room:load', this.currentRoom);
     }
 
+    /**
+     * Unloads the current room, if any, and performs necessary cleanup.
+     * Emits a 'room:unload' event when the room is successfully unloaded.
+     */
     unloadRoom(): void {
         if (this.currentRoom) {
             this.previousPlayerX = this.players.player?.x;
@@ -229,6 +293,12 @@ export class Engine extends EventEmitter {
         this.cleaner.collectAll();
     }
 
+    /**
+     * Joins a room with the specified configuration and players.
+     * Once the room is ready, it emits a 'room:ready' event.
+     * @param config The configuration for the room to join.
+     * @param players An array of player data to add to the room.
+     */
     async joinRoom(config: RoomConfig, players: PlayerData[]): Promise<void> {
         if (config.room_id == this.currentRoomId) return;
 
@@ -275,16 +345,20 @@ export class Engine extends EventEmitter {
         this.emit('room:ready', this.currentRoom);
     }
 
+    /**
+     * Finds a safe point within the specified room configuration.
+     * @param data The configuration of the room, containing the safe zone boundaries.
+     * @returns A Phaser.Math.Vector2 object representing a random safe point within the specified boundaries.
+     */
     findSafePoint(data: RoomConfig): Phaser.Math.Vector2 {
         return new Phaser.Math.Vector2(randomRange(data.safe_start_x, data.safe_end_x), randomRange(data.safe_start_y, data.safe_end_y));
     }
 
-    async loadInitialPenguins(): Promise<void> {
-
-    }
-
     public roomLocked = false;
 
+    /**
+     * Locks the current room and the world by disabling keyboard and input interactions.
+     */
     lockRoom(): void {
         if (this.currentRoom) {
             this.currentRoom.input.keyboard.enabled = false;
@@ -296,6 +370,9 @@ export class Engine extends EventEmitter {
         this.roomLocked = true;
     }
 
+    /**
+     * Unlocks the current room and the world, enabling keyboard and input interactions.
+     */
     unlockRoom(): void {
         if (this.currentRoom) {
             this.currentRoom.input.keyboard.enabled = true;
@@ -311,6 +388,13 @@ export class Engine extends EventEmitter {
 
     public currentGame: Game;
 
+    /**
+     * Loads a game based on the provided configuration.
+     * Depending on whether the game is hybrid or not, it either creates a Ruffle instance or dynamically imports the game module.
+     * Emits a 'game:load' event when the game is successfully loaded.
+     * @param config The configuration object for the game to be loaded.
+     * @param options Optional parameters that can be passed to the game.
+     */
     async loadGame(config: GameConfig, options?: any): Promise<void> {
         if (this.currentGame && config == this.currentGame.gameData) return;
 
@@ -345,6 +429,10 @@ export class Engine extends EventEmitter {
         this.emit('game:load', this.currentGame);
     }
 
+    /**
+     * Unloads the current game, if any, and performs necessary cleanup.
+     * Emits a 'game:unload' event when the game is successfully unloaded.
+     */
     unloadGame(): void {
         if (this.currentGame) {
             this.currentGame.scene.remove();
@@ -356,6 +444,12 @@ export class Engine extends EventEmitter {
         this.cleaner.collectAll();
     }
 
+    /**
+     * Starts the game with the provided configuration and options.
+     * Emits a 'game:ready' event when the game is ready.
+     * @param config The configuration for the game to start.
+     * @param options Optional parameters for game initialization.
+     */
     async startGame(config: GameConfig, options?: any): Promise<void> {
         if (this.currentGame && config == this.currentGame.gameData) return;
 
@@ -393,6 +487,11 @@ export class Engine extends EventEmitter {
         this.emit('game:ready', this.currentGame);
     }
 
+    /**
+     * Ends the current game and returns to a room.
+     * @param score The game score.
+     * @param roomConfig The room configuration.
+     */
     async endGame(score: number, roomConfig: RoomConfig): Promise<void> {
         let load = this.loadScreen;
         if (!load.isShowing) load.show();

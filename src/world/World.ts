@@ -494,7 +494,7 @@ export default class World extends Phaser.Scene {
 
     @handle('player:remove')
     async handlePlayerRemove(data: Payloads['player:remove']): Promise<void> {
-        this.engine.removePlayer(data);
+        this.engine.removePlayer(data.user.id);
     }
 
     /* END-USER-CODE */
