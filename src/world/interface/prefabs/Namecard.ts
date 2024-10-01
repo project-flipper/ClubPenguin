@@ -472,7 +472,7 @@ export default class Namecard extends Phaser.GameObjects.Container {
             this.locateButton.visible = true; // TODO: check for item
             this.locateButtonIcon.setFrame('interface/namecardLocateButtonGift');
             this.locateHint = 'free_item_hint';
-        } else if (this.scene.world.isPlayerModerator()) {
+        } else if (this.scene.world.isMyPlayerModerator()) {
             this.locateButton.visible = true;
             this.locateButtonIcon.setFrame('interface/namecardLocateButtonMute');
             this.locateHint = 'mute_player_hint';
@@ -495,7 +495,7 @@ export default class Namecard extends Phaser.GameObjects.Container {
         this.stampbookButtonIcon.setFrame(this.stampbookButton.visible ? 'interface/namecardStampbookButtonIcon' : 'interface/namecardStampbookButtonDisabled');
         this.stampbookButtonDisabled.visible = !this.stampbookButton.visible;
 
-        if (this.scene.world.isPlayerModerator() && !this.scene.world.isMascot(data)) {
+        if (this.scene.world.isMyPlayerModerator() && !this.scene.world.isMascot(data)) {
             this.reportButton.visible = true;
             this.ignoreButton.visible = true;
 
@@ -514,7 +514,7 @@ export default class Namecard extends Phaser.GameObjects.Container {
         this.reportButtonIcon.setFrame(this.reportButton.visible ? 'interface/namecardReportButtonIcon' : 'interface/namecardReportButtonDisabled')
         this.reportButtonDisabled.visible = !this.reportButton.visible;
 
-        this.moderatorEditButton.visible = this.scene.world.isPlayerModerator();
+        this.moderatorEditButton.visible = this.scene.world.isMyPlayerModerator();
     }
 
     localize(locale: Locale): void {

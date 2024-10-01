@@ -79,6 +79,10 @@ export default class World extends Phaser.Scene {
         this.startWorld();
     }
 
+    /**
+     * Starts the world by connecting to the world server and loading the world assets
+     * Also initializes the engine and interface, then requests a room to spawn in.
+     */
     async startWorld(): Promise<void> {
         let load = this.scene.get('Load') as Load;
         load.track(new LoaderTask('World loader', this.load));
@@ -122,11 +126,20 @@ export default class World extends Phaser.Scene {
         await this.spawnRoom();
     }
 
+    /**
+     * Handles incoming world messages by parsing the data and delegating it to the appropriate handler.
+     * @param data The raw message data received from the world server.
+     */
     onWorldMessage(data: any) {
         let payload = JSON.parse(data);
         this.handle(payload);
     }
 
+    /**
+     * Handles the closure of the world connection.
+     * @param code The close code indicating the reason for the closure.
+     * @param reason A string providing additional information about the closure.
+     */
     onWorldClose(code: number, reason: string): void {
         let error = this.scene.get('ErrorArea') as ErrorArea;
 
@@ -144,51 +157,96 @@ export default class World extends Phaser.Scene {
 
     public standardPenguinTimeOffset = 0;
 
+    /**
+     * Calculates and returns the current standard penguin time.
+     * The standard penguin time is derived by adding a predefined offset
+     * (in minutes) to the current system time.
+     * @returns The current standard penguin time.
+     */
     getStandardPenguinTime(): Date {
         let now = new Date();
         now.setTime(now.getTime() + this.standardPenguinTimeOffset * 60000);
         return now;
     }
 
-    getRandomItem<T>(array: T[]): T {
-        let idx = Math.floor(Math.random() * array.length);
-        return array[idx];
-    }
-
+    /**
+     * Checks if the provided user data corresponds to the current player.
+     * @param data The user data to check.
+     * @returns Whether the provided user data is for the current player.
+     */
     isMyPlayer(data: AnyUserData): data is MyUserData {
         return data.id == this.myUser.id;
     }
 
-    isPlayerModerator(): boolean {
+    /**
+     * Checks if the current player is a moderator.
+     * @returns Whether the player is a moderator.
+     */
+    isMyPlayerModerator(): boolean {
         return this.myUser.is_moderator;
     }
 
+    /**
+     * Checks if the provided user data corresponds to a mascot.
+     * @param data The user data to check.
+     * @returns Whether the user is a mascot.
+     */
     isMascot(data: AnyUserData): boolean {
         return data.mascot_id != undefined;
     }
 
+    /**
+     * Checks if the user is a member.
+     * @param data The user data to check.
+     * @returns Whether the user is a member.
+     */
     isMember(data: AnyUserData): boolean {
         return data?.member != undefined;
     }
 
+    /**
+     * Checks if the user's relationship status is pending.
+     * @param data The user data containing relationship information.
+     * @returns Whether the relationship type is pending.
+     */
     isPending(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.PENDING;
     }
 
+    /**
+     * Checks if the user's relationship is a friend or best friend.
+     * @param data The user data to check.
+     * @returns Whether the user is a friend or best friend.
+     */
     isFriend(data: UserData): boolean {
         return [RelationshipType.FRIEND, RelationshipType.BEST_FRIEND].includes(data.relationship?.type);
     }
 
+    /**
+     * Checks if the user's relationship is a best friend.
+     * @param data The user data to check.
+     * @returns Whether the user is a best friend.
+     */
     isBestFriend(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.BEST_FRIEND;
     }
 
+    /**
+     * Checks if the user is ignored.
+     * @param data The user data to check.
+     * @returns Whether the user is ignored.
+     */
     isIgnored(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.IGNORED;
     }
 
     /* ========= PLAYER ========= */
 
+    /**
+     * Moves the player to the specified coordinates.
+     * @param x The x-coordinate to move the player to.
+     * @param y The y-coordinate to move the player to.
+     */
     move(x: number, y: number): void {
         let player = this.engine.player;
         let safe = this.engine.players.findPlayerPath(player, x, y)
@@ -208,6 +266,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player sit down by setting the appropriate action frame.
+     */
     sitDown(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -222,6 +283,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player sit down facing left by setting the appropriate action frame.
+     */
     sitDownLeft(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -236,6 +300,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player sit left by setting the appropriate action frame.
+     */
     sitLeft(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -250,6 +317,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player sit up facing left by setting the appropriate action frame.
+     */
     sitUpLeft(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -264,6 +334,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player sit up by setting the appropriate action frame.
+     */
     sitUp(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -278,6 +351,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player sit up facing right by setting the appropriate action frame.
+     */
     sitUpRight(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -292,6 +368,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player sit right by setting the appropriate action frame.
+     */
     sitRight(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -306,6 +385,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player sit down facing right by setting the appropriate action frame.
+     */
     sitDownRight(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -320,6 +402,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player wave by setting the appropriate action frame.
+     */
     wave(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -334,6 +419,9 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Makes the player dance by setting the appropriate action frame.
+     */
     dance(): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -348,6 +436,11 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Throws a snowball to the specified coordinates.
+     * @param x The x-coordinate where the snowball is thrown.
+     * @param y The y-coordinate where the snowball is thrown.
+     */
     throwSnowball(x: number, y: number): void {
         let player = this.engine.player;
         let action: ActionData = {
@@ -368,6 +461,10 @@ export default class World extends Phaser.Scene {
 
     /* ========= ENGINE ========= */
 
+    /**
+     * Requests the server to spawn the player in a room.
+     * The server is expected to send a room:join payload in response.
+     */
     async spawnRoom(): Promise<void> {
         this.send({
             op: 'room:spawn',
@@ -375,6 +472,12 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Requests to join a specified room in the game.
+     * @param roomId The ID of the room to join.
+     * @param x The x-coordinate to join at. If not provided, a safe point will be determined.
+     * @param y The y-coordinate to join at. If not provided, a safe point will be determined.
+     */
     async joinRoom(roomId: number, x?: number, y?: number): Promise<void> {
         let roomData = this.game.gameConfig.rooms[roomId];
 
@@ -394,6 +497,11 @@ export default class World extends Phaser.Scene {
         }
     }
 
+    /**
+     * Requests to start a game.
+     * @param gameId The ID of the game to start.
+     * @param options Optional parameters to pass to the game.
+     */
     async startGame(gameId: string, options?: any): Promise<void> {
         let gameData = this.game.gameConfig.games[gameId];
 
@@ -405,14 +513,31 @@ export default class World extends Phaser.Scene {
 
     /* ======== INTERFACE ======== */
 
-    async sendMessage(message?: string, allowAutopart: boolean = false): Promise<void> {
-        this.interface.sendMessage(message, allowAutopart);
+    /**
+     * Sends a text message.
+     * @param message The message to be sent.
+     * @param allowAutopart Whether autopart messages are allowed.
+     */
+    async sendMessage(message: string, allowAutopart: boolean = false): Promise<void> {
+        this.engine.player.overlay.balloon.showMessage(message, allowAutopart);
     }
 
+    /**
+     * Sends an emoji message.
+     * @param emoji The emoji to be sent.
+     */
     async sendEmoji(emoji: Emoji): Promise<void> {
-        this.interface.sendEmoji(emoji);
+        this.engine.player.overlay.balloon.showEmoji(emoji);
     }
 
+    /**
+     * Opens the namecard for a user by their ID.
+     * 
+     * If the provided ID matches the player's ID, it opens the player's namecard.
+     * Otherwise, it fetches the user data for the given ID and opens the corresponding namecard.
+     * 
+     * @param id The ID of the user whose namecard is to be opened.
+     */
     async openNamecardById(id: number): Promise<void> {
         // TODO: fetch penguin data
         if (id == this.myUser.id) {
@@ -425,16 +550,27 @@ export default class World extends Phaser.Scene {
         this.interface.openNamecard(r.data);
     }
 
+    /**
+     * Opens the player's namecard.
+     */
     openMyNamecard(): void {
         this.interface.openMyNamecard();
     }
 
     /* ========== HANDLERS ========== */
 
+    /**
+     * Sends a payload to the server.
+     * @param payload The payload to be sent, which includes the operation key and the associated data.
+     */
     send<O extends keyof ClientPayloads, D extends ClientPayloads[O]>(payload: ClientPayload<ClientPayloads, O, D>): void {
         this.game.airtower.send(payload);
     }
 
+    /**
+     * Handles incoming payloads by dispatching them to the appropriate handler based on the operation type.
+     * @param payload The payload containing the operation and data to be handled.
+     */
     handle<O extends keyof Payloads, D extends Payloads[O]>(payload: Payload<Payloads, O, D>): void {
         if (payload.op in WORLD_HANDLERS) {
             logger.debug('Handling', payload.op);

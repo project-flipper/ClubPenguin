@@ -314,7 +314,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
             this.star.visible = true;
         }
 
-        this.moderatorEditButton.visible = this.scene.world.isPlayerModerator();
+        this.moderatorEditButton.visible = this.scene.world.isMyPlayerModerator();
 
         this.scene.game.locale.immediate(locale => {
             this.coins.text = locale.localize('widget_coins').replace('%total%', '0');

@@ -703,7 +703,7 @@ export default class Interface extends Phaser.Scene {
         this.chat.handleKeyUp = (event) => {
             if (event.key == 'Enter') {
                 event.preventDefault();
-                this.world.sendMessage();
+                this.sendMessage();
                 return false;
             } else return true;
         }
@@ -773,7 +773,7 @@ export default class Interface extends Phaser.Scene {
                 event.stopPropagation();
                 break;
             case 'Enter':
-                this.world.sendMessage();
+                this.sendMessage();
                 break;
             case 'w':
                 this.world.wave();
@@ -869,18 +869,14 @@ export default class Interface extends Phaser.Scene {
 
     }
 
-    sendMessage(message?: string, allowAutopart = false): void {
+    sendMessage(): void {
         this.hideHint();
 
-        if (message) this.engine.player.overlay.balloon.showMessage(message, allowAutopart);
-        else if (this.chat.value.length > 0) {
-            this.engine.player.overlay.balloon.showMessage(this.chat.value, allowAutopart);
+        let message = this.chat.value;
+        if (message.length > 0) {
+            this.world.sendMessage(message, false);
             this.chat.value = '';
         }
-    }
-
-    sendEmoji(emoji: Emoji): void {
-        this.engine.player.overlay.balloon.showEmoji(emoji);
     }
 
     /* ============ AVATAR OVERLAYS ============ */
