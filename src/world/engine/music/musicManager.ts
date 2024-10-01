@@ -6,6 +6,9 @@ import { getLogger } from "@clubpenguin/lib/log";
 
 let logger = getLogger('CP.world.engine.music');
 
+/**
+ * Manages the music in the game.
+ */
 export class MusicManager {
     public engine: Engine;
 
@@ -22,6 +25,10 @@ export class MusicManager {
         return this.engine.world;
     }
 
+    /**
+     * Plays a music track by ID.
+     * @param id The ID of the music to play.
+     */
     async play(id: number): Promise<void> {
         if (this.currentMusicId == id) return;
         if (!id) return this.stop();
@@ -51,6 +58,10 @@ export class MusicManager {
         if (!this.muted) this.world.sound.play(key, { loop: true });
     }
 
+    /**
+     * Whether the music is currently muted.
+     * On mute, the music will stop playing entirely and will start again when unmuted.
+     */
     get muted(): boolean {
         return this._musicMuted;
     }
@@ -67,6 +78,9 @@ export class MusicManager {
         }
     }
 
+    /**
+     * Stops the currently playing music.
+     */
     stop(): void {
         if (this.currentMusicId) {
             let key = `music-${this.currentMusicId}`;

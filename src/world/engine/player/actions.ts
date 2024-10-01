@@ -9,6 +9,9 @@ import { getLogger } from "@clubpenguin/lib/log";
 
 let logger = getLogger('CP.world.engine.player');
 
+/**
+ * Manages the player's actions, such as movement and throwing snowballs.
+ */
 export class Actions {
     public player: Player;
     public moveTween: Phaser.Tweens.Tween;
@@ -25,10 +28,19 @@ export class Actions {
         return this.world.engine;
     }
 
+    /**
+     * Checks if the player is currently in an idle frame.
+     * @returns Whether the player is currently idle.
+     */
     isIdle(): boolean {
         return this.player.currentAnimation < ActionFrame.WADDLE_DOWN;
     }
 
+    /**
+     * Looks at a point on the world.
+     * @param x The x-coordinate to look at.
+     * @param y The y-coordinate to look at.
+     */
     lookAt(x: number, y: number): void {
         this.stopMoving();
 
@@ -37,6 +49,13 @@ export class Actions {
         this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
     }
 
+    /**
+     * Moves the player to a point on the world.
+     * @param x The x-coordinate to move to.
+     * @param y The y-coordinate to move to.
+     * @param originalX The original x-coordinate to move from. If not provided, the player's current x-coordinate is used.
+     * @param originalY The original y-coordinate to move from. If not provided, the player's current y-coordinate is used.
+     */
     move(x: number, y: number, originalX?: number, originalY?: number): void {
         this.stopMoving();
 
@@ -78,10 +97,18 @@ export class Actions {
         });
     }
 
+    /**
+     * Stops the player from moving.
+     */
     stopMoving(): void {
         if (this.moveTween) this.moveTween.destroy();
     }
 
+    /**
+     * Throws a snowball to a point on the world.
+     * @param x The x-coordinate to throw the snowball to.
+     * @param y The y-coordinate to throw the snowball to.
+     */
     throw(x: number, y: number): void {
         this.stopMoving();
     
@@ -98,6 +125,10 @@ export class Actions {
         this.engine.snowballs.throw(snowball, x, y, this.player);
     }
 
+    /**
+     * Sets the player's action data.
+     * @param data The action data to set.
+     */
     set(data: ActionData): void {
         switch (data.frame) {
             case ActionFrame.IDLE_DOWN:
@@ -149,6 +180,9 @@ export class Actions {
         }
     }
 
+    /**
+     * Resets the player's actions.
+     */
     reset(): void {
         this.stopMoving();
         this.engine.players.testTriggers(this.player, true, undefined, undefined, true);
