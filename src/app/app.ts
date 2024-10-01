@@ -17,6 +17,10 @@ interface AppParams {
     minigameVersion: string
 }
 
+/**
+ * The Club Penguin game root.
+ * All internal systems and state is stored within.
+ */
 export class App extends Phaser.Game {
     public locale: Locale;
     public airtower: Airtower;
@@ -60,6 +64,12 @@ export class App extends Phaser.Game {
 
     }
 
+    /**
+     * Modifies a DOM GameObject to remove Phaser references in it.
+     * These references are not used by Phaser itself currently.
+     * @param dom The DOM GameObject to modify.
+     * @returns The modified DOM GameObject.
+     */
     fixDomGO<T extends Phaser.GameObjects.DOMElement>(dom: T): T {
         logger.debug('Removing Phaser reference from DOM element', dom);
         if ('phaser' in dom.node) delete dom.node['phaser'];
@@ -67,7 +77,7 @@ export class App extends Phaser.Game {
     }
 
     protected onBlur(): void {
-        this.lastBlur = window.performance.now();
+        this.lastBlur = window.performance.now(); // TODO: is it safe to employ this API? Will it maintain accuracy when a freeze occurs?
         logger.info('Snapshotting blur event');
         super.onBlur();
     }
@@ -79,19 +89,35 @@ export class App extends Phaser.Game {
         super.onFocus();
     }
 
+    /**
+     * Removes a JSON asset from the game cache.
+     * @param assetKey The asset key associated.
+     */
     unloadJSON(assetKey: string): void {
         if (this.cache.json.exists(assetKey)) this.cache.json.remove(assetKey);
     }
 
+    /**
+     * Removes a multiatlas asset from the game cache.
+     * @param assetKey The asset key associated.
+     */
     unloadMultiatlas(assetKey: string): void {
         this.unloadImage(assetKey);
         this.unloadJSON(assetKey);
     }
 
+    /**
+     * Removes an audio asset from the game cache.
+     * @param assetKey The asset key associated.
+     */
     unloadAudio(assetKey: string): void {
         if (this.cache.audio.exists(assetKey)) this.cache.audio.remove(assetKey);
     }
 
+    /**
+     * Removes an animation asset from the game cache.
+     * @param assetKey The asset key associated.
+     */
     unloadAnimation(assetKey: string): void {
         if (!this.cache.json.exists(assetKey)) return;
 
@@ -101,10 +127,18 @@ export class App extends Phaser.Game {
         this.cache.json.remove(assetKey);
     }
 
+    /**
+     * Removes an image asset from the game cache.
+     * @param assetKey The asset key associated.
+     */
     unloadImage(assetKey: string): void {
         if (this.textures.exists(assetKey)) this.textures.removeKey(assetKey);
     }
 
+    /**
+     * Removes a bitmap font asset from the game cache.
+     * @param assetKey The asset key associated.
+     */
     unloadBitmapFont(assetKey: string): void {
         if (!this.cache.bitmapFont.exists(assetKey)) return;
 
@@ -114,6 +148,10 @@ export class App extends Phaser.Game {
         this.cache.bitmapFont.remove(assetKey);
     }
 
+    /**
+     * Removes an asset pack and all of its contents from the game cache.
+     * @param assetKey The asset key associated.
+     */
     unloadAssetPack(key: string): boolean {
         if (!this.cache.json.exists(key)) return false;
 
