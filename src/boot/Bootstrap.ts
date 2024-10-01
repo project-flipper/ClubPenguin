@@ -172,6 +172,10 @@ export default class Bootstrap extends Phaser.Scene {
         this.loadClubPenguin();
     }
 
+    /**
+     * Loads the internal game state.
+     * Should a file fail to load, then the game will consider the state bad and refuse to start.
+     */
     async loadClubPenguin(): Promise<void> {
         logger.info('Starting Club Penguin');
 
@@ -235,6 +239,10 @@ export default class Bootstrap extends Phaser.Scene {
         }
     }
 
+    /**
+     * Shows a load error using the internal error dialog.
+     * This exists in case locale isn't available, so we must resort to hard-coding these translations.
+     */
     showLoadError(): void {
         let errorMessage: string;
         let buttonText: string;
@@ -269,6 +277,10 @@ export default class Bootstrap extends Phaser.Scene {
         interr.showErrorDialog(errorMessage, buttonText, () => window.location.reload(), '10010');
     }
 
+    /**
+     * Gets a translated message to warn users about devtool usage.
+     * @returns The translated message.
+     */
     getDevtoolsWarnMessage(): string {
         switch (this.game?.locale.language) {
             case Language.PT:
