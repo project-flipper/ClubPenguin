@@ -99,8 +99,8 @@ export default class World extends Phaser.Scene {
 
         await this.game.airtower.sendAuth();
 
-        let myUser = await this.game.airtower.getMyUser();
-        this.myUser = myUser.data;
+        let { data: myUser } = await this.game.airtower.getMyUser();
+        this.myUser = myUser;
 
         this.postload();
         // TODO: load world here
@@ -117,11 +117,11 @@ export default class World extends Phaser.Scene {
 
         await load.waitAllTasksComplete();
 
-        let friendList = await this.game.airtower.getFriends();
-        let friends = friendList.data.filter(user => user.mascot_id == undefined);
-        let characters = friendList.data.filter(user => user.mascot_id != undefined).map(user => user.id.toString());
+        let { data: friendList } = await this.game.airtower.getFriends();
+        let friends = friendList.filter(user => user.mascot_id == undefined);
+        let characters = friendList.filter(user => user.mascot_id != undefined).map(user => user.id.toString());
 
-        this.game.friends.connect(this.myUser.id.toString(), friends, characters, true, true, true);
+        this.game.friends.connect(this.myUser.id.toString(), friends, characters, true, true, friendList.length > 10);
 
         await this.spawnRoom();
     }
@@ -475,16 +475,17 @@ export default class World extends Phaser.Scene {
     /**
      * Requests to join a specified room in the game.
      * @param roomId The ID of the room to join.
-     * @param x The x-coordinate to join at. If not provided, a safe point will be determined.
-     * @param y The y-coordinate to join at. If not provided, a safe point will be determined.
+     * @param x The x-coordinate to join at.
+     * @param y The y-coordinate to join at.
      */
     async joinRoom(roomId: number, x?: number, y?: number): Promise<void> {
         let roomData = this.game.gameConfig.rooms[roomId];
 
         if (roomData) {
-            let position = this.engine.findSafePoint(roomData);
-            x = x ?? position.x;
-            y = y ?? position.y;
+            if (!(await this.engine.checkRoomExists(roomData.path))) {
+                logger.warn('Room module does not exist', roomData.path);
+                return;
+            }
 
             this.send({
                 op: 'room:join',
@@ -494,6 +495,8 @@ export default class World extends Phaser.Scene {
                     y
                 }
             });
+        } else {
+            logger.warn('Room not found', roomId);
         }
     }
 
@@ -506,8 +509,15 @@ export default class World extends Phaser.Scene {
         let gameData = this.game.gameConfig.games[gameId];
 
         if (gameData) {
+            if (!gameData.is_hybrid && !(await this.engine.checkGameExists(gameData.path))) {
+                logger.warn('Game module does not exist', gameData.path);
+                return;
+            }
+
             // TODO: Request
             await this.engine.startGame(gameData, options);
+        } else {
+            logger.warn('Game not found', gameId);
         }
     }
 
@@ -584,6 +594,25 @@ export default class World extends Phaser.Scene {
         }
     }
 
+    updateUser(data: AnyUserData, updatePlayer = true): void {
+        if (this.isMyPlayer(data)) this.myUser = data;
+        else {
+            // TODO: update friends list if relationship changes
+        }
+
+        if (updatePlayer) this.engine.updatePlayerWith(data);
+
+        if (this.interface.playerNamecard.visible && this.isMyPlayer(data)) this.interface.playerNamecard.setup(data);
+        else if (this.interface.namecard.visible && !this.isMyPlayer(data) && data.id == this.interface.namecard.userId) this.interface.namecard.setup(data);
+    }
+
+    @handle('user:update')
+    async handleUserUpdate(data: Payloads['user:update']): Promise<void> {
+        if (this.isMyPlayer(data)) this.myUser = data;
+
+        this.updateUser(data);
+    }
+
     @handle('room:join')
     async handleRoomJoin(data: Payloads['room:join']): Promise<void> {
         let roomData = this.game.gameConfig.rooms[data.room_id];
@@ -613,8 +642,7 @@ export default class World extends Phaser.Scene {
     @handle('player:update')
     async handlePlayerUpdate(data: Payloads['player:update']): Promise<void> {
         this.engine.updatePlayer(data);
-        if (this.interface.playerNamecard.visible && this.isMyPlayer(data.user)) this.interface.playerNamecard.setup(data.user);
-        else if (this.interface.namecard.visible && !this.isMyPlayer(data.user) && data.user.id == this.interface.namecard.userId) this.interface.namecard.setup(data.user);
+        this.updateUser(data.user, false);
     }
 
     @handle('player:action')

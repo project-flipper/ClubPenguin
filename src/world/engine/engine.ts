@@ -30,6 +30,7 @@ import { MusicManager } from "./music/musicManager";
 import { SnowballManager } from "./snowballs/snowballManager";
 import { PlayerData } from "@clubpenguin/net/types/player";
 import { getLogger } from "@clubpenguin/lib/log";
+import { AnyUserData } from "@clubpenguin/net/types/user";
 
 let logger = getLogger('CP.world.engine');
 
@@ -150,6 +151,15 @@ export class Engine extends EventEmitter {
     }
 
     /**
+     * Updates the player with the given user data if they exist in the world.
+     * @param data The data to update the player with.
+     */
+    updatePlayerWith(data: AnyUserData): void {
+        let player = this.getPlayer(data.id);
+        if (player) this.players.updatePlayer(player, data);
+    }
+
+    /**
      * Removes a player from the game world by their ID.
      * @param id The ID of the player to be removed.
      * @returns Whether the player was successfully removed.
@@ -206,6 +216,29 @@ export class Engine extends EventEmitter {
     public currentRoom: Room;
 
     /**
+     * Imports a room module dynamically.
+     * @param path The path of the room module to import.
+     * @returns A promise that resolves to the default export of the imported room module.
+     */
+    async importRoomModule(path: string): Promise<any> {
+        return (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/rooms/${path}`)).default;
+    }
+
+    /**
+     * Checks if a room exists.
+     * @param path The path to the room.
+     * @returns A promise that resolves to a boolean indicating whether the room exists or not.
+     */
+    async checkRoomExists(path: string): Promise<boolean> {
+        try {
+            await this.importRoomModule(path);
+            return true;
+        } catch(e) {
+            return false;
+        }
+    }
+
+    /**
      * Loads a room based on the provided configuration.
      * If a pin ID is specified in the configuration, the corresponding pin is loaded and added to the room.
      * The room's background music is played based on the music ID in the configuration.
@@ -216,7 +249,7 @@ export class Engine extends EventEmitter {
         if (config.room_id == this.currentRoomId) return;
 
         logger.info('Loading room by path', config.path);
-        let room = (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/rooms/${config.path}`)).default;
+        let room = await this.importRoomModule(config.path);
 
         this.unloadRoom();
         this.unloadGame();
@@ -389,6 +422,29 @@ export class Engine extends EventEmitter {
     public currentGame: Game;
 
     /**
+     * Imports a game module dynamically.
+     * @param path The path of the game module to import.
+     * @returns A promise that resolves to the default export of the imported game module.
+     */
+    async importGameModule(path: string): Promise<any> {
+        return (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/games/${path}`)).default;
+    }
+
+    /**
+     * Checks if a game exists.
+     * @param path The path to the game.
+     * @returns A promise that resolves to a boolean indicating whether the game exists or not.
+     */
+    async checkGameExists(path: string): Promise<boolean> {
+        try {
+            await this.importGameModule(path);
+            return true;
+        } catch(e) {
+            return false;
+        }
+    }
+
+    /**
      * Loads a game based on the provided configuration.
      * Depending on whether the game is hybrid or not, it either creates a Ruffle instance or dynamically imports the game module.
      * Emits a 'game:load' event when the game is successfully loaded.
@@ -402,7 +458,7 @@ export class Engine extends EventEmitter {
         if (config.is_hybrid) {
             cls = new HybridGame(config);
         } else {
-            cls = (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/games/${config.path}`)).default;
+            cls = await this.importGameModule(config.path);
         }
 
         if (config.room_id != 0) {

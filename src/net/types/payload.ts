@@ -1,6 +1,7 @@
 import { ActionData } from "./action";
 import { MessageData } from "./message";
 import { PlayerData } from "./player";
+import { AnyUserData } from "./user";
 
 export type Payloads = {
     'room:join': {
@@ -11,7 +12,8 @@ export type Payloads = {
     'player:add': PlayerData,
     'player:update': PlayerData,
     'player:action': ActionData,
-    'player:remove': PlayerData
+    'player:remove': PlayerData,
+    'user:update': AnyUserData
 };
 
 export type Payload<P extends any, O extends keyof P, D extends P[O]> = {
