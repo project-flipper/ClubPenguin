@@ -79,7 +79,7 @@ export class Formatter {
      * @returns A sequence of ordered arguments to be fed into any {@link console} logging methods.
      */
     getConsoleArgs(level: LogLevel, record: LogRecord): any[] {
-        record.mappings.level = record.mappings.level ?? getLevelName(level);
+        record.mappings.level = getLevelName(level);
 
         let msg = this.msgFormat;
 
