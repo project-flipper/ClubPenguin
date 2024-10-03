@@ -770,7 +770,7 @@ export class ContextNotification {
     }
 
     static showBestHint(): boolean {
-        if (FriendsUI.bestCount >= FriendsUI.BEST_HINT_COUNT_MAX || this.bestHintShown || (!FriendsUI.bestEnabled && UIFriends.arrAllFriends.length < 10)) {
+        if (FriendsUI.bestCount >= FriendsUI.BEST_HINT_COUNT_MAX || this.bestHintShown || !FriendsUI.bestEnabled || UIFriends.arrAllFriends.length < 10) {
             return false;
         }
         if (this.active) {
@@ -2326,9 +2326,16 @@ export class BarNotification {
         if (DisneyFriends.activeUser.isPreActivated) {
             s.find(".D_F_FriendNotificationActions").remove();
         } else {
-            s.find(".D_F_FriendNotificationAvatar").on("click", () => FriendsUI.showPlayerCard(t));
-            s.find(".D_F_FriendNotificationAdd").on("click", () => Pending.accept(t));
-            s.find(".D_F_FriendNotificationDeny").on("click", () => {
+            s.find(".D_F_FriendNotificationAvatar").on("click", e => {
+                DisneySocial.stopEvent(e);
+                FriendsUI.showPlayerCard(t);
+            });
+            s.find(".D_F_FriendNotificationAdd").on("click", e => {
+                DisneySocial.stopEvent(e);
+                Pending.accept(t);
+            });
+            s.find(".D_F_FriendNotificationDeny").on("click", e => {
+                DisneySocial.stopEvent(e);
                 i.queue("Deny" + t, Pending.reject, [s, t], i.timeoutDuration);
                 Pending.reject(t);
             });
@@ -3207,10 +3214,9 @@ export class FriendsUI {
         this.delay = this.DELAY_FIRST;
         this.notificationAware = false;
 
-        const e = FriendsEvent;
-        e.addListener(e.DISCONNECTED, this.friendDisconnect.bind(this));
-        e.addListener(e.CONNECTED, this.friendConnect.bind(this));
-        e.addListener(e.FRIENDS_GOT_SETTINGS, this.updateSettings.bind(this));
+        FriendsEvent.addListener(FriendsEvent.DISCONNECTED, this.friendDisconnect.bind(this));
+        FriendsEvent.addListener(FriendsEvent.CONNECTED, this.friendConnect.bind(this));
+        FriendsEvent.addListener(FriendsEvent.FRIENDS_GOT_SETTINGS, this.updateSettings.bind(this));
 
         const socialEvent = SocialEvent;
         socialEvent.addListener(socialEvent.EVENT_STOPPED, this.bubbleEvent.bind(this));
@@ -3230,24 +3236,22 @@ export class FriendsUI {
         HudNotification.init();
     }
 
-    static updateSettings(): void {
-        const settings = DisneyFriends.activeUser.settings;
-    
-        let bestHintCount = settings.getSetting(Settings.Constants.BEST_HINT_COUNT);
+    static updateSettings(settings: Record<string, string>): void {
+        let bestHintCount = settings[Settings.Constants.BEST_HINT_COUNT];
         if (bestHintCount !== undefined) {
-            bestHintCount = parseInt(bestHintCount, 10);
-            if (!isNaN(bestHintCount)) {
-                this.bestCount = bestHintCount;
+            let count = parseInt(bestHintCount, 10);
+            if (!isNaN(count)) {
+                this.bestCount = count;
             }
         }
     
-        let bestFriendEnabled = settings.getSetting(Settings.Constants.BEST_FRIEND_ENABLED);
-        if (bestFriendEnabled !== undefined && (bestFriendEnabled === "true" || bestFriendEnabled === "false")) {
+        let bestFriendEnabled = settings[Settings.Constants.BEST_FRIEND_ENABLED];
+        if (bestFriendEnabled !== undefined && (bestFriendEnabled === "true")) {
             this.bestEnabled = true;
         }
-    
-        let notificationAware = settings.getSetting(Settings.Constants.NOTIFICATION_AWARE);
-        if (notificationAware !== undefined && (notificationAware === "true" || notificationAware === "false")) {
+
+        let notificationAware = settings[Settings.Constants.NOTIFICATION_AWARE];
+        if (notificationAware !== undefined) {
             if (notificationAware === "true") {
                 this.notificationAware = true;
                 this.delay = this.DELAY_NORMAL;
@@ -3256,7 +3260,7 @@ export class FriendsUI {
             }
         }
     
-        let friendsEnabled = settings.getSetting(Settings.Constants.FRIENDS_ENABLED);
+        let friendsEnabled = settings[Settings.Constants.FRIENDS_ENABLED];
         let isPreActivated = false;
         if (friendsEnabled === "false") {
             isPreActivated = true;
@@ -3279,8 +3283,8 @@ export class FriendsUI {
                 `<div export class="preactivated-message"><p>${e}</p><div export class="about-activation"><a href="#" export class="button">${i}</a></div></div>`
             );
 
-            $(".preactivated-message .about-activation .button").on("click", function (e) {
-                e.preventDefault();
+            $(".preactivated-message .about-activation .button").on("click", e => {
+                DisneySocial.stopEvent(e);
                 CP.handleShowPreactivation();
                 $("#D_F_FriendSection").fadeOut();
             });

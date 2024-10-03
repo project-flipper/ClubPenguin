@@ -126,7 +126,7 @@ export class Friends extends Phaser.Events.EventEmitter {
         let bestFriends = friends.filter(data => data.relationship.type == RelationshipType.BEST_FRIEND).map(data => data.id.toString());
 
         DisneyFriends.activeUser.settings.settingRequestResultHandler([
-            bestFriends.length, notificationsEnabled, friendsEnabled, bestFriendsEnabled
+            bestFriends.length.toString(), notificationsEnabled.toString(), friendsEnabled.toString(), bestFriendsEnabled.toString()
         ]);
         DisneyFriends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id.toString(), name: data.nickname, presence: Presence.OFFLINE.toString() })));
         DisneyFriends.activeUser.roster.populateBestFriends(bestFriends);

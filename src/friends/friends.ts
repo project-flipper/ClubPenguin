@@ -625,7 +625,7 @@ export class Roster {
 
 export class Settings {
     connection: Connection;
-    settings: Record<string, any>;
+    settings: Record<string, string>;
 
     constructor(connection: Connection) {
         this.connection = connection;
@@ -636,7 +636,7 @@ export class Settings {
         return false;
     }
 
-    settingRequestResultHandler(settings: any[]): boolean {
+    settingRequestResultHandler(settings: string[]): boolean {
         this.settings = {};
         if (settings.length > 0) {
             this.settings[Settings.Constants.BEST_HINT_COUNT] = settings.shift();
