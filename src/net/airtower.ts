@@ -126,7 +126,7 @@ export function sleep(ms?: number): Promise<void> {
 /**
  * The available options to perform a request with {@link Airtower.request}.
  */
-type RequestOptions = {
+export type RequestOptions = {
     headers?: Record<string, string>,
     json?: any,
     form?: { [key: string]: any },
@@ -136,7 +136,7 @@ type RequestOptions = {
     authorization?: string
 };
 
-type DisneyFriendsCallbackParams = {
+export type DisneyFriendsCallbackParams = {
     size: number;
     language: string;
     photo: boolean;
