@@ -6,7 +6,7 @@ import "./disney-friends.css";
 import "./club.css";
 import "./lib/libs.min";
 
-import { DisneyFriends, FriendsAPI, FriendsEvent } from "./friends";
+import { DisneyFriends, FriendsAPI, FriendsEvent, Jump } from "./friends";
 import { Data, DisneySocial, Environment, SocialEvent } from "./social";
 import { FriendsUI, UIData, UIEvent } from "./ui";
 
@@ -119,7 +119,7 @@ export class Friends extends Phaser.Events.EventEmitter {
         return this;
     }
 
-    connect(user_id: string, friends: UserData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean): void {
+    connect(user_id: string, friends: UserData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean, jumpEnabled: boolean): void {
         FriendsAPI.connect(user_id);
 
         let roster = friends.filter(data => data.relationship.type == RelationshipType.FRIEND || data.relationship.type == RelationshipType.BEST_FRIEND);
@@ -131,6 +131,8 @@ export class Friends extends Phaser.Events.EventEmitter {
         DisneyFriends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id.toString(), name: data.nickname, presence: Presence.OFFLINE.toString() })));
         DisneyFriends.activeUser.roster.populateBestFriends(bestFriends);
         DisneyFriends.activeUser.roster.populateCharacterRoster(characters.map(id => ({ id, presence: Presence.OFFLINE.toString() })));
+
+        if (jumpEnabled) Jump.jumpEnabled = true;
     }
 
     reposition(): void {

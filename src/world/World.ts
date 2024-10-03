@@ -121,7 +121,7 @@ export default class World extends Phaser.Scene {
         let friends = friendList.filter(user => user.mascot_id == undefined);
         let characters = friendList.filter(user => user.mascot_id != undefined).map(user => user.id.toString());
 
-        this.game.friends.connect(this.myUser.id.toString(), friends, characters, true, true, friendList.length > 10);
+        this.game.friends.connect(this.myUser.id.toString(), friends, characters, true, true, friendList.length > 10, false);
 
         await this.spawnRoom();
     }
