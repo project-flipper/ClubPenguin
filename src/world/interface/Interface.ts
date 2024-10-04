@@ -795,6 +795,10 @@ export default class Interface extends Phaser.Scene {
                 this.world.wave();
                 event.stopPropagation();
                 break;
+            case 's':
+                this.world.sit(this.input.activePointer.worldX, this.input.activePointer.worldY);
+                event.stopPropagation();
+                break;
             case 'd':
                 this.world.dance();
                 event.stopPropagation();
