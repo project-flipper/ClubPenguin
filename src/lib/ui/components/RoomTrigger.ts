@@ -54,7 +54,7 @@ export default class RoomTrigger {
     execute(engine: Engine, player: Player): void {
         if (engine.player != player) return;
 
-        engine.world.joinRoom(this.destination, this.playerX, this.playerY); // TODO: send join room instead
+        engine.world.joinRoom(this.destination, this.playerX, this.playerY);
     }
 
     /* END-USER-CODE */
