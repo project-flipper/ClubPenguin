@@ -6,5 +6,6 @@ type Props = {
 };
 
 export default ({ link, text }: Props) => {
-    return <a href={link}>{text}</a>
+    return <a href={link} target="_parent">{text}</a>
 };
+

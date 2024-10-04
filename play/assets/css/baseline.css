@@ -8,7 +8,7 @@ del,dfn,em,font,img,ins,kbd,q,s,samp,
 small,strike,strong,sub,sup,tt,var,
 dd,dl,dt,li,ol,ul,
 fieldset,form,label,legend,
-table,caption,tbody,tfoot,thead,tr,th,td {
+table,caption,tbody,tfoot,thead,tr,th,td,div#root {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -45,25 +45,3 @@ line-height: 0;
 vertical-align: text-top;
 
 }
-
-/*
-     FILE ARCHIVED ON 18:25:06 May 30, 2013 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 23:23:32 Apr 02, 2020.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  esindex: 0.011
-  RedisCDXSource: 8.967
-  load_resource: 93.042
-  PetaboxLoader3.resolve: 49.139
-  CDXLines.iter: 13.718 (3)
-  LoadShardBlock: 168.462 (3)
-  captures_list: 197.065
-  PetaboxLoader3.datanode: 209.031 (4)
-  exclusion.robots.policy: 0.371
-  exclusion.robots: 0.388
-*/

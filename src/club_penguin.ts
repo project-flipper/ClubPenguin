@@ -189,6 +189,14 @@ export function isRunning(): boolean {
 }
 
 /**
+ * Retrieves the current language abbreviation based on the application's running state.
+ * @returns The language abbreviation if the application is running, otherwise an empty string.
+ */
+export function getLang(): string {
+    return isRunning() ? app.locale.abbreviation : '';
+}
+
+/**
  * Handles the window resize event, or forces a reposition.
  * @param repositionFriends Whether to reposition the friends list.
  */
@@ -305,7 +313,7 @@ export function stop(terminate = false): void {
     if (isRunning()) {
         logger.info('Stopping app');
         //app.airtower.close();
-        app.destroy(false, terminate);
+        app.destroy(true, terminate);
     }
 }
 

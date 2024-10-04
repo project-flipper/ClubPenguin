@@ -21,12 +21,13 @@ html, body {
 	font-size: small;
 }
 	
-html>body { /* be nice to Opera */
+
+html>body>#root { /* be nice to Opera */
 	height:100%; 
 	width: 100%;
 	font-size: small;
 	}
-	
+
 strong { font-weight:bold;}
 
 .border { 
@@ -437,25 +438,3 @@ font-size: 10px;
 #ftrContent ul li a.new:hover{color:#ffcc00;}
 #ftrContent ul li a.new:active{color:#ff9a00;}
 
-
-/*
-     FILE ARCHIVED ON 17:17:47 May 28, 2013 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 23:24:17 Apr 02, 2020.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  LoadShardBlock: 349.602 (3)
-  load_resource: 78.83
-  exclusion.robots: 0.325
-  captures_list: 370.113
-  RedisCDXSource: 0.596
-  CDXLines.iter: 14.035 (3)
-  PetaboxLoader3.datanode: 366.158 (4)
-  PetaboxLoader3.resolve: 59.573 (2)
-  exclusion.robots.policy: 0.311
-  esindex: 0.013
-*/

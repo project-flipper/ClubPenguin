@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="Content-Language" content="en" />
+    <meta http-equiv="Content-Style-Type" content="text/css; charset=utf-8">
+
+    <title>Club Penguin</title>
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link href="<%= links.play %>/css/baseline.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= links.play %>/css/affiliate.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= links.play %>/css/upgrade.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <link href="<%= links.play %>/css/modal.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= links.play %>/css/play.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="<%= links.play %>/css/disney-error.css" rel="stylesheet" type="text/css" media="all" />
+
+    <style>
+        #D_F_GameSection {
+            width: 100%;
+            height: 95%;
+            min-height: 550px;
+            /*Increased to match mp client small screen*/
+            min-width: 800px;
+            /*Increased to match mp client small screen*/
+            display: block;
+            outline: none;
+            clear: both;
+        }
+
+        #CP_Unallowed_JS_ErrorSection {
+            display: block;
+        }
+
+        #bigscreen {
+            display: none;
+        }
+
+        #upgrade {
+            display: none;
+        }
+
+        #TrialBannerContainer {
+            width: 100%;
+            height: 0px;
+            min-width: 760px;
+            display: block;
+            outline: none;
+            clear: both;
+            background-image: url(<%= links.play %>/images/bar-bg.png);
+            background-repeat: repeat-x;
+            overflow: hidden;
+        }
+
+        #TrialBanner {
+            width: 842px;
+            min-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 28px;
+            vertical-align: middle;
+        }
+
+        #TrialBannerBtn {
+            float: right;
+            width: 258px;
+            background-image: url(<%= links.play %>/images/bar-badge.png);
+            background-repeat: no-repeat;
+        }
+
+        #TrialBannerBtn a:link {
+            display: block;
+            float: right;
+            width: 208px;
+            height: 28px;
+            overflow: hidden;
+            background: url(<%= links.play %>/images/bar-button-states.png) no-repeat 0 0;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        #TrialBannerBtn a:hover {
+            background-position: 0px -28px;
+        }
+
+        #TrialBannerBtn a:active {
+            background-position: 0px -56px;
+        }
+
+        #TrialText {
+            min-height: 28px;
+            line-height: 28px;
+            color: #333333;
+        }
+
+        #TrialText2 {
+            min-height: 28px;
+            line-height: 28px;
+            color: #333333;
+        }
+
+        #TrialText b {
+            color: #000000;
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+        .grecaptcha-badge {
+            visibility: hidden;
+        }
+    </style>
+
+    <link id="stylesheet" type="text/css" href="<%= links.play %>/css/0.css" rel="stylesheet" />
+    <link id="stylesheet" type="text/css" href="<%= links.play %>/css/0.css" rel="stylesheet" />
+    <!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="<%= links.play %>/css/ie_affiliate.css" />
+    <![endif]-->
+    <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="<%= links.play %>/css/ie7_affiliate.css" />
+    <![endif]-->
+</html>
+<body>
+    <div id="root">
+        <noscript>
+            <div id="CP_Unallowed_JS_ErrorSection" class="D_ER_ErrorSection">
+                <div id="CP_Unallowed_JS_ErrorMsg" class="D_ER_ErrorMsg">
+                    Oops! You need to allow JavaScript to play Club Penguin.
+                    <br />
+                    Ask your parent to enable it on your browser.
+                </div>
+                <a id="CP_Unallowed_JS_ErrorBtn" class="D_ER_ErrorBtn" href="" target="_self"
+                    title="Try logging in again">OK</a>
+            </div>
+        </noscript>
+    </div>
+
+    <script type="text/javascript">
+        function centerError(errorId) {
+            var top = window.innerHeight / 2 - 110;
+            if (top < 0) {
+                top = 0;
+            }
+            var left = window.innerWidth / 2 - 177;
+            if (left < 0) {
+                left = 0;
+            }
+            var element = document.getElementById(errorId);
+            if (!element) element = document.getElementsByClassName(errorId);
+            else element = [element];
+
+            for (var i = 0; i < element.length; i++) {
+                element[i].style.top = top.toString() + "px";
+                element[i].style.left = left.toString() + "px";
+            }
+        }
+        
+        function centerErrors() {
+            var elements = document.getElementsByClassName('D_ER_ErrorSection');
+            centerError("D_ER_ErrorSection");
+        
+            for (var i = 0; i < elements.length; i++) {
+                var element = elements[i];
+                if (element.id) {
+                    centerError(element.id);
+                }
+            }
+        }
+        
+        function biAbout() {
+
+        }
+
+        if(typeof jsAPI === 'undefined') {
+            jsAPI = {};
+        }
+
+        jsAPI.showNav = function() {
+            var nav = document.getElementById('hdrWrap');
+            nav.style.visibility = "visible";
+        }
+
+        jsAPI.hideNav = function() {
+            var nav = document.getElementById('hdrWrap');
+            nav.style.visibility = "hidden";
+        }
+
+        jsAPI.showRules = function() {
+            if (typeof Disney === 'undefined') {
+                return;
+            }
+            if (typeof Disney.CP === 'undefined') {
+                return;
+            }
+            if (typeof Disney.CP.rules === 'undefined') {
+                return;
+            }
+            Disney.CP.rules.showRules();
+        }
+
+        function handleGameError(data) {
+            if (!data) {
+                if (document.getElementById('upgrade')) {
+                    document.getElementById('upgrade').style.display = 'block';
+                    document.getElementById('installText').style.display = 'none';
+                    document.getElementById('upgradeButton').style.display = 'none';
+                }
+                return;
+            }
+
+            if (data.handled) {
+                return;
+            }
+
+            centerError("D_ER_ErrorSection");
+
+            var element = document.getElementsByClassName("club_penguin")[0];
+            element.style.display = "none";
+            var element = document.getElementsByClassName("D_ER_ErrorSection")[0];
+            element.style.display = "block";
+        }
+
+        function loadGame(lang) {
+            try {
+                CP.run({
+                    language: lang,
+                    parentId: "club_penguin",
+                    elementId: "cp_game",
+                    elementClassName: "disney_land_clubpenguin_player",
+                    apiPath: '<%= apiPath %>',
+                    mediaPath: '<%= mediaPath %>',
+                    crossOrigin: '<%= crossOrigin %>',
+                    cacheVersion: "<%= cacheVersion %>",
+                    contentVersion: "<%= contentVersion %>",
+                    minigameVersion: "<%= minigameVersion %>",
+                    environmentType: "<%= environmentType %>"
+                });
+            } catch (e) {
+                handleGameError();
+                throw e;
+            }
+        }
+
+        function gameLang() {
+            return CP.getLang();
+        }
+
+        function sizeChange() {
+            var elements = document.getElementsByClassName('D_F_HudNotification');
+            var repositionFriends = elements.length > 0;
+            CP.sizeChange(repositionFriends);
+        }
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=<%= recaptchaSiteKey %>"></script>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+    <div id="preloader"></div>
+</body>
+</html>

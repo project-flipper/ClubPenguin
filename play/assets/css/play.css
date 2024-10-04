@@ -1,4 +1,4 @@
-body {
+body, div#root {
 	font-family:"Myriad Web Pro", Arial, Verdana;
 }
 
@@ -97,24 +97,3 @@ body {
 #rules ul li#r3.active {
 	background:url(/images/rule-tile-3-active.png) 0 0 no-repeat;
 }
-/*
-     FILE ARCHIVED ON 20:19:30 Nov 03, 2013 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 23:26:45 Apr 02, 2020.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  exclusion.robots.policy: 0.303
-  esindex: 0.013
-  RedisCDXSource: 0.576
-  load_resource: 269.001
-  PetaboxLoader3.datanode: 332.128 (5)
-  PetaboxLoader3.resolve: 176.199 (2)
-  LoadShardBlock: 242.617 (3)
-  exclusion.robots: 0.318
-  CDXLines.iter: 14.8 (3)
-  captures_list: 263.883
-*/

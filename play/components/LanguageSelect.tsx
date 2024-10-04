@@ -15,15 +15,19 @@ export default ({ text, langs }: Props) => {
 
     let changeLanguage = (lang: string) => i18n.changeLanguage(lang);
 
-    return <form>
-        <label>{text}</label>
-        <select onChange={() => {
-            if (ref.current == null) return;
-            let lang = ref.current.options[ref.current.selectedIndex].value;
-            console.log(lang);
-            changeLanguage(lang);
-        }} ref={ref}>
-            {langs.map(lang => <option value={lang} selected={lang == currentLanguage}>{t(`lang_${lang}`)}</option>)}
-        </select>
-    </form>;
+    return (
+        <div id="languageselector" className="langselect">
+            <form name="selectlang" style={{ padding: 0, margin: 0 }}>
+                <label className="langselectlabel">{text}</label>
+                <select className="langselectfield" onChange={() => {
+                    if (ref.current == null) return;
+                    let lang = ref.current.options[ref.current.selectedIndex].value;
+                    console.log(lang);
+                    changeLanguage(lang);
+                }} ref={ref} defaultValue={currentLanguage}>
+                    {langs.map(lang => <option key={lang} value={lang}>{t(`lang_${lang}`)}</option>)}
+                </select>
+            </form>
+        </div>
+    );
 };

@@ -221,7 +221,7 @@ module.exports = env => {
                 })
             }),
             new HtmlWebpackPlugin({
-                template: './play/index.template.html',
+                template: './play/index.html',
                 filename: 'index.html',
                 inject: 'body',
                 templateParameters: environment,
