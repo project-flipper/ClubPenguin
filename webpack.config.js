@@ -68,13 +68,14 @@ module.exports = env => {
 
         entry: {
             app: {
-                import: `./src/club_penguin.ts`,
+                import: './src/club_penguin.ts',
                 library: {
                     name: 'CP',
                     type: 'umd',
                     umdNamedDefine: true
                 }
-            }
+            },
+            play: './play/index.tsx'
         },
         output: {
             filename: '[name].[contenthash].js',
@@ -155,7 +156,8 @@ module.exports = env => {
         },
         resolve: {
             alias: {
-                '@clubpenguin': path.resolve(__dirname, 'src/')
+                '@clubpenguin': path.resolve(__dirname, 'src/'),
+                '@play': path.resolve(__dirname, 'play/')
             },
             extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx', '.json']
         },
@@ -218,10 +220,16 @@ module.exports = env => {
                     LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3)
                 })
             }),
-            ...playPages,
+            new HtmlWebpackPlugin({
+                template: './play/index.template.html',
+                filename: 'index.html',
+                inject: 'body',
+                templateParameters: environment,
+                publicPath: env.playLink || 'auto'
+            }),
             new CopyPlugin({
                 patterns: [
-                    { from: '**/*', context: 'play' }
+                    { from: '**/*', context: 'play/assets' }
                 ]
             })
         ]

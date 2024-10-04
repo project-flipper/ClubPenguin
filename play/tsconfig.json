@@ -16,13 +16,13 @@
         "importHelpers": true,
         "alwaysStrict": true,
         "noImplicitAny": true,
-        "rootDir": "src",
+        "rootDir": ".",
         "paths": {
-            "@clubpenguin/*": [
-                "./src/*"
+            "@play/*": [
+                "./*"
             ]
         },
         "useDefineForClassFields": false
     },
-    "include": ["src/**/*"],
+    "include": ["./**/*"],
 }
