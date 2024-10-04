@@ -16,6 +16,9 @@ export class Actions {
     public player: Player;
     public moveTween: Phaser.Tweens.Tween;
 
+    private _x: number;
+    private _y: number;
+
     constructor(player: Player) {
         this.player = player;
     }
@@ -26,6 +29,60 @@ export class Actions {
 
     get engine(): Engine {
         return this.world.engine;
+    }
+
+    get frame(): ActionFrame {
+        return this.player.currentAnimation;
+    }
+
+    /**
+     * Gets the current X coordinate.
+     * This is applicable to frames that target a specific point on the world, like moving or throwing snowballs.
+     * @returns The current X coordinate.
+     */
+    get currentX(): number {
+        return this._x;
+    }
+
+    /**
+     * Gets the current Y coordinate.
+     * This is applicable to frames that target a specific point on the world, like moving or throwing snowballs.
+     * @returns The current Y coordinate.
+     */
+    get currentY(): number {
+        return this._y;
+    }
+
+    /**
+     * Checks if the given ActionData object is equal to the current instance.
+     * Useful to prevent unnecessary action updates, but will not check for the player property.
+     * @param data The ActionData object to compare.
+     * @returns Whether the ActionData object is equal to the current instance.
+     */
+    equals(data: ActionData): boolean {
+        return this.frame === data.frame && this.currentX === data.x && this.currentY === data.y;
+    }
+
+    /**
+     * Calculates the direction based on the given coordinates.
+     * @param x The x-coordinate.
+     * @param y The y-coordinate.
+     * @returns The direction ranging from 0 to 7.
+     */
+    getDirection(x: number, y: number): number {
+        let angle = getAngle(this.player.x, this.player.y, x, y);
+        return getDirection(angle);
+    }
+
+    /**
+     * Calculates the direction in quarters based on the given coordinates.
+     * @param x The x-coordinate.
+     * @param y The y-coordinate.
+     * @returns The direction in quarters from 0 to 3.
+     */
+    getDirectionQuarters(x: number, y: number): number {
+        let angle = getAngle(this.player.x, this.player.y, x, y);
+        return getDirectionQuarters(angle);
     }
 
     /**
@@ -44,8 +101,7 @@ export class Actions {
     lookAt(x: number, y: number): void {
         this.stopMoving();
 
-        let angle = getAngle(this.player.x, this.player.y, x, y);
-        let direction = getDirection(angle);
+        let direction = this.getDirection(x, y);
         this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
     }
 
@@ -53,22 +109,18 @@ export class Actions {
      * Moves the player to a point on the world.
      * @param x The x-coordinate to move to.
      * @param y The y-coordinate to move to.
-     * @param originalX The original x-coordinate to move from. If not provided, the player's current x-coordinate is used.
-     * @param originalY The original y-coordinate to move from. If not provided, the player's current y-coordinate is used.
      */
-    move(x: number, y: number, originalX?: number, originalY?: number): void {
+    move(x: number, y: number): void {
         this.stopMoving();
 
         let distance = Phaser.Math.Distance.BetweenPoints(this.player, { x, y });
 
-        let angle = getAngle(this.player.x, this.player.y, x, y);
-        let direction = getDirection(angle);
+        let direction = this.getDirection(x, y);
+        this._x = x;
+        this._y = y;
 
         if (distance < 1) {
-            originalX = originalX ?? x;
-            originalY = originalY ?? y;
-            let angle = getAngle(this.player.x, this.player.y, originalX, originalY);
-            let direction = getDirection(angle);
+            let direction = this.frame >= ActionFrame.WADDLE_DOWN && this.frame <= ActionFrame.WADDLE_DOWN_RIGHT ? this.frame - ActionFrame.WADDLE_DOWN : (this.frame < ActionFrame.WADDLE_DOWN ? this.frame : this.getDirection(x, y));
 
             this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
             this.engine.players.testTriggers(this.player, true);
@@ -102,6 +154,8 @@ export class Actions {
      */
     stopMoving(): void {
         if (this.moveTween) this.moveTween.destroy();
+        this._x = undefined;
+        this._y = undefined;
     }
 
     /**
@@ -117,8 +171,9 @@ export class Actions {
 
         let snowball = this.engine.snowballs.create(startX, startY);
 
-        let angle = getAngle(startX, startY, x, y);
-        let direction = getDirectionQuarters(angle);
+        let direction = this.getDirectionQuarters(x, y);
+        this._x = x;
+        this._y = y;
 
         this.player.playAnimation(ActionFrame.THROW_DOWN_LEFT + direction);
 
@@ -161,7 +216,7 @@ export class Actions {
             case ActionFrame.WADDLE_UP_RIGHT:
             case ActionFrame.WADDLE_RIGHT:
             case ActionFrame.WADDLE_DOWN_RIGHT:
-                this.move(data.destination_x, data.destination_y, data.from_x, data.from_y);
+                this.move(data.x, data.y);
                 if (data.since) {
                     // Server sync
                     let delta = Date.now() - data.since;
@@ -173,7 +228,7 @@ export class Actions {
             case ActionFrame.THROW_UP_LEFT:
             case ActionFrame.THROW_UP_RIGHT:
             case ActionFrame.THROW_DOWN_RIGHT:
-                this.throw(data.destination_x, data.destination_y);
+                this.throw(data.x, data.y);
                 break;
             default:
                 logger.warn('Unknown action received', data);

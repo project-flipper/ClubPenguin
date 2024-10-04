@@ -252,12 +252,29 @@ export default class World extends Phaser.Scene {
         let safe = this.engine.players.findPlayerPath(player, x, y)
         let action: ActionData = {
             frame: ActionFrame.WADDLE,
-            from_x: player.x,
-            from_y: player.y,
-            destination_x: safe.x,
-            destination_y: safe.y
+            x: safe.x,
+            y: safe.y
         };
 
+        if (player.actions.equals(action)) return;
+        player.actions.set(action);
+
+        this.send({
+            op: 'player:action',
+            d: action
+        });
+    }
+
+    /**
+     * Makes the player sit by setting the appropriate action frame.
+     */
+    sit(facingX: number, facingY: number): void {
+        let player = this.engine.player;
+        let action: ActionData = {
+            frame: ActionFrame.SIT_DOWN + player.actions.getDirection(facingX, facingY)
+        };
+
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -275,6 +292,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.SIT_DOWN
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -292,6 +310,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.SIT_DOWN_LEFT
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -309,6 +328,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.SIT_LEFT
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -326,6 +346,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.SIT_UP_LEFT
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -343,6 +364,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.SIT_UP
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -360,6 +382,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.SIT_UP_RIGHT
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -377,6 +400,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.SIT_RIGHT
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -394,6 +418,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.SIT_DOWN_RIGHT
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -411,6 +436,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.WAVE
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -428,6 +454,7 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.DANCE
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -445,12 +472,11 @@ export default class World extends Phaser.Scene {
         let player = this.engine.player;
         let action: ActionData = {
             frame: ActionFrame.THROW,
-            from_x: player.x,
-            from_y: player.y,
-            destination_x: x,
-            destination_y: y
+            x: x,
+            y: y
         };
 
+        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -549,7 +575,6 @@ export default class World extends Phaser.Scene {
      * @param id The ID of the user whose namecard is to be opened.
      */
     async openNamecardById(id: number): Promise<void> {
-        // TODO: fetch penguin data
         if (id == this.myUser.id) {
             this.openMyNamecard();
             return;
@@ -647,11 +672,10 @@ export default class World extends Phaser.Scene {
 
     @handle('player:action')
     async handlePlayerAction(data: Payloads['player:action']): Promise<void> {
-        // TODO: maybe better sync?
-        if (this.myUser.id == data.player) return;
-
         let player = this.engine.getPlayer(data.player);
         if (player) {
+            if (player.actions.equals(data)) return;
+
             player.actions.set(data);
         }
     }
