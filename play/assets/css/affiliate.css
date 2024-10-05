@@ -5,7 +5,7 @@
 /* ______________________________________________________________
    __________________________ Affiliate Mockup _______________________ */
 	
-html, body {
+html, body, #root {
 	font-family: Arial, Helvetica, sans-serif; 
 	margin:0; 
 	padding:0; 
@@ -19,7 +19,7 @@ html, body {
 	font-size: small;
 }
 	
-html>body { /* be nice to Opera */
+html>body>#root { /* be nice to Opera */
 	height:100%; 
 	width: 100%;
 	font-size: small;
