@@ -32,34 +32,6 @@ module.exports = env => {
 
     console.log(env);
 
-    let playPages = [
-        new HtmlWebpackPlugin({
-            template: './index.template.html',
-            filename: 'index.html',
-            inject: 'body',
-            templateParameters: environment,
-            publicPath: env.playLink || 'auto'
-        })
-    ];
-
-    for (let lang of ['de', 'es', 'fr', 'pt', 'ru']) {
-        playPages.push(new HtmlWebpackPlugin({
-            template: `./index.${lang}.template.html`,
-            filename: `${lang}/index.html`,
-            inject: 'body',
-            templateParameters: {
-                ...environment,
-                links: {
-                    ...environment.links,
-                    home: `${env.homeLink}/${lang}`,
-                    localPlay: `${env.playLink}/${lang}`
-                },
-                language: lang
-            },
-            publicPath: env.playLink || 'auto'
-        }));
-    }
-
     return {
         mode: env.development ? 'development' : 'production',
         target: 'web',
