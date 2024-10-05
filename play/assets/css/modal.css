@@ -45,6 +45,7 @@ a.modal-close {
 a.modal-close:hover {
 	-moz-transform:scale(1.05);
 	-webkit-transform:scale(1.05);
+	transform:scale(1.05);
 }
 
 /* modal notification view */

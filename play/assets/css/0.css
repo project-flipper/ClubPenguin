@@ -4,6 +4,11 @@ body {
 } 
 */
 
+#root {
+  width: 100%;
+  height: 100%;
+}
+
 #affiliateheaderforcp {
   width: 100%;
   height: 32px;
