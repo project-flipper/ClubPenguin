@@ -1,29 +1,19 @@
 {
-    "upgrade": {
-        "h1": "Download the latest Chrome browser to play Club Penguin!",
-        "p": "Ask your parents for help before you download.",
-        "a:before": "Visit our",
-        "a": "Browser FAQ",
-        "a:after": "to find out more about this update."
-    },
-    "install": {
-        "h1": "Oops! You need the latest Chrome browser to play Club Penguin.",
-        "p": "Ask your parent to download it from google.com/chrome.",
-        "a:before": "Visit our",
-        "a": "Browser FAQ",
-        "a:after": "to find out more about this update."
-    },
-    "error": {
-        "1": "Sorry, something went wrong",
-        "2": "with Club Penguin.",
-        "3": "Try logging in again."
-    },
-    "cjs": {
-        "1": "Sorry! There was a problem loading Card-Jitsu Snow.",
-        "2": "Please try again, or contact support if the problem continues."
-    },
-    "cjsupgrade": {
-        "1": "Oops! You need the latest Chrome browser to play Card-Jitsu Snow.",
-        "2": "Ask your parent to download it from google.com/chrome."
-    }
+    "upgrade.h1": "Download the latest Chrome browser to play Club Penguin!",
+    "upgrade.p": "Ask your parents for help before you download.",
+    "upgrade.a:before": "Visit our ",
+    "upgrade.a": "Browser FAQ",
+    "upgrade.a:after": " to find out more about this update.",
+    "install.h1": "Oops! You need the latest Chrome browser to play Club Penguin.",
+    "install.p": "Ask your parent to download it from google.com/chrome.",
+    "install.a:before": "Visit our ",
+    "install.a": "Browser FAQ",
+    "install.a:after": " to find out more about this update.",
+    "error.1": "Sorry, something went wrong",
+    "error.2": "with Club Penguin.",
+    "error.3": "Try logging in again.",
+    "cjs.1": "Sorry! There was a problem loading Card-Jitsu Snow.",
+    "cjs.2": "Please try again, or contact support if the problem continues.",
+    "cjsupgrade.1": "Oops! You need the latest Chrome browser to play Card-Jitsu Snow.",
+    "cjsupgrade.2": "Ask your parent to download it from google.com/chrome."
 }

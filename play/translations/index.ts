@@ -26,7 +26,7 @@ void i18n.use(initReactI18next).use(LanguageDetect).init({
 	interpolation: {
 		escapeValue: false, // not needed for react as it escapes by default
 	},
-	compatibilityJSON: 'v3',
+	compatibilityJSON: 'v4',
 } as InitOptions);
 
 export default i18n;
