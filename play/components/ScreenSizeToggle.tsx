@@ -1,10 +1,10 @@
 import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import ScreenSize from "../services/ScreenSize";
+import ScreenSizeContext from "../context/ScreenSizeContext";
 
 export default () => {
-    let [ screenSize, setScreenSize ] = useContext(ScreenSize);
+    let [ screenSize, setScreenSize ] = useContext(ScreenSizeContext);
 
     let { i18n } = useTranslation();
     let currentLanguage = i18n.resolvedLanguage || i18n.language;
@@ -31,7 +31,7 @@ export default () => {
                         toggleScreenSize();
                         e.preventDefault();
                         return false;
-                    }} href="#smallscreen"></a>
+                    }} href="#/smallscreen"></a>
                 </div>
             </div>
             <div id="smallscreen" ref={small}>
@@ -40,7 +40,7 @@ export default () => {
                         toggleScreenSize();
                         e.preventDefault();
                         return false;
-                    }} href="#bigscreen"></a>
+                    }} href="#/bigscreen"></a>
                 </div>
             </div>
         </>

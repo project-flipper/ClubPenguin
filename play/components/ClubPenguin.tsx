@@ -1,55 +1,8 @@
 import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import ScreenSize from "../services/ScreenSize";
-
-export interface ClubPenguinRunParams {
-    parentId: string,
-    elementId: string,
-    elementClassName: string,
-    language: string,
-    apiPath: string,
-    mediaPath: string,
-    crossOrigin: string,
-    cacheVersion: string,
-    contentVersion: string,
-    minigameVersion: string,
-    environmentType: string
-}
-
-export interface ClubPenguin {
-    lang: string,
-    elementId: string,
-    run(params: ClubPenguinRunParams): void;
-    isRunning(): boolean;
-    sizeChange(repositionFriends: boolean): void;
-    handleLogOff(redirectUrl: string): void;
-    stop(terminate: boolean): void;
-}
-
-declare global {
-    let CP: ClubPenguin;
-    interface Window {
-        CP: ClubPenguin;
-        handleGameError?(data?: { handled: boolean }): void;
-    }
-    let __environment__: {
-        language: string;
-        apiPath: string;
-        mediaPath: string;
-        crossOrigin: string;
-        cacheVersion: string;
-        contentVersion: string;
-        minigameVersion: string;
-        environmentType: string;
-        links: {
-            home: string;
-            play: string;
-            localPlay: string;
-        };
-        recaptchaSiteKey: string;
-    };
-}
+import ScreenSizeContext from "../context/ScreenSizeContext";
+import TrialDaysLeftContext from "../context/TrialDaysLeftContext";
 
 function handleGameError(data?: { handled: boolean }): void {
     if (!data) {
@@ -65,7 +18,7 @@ function handleGameError(data?: { handled: boolean }): void {
         return;
     }
 
-    centerError("D_ER_ErrorSection");
+    window.centerError("D_ER_ErrorSection");
 
     var element = document.getElementById("club_penguin");
     element.style.display = "none";
@@ -97,7 +50,6 @@ function loadGame(lang: string): void {
 
 export default () => {
     let ref = useRef<HTMLDivElement>(null);
-    let gameRef = useRef<HTMLDivElement>(null);
 
     let { t, i18n } = useTranslation('errors');
     let currentLanguage = i18n.resolvedLanguage || i18n.language;
@@ -115,18 +67,27 @@ export default () => {
         }
     }, [i18n.language]);
 
-    let [ screenSize ] = useContext(ScreenSize);
+    let [ screenSize ] = useContext(ScreenSizeContext);
     useEffect(() => {
-        ref.current!.style.height = screenSize == "small" ? "550px" : "95%";
-        gameRef.current!.style.height = screenSize == "small" ? "550px" : "95%";
+        if (ref.current) ref.current.style.height = screenSize == "small" ? "550px" : "95%";
         CP.sizeChange(document.getElementsByClassName('D_F_HudNotification').length > 0);
     }, [screenSize]);
+
+    let [ trialDaysLeft, setTrialDaysLeft ] = useContext(TrialDaysLeftContext);
+    useEffect(() => {
+        if (trialDaysLeft > 0 && ref.current) {
+            ref.current.style.height = "95%";
+        }
+    }, [trialDaysLeft]);
+    useEffect(() => {
+        window.showTrialBanner = (daysLeft: number) => setTrialDaysLeft(daysLeft);
+    }, [setTrialDaysLeft]);
 
     return (
         <>
             <div id="D_F"></div>
             <div id="D_F_GameSection" ref={ref}>
-                <div id="club_penguin" ref={gameRef}>
+                <div id="club_penguin">
                     <div id="upgrade">
                         <div id="upgradeContent">
                             <div id="upgradeText">
