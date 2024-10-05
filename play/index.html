@@ -154,7 +154,7 @@
 
         }
 
-        if(typeof jsAPI === 'undefined') {
+        if (typeof jsAPI === 'undefined') {
             jsAPI = {};
         }
 
@@ -179,59 +179,6 @@
                 return;
             }
             Disney.CP.rules.showRules();
-        }
-
-        function handleGameError(data) {
-            if (!data) {
-                if (document.getElementById('upgrade')) {
-                    document.getElementById('upgrade').style.display = 'block';
-                    document.getElementById('installText').style.display = 'none';
-                    document.getElementById('upgradeButton').style.display = 'none';
-                }
-                return;
-            }
-
-            if (data.handled) {
-                return;
-            }
-
-            centerError("D_ER_ErrorSection");
-
-            var element = document.getElementById("club_penguin");
-            element.style.display = "none";
-            var element = document.getElementById("D_ER_ErrorSection");
-            element.style.display = "block";
-        }
-
-        function loadGame(lang) {
-            try {
-                CP.run({
-                    language: lang,
-                    parentId: "club_penguin",
-                    elementId: "cp_game",
-                    elementClassName: "disney_land_clubpenguin_player",
-                    apiPath: '<%= apiPath %>',
-                    mediaPath: '<%= mediaPath %>',
-                    crossOrigin: '<%= crossOrigin %>',
-                    cacheVersion: "<%= cacheVersion %>",
-                    contentVersion: "<%= contentVersion %>",
-                    minigameVersion: "<%= minigameVersion %>",
-                    environmentType: "<%= environmentType %>"
-                });
-            } catch (e) {
-                handleGameError();
-                throw e;
-            }
-        }
-
-        function gameLang() {
-            return CP.getLang();
-        }
-
-        function sizeChange() {
-            var elements = document.getElementsByClassName('D_F_HudNotification');
-            var repositionFriends = elements.length > 0;
-            CP.sizeChange(repositionFriends);
         }
     </script>
 
