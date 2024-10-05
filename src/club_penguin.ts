@@ -177,8 +177,14 @@ export function run(params: RunParams): void {
     });
     app.onCrash = onAppCrash;
 
+    lang = params.language;
+    elementId = params.elementId;
+
     LoaderPlugin.cacheVersion = params.cacheVersion;
 }
+
+export let lang: string;
+export let elementId: string;
 
 /**
  * Checks if the Club Penguin app is currently running.
@@ -186,14 +192,6 @@ export function run(params: RunParams): void {
  */
 export function isRunning(): boolean {
     return app !== undefined;
-}
-
-/**
- * Retrieves the current language abbreviation based on the application's running state.
- * @returns The language abbreviation if the application is running, otherwise an empty string.
- */
-export function getLang(): string {
-    return isRunning() ? app.locale.abbreviation : '';
 }
 
 /**
@@ -315,6 +313,8 @@ export function stop(terminate = false): void {
         //app.airtower.close();
         app.destroy(true, terminate);
     }
+    lang = undefined;
+    elementId = undefined;
 }
 
 logger.info('Club Penguin ready');

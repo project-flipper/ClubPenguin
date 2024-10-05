@@ -8,19 +8,19 @@ body {
   width: 100%;
   height: 32px;
   margin: 0px auto 0px;
-}
-
-#affiliateflashheaderforcp {
+  }
+  
+  #affiliateflashheaderforcp {
   width: 100%;
   height: 64px;
   margin: 0px auto 0px;
-}
-
-#affiliatefooter {
+  }
+  
+  #affiliatefooter {
   margin: 5px auto 0px;
   clear: both;
   width: 100%;
   text-align: left;
   height: 57px;
   color: #fff;
-}
+  }

@@ -8,7 +8,7 @@
 	width: 354px;
 	height: 220px;
 	z-index: 160;
-	background: url("/images/prompt_no_button.png") 0 0 no-repeat;
+	background: url(/images/prompt_no_button.png) 0 0 no-repeat;
 }
 
 #D_ER_ErrorMsg, .D_ER_ErrorMsg {
@@ -37,14 +37,14 @@
 	text-decoration: none;
 	outline: none;
 	border: 0;
-	background: url("/images/prompt_button_up.png") 0 0 no-repeat;
+	background: url(/images/prompt_button_up.png) 0 0 no-repeat;
 }
 
 #D_ER_ErrorBtn:hover, .D_ER_ErrorBtn:hover {
-	background-image: url("/images/prompt_button_over.png");
+	background-image: url(/images/prompt_button_over.png);
 }
 
 #D_ER_ErrorBtn:active, .D_ER_ErrorBtn:active {
-	background-image: url("/images/prompt_button_down.png");
+	background-image: url(/images/prompt_button_down.png);
 }
 

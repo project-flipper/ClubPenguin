@@ -1,3 +1,3 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-export default createContext<[ string, (value: string) => void ]>(null);
+export default createContext<ReturnType<typeof useState<string>>>(null);

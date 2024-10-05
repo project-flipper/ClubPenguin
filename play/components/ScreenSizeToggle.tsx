@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useRef } from "react";
+import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 import ScreenSize from "@play/services/ScreenSize";
 
 export default () => {
-    let [ screenSize, set ] = useContext(ScreenSize);
+    let [ screenSize, setScreenSize ] = useContext(ScreenSize);
 
     let { i18n } = useTranslation();
     let currentLanguage = i18n.resolvedLanguage || i18n.language;
@@ -14,25 +14,31 @@ export default () => {
     let small = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        centerErrors();
         big.current!.style.display = screenSize == 'small' ? 'block' : 'none';
         small.current!.style.display = screenSize == 'small' ? 'none' : 'block';
+    }, [screenSize]);
+
+    let toggleScreenSize = useCallback(() => {
+        let size = screenSize == 'small' ? 'big' : 'small';
+        setScreenSize(size);
     }, [screenSize]);
 
     return (
         <>
             <div id="bigscreen" ref={big}>
                 <div id={`big_screen_button${langSuffix}`}>
-                    <a onClick={() => {
-                        set('small');
+                    <a onClick={e => {
+                        toggleScreenSize();
+                        e.preventDefault();
                         return false;
                     }} href="#smallscreen"></a>
                 </div>
             </div>
             <div id="smallscreen" ref={small}>
                 <div id={`sm_screen_button${langSuffix}`}>
-                    <a onClick={() => {
-                        set('big');
+                    <a onClick={e => {
+                        toggleScreenSize();
+                        e.preventDefault();
                         return false;
                     }} href="#bigscreen"></a>
                 </div>

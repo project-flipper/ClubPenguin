@@ -218,7 +218,8 @@ module.exports = env => {
                     EXPOSE_DEBUG: env.development,
                     RECAPTCHA_SITE_KEY: env.recaptchaSiteKey,
                     LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3)
-                })
+                }),
+                '__environment__': JSON.stringify(environment)
             }),
             new HtmlWebpackPlugin({
                 template: './play/index.html',

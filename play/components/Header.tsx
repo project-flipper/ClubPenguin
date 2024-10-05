@@ -1,12 +1,12 @@
 import React from "react";
-import NavigationBar from "./NavigationBar";
+import NavigationBar, { NavigationBarProps } from "./NavigationBar";
+import TrialBanner from "./TrialBanner";
 
-export default () => {
+export default (props: NavigationBarProps) => {
     return (
-        <div id="affiliateheaderforcp">
-            <div id="hdrWrap" style={{ margin: "0 0 -5px" }}>
-                <NavigationBar />
-            </div>
-        </div>
+        <>
+            <NavigationBar {...props} />
+            <TrialBanner />
+        </>
     );
 };

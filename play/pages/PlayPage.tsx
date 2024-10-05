@@ -1,20 +1,21 @@
 import ClubPenguinLauncher from "@play/components/ClubPenguinLauncher";
+import Footer from "@play/components/Footer";
+import Header from "@play/components/Header";
 import ScreenSize from "@play/services/ScreenSize";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 declare global {
     function centerError(errorId: string): void;
-    function centerErrors(): void;
 }
 
 export default () => {
-    let [ screenSize ] = useContext(ScreenSize);
-    useEffect(() => {
-        centerErrors();
-    }, [screenSize]);
+    let state = window.location.href.search(/smallscreen/) >= 0 ?  'small' : 'big';
+
+    let [ screenSize, setScreenSize ] = useState(state);
 
     return (
-        <>
+        <ScreenSize.Provider value={[ screenSize, setScreenSize ]}>
+            <Header showSiteLinks={true} showScreenSizeToggle={true} showLanguageSelect={true} showLogoff={true} />
             <ClubPenguinLauncher />
             <div id="D_ER_ErrorSection">
                 <div id="D_ER_ErrorMsg">
@@ -42,6 +43,7 @@ export default () => {
                 </div>
                 <a id="CP_ES_Version_ErrorBtn" className="D_ER_ErrorBtn" href="#">OK</a>
             </div>
-        </>
+            <Footer />
+        </ScreenSize.Provider>
     );
 };

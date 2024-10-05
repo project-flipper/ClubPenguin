@@ -16,18 +16,15 @@ html, body {
 	font-size:small;
 	min-width:990px;
 	font-size: x-small; /* IE5 Win */
-	voice-family: "\"}\""; 
-	voice-family: inherit;
 	font-size: small;
 }
 	
-
-html>body>#root { /* be nice to Opera */
+html>body { /* be nice to Opera */
 	height:100%; 
 	width: 100%;
 	font-size: small;
 	}
-
+	
 strong { font-weight:bold;}
 
 .border { 
@@ -37,8 +34,7 @@ strong { font-weight:bold;}
 	margin: 0px auto;
 	padding: 10px 0 0 0;
 	text-align: center;
-	background-color:
-	}
+}
 	
 /* Main Layout
 ________________________________________________________*/
@@ -200,7 +196,7 @@ background-position:0pt -30px;
 	background-image:url(/images/button_big_screen_ru.gif);
 }
 
-#big_screen_button a:hover, #big_screen_button_fr a:hover, #big_screen_button_pt a:hover, #big_screen_button_es a:hover, #big_screen_button_de a:hover #big_screen_button_ru a:hover{
+#big_screen_button a:hover, #big_screen_button_fr a:hover, #big_screen_button_pt a:hover, #big_screen_button_es a:hover, #big_screen_button_de a:hover, #big_screen_button_ru a:hover{
 background-position:0pt -30px;
 }
 
