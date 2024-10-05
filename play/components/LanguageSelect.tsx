@@ -18,10 +18,10 @@ export default ({ text, langs }: Props) => {
     };
 
     return (
-        <div id="languageselector" className="langselect">
+        <div id="languageselector" className="langselect notranslate">
             <form name="selectlang" style={{ padding: 0, margin: 0 }}>
-                <label className="langselectlabel">{text}</label>
-                <select className="langselectfield" onChange={changeLanguage} ref={ref} defaultValue={currentLanguage}>
+                <label htmlFor="go2" className="langselectlabel">{text}</label>
+                <select name="go2" id="go2" className="langselectfield" onChange={changeLanguage} ref={ref} defaultValue={currentLanguage}>
                     {langs.map(lang => <option key={lang} value={lang}>{t(`lang_${lang}`)}</option>)}
                 </select>
             </form>
