@@ -17,11 +17,6 @@
         "alwaysStrict": true,
         "noImplicitAny": true,
         "rootDir": ".",
-        "paths": {
-            "@play/*": [
-                "./*"
-            ]
-        },
         "useDefineForClassFields": false
     },
     "include": ["./**/*"],

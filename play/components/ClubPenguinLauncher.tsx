@@ -1,7 +1,7 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import ScreenSize from "@play/services/ScreenSize";
+import ScreenSize from "../services/ScreenSize";
 
 export interface ClubPenguinRunParams {
     parentId: string,
@@ -99,7 +99,9 @@ export default () => {
     let ref = useRef<HTMLDivElement>(null);
     let gameRef = useRef<HTMLDivElement>(null);
 
-    let { i18n } = useTranslation();
+    let { t, i18n } = useTranslation('errors');
+    let currentLanguage = i18n.resolvedLanguage || i18n.language;
+    let langSuffix = currentLanguage === "en" ? "" : `_${currentLanguage}`;
 
     useEffect(() => {
         if (i18n.language != CP.lang) {
@@ -128,20 +130,20 @@ export default () => {
                     <div id="upgrade">
                         <div id="upgradeContent">
                             <div id="upgradeText">
-                                <h1>Download the latest Chrome browser to play Club Penguin!</h1>
-                                <p>Ask your parents for help before you download.</p>
-                                <p>Visit our <a href="<%= links.home %>/help/help-topics/technical-help">Browser FAQ</a> to find out more about this update.</p>
+                                <h1>{t('upgrade.h1')}</h1>
+                                <p>{t('upgrade.p')}</p>
+                                <p>{t('upgrade.a:before')}<a href="<%= links.home %>/help/help-topics/technical-help">{t('upgrade.a')}</a>{t('upgrade.a:before')}</p>
                             </div>
 
                             <div id="installText">
-                                <h1>Oops! You need the latest Chrome browser to play Club Penguin.</h1>
-                                <p>Ask your parent to download it from google.com/chrome.</p>
-                                <p>Visit our <a href="<%= links.home %>/help/help-topics/technical-help">Browser FAQ</a> to find out more about this update.</p>
+                                <h1>{t('install.h1')}</h1>
+                                <p>{t('install.p')}</p>
+                                <p>{t('install.a:before')}<a href="<%= links.home %>/help/help-topics/technical-help">{t('install.a')}</a>{t('install.a:after')}</p>
                             </div>
                         </div>
 
                         <div id="upgradeButton">
-                            <a><img src="images/upgradeButton.png" /></a>
+                            <a><img src={`images/upgradeButton${langSuffix}.png`} /></a>
                         </div>
                     </div>
                 </div>

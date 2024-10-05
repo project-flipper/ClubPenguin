@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import NavigationLink from "@play/components/NavigationLink";
-import LanguageSelect from "@play/components/LanguageSelect";
-import ScreenSizeToggle from "@play/components/ScreenSizeToggle";
+import NavigationLink from "./NavigationLink";
+import LanguageSelect from "./LanguageSelect";
+import ScreenSizeToggle from "./ScreenSizeToggle";
 
 export interface NavigationBarProps {
     showSiteLinks: boolean;
@@ -39,7 +39,7 @@ export default ({ showSiteLinks = true, showScreenSizeToggle = true, showLanguag
                         )}
                         { showLogoff && (
                             <div id="logoff">
-                                <NavigationLink link="/" text={t('exit')}/>
+                                <NavigationLink link="/" text={t('exit')} />
                             </div>
                         )}
                     </div>

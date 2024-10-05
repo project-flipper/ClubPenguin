@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import ErrorPage from "@play/pages/ErrorPage";
-import PlayPage from "@play/pages/PlayPage";
+import ErrorPage from "./pages/ErrorPage";
+import PlayPage from "./pages/PlayPage";
 
 const router = createBrowserRouter([
     {

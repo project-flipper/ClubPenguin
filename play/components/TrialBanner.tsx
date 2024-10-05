@@ -2,6 +2,8 @@ import React from "react";
 
 export default () => {
     return (
-        <div id="TrialBannerContainer"></div>
+        <div id="TrialBannerContainer">
+            
+        </div>
     );
 };

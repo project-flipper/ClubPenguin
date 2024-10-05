@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { useRef } from "react";
 import { useTranslation } from "react-i18next";
 
 type Props = {

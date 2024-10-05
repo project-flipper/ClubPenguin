@@ -1,15 +1,18 @@
-import ClubPenguinLauncher from "@play/components/ClubPenguinLauncher";
-import Footer from "@play/components/Footer";
-import Header from "@play/components/Header";
-import ScreenSize from "@play/services/ScreenSize";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import ClubPenguinLauncher from "../components/ClubPenguinLauncher";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import ScreenSize from "../services/ScreenSize";
 
 declare global {
     function centerError(errorId: string): void;
 }
 
 export default () => {
-    let state = window.location.href.search(/smallscreen/) >= 0 ?  'small' : 'big';
+    let { t } = useTranslation('error');
+    let state = window.location.href.search(/smallscreen/) > 0 ? 'small' : 'big';
 
     let [ screenSize, setScreenSize ] = useState(state);
 
@@ -19,29 +22,29 @@ export default () => {
             <ClubPenguinLauncher />
             <div id="D_ER_ErrorSection">
                 <div id="D_ER_ErrorMsg">
-                    Sorry, something went wrong
+                    {t('error.1')}
                     <br />
-                    with Club Penguin.
+                    {t('error.2')}
                     <br />
-                    Try logging in again.
+                    {t('error.3')}
                 </div>
-                <a id="D_ER_ErrorBtn" href="" target="_self" title="Try logging in again">OK</a>
+                <a id="D_ER_ErrorBtn" href="" target="_self" title={t('error.3')}>{t('ok')}</a>
             </div>
             <div id="CP_SNFError_ErrorSection" className="D_ER_ErrorSection">
                 <div id="CP_SNFError_Version_ErrorMsg" className="D_ER_ErrorMsg">
-                    Sorry! There was a problem loading Card-Jitsu Snow.
+                    {t('cjs.1')}
                     <br />
-                    Please try again, or contact support if the problem continues.
+                    {t('cjs.2')}
                 </div>
-                <a id="CP_SNFError_Version_ErrorBtn" className="D_ER_ErrorBtn" href="#">OK</a>
+                <a id="CP_SNFError_Version_ErrorBtn" className="D_ER_ErrorBtn" href="#">{t('ok')}</a>
             </div>
             <div id="CP_ES_Version_ErrorSection" className="D_ER_ErrorSection">
                 <div id="CP_ES_Version_ErrorMsg" className="D_ER_ErrorMsg">
-                    Oops! You need the latest Chrome browser to play Card-Jitsu Snow.
+                    {t('cjsupgrade.1')}
                     <br />
-                    Ask your parent to download it from google.com/chrome.
+                    {t('cjsupgrade.2')}
                 </div>
-                <a id="CP_ES_Version_ErrorBtn" className="D_ER_ErrorBtn" href="#">OK</a>
+                <a id="CP_ES_Version_ErrorBtn" className="D_ER_ErrorBtn" href="#">{t('ok')}</a>
             </div>
             <Footer />
         </ScreenSize.Provider>

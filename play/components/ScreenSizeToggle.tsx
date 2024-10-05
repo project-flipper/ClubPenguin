@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 
-import ScreenSize from "@play/services/ScreenSize";
+import ScreenSize from "../services/ScreenSize";
 
 export default () => {
     let [ screenSize, setScreenSize ] = useContext(ScreenSize);
