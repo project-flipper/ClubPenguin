@@ -1,29 +1,20 @@
 {
-    "upgrade": {
-        "h1": "¡Descarga la última versión de Google Chrome para jugar en Club Penguin!",
-        "p": "Pídeles a tus padres que te ayuden a descargarlo.",
-        "a:before": "Visita la sección",
-        "a": "Preguntas frecuentes sobre navegadores",
-        "a:after": "para obtener más info sobre esta actualización."
-    },
-    "install": {
-        "h1": "¡Uy! Para jugar en Club Penguin necesitas la última versión de Google Chrome.",
-        "p": "Pídele a algún adulto que lo descargue de google.com/chrome.",
-        "a:before": "Visita la sección",
-        "a": "Preguntas frecuentes sobre navegadores",
-        "a:after": "para obtener más info sobre esta actualización."
-    },
-    "error": {
-        "1": "Sorry, something went wrong",
-        "2": "with Club Penguin.",
-        "3": "Try logging in again."
-    },
-    "cjs": {
-        "1": "Sorry! There was a problem loading Card-Jitsu Snow.",
-        "2": "Please try again, or contact support if the problem continues."
-    },
-    "cjsupgrade": {
-        "1": "Oops! You need the latest Chrome browser to play Card-Jitsu Snow.",
-        "2": "Ask your parent to download it from google.com/chrome."
-    }
+    "upgrade.h1": "¡Descarga la última versión de Google Chrome para jugar en Club Penguin!",
+    "upgrade.p": "Pídeles a tus padres que te ayuden a descargarlo.",
+    "upgrade.a:before": "Visita la sección ",
+    "upgrade.a": "Preguntas frecuentes sobre navegadores",
+    "upgrade.a:after": " para obtener más info sobre esta actualización.",
+    "install.h1": "¡Uy! Para jugar en Club Penguin necesitas la última versión de Google Chrome.",
+    "install.p": "Pídele a algún adulto que lo descargue de google.com/chrome.",
+    "install.a:before": "Visita la sección ",
+    "install.a": "Preguntas frecuentes sobre navegadores",
+    "install.a:after": " para obtener más info sobre esta actualización.",
+    "error.1": "¡Uy! Hubo un problema",
+    "error.2": "con Club Penguin.",
+    "error.3": "Intenta iniciar sesión más tarde.",
+    "cjs.1": "¡Disculpa! Hubo un problema al cargar Card-jitsu Nieve.",
+    "cjs.2": "Prueba otra vez y, si el problema continúa, comunícate con Soporte.",
+    "cjsupgrade.1": "¡Uy! Para jugar Cad-jitsu Nieve necesitas la última versión de Google Chrome.",
+    "cjsupgrade.2": "Pídele a algún adulto que lo descargue de google.com/chrome.",
+    "ok": "OK"
 }
