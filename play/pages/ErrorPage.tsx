@@ -10,7 +10,7 @@ export default () => {
     let error = useRouteError();
 
     return <>
-        <Header showSiteLinks={true} showScreenSizeToggle={true} showLanguageSelect={true} showLogoff={true} />
+        <Header />
         <div id="D_ER_ErrorSection">
             <div id="D_ER_ErrorMsg">
                 {t('error.1')}
