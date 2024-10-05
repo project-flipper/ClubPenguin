@@ -11,7 +11,7 @@ declare global {
 }
 
 export default () => {
-    let { t } = useTranslation('error');
+    let { t } = useTranslation('errors');
     let state = window.location.href.search(/smallscreen/) > 0 ? 'small' : 'big';
 
     let [ screenSize, setScreenSize ] = useState(state);

@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default () => {
-    let { t } = useTranslation();
+    let { t } = useTranslation('errors');
     let error = useRouteError();
 
     return <>
