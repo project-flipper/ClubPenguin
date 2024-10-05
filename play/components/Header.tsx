@@ -1,12 +1,12 @@
 import React from "react";
-import NavigationBar, { NavigationBarProps } from "./NavigationBar";
+import NavigationBar from "./NavigationBar";
 
 import TrialBanner from "./TrialBanner";
 
-export default (props: NavigationBarProps) => {
+export default () => {
     return (
         <>
-            <NavigationBar {...props} />
+            <NavigationBar />
             <TrialBanner />
         </>
     );
