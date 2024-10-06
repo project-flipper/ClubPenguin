@@ -1,0 +1,29 @@
+{
+    "upgrade": {
+        "h1": "¡Descarga la última versión de Google Chrome para jugar en Club Penguin!",
+        "p": "Pídeles a tus padres que te ayuden a descargarlo.",
+        "a:before": "Visita la sección",
+        "a": "Preguntas frecuentes sobre navegadores",
+        "a:after": "para obtener más info sobre esta actualización."
+    },
+    "install": {
+        "h1": "¡Uy! Para jugar en Club Penguin necesitas la última versión de Google Chrome.",
+        "p": "Pídele a algún adulto que lo descargue de google.com/chrome.",
+        "a:before": "Visita la sección",
+        "a": "Preguntas frecuentes sobre navegadores",
+        "a:after": "para obtener más info sobre esta actualización."
+    },
+    "error": {
+        "1": "Es ist ein Fehler mit dem",
+        "2": "Club Penguin aufgetreten.",
+        "3": "Bitte melde dich erneut an."
+    },
+    "cjs": {
+        "1": "Sorry! Beim Laden von Card-Jitsu Schnee ist ein Fehler aufgetreten.",
+        "2": "Bitte versuche es noch einmal oder kontaktiere den Kundendienst."
+    },
+    "cjsupgrade": {
+        "1": "Hoppla! Du brauchst den neusten Chrome-Browser, um Card-Jitsu Schnee spielen zu können.",
+        "2": "Bitte deine Eltern, den Chrome-Browser von google.com/chrome herunterzuladen."
+    }
+}
