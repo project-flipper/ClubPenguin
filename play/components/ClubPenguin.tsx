@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 import ScreenSizeContext from "../context/ScreenSizeContext";
 import TrialDaysLeftContext from "../context/TrialDaysLeftContext";
@@ -9,7 +9,7 @@ function handleGameError(data?: { handled: boolean }): void {
         if (document.getElementById('upgrade')) {
             document.getElementById('upgrade').style.display = 'block';
             document.getElementById('installText').style.display = 'none';
-            document.getElementById('upgradeButton').style.display = 'none';
+            document.getElementById('upgradeButton').style.display = 'block';
         }
         return;
     }
@@ -27,31 +27,10 @@ function handleGameError(data?: { handled: boolean }): void {
 }
 window.handleGameError = handleGameError;
 
-function loadGame(lang: string): void {
-    try {
-        CP.run({
-            language: lang,
-            parentId: "club_penguin",
-            elementId: "cp_game",
-            elementClassName: "disney_land_clubpenguin_player",
-            apiPath: __environment__.apiPath,
-            mediaPath: __environment__.mediaPath,
-            crossOrigin: __environment__.crossOrigin,
-            cacheVersion: __environment__.cacheVersion,
-            contentVersion: __environment__.contentVersion,
-            minigameVersion: __environment__.minigameVersion,
-            environmentType: __environment__.environmentType
-        });
-    } catch (e) {
-        handleGameError();
-        throw e;
-    }
-}
-
 export default () => {
     let ref = useRef<HTMLDivElement>(null);
 
-    let { t, i18n } = useTranslation('errors');
+    let { i18n } = useTranslation('errors');
     let currentLanguage = i18n.resolvedLanguage || i18n.language;
     let langSuffix = currentLanguage === "en" ? "" : `_${currentLanguage}`;
 
@@ -63,7 +42,24 @@ export default () => {
                 let element = document.getElementById(elementId);
                 if (element) element.remove();
             }
-            loadGame(i18n.language);
+            try {
+                CP.run({
+                    language: currentLanguage,
+                    parentId: "club_penguin",
+                    elementId: "cp_game",
+                    elementClassName: "disney_land_clubpenguin_player",
+                    apiPath: __environment__.apiPath,
+                    mediaPath: __environment__.mediaPath,
+                    crossOrigin: __environment__.crossOrigin,
+                    cacheVersion: __environment__.cacheVersion,
+                    contentVersion: __environment__.contentVersion,
+                    minigameVersion: __environment__.minigameVersion,
+                    environmentType: __environment__.environmentType
+                });
+            } catch (e) {
+                handleGameError();
+                throw e;
+            }
         }
     }, [i18n.language]);
 
@@ -91,20 +87,32 @@ export default () => {
                     <div id="upgrade">
                         <div id="upgradeContent">
                             <div id="upgradeText">
-                                <h1>{t('upgrade.h1')}</h1>
-                                <p>{t('upgrade.p')}</p>
-                                <p>{t('upgrade.a:before')}<a href="<%= links.home %>/help/help-topics/technical-help">{t('upgrade.a')}</a>{t('upgrade.a:before')}</p>
+                                <Trans i18nKey="upgrade" ns="errors">
+                                    <h1>Download the latest Chrome browser to play Club Penguin!</h1>
+                                    <p>Ask your parents for help before you download.</p>
+                                </Trans>
+                                <p>
+                                    <Trans i18nKey="upgradeText" ns="errors">
+                                        Visit our <a href={`${__environment__.links.home}/help/help-topics/technical-help`}>Browser FAQ</a> to find out more about this update.
+                                    </Trans>
+                                </p>
                             </div>
 
                             <div id="installText">
-                                <h1>{t('install.h1')}</h1>
-                                <p>{t('install.p')}</p>
-                                <p>{t('install.a:before')}<a href="<%= links.home %>/help/help-topics/technical-help">{t('install.a')}</a>{t('install.a:after')}</p>
+                                <Trans i18nKey="install" ns="errors">
+                                    <h1>Oops! You need the latest Chrome browser to play Club Penguin.</h1>
+                                    <p>Ask your parent to download it from google.com/chrome.</p>
+                                </Trans>
+                                <p>
+                                    <Trans i18nKey="installText" ns="errors">
+                                        Visit our <a href={`${__environment__.links.home}/help/help-topics/technical-help`}>Browser FAQ</a> to find out more about this update.
+                                    </Trans>
+                                </p>
                             </div>
                         </div>
 
                         <div id="upgradeButton">
-                            <a><img src={`images/upgradeButton${langSuffix}.png`} /></a>
+                            <a href="https://www.google.com/chrome"><img src={`images/upgradeButton${langSuffix}.png`} /></a>
                         </div>
                     </div>
                 </div>

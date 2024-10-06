@@ -40,6 +40,4 @@ void i18n.use(initReactI18next).use(new LanguageDetect(null, {
 	compatibilityJSON: 'v4',
 } as InitOptions);
 
-console.log(i18n.getResourceBundle('en', 'default'));
-
 export default i18n;

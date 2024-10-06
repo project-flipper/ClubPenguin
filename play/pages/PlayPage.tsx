@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { Trans, useTranslation } from "react-i18next";
 
 import ClubPenguin from "../components/ClubPenguin";
 import Footer from "../components/Footer";
@@ -62,27 +62,33 @@ export default () => {
                 <ClubPenguin />
                 <div id="D_ER_ErrorSection">
                     <div id="D_ER_ErrorMsg">
-                        {t('error.1')}
-                        <br />
-                        {t('error.2')}
-                        <br />
-                        {t('error.3')}
+                        <Trans i18nKey="error" ns="errors">
+                            Sorry, something went wrong
+                            <br />
+                            with Club Penguin.
+                            <br />
+                            Try logging in again.
+                        </Trans>
                     </div>
-                    <a id="D_ER_ErrorBtn" href="" target="_self" title={t('error.3')}>{t('ok')}</a>
+                    <a id="D_ER_ErrorBtn" href="" target="_self" title={t('errorTitle')}>{t('ok')}</a>
                 </div>
                 <div id="CP_SNFError_ErrorSection" className="D_ER_ErrorSection">
                     <div id="CP_SNFError_Version_ErrorMsg" className="D_ER_ErrorMsg">
-                        {t('cjs.1')}
-                        <br />
-                        {t('cjs.2')}
+                        <Trans i18nKey="cjs" ns="errors">
+                            Sorry! There was a problem loading Card-Jitsu Snow.
+                            <br />
+                            Please try again, or contact support if the problem continues.
+                        </Trans>
                     </div>
                     <a id="CP_SNFError_Version_ErrorBtn" className="D_ER_ErrorBtn" href="#">{t('ok')}</a>
                 </div>
                 <div id="CP_ES_Version_ErrorSection" className="D_ER_ErrorSection">
                     <div id="CP_ES_Version_ErrorMsg" className="D_ER_ErrorMsg">
-                        {t('cjsupgrade.1')}
-                        <br />
-                        {t('cjsupgrade.2')}
+                        <Trans i18nKey="cjsupgrade" ns="errors">
+                            Oops! You need the latest Chrome browser to play Card-Jitsu Snow.
+                            <br />
+                            Ask your parent to download it from google.com/chrome.
+                        </Trans>
                     </div>
                     <a id="CP_ES_Version_ErrorBtn" className="D_ER_ErrorBtn" href="#">{t('ok')}</a>
                 </div>

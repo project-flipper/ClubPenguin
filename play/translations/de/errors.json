@@ -1,29 +1,10 @@
 {
-    "upgrade": {
-        "h1": "¡Descarga la última versión de Google Chrome para jugar en Club Penguin!",
-        "p": "Pídeles a tus padres que te ayuden a descargarlo.",
-        "a:before": "Visita la sección",
-        "a": "Preguntas frecuentes sobre navegadores",
-        "a:after": "para obtener más info sobre esta actualización."
-    },
-    "install": {
-        "h1": "¡Uy! Para jugar en Club Penguin necesitas la última versión de Google Chrome.",
-        "p": "Pídele a algún adulto que lo descargue de google.com/chrome.",
-        "a:before": "Visita la sección",
-        "a": "Preguntas frecuentes sobre navegadores",
-        "a:after": "para obtener más info sobre esta actualización."
-    },
-    "error": {
-        "1": "Es ist ein Fehler mit dem",
-        "2": "Club Penguin aufgetreten.",
-        "3": "Bitte melde dich erneut an."
-    },
-    "cjs": {
-        "1": "Sorry! Beim Laden von Card-Jitsu Schnee ist ein Fehler aufgetreten.",
-        "2": "Bitte versuche es noch einmal oder kontaktiere den Kundendienst."
-    },
-    "cjsupgrade": {
-        "1": "Hoppla! Du brauchst den neusten Chrome-Browser, um Card-Jitsu Schnee spielen zu können.",
-        "2": "Bitte deine Eltern, den Chrome-Browser von google.com/chrome herunterzuladen."
-    }
+    "upgrade": "<0>Download the latest Chrome browser to play Club Penguin!</0><1>Ask your parents for help before you download.</1>",
+    "upgradeText": "Visit our <1>Browser FAQ</1> to find out more about this update.",
+    "install": "<0>Oops! You need the latest Chrome browser to play Club Penguin.</0><1>Ask your parent to download it from google.com/chrome.</1>",
+    "installText": "Visit our <1>Browser FAQ</1> to find out more about this update.",
+    "error": "Es ist ein Fehler mit dem<1></1>Club Penguin aufgetreten.<3></3>Bitte melde dich erneut an.",
+    "errorTitle": "Bitte melde dich erneut an.",
+    "cjs": "Sorry! Beim Laden von Card-Jitsu Schnee ist ein Fehler aufgetreten.<1></1>Bitte versuche es noch einmal oder kontaktiere den Kundendienst.",
+    "cjsupgrade": "Hoppla! Du brauchst den neusten Chrome-Browser, um Card-Jitsu Schnee spielen zu können.<1></1>Bitte deine Eltern, den Chrome-Browser von google.com/chrome herunterzuladen."
 }
