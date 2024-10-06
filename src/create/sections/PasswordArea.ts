@@ -1,10 +1,11 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ErrorBubble from "../prefabs/ErrorBubble";
 import TextField from "../../lib/ui/TextField";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 

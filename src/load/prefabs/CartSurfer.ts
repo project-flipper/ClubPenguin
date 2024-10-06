@@ -1,7 +1,7 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class CartSurfer extends Phaser.GameObjects.Container {

@@ -9,7 +9,6 @@ export interface ContentCls {
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import InputBlocker from "../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextField from "../../lib/ui/TextField";
@@ -27,6 +26,8 @@ import PromptInput from "./prefabs/PromptInput";
 import PromptError from "./prefabs/PromptError";
 import Hint from "./prefabs/Hint";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { UserData } from "@clubpenguin/net/types/user";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 import AvatarOverlay from "./prefabs/AvatarOverlay";

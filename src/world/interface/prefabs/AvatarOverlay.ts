@@ -3,10 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "../../../lib/ui/TextBox";
 import Balloon from "./Balloon";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class AvatarOverlay extends Phaser.GameObjects.Container {

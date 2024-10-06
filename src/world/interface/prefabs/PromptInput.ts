@@ -3,11 +3,12 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 import TextField from "../../../lib/ui/TextField";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import Interface from "../Interface";
 /* END-USER-IMPORTS */
 

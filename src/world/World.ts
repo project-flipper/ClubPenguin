@@ -14,8 +14,9 @@ export function handle<K extends keyof Payloads, T extends WorldHandler<Payloads
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import Interface from "./interface/Interface";

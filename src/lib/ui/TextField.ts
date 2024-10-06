@@ -2,9 +2,10 @@ export type InputType = 'text' | 'password' | 'email';
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "./TextBox";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { App } from "@clubpenguin/app/app";
 /* END-USER-IMPORTS */
 

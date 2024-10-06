@@ -3,10 +3,11 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import Login from "@clubpenguin/login/Login";
 import { WorldData } from "@clubpenguin/net/types/world";
 /* END-USER-IMPORTS */

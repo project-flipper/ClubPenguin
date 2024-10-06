@@ -1,8 +1,8 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class LargeProgressBubble extends Phaser.GameObjects.Container {

@@ -3,9 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import SnowballTrigger from "../../../../../lib/ui/components/SnowballTrigger";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import Lounge from "../Lounge";
 /* END-USER-IMPORTS */
 

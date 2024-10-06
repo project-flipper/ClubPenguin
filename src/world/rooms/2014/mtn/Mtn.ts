@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
 import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
 import FirstLane from "./prefabs/FirstLane";
@@ -12,6 +11,8 @@ import ThirdLane from "./prefabs/ThirdLane";
 import FourthLane from "./prefabs/FourthLane";
 import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import Interface from "@clubpenguin/world/interface/Interface";

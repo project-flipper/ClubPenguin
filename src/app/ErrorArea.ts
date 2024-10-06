@@ -36,11 +36,12 @@ export class CPError extends Error {
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { App } from "./app";
 import { HTTPError } from "@clubpenguin/net/airtower";
 import { getLogger } from "@clubpenguin/lib/log";

@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 import Paperdoll from "./prefabs/Paperdoll";
 import ColorSelector from "./sections/ColorSelector";
@@ -13,6 +12,8 @@ import CheckBoxRules from "./sections/CheckBoxRules";
 import PaperdollAlternate from "./prefabs/PaperdollAlternate";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { App } from "@clubpenguin/app/app";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
 import { Locale } from "@clubpenguin/app/locale";

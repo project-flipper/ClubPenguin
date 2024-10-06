@@ -3,13 +3,14 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
 import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
 import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
 import MancalaBoard from "./prefabs/MancalaBoard";
 import PressureTrigger from "../../../../lib/ui/components/PressureTrigger";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import Interface from "@clubpenguin/world/interface/Interface";

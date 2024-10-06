@@ -14,10 +14,11 @@ type PaperItem = Phaser.GameObjects.Image & { config: PaperItemConfig, isBack: b
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import DepthEnabled from "./components/DepthEnabled";
 import ButtonComponent from "./components/ButtonComponent";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { App } from "@clubpenguin/app/app";
 import { PaperItemConfig } from "@clubpenguin/app/config";
@@ -168,7 +169,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         if (id == 0) return [];
 
         let config = this.game.gameConfig.paper_items[id];
-        
+
         if (this.items.has(type)) {
             let array = this.items.get(type);
             if (array[0].config.paper_item_id == id) return [];

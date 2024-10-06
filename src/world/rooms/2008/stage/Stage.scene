@@ -5,6 +5,7 @@
         "compilerInsertSpaces": true,
         "exportClass": true,
         "autoImport": true,
+        "displayName": "Stage",
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
@@ -14,8 +15,8 @@
     "displayList": [],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

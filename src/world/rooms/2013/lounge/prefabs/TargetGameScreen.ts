@@ -3,9 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "../../../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { Locale } from "@clubpenguin/app/locale";
 import Lounge from "../Lounge";
 import { App } from "@clubpenguin/app/app";

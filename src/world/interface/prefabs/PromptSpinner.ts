@@ -3,8 +3,9 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import Interface from "../Interface";
 /* END-USER-IMPORTS */
 

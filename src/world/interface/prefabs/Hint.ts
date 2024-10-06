@@ -3,8 +3,8 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class Hint extends Phaser.GameObjects.Container {

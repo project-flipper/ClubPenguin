@@ -1,9 +1,10 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import Checkbox from "../prefabs/Checkbox";
 import ErrorBubbleReversed from "../prefabs/ErrorBubbleReversed";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 

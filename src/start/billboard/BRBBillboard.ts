@@ -1,8 +1,9 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { App } from "@clubpenguin/app/app";
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */

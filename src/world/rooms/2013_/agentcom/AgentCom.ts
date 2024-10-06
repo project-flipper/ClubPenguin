@@ -3,8 +3,9 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import { App } from "@clubpenguin/app/app";
 import { Locale } from "@clubpenguin/app/locale";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";

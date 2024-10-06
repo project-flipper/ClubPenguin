@@ -3,13 +3,14 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import Paperdoll from "../../../lib/ui/Paperdoll";
 import TextBox from "../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
 /* START-USER-IMPORTS */
+import Phaser from "phaser";
+
 import Interface from "../Interface";
 import { MyUserData } from "@clubpenguin/net/types/user";
 import { Locale } from "@clubpenguin/app/locale";
