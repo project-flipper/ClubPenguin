@@ -16,7 +16,7 @@ module.exports = env => {
     let environment = {
         language: 'en',
         apiPath: env.apiPath,
-        mediaPath: env.mediaPath ? env.mediaPath : '/',
+        mediaPath: env.mediaPath ? env.mediaPath : '/media',
         crossOrigin: env.crossOrigin,
         cacheVersion: env.cacheVersion ? env.cacheVersion : getNowFormat(),
         contentVersion: env.contentVersion ? env.contentVersion : env.cacheVersion,
@@ -57,7 +57,7 @@ module.exports = env => {
             },
             assetModuleFilename: 'assets/[hash][ext][query]',
             clean: true,
-            publicPath: `${env.playLink}/`
+            publicPath: env.playLink ? `${env.playLink}/` : '/'
         },
 
         module: {
@@ -170,7 +170,7 @@ module.exports = env => {
                     watch: false
                 },
                 {
-                    directory: path.resolve(__dirname, 'play'),
+                    directory: path.resolve(__dirname, 'play/assets'),
                     publicPath: '/'
                 }
             ],
@@ -179,7 +179,7 @@ module.exports = env => {
             }
         },
         watchOptions: {
-            ignored: ['media/', 'play/', 'node_modules/'],
+            ignored: ['media/', 'play/assets/', 'node_modules/'],
             aggregateTimeout: 200
         },
 
