@@ -22,6 +22,26 @@ body, #root {
 	z-index:20;
 }
 
+#rules.lang-es {
+	background:url(/images/club-penguin-rules-tall-es.png) 0 0 no-repeat;
+}
+
+#rules.lang-de {
+	background:url(/images/club-penguin-rules-tall-de.png) 0 0 no-repeat;
+}
+
+#rules.lang-fr {
+	background:url(/images/club-penguin-rules-tall-fr.png) 0 0 no-repeat;
+}
+
+#rules.lang-pt {
+	background:url(/images/club-penguin-rules-tall-pt.png) 0 0 no-repeat;
+}
+
+#rules.lang-ru {
+	background:url(/images/club-penguin-rules-tall-ru.png) 0 0 no-repeat;
+}
+
 
 #warning {
 	width:400px;
