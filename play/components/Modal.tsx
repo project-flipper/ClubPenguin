@@ -10,23 +10,34 @@ interface ModalProps {
 }
 
 export default ({ children, closeModal, show = true, overlayOpacity = 0.8, centerOnResize = true, fadeDuration = 250 }: ModalProps) => {
+    let ref = React.createRef<HTMLDivElement>();
+    let overlayRef = React.createRef<HTMLDivElement>();
+
     let fadeOutModal = useCallback(() => {
         if (ref.current) {
             ref.current.style.transition = `opacity ${fadeDuration}ms easeOut`;
             ref.current.style.opacity = "0";
-            setTimeout(() => closeModal(), fadeDuration);
+            setTimeout(() => closeModal && closeModal(), fadeDuration);
         }
-        closeModal();
+        if (overlayRef.current) {
+            overlayRef.current.style.transition = `opacity ${fadeDuration}ms easeOut`;
+            overlayRef.current.style.opacity = "0";
+        }
+        closeModal && closeModal();
     }, [closeModal]);
 
     useEffect(() => {
-        if (show && ref.current) {
-            ref.current.style.transition = `opacity ${fadeDuration}ms easeIn`;
-            ref.current.style.opacity = "1";
+        if (show) {
+            if (ref.current) {
+                ref.current.style.transition = `opacity ${fadeDuration}ms easeIn`;
+                ref.current.style.opacity = "1";
+            }
+            if (overlayRef.current) {
+                overlayRef.current.style.transition = `opacity ${fadeDuration}ms easeIn`;
+                overlayRef.current.style.opacity = overlayOpacity.toString();
+            }
         } else fadeOutModal();
     }, [show]);
-
-    let ref = React.createRef<HTMLDivElement>();
 
     useEffect(() => {
         let callback = () => {
@@ -62,7 +73,7 @@ export default ({ children, closeModal, show = true, overlayOpacity = 0.8, cente
 
     return (
         <>
-            <div id="modal-overlay" style={{ opacity: overlayOpacity, display: show ? "block" : "none" }}></div>
+            <div id="modal-overlay" style={{ opacity: overlayOpacity, display: show ? "block" : "none" }} ref={overlayRef}></div>
             <div id="modal-loading"></div>
             <div id="modal-window" ref={ref} style={{ visibility: show ? "visible" : "hidden", display: show ? "block" : "none" }}>
                 {closeModal && <a className="modal-close" href="#" onClick={e => {
