@@ -203,7 +203,7 @@ export class Locale extends Phaser.Events.EventEmitter {
      * @returns The localized string if found, otherwise returned as a placeholder.
      */
     localize(key: string, domain = 'lang'): string {
-        return this.data[domain][key] ?? `**${key}**`;
+        return (domain in this.data && this.data[domain][key]) ?? `**${key}**`;
     }
 
     /**
