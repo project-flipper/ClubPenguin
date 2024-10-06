@@ -170,7 +170,7 @@ module.exports = env => {
                     watch: false
                 },
                 {
-                    directory: path.resolve(__dirname, 'play'),
+                    directory: path.resolve(__dirname, 'play/assets'),
                     publicPath: '/'
                 }
             ],
@@ -179,7 +179,7 @@ module.exports = env => {
             }
         },
         watchOptions: {
-            ignored: ['media/', 'play/', 'node_modules/'],
+            ignored: ['media/', 'play/assets/', 'node_modules/'],
             aggregateTimeout: 200
         },
 
