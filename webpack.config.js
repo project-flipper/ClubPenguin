@@ -16,7 +16,7 @@ module.exports = env => {
     let environment = {
         language: 'en',
         apiPath: env.apiPath,
-        mediaPath: env.mediaPath ? env.mediaPath : '/',
+        mediaPath: env.mediaPath ? env.mediaPath : '/media',
         crossOrigin: env.crossOrigin,
         cacheVersion: env.cacheVersion ? env.cacheVersion : getNowFormat(),
         contentVersion: env.contentVersion ? env.contentVersion : env.cacheVersion,
