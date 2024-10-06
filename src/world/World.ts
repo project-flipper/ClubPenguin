@@ -155,18 +155,22 @@ export default class World extends Phaser.Scene {
         error.show(error.createError(err));
     }
 
-    public standardPenguinTimeOffset = 0;
+    /**
+     * The offset, in hours, from UTC to the Standard Penguin Time.
+     */
+    public standardPenguinTimeOffset = -8;
 
     /**
-     * Calculates and returns the current standard penguin time.
-     * The standard penguin time is derived by adding a predefined offset
-     * (in minutes) to the current system time.
-     * @returns The current standard penguin time.
+     * Gets the current Standard Penguin Time (PST).
+     * This method calculates the current time in the PST timezone by adjusting
+     * the current UTC time with the Standard Penguin Time offset.
+     * @returns The current date and time in PST.
      */
     getStandardPenguinTime(): Date {
         let now = new Date();
-        now.setTime(now.getTime() + this.standardPenguinTimeOffset * 60000);
-        return now;
+        let utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+        let pst = new Date(utc + (this.standardPenguinTimeOffset * 3600000));
+        return pst;
     }
 
     /**
