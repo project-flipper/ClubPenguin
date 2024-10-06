@@ -11,24 +11,25 @@ export default ({ show = true, interval = 5000 }: RulesProps) => {
     let [currentIndex, setCurrentIndex] = useState(0);
     let [carouselActive, setCarouselActive] = useState(true);
 
-    let { t } = useTranslation();
+    let { t, i18n } = useTranslation();
+    let currentLanguage = i18n.resolvedLanguage || i18n.language;
 
     let rules = [
         <>
-            <p className="title">Respect Others</p>
-            <p>We do not tolerate bullying, or being mean to others.</p>
+            <p className="title">{t('rules.1.title')}</p>
+            <p>{t('rules.1.text')}</p>
         </>,
         <>
-            <p className="title">No Bad Words</p>
-            <p>We do not allow any rude, inappropriate language or behavior. This includes swearing, racism, talking about drugs, sex or alcohol.</p>
+            <p className="title">{t('rules.2.title')}</p>
+            <p>{t('rules.2.text')}</p>
         </>,
         <>
-            <p className="title">Stay Safe Online</p>
-            <p>We do not tolerate the sharing of personal information like your real name, phone number, address, email or password.</p>
+            <p className="title">{t('rules.3.title')}</p>
+            <p>{t('rules.3.text')}</p>
         </>,
         <>
-            <p className="title">No Cheating</p>
-            <p>We do not allow the use of 3rd party programs.</p>
+            <p className="title">{t('rules.4.title')}</p>
+            <p>{t('rules.4.text')}</p>
         </>
     ];
 
@@ -45,7 +46,7 @@ export default ({ show = true, interval = 5000 }: RulesProps) => {
 
     return (
         <div id="rules-wrap">
-            <div id="rules">
+            <div id="rules" className={currentLanguage != 'en' ? `lang-${currentLanguage}` : undefined}>
                 <ul>
                     {
                         rules.map((rule, index) => (
@@ -62,8 +63,7 @@ export default ({ show = true, interval = 5000 }: RulesProps) => {
                 <div id="rules-container">
                     {rules[currentIndex]}
                 </div>
-                <div id="warning">Players found not following the Club Penguin rules risk being banned, temporarily or
-                    permanently*</div>
+                <div id="warning">{t('ruleswarning')}</div>
             </div>
         </div>
     );
