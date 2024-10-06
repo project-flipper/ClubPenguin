@@ -177,8 +177,14 @@ export function run(params: RunParams): void {
     });
     app.onCrash = onAppCrash;
 
+    lang = params.language;
+    elementId = params.elementId;
+
     LoaderPlugin.cacheVersion = params.cacheVersion;
 }
+
+export let lang: string;
+export let elementId: string;
 
 /**
  * Checks if the Club Penguin app is currently running.
@@ -305,8 +311,10 @@ export function stop(terminate = false): void {
     if (isRunning()) {
         logger.info('Stopping app');
         //app.airtower.close();
-        app.destroy(false, terminate);
+        app.destroy(true, terminate);
     }
+    lang = undefined;
+    elementId = undefined;
 }
 
 logger.info('Club Penguin ready');
