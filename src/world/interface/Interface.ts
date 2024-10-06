@@ -771,58 +771,64 @@ export default class Interface extends Phaser.Scene {
     keydownHandler(event: KeyboardEvent): void {
         if (!this.canProcessInput) return;
 
+        let handled = false;
         switch (event.key) {
             case 'ArrowDown':
                 this.world.sitDown();
-                event.stopPropagation();
+                handled = true;
                 break;
             case 'ArrowLeft':
                 this.world.sitLeft();
-                event.stopPropagation();
+                handled = true;
                 break;
             case 'ArrowUp':
                 this.world.sitUp();
-                event.stopPropagation();
+                handled = true;
                 break;
             case 'ArrowRight':
                 this.world.sitRight();
-                event.stopPropagation();
+                handled = true;
                 break;
             case 'Enter':
                 this.sendMessage();
+                handled = true;
                 break;
             case 'w':
                 this.world.wave();
-                event.stopPropagation();
+                handled = true;
                 break;
             case 's':
                 this.world.sit(this.input.activePointer.worldX, this.input.activePointer.worldY);
-                event.stopPropagation();
+                handled = true;
                 break;
             case 'd':
                 this.world.dance();
-                event.stopPropagation();
+                handled = true;
                 break;
             case 't':
                 // Prioritize combo
                 let delta = window.performance.now() - this.lastFart;
                 if (delta < 1) return;
                 this.snowballCrosshair.visible = true;
-                event.stopPropagation();
+                handled = true;
                 break;
             case 'j':
                 let joke = Phaser.Math.RND.pick(this.game.gameConfig.jokes);
                 this.world.sendMessage(joke, true);
-                event.stopPropagation();
+                handled = true;
                 break;
             case '?':
                 this.world.sendEmoji(Emoji.QUESTION);
-                event.stopPropagation();
+                handled = true;
                 break;
             case '!':
                 this.world.sendEmoji(Emoji.EXCLAMATION);
-                event.stopPropagation();
+                handled = true;
                 break;
+        }
+        if (handled) {
+            event.preventDefault();
+            event.stopPropagation();
         }
     }
 
