@@ -1355,9 +1355,10 @@ export default class Map extends Phaser.Scene implements Content {
             button.on('out', () => this.interface.hideHint());
         }
         if (roomId) button.on('release', () => {
-            this.world.joinRoom(roomId);
-            this.interface.safeCloseContent();
-            this.interface.hideHint();
+            if (this.world.engine.currentRoomId == roomId) {
+                this.interface.safeCloseContent();
+                this.interface.hideHint();
+            } else this.world.joinRoom(roomId);
         });
     }
 
