@@ -64,11 +64,15 @@ export default class World extends Phaser.Scene {
         return (this.scene.get('Interface') as Interface);
     }
 
+    get loadScreen(): Load {
+        return this.scene.get('Load') as Load;
+    }
+
     public worldId: number;
     public myUser: MyUserData;
 
     init(): void {
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
         if (!load.isShowing) load.show({ logo: true });
     }
 
@@ -85,7 +89,7 @@ export default class World extends Phaser.Scene {
      * Also initializes the engine and interface, then requests a room to spawn in.
      */
     async startWorld(): Promise<void> {
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
         load.track(new LoaderTask('World loader', this.load));
 
         let error = this.scene.get('ErrorArea') as ErrorArea;
@@ -517,6 +521,9 @@ export default class World extends Phaser.Scene {
                 logger.warn('Room module does not exist', roomData.path);
                 return;
             }
+
+            let load = this.loadScreen;
+            if (!load.isShowing) load.show();
 
             this.send({
                 op: 'room:join',
