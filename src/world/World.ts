@@ -552,6 +552,9 @@ export default class World extends Phaser.Scene {
                 return;
             }
 
+            let load = this.loadScreen;
+            if (!load.isShowing) load.show();
+
             // TODO: Request
             await this.engine.startGame(gameData, options);
         } else {
