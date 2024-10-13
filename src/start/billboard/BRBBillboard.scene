@@ -92,10 +92,10 @@
                     ],
                     "label": "descriptionTextBox",
                     "scope": "PUBLIC",
-                    "boxWidth": 708.75,
+                    "boxWidth": 678.75,
                     "boxHeight": 149.4,
-                    "x": 49.387499999999996,
-                    "y": 269.66249999999997,
+                    "x": 49.3875,
+                    "y": 269.6625,
                     "tintTopLeft": "#000000",
                     "tintTopRight": "#000000",
                     "tintBottomLeft": "#000000",
@@ -110,8 +110,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }
