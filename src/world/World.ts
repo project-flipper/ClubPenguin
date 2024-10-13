@@ -15,8 +15,6 @@ export function handle<K extends keyof Payloads, T extends WorldHandler<Payloads
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
-
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import Interface from "./interface/Interface";
@@ -30,17 +28,20 @@ import { ClientPayload, ClientPayloads, Payload, Payloads } from "@clubpenguin/n
 import { Emoji } from "@clubpenguin/net/types/message";
 import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
 import { WorldData } from "@clubpenguin/net/types/world";
+import { AvatarData } from "@clubpenguin/net/types/avatar";
+import { ItemType } from "./engine/clothing/itemType";
 
 let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
 
 export default class World extends Phaser.Scene {
-
     constructor() {
         super("World");
 
         /* START-USER-CTR-CODE */
-        // Write your code here.
+
+        this.engine = new Engine(this);
+
         /* END-USER-CTR-CODE */
     }
 
@@ -70,6 +71,7 @@ export default class World extends Phaser.Scene {
 
     public worldId: number;
     public myUser: MyUserData;
+    public inventory: number[];
 
     init(): void {
         let load = this.loadScreen;
@@ -106,6 +108,10 @@ export default class World extends Phaser.Scene {
 
         let { data: myUser } = await this.game.airtower.getMyUser();
         this.myUser = myUser;
+        this.inventory = []; // TODO: Request inventory
+        for (let i in this.game.gameConfig.paper_items) {
+            this.inventory.push(this.game.gameConfig.paper_items[i].paper_item_id);
+        }
 
         this.postload();
         // TODO: load world here
@@ -113,7 +119,7 @@ export default class World extends Phaser.Scene {
 
         await load.waitAllTasksComplete();
 
-        this.engine = new Engine(this);
+        this.engine.init();
 
         await new Promise<void>(resolve => this.scene.run('Interface', {
             oninit: (scene: Interface) => load.track(new LoaderTask('Interface loader', scene.load)),
@@ -250,6 +256,117 @@ export default class World extends Phaser.Scene {
     }
 
     /* ========= PLAYER ========= */
+
+    
+    updateAvatar(mask: Partial<AvatarData>) {
+        let player = this.engine.player;
+        let user = this.myUser;
+        user.avatar = { ...user.avatar, ...mask };
+        this.handle({
+            op: 'player:update',
+            d: {
+                user,
+                x: player.x,
+                y: player.y,
+                action: {
+                    frame: 0,
+                    player: user.id
+                }
+            }
+        });
+    }
+
+    wearItem(id: number) {
+        let config = this.game.gameConfig.paper_items[id];
+        if (!config) {
+            logger.error('Couldn\'t wear unknown item', id);
+            return;
+        }
+
+        let mask = {} as Partial<AvatarData>;
+
+        switch (config.type) {
+            case ItemType.COLOR:
+                mask.color = id;
+                break;
+            case ItemType.HEAD:
+                mask.head = id;
+                break;
+            case ItemType.FACE:
+                mask.face = id;
+                break;
+            case ItemType.NECK:
+                mask.neck = id;
+                break;
+            case ItemType.BODY:
+                mask.body = id;
+                break;
+            case ItemType.HAND:
+                mask.hand = id;
+                break;
+            case ItemType.FEET:
+                mask.feet = id;
+                break;
+            case ItemType.FLAG:
+                mask.flag = id;
+                break;
+            case ItemType.PHOTO:
+                mask.photo = id;
+                break;
+            case ItemType.AWARD:
+            default:
+                logger.error('Item type invalid', config.type);
+                return;
+        }
+
+        this.updateAvatar(mask);
+    }
+
+    removeItem(id: number) {
+        let config = this.game.gameConfig.paper_items[id];
+        if (!config) {
+            logger.error('Couldn\'t remove unknown item', id);
+            return;
+        }
+
+        let mask = {} as Partial<AvatarData>;
+
+        switch (config.type) {
+            case ItemType.COLOR:
+                mask.color = 0;
+                break;
+            case ItemType.HEAD:
+                mask.head = 0;
+                break;
+            case ItemType.FACE:
+                mask.face = 0;
+                break;
+            case ItemType.NECK:
+                mask.neck = 0;
+                break;
+            case ItemType.BODY:
+                mask.body = 0;
+                break;
+            case ItemType.HAND:
+                mask.hand = 0;
+                break;
+            case ItemType.FEET:
+                mask.feet = 0;
+                break;
+            case ItemType.FLAG:
+                mask.flag = 0;
+                break;
+            case ItemType.PHOTO:
+                mask.photo = 0;
+                break;
+            case ItemType.AWARD:
+            default:
+                logger.error('Item type invalid', config.type);
+                return;
+        }
+
+        this.updateAvatar(mask);
+    }
 
     /**
      * Moves the player to the specified coordinates.

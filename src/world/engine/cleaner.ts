@@ -77,7 +77,10 @@ export default class Cleaner {
      */
     deallocateResource(type: string, key: string, playerId?: number): void {
         let resKey = this.getKey(type, key);
-        if (!this.resources.includes(resKey)) return;
+        if (!this.resources.includes(resKey)) {
+            logger.warn(`Resource ${resKey} is not allocated. Ignoring`);
+            return;
+        }
 
         if (playerId) {
             if (resKey in this.resourceUsages) {
