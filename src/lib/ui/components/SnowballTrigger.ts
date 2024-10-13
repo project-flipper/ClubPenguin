@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
-
 import { Engine } from "@clubpenguin/world/engine/engine";
 import Snowball from "@clubpenguin/world/interface/prefabs/Snowball";
 import { Player } from "@clubpenguin/world/engine/player/avatar";

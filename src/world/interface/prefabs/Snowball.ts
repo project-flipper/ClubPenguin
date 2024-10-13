@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
-
 import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 

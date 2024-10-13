@@ -12,7 +12,6 @@ import CheckBoxRules from "./sections/CheckBoxRules";
 import PaperdollAlternate from "./prefabs/PaperdollAlternate";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 /* START-USER-IMPORTS */
-
 import { App } from "@clubpenguin/app/app";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
 import { Locale } from "@clubpenguin/app/locale";

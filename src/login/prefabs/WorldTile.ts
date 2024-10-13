@@ -6,7 +6,6 @@
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-
 import Login from "@clubpenguin/login/Login";
 import { WorldData } from "@clubpenguin/net/types/world";
 /* END-USER-IMPORTS */

@@ -5,7 +5,6 @@
 
 import SnowballTrigger from "../../../../../lib/ui/components/SnowballTrigger";
 /* START-USER-IMPORTS */
-
 import Lounge from "../Lounge";
 /* END-USER-IMPORTS */
 

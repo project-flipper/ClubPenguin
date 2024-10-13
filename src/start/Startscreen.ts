@@ -4,7 +4,6 @@ import InputBlocker from "../lib/ui/components/InputBlocker";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 import TextBox from "../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { Language, Locale } from "@clubpenguin/app/locale";
@@ -198,8 +197,12 @@ export default class Startscreen extends Phaser.Scene {
     declare game: App;
     public billboard: BaseBillboard;
 
+    get loadScreen(): Load {
+        return this.scene.get('Load') as Load;
+    }
+
     init(): void {
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
 
         load.track(new LoaderTask('Startscreen loader', this.load));
         if (!load.isShowing) load.show();
@@ -227,7 +230,7 @@ export default class Startscreen extends Phaser.Scene {
     }
 
     async loadContent(): Promise<void> {
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
         if (!load.isShowing) load.show();
 
         try {

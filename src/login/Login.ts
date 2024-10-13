@@ -5,7 +5,6 @@ import NewPlayer from "./views/NewPlayer";
 import PasswordPrompt from "./views/PasswordPrompt";
 import WorldSelect from "./views/WorldSelect";
 /* START-USER-IMPORTS */
-
 import { App } from "@clubpenguin/app/app";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
 import { Locale } from "@clubpenguin/app/locale";

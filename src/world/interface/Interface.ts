@@ -26,7 +26,6 @@ import PromptInput from "./prefabs/PromptInput";
 import PromptError from "./prefabs/PromptError";
 import Hint from "./prefabs/Hint";
 /* START-USER-IMPORTS */
-
 import { UserData } from "@clubpenguin/net/types/user";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 import AvatarOverlay from "./prefabs/AvatarOverlay";
@@ -722,7 +721,11 @@ export default class Interface extends Phaser.Scene {
     }
 
     get engine(): Engine {
-        return this.world.engine;
+        return this.world?.engine;
+    }
+
+    get loadScreen(): Load {
+        return this.scene.get('Load') as Load;
     }
 
     localize(locale: Locale): void {
@@ -1084,11 +1087,11 @@ export default class Interface extends Phaser.Scene {
      * @param data Any additional data to be passed to the content class.
      */
     async loadContent(callback: () => Promise<ContentCls>, data?: any): Promise<void> {
+        let load = this.loadScreen;
         try {
             this.closeContent();
             this.chat.locked = true;
 
-            let load = this.scene.get('Load') as Load;
             if (!load.isShowing) load.show({ mini: true });
 
             let contentCls = await callback();
@@ -1117,7 +1120,6 @@ export default class Interface extends Phaser.Scene {
 
             let error = this.scene.get('ErrorArea') as ErrorArea;
             error.showError(error.WINDOW_SMALL, this.game.locale.localize('shell.LOAD_ERROR', 'error_lang'), this.game.locale.localize('Okay'), () => {
-                let load = this.scene.get('Load') as Load;
                 load.hide();
                 return true;
             }, error.makeCode('c', error.LOAD_ERROR));

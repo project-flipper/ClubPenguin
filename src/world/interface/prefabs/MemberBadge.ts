@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
-
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 

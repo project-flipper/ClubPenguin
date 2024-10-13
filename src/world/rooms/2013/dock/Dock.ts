@@ -8,7 +8,6 @@ import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
 import Trigger from "../../../../lib/ui/components/Trigger";
 import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
-
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import Interface from "@clubpenguin/world/interface/Interface";

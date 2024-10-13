@@ -37,7 +37,7 @@ export class MusicManager {
         let key = `music-${id}`;
 
         if (!this.world.load.cacheManager.audio.has(key)) {
-            let load = this.world.scene.get('Load') as Load;
+            let load = this.world.loadScreen;
             let asset = `music/${id}.mp3`
 
             let task = load.track(new LoaderTask('Music loader', this.world.load));

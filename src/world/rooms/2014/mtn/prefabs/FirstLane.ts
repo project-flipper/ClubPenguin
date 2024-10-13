@@ -5,7 +5,6 @@
 
 import ButtonComponent from "../../../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-
 import Mtn from "../Mtn";
 /* END-USER-IMPORTS */
 

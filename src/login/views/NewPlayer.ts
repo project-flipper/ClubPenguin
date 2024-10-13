@@ -5,7 +5,6 @@ import TextBox from "../../lib/ui/TextBox";
 import Checkbox from "../prefabs/Checkbox";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-
 import Login from "@clubpenguin/login/Login";
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */

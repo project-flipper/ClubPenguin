@@ -9,7 +9,6 @@ import TextBox from "../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-
 import Interface from "../Interface";
 import { UserData } from "@clubpenguin/net/types/user";
 import { Locale } from "@clubpenguin/app/locale";

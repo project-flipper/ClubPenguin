@@ -6,7 +6,6 @@
 import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-
 import Interface from "../Interface";
 import { Emoji } from "@clubpenguin/net/types/message";
 /* END-USER-IMPORTS */

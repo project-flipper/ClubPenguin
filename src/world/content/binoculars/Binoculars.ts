@@ -6,7 +6,6 @@
 import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-
 import { App } from "@clubpenguin/app/app";
 import Interface, { Content } from "@clubpenguin/world/interface/Interface";
 import World from "@clubpenguin/world/World";

@@ -286,7 +286,7 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     hideLoading(): void {
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
         if (load.isShowing) load.hide();
         this.container.visible = true;
     }
@@ -296,7 +296,7 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     endGame(score: number, room: undefined): void {
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
         if (!load.isShowing) load.show();
 
         this.container.visible = false;

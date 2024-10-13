@@ -3,7 +3,6 @@
 import Checkbox from "../prefabs/Checkbox";
 import ErrorBubbleReversed from "../prefabs/ErrorBubbleReversed";
 /* START-USER-IMPORTS */
-
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
 

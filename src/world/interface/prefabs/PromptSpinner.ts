@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
-
 import Interface from "../Interface";
 /* END-USER-IMPORTS */
 

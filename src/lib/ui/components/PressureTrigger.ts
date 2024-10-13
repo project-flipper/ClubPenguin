@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
-
 import { Engine } from "@clubpenguin/world/engine/engine";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 /* END-USER-IMPORTS */
