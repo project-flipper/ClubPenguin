@@ -184,7 +184,7 @@ export class Locale extends Phaser.Events.EventEmitter {
         let key = `locale-${this.abbreviation}`
         if (cache.json.exists(key)) cache.json.remove(key);
 
-        loader.json(key, this.app.airtower.getAbsoluteUrl(`/web_service/${this.abbreviation}/game_strings.json`, { v: LoaderPlugin.cacheVersion }))
+        loader.json(key, `config/${this.abbreviation}/game_strings.json?v=${LoaderPlugin.cacheVersion}`);
 
         logger.info('Loading locale');
         loader.start();

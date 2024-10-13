@@ -114,7 +114,7 @@ export class Config {
         let cacheKey = `config-global-${key}`;
         if (cache.json.exists(cacheKey)) cache.json.remove(cacheKey);
 
-        loader.json(cacheKey, this.app.airtower.getAbsoluteUrl(`/web_service/${key}.json`, { v: LoaderPlugin.cacheVersion }));
+        loader.json(cacheKey, `config/${key}.json?v=${LoaderPlugin.cacheVersion}`);
         return cacheKey;
     }
 
@@ -122,7 +122,7 @@ export class Config {
         let cacheKey = `config-${locale}-${key}`;
         if (cache.json.exists(cacheKey)) cache.json.remove(cacheKey);
 
-        loader.json(cacheKey, this.app.airtower.getAbsoluteUrl(`/web_service/${locale}/${key}.json`, { v: LoaderPlugin.cacheVersion }));
+        loader.json(cacheKey, `config/${locale}/${key}.json?v=${LoaderPlugin.cacheVersion}`);
         return cacheKey;
     }
 
