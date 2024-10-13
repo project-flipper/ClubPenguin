@@ -12,7 +12,6 @@ import CheckBoxRules from "./sections/CheckBoxRules";
 import PaperdollAlternate from "./prefabs/PaperdollAlternate";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
@@ -328,6 +327,7 @@ export default class Create extends Phaser.Scene {
         // spinner
         const spinner = this.add.sprite(812, 497, "create", "create-module/spinner0001");
         spinner.setOrigin(0, 0);
+        spinner.play("create-spinner-animation");
         preloader.add(spinner);
 
         // logo (components)
@@ -530,8 +530,6 @@ export default class Create extends Phaser.Scene {
     create(): void {
 
         this.editorCreate();
-
-        this.spinner.play('create-spinner-animation');
 
         this.initialState = this.signUpState;
 

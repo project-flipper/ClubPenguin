@@ -6,7 +6,6 @@
 import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import Interface, { Content } from "@clubpenguin/world/interface/Interface";
@@ -138,14 +137,16 @@ export default class Binoculars extends Phaser.Scene implements Content {
 
         // tide1
         const tide1 = this.add.sprite(202.5, 99.45, "binoculars", "binoculars/tide0001");
-        tide1.setOrigin(0.37621, 0.29807);
+        tide1.setOrigin(0.37620567375886527, 0.2980701754385965);
+        tide1.play("binoculars-tide-animation");
         boat1.add(tide1);
 
         // tide2
         const tide2 = this.add.sprite(625.5, 85.3875, "binoculars", "binoculars/tide0001");
         tide2.scaleX = 0.56922619;
         tide2.scaleY = 0.56922619;
-        tide2.setOrigin(0.37620567, 0.29807018);
+        tide2.setOrigin(0.37620567375886527, 0.2980701754385965);
+        tide2.play("binoculars-tide-animation");
         boat1.add(tide2);
 
         // boat2
@@ -155,6 +156,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
         // penguin
         const penguin = this.add.sprite(396.225, 64.35, "binoculars", "binoculars/penguin0001");
         penguin.setOrigin(3.30192, 0.757059);
+        penguin.play("binoculars-penguin-animation");
         boat2.add(penguin);
 
         // binoculars_boat2
@@ -165,14 +167,16 @@ export default class Binoculars extends Phaser.Scene implements Content {
         // tide3
         const tide3 = this.add.sprite(526.6125, 103.95, "binoculars", "binoculars/tide0001");
         tide3.scaleX = -1;
-        tide3.setOrigin(0.37621, 0.29807);
+        tide3.setOrigin(0.37620567375886527, 0.2980701754385965);
+        tide3.play("binoculars-tide-animation");
         boat2.add(tide3);
 
         // tide4
         const tide4 = this.add.sprite(103.725, 89.8875, "binoculars", "binoculars/tide0001");
         tide4.scaleX = -0.56922619;
         tide4.scaleY = 0.56922619;
-        tide4.setOrigin(0.37620567, 0.29807018);
+        tide4.setOrigin(0.37620567375886527, 0.2980701754385965);
+        tide4.play("binoculars-tide-animation");
         boat2.add(tide4);
 
         // fish1
@@ -184,6 +188,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
         fish.scaleX = -1;
         fish.angle = 90;
         fish.setOrigin(0.46732394366197183, 0.3676923076923077);
+        fish.play("binoculars-fish-animation");
         fish1.add(fish);
 
         // rectangle_1
@@ -222,7 +227,6 @@ export default class Binoculars extends Phaser.Scene implements Content {
         // lists
         const waves1 = [binoculars_wave_1, binoculars_wave, binoculars_wave10001, binoculars_wave_3, binoculars_wave_4, binoculars_wave_6, binoculars_wave_7, binoculars_wave_10, binoculars_wave_9];
         const waves2 = [binoculars_wave20001, binoculars_wave_2, binoculars_wave_5, binoculars_wave_8];
-        const tides = [tide4, tide3, tide2, tide1];
 
         // blocker (components)
         new InputBlocker(blocker);
@@ -246,7 +250,6 @@ export default class Binoculars extends Phaser.Scene implements Content {
         this.close = close;
         this.waves1 = waves1;
         this.waves2 = waves2;
-        this.tides = tides;
 
         this.events.emit("scene-awake");
     }
@@ -262,7 +265,6 @@ export default class Binoculars extends Phaser.Scene implements Content {
     public close!: Phaser.GameObjects.Image;
     private waves1!: Phaser.GameObjects.Sprite[];
     private waves2!: Phaser.GameObjects.Sprite[];
-    private tides!: Phaser.GameObjects.Sprite[];
 
     /* START-USER-CODE */
 
@@ -287,10 +289,6 @@ export default class Binoculars extends Phaser.Scene implements Content {
     create(data: any) {
 
         this.editorCreate();
-
-        this.fish.play('binoculars-fish-animation');
-        this.penguin.play('binoculars-penguin-animation');
-        for (let tide of this.tides) tide.play('binoculars-tide-animation');
 
         for (let wave of this.waves1) {
             this.randomPlayAnimation(wave, 0, 1000, 'binoculars-wave1-animation');

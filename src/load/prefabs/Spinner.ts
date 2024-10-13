@@ -1,7 +1,6 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class Spinner extends Phaser.GameObjects.Container {
@@ -17,6 +16,7 @@ export default class Spinner extends Phaser.GameObjects.Container {
         // spinner
         const spinner = scene.add.sprite(7.287499999999998, 6.162499999999998, "load", "load-screen/spinner0001");
         spinner.setOrigin(0, 0);
+        spinner.play("load-spinner-animation");
         this.add(spinner);
 
         // content
@@ -28,7 +28,6 @@ export default class Spinner extends Phaser.GameObjects.Container {
 
         /* START-USER-CTR-CODE */
 
-        spinner.play('load-spinner-animation');
         this._barStartX = this.content.x - this.content.displayWidth;
 
         /* END-USER-CTR-CODE */
