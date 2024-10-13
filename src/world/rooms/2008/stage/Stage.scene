@@ -5,12 +5,13 @@
         "compilerInsertSpaces": true,
         "exportClass": true,
         "autoImport": true,
-        "displayName": "Stage",
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
         "sceneKey": "Stage",
-        "compilerOutputLanguage": "TYPE_SCRIPT"
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
     },
     "displayList": [],
     "plainObjects": [],
