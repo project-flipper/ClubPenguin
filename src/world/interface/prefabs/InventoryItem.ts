@@ -94,6 +94,8 @@ export default class InventoryItem extends Phaser.GameObjects.Container {
             await task.wait();
         }
 
+        if (this.item != undefined) return;
+
         if (this.scene.textures.exists(key)) {
             this.playerId = playerId;
             if (engine) engine.cleaner.allocateResource('multiatlas', key, playerId);
