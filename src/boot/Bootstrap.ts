@@ -223,13 +223,13 @@ export default class Bootstrap extends Phaser.Scene {
 
         let path = window.location.hash;
 
-        if (path === '#login') {
+        if (path === '#/login') {
             logger.info('Setting initial landing to login screen');
             this.scene.start('Login');
-        } else if (path === '#create') {
+        } else if (path === '#/create') {
             logger.info('Setting initial landing to create screen');
             this.scene.start('Create');
-        } else if (path === '#redeem') {
+        } else if (path === '#/redeem') {
             logger.info('Setting initial landing to redemption screen');
             this.scene.start('Redemption');
         } else {
@@ -272,8 +272,8 @@ export default class Bootstrap extends Phaser.Scene {
                 buttonText = "OK";
         };
 
-        let interr = this.scene.get('InternalErrorArea') as InternalErrorArea;
-        interr.showErrorDialog(errorMessage, buttonText, () => window.location.reload(), '10010');
+        let internal = this.scene.get('InternalErrorArea') as InternalErrorArea;
+        internal.showErrorDialog(errorMessage, buttonText, () => window.location.reload(), '10010');
     }
 
     /**
