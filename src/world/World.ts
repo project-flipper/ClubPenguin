@@ -562,7 +562,6 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.WAVE
         };
 
-        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
@@ -580,7 +579,6 @@ export default class World extends Phaser.Scene {
             frame: ActionFrame.DANCE
         };
 
-        if (player.actions.equals(action)) return;
         player.actions.set(action);
 
         this.send({
