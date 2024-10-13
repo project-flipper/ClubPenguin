@@ -313,7 +313,7 @@ export default class World extends Phaser.Scene {
             case ItemType.PHOTO:
                 mask.photo = id;
                 break;
-            case ItemType.AWARD:
+            case ItemType.OTHER:
             default:
                 logger.error('Item type invalid', config.type);
                 return;
@@ -359,7 +359,7 @@ export default class World extends Phaser.Scene {
             case ItemType.PHOTO:
                 mask.photo = 0;
                 break;
-            case ItemType.AWARD:
+            case ItemType.OTHER:
             default:
                 logger.error('Item type invalid', config.type);
                 return;

@@ -197,9 +197,6 @@ export class ClothingManager {
         let config = this.app.gameConfig.paper_items[id];
         logger.info('Adding sprite', config);
 
-        let key = this.getSpriteKey(id);
-        let animationsKey = this.getSpriteAnimationsKey(id);
-
         for (let [slot, clothing] of player.clothes) {
             if (clothing.config.paper_item_id == id) return;
 
@@ -224,7 +221,7 @@ export class ClothingManager {
 
         logger.info('Attaching sprite', config);
         let sprite = this.attachClothingSprite(player, config);
-        player.clothes.set(config.type, sprite);
+        if (sprite) player.clothes.set(config.type, sprite);
 
         this.engine.emit('clothing:add', player, sprite);
 
@@ -250,7 +247,7 @@ export class ClothingManager {
                 return 220;
             case ItemType.FEET:
                 return 210;
-            case ItemType.BOOK:
+            case ItemType.OTHER:
                 return 270;
         }
     }

@@ -17,7 +17,6 @@ type PaperItem = Phaser.GameObjects.Image & { config: PaperItemConfig, isBack: b
 import DepthEnabled from "./components/DepthEnabled";
 import ButtonComponent from "./components/ButtonComponent";
 /* START-USER-IMPORTS */
-
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { App } from "@clubpenguin/app/app";
 import { PaperItemConfig } from "@clubpenguin/app/config";
@@ -105,7 +104,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         this.items = new Map();
 
         this.photo_button.on('release', () => {
-            this.removeItem(ItemType.PHOTO);
+            this.world.removeItem(this.items.get(ItemType.PHOTO)[0].config.paper_item_id);
             this.photo_button.visible = false;
         });
 
@@ -165,7 +164,10 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
     }
 
     loadItem(type: ItemType, id: number): Promise<ItemPromiseReturn>[] {
-        if (id == 0) return [];
+        if (!id) {
+            if (this.items.has(type)) this.removeItem(type);
+            return [];
+        }
 
         let config = this.game.gameConfig.paper_items[id];
 
@@ -277,7 +279,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
         if (this.interactive && type != ItemType.PHOTO) {
             image.setInteractive({ useHandCursor: true, pixelPerfect: true });
-            image.on('pointerup', () => this.removeItem(type));
+            image.on('pointerup', () => this.world.removeItem(config.paper_item_id));
         } else if (this.interactive && type == ItemType.PHOTO) {
             this.photo_button.visible = true;
         }
@@ -331,10 +333,11 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         if (!this.items.has(type)) return;
 
         let array = this.items.get(type);
+        let engine = this.engine;
         for (let item of array) {
             let key = item.texture.key;
             item.destroy();
-            if (this.engine) this.engine.cleaner.deallocateResource('multiatlas', key, this.playerId);
+            if (engine) engine.cleaner.deallocateResource('multiatlas', key, this.playerId);
         }
 
         this.items.delete(type);

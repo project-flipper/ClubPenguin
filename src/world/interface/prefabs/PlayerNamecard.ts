@@ -3,14 +3,13 @@
 
 /* START OF COMPILED CODE */
 
+import PlayerInventory from "./PlayerInventory";
 import InputBlocker from "../../../lib/ui/components/InputBlocker";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import Paperdoll from "../../../lib/ui/Paperdoll";
 import TextBox from "../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
+import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
-
 import Interface from "../Interface";
 import { MyUserData } from "@clubpenguin/net/types/user";
 import { Locale } from "@clubpenguin/app/locale";
@@ -22,34 +21,8 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // inventory
-        const inventory = scene.add.container(0, 0);
+        const inventory = new PlayerInventory(scene, 0, 0);
         this.add(inventory);
-
-        // interface_inventoryBg
-        const interface_inventoryBg = scene.add.image(247.1625, -8.4375, "interface", "interface/inventoryBg");
-        interface_inventoryBg.setOrigin(0, 0);
-        inventory.add(interface_inventoryBg);
-
-        // interface_inventorySortBg
-        const interface_inventorySortBg = scene.add.image(767.25, 668.475, "interface", "interface/inventorySortBg");
-        inventory.add(interface_inventorySortBg);
-
-        // inventoryTabOpen
-        const inventoryTabOpen = scene.add.image(1064.25, 180, "interface", "interface/namecardInventoryTabOpen");
-        inventoryTabOpen.setOrigin(0.09, 0.5);
-        inventory.add(inventoryTabOpen);
-
-        // interface_inventoryScroll
-        const interface_inventoryScroll = scene.add.image(1012.3875, 319.275, "interface", "interface/inventoryScroll");
-        inventory.add(interface_inventoryScroll);
-
-        // inventoryBackButton
-        const inventoryBackButton = scene.add.image(1012.5, 55.0125, "interface", "interface/inventoryBackButton0001");
-        inventory.add(inventoryBackButton);
-
-        // inventoryNextButton
-        const inventoryNextButton = scene.add.image(1012.5, 583.7625, "interface", "interface/inventoryBackButton0001");
-        inventory.add(inventoryNextButton);
 
         // bg
         const bg = scene.add.nineslice(-9, -15.4, "interface", "interface/namecardBg", 522, 710.775, 46, 46, 46, 46);
@@ -144,32 +117,8 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         inventoryTab.setOrigin(0.09, 0.5);
         this.add(inventoryTab);
 
-        // interface_inventoryBg (components)
-        new InputBlocker(interface_inventoryBg);
-
-        // inventoryTabOpen (components)
-        const inventoryTabOpenButtonComponent = new ButtonComponent(inventoryTabOpen);
-        inventoryTabOpenButtonComponent.handCursor = true;
-        inventoryTabOpenButtonComponent.pixelPerfect = true;
-
-        // inventoryBackButton (components)
-        const inventoryBackButtonButtonComponent = new ButtonComponent(inventoryBackButton);
-        inventoryBackButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryBackButton0001"};
-        inventoryBackButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryBackButton0002"};
-        inventoryBackButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryBackButton0003"};
-        inventoryBackButtonButtonComponent.handCursor = true;
-        inventoryBackButtonButtonComponent.pixelPerfect = true;
-
-        // inventoryNextButton (components)
-        const inventoryNextButtonButtonComponent = new ButtonComponent(inventoryNextButton);
-        inventoryNextButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryNextButton0001"};
-        inventoryNextButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryNextButton0002"};
-        inventoryNextButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryNextButton0003"};
-        inventoryNextButtonButtonComponent.handCursor = true;
-        inventoryNextButtonButtonComponent.pixelPerfect = true;
-
-        // bg (components)
-        new InputBlocker(bg);
+        // photo (components)
+        new InputBlocker(photo);
 
         // nickname (prefab fields)
         nickname.boxWidth = 369.7875;
@@ -216,9 +165,6 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         inventoryTabButtonComponent.handCursor = true;
         inventoryTabButtonComponent.pixelPerfect = true;
 
-        this.inventoryTabOpen = inventoryTabOpen;
-        this.inventoryBackButton = inventoryBackButton;
-        this.inventoryNextButton = inventoryNextButton;
         this.inventory = inventory;
         this.bg = bg;
         this.tab = tab;
@@ -236,6 +182,9 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
 
         /* START-USER-CTR-CODE */
 
+        this.bg.setInteractive({
+            draggable: true
+        });
         this.tab.setInteractive({
             draggable: true
         });
@@ -247,6 +196,13 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         });
         this.tab.on('drag', (pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
             this.setPosition(startX - this.tab.x + dragX, startY - this.tab.y + dragY);
+        });
+        this.bg.on('dragstart', () => {
+            startX = this.x;
+            startY = this.y;
+        });
+        this.bg.on('drag', (pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
+            this.setPosition(startX - this.bg.x + dragX, startY - this.bg.y + dragY);
         });
 
         this.stampbookButton.on('over', () => {
@@ -260,7 +216,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         });
 
         this.inventoryTab.on('release', () => this.openInventory());
-        this.inventoryTabOpen.on('release', () => this.closeInventory());
+        this.inventory.tab.on('release', () => this.closeInventory());
 
         this.closeButton.on('release', () => {
             this.scene.namecard.setPosition(this.x, this.y);
@@ -270,10 +226,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         /* END-USER-CTR-CODE */
     }
 
-    public inventoryTabOpen: Phaser.GameObjects.Image;
-    public inventoryBackButton: Phaser.GameObjects.Image;
-    public inventoryNextButton: Phaser.GameObjects.Image;
-    public inventory: Phaser.GameObjects.Container;
+    public inventory: PlayerInventory;
     public bg: Phaser.GameObjects.NineSlice;
     public tab: Phaser.GameObjects.Image;
     public paperdoll: Paperdoll;
@@ -321,6 +274,8 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
             this.coins.text = locale.localize('widget_coins').replace('%total%', '0');
             this.stamps.text = locale.localize('widget_stamps').replace('%numerator%', '0').replace('%denominator%', '0');
         });
+
+        this.inventory.setup(data.id);
     }
 
     openInventory(): void {

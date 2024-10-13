@@ -160,8 +160,8 @@ export default class Namecard extends Phaser.GameObjects.Container {
         const reportButtonIcon = scene.add.image(454.5, 616.5, "interface", "interface/namecardReportButtonDisabled");
         this.add(reportButtonIcon);
 
-        // bg (components)
-        new InputBlocker(bg);
+        // photo (components)
+        new InputBlocker(photo);
 
         // paperdoll (prefab fields)
         paperdoll.interactive = false;
@@ -300,6 +300,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
         this.tab.setInteractive({
             draggable: true
         });
+        this.bg.setInteractive({
+            draggable: true
+        });
         var startX = 0;
         var startY = 0;
         this.tab.on('dragstart', () => {
@@ -308,6 +311,13 @@ export default class Namecard extends Phaser.GameObjects.Container {
         });
         this.tab.on('drag', (pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
             this.setPosition(startX - this.tab.x + dragX, startY - this.tab.y + dragY);
+        });
+        this.bg.on('dragstart', () => {
+            startX = this.x;
+            startY = this.y;
+        });
+        this.bg.on('drag', (pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
+            this.setPosition(startX - this.bg.x + dragX, startY - this.bg.y + dragY);
         });
 
         this.friendButton.on('over', () => {

@@ -19,117 +19,22 @@
             "label": "container_1",
             "list": [
                 {
-                    "type": "Container",
+                    "prefabId": "ec4fa0b2-c5a9-4011-a05d-eef5b196ab1c",
                     "id": "8a5922a3-6d19-4be2-a523-5cc35bd0ef0e",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
                     "label": "inventory",
                     "scope": "PUBLIC",
-                    "list": [
-                        {
-                            "type": "Image",
-                            "id": "c2300c77-f772-4ad7-b2e3-fa0b88b9d483",
-                            "label": "interface_inventoryBg",
-                            "components": [
-                                "InputBlocker"
-                            ],
-                            "texture": {
-                                "key": "interface",
-                                "frame": "interface/inventoryBg"
-                            },
-                            "x": 247.1625,
-                            "y": -8.4375,
-                            "originX": 0,
-                            "originY": 0
-                        },
-                        {
-                            "type": "Image",
-                            "id": "6536678e-5217-4c89-b8a5-855d32e2bd97",
-                            "label": "interface_inventorySortBg",
-                            "texture": {
-                                "key": "interface",
-                                "frame": "interface/inventorySortBg"
-                            },
-                            "x": 767.25,
-                            "y": 668.475
-                        },
-                        {
-                            "type": "Image",
-                            "id": "86a5a97a-c071-4f5c-b3eb-5d0473f67a45",
-                            "label": "inventoryTabOpen",
-                            "scope": "PUBLIC",
-                            "components": [
-                                "ButtonComponent"
-                            ],
-                            "ButtonComponent.handCursor": true,
-                            "ButtonComponent.pixelPerfect": true,
-                            "texture": {
-                                "key": "interface",
-                                "frame": "interface/namecardInventoryTabOpen"
-                            },
-                            "x": 1064.25,
-                            "y": 180,
-                            "originX": 0.09
-                        },
-                        {
-                            "type": "Image",
-                            "id": "d26cb02b-a7da-461d-9039-49394ee10a3f",
-                            "label": "interface_inventoryScroll",
-                            "texture": {
-                                "key": "interface",
-                                "frame": "interface/inventoryScroll"
-                            },
-                            "x": 1012.3875,
-                            "y": 319.275
-                        },
-                        {
-                            "type": "Image",
-                            "id": "b3bb10d7-c183-47fd-bacc-241c741ba95b",
-                            "label": "inventoryBackButton",
-                            "scope": "PUBLIC",
-                            "components": [
-                                "ButtonComponent"
-                            ],
-                            "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/inventoryBackButton0001\"}",
-                            "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/inventoryBackButton0002\"}",
-                            "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/inventoryBackButton0003\"}",
-                            "ButtonComponent.handCursor": true,
-                            "ButtonComponent.pixelPerfect": true,
-                            "texture": {
-                                "key": "interface",
-                                "frame": "interface/inventoryBackButton0001"
-                            },
-                            "x": 1012.5,
-                            "y": 55.0125
-                        },
-                        {
-                            "type": "Image",
-                            "id": "106a83b5-1014-4564-ac67-dbdb85aee7fd",
-                            "label": "inventoryNextButton",
-                            "scope": "PUBLIC",
-                            "components": [
-                                "ButtonComponent"
-                            ],
-                            "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/inventoryNextButton0001\"}",
-                            "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/inventoryNextButton0002\"}",
-                            "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/inventoryNextButton0003\"}",
-                            "ButtonComponent.handCursor": true,
-                            "ButtonComponent.pixelPerfect": true,
-                            "texture": {
-                                "key": "interface",
-                                "frame": "interface/inventoryBackButton0001"
-                            },
-                            "x": 1012.5,
-                            "y": 583.7625
-                        }
-                    ]
+                    "x": 0,
+                    "y": 0
                 },
                 {
                     "type": "NineSlice",
                     "id": "fe5d1535-fd4e-4839-ac0e-9f6dc930cf29",
                     "label": "bg",
                     "scope": "PUBLIC",
-                    "components": [
-                        "InputBlocker"
-                    ],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardBg"
@@ -138,12 +43,12 @@
                     "y": -15.4,
                     "originX": 0,
                     "originY": 0,
-                    "width": 522,
-                    "height": 710.775,
                     "leftWidth": 46,
                     "rightWidth": 46,
                     "topHeight": 46,
-                    "bottomHeight": 46
+                    "bottomHeight": 46,
+                    "width": 522,
+                    "height": 710.775
                 },
                 {
                     "type": "Image",
@@ -163,6 +68,9 @@
                     "type": "Image",
                     "id": "296422ce-dd02-42ed-93c7-90e21cd9b780",
                     "label": "photo",
+                    "components": [
+                        "InputBlocker"
+                    ],
                     "texture": {
                         "key": "interface",
                         "frame": "interface/namecardPhoto"
@@ -436,8 +344,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

@@ -167,60 +167,7 @@ export class Debug {
     }
 
     putItem(id: number): void {
-        let item = this.app.gameConfig.paper_items[id];
-        if (!item) {
-            logger.error('Item not found');
-            return;
-        }
-
-        let player = this.world.engine.player;
-        let user = player.userData;
-        switch (item.type) {
-            case ItemType.COLOR:
-                user.avatar.color = id;
-                break;
-            case ItemType.HEAD:
-                user.avatar.color = id;
-                break;
-            case ItemType.FACE:
-                user.avatar.face = id;
-                break;
-            case ItemType.NECK:
-                user.avatar.neck = id;
-                break;
-            case ItemType.BODY:
-                user.avatar.body = id;
-                break;
-            case ItemType.HAND:
-                user.avatar.hand = id;
-                break;
-            case ItemType.FEET:
-                user.avatar.feet = id;
-                break;
-            case ItemType.FLAG:
-                user.avatar.flag = id;
-                break;
-            case ItemType.PHOTO:
-                user.avatar.photo = id;
-                break;
-            case ItemType.BOOK:
-            default:
-                logger.error('Item type invalid', item.type);
-                return;
-        }
-
-        this.world.handle({
-            op: 'player:update',
-            d: {
-                user,
-                x: player.x,
-                y: player.y,
-                action: {
-                    frame: 0,
-                    player: user.id
-                }
-            }
-        });
+        this.world.wearItem(id);
     }
 
     getRandomAvatar(): AvatarData {
