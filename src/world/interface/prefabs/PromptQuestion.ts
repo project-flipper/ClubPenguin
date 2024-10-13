@@ -6,7 +6,6 @@
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import Interface from "../Interface";
 /* END-USER-IMPORTS */

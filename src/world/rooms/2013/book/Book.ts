@@ -9,7 +9,6 @@ import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
 import MancalaBoard from "./prefabs/MancalaBoard";
 import PressureTrigger from "../../../../lib/ui/components/PressureTrigger";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";

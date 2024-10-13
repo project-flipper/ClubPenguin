@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { Engine } from "@clubpenguin/world/engine/engine";
 import { Player } from "@clubpenguin/world/engine/player/avatar";

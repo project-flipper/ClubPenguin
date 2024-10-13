@@ -2,7 +2,6 @@
 
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class ErrorBubbleReversed extends Phaser.GameObjects.Container {

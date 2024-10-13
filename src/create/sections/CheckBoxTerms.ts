@@ -3,7 +3,6 @@
 import Checkbox from "../prefabs/Checkbox";
 import ErrorBubbleModified from "../prefabs/ErrorBubbleModified";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */

@@ -11,7 +11,6 @@ import ThirdLane from "./prefabs/ThirdLane";
 import FourthLane from "./prefabs/FourthLane";
 import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";

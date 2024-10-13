@@ -4,7 +4,6 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class Logo extends Phaser.Scene {

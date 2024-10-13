@@ -5,7 +5,6 @@ import CartSurfer from "./prefabs/CartSurfer";
 import TextBox from "../lib/ui/TextBox";
 import Spinner from "./prefabs/Spinner";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { Task } from "@clubpenguin/load/tasks";
 import Logo from "@clubpenguin/logo/Logo";

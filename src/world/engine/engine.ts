@@ -82,9 +82,6 @@ export class Engine extends EventEmitter {
         this.players = new PlayerManager(this);
         this.clothing = new ClothingManager(this);
         this.snowballs = new SnowballManager(this);
-
-        this.world.sound.pauseOnBlur = false;
-        this.world.game.events.on('focusregain', (delta: number) => this.tweenTracker.seekTweens(delta));
     }
 
     get app(): App {
@@ -97,6 +94,11 @@ export class Engine extends EventEmitter {
 
     get loadScreen(): Load {
         return this.world.scene.get('Load') as Load;
+    }
+
+    init(): void {
+        this.world.sound.pauseOnBlur = false;
+        this.world.game.events.on('focusregain', (delta: number) => this.tweenTracker.seekTweens(delta));
     }
 
     /* ============ PLAYER ============ */

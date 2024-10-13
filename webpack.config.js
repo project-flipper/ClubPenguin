@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, ProvidePlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -185,6 +185,11 @@ module.exports = env => {
 
         plugins: [
             new ForkTsCheckerWebpackPlugin(),
+            new ProvidePlugin({
+                Phaser: 'phaser',
+                '$': 'jquery',
+                'jQuery': 'jquery'
+            }),
             new DefinePlugin({
                 '__webpack_options__': JSON.stringify({
                     EXPOSE_DEBUG: env.development,

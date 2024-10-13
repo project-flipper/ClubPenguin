@@ -26,7 +26,6 @@ import PromptInput from "./prefabs/PromptInput";
 import PromptError from "./prefabs/PromptError";
 import Hint from "./prefabs/Hint";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { UserData } from "@clubpenguin/net/types/user";
 import { Player } from "@clubpenguin/world/engine/player/avatar";

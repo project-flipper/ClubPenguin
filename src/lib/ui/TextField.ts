@@ -4,7 +4,6 @@ export type InputType = 'text' | 'password' | 'email';
 
 import TextBox from "./TextBox";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 /* END-USER-IMPORTS */

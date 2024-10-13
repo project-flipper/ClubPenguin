@@ -4,7 +4,6 @@ import InputBlocker from "../lib/ui/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 import TabId from "is-tab-duplicated";
 
 import { App } from "@clubpenguin/app/app";

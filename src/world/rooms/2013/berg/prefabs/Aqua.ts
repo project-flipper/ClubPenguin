@@ -5,7 +5,6 @@
 
 import ButtonComponent from "../../../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 /* END-USER-IMPORTS */
 
 export default class Aqua extends Phaser.GameObjects.Container {

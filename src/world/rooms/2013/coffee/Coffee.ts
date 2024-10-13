@@ -8,7 +8,6 @@ import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
 import Trigger from "../../../../lib/ui/components/Trigger";
 import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";

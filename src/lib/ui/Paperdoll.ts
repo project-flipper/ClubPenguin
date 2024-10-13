@@ -17,7 +17,6 @@ type PaperItem = Phaser.GameObjects.Image & { config: PaperItemConfig, isBack: b
 import DepthEnabled from "./components/DepthEnabled";
 import ButtonComponent from "./components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { App } from "@clubpenguin/app/app";

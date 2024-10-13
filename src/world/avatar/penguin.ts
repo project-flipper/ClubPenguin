@@ -2,7 +2,6 @@
 
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { Avatar } from "../engine/player/avatar";
 import { Engine } from "../engine/engine";

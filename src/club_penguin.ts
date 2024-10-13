@@ -1,5 +1,4 @@
 import "devtools-detect";
-import Phaser from "phaser";
 
 if ('Phaser' in global) delete global['Phaser'];
 Phaser.Plugins.PluginCache.register('Loader', LoaderPlugin, 'load');

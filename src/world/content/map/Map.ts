@@ -14,7 +14,6 @@ import InputBlocker from "../../../lib/ui/components/InputBlocker";
 import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
 import Navigation from "./prefabs/Navigation";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import { Locale } from "@clubpenguin/app/locale";

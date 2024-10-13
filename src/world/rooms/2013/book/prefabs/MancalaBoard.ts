@@ -5,7 +5,6 @@
 
 import ButtonComponent from "../../../../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 import Interface from "@clubpenguin/world/interface/Interface";

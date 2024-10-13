@@ -5,7 +5,6 @@
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ColorSwatch from "../prefabs/ColorSwatch";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */

@@ -7,7 +7,6 @@ import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 import WorldTile from "../prefabs/WorldTile";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { WorldData } from "@clubpenguin/net/types/world";
 import { Locale } from "@clubpenguin/app/locale";

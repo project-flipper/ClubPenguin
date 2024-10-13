@@ -4,7 +4,6 @@ import InputBlocker from "../lib/ui/components/InputBlocker";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 import TextBox from "../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";

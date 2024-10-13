@@ -5,7 +5,6 @@ import TextBox from "../../lib/ui/TextBox";
 import TextField from "../../lib/ui/TextField";
 import ErrorBubble from "../prefabs/ErrorBubble";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */

@@ -5,7 +5,6 @@
 
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { Emoji } from "@clubpenguin/net/types/message";
 /* END-USER-IMPORTS */

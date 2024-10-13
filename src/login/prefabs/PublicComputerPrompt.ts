@@ -6,7 +6,6 @@
 import TextBox from "../../lib/ui/TextBox";
 import ButtonComponent from "../../lib/ui/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Phaser from "phaser";
 
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
