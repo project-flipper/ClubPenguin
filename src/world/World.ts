@@ -257,7 +257,11 @@ export default class World extends Phaser.Scene {
 
     /* ========= PLAYER ========= */
 
-    
+    /**
+     * Updates the avatar of the current user with the provided partial avatar data.
+     * The avatar data is merged with the existing avatar data, and the updated avatar is sent to the server.
+     * @param mask - A partial object containing the avatar data to be updated.
+     */
     updateAvatar(mask: Partial<AvatarData>) {
         let player = this.engine.player;
         let user = this.myUser;
@@ -276,6 +280,11 @@ export default class World extends Phaser.Scene {
         });
     }
 
+    /**
+     * Equips an item to the avatar based on the provided item ID.
+     * Shorthands for {@link updateAvatar} with the appropriate mask for the item type.
+     * @param id - The ID of the item to be worn.
+     */
     wearItem(id: number) {
         let config = this.game.gameConfig.paper_items[id];
         if (!config) {
@@ -322,6 +331,11 @@ export default class World extends Phaser.Scene {
         this.updateAvatar(mask);
     }
 
+    /**
+     * Removes an item from the avatar based on the provided item ID.
+     * Shorthands for {@link updateAvatar} with the appropriate mask for the item type.
+     * @param id - The ID of the item to be removed.
+     */
     removeItem(id: number) {
         let config = this.game.gameConfig.paper_items[id];
         if (!config) {
