@@ -117,14 +117,10 @@ export class App extends Phaser.Game {
      * @param assetKey The asset key associated.
      */
     unloadAnimation(assetKey: string): void {
-        const isAnimationKey = this.anims.exists(assetKey);
-
-        if(isAnimationKey) {
-            this.anims.remove(assetKey);
-            return;
-        }
-
         if (!this.cache.json.exists(assetKey)) {
+            const isAnimationKey = this.anims.exists(assetKey);
+
+            if (isAnimationKey) this.anims.remove(assetKey);
             return;
         }
 
