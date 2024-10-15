@@ -180,7 +180,7 @@ export class Debug {
                 user.avatar.color = id;
                 break;
             case ItemType.HEAD:
-                user.avatar.color = id;
+                user.avatar.head = id;
                 break;
             case ItemType.FACE:
                 user.avatar.face = id;
