@@ -11,7 +11,8 @@ import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import { Actions } from "./actions";
 import { ClothingSprite } from "../clothing/clothingManager";
-import { ActionFrame, ANIMATION_META } from "@clubpenguin/net/types/action";
+import { ActionFrame } from "@clubpenguin/net/types/action";
+import { ANIMATION_META } from "@clubpenguin/world/avatar/penguin";
 
 /**
  * Manages the players in the current room.

@@ -7,7 +7,8 @@ import World from "@clubpenguin/world/World";
 import Phaser from "phaser";
 import { getLogger } from "@clubpenguin/lib/log";
 import { ItemType } from "./itemType";
-import { ActionFrame, ANIMATION_META } from "@clubpenguin/net/types/action";
+import { ActionFrame } from "@clubpenguin/net/types/action";
+import { ANIMATION_META } from "@clubpenguin/world/avatar/penguin";
 
 let logger = getLogger('CP.world.engine.clothing');
 
