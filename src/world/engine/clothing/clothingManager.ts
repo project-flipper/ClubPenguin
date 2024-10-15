@@ -231,7 +231,7 @@ export class ClothingManager {
         let sprite = this.world.add.sprite(0, 0, spriteKey, `${config.paper_item_id}/0`) as ClothingSprite;
         sprite.depth = this.getClothingDepth(config);
         sprite.config = config;
-        sprite.animations = this.createClothingAnimations(player, spriteKey);
+        sprite.animations = this.createClothingAnimations(player.userData.id, spriteKey);
 
         player.add(sprite);
         player.sort('depth');
@@ -239,7 +239,13 @@ export class ClothingManager {
         return sprite;
     }
 
-    createClothingAnimations(player: Player, spriteKey: string): { [actionFrame: number]: Phaser.Animations.Animation } {
+    /**
+     * Attaches & builds a phaser animation to clothing sprite.
+     * @param playerId The player id to allocate resouces to.
+     * @param spriteKey - clothing sprite key.
+     * @returns Phaser animations to bind to clothing sprite.
+     */
+    createClothingAnimations(playerId: number, spriteKey: string): { [actionFrame: number]: Phaser.Animations.Animation } {
         let animations: { [actionFrame: number]: Phaser.Animations.Animation } = {};
 
         const frameKeys = Object.keys(this.world.textures.get(spriteKey).frames);
@@ -286,7 +292,7 @@ export class ClothingManager {
                 continue;
             }
 
-            this.engine.cleaner.allocateResource('animation', animationKey, player.userData.id);
+            this.engine.cleaner.allocateResource('animation', animationKey, playerId);
 
             if (parseInt(actionFrameId) === ActionFrame.WAVE) {
                 const extraWaveFrames = {
