@@ -27,7 +27,7 @@ export interface Avatar extends Phaser.GameObjects.Container {
      * The body of the avatar.
      */
     body_art: Phaser.GameObjects.Sprite;
-    overlay_art: Phaser.GameObjects.Sprite;
+    overlay_art?: Phaser.GameObjects.Sprite;
 
     /**
      * Whether to attach clothing to the avatar.
