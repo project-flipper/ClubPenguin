@@ -12,6 +12,7 @@ export interface Avatar extends Phaser.GameObjects.Container {
     shadow: Phaser.GameObjects.Ellipse;
     ring: Phaser.GameObjects.Ellipse;
     body_art: Phaser.GameObjects.Sprite;
+    overlay_art: Phaser.GameObjects.Sprite;
 
     attachClothing: boolean;
     spriteSpeed: number;

@@ -11,6 +11,7 @@ import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import { Actions } from "./actions";
 import { ClothingSprite } from "../clothing/clothingManager";
+import { ActionFrame, ANIMATION_META } from "@clubpenguin/net/types/action";
 
 export class PlayerManager {
     public DEFAULT_AVATAR = 'penguin';
@@ -63,39 +64,59 @@ export class PlayerManager {
         return avatar;
     }
 
-    generateSpriteAnimations(assetKey: string, frameKey: string, prefix: string, index: number, fromFrame: number, toFrame?: number, loop = true): Phaser.Animations.Animation {
-        let key = this.getSpriteAnimationKey(assetKey, prefix, index);
+    generateSpriteAnimations(
+        assetKey: string, 
+        frameKey: string, 
+        prefix: string, 
+        action: ActionFrame
+    ): Phaser.Animations.Animation {
+        const key = this.getSpriteAnimationKey(assetKey, prefix, action);
         if (this.world.anims.exists(key)) return this.world.anims.get(key);
 
-        let frames: Phaser.Types.Animations.AnimationFrame[] = [];
-        if (toFrame != undefined) {
-            for (let i = fromFrame; i <= toFrame; i++) {
-                frames.push({
-                    key: assetKey,
-                    frame: `${frameKey}/${prefix}${index}_${String(i).padStart(4, '0')}`,
-                    duration: 0
-                });
-            }
-        } else {
-            frames = [{
-                key: assetKey,
-                frame: `${frameKey}/${prefix}${index}`,
-                duration: 0
-            }];
-        }
+        const meta = ANIMATION_META[action];
 
-        let animation = this.world.anims.create({
+        const isNested = meta.totalFrames !== 1;
+        const fromFrame = isNested ? 1 : 0;
+        const toFrame = isNested ? meta.totalFrames : null;
+    
+        const frames: Phaser.Types.Animations.AnimationFrame[] = [];
+    
+        if (action === ActionFrame.WAVE) {
+            const conf = { start: 1, end: 12, assetKey, frameKey, prefix, action };
+            this.addFrames(frames, conf);
+            this.addFrames(frames, { ...conf, start: 5 }, 2);
+            this.addFrames(frames, { ...conf, start: 1, end: 1 });
+        } else {
+            if (toFrame !== null) {
+                this.addFrames(frames, { start: fromFrame, end: toFrame, assetKey, frameKey, prefix, action });
+            } else {
+                frames.push({ key: assetKey, frame: `${frameKey}/${prefix}/${action}`, duration: 0 });
+            }
+        }
+    
+        const animation = this.world.anims.create({
             key,
             frames,
             frameRate: 24,
             skipMissedFrames: true,
-            repeat: frames.length > 1 && loop ? -1 : 0
+            repeat: frames.length > 1 && meta.repeat ? -1 : 0
         });
-
-        if (animation == false) this.world.anims.get(key);
-        else return animation;
+    
+        return animation || this.world.anims.get(key);
     }
-
+    
+    private addFrames(
+        frames: Phaser.Types.Animations.AnimationFrame[], 
+        config: { start: number, end: number, assetKey: string, frameKey: string, prefix: string, action: ActionFrame }, 
+        repeat = 1
+    ) {
+        const { start, end, assetKey, frameKey, prefix, action } = config;
+    
+        for (let r = 0; r < repeat; r++)
+            for (let j = start; j <= end; j++)
+                frames.push({ key: assetKey, frame: `${frameKey}/${prefix}/${action};${j}`, duration: 0 });
+    }
+    
     getSpriteAnimationKey(assetKey: string, prefix: string, index: number): string {
         return `${assetKey}${prefix}_${index}animation`;
     }
@@ -134,7 +155,7 @@ export class PlayerManager {
 
     _updatePlayer(player: Player, data: AnyUserData): void {
         let tintFill = this.app.gameConfig.player_colors[String(data.avatar.color)];
-        player.body_art.setTintFill(Number(tintFill));
+        player.body_art.setTint(Number(tintFill));
 
         if (this.world.isMyPlayer(data)) {
             player.ring.visible = true;
