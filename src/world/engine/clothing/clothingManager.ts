@@ -255,6 +255,11 @@ export class ClothingManager {
                 this.addFrames(animationFrames[actionFrameId].frames, { ...extraWaveFrames, start: 1, end: 1 });
             }
 
+            // TODO: remove once all frames are added
+            if(!(actionFrameId in ANIMATION_META)) {
+                logger.warn(`Unhandled action frame: ${actionFrameId}!`);
+            }
+
             const animation = this.world.anims.create({
                 key: animationKey,
                 frames: animationFrames[actionFrameId].frames,
