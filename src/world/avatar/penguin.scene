@@ -83,8 +83,7 @@
                     "texture": {
                         "key": "penguin",
                         "frame": "penguin/overlay/0"
-                    },
-                    "alphaTopRight": 0.5
+                    }
                 }
             ]
         }

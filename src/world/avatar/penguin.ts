@@ -47,7 +47,6 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
 
         // overlay_art
         const overlay_art = scene.add.sprite(0, 0, "penguin", "penguin/overlay/0");
-        overlay_art.alphaTopRight = 0.5;
         this.add(overlay_art);
 
         // hitbox (components)
