@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
@@ -34,7 +33,7 @@ export default class BRBBillboard extends Phaser.GameObjects.Container {
         this.add(titleTextBox);
 
         // descriptionTextBox
-        const descriptionTextBox = new TextBox(scene, 49.387499999999996, 269.66249999999997, "MyriadPro");
+        const descriptionTextBox = new TextBox(scene, 49.3875, 269.6625, "MyriadPro");
         descriptionTextBox.tintFill = false;
         descriptionTextBox.tintTopLeft = 0;
         descriptionTextBox.tintTopRight = 0;
@@ -49,7 +48,7 @@ export default class BRBBillboard extends Phaser.GameObjects.Container {
         titleTextBox.boxHeight = 0;
 
         // descriptionTextBox (prefab fields)
-        descriptionTextBox.boxWidth = 708.75;
+        descriptionTextBox.boxWidth = 678.75;
         descriptionTextBox.boxHeight = 149.4;
 
         this.graphic = graphic;

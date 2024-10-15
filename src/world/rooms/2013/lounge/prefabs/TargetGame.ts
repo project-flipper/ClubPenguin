@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import SmallTarget from "./SmallTarget";
 import Target from "./Target";
 import MonsterTarget from "./MonsterTarget";

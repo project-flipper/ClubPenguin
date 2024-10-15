@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */

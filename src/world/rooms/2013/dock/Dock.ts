@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
 import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
 import Trigger from "../../../../lib/ui/components/Trigger";

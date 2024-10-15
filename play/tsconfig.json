@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "ESNext",
+        "jsx": "react",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "lib": [
+            "DOM",
+            "ScriptHost",
+            "ESNext"
+        ],
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "importHelpers": true,
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "rootDir": ".",
+        "useDefineForClassFields": false
+    },
+    "include": ["./**/*"],
+}

@@ -79,7 +79,7 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
     public speechBubbleOffset = { x: 0, y: 0 };
     public nicknameOffset = { x: 0, y: 0 };
     public snowballOffset = { x: 0, y: 0 };
-    public snowballDelay = 833;
+    public snowballDelay = 800;
 
     public currentAnimation: number;
     public clothes: Map<number, ClothingSprite>;

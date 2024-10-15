@@ -1,0 +1,119 @@
+body, #root {
+	font-family:"Myriad Web Pro", Arial, Verdana;
+}
+
+
+#rules-container {
+	background:url(/images/activation-rules-container.png) 0 0 no-repeat;
+	width:375px;
+	height:58px;
+	position:absolute;
+	left:19px;
+	top:159px;
+	padding:15px;
+	font-size:13px;
+}
+
+ #rules {
+	background:url(/images/club-penguin-rules-tall.png) 0 0 no-repeat;
+	width:437px;
+	height:323px;
+	position:relative;
+	z-index:20;
+}
+
+#rules.lang-es {
+	background:url(/images/club-penguin-rules-tall-es.png) 0 0 no-repeat;
+}
+
+#rules.lang-de {
+	background:url(/images/club-penguin-rules-tall-de.png) 0 0 no-repeat;
+}
+
+#rules.lang-fr {
+	background:url(/images/club-penguin-rules-tall-fr.png) 0 0 no-repeat;
+}
+
+#rules.lang-pt {
+	background:url(/images/club-penguin-rules-tall-pt.png) 0 0 no-repeat;
+}
+
+#rules.lang-ru {
+	background:url(/images/club-penguin-rules-tall-ru.png) 0 0 no-repeat;
+}
+
+
+#warning {
+	width:400px;
+	height:40px;
+	position:absolute;
+	z-index:20;
+	top:265px;
+	left:15px;
+	font-size:11px;
+	color:#696969;
+	padding:5px;
+}
+
+#rules-container p.title{
+	color:#335dac;
+	font-weight:bold;
+}
+
+#rules-container p {
+	color:#427dc7;
+}
+
+#rules ul {
+	padding-left:19px;
+	padding-top:54px;
+}
+
+#rules ul li {
+	background:url(/images/rule-tile-fpo.jpg) 0 0 no-repeat;
+	width:97px;
+	height:106px;
+	float:left;
+	display:block;
+	text-indent:-9999px;
+	line-height:0;
+	margin-right:3px;
+	cursor:pointer;
+}
+
+#rules ul li#r0 {
+	background:url(/images/rule-tile-0.png) 0 0 no-repeat;
+}
+#rules ul li#r1 {
+	background:url(/images/rule-tile-1.png) 0 0 no-repeat;
+}
+#rules ul li#r2 {
+	background:url(/images/rule-tile-2.png) 0 0 no-repeat;
+}
+#rules ul li#r3 {
+	background:url(/images/rule-tile-3.png) 0 0 no-repeat;
+}
+
+#rules ul li.active {
+	background:url(/images/rule-tile-fpo-active.jpg) 0 0 no-repeat;
+	width:97px;
+	height:105px;
+	float:left;
+	display:block;
+	text-indent:-9999px;
+	line-height:0;
+	margin-right:3px;
+}
+
+#rules ul li#r0.active {
+	background:url(/images/rule-tile-0-active.png) 0 0 no-repeat;
+}
+#rules ul li#r1.active {
+	background:url(/images/rule-tile-1-active.png) 0 0 no-repeat;
+}
+#rules ul li#r2.active {
+	background:url(/images/rule-tile-2-active.png) 0 0 no-repeat;
+}
+#rules ul li#r3.active {
+	background:url(/images/rule-tile-3-active.png) 0 0 no-repeat;
+}

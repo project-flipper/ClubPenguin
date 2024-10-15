@@ -3,6 +3,14 @@ import Phaser from "phaser";
 
 let logger = getLogger('CP.app.loader');
 
+/**
+ * Set a querystring in the specified URL.
+ * @param url The URL string.
+ * @param key The querystring key.
+ * @param value The value to set in this querystring.
+ * @param shouldReplace Whether to replace the querystring if the key is already present.
+ * @returns The modified URL.
+ */
 export function setQuery(url: string, key: string, value: string, shouldReplace = true): string {
     let re = new RegExp(`([?&])${key}=.*?(&|#|$)(.*)`, 'gi');
     if (re.test(url)) {
@@ -30,6 +38,9 @@ export function setQuery(url: string, key: string, value: string, shouldReplace 
     }
 }
 
+/**
+ * A modified version of Phaser's LoaderPlugin to implement strategic cache busting.
+ */
 export class LoaderPlugin extends Phaser.Loader.LoaderPlugin {
     static cacheVersion: string;
 
@@ -40,7 +51,12 @@ export class LoaderPlugin extends Phaser.Loader.LoaderPlugin {
         super.addFile(file);
     }
 
-    maybeAddCacheVersion(file: Phaser.Loader.File): void {
+    /**
+     * Adds a cache busting querystring on non-absolute file requests.
+     * @param file The file that is currently being loaded.
+     * @returns Whether a cache buster querystring was added.
+     */
+    maybeAddCacheVersion(file: Phaser.Loader.File): boolean {
         if ((file.url as string).match(/^(?:blob:|data:|capacitor:\/\/|http:\/\/|https:\/\/|\/\/)/)) return;
 
         let cacheVersion = LoaderPlugin.cacheVersion;
@@ -48,6 +64,9 @@ export class LoaderPlugin extends Phaser.Loader.LoaderPlugin {
             let rewritten = setQuery(file.url as string, 'v', cacheVersion, false);
             logger.debug('Rewriting the URL', file.url, 'to', rewritten);
             file.url = rewritten;
+            return true;
         }
+
+        return false;
     }
 }

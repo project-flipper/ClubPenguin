@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextField from "../../lib/ui/TextField";
 import TextBox from "../../lib/ui/TextBox";
 import Checkbox from "../prefabs/Checkbox";

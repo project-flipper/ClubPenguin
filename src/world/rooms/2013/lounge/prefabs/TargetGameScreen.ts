@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "../../../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import { Locale } from "@clubpenguin/app/locale";

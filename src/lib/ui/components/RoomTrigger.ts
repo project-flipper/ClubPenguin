@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { Engine } from "@clubpenguin/world/engine/engine";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
@@ -54,7 +53,7 @@ export default class RoomTrigger {
     execute(engine: Engine, player: Player): void {
         if (engine.player != player) return;
 
-        engine.world.joinRoom(this.destination, this.playerX, this.playerY); // TODO: send join room instead
+        engine.world.joinRoom(this.destination, this.playerX, this.playerY);
     }
 
     /* END-USER-CODE */

@@ -36,7 +36,6 @@ export class CPError extends Error {
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
@@ -365,7 +364,7 @@ export default class ErrorArea extends Phaser.Scene {
 
         let copy = { ...e };
         copy.message = this.game.locale.localize(e.message, 'error_lang');
-        copy.buttonLabel = this.game.locale.localize(e.buttonLabel, 'error_lang');
+        copy.buttonLabel = this.game.locale.localize(e.buttonLabel);
         copy.localized = true;
         return copy;
     }

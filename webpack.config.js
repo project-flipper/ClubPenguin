@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, ProvidePlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -16,7 +16,7 @@ module.exports = env => {
     let environment = {
         language: 'en',
         apiPath: env.apiPath,
-        mediaPath: env.mediaPath ? env.mediaPath : '/',
+        mediaPath: env.mediaPath ? env.mediaPath : '/media',
         crossOrigin: env.crossOrigin,
         cacheVersion: env.cacheVersion ? env.cacheVersion : getNowFormat(),
         contentVersion: env.contentVersion ? env.contentVersion : env.cacheVersion,
@@ -32,34 +32,6 @@ module.exports = env => {
 
     console.log(env);
 
-    let playPages = [
-        new HtmlWebpackPlugin({
-            template: './index.template.html',
-            filename: 'index.html',
-            inject: 'body',
-            templateParameters: environment,
-            publicPath: env.playLink || 'auto'
-        })
-    ];
-
-    for (let lang of ['de', 'es', 'fr', 'pt', 'ru']) {
-        playPages.push(new HtmlWebpackPlugin({
-            template: `./index.${lang}.template.html`,
-            filename: `${lang}/index.html`,
-            inject: 'body',
-            templateParameters: {
-                ...environment,
-                links: {
-                    ...environment.links,
-                    home: `${env.homeLink}/${lang}`,
-                    localPlay: `${env.playLink}/${lang}`
-                },
-                language: lang
-            },
-            publicPath: env.playLink || 'auto'
-        }));
-    }
-
     return {
         mode: env.development ? 'development' : 'production',
         target: 'web',
@@ -68,13 +40,14 @@ module.exports = env => {
 
         entry: {
             app: {
-                import: `./src/club_penguin.ts`,
+                import: './src/club_penguin.ts',
                 library: {
                     name: 'CP',
                     type: 'umd',
                     umdNamedDefine: true
                 }
-            }
+            },
+            play: './play/index.tsx'
         },
         output: {
             filename: '[name].[contenthash].js',
@@ -84,7 +57,7 @@ module.exports = env => {
             },
             assetModuleFilename: 'assets/[hash][ext][query]',
             clean: true,
-            publicPath: `${env.playLink}/`
+            publicPath: env.playLink ? `${env.playLink}/` : '/'
         },
 
         module: {
@@ -155,7 +128,8 @@ module.exports = env => {
         },
         resolve: {
             alias: {
-                '@clubpenguin': path.resolve(__dirname, 'src/')
+                '@clubpenguin': path.resolve(__dirname, 'src/'),
+                '@play': path.resolve(__dirname, 'play/')
             },
             extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx', '.json']
         },
@@ -196,7 +170,7 @@ module.exports = env => {
                     watch: false
                 },
                 {
-                    directory: path.resolve(__dirname, 'play'),
+                    directory: path.resolve(__dirname, 'play/assets'),
                     publicPath: '/'
                 }
             ],
@@ -205,23 +179,35 @@ module.exports = env => {
             }
         },
         watchOptions: {
-            ignored: ['media/', 'play/', 'node_modules/'],
+            ignored: ['media/', 'play/assets/', 'node_modules/'],
             aggregateTimeout: 200
         },
 
         plugins: [
             new ForkTsCheckerWebpackPlugin(),
+            new ProvidePlugin({
+                Phaser: 'phaser',
+                '$': 'jquery',
+                'jQuery': 'jquery'
+            }),
             new DefinePlugin({
                 '__webpack_options__': JSON.stringify({
                     EXPOSE_DEBUG: env.development,
                     RECAPTCHA_SITE_KEY: env.recaptchaSiteKey,
                     LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3)
-                })
+                }),
+                '__environment__': JSON.stringify(environment)
             }),
-            ...playPages,
+            new HtmlWebpackPlugin({
+                template: './play/index.html',
+                filename: 'index.html',
+                inject: 'body',
+                templateParameters: environment,
+                publicPath: env.playLink || 'auto'
+            }),
             new CopyPlugin({
                 patterns: [
-                    { from: '**/*', context: 'play' }
+                    { from: '**/*', context: 'play/assets' }
                 ]
             })
         ]

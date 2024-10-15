@@ -2,7 +2,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ColorSwatch from "../prefabs/ColorSwatch";
 /* START-USER-IMPORTS */

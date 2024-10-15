@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
 import Paperdoll from "./prefabs/Paperdoll";
 import ColorSelector from "./sections/ColorSelector";
@@ -327,6 +326,7 @@ export default class Create extends Phaser.Scene {
         // spinner
         const spinner = this.add.sprite(812, 497, "create", "create-module/spinner0001");
         spinner.setOrigin(0, 0);
+        spinner.play("create-spinner-animation");
         preloader.add(spinner);
 
         // logo (components)
@@ -530,8 +530,6 @@ export default class Create extends Phaser.Scene {
 
         this.editorCreate();
 
-        this.spinner.play('create-spinner-animation');
-
         this.initialState = this.signUpState;
 
         this.logo.on('release', () => this.goToStart());
@@ -708,7 +706,8 @@ export default class Create extends Phaser.Scene {
         logger.info('Creating user');
         try {
             var { result: response } = await error.shield(async () => {
-            let token = await grecaptcha.execute(__webpack_options__.RECAPTCHA_SITE_KEY, { action: 'register' });
+                // Skip recaptcha if no key was provided
+                let token = __webpack_options__.RECAPTCHA_SITE_KEY ? await grecaptcha.execute(__webpack_options__.RECAPTCHA_SITE_KEY, { action: 'register' }) : null;
                 return await this.game.airtower.createAccount(await this.getFormData(token));
             }, e => {
                 if (e instanceof HTTPError && e.response.status == 422) throw e;

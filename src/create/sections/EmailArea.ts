@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ErrorBubble from "../prefabs/ErrorBubble";
 import TextField from "../../lib/ui/TextField";

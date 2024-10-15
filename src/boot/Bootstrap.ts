@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
 import ButtonComponent from "../lib/ui/components/ButtonComponent";
@@ -172,6 +171,10 @@ export default class Bootstrap extends Phaser.Scene {
         this.loadClubPenguin();
     }
 
+    /**
+     * Loads the internal game state.
+     * Should a file fail to load, then the game will consider the state bad and refuse to start.
+     */
     async loadClubPenguin(): Promise<void> {
         logger.info('Starting Club Penguin');
 
@@ -220,13 +223,13 @@ export default class Bootstrap extends Phaser.Scene {
 
         let path = window.location.hash;
 
-        if (path === '#login') {
+        if (path === '#/login') {
             logger.info('Setting initial landing to login screen');
             this.scene.start('Login');
-        } else if (path === '#create') {
+        } else if (path === '#/create') {
             logger.info('Setting initial landing to create screen');
             this.scene.start('Create');
-        } else if (path === '#redeem') {
+        } else if (path === '#/redeem') {
             logger.info('Setting initial landing to redemption screen');
             this.scene.start('Redemption');
         } else {
@@ -235,6 +238,10 @@ export default class Bootstrap extends Phaser.Scene {
         }
     }
 
+    /**
+     * Shows a load error using the internal error dialog.
+     * This exists in case locale isn't available, so we must resort to hard-coding these translations.
+     */
     showLoadError(): void {
         let errorMessage: string;
         let buttonText: string;
@@ -265,10 +272,14 @@ export default class Bootstrap extends Phaser.Scene {
                 buttonText = "OK";
         };
 
-        let interr = this.scene.get('InternalErrorArea') as InternalErrorArea;
-        interr.showErrorDialog(errorMessage, buttonText, () => window.location.reload(), '10010');
+        let internal = this.scene.get('InternalErrorArea') as InternalErrorArea;
+        internal.showErrorDialog(errorMessage, buttonText, () => window.location.reload(), '10010');
     }
 
+    /**
+     * Gets a translated message to warn users about devtool usage.
+     * @returns The translated message.
+     */
     getDevtoolsWarnMessage(): string {
         switch (this.game?.locale.language) {
             case Language.PT:

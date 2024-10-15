@@ -13,6 +13,9 @@ import { Actions } from "./actions";
 import { ClothingSprite } from "../clothing/clothingManager";
 import { ActionFrame, ANIMATION_META } from "@clubpenguin/net/types/action";
 
+/**
+ * Manages the players in the current room.
+ */
 export class PlayerManager {
     public DEFAULT_AVATAR = 'penguin';
 
@@ -42,10 +45,18 @@ export class PlayerManager {
     public avatars: { [key: string]: AvatarCls };
     public players: { [id: number]: Player };
 
+    /**
+     * The current player.
+     */
     get player(): Player {
         return this.players[this.world.myUser.id];
     }
 
+    /**
+     * Loads an avatar class from the given key.
+     * @param key The key of the avatar to load.
+     * @returns The avatar class.
+     */
     async loadAvatar(key: string): Promise<AvatarCls> {
         if (key in this.avatars) return this.avatars[key];
 
@@ -64,6 +75,14 @@ export class PlayerManager {
         return avatar;
     }
 
+    /**
+     * Creates the animations for a sprite.
+     * @param assetKey The key of the asset to generate the animation for.
+     * @param frameKey The key of the frame to generate the animation for.
+     * @param prefix The prefix of the animation to generate.
+     * @param action The action frame id of the animation to generate.
+     * @returns The generated animation.
+     */
     generateSpriteAnimations(
         assetKey: string, 
         frameKey: string, 
@@ -116,11 +135,24 @@ export class PlayerManager {
             for (let j = start; j <= end; j++)
                 frames.push({ key: assetKey, frame: `${frameKey}/${prefix}/${action};${j}`, duration: 0 });
     }
-    
+
+    /**
+     * Gets the key of a generated animation.
+     * @param assetKey The key of the asset to which the animation was generated for.
+     * @param prefix The prefix of the generated animation.
+     * @param index The index of the generated animation.
+     * @returns The key of a generated animation.
+     */
     getSpriteAnimationKey(assetKey: string, prefix: string, index: number): string {
         return `${assetKey}${prefix}_${index}animation`;
     }
 
+    /**
+     * Converts an avatar instance to a player.
+     * @param avatar The avatar to convert to a player.
+     * @param data The user data to attach to the player.
+     * @returns The converted player.
+     */
     avatarToPlayer(avatar: Avatar, data: AnyUserData): Player {
         let player = avatar as Player;
 
@@ -131,6 +163,13 @@ export class PlayerManager {
         return player;
     }
 
+    /**
+     * Creates a player with the given user data.
+     * @param data The user data to create the player with.
+     * @param x The x-coordinate to create the player at.
+     * @param y THE y-coordinate to create the player at.
+     * @returns The created player.
+     */
     async createPlayer(data: AnyUserData, x?: number, y?: number): Promise<Player> {
         if (!this.engine.currentRoom) throw new Error('Players cannot exist without a room');
 
@@ -143,6 +182,12 @@ export class PlayerManager {
         return player;
     }
 
+    /**
+     * Sets up a player with the given user data.
+     * This method sets up the player's animations, actions, and overlay.
+     * @param player The player to setup.
+     * @param data The user data to setup the player with.
+     */
     setupPlayer(player: Player, data: AnyUserData): void {
         player.createAnimations(this.engine);
         player.actions.reset();
@@ -153,6 +198,12 @@ export class PlayerManager {
         this._updatePlayer(player, data);
     }
 
+    /**
+     * Updates a player with the given user data.
+     * This method only updates the player's color, ring and overlay.
+     * @param player The player to update.
+     * @param data The user data to update the player with.
+     */
     _updatePlayer(player: Player, data: AnyUserData): void {
         let tintFill = this.app.gameConfig.player_colors[String(data.avatar.color)];
         player.body_art.setTint(Number(tintFill));
@@ -170,7 +221,12 @@ export class PlayerManager {
         player.overlay.balloon.y = player.speechBubbleOffset.y;
     }
 
-    addPlayer(player: Player): Avatar {
+    /**
+     * Adds a player to the current room.
+     * @param player The player to add.
+     * @returns The added player.
+     */
+    addPlayer(player: Player): Player {
         if (player.userData.id in this.players) return;
 
         this.setupPlayer(player, player.userData);
@@ -184,12 +240,21 @@ export class PlayerManager {
         return player;
     }
 
+    /**
+     * Updates a player with the given user data.
+     * @param player The player to update.
+     * @param data The user data to update the player with.
+     */
     updatePlayer(player: Player, data: AnyUserData): void {
         this._updatePlayer(player, data);
         player.userData = data;
         this.engine.emit('player:update', player);
     }
 
+    /**
+     * Removes a player from the current room.
+     * @param player The player to remove.
+     */
     removePlayer(player: Player): void {
         this.testTriggers(player, true, NaN, NaN);
 
@@ -201,6 +266,14 @@ export class PlayerManager {
 
     }
 
+    /**
+     * Tests all triggers in the current room against the given player.
+     * @param player The player to test triggers for.
+     * @param finishedMoving Whether the player has finished moving.
+     * @param x The x-coordinate to test triggers at.
+     * @param y The y-coordinate to test triggers at.
+     * @param prohibitJoinRoom Whether to prohibit the player from joining a room.
+     */
     testTriggers(player: Player, finishedMoving: boolean, x?: number, y?: number, prohibitJoinRoom = false): void {
         x = x ?? player.x;
         y = y ?? player.y;
@@ -228,6 +301,14 @@ export class PlayerManager {
         }
     }
 
+    /**
+     * Finds a path for the given player to the given coordinates.
+     * This method uses pixel-perfect hit testing against a room's boundaries to find the path.
+     * @param player The player to find the path for.
+     * @param x The x-coordinate to find the path to.
+     * @param y The y-coordinate to find the path to.
+     * @returns The path to the given coordinates.
+     */
     findPlayerPath(player: Player, x: number, y: number): Phaser.Math.Vector2 {
         let origin = new Phaser.Math.Vector2(player.x, player.y);
         let target = new Phaser.Math.Vector2(x, y);

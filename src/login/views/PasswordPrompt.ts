@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import InputBlocker from "../../lib/ui/components/InputBlocker";
 import SavePasswordPrompt from "../prefabs/SavePasswordPrompt";
 import PublicComputerPrompt from "../prefabs/PublicComputerPrompt";

@@ -1,9 +1,8 @@
-import Phaser from "phaser";
-
 import { App } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { getLogger } from "@clubpenguin/lib/log";
+import { LoaderPlugin } from "./loader";
 
 let logger = getLogger('CP.app.config');
 
@@ -86,7 +85,7 @@ export interface GameConfig {
     is_hybrid: boolean
 }
 
-export default class Config {
+export class Config {
     public app: App;
 
     constructor(app: App) {
@@ -112,14 +111,16 @@ export default class Config {
     addGlobalConfig(loader: Phaser.Loader.LoaderPlugin, cache: Phaser.Cache.CacheManager, key: string): string {
         let cacheKey = `config-global-${key}`;
         if (cache.json.exists(cacheKey)) cache.json.remove(cacheKey);
-        loader.json(cacheKey, `config/${key}.json`);
+
+        loader.json(cacheKey, `config/${key}.json?v=${LoaderPlugin.cacheVersion}`);
         return cacheKey;
     }
 
     addLocalConfig(loader: Phaser.Loader.LoaderPlugin, cache: Phaser.Cache.CacheManager, locale: string, key: string): string {
         let cacheKey = `config-${locale}-${key}`;
-        if (cache.json.exists(`config-${locale}-${key}`)) cache.json.remove(cacheKey);
-        loader.json(cacheKey, `config/${locale}/${key}.json`);
+        if (cache.json.exists(cacheKey)) cache.json.remove(cacheKey);
+
+        loader.json(cacheKey, `config/${locale}/${key}.json?v=${LoaderPlugin.cacheVersion}`);
         return cacheKey;
     }
 

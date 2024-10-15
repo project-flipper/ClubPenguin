@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 import CartSurfer from "./prefabs/CartSurfer";
 import TextBox from "../lib/ui/TextBox";

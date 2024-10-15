@@ -3,9 +3,8 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine } from "@clubpenguin/world/engine/engine";
 import Snowball from "@clubpenguin/world/interface/prefabs/Snowball";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 /* END-USER-IMPORTS */

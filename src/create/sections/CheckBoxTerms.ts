@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import Checkbox from "../prefabs/Checkbox";
 import ErrorBubbleModified from "../prefabs/ErrorBubbleModified";
 /* START-USER-IMPORTS */

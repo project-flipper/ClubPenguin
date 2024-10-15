@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import InputBlocker from "../lib/ui/components/InputBlocker";
 import NewPlayer from "./views/NewPlayer";
 import PasswordPrompt from "./views/PasswordPrompt";
@@ -157,7 +156,7 @@ export default class Login extends Phaser.Scene {
         await error.shield(this.game.airtower.logIn(name, password), e => {
             if (e instanceof HTTPError) {
                 load.hide();
-    
+
                 if (e.response.status == 401) return { message: 'shell.PASSWORD_WRONG', buttonCallback, type: 'c', code: error.PASSWORD_WRONG };
                 else if (e.response.status == 403) {
                     // we might have a ban

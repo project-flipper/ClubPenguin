@@ -1,0 +1,11 @@
+{
+    "upgrade": "<0>¡Descarga la última versión de Google Chrome para jugar en Club Penguin!</0><1>Pídeles a tus padres que te ayuden a descargarlo.</1>",
+    "upgradeText": "Visita la sección <1>Preguntas frecuentes sobre navegadores</1> para obtener más info sobre esta actualización.",
+    "install": "<0>¡Uy! Para jugar en Club Penguin necesitas la última versión de Google Chrome.</0><1>Pídele a algún adulto que lo descargue de google.com/chrome.</1>",
+    "installText": "Visita la sección <1>Preguntas frecuentes sobre navegadores</1> para obtener más info sobre esta actualización.",
+    "error": "¡Uy! Hubo un problema<1></1>con Club Penguin.<3></3>Intenta iniciar sesión más tarde.",
+    "errorTitle": "Intenta iniciar sesión más tarde.",
+    "cjs": "¡Disculpa! Hubo un problema al cargar Card-jitsu Nieve.<1></1>Prueba otra vez y, si el problema continúa, comunícate con Soporte.",
+    "cjsupgrade": "¡Uy! Para jugar Cad-jitsu Nieve necesitas la última versión de Google Chrome.<1></1>Pídele a algún adulto que lo descargue de google.com/chrome.",
+    "ok": "OK"
+}

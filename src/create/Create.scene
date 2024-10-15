@@ -864,15 +864,18 @@
                     "x": 812,
                     "y": 497,
                     "originX": 0,
-                    "originY": 0
+                    "originY": 0,
+                    "animationPlayMethod": 1,
+                    "animationKey": "create-spinner-animation",
+                    "animationPreview": true
                 }
             ]
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

@@ -13,6 +13,9 @@ let logger = getLogger('CP.world.engine.clothing');
 
 export type ClothingSprite = Phaser.GameObjects.Sprite & { config: PaperItemConfig, animations: { [frame: number]: Phaser.Animations.Animation } };
 
+/**
+ * Manages the clothing sprites for players.
+ */
 export class ClothingManager {
     public engine: Engine;
 
@@ -42,6 +45,13 @@ export class ClothingManager {
         return this.engine.app;
     }
 
+    /**
+     * Adds clothing sprites to a player.
+     * This should only be called if a player supports clothing sprites.
+     * @param player The player to add clothing sprites to.
+     * @param avatar The avatar data to add clothing sprites for.
+     * @returns A list of clothing sprites added to the player.
+     */
     async addClothingSprites(player: Player, avatar: AvatarData): Promise<ClothingSprite[]> {
         let promise = Promise.all([
             this.addClothingSprite(player, ItemType.HEAD, avatar.head, false),
@@ -60,14 +70,30 @@ export class ClothingManager {
         return sprites;
     }
 
+    /**
+     * Gets the key of a clothing sprite.
+     * @param id The ID of the clothing sprite.
+     * @returns The key of the clothing sprite.
+     */
     getSpriteKey(id: number): string {
         return `clothing-sprites-${id}`;
     }
 
+    /**
+     * Gets the key of a clothing sprite's animations.
+     * @param id The ID of the clothing sprite.
+     * @returns The key of the clothing sprite's animations.
+     */
     getSpriteAnimationKey(assetKey: string, action: number): string {
         return `${assetKey}_${action}animation`;
     }
 
+    /**
+     * Loads a clothing sprite.
+     * @param config The config of the paper item to load.
+     * @param startLoading Whether to start loading the sprite immediately.
+     * @param playerId The ID of the player to allocate the resource to.
+     */
     async loadClothingSprite(config: PaperItemConfig, startLoading: boolean, playerId?: number): Promise<void> {
         let id = config.paper_item_id;
 
@@ -106,8 +132,17 @@ export class ClothingManager {
             this.world.load.on('loaderror', errorCallback);
         });
 
+        if (startLoading) this.world.load.start();
     }
 
+    /**
+     * Adds a clothing sprite to a player.
+     * @param player The player to add the clothing sprite to.
+     * @param type The type of the clothing sprite.
+     * @param id The ID of the clothing sprite.
+     * @param startLoading Whether to start loading the sprite immediately.
+     * @returns The clothing sprite added to the player.
+     */
     async addClothingSprite(player: Player, type: ItemType, id: number, startLoading = true): Promise<ClothingSprite> {
         if (!id) {
             let clothing = player.clothes.get(type);
@@ -148,13 +183,18 @@ export class ClothingManager {
 
         logger.info('Attaching sprite', config);
         let sprite = this.attachClothingSprite(player, config);
-        player.clothes.set(config.type, sprite);
+        if (sprite) player.clothes.set(config.type, sprite);
 
         this.engine.emit('clothing:add', player, sprite);
 
         return sprite;
     }
 
+    /**
+     * Gets the depth of a clothing item based on its type.
+     * @param config The config of the paper item to get the depth for.
+     * @returns The depth of the clothing.
+     */
     getClothingDepth(config: PaperItemConfig): number {
         switch (config.type) {
             case ItemType.HEAD:
@@ -169,11 +209,17 @@ export class ClothingManager {
                 return 220;
             case ItemType.FEET:
                 return 210;
-            case ItemType.BOOK:
+            case ItemType.OTHER:
                 return 270;
         }
     }
 
+    /**
+     * Attaches a clothing sprite to a player.
+     * @param player The player to attach the clothing sprite to.
+     * @param config The config of the paper item to attach.
+     * @returns The clothing sprite attached to the player.
+     */
     attachClothingSprite(player: Player, config: PaperItemConfig): ClothingSprite {
         let spriteKey = this.getSpriteKey(config.paper_item_id);
 

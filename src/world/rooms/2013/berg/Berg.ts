@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import Aqua from "./prefabs/Aqua";
 import Trigger from "../../../../lib/ui/components/Trigger";
 /* START-USER-IMPORTS */

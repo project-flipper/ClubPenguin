@@ -1,11 +1,34 @@
+import $ from "jquery";
+import "jqueryui";
+
+import "./jquery.ui.css";
+import "./disney-friends.css";
+import "./club.css";
+import "./lib/libs.min";
+
+import { DisneyFriends, FriendsAPI, FriendsEvent, Jump } from "./friends";
+import { Data, DisneySocial, Environment, SocialEvent } from "./social";
+import { FriendsUI, UIData, UIEvent } from "./ui";
+
 import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
-import HandlerInit from "@clubpenguin/friends/legacy/legacy_handler";
 import { UserData } from "@clubpenguin/net/types/user";
 import { RelationshipType } from "@clubpenguin/net/types/relationship";
 import Interface from "@clubpenguin/world/interface/Interface";
 import World from "@clubpenguin/world/World";
+import { DisneyFriendsCallbackParams } from "@clubpenguin/net/airtower";
+
+
+$(function () {
+    FriendsUI.setLayout();
+    $(window).on('unload', function () {
+        $(window).off();
+        $("#D_F_FriendSection").css("display", "none");
+        $("#D_F_HudNotification").css("display", "none");
+        return false;
+    })
+});
 
 export enum FriendsEvents {
     USER_PRESENCE_UPDATE = "userPresenceUpdate",
@@ -47,7 +70,6 @@ export enum Presence {
 
 export class Friends extends Phaser.Events.EventEmitter {
     public app: App;
-    protected instance: typeof window.Disney;
 
     public namespace = "disney:land:clubpenguin";
 
@@ -64,11 +86,19 @@ export class Friends extends Phaser.Events.EventEmitter {
         return this.app.scene.getScene('Interface') as Interface;
     }
 
-    async init(...params: Parameters<typeof HandlerInit>): Promise<void> {
-        if (this.instance) return;
-
-        this.instance = (await import('@clubpenguin/friends/legacy/legacy_handler')).default(...params);
-
+    async init(basePath: string, getAvatarUrl: (id: string, params: DisneyFriendsCallbackParams) => string): Promise<void> {
+        Environment.CLUBPENGUIN_CONTENT_URL = basePath;
+        Environment.getAvatarUrl = getAvatarUrl;
+    
+        DisneySocial.init();
+        Environment.init();
+        SocialEvent.initEventManager();
+    
+        Data.init();
+        FriendsEvent.initEventManager();
+        UIEvent.init();
+        UIData.init();
+    
         this.on(FriendsEvents.CONNECTED, this.onConnected, this);
         this.on(FriendsEvents.DISCONNECTED, this.onDisconnected, this);
         this.on(FriendsEvents.SHOW_PLAYER_CARD, this.onShowPlayerCard, this);
@@ -79,40 +109,42 @@ export class Friends extends Phaser.Events.EventEmitter {
 
     addListener(event: string, fn: Function, context?: any): this {
         super.addListener(event, fn, context);
-        this.instance.Friends.Event.addGameListener(event, this.namespace);
+        FriendsEvent.addGameListener(event, this.namespace);
         return this;
     }
 
     on(event: string, fn: Function, context?: any): this {
         super.on(event, fn, context);
-        this.instance.Friends.Event.addGameListener(event, this.namespace);
+        FriendsEvent.addGameListener(event, this.namespace);
         return this;
     }
 
-    connect(user_id: string, friends: UserData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean): void {
-        this.instance.Friends.API.connect(user_id);
+    connect(user_id: string, friends: UserData[], characters: string[], notificationsEnabled: boolean, friendsEnabled: boolean, bestFriendsEnabled: boolean, jumpEnabled: boolean): void {
+        FriendsAPI.connect(user_id);
 
         let roster = friends.filter(data => data.relationship.type == RelationshipType.FRIEND || data.relationship.type == RelationshipType.BEST_FRIEND);
         let bestFriends = friends.filter(data => data.relationship.type == RelationshipType.BEST_FRIEND).map(data => data.id.toString());
 
-        this.instance.Friends.activeUser.settings.settingRequestResultHandler([
-            bestFriends.length, notificationsEnabled, friendsEnabled, bestFriendsEnabled
+        DisneyFriends.activeUser.settings.settingRequestResultHandler([
+            bestFriends.length.toString(), notificationsEnabled.toString(), friendsEnabled.toString(), bestFriendsEnabled.toString()
         ]);
-        this.instance.Friends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id.toString(), name: data.nickname, presence: Presence.OFFLINE.toString() })));
-        this.instance.Friends.activeUser.roster.populateBestFriends(bestFriends);
-        this.instance.Friends.activeUser.roster.populateCharacterRoster(characters.map(id => ({ id, presence: Presence.OFFLINE.toString() })));
+        DisneyFriends.activeUser.roster.populateRoster(roster.map(data => ({ swid: data.id.toString(), name: data.nickname, presence: Presence.OFFLINE.toString() })));
+        DisneyFriends.activeUser.roster.populateBestFriends(bestFriends);
+        DisneyFriends.activeUser.roster.populateCharacterRoster(characters.map(id => ({ id, presence: Presence.OFFLINE.toString() })));
+
+        if (jumpEnabled) Jump.jumpEnabled = true;
     }
 
     reposition(): void {
-        if (this.instance) this.instance.Friends.UI.HudNotification
+        FriendsUI.HudNotification.reposition();
     }
 
     disconnect(): void {
-        this.instance.Friends.API.disconnect("gameTimeout");
+        FriendsAPI.disconnect("gameTimeout");
     }
 
     toggle(state?: boolean): void {
-        this.instance.Friends.API.toggle(state);
+        FriendsAPI.toggle(state);
     }
 
     /** Disney Friends API */
@@ -148,7 +180,7 @@ export class Friends extends Phaser.Events.EventEmitter {
         } : {
             playerId: '0'
         };
-        this.instance.Friends.API.foundPlayer(player);
+        FriendsAPI.foundPlayer(player);
     }
 
     friendsEventHandler(event: string, params: any[]): void {
