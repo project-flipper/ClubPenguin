@@ -241,7 +241,7 @@ export class ClothingManager {
 
     /**
      * Attaches & builds a phaser animation to clothing sprite.
-     * @param player The player to attach the clothing sprite to.
+     * @param player The player to attach the clothing animation to.
      * @param spriteKey - clothing sprite key.
      * @returns Phaser animations to bind to clothing sprite.
      */
