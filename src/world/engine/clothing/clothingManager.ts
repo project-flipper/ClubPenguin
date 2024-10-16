@@ -159,8 +159,6 @@ export class ClothingManager {
         let config = this.app.gameConfig.paper_items[id];
         logger.info('Adding sprite', config);
 
-        let key = this.getSpriteKey(id);
-
         for (let [slot, clothing] of player.clothes) {
             if (clothing.config.paper_item_id == id) return;
 
