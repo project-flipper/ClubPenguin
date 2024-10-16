@@ -289,6 +289,12 @@ export class ClothingManager {
         }
 
         for (const actionFrameId in animationFrames) {
+            // TODO: remove once all frames are added
+            if(!(actionFrameId in this.meta)) {
+                logger.warn(`Unhandled action frame: ${actionFrameId}!`);
+                continue;
+            }
+
             const animationKey = this.getSpriteAnimationKey(spriteKey, parseInt(actionFrameId));
 
             if (this.world.anims.exists(animationKey)) {
@@ -309,11 +315,6 @@ export class ClothingManager {
 
                 this.addFrames(animationFrames[actionFrameId].frames, extraWaveFrames, 2);
                 this.addFrames(animationFrames[actionFrameId].frames, { ...extraWaveFrames, start: 1, end: 1 });
-            }
-
-            // TODO: remove once all frames are added
-            if(!(actionFrameId in this.meta)) {
-                logger.warn(`Unhandled action frame: ${actionFrameId}!`);
             }
 
             const animation = this.world.anims.create({
