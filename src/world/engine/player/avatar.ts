@@ -28,10 +28,9 @@ export interface Avatar extends Phaser.GameObjects.Container {
      * The body of the avatar.
      */
     body_art: Phaser.GameObjects.Sprite;
-    overlay_art?: Phaser.GameObjects.Sprite;
 
     animationsMeta: {
-        [key: ActionFrame | number]: {
+        [key in ActionFrame]: {
             totalFrames: number;
             repeat: boolean;
         }

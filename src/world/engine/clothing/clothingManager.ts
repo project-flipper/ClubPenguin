@@ -45,10 +45,6 @@ export class ClothingManager {
         return this.engine.app;
     }
 
-    get meta() {
-        return this.engine.player.animationsMeta;
-    }
-
     /**
      * Adds clothing sprites to a player.
      * This should only be called if a player supports clothing sprites.
@@ -235,7 +231,7 @@ export class ClothingManager {
         let sprite = this.world.add.sprite(0, 0, spriteKey, `${config.paper_item_id}/0`) as ClothingSprite;
         sprite.depth = this.getClothingDepth(config);
         sprite.config = config;
-        sprite.animations = this.createClothingAnimations(player.userData.id, spriteKey);
+        sprite.animations = this.createClothingAnimations(player, spriteKey);
 
         player.add(sprite);
         player.sort('depth');
@@ -245,11 +241,11 @@ export class ClothingManager {
 
     /**
      * Attaches & builds a phaser animation to clothing sprite.
-     * @param playerId The player id to allocate resouces to.
+     * @param player The player to attach the clothing sprite to.
      * @param spriteKey - clothing sprite key.
      * @returns Phaser animations to bind to clothing sprite.
      */
-    createClothingAnimations(playerId: number, spriteKey: string): { [actionFrame: number]: Phaser.Animations.Animation } {
+    createClothingAnimations(player: Player, spriteKey: string): { [actionFrame: number]: Phaser.Animations.Animation } {
         let animations: { [actionFrame: number]: Phaser.Animations.Animation } = {};
 
         const frameKeys = Object.keys(this.world.textures.get(spriteKey).frames);
@@ -288,41 +284,41 @@ export class ClothingManager {
             this.addFrame(animationFrames[actionFrame].frames, spriteKey, `${itemId}/${actionFrame};${subframe}`);
         }
 
-        for (const actionFrameId in animationFrames) {
+        for (const actionFrameIndex of Object.keys(animationFrames).map(x => Number(x))) {
             // TODO: remove once all frames are added
-            if(!(actionFrameId in this.meta)) {
-                logger.warn(`Unhandled action frame: ${actionFrameId}!`);
+            if(!(actionFrameIndex in player.animationsMeta)) {
+                logger.warn(`Unhandled action frame: ${actionFrameIndex}!`);
                 continue;
             }
 
-            const animationKey = this.getSpriteAnimationKey(spriteKey, parseInt(actionFrameId));
+            const animationKey = this.getSpriteAnimationKey(spriteKey, actionFrameIndex);
 
             if (this.world.anims.exists(animationKey)) {
-                animations[actionFrameId] = this.world.anims.get(animationKey);
+                animations[actionFrameIndex] = this.world.anims.get(animationKey);
                 continue;
             }
 
-            this.engine.cleaner.allocateResource('animation', animationKey, playerId);
+            this.engine.cleaner.allocateResource('animation', animationKey, player.userData.id);
 
-            if (parseInt(actionFrameId) === ActionFrame.WAVE) {
+            if (actionFrameIndex === ActionFrame.WAVE) {
                 const extraWaveFrames = {
                     start: 5,
                     end: 12,
                     spriteKey,
-                    itemId: animationFrames[actionFrameId].itemId,
+                    itemId: animationFrames[actionFrameIndex].itemId,
                     action: ActionFrame.WAVE
                 }
 
-                this.addFrames(animationFrames[actionFrameId].frames, extraWaveFrames, 2);
-                this.addFrames(animationFrames[actionFrameId].frames, { ...extraWaveFrames, start: 1, end: 1 });
+                this.addFrames(animationFrames[actionFrameIndex].frames, extraWaveFrames, 2);
+                this.addFrames(animationFrames[actionFrameIndex].frames, { ...extraWaveFrames, start: 1, end: 1 });
             }
 
             const animation = this.world.anims.create({
                 key: animationKey,
-                frames: animationFrames[actionFrameId].frames,
+                frames: animationFrames[actionFrameIndex].frames,
                 frameRate: 24,
                 skipMissedFrames: true,
-                repeat: this.meta[actionFrameId]?.repeat ? -1 : 0
+                repeat: player.animationsMeta[actionFrameIndex as ActionFrame]?.repeat ? -1 : 0
             });
 
             if (!animation) {
@@ -330,7 +326,7 @@ export class ClothingManager {
                 continue;
             };
 
-            animations[actionFrameId] = animation;
+            animations[actionFrameIndex] = animation;
         }
 
         return animations;
