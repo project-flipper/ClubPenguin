@@ -12,7 +12,6 @@ import World from "@clubpenguin/world/World";
 import { Actions } from "./actions";
 import { ClothingSprite } from "../clothing/clothingManager";
 import { ActionFrame } from "@clubpenguin/net/types/action";
-import { ANIMATION_META } from "@clubpenguin/world/avatar/penguin";
 
 /**
  * Manages the players in the current room.
@@ -88,12 +87,11 @@ export class PlayerManager {
         assetKey: string, 
         frameKey: string, 
         prefix: string, 
-        action: ActionFrame
+        action: ActionFrame,
+        meta: { totalFrames: number; repeat: boolean; }
     ): Phaser.Animations.Animation {
         const key = this.getSpriteAnimationKey(assetKey, prefix, action);
         if (this.world.anims.exists(key)) return this.world.anims.get(key);
-
-        const meta = ANIMATION_META[action];
 
         const isNested = meta.totalFrames !== 1;
         const fromFrame = isNested ? 1 : 0;

@@ -6,6 +6,7 @@ import AvatarOverlay from "@clubpenguin/world/interface/prefabs/AvatarOverlay";
 import { Engine } from "@clubpenguin/world/engine/engine";
 import { ClothingSprite } from "@clubpenguin/world/engine/clothing/clothingManager";
 import { Actions } from "./actions";
+import { ActionFrame } from "@clubpenguin/net/types/action";
 
 /**
  * Represents an avatar in the game.
@@ -28,6 +29,13 @@ export interface Avatar extends Phaser.GameObjects.Container {
      */
     body_art: Phaser.GameObjects.Sprite;
     overlay_art?: Phaser.GameObjects.Sprite;
+
+    animationsMeta: {
+        [key: ActionFrame | number]: {
+            totalFrames: number;
+            repeat: boolean;
+        }
+    };
 
     /**
      * Whether to attach clothing to the avatar.

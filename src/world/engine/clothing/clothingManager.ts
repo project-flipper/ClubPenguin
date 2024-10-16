@@ -8,7 +8,6 @@ import Phaser from "phaser";
 import { getLogger } from "@clubpenguin/lib/log";
 import { ItemType } from "./itemType";
 import { ActionFrame } from "@clubpenguin/net/types/action";
-import { ANIMATION_META } from "@clubpenguin/world/avatar/penguin";
 
 let logger = getLogger('CP.world.engine.clothing');
 
@@ -44,6 +43,10 @@ export class ClothingManager {
 
     get app(): App {
         return this.engine.app;
+    }
+
+    get meta() {
+        return this.engine.player.animationsMeta;
     }
 
     /**
@@ -309,7 +312,7 @@ export class ClothingManager {
             }
 
             // TODO: remove once all frames are added
-            if(!(actionFrameId in ANIMATION_META)) {
+            if(!(actionFrameId in this.meta)) {
                 logger.warn(`Unhandled action frame: ${actionFrameId}!`);
             }
 
@@ -318,7 +321,7 @@ export class ClothingManager {
                 frames: animationFrames[actionFrameId].frames,
                 frameRate: 24,
                 skipMissedFrames: true,
-                repeat: ANIMATION_META[actionFrameId]?.repeat ? -1 : 0
+                repeat: this.meta[actionFrameId]?.repeat ? -1 : 0
             });
 
             if (!animation) {
