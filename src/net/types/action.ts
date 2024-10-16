@@ -35,6 +35,17 @@ export enum ActionFrame {
     THROW_UP_RIGHT,
     THROW_DOWN_RIGHT,
 
+    PENGUIN_JUMP = 30,
+
+    CJ_BOW_RIGHT = 32,
+    CJ_BOW_LEFT,
+    CJ_BOW_DOWN_RIGHT,
+    CJ_BOW_UP_LEFT,
+    CJ_BOW_DOWN_LEFT,
+    CJ_BOW_UP_RIGHT,
+
+    //TODO: special frames
+
     // Direction-agnostic frames
     WADDLE = WADDLE_DOWN,
     THROW = THROW_DOWN_LEFT

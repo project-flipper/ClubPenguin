@@ -1,5 +1,5 @@
 {
-    "id": "5733768a-ef9c-43f8-878f-98caff3e4587",
+    "id": "8ada0bde-4072-4c2a-b372-bdc4a1f85c3b",
     "sceneType": "PREFAB",
     "settings": {
         "compilerInsertSpaces": true,
@@ -16,12 +16,12 @@
     "displayList": [
         {
             "type": "Container",
-            "id": "58310757-36f1-4cce-a3bd-1dba9e5b58be",
+            "id": "4ef5fa8c-5870-4757-9dc4-56595dc76f0e",
             "label": "container_1",
             "list": [
                 {
                     "type": "Image",
-                    "id": "10af244e-006d-44c6-bc44-c345bd0e40af",
+                    "id": "2b4a5aff-802d-4c1a-9804-39efe5534b5f",
                     "label": "hitbox",
                     "scope": "PUBLIC",
                     "components": [
@@ -31,7 +31,7 @@
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
                         "key": "penguin",
-                        "frame": "penguin/hitbox0004"
+                        "frame": "penguin/hitbox"
                     },
                     "y": -21.375,
                     "alpha": 0.01,
@@ -42,7 +42,7 @@
                 },
                 {
                     "type": "Ellipse",
-                    "id": "9aa6a2f3-0350-44b3-807e-4a8056bbf7c7",
+                    "id": "bb85f59f-42a8-4e3a-8410-d846879857f3",
                     "label": "shadow",
                     "scope": "PUBLIC",
                     "alpha": 0.2,
@@ -55,7 +55,7 @@
                 },
                 {
                     "type": "Ellipse",
-                    "id": "5075f21c-9735-486f-845d-7ab46b326e4d",
+                    "id": "253b350a-638d-4bcd-808b-2629b86969a3",
                     "label": "ring",
                     "scope": "PUBLIC",
                     "fillColor": "#000000",
@@ -67,35 +67,31 @@
                 },
                 {
                     "type": "Sprite",
-                    "id": "d1d38407-6026-438e-84ca-362e0919abf0",
+                    "id": "9624700a-4497-4f87-b8df-20765d0b1cce",
                     "label": "body_art",
                     "scope": "PUBLIC",
                     "texture": {
                         "key": "penguin",
-                        "frame": "penguin/body_0"
-                    },
-                    "originX": 0.4988,
-                    "originY": 0.95943
+                        "frame": "penguin/body/0"
+                    }
                 },
                 {
                     "type": "Sprite",
-                    "id": "b69e7a3e-0179-42a6-9b6b-497464a7db8a",
+                    "id": "a62c2984-d7c3-41d6-a7c5-320f03b1f068",
                     "label": "overlay_art",
                     "scope": "PUBLIC",
                     "texture": {
                         "key": "penguin",
-                        "frame": "penguin/overlay_0"
-                    },
-                    "originX": 0.50145,
-                    "originY": 0.80194
+                        "frame": "penguin/overlay/0"
+                    }
                 }
             ]
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }
