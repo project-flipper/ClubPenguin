@@ -1,4 +1,3 @@
-import Phaser from "phaser"
 import { RufflePlayer } from "./ruffle";
 import { getLogger } from "@clubpenguin/lib/log";
 

@@ -1,5 +1,3 @@
-import Phaser from "phaser";
-
 import { App } from "@clubpenguin/app/app";
 import SnowballTrigger from "@clubpenguin/lib/ui/components/SnowballTrigger";
 import { Player } from "@clubpenguin/world/engine/player/avatar";

@@ -1,6 +1,5 @@
 import { getLogger } from "@clubpenguin/lib/log";
 import EventEmitter from "eventemitter3";
-import Phaser from "phaser";
 
 let logger = getLogger('CP.load.tasks');
 

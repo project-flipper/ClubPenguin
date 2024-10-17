@@ -1,4 +1,4 @@
-import $ from "jquery";
+import "jquery";
 import "jqueryui";
 
 import "./jquery.ui.css";
@@ -9,8 +9,6 @@ import "./lib/libs.min";
 import { DisneyFriends, FriendsAPI, FriendsEvent, Jump } from "./friends";
 import { Data, DisneySocial, Environment, SocialEvent } from "./social";
 import { FriendsUI, UIData, UIEvent } from "./ui";
-
-import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import { UserData } from "@clubpenguin/net/types/user";

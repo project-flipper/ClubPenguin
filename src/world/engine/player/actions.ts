@@ -1,5 +1,3 @@
-import Phaser from "phaser";
-
 import { getAngle, getDirection, getDirectionQuarters } from "@clubpenguin/lib/math";
 import World from "@clubpenguin/world/World";
 import { Engine } from "../engine";

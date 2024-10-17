@@ -1,3 +1,4 @@
+import "phaser";
 import "devtools-detect";
 
 if ('Phaser' in global) delete global['Phaser'];

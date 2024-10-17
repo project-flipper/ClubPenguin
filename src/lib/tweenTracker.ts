@@ -1,5 +1,3 @@
-import Phaser from "phaser";
-
 export class TweenTracker {
     private trackedTweens: Phaser.Tweens.Tween[];
 

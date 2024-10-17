@@ -1,5 +1,4 @@
 import { getLogger } from "@clubpenguin/lib/log";
-import Phaser from "phaser";
 
 let logger = getLogger('CP.app.loader');
 
