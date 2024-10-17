@@ -1,0 +1,157 @@
+{
+    "id": "34ba2647-0a31-43d0-9bf5-14f1f4d20c29",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "0515b5fa-afdc-4b47-9cb8-17207d9e610b",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "bfa554dd-c0b2-4051-afd4-f7db6546db81",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptBg"
+                    },
+                    "x": 452.25,
+                    "y": 83.25,
+                    "originX": 0,
+                    "originY": 0,
+                    "leftWidth": 47,
+                    "rightWidth": 47,
+                    "topHeight": 47,
+                    "bottomHeight": 47,
+                    "width": 825.75,
+                    "height": 848.25
+                },
+                {
+                    "type": "Image",
+                    "id": "affd8a93-5d08-4d85-80db-e40a9a00634e",
+                    "label": "closeButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameClose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameClose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameClose0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameClose0001"
+                    },
+                    "x": 1211.85,
+                    "y": 148.61
+                },
+                {
+                    "prefabId": "ce65e225-450c-42eb-ba82-2e1279e4af20",
+                    "id": "84df4b15-9bde-4e95-b3d8-f6b637f4ba06",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "title",
+                    "scope": "PUBLIC",
+                    "x": 486.5625,
+                    "y": 146.3625
+                },
+                {
+                    "prefabId": "1217bba6-a8b8-4418-bb2c-e68860a0c750",
+                    "id": "f82a5093-6810-4bc5-9b29-1470eab710a1",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "coins",
+                    "scope": "PUBLIC",
+                    "x": 495,
+                    "y": 254.7
+                },
+                {
+                    "prefabId": "0e9f82c4-08ad-4255-afff-98a7a9a0c172",
+                    "id": "70ac437c-64cc-46d7-8c29-d22c3163466f",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stamps",
+                    "scope": "PUBLIC",
+                    "x": 494.78,
+                    "y": 417.83
+                },
+                {
+                    "prefabId": "a09ed801-aaab-43cc-a9df-ec5ff6f71f0a",
+                    "id": "19405bcb-f163-4526-a208-bf06a53da773",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stampProgress",
+                    "scope": "PUBLIC",
+                    "x": 855,
+                    "y": 577.91
+                },
+                {
+                    "prefabId": "b79deb3b-48c7-4f7e-a7e5-dcd9c61bc263",
+                    "id": "7192cbae-4b46-4b2f-912e-07aa801c2df6",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stampList",
+                    "scope": "PUBLIC",
+                    "x": 509.74,
+                    "y": 648
+                },
+                {
+                    "type": "Image",
+                    "id": "e732102b-f029-410e-b5b2-a5aca6a4f968",
+                    "label": "interface_endGameCoins",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameCoins"
+                    },
+                    "x": 521.44,
+                    "y": 269.66,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "0bd0f93a-c08c-49d7-ac2b-eac73205de59",
+                    "label": "interface_endGameStamps",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameStamps"
+                    },
+                    "x": 520.54,
+                    "y": 422.66,
+                    "originX": 0,
+                    "originY": 0
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

@@ -1,4 +1,3 @@
-import Phaser from "phaser";
 import EventEmitter from "eventemitter3";
 
 import { App } from "@clubpenguin/app/app";
@@ -295,12 +294,12 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.airtower.messageFromFlash(command, args);
     }
 
-    endGame(score: number, room: undefined): void {
+    endGame(score: number, roomId?: number): void {
         let load = this.loadScreen;
         if (!load.isShowing) load.show();
 
         this.container.visible = false;
-        setTimeout(() => this.engine.endGame(score, room), 200);
+        setTimeout(() => this.world.endGame(score, roomId), 200);
     }
 
     destroyBridge(): void {

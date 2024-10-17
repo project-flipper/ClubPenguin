@@ -1,0 +1,175 @@
+{
+    "id": "3d272d39-189a-46cb-aa22-040283f85230",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "0313b024-9264-49f1-bc66-0689070a1a34",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "8a8f9f01-126f-4adf-a37d-fb80f446684c",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptBg"
+                    },
+                    "x": 452.25,
+                    "y": 83.25,
+                    "originX": 0,
+                    "originY": 0,
+                    "leftWidth": 47,
+                    "rightWidth": 47,
+                    "topHeight": 47,
+                    "bottomHeight": 47,
+                    "width": 825.75,
+                    "height": 848.25
+                },
+                {
+                    "type": "Image",
+                    "id": "3123ae4c-90b6-4574-bc88-133757655b8e",
+                    "label": "closeButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameClose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameClose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameClose0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameClose0001"
+                    },
+                    "x": 1211.85,
+                    "y": 148.61
+                },
+                {
+                    "prefabId": "ce65e225-450c-42eb-ba82-2e1279e4af20",
+                    "id": "47eb2795-4811-41ee-8373-cba8fafe4d8b",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "title",
+                    "scope": "PUBLIC",
+                    "x": 486.5625,
+                    "y": 146.3625
+                },
+                {
+                    "prefabId": "1217bba6-a8b8-4418-bb2c-e68860a0c750",
+                    "id": "80ca1c77-b7e7-4ca9-9017-4f70dde55cc1",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "coins",
+                    "scope": "PUBLIC",
+                    "x": 495,
+                    "y": 254.7
+                },
+                {
+                    "prefabId": "0e9f82c4-08ad-4255-afff-98a7a9a0c172",
+                    "id": "a6dd667a-a2c2-4cfc-a17c-e97ab56ee2a0",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stamps",
+                    "scope": "PUBLIC",
+                    "x": 494.78,
+                    "y": 417.83
+                },
+                {
+                    "prefabId": "b79deb3b-48c7-4f7e-a7e5-dcd9c61bc263",
+                    "id": "ae267ecb-ceae-4d5b-988a-bbe65a474a45",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stampList",
+                    "scope": "PUBLIC",
+                    "x": 509.74,
+                    "y": 552.38
+                },
+                {
+                    "type": "Image",
+                    "id": "8267a6ce-1460-424f-9804-2694747a0595",
+                    "label": "interface_endGameCoins",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameDoubleCoins"
+                    },
+                    "x": 521.44,
+                    "y": 269.66,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "c951e584-b89f-4c10-9cca-746b3b1bd999",
+                    "label": "interface_endGameStamps",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameStamps"
+                    },
+                    "x": 520.54,
+                    "y": 422.66,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "eb1b73e6-9fef-4466-89f0-4d2f658c65d0",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "maxWidth"
+                    ],
+                    "label": "congrats",
+                    "scope": "PUBLIC",
+                    "boxWidth": 666,
+                    "boxHeight": 130.5,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 524.14,
+                    "y": 766.01,
+                    "text": "Congratulations, all Aqua Grabber stamps earned. Double coin bonus!\nstamp stamp",
+                    "font": "BurbankSmallBold",
+                    "align": 1,
+                    "fontSize": -36,
+                    "maxWidth": 666
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

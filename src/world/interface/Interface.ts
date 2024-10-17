@@ -16,6 +16,11 @@ import EmoteMenu from "./prefabs/EmoteMenu";
 import ActionsMenu from "./prefabs/ActionsMenu";
 import Namecard from "./prefabs/Namecard";
 import PlayerNamecard from "./prefabs/PlayerNamecard";
+import EndGameProgress from "./prefabs/EndGameProgress";
+import EndGameCongrats from "./prefabs/EndGameCongrats";
+import EndGameCompleted from "./prefabs/EndGameCompleted";
+import EndGameNoNewStamps from "./prefabs/EndGameNoNewStamps";
+import EndGameNoStamps from "./prefabs/EndGameNoStamps";
 import PromptQuestion from "./prefabs/PromptQuestion";
 import PromptOkay from "./prefabs/PromptOkay";
 import PromptSpinner from "./prefabs/PromptSpinner";
@@ -229,6 +234,43 @@ export default class Interface extends Phaser.Scene {
         playerNamecard.visible = false;
         ui.add(playerNamecard);
 
+        // endGame
+        const endGame = this.add.layer();
+
+        // endGameBlock
+        const endGameBlock = this.add.rectangle(0, 0, 1710, 1080);
+        endGameBlock.setOrigin(0, 0);
+        endGameBlock.visible = false;
+        endGameBlock.isFilled = true;
+        endGameBlock.fillColor = 0;
+        endGameBlock.fillAlpha = 0.25;
+        endGame.add(endGameBlock);
+
+        // endGameProgress
+        const endGameProgress = new EndGameProgress(this, 0, 0);
+        endGameProgress.visible = false;
+        endGame.add(endGameProgress);
+
+        // endGameCongrats
+        const endGameCongrats = new EndGameCongrats(this, 0, 0);
+        endGameCongrats.visible = false;
+        endGame.add(endGameCongrats);
+
+        // endGameCompleted
+        const endGameCompleted = new EndGameCompleted(this, 0, 0);
+        endGameCompleted.visible = false;
+        endGame.add(endGameCompleted);
+
+        // endGameNoNewStamps
+        const endGameNoNewStamps = new EndGameNoNewStamps(this, 0, 0);
+        endGameNoNewStamps.visible = false;
+        endGame.add(endGameNoNewStamps);
+
+        // endGameNoStamps
+        const endGameNoStamps = new EndGameNoStamps(this, 0, 0);
+        endGameNoStamps.visible = false;
+        endGame.add(endGameNoStamps);
+
         // prompt
         const prompt = this.add.layer();
 
@@ -441,6 +483,9 @@ export default class Interface extends Phaser.Scene {
         phoneIconButtonComponent.handCursor = true;
         phoneIconButtonComponent.pixelPerfect = true;
 
+        // endGameBlock (components)
+        new InputBlocker(endGameBlock);
+
         // promptBlock (components)
         new InputBlocker(promptBlock);
 
@@ -475,6 +520,13 @@ export default class Interface extends Phaser.Scene {
         this.namecard = namecard;
         this.playerNamecard = playerNamecard;
         this.ui = ui;
+        this.endGameBlock = endGameBlock;
+        this.endGameProgress = endGameProgress;
+        this.endGameCongrats = endGameCongrats;
+        this.endGameCompleted = endGameCompleted;
+        this.endGameNoNewStamps = endGameNoNewStamps;
+        this.endGameNoStamps = endGameNoStamps;
+        this.endGame = endGame;
         this.promptBlock = promptBlock;
         this.promptQuestion = promptQuestion;
         this.promptOkay = promptOkay;
@@ -522,6 +574,13 @@ export default class Interface extends Phaser.Scene {
     public namecard!: Namecard;
     public playerNamecard!: PlayerNamecard;
     public ui!: Phaser.GameObjects.Layer;
+    public endGameBlock!: Phaser.GameObjects.Rectangle;
+    public endGameProgress!: EndGameProgress;
+    public endGameCongrats!: EndGameCongrats;
+    public endGameCompleted!: EndGameCompleted;
+    public endGameNoNewStamps!: EndGameNoNewStamps;
+    public endGameNoStamps!: EndGameNoStamps;
+    public endGame!: Phaser.GameObjects.Layer;
     public promptBlock!: Phaser.GameObjects.Rectangle;
     public promptQuestion!: PromptQuestion;
     public promptOkay!: PromptOkay;
@@ -1070,10 +1129,40 @@ export default class Interface extends Phaser.Scene {
     /**
      * Displays the end game screen with the final score and game configuration data.
      * @param score The final score achieved in the game.
+     * @param stamps The stamps earned during the game session.
      * @param gameData The configuration data for the game.
      */
-    showEndGame(score: number, gameData: GameConfig): void {
+    showEndGame(score: number, stamps: number[], gameData: GameConfig): void {
+        this.closeEndGame();
+        if (stamps.length == 0) {
+            this.endGameNoStamps.setup(score, stamps, gameData);
+            this.endGameNoStamps.visible = true;
+        } else if (stamps.length == 1) {
+            this.endGameCompleted.setup(score, stamps, gameData);
+            this.endGameCompleted.visible = true;
+        } else if (stamps.length == 2) {
+            this.endGameNoNewStamps.setup(score, stamps, gameData);
+            this.endGameNoNewStamps.visible = true;
+        } else if (stamps.length == 3) {
+            this.endGameProgress.setup(score, stamps, gameData);
+            this.endGameProgress.visible = true;
+        } else {
+            this.endGameCongrats.setup(score, stamps, gameData);
+            this.endGameCongrats.visible = true;
+        }
+        this.endGameBlock.visible = true;
+    }
 
+    /**
+     * Hides the end game screen.
+     */
+    closeEndGame(): void {
+        this.endGameProgress.visible = false;
+        this.endGameCongrats.visible = false;
+        this.endGameCompleted.visible = false;
+        this.endGameNoNewStamps.visible = false;
+        this.endGameNoStamps.visible = false;
+        this.endGameBlock.visible = false;
     }
 
     /* ============ CONTENT ============ */

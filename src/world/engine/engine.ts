@@ -5,11 +5,11 @@
  * @extends EventEmitter
  */
 import EventEmitter from "eventemitter3";
-import Phaser from "phaser";
 
 import { App } from "@clubpenguin/app/app";
 import { GameConfig, RoomConfig } from "@clubpenguin/app/config";
 import ErrorArea from "@clubpenguin/app/ErrorArea";
+import { getLogger } from "@clubpenguin/lib/log";
 import { randomRange } from "@clubpenguin/lib/math";
 import { TweenTracker } from "@clubpenguin/lib/tweenTracker";
 import ButtonComponent from "@clubpenguin/lib/ui/components/ButtonComponent";
@@ -18,19 +18,18 @@ import RoomTrigger from "@clubpenguin/lib/ui/components/RoomTrigger";
 import SnowballTrigger from "@clubpenguin/lib/ui/components/SnowballTrigger";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import Interface from "../interface/Interface";
-import Snowball from "../interface/prefabs/Snowball";
+import { PlayerData } from "@clubpenguin/net/types/player";
+import { AnyUserData } from "@clubpenguin/net/types/user";
+import Interface from "@clubpenguin/world/interface/Interface";
+import Snowball from "@clubpenguin/world/interface/prefabs/Snowball";
 import World from "../World";
-import { Player } from "./player/avatar";
-import { PlayerManager } from "./player/playerManager";
 import Cleaner from "./cleaner";
 import { ClothingManager } from "./clothing/clothingManager";
 import { HybridGame } from "./hybrid/hybridGame";
 import { MusicManager } from "./music/musicManager";
+import { Player } from "./player/avatar";
+import { PlayerManager } from "./player/playerManager";
 import { SnowballManager } from "./snowballs/snowballManager";
-import { PlayerData } from "@clubpenguin/net/types/player";
-import { getLogger } from "@clubpenguin/lib/log";
-import { AnyUserData } from "@clubpenguin/net/types/user";
 
 let logger = getLogger('CP.world.engine');
 
@@ -546,38 +545,32 @@ export class Engine extends EventEmitter {
     }
 
     /**
-     * Ends the current game and returns to a room.
-     * @param score The game score.
-     * @param roomConfig The room configuration.
+     * Ends the current game.
      */
-    async endGame(score: number, roomConfig: RoomConfig): Promise<void> {
+    endGame(): void {
         let load = this.loadScreen;
         if (!load.isShowing) load.show();
 
-        let gameData = this.currentGame.gameData;
         this.unloadGame();
+    }
 
-        this.on('room:ready', () => {
-            this.interface.showEndGame(score, gameData);
-        });
+    /**
+     * Resumes the current room by unlocking it, playing the room's music, and showing the interface.
+     * @returns {Promise<void>} A promise that resolves when the room has been resumed.
+     */
+    async resumeRoom(): Promise<void> {
+        if (!this.currentRoom) return;
 
-        if (roomConfig) {
-            await this.world.joinRoom(roomConfig.room_id);
-        } else if (this.currentRoom) {
-            this.unlockRoom();
-            let config = this.currentRoom.roomData;
+        let load = this.loadScreen;
+        if (!load.isShowing) load.show();
 
-            await this.music.play(config.music_id);
+        this.unlockRoom();
+        let config = this.currentRoom.roomData;
 
-            this.interface.show();
-            load.hide();
-        } else if (this.previousRoomId) {
-            try {
-                await this.world.joinRoom(this.previousRoomId, this.previousPlayerX, this.previousPlayerY);
-            } catch (e) {
-                logger.error('Failed to go back to previous room.', e);
-            }
-        } else this.interface.showMap();
+        await this.music.play(config.music_id);
+
+        this.interface.show();
+        load.hide();
     }
 
     /* END-USER-CODE */

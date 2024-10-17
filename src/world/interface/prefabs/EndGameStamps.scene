@@ -1,0 +1,115 @@
+{
+    "id": "0e9f82c4-08ad-4255-afff-98a7a9a0c172",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "1060daf0-ba46-449d-a10f-4db874186db6",
+            "label": "container_1",
+            "list": [
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "0d5ab8bb-0b7e-4af1-ae48-f4cf8c076db7",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "fontSize",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight"
+                    ],
+                    "label": "earnedShadow",
+                    "scope": "PUBLIC",
+                    "boxWidth": 594.675,
+                    "boxHeight": 54,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": 132.75,
+                    "y": 22.5,
+                    "tintTopLeft": "#003399",
+                    "tintTopRight": "#003399",
+                    "tintBottomLeft": "#003399",
+                    "tintBottomRight": "#003399",
+                    "tintFill": true,
+                    "text": "0 of 25",
+                    "fontSize": -45
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "96870d01-9866-4bd3-906f-f29d2ffb3669",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "fontSize",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "earned",
+                    "scope": "PUBLIC",
+                    "boxWidth": 594.675,
+                    "boxHeight": 54,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": 128.25,
+                    "y": 18,
+                    "text": "0 of 25",
+                    "fontSize": -45
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "e4a27ce3-a484-48b9-8285-4367069014fc",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "fontSize",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "font"
+                    ],
+                    "label": "total",
+                    "scope": "PUBLIC",
+                    "boxWidth": 585.45,
+                    "boxHeight": 42.75,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": 132.3,
+                    "y": 75.83,
+                    "text": "Your total coins: 888 888 888",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -31.5
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

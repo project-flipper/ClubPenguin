@@ -642,6 +642,101 @@
         },
         {
             "type": "Layer",
+            "id": "e430ef09-6cec-4118-b219-efb11922c850",
+            "label": "endGame",
+            "scope": "PUBLIC",
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "20bc25b1-0055-4a01-8c5d-0de3fed432c7",
+                    "label": "endGameBlock",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false,
+                    "isFilled": true,
+                    "fillColor": "#000000",
+                    "fillAlpha": 0.25,
+                    "width": 1710,
+                    "height": 1080
+                },
+                {
+                    "prefabId": "34ba2647-0a31-43d0-9bf5-14f1f4d20c29",
+                    "id": "684e4226-4c60-4fda-94ac-0a23a85b5576",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "endGameProgress",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                },
+                {
+                    "prefabId": "3d272d39-189a-46cb-aa22-040283f85230",
+                    "id": "78913192-42f3-4521-92a7-fc2ed5b69691",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "endGameCongrats",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                },
+                {
+                    "prefabId": "264852f9-5146-4046-a91d-8e1024c362ff",
+                    "id": "2efd7198-be13-427c-9540-ef9d8cf4847f",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "endGameCompleted",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                },
+                {
+                    "prefabId": "53430e6d-2424-47ad-a72c-e17275a9f315",
+                    "id": "12f637af-0afe-4247-a046-2a3fd41e2fbd",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "endGameNoNewStamps",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                },
+                {
+                    "prefabId": "2a013688-0d5d-4965-931d-df93b0ba737f",
+                    "id": "2cec57f9-c525-45d6-97f7-97507cae2035",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "endGameNoStamps",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0,
+                    "visible": false
+                }
+            ]
+        },
+        {
+            "type": "Layer",
             "id": "d4995e3e-7295-4f9b-85f6-36de6bc37861",
             "label": "prompt",
             "scope": "PUBLIC",
@@ -822,8 +917,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

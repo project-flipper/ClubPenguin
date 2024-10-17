@@ -8,6 +8,12 @@ export type Payloads = {
         room_id: number,
         players: PlayerData[]
     },
+    'game:start': {
+        game_id: string
+    },
+    'game:over': {
+        coins: number
+    },
     'message:create': MessageData,
     'player:add': PlayerData,
     'player:update': PlayerData,
@@ -26,6 +32,12 @@ export type ClientPayloads = {
         room_id: number,
         x: number,
         y: number
+    },
+    'game:start': {
+        game_id: string
+    },
+    'game:over': {
+        score: number
     },
     'room:spawn': {},
     'player:action': ActionData,
