@@ -1,5 +1,3 @@
-import Phaser from "phaser";
-
 import { App } from "@clubpenguin/app/app";
 import { ApiResponse, CreateUserResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse, CreateUserForm } from "@clubpenguin/net/types/api";
 import { getLogger } from "@clubpenguin/lib/log";
@@ -316,21 +314,24 @@ export class Airtower extends Phaser.Events.EventEmitter {
 
     /**
      * Refreshes a connection using an access token. Must have previously called {@link Airtower.logIn}.
+     * @param key The session key to use for the refresh.
      * @returns The response from the API.
      */
-    async refresh(): Promise<LoginResponse> {
-        if (!this.#key) throw new Error('Cannot refresh without logging in');
+    async refresh(key?: string): Promise<LoginResponse> {
+        key = key || this.#key;
+        if (!key) throw new Error('Cannot refresh without logging in');
 
         logger.info('Refreshing access token');
 
         let response = await this.request<LoginResponse>(new Route('POST', '/auth/refresh'), {
-            authorization: this.#key,
+            authorization: key,
             handleRatelimit: false,
             handleUnauthorized: false
         });
 
         if (response.success) {
             this.#token = response.data.access_token;
+            this.#key = response.data.session_key || key;
         }
 
         return response;
