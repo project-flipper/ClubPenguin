@@ -1,17 +1,15 @@
-import Phaser from "phaser";
-
 import { App } from "@clubpenguin/app/app";
 import PressureTrigger from "@clubpenguin/lib/ui/components/PressureTrigger";
 import RoomTrigger from "@clubpenguin/lib/ui/components/RoomTrigger";
 import Trigger from "@clubpenguin/lib/ui/components/Trigger";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { AnyUserData } from "@clubpenguin/net/types/user";
-import { Avatar, AvatarCls, Player } from "@clubpenguin/world/engine/player/avatar";
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
-import World from "@clubpenguin/world/World";
-import { Actions } from "./actions";
-import { ClothingSprite } from "../clothing/clothingManager";
 import { ActionFrame } from "@clubpenguin/net/types/action";
+import { AnyUserData } from "@clubpenguin/net/types/user";
+import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Avatar, AvatarCls, Player } from "@clubpenguin/world/engine/player/avatar";
+import World from "@clubpenguin/world/World";
+import { ClothingSprite } from "../clothing/clothingManager";
+import { Actions } from "./actions";
 
 /**
  * Manages the players in the current room.
@@ -90,17 +88,17 @@ export class PlayerManager {
         action: ActionFrame,
         meta: { totalFrames: number; repeat: boolean; }
     ): Phaser.Animations.Animation {
-        const key = this.getSpriteAnimationKey(assetKey, prefix, action);
+        let key = this.getSpriteAnimationKey(assetKey, prefix, action);
         if (this.world.anims.exists(key)) return this.world.anims.get(key);
 
-        const isNested = meta.totalFrames !== 1;
-        const fromFrame = isNested ? 1 : 0;
-        const toFrame = isNested ? meta.totalFrames : null;
+        let isNested = meta.totalFrames !== 1;
+        let fromFrame = isNested ? 1 : 0;
+        let toFrame = isNested ? meta.totalFrames : null;
     
-        const frames: Phaser.Types.Animations.AnimationFrame[] = [];
+        let frames: Phaser.Types.Animations.AnimationFrame[] = [];
     
         if (action === ActionFrame.WAVE) {
-            const conf = { start: 1, end: 12, assetKey, frameKey, prefix, action };
+            let conf = { start: 1, end: 12, assetKey, frameKey, prefix, action };
             this.addFrames(frames, conf);
             this.addFrames(frames, { ...conf, start: 5 }, 2);
             this.addFrames(frames, { ...conf, start: 1, end: 1 });
@@ -111,15 +109,15 @@ export class PlayerManager {
                 frames.push({ key: assetKey, frame: `${frameKey}/${prefix}/${action}`, duration: 0 });
             }
         }
-    
-        const animation = this.world.anims.create({
+
+        let animation = this.world.anims.create({
             key,
             frames,
             frameRate: 24,
             skipMissedFrames: true,
             repeat: frames.length > 1 && meta.repeat ? -1 : 0
         });
-    
+
         return animation || this.world.anims.get(key);
     }
     
@@ -128,11 +126,11 @@ export class PlayerManager {
         config: { start: number, end: number, assetKey: string, frameKey: string, prefix: string, action: ActionFrame }, 
         repeat = 1
     ) {
-        const { start, end, assetKey, frameKey, prefix, action } = config;
-    
-        for (let r = 0; r < repeat; r++)
-            for (let j = start; j <= end; j++)
-                frames.push({ key: assetKey, frame: `${frameKey}/${prefix}/${action};${j}`, duration: 0 });
+        let { start, end, assetKey, frameKey, prefix, action } = config;
+
+        for (let r = 0; r < repeat; r++) {
+            for (let i = start; i <= end; i++) frames.push({ key: assetKey, frame: `${frameKey}/${prefix}/${action};${i}`, duration: 0 });
+        }
     }
 
     /**

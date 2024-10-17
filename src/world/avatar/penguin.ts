@@ -130,13 +130,11 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
     createAnimations(engine: Engine): void {
         this.animations = {};
 
-        const actionFrames = Object.values(ActionFrame)
-            .filter((value): value is ActionFrame => typeof value === 'number');
-
-        for (const frame of actionFrames) {
+        for (let frame of Object.keys(this.animationsMeta).map(x => parseInt(x))) {
+            let animationDef = this.animationsMeta[frame as keyof typeof this.animationsMeta];
             this.animations[frame] = {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body', frame, this.animationsMeta[frame]),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay', frame, this.animationsMeta[frame])
+                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body', frame, animationDef),
+                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay', frame, animationDef)
             }
         }
     }

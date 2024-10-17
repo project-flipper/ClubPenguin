@@ -4,7 +4,6 @@ import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 import { Engine } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
-import Phaser from "phaser";
 import { getLogger } from "@clubpenguin/lib/log";
 import { ItemType } from "./itemType";
 import { ActionFrame } from "@clubpenguin/net/types/action";
@@ -246,12 +245,12 @@ export class ClothingManager {
     createClothingAnimations(player: Player, spriteKey: string): { [actionFrame: number]: Phaser.Animations.Animation } {
         let animations: { [actionFrame: number]: Phaser.Animations.Animation } = {};
 
-        const frameKeys = Object.keys(this.world.textures.get(spriteKey).frames);
-        const sortedFrameKeys = frameKeys.filter(frameKey => frameKey !== "__BASE");
+        let frameKeys = Object.keys(this.world.textures.get(spriteKey).frames);
+        let sortedFrameKeys = frameKeys.filter(frameKey => frameKey !== "__BASE");
 
         sortedFrameKeys.sort((a, b) => {
-            const frameA = this.parseFrame(a);
-            const frameB = this.parseFrame(b);
+            let frameA = this.parseFrame(a);
+            let frameB = this.parseFrame(b);
 
             return frameA.actionFrame === frameB.actionFrame
                 ? frameA.subframe - frameB.subframe
@@ -260,9 +259,9 @@ export class ClothingManager {
 
         let animationFrames: { [actionFrame: number]: { frames: Phaser.Types.Animations.AnimationFrame[], itemId: number } } = {  };
 
-        for (const frameKey of sortedFrameKeys) {
-            const {itemId, actionFrame, subframe} = this.parseFrame(frameKey);
-            const isNested = subframe !== 0;
+        for (let frameKey of sortedFrameKeys) {
+            let { itemId, actionFrame, subframe } = this.parseFrame(frameKey);
+            let isNested = subframe !== 0;
 
             if (!(actionFrame in animationFrames)) {
                 animationFrames[actionFrame] = {
@@ -273,23 +272,21 @@ export class ClothingManager {
 
             if (!isNested) {
                 this.addFrame(animationFrames[actionFrame].frames, spriteKey, `${itemId}/${actionFrame}`);
-
                 animationFrames[actionFrame].itemId = itemId;
-
                 continue;
             }
 
             this.addFrame(animationFrames[actionFrame].frames, spriteKey, `${itemId}/${actionFrame};${subframe}`);
         }
 
-        for (const actionFrameIndex of Object.keys(animationFrames).map(x => Number(x))) {
+        for (let actionFrameIndex of Object.keys(animationFrames).map(x => Number(x))) {
             // TODO: remove once all frames are added
             if(!(actionFrameIndex in player.animationsMeta)) {
                 logger.warn(`Unhandled action frame: ${actionFrameIndex}!`);
                 continue;
             }
 
-            const animationKey = this.getSpriteAnimationKey(spriteKey, actionFrameIndex);
+            let animationKey = this.getSpriteAnimationKey(spriteKey, actionFrameIndex);
 
             if (this.world.anims.exists(animationKey)) {
                 animations[actionFrameIndex] = this.world.anims.get(animationKey);
@@ -299,7 +296,7 @@ export class ClothingManager {
             this.engine.cleaner.allocateResource('animation', animationKey, player.userData.id);
 
             if (actionFrameIndex === ActionFrame.WAVE) {
-                const extraWaveFrames = {
+                let extraWaveFrames = {
                     start: 5,
                     end: 12,
                     spriteKey,
@@ -311,7 +308,7 @@ export class ClothingManager {
                 this.addFrames(animationFrames[actionFrameIndex].frames, { ...extraWaveFrames, start: 1, end: 1 });
             }
 
-            const animation = this.world.anims.create({
+            let animation = this.world.anims.create({
                 key: animationKey,
                 frames: animationFrames[actionFrameIndex].frames,
                 frameRate: 24,
@@ -331,8 +328,8 @@ export class ClothingManager {
     }
 
     parseFrame(frameKey: string): { itemId: number, actionFrame: number, subframe: number } {
-        const [itemId, tmp] = frameKey.split('/');
-        const [actionFrame, subframe = 0] = tmp.split(';').map(Number);
+        let [itemId, tmp] = frameKey.split('/');
+        let [actionFrame, subframe = 0] = tmp.split(';').map(Number);
 
         return { itemId: parseInt(itemId), actionFrame, subframe };
     }
@@ -342,7 +339,7 @@ export class ClothingManager {
         config: { start: number, end: number, spriteKey: string, itemId: number, action: ActionFrame },
         repeat = 1
     ) {
-        const { start, end, spriteKey, itemId, action } = config;
+        let { start, end, spriteKey, itemId, action } = config;
 
         for (let r = 0; r < repeat; r++)
             for (let j = start; j <= end; j++)
