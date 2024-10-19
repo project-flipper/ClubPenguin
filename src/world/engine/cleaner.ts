@@ -19,6 +19,7 @@ export default class Cleaner {
         this.resources = [];
         this.resourcesUsedByPlayers = {};
         this.playersUsingResources = {};
+        this.floatingResources = [];
     }
 
     /**
@@ -200,16 +201,19 @@ export default class Cleaner {
 
     /**
      * Collects and frees all resources managed by the cleaner.
+     * This effectively resets the cleaner to its initial state.
+     * @param ignoreFloating Whether to ignore floating resources when freeing all resources.
      */
-    collectAll(): void {
+    purge(ignoreFloating = true): void {
         logger.debug('Freeing all resources');
         for (let resKey of this.resources) {
             let [type, key] = this.fromKey(resKey);
-            this.freeResource(type, key);
+            if (!(ignoreFloating && this.floatingResources.includes(resKey))) this.freeResource(type, key);
         }
 
         this.resources = [];
         this.resourcesUsedByPlayers = {};
         this.playersUsingResources = {};
+        this.floatingResources = [];
     }
 }
