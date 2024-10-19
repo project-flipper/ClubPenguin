@@ -1,5 +1,4 @@
 import { App } from "@clubpenguin/app/app";
-import { PaperItemConfig } from "@clubpenguin/app/config";
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 import { Engine } from "@clubpenguin/world/engine/engine";
@@ -10,7 +9,7 @@ import { ActionFrame } from "@clubpenguin/net/types/action";
 
 let logger = getLogger('CP.world.engine.clothing');
 
-export type ClothingSprite = Phaser.GameObjects.Sprite & { config: PaperItemConfig, animations: { [frame: number]: Phaser.Animations.Animation } };
+export type ClothingSprite = Phaser.GameObjects.Sprite & { paper_item_id: number, animations: { [frame: number]: Phaser.Animations.Animation } };
 
 /**
  * Manages the clothing sprites for players.
@@ -30,7 +29,7 @@ export class ClothingManager {
         });
         this.engine.on('player:remove', (player: Player) => {
             for (let [_, clothing] of player.clothes) {
-                this.engine.cleaner.deallocateResource('multiatlas', this.getSpriteKey(clothing.config.paper_item_id), player.userData.id);
+                this.engine.cleaner.deallocateResource('multiatlas', this.getSpriteKey(clothing.paper_item_id), player.userData.id);
             }
             this.engine.cleaner.collect();
         });
@@ -89,13 +88,11 @@ export class ClothingManager {
 
     /**
      * Loads a clothing sprite.
-     * @param config The config of the paper item to load.
+     * @param id The ID of the clothing sprite to load.
      * @param startLoading Whether to start loading the sprite immediately.
      * @param playerId The ID of the player to allocate the resource to.
      */
-    async loadClothingSprite(config: PaperItemConfig, startLoading: boolean, playerId?: number): Promise<void> {
-        let id = config.paper_item_id;
-
+    async loadClothingSprite(id: number, startLoading: boolean, playerId?: number): Promise<void> {
         let key = this.getSpriteKey(id);
 
         logger.info('Loading sprite', key);
@@ -146,7 +143,7 @@ export class ClothingManager {
         if (!id) {
             let clothing = player.clothes.get(type);
             if (clothing) {
-                let key = this.getSpriteKey(clothing.config.paper_item_id);
+                let key = this.getSpriteKey(clothing.paper_item_id);
 
                 this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
                 clothing.destroy();
@@ -155,15 +152,13 @@ export class ClothingManager {
             return;
         }
 
-        let config = this.app.gameConfig.paper_items[id];
-        logger.info('Adding sprite', config);
-
         for (let [slot, clothing] of player.clothes) {
-            if (clothing.config.paper_item_id == id) return;
+            logger.debug('Checking clothing', slot, clothing.paper_item_id, id);
+            if (clothing.paper_item_id == id) return;
 
-            let key = this.getSpriteKey(clothing.config.paper_item_id);
+            let key = this.getSpriteKey(clothing.paper_item_id);
 
-            if (slot == config.type) {
+            if (slot == type) {
                 this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
                 clothing.destroy();
                 player.clothes.delete(slot);
@@ -171,16 +166,27 @@ export class ClothingManager {
             }
         }
 
+        logger.info('Adding sprite', id);
+
         try {
-            await this.loadClothingSprite(config, startLoading, player.userData.id);
+            await this.loadClothingSprite(id, startLoading, player.userData.id);
         } catch (e) {
             logger.warn(`Error loading sprite ${id} ignoring...`);
             return;
         }
 
-        logger.info('Attaching sprite', config);
-        let sprite = this.attachClothingSprite(player, config);
-        if (sprite) player.clothes.set(config.type, sprite);
+        let clothing = player.clothes.get(type);
+        if (clothing) {
+            let key = this.getSpriteKey(clothing.paper_item_id);
+
+            this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
+            clothing.destroy();
+            player.clothes.delete(type);
+        }
+
+        logger.info('Attaching sprite', id);
+        let sprite = this.attachClothingSprite(player, type, id);
+        if (sprite) player.clothes.set(type, sprite);
 
         this.engine.emit('clothing:add', player, sprite);
 
@@ -189,11 +195,11 @@ export class ClothingManager {
 
     /**
      * Gets the depth of a clothing item based on its type.
-     * @param config The config of the paper item to get the depth for.
+     * @param type The type of the clothing.
      * @returns The depth of the clothing.
      */
-    getClothingDepth(config: PaperItemConfig): number {
-        switch (config.type) {
+    getClothingDepth(type: number): number {
+        switch (type) {
             case ItemType.HEAD:
                 return 260;
             case ItemType.FACE:
@@ -214,20 +220,21 @@ export class ClothingManager {
     /**
      * Attaches a clothing sprite to a player.
      * @param player The player to attach the clothing sprite to.
-     * @param config The config of the paper item to attach.
+     * @param type The type of the clothing sprite.
+     * @param id The ID of the clothing sprite.
      * @returns The clothing sprite attached to the player.
      */
-    attachClothingSprite(player: Player, config: PaperItemConfig): ClothingSprite {
-        let spriteKey = this.getSpriteKey(config.paper_item_id);
+    attachClothingSprite(player: Player, type: number, id: number): ClothingSprite {
+        let spriteKey = this.getSpriteKey(id);
 
         if (!this.world.textures.exists(spriteKey)) {
-            logger.warn('Could not attach clothing (file missing)', player, config);
+            logger.warn('Could not attach clothing (file missing)', player, id);
             return;
         }
 
-        let sprite = this.world.add.sprite(0, 0, spriteKey, `${config.paper_item_id}/0`) as ClothingSprite;
-        sprite.depth = this.getClothingDepth(config);
-        sprite.config = config;
+        let sprite = this.world.add.sprite(0, 0, spriteKey, `${id}/0`) as ClothingSprite;
+        sprite.depth = this.getClothingDepth(type);
+        sprite.paper_item_id = id;
         sprite.animations = this.createClothingAnimations(player, spriteKey);
 
         player.add(sprite);
