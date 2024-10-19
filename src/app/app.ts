@@ -3,6 +3,7 @@ import { Config } from "@clubpenguin/app/config";
 import { Friends } from "@clubpenguin/friends/disney_friends";
 import { Airtower } from "@clubpenguin/net/airtower";
 import { getLogger } from "@clubpenguin/lib/log";
+import Cleaner from "@clubpenguin/lib/cleaner";
 
 let logger = getLogger('CP.app');
 
@@ -24,6 +25,7 @@ export class App extends Phaser.Game {
     public airtower: Airtower;
     public gameConfig: Config;
     public friends: Friends;
+    public cleaner: Cleaner;
 
     public environmentType: string;
     public lastBlur?: number;
@@ -34,6 +36,8 @@ export class App extends Phaser.Game {
 
     constructor(config: Phaser.Types.Core.GameConfig, params: AppParams) {
         super(config);
+
+        this.cleaner = new Cleaner(this);
 
         this.locale = new Locale(this, params.language);
         this.airtower = new Airtower(this, params.apiPath);
