@@ -380,6 +380,8 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             this.game.cleaner.deallocateResource('multiatlas', key, this.playerId);
         }
 
+        this.game.cleaner.collect();
+
         this.items.delete(type);
     }
 
