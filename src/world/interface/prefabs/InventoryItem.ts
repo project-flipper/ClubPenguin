@@ -76,6 +76,8 @@ export default class InventoryItem extends Phaser.GameObjects.Container {
         }
 
         this.unload();
+        this.itemId = id;
+
         this.spinner.visible = true;
         this.notFound.visible = false;
 
@@ -94,7 +96,7 @@ export default class InventoryItem extends Phaser.GameObjects.Container {
             await task.wait();
         }
 
-        if (this.item != undefined) return;
+        if (this.itemId != id) return;
 
         if (this.scene.textures.exists(key)) {
             this.playerId = playerId;
