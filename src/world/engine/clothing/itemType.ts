@@ -8,5 +8,6 @@ export enum ItemType {
     FEET,
     FLAG,
     PHOTO,
-    OTHER
+    OTHER,
+    PUFFLE
 };
