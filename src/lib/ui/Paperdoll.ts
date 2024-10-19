@@ -393,6 +393,8 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
     clear(): void {
         for (let [type, _] of this.items) this.removeItem(type);
+        let engine = this.engine;
+        if (engine) engine.cleaner.collect();
         this.items.clear();
     }
 

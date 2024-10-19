@@ -828,6 +828,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
             }
         });
 
+        let engine = this.scene.engine;
+        if (engine) engine.cleaner.collect();
+
         this.currentPage = page;
     }
 
