@@ -64,12 +64,12 @@ export default class InventoryItem extends Phaser.GameObjects.Container {
 
     async load(id: number, playerId?: number): Promise<void> {
         let key = `clothing-icons-${id}`;
-        let engine = this.scene.engine;
+        let app = this.scene.game;
 
         if (this.itemId === id) {
-            if (this.playerId != playerId && engine) {
-                engine.cleaner.allocateResource('multiatlas', key, playerId);
-                engine.cleaner.deallocateResource('multiatlas', key, this.playerId);
+            if (this.playerId != playerId) {
+                app.cleaner.allocateResource('multiatlas', key, playerId);
+                app.cleaner.deallocateResource('multiatlas', key, this.playerId);
                 this.playerId = playerId;
             }
             return;
@@ -100,7 +100,7 @@ export default class InventoryItem extends Phaser.GameObjects.Container {
 
         if (this.scene.textures.exists(key)) {
             this.playerId = playerId;
-            if (engine) engine.cleaner.allocateResource('multiatlas', key, playerId);
+            app.cleaner.allocateResource('multiatlas', key, playerId);
 
             this.item = this.scene.add.image(0, 0, key, `${id}/0`);
             this.add(this.item);
@@ -117,10 +117,9 @@ export default class InventoryItem extends Phaser.GameObjects.Container {
             this.item.destroy();
             this.item = undefined;
 
-            let engine = this.scene.engine;
             let key = `clothing-icons-${this.itemId}`;
 
-            if (engine) engine.cleaner.deallocateResource('multiatlas', key, this.playerId);
+            this.scene.game.cleaner.deallocateResource('multiatlas', key, this.playerId);
     
             this.scene.game.unloadMultiatlas(key);
             this.itemId = undefined;

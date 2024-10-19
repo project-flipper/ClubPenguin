@@ -40,7 +40,6 @@ import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { App } from "@clubpenguin/app/app";
 import { PaperItemConfig } from "@clubpenguin/app/config";
 import { ItemType } from "@clubpenguin/world/engine/clothing/itemType";
-import { Engine } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
@@ -149,10 +148,6 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         return this.scene.scene.get('World') as World;
     }
 
-    get engine(): Engine {
-        return this.world?.engine;
-    }
-
     public playerId: number;
 
     setup(data: AvatarData, playerId: number): void {
@@ -204,8 +199,6 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
         let promises: Promise<ItemPromiseReturn>[] = [];
 
-        let engine = this.engine;
-
         if (this.scene.textures.exists(key)) {
             promises.push(new Promise(resolve => resolve(() => this.addItem(type, config, key, id.toString(), false))));
         } else {
@@ -221,12 +214,12 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                         this.scene.load.off('filecomplete', completeCallback);
                         this.scene.load.off('loaderror', errorCallback);
 
-                        if (engine) engine.cleaner.allocateResource(type_, key_, this.playerId);
+                        this.game.cleaner.allocateResource(type_, key_, this.playerId);
 
                         if (!this.hasItem(id)) {
-                            if (engine) engine.cleaner.markTrash(type_, key_);
+                            this.game.cleaner.markTrash(type_, key_);
                             return resolve(() => { });
-                        } else if (engine) engine.cleaner.allocateResource(type_, key_, this.playerId);
+                        } else this.game.cleaner.allocateResource(type_, key_, this.playerId);
                         resolve(() => this.addItem(type, config, key, id.toString(), false))
                     }
                 }
@@ -263,9 +256,9 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                             this.scene.load.off('loaderror', errorCallback);
 
                             if (!this.hasItem(id)) {
-                                if (engine) engine.cleaner.markTrash(type_, key_);
+                                this.game.cleaner.markTrash(type_, key_);
                                 return resolve(() => { });
-                            } else if (engine) engine.cleaner.allocateResource(type_, key_, this.playerId);
+                            } else this.game.cleaner.allocateResource(type_, key_, this.playerId);
                             resolve(() => this.addItem(type, config, back_key, `${id}_back`, true))
                         }
                     }
@@ -381,11 +374,10 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         if (!this.items.has(type)) return;
 
         let array = this.items.get(type);
-        let engine = this.engine;
         for (let item of array) {
             let key = item.texture.key;
             item.destroy();
-            if (engine) engine.cleaner.deallocateResource('multiatlas', key, this.playerId);
+            this.game.cleaner.deallocateResource('multiatlas', key, this.playerId);
         }
 
         this.items.delete(type);
@@ -393,8 +385,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
     clear(): void {
         for (let [type, _] of this.items) this.removeItem(type);
-        let engine = this.engine;
-        if (engine) engine.cleaner.collect();
+        this.game.cleaner.collect();
         this.items.clear();
     }
 
