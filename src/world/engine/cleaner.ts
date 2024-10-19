@@ -110,9 +110,11 @@ export default class Cleaner {
      */
     markTrash(type: string, key: string): void {
         let resKey = this.getKey(type, key);
-        if (!this.resources.includes(resKey)) this.resources.push(resKey);
+        if (!this.resources.includes(resKey)) {
+            this.resources.push(resKey);
 
-        logger.debug(`Marked resource ${resKey} as trash`);
+            logger.debug(`Marked resource ${resKey} as trash`);
+        } else logger.warn(`Resource ${resKey} is currently allocated. Ignoring`);
     }
 
     /**
