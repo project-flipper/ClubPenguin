@@ -325,7 +325,7 @@ export class Engine extends EventEmitter {
             this.tweenTracker.reset();
         }
 
-        this.cleaner.collectAll();
+        this.cleaner.purge();
     }
 
     /**
@@ -499,7 +499,7 @@ export class Engine extends EventEmitter {
             this.currentGame = undefined;
         }
 
-        this.cleaner.collectAll();
+        this.cleaner.purge();
     }
 
     /**
