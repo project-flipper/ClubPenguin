@@ -23,7 +23,7 @@ import { AnyUserData } from "@clubpenguin/net/types/user";
 import Interface from "@clubpenguin/world/interface/Interface";
 import Snowball from "@clubpenguin/world/interface/prefabs/Snowball";
 import World from "../World";
-import Cleaner from "./cleaner";
+import Cleaner from "@clubpenguin/lib/cleaner";
 import { ClothingManager } from "./clothing/clothingManager";
 import { HybridGame } from "./hybrid/hybridGame";
 import { MusicManager } from "./music/musicManager";
@@ -75,7 +75,7 @@ export class Engine extends EventEmitter {
         this.world = world;
 
         this.tweenTracker = new TweenTracker();
-        this.cleaner = new Cleaner(this);
+        this.cleaner = new Cleaner(this.app);
 
         this.music = new MusicManager(this);
         this.players = new PlayerManager(this);

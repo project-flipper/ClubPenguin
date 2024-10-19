@@ -1,21 +1,21 @@
 import { getLogger } from "@clubpenguin/lib/log";
-import { Engine } from "./engine";
+import { App } from "@clubpenguin/app/app";
 
-let logger = getLogger('CP.world.engine.cleaner');
+let logger = getLogger('CP.lib.cleaner');
 
 /**
  * The `Cleaner` class is responsible for managing and cleaning up resources within the engine.
  * It tracks resource allocations and deallocations, and can free up unused resources.
  */
 export default class Cleaner {
-    public engine: Engine;
+    public app: App;
     public resources: string[];
     public resourcesUsedByPlayers: Record<string, number[]>;
     public playersUsingResources: Record<number, string[]>;
     public floatingResources: string[];
 
-    constructor(engine: Engine) {
-        this.engine = engine;
+    constructor(app: App) {
+        this.app = app;
         this.resources = [];
         this.resourcesUsedByPlayers = {};
         this.playersUsingResources = {};
@@ -151,25 +151,25 @@ export default class Cleaner {
         logger.info('Unloading', type, key);
         switch (String(type)) {
             case 'animation':
-                this.engine.app.unloadAnimation(key);
+                this.app.unloadAnimation(key);
                 break;
             case 'asset-pack':
-                this.engine.app.unloadAssetPack(key);
+                this.app.unloadAssetPack(key);
                 break;
             case 'audio':
-                this.engine.app.unloadAudio(key);
+                this.app.unloadAudio(key);
                 break;
             case 'bitmap-font':
-                this.engine.app.unloadBitmapFont(key);
+                this.app.unloadBitmapFont(key);
                 break;
             case 'image':
-                this.engine.app.unloadImage(key);
+                this.app.unloadImage(key);
                 break;
             case 'json':
-                this.engine.app.unloadJSON(key);
+                this.app.unloadJSON(key);
                 break;
             case 'multiatlas':
-                this.engine.app.unloadMultiatlas(key);
+                this.app.unloadMultiatlas(key);
                 break;
         }
     }
