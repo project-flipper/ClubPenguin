@@ -14,7 +14,7 @@ export class TweenTracker {
     }
 
     untrackTween(tween: Phaser.Tweens.Tween): void {
-        if (this.isTweenTracked(tween)) this.trackedTweens.splice(this.trackedTweens.indexOf(tween));
+        if (this.isTweenTracked(tween)) this.trackedTweens.splice(this.trackedTweens.indexOf(tween), 1);
     }
 
     seekTweens(delta: number): void {

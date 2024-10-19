@@ -170,7 +170,7 @@ export default class Cleaner {
         for (let resKey of garbage) {
             let [type, key] = this.fromKey(resKey);
             this.freeResource(type, key);
-            this.resources.splice(this.resources.indexOf(resKey));
+            this.resources.splice(this.resources.indexOf(resKey), 1);
         }
     }
 
