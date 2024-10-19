@@ -12,6 +12,25 @@ function pathByItemType(type: ItemType): string {
 type ItemPromiseReturn = () => void;
 type PaperItem = Phaser.GameObjects.Image & { config: PaperItemConfig, isBack: boolean };
 
+export enum Layer {
+    TOP = 7500,
+    PUFFLE = 7250,
+    HAND = 7000,
+    BETWEEN_HAND_AND_HEAD = 6500,
+    HEAD = 6000,
+    BETWEEN_HEAD_AND_FACE = 5500,
+    FACE = 5000,
+    BETWEEN_FACE_AND_NECK = 4500,
+    NECK = 4000,
+    BETWEEN_NECK_AND_BODY = 3500,
+    BODY = 3000,
+    BETWEEN_BODY_AND_FEET = 2500,
+    FEET = 2000,
+    BETWEEN_FEET_AND_BACK = 1500,
+    BACK = 1000,
+    BOTTOM = 500
+}
+
 /* START OF COMPILED CODE */
 
 import DepthEnabled from "./components/DepthEnabled";
@@ -272,12 +291,33 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         return;
     }
 
+    getLayer(type: ItemType): Layer {
+        switch (type) {
+            case ItemType.HAND:
+                return Layer.HAND;
+            case ItemType.HEAD:
+                return Layer.HEAD;
+            case ItemType.FACE:
+                return Layer.FACE;
+            case ItemType.NECK:
+                return Layer.NECK;
+            case ItemType.FEET:
+                return Layer.FEET;
+            case ItemType.PUFFLE:
+                return Layer.PUFFLE;
+            case ItemType.BODY:
+            default:
+                return Layer.BODY;
+        }
+    }
+
     addItem(type: ItemType, config: PaperItemConfig, key: string, path: string, isBack: boolean): void {
         if (!this.scene.textures.exists(key)) return;
 
         let image = this.scene.add.image(0, 0, key, `${path}/0`) as PaperItem;
         image.alpha = 0;
-        image.depth = config.layer;
+        image.scale = type == ItemType.FLAG ? 0.66 : 1;
+        image.depth = config.custom_depth ?? (isBack ? Layer.BACK : this.getLayer(config.type));
         image.config = config;
         image.isBack = isBack;
 
