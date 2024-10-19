@@ -166,6 +166,29 @@ export class Debug {
         }
     }
 
+    async randomizeAvatar(): Promise<void> {
+        let itemsByType = this.getItemsByType();
+
+        let colors: number[] = [];
+        for (let idx in this.gameConfig.player_colors) {
+            colors.push(parseInt(idx));
+        }
+
+        let avatar: AvatarData = {
+            color: this.getRandomItem(colors),
+            head: this.getRandomItem(itemsByType[2]),
+            face: this.getRandomItem(itemsByType[3]),
+            neck: this.getRandomItem(itemsByType[4]),
+            body: this.getRandomItem(itemsByType[5]),
+            hand: this.getRandomItem(itemsByType[6]),
+            feet: this.getRandomItem(itemsByType[7]),
+            photo: this.getRandomItem(itemsByType[9]),
+            flag: this.getRandomItem(itemsByType[8]),
+        }
+
+        await this.world.updateAvatar(avatar);
+    }
+
     putItem(id: number): void {
         this.world.wearItem(id);
     }
