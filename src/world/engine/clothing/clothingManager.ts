@@ -146,6 +146,8 @@ export class ClothingManager {
                 let key = this.getSpriteKey(clothing.paper_item_id);
 
                 this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
+                for (let anim of Object.values(clothing.animations)) this.engine.cleaner.deallocateResource('animation', anim.key, player.userData.id);
+                delete clothing.animations;
                 clothing.destroy();
                 player.clothes.delete(type);
             }
@@ -160,6 +162,8 @@ export class ClothingManager {
 
             if (slot == type) {
                 this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
+                for (let anim of Object.values(clothing.animations)) this.engine.cleaner.deallocateResource('animation', anim.key, player.userData.id);
+                delete clothing.animations;
                 clothing.destroy();
                 player.clothes.delete(slot);
                 break;
@@ -180,6 +184,8 @@ export class ClothingManager {
             let key = this.getSpriteKey(clothing.paper_item_id);
 
             this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
+            for (let anim of Object.values(clothing.animations)) this.engine.cleaner.deallocateResource('animation', anim.key, player.userData.id);
+            delete clothing.animations;
             clothing.destroy();
             player.clothes.delete(type);
         }
