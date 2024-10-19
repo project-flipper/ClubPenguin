@@ -10,14 +10,14 @@ let logger = getLogger('CP.world.engine.cleaner');
 export default class Cleaner {
     public engine: Engine;
     public resources: string[];
-    public resourceUsages: Record<string, number[]>;
-    public fromPlayers: Record<number, string[]>;
+    public resourcesUsedByPlayers: Record<string, number[]>;
+    public playersUsingResources: Record<number, string[]>;
 
     constructor(engine: Engine) {
         this.engine = engine;
         this.resources = [];
-        this.resourceUsages = {};
-        this.fromPlayers = {};
+        this.resourcesUsedByPlayers = {};
+        this.playersUsingResources = {};
     }
 
     /**
@@ -51,18 +51,18 @@ export default class Cleaner {
         if (!this.resources.includes(resKey)) this.resources.push(resKey);
 
         if (playerId) {
-            if (!(resKey in this.resourceUsages)) {
-                this.resourceUsages[resKey] = [];
+            if (!(resKey in this.resourcesUsedByPlayers)) {
+                this.resourcesUsedByPlayers[resKey] = [];
             }
 
-            this.resourceUsages[resKey].push(playerId);
+            this.resourcesUsedByPlayers[resKey].push(playerId);
 
             
-            if (!(playerId in this.fromPlayers)) {
-                this.fromPlayers[playerId] = [];
+            if (!(playerId in this.playersUsingResources)) {
+                this.playersUsingResources[playerId] = [];
             }
 
-            this.fromPlayers[playerId].push(resKey);
+            this.playersUsingResources[playerId].push(resKey);
             logger.debug(`Allocated resource ${resKey} to player ${playerId}`);
         } else {
             logger.debug(`Allocated floating resource ${resKey}`);
@@ -83,20 +83,20 @@ export default class Cleaner {
         }
 
         if (playerId) {
-            if (resKey in this.resourceUsages) {
-                let usages = this.resourceUsages[resKey];
+            if (resKey in this.resourcesUsedByPlayers) {
+                let usages = this.resourcesUsedByPlayers[resKey];
                 usages.splice(usages.indexOf(playerId), 1);
             }
 
-            this.fromPlayers[playerId].splice(this.resources.indexOf(resKey), 1);
+            this.playersUsingResources[playerId].splice(this.resources.indexOf(resKey), 1);
 
             logger.debug(`Deallocated resource ${resKey} from player ${playerId}`);
         } else {
             let players: number[] = [];
-            if (resKey in this.resourceUsages) this.resourceUsages[resKey] = [];
+            if (resKey in this.resourcesUsedByPlayers) this.resourcesUsedByPlayers[resKey] = [];
 
             for (let playerId of players) {
-                this.fromPlayers[playerId].splice(this.resources.indexOf(resKey), 1);
+                this.playersUsingResources[playerId].splice(this.resources.indexOf(resKey), 1);
             }
 
             logger.debug(`Deallocated floating resource ${resKey}`);
@@ -155,9 +155,9 @@ export default class Cleaner {
      */
     computeGarbage(): string[] {
         return this.resources.filter(res => {
-            let usages = this.resourceUsages[res];
+            let usages = this.resourcesUsedByPlayers[res];
             if (!usages) return true;
-            return this.resourceUsages[res].length == 0
+            return this.resourcesUsedByPlayers[res].length == 0
         });
     }
 
@@ -185,7 +185,7 @@ export default class Cleaner {
         }
 
         this.resources = [];
-        this.resourceUsages = {};
-        this.fromPlayers = {};
+        this.resourcesUsedByPlayers = {};
+        this.playersUsingResources = {};
     }
 }
