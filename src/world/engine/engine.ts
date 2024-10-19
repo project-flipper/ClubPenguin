@@ -280,6 +280,7 @@ export class Engine extends EventEmitter {
                 });
                 roomScene.load.start();
                 await task.wait();
+                this.cleaner.allocateResource('multiatlas', key);
             }
 
             let pin = roomScene.add.image(config.pin_x, config.pin_y, key, `${config.pin_id}/0`);
