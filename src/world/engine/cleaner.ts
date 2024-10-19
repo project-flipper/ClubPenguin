@@ -63,9 +63,9 @@ export default class Cleaner {
             }
 
             this.fromPlayers[playerId].push(resKey);
-            logger.info(`Allocated resource ${resKey} to player ${playerId}`);
+            logger.debug(`Allocated resource ${resKey} to player ${playerId}`);
         } else {
-            logger.info(`Allocated floating resource ${resKey}`);
+            logger.debug(`Allocated floating resource ${resKey}`);
         }
     }
 
@@ -90,7 +90,7 @@ export default class Cleaner {
 
             this.fromPlayers[playerId].splice(this.resources.indexOf(resKey), 1);
 
-            logger.info(`Deallocated resource ${resKey} from player ${playerId}`);
+            logger.debug(`Deallocated resource ${resKey} from player ${playerId}`);
         } else {
             let players: number[] = [];
             if (resKey in this.resourceUsages) this.resourceUsages[resKey] = [];
@@ -99,8 +99,20 @@ export default class Cleaner {
                 this.fromPlayers[playerId].splice(this.resources.indexOf(resKey), 1);
             }
 
-            logger.info(`Deallocated floating resource ${resKey}`);
+            logger.debug(`Deallocated floating resource ${resKey}`);
         }
+    }
+
+    /**
+     * Marks a resource as trash, meaning it can be collected and freed later.
+     * @param type The type of the resource.
+     * @param key The key of the resource.
+     */
+    markTrash(type: string, key: string): void {
+        let resKey = this.getKey(type, key);
+        if (!this.resources.includes(resKey)) this.resources.push(resKey);
+
+        logger.debug(`Marked resource ${resKey} as trash`);
     }
 
     /**
@@ -151,7 +163,7 @@ export default class Cleaner {
      * Collects and frees all resources that are considered garbage.
      */
     collect(): void {
-        logger.info('Freeing garbage');
+        logger.debug('Freeing garbage');
         let garbage = this.computeGarbage();
         for (let resKey of garbage) {
             let [type, key] = this.fromKey(resKey);
@@ -164,7 +176,7 @@ export default class Cleaner {
      * Collects and frees all resources managed by the cleaner.
      */
     collectAll(): void {
-        logger.info('Freeing all resources');
+        logger.debug('Freeing all resources');
         for (let resKey of this.resources) {
             let [type, key] = this.fromKey(resKey);
             this.freeResource(type, key);
