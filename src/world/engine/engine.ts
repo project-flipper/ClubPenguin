@@ -75,7 +75,6 @@ export class Engine extends EventEmitter {
         this.world = world;
 
         this.tweenTracker = new TweenTracker();
-        this.cleaner = new Cleaner(this.app);
 
         this.music = new MusicManager(this);
         this.players = new PlayerManager(this);
@@ -96,6 +95,7 @@ export class Engine extends EventEmitter {
     }
 
     init(): void {
+        this.cleaner = new Cleaner(this.app);
         this.world.sound.pauseOnBlur = false;
         this.world.game.events.on('focusregain', (delta: number) => this.tweenTracker.seekTweens(delta));
     }
