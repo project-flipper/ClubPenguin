@@ -65,12 +65,16 @@ export default class ButtonComponent {
         this.gameObject.on('pointerout', this.onPointerOut, this);
     }
 
+    wasOnCanvas(pointer: Phaser.Input.Pointer): boolean {
+        return pointer.upElement == this.gameObject.scene.game.canvas && pointer.downElement == this.gameObject.scene.game.canvas;
+    }
+
     onPointerDown(pointer: Phaser.Input.Pointer): void {
         if (pointer.leftButtonDown()) {
             if (this.downTexture) this.gameObject.setTexture(this.downTexture.key, this.downTexture.frame);
             else if (this.overTexture) this.gameObject.setTexture(this.overTexture.key, this.overTexture.frame);
 
-            this.gameObject.emit('down', pointer.upTime); // click
+            if (this.wasOnCanvas(pointer)) this.gameObject.emit('down', pointer.upTime); // click
         }
     }
 
@@ -78,7 +82,7 @@ export default class ButtonComponent {
         if (pointer.leftButtonReleased()) {
             if (this.overTexture) this.gameObject.setTexture(this.overTexture.key, this.overTexture.frame);
 
-            this.gameObject.emit('release', pointer.downTime); // action
+            if (this.wasOnCanvas(pointer)) this.gameObject.emit('release', pointer.downTime); // action
         }
     }
 
@@ -89,7 +93,7 @@ export default class ButtonComponent {
         else if (this.overTexture) this.gameObject.setTexture(this.overTexture.key, this.overTexture.frame);
     }
 
-    onPointerOut(): void {
+    onPointerOut(pointer: Phaser.Input.Pointer): void {
         if (this.upTexture) this.gameObject.setTexture(this.upTexture.key, this.upTexture.frame);
 
         this.gameObject.emit('out'); // normal
