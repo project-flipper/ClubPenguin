@@ -171,6 +171,8 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
         let config = this.game.gameConfig.paper_items[id];
 
+        if (!config) return [];
+
         if (this.items.has(type)) {
             let array = this.items.get(type);
             if (array[0].config.paper_item_id == id) return [];
