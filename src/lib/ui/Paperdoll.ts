@@ -185,6 +185,8 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
         let promises: Promise<ItemPromiseReturn>[] = [];
 
+        let engine = this.engine;
+
         if (this.scene.textures.exists(key)) {
             promises.push(new Promise(resolve => resolve(() => this.addItem(type, config, key, id.toString(), false))));
         } else {
@@ -200,9 +202,12 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                         this.scene.load.off('filecomplete', completeCallback);
                         this.scene.load.off('loaderror', errorCallback);
 
-                        if (this.engine) this.engine.cleaner.allocateResource(type_, key_, this.playerId);
+                        if (engine) engine.cleaner.allocateResource(type_, key_, this.playerId);
 
-                        if (!this.hasItem(id)) return resolve(() => { });
+                        if (!this.hasItem(id)) {
+                            if (engine) engine.cleaner.markTrash(type_, key_);
+                            return resolve(() => { });
+                        } else if (engine) engine.cleaner.allocateResource(type_, key_, this.playerId);
                         resolve(() => this.addItem(type, config, key, id.toString(), false))
                     }
                 }
@@ -238,9 +243,10 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                             this.scene.load.off('filecomplete', completeCallback);
                             this.scene.load.off('loaderror', errorCallback);
 
-                            if (this.engine) this.engine.cleaner.allocateResource(type_, key_, this.playerId);
-
-                            if (!this.hasItem(id)) return resolve(() => { });
+                            if (!this.hasItem(id)) {
+                                if (engine) engine.cleaner.markTrash(type_, key_);
+                                return resolve(() => { });
+                            } else if (engine) engine.cleaner.allocateResource(type_, key_, this.playerId);
                             resolve(() => this.addItem(type, config, back_key, `${id}_back`, true))
                         }
                     }
