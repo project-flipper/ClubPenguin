@@ -12,6 +12,7 @@ export default class Cleaner {
     public resources: string[];
     public resourcesUsedByPlayers: Record<string, number[]>;
     public playersUsingResources: Record<number, string[]>;
+    public floatingResources: string[];
 
     constructor(engine: Engine) {
         this.engine = engine;
@@ -50,14 +51,15 @@ export default class Cleaner {
         let resKey = this.getKey(type, key);
         if (!this.resources.includes(resKey)) this.resources.push(resKey);
 
+        if (!(resKey in this.resourcesUsedByPlayers)) {
+            this.resourcesUsedByPlayers[resKey] = [];
+        }
+
         if (playerId) {
-            if (!(resKey in this.resourcesUsedByPlayers)) {
-                this.resourcesUsedByPlayers[resKey] = [];
-            }
+            if (this.floatingResources.includes(resKey)) this.floatingResources.splice(this.floatingResources.indexOf(resKey), 1);
 
             this.resourcesUsedByPlayers[resKey].push(playerId);
 
-            
             if (!(playerId in this.playersUsingResources)) {
                 this.playersUsingResources[playerId] = [];
             }
@@ -65,6 +67,8 @@ export default class Cleaner {
             this.playersUsingResources[playerId].push(resKey);
             logger.debug(`Allocated resource ${resKey} to player ${playerId}`);
         } else {
+            if (!this.floatingResources.includes(resKey)) this.floatingResources.push(resKey);
+
             logger.debug(`Allocated floating resource ${resKey}`);
         }
     }
@@ -92,19 +96,16 @@ export default class Cleaner {
 
             logger.debug(`Deallocated resource ${resKey} from player ${playerId}`);
         } else {
-            let players: number[] = [];
-            if (resKey in this.resourcesUsedByPlayers) this.resourcesUsedByPlayers[resKey] = [];
-
-            for (let playerId of players) {
-                this.playersUsingResources[playerId].splice(this.resources.indexOf(resKey), 1);
-            }
+            if (this.floatingResources.includes(resKey)) this.floatingResources.splice(this.floatingResources.indexOf(resKey), 1);
 
             logger.debug(`Deallocated floating resource ${resKey}`);
         }
     }
 
     /**
-     * Marks a resource as trash, meaning it can be collected and freed later.
+     * Allocates a resource as trash, meaning it can be collected and freed later.
+     * If the resource has already been allocated, then this will do nothing.
+     * If you wish to forcefully remove a resource, allocated or not, use {@link removeResource} instead.
      * @param type The type of the resource.
      * @param key The key of the resource.
      */
@@ -115,6 +116,29 @@ export default class Cleaner {
 
             logger.debug(`Marked resource ${resKey} as trash`);
         } else logger.warn(`Resource ${resKey} is currently allocated. Ignoring`);
+    }
+
+    /**
+     * Removes a resource from all mappings so that it can be collected later.
+     * If the resource hasn't been allocated, it is marked as trash instead.
+     * @param type The type of the resource.
+     * @param key The key of the resource.
+     */
+    removeResource(type: string, key: string): void {
+        let resKey = this.getKey(type, key);
+        if (this.resources.includes(resKey)) {
+            if (resKey in this.resourcesUsedByPlayers) {
+                let usages = this.resourcesUsedByPlayers[resKey];
+                for (let playerId of usages) {
+                    this.playersUsingResources[playerId].splice(this.playersUsingResources[playerId].indexOf(resKey), 1);
+                }
+                usages.splice(0, usages.length);
+            }
+
+            if (this.floatingResources.includes(resKey)) this.floatingResources.splice(this.floatingResources.indexOf(resKey), 1);
+
+            logger.debug(`Removed resource ${resKey}`);
+        } else this.markTrash(type, key);
     }
 
     /**
@@ -156,8 +180,8 @@ export default class Cleaner {
     computeGarbage(): string[] {
         return this.resources.filter(res => {
             let usages = this.resourcesUsedByPlayers[res];
-            if (!usages) return true;
-            return this.resourcesUsedByPlayers[res].length == 0
+            let isFloating = this.floatingResources.includes(res);
+            return (!usages || usages.length == 0) && !isFloating
         });
     }
 
