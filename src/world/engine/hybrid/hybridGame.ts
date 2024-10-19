@@ -140,6 +140,11 @@ export class HybridGame extends Phaser.Scene implements Game {
         // Once the ruffle bridge has been loaded it sends everything the flash client needed, for now it only needs penguin's object and color crumbs
     }
 
+    update(time: number, delta: number): void {
+        if (this.interface.contentShowing || this.loadScreen.isShowing) this.game.domContainer.style.zIndex = '-1';
+        else this.game.domContainer.style.zIndex = 'auto';
+    }
+
     /* ================= FLASH ================= */
 
     public container: HybridContainer;
@@ -159,7 +164,7 @@ export class HybridGame extends Phaser.Scene implements Game {
     set player(player: RufflePlayer) {
         if (this.container) this.stop();
 
-        this.container = this.add.dom(0, 0, player, `width: ${this.cameras.main.width}px; height: ${this.cameras.main.height}px`) as HybridContainer;
+        this.container = this.add.dom(0, 0, player, `width: 100%; height: 100%; pointerEvents: auto`) as HybridContainer;
         this.container.setOrigin(0, 0);
         this.container.visible = false;
     }

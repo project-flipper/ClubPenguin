@@ -104,7 +104,7 @@ export function run(params: RunParams): void {
         title: 'Club Penguin',
         banner: false,
         backgroundColor: 0xffffff,
-        transparent: false,
+        transparent: true,
         scene: [
             Bootstrap,
             Create,

@@ -1247,6 +1247,10 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ VISIBILITY ============ */
 
+    get contentShowing(): boolean {
+        return this.currentContent !== undefined || this.promptBlock.visible || this.endGameBlock.visible;
+    }
+
     /**
      * Shows the interface.
      */
