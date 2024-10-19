@@ -51,7 +51,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(backButton);
 
         // nextButton
-        const nextButton = scene.add.image(1012.5, 583.7625, "interface", "interface/inventoryBackButton0001");
+        const nextButton = scene.add.image(1012.5, 583.7625, "interface", "interface/inventoryNextButton0001");
         this.add(nextButton);
 
         // item0

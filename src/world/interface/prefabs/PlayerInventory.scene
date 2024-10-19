@@ -110,7 +110,7 @@
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
                         "key": "interface",
-                        "frame": "interface/inventoryBackButton0001"
+                        "frame": "interface/inventoryNextButton0001"
                     },
                     "x": 1012.5,
                     "y": 583.7625
