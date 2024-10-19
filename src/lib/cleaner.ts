@@ -202,13 +202,13 @@ export default class Cleaner {
     /**
      * Collects and frees all resources managed by the cleaner.
      * This effectively resets the cleaner to its initial state.
-     * @param ignoreFloating Whether to ignore floating resources when freeing all resources.
+     * @param includeFloating Whether to include floating resources when freeing all resources.
      */
-    purge(ignoreFloating = true): void {
+    purge(includeFloating = true): void {
         logger.debug('Freeing all resources');
         for (let resKey of this.resources) {
             let [type, key] = this.fromKey(resKey);
-            if (!(ignoreFloating && this.floatingResources.includes(resKey))) this.freeResource(type, key);
+            if (!(!includeFloating && this.floatingResources.includes(resKey))) this.freeResource(type, key);
         }
 
         this.resources = [];
