@@ -1,0 +1,670 @@
+{
+    "id": "c4466011-2490-46a1-9ff7-773842b73947",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/2013/lodge/lodge-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Lodge",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "1a98e6ca-cb31-4b42-807b-145dd284030c",
+            "label": "lodge_base",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/base"
+            },
+            "originX": 0.009299655568312285,
+            "originY": -0.002062328139321723
+        },
+        {
+            "type": "Image",
+            "id": "b1e06988-5e33-4b78-a484-1031f700d86b",
+            "label": "mullet",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/mullet0001"
+            },
+            "x": 688.5,
+            "y": 267.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "9c92824a-212f-469f-a981-9b99362f90f2",
+            "label": "lodge_candle",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/candle"
+            },
+            "x": 509.18,
+            "y": 293.96,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "7ff37b63-a0fb-4bc2-9b96-03afe01181fa",
+            "label": "candle",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/candleblow0001"
+            },
+            "x": 559.57,
+            "y": 333.23,
+            "originX": -1.8558333333333332,
+            "originY": 1.9302631578947367,
+            "animationPlayMethod": 1,
+            "animationKey": "lodge-candlefire-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Image",
+            "id": "8923697e-165a-4c31-b869-d34e82d28ba4",
+            "label": "minuteHand",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/minuteHand"
+            },
+            "x": 328.73,
+            "y": 391.5,
+            "originX": 0.495,
+            "originY": 0.8045
+        },
+        {
+            "type": "Image",
+            "id": "9b3e00ab-f3ff-4417-8ff0-e15d11092dac",
+            "label": "hourHand",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/hourHand"
+            },
+            "x": 328.73,
+            "y": 391.5,
+            "angle": 90,
+            "originX": 0.562,
+            "originY": 0.76625
+        },
+        {
+            "type": "Sprite",
+            "id": "b4470822-2a8b-453a-9479-6ba2aed35c55",
+            "label": "clock",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/clock0001"
+            },
+            "x": 316.13,
+            "y": 331.88,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "e82977dd-4d88-4b44-b2e7-36cbc29bda2c",
+            "label": "lodge_firebase",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/firebase"
+            },
+            "x": 1380.6,
+            "y": 485.44,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "5e747a57-82d1-4349-b9f9-ba58c99c8d55",
+            "label": "lodge_fire0001",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/fire0001"
+            },
+            "x": 1450.01,
+            "y": 494.55,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lodge-fire-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Image",
+            "id": "2acc303b-77c7-4a88-bb82-db9f09d6ef30",
+            "label": "lodge_chimney",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/chimney"
+            },
+            "x": 1392.86,
+            "y": 10.69,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "0f07265f-f028-4d17-925c-557b404669dd",
+            "label": "entrance",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/lodgeEntrance0001"
+            },
+            "x": 133.99,
+            "y": 518.51,
+            "originX": 0.3292700729927007,
+            "originY": 0.48927374301675974
+        },
+        {
+            "type": "Image",
+            "id": "8e0d7f55-d0a2-4f7e-8b98-d9613c686ddb",
+            "label": "fishDoor",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/fishDoor0001"
+            },
+            "x": 990,
+            "y": 130.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "9028174e-0de9-4306-a458-f6becd43a6e2",
+            "label": "sign",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/sign0001_0001"
+            },
+            "x": 1021.73,
+            "y": 220.95,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "b0d0fc98-1483-4363-a700-59dbf598f6b8",
+            "label": "fish",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/fish0001"
+            },
+            "x": 1136.25,
+            "y": 419.75,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "26b2cb69-fee1-4e1b-be90-c0afca2b0ced",
+            "label": "lodge_rods",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/rods"
+            },
+            "x": 918.11,
+            "y": 284.64,
+            "originX": 0.48992,
+            "originY": 0.14286
+        },
+        {
+            "type": "Image",
+            "id": "7ed06916-06e8-4967-9993-3282b9357bc4",
+            "label": "lodge_gear",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/gear"
+            },
+            "x": 894.26,
+            "y": 483.75,
+            "originX": -0.07258064516129033,
+            "originY": 0.4175257731958763
+        },
+        {
+            "type": "Image",
+            "id": "38f2b41e-c879-4516-a57b-4d1f181a3aed",
+            "label": "lodge_rest",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/rest"
+            },
+            "x": 1437.64,
+            "y": 810,
+            "originX": 0.511213389121339,
+            "originY": 0.25555555555555554
+        },
+        {
+            "type": "Image",
+            "id": "819f0ccb-29e5-4b16-a6f0-7a39ea017162",
+            "label": "lodge_chair0001",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/chair0001"
+            },
+            "x": 1370.25,
+            "y": 926.66,
+            "originX": -0.0006666666666666666,
+            "originY": 0.7358688524590163
+        },
+        {
+            "type": "Image",
+            "id": "e21ef3e2-ebf4-4add-a971-1a11707d59f7",
+            "label": "fishButton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/fishButton"
+            },
+            "x": 988.76,
+            "y": 128.92,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "8e8613c5-a16d-48d7-8ace-64c8ab46f14d",
+            "label": "atticButton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/attic_button0004"
+            },
+            "x": 1375.76,
+            "y": 227.25,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "a732f554-0a3e-4031-9d9b-aaa0287e6b66",
+            "label": "entranceButton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/lodgeEntrance0004"
+            },
+            "x": 133.99,
+            "y": 518.51,
+            "originX": 0.3292700729927007,
+            "originY": 0.48927374301675974,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "795bea6b-4acc-4ef7-8c36-82952bdb22a6",
+            "label": "candleButton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/candle_button0004"
+            },
+            "x": 589.95,
+            "y": 333.23,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "52767a4c-8808-4e7b-bc7d-3c95a93faeff",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "d3e4d96e-7637-4ac6-8adc-bfa7bcbb593d",
+            "label": "fish_trigger",
+            "components": [
+                "GameTrigger"
+            ],
+            "GameTrigger.game_id": "fish",
+            "GameTrigger.prompt": "fish_prompt",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/fish_trigger"
+            },
+            "x": 1090.01,
+            "y": 509.63,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "fc4db964-9318-45b8-ae7b-6b409e55d13c",
+            "label": "village_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 200,
+            "RoomTrigger.playerX": 1057.5,
+            "RoomTrigger.playerY": 607.5,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/village_trigger"
+            },
+            "x": 172.24,
+            "y": 690.19,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "71a832e0-a7c9-419a-9798-88325295fce9",
+            "label": "lodge_table_trigger",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/table_trigger"
+            },
+            "x": 673.65,
+            "y": 588.38,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "def6841e-58bc-4e4b-a7b3-1b74f66f5643",
+            "label": "lodge_table_trigger_1",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/table_trigger"
+            },
+            "x": 649.01,
+            "y": 887.51,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "c0393558-85ab-4e3f-b5fd-57ab28509fd7",
+            "label": "lodge_table_trigger_2",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/table_trigger"
+            },
+            "x": 1146.26,
+            "y": 903.26,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "4bfa4fe9-fbb9-4aca-b17d-28c2b3f94c6f",
+            "label": "note",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/note0001"
+            },
+            "x": 923.85,
+            "y": 273.83,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "44957640-de18-42ef-8e9d-2718dde0ae94",
+            "label": "noteButton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/note0009"
+            },
+            "x": 923.85,
+            "y": 273.83,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "c3f266c4-e09a-4657-a6cd-6a77ce55843f",
+            "label": "table1",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/table10001"
+            },
+            "x": 676.01,
+            "y": 577.69,
+            "originX": 0.48970588235294116,
+            "originY": 0.6617647058823529
+        },
+        {
+            "type": "Image",
+            "id": "9d50865f-f0b7-432a-8f8a-eacc1c686270",
+            "label": "table1btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/table10004"
+            },
+            "x": 676.01,
+            "y": 577.69,
+            "originX": 0.48970588235294116,
+            "originY": 0.6617647058823529,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "7620a677-0158-4139-9c77-4892d5db8b50",
+            "label": "table2",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/table20001"
+            },
+            "x": 698.51,
+            "y": 892.69,
+            "originX": 0.8088235294117647,
+            "originY": 0.8011363636363636
+        },
+        {
+            "type": "Image",
+            "id": "f01f68a0-6728-4642-b97f-c24c548361f5",
+            "label": "table2btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/table20004"
+            },
+            "x": 698.51,
+            "y": 892.69,
+            "originX": 0.8088235294117647,
+            "originY": 0.8011363636363636,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "c4a7822c-32c4-4774-a13a-9033b80ce137",
+            "label": "table3",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/table30001"
+            },
+            "x": 1148.51,
+            "y": 915.19,
+            "originX": 0.45478723404255317,
+            "originY": 0.7601351351351351
+        },
+        {
+            "type": "Image",
+            "id": "53360b36-f2b8-4fa1-9373-0691b83e9c7a",
+            "label": "table3btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/table30004"
+            },
+            "x": 1148.51,
+            "y": 915.19,
+            "originX": 0.45478723404255317,
+            "originY": 0.7601351351351351,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "87965ad4-194c-4ab1-87d9-4ccab9f948c5",
+            "label": "catalog",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/catalog0001"
+            },
+            "x": 1533.15,
+            "y": 946.8,
+            "originX": -0.15957,
+            "originY": -0.0186
+        },
+        {
+            "type": "Image",
+            "id": "6313dd9f-d1e3-4a46-99ad-8adc4359c817",
+            "label": "catalogbtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/catalog0004"
+            },
+            "x": 1533.15,
+            "y": 946.8,
+            "originX": -0.1595744680851064,
+            "originY": -0.01859504132231405,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "5399b69f-870f-43e9-b003-c7d089a68f12",
+            "label": "triggers",
+            "objectIds": [
+                "d3e4d96e-7637-4ac6-8adc-bfa7bcbb593d",
+                "fc4db964-9318-45b8-ae7b-6b409e55d13c",
+                "71a832e0-a7c9-419a-9798-88325295fce9",
+                "c0393558-85ab-4e3f-b5fd-57ab28509fd7",
+                "def6841e-58bc-4e4b-a7b3-1b74f66f5643"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}
