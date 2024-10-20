@@ -5,7 +5,7 @@
 
 import DepthEnabled from "../../../../lib/components/DepthEnabled";
 import ButtonComponent from "../../../../lib/components/ButtonComponent";
-import Trigger from "../../../../lib/components/Trigger";
+import GameTrigger from "../../../../lib/components/GameTrigger";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
@@ -252,7 +252,9 @@ export default class Dock extends Phaser.Scene implements Room {
         const boat_btnButtonComponent = new ButtonComponent(boat_btn);
         boat_btnButtonComponent.handCursor = true;
         boat_btnButtonComponent.pixelPerfect = true;
-        new Trigger(boat_btn);
+        const boat_btnGameTrigger = new GameTrigger(boat_btn);
+        boat_btnGameTrigger.game_id = "hydro";
+        boat_btnGameTrigger.prompt = "hydro_prompt";
 
         // town_btn (components)
         const town_btnButtonComponent = new ButtonComponent(town_btn);
@@ -376,13 +378,6 @@ export default class Dock extends Phaser.Scene implements Room {
             yoyo: true,
             hold: 250
         });
-
-        Trigger.getComponent(this.boat_btn).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('hydro_prompt', () => {
-                this.world.startGame('hydro', {});
-            }, () => { });
-        }
 
         this.game.locale.register(this.localize, this);
 

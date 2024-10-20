@@ -679,8 +679,10 @@
             "label": "pizzatron_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "pizzatron",
+            "GameTrigger.prompt": "pizzatron_prompt",
             "texture": {
                 "key": "pizza",
                 "frame": "pizza/pizzatron_trigger"
@@ -740,8 +742,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

@@ -5,7 +5,7 @@
 
 import DepthEnabled from "../../../../lib/components/DepthEnabled";
 import ButtonComponent from "../../../../lib/components/ButtonComponent";
-import Trigger from "../../../../lib/components/Trigger";
+import GameTrigger from "../../../../lib/components/GameTrigger";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
@@ -384,7 +384,9 @@ export default class Cove extends Phaser.Scene implements Room {
         new DepthEnabled(cove_medicsign);
 
         // waves_trigger (components)
-        new Trigger(waves_trigger);
+        const waves_triggerGameTrigger = new GameTrigger(waves_trigger);
+        waves_triggerGameTrigger.game_id = "waves";
+        waves_triggerGameTrigger.prompt = "waves_prompt";
 
         // cove_forest_mc (components)
         const cove_forest_mcRoomTrigger = new RoomTrigger(cove_forest_mc);
@@ -498,13 +500,6 @@ export default class Cove extends Phaser.Scene implements Room {
             this.catalogue.stop();
             this.catalogue.setFrame('cove/catalogue0001');
         });
-
-        Trigger.getComponent(this.waves_trigger).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('waves_prompt', () => {
-                this.world.startGame('waves', {});
-            }, () => { });
-        }
 
         this.game.locale.register(this.localize, this);
 

@@ -383,10 +383,12 @@
             "scope": "PUBLIC",
             "components": [
                 "ButtonComponent",
-                "Trigger"
+                "GameTrigger"
             ],
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
+            "GameTrigger.game_id": "hydro",
+            "GameTrigger.prompt": "hydro_prompt",
             "texture": {
                 "key": "dock",
                 "frame": "dock/boat_btn0004"
@@ -521,8 +523,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

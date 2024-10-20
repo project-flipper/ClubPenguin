@@ -867,8 +867,10 @@
             "label": "smoothie_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "smoothie",
+            "GameTrigger.prompt": "smoothie_prompt",
             "texture": {
                 "key": "coffee",
                 "frame": "coffee/smoothie-trigger"
@@ -901,8 +903,10 @@
             "label": "beans_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "beans",
+            "GameTrigger.prompt": "beans_prompt",
             "texture": {
                 "key": "coffee",
                 "frame": "coffee/beans-trigger"
@@ -990,8 +994,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

@@ -6,7 +6,7 @@
 import ButtonComponent from "../../../../lib/components/ButtonComponent";
 import DepthEnabled from "../../../../lib/components/DepthEnabled";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
-import Trigger from "../../../../lib/components/Trigger";
+import GameTrigger from "../../../../lib/components/GameTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
@@ -517,10 +517,14 @@ export default class Dance extends Phaser.Scene implements Room {
         dance_boiler_triggerRoomTrigger.playerY = 720;
 
         // dancing_trigger (components)
-        new Trigger(dancing_trigger);
+        const dancing_triggerGameTrigger = new GameTrigger(dancing_trigger);
+        dancing_triggerGameTrigger.game_id = "dancing";
+        dancing_triggerGameTrigger.prompt = "dancing_prompt";
 
         // mix_trigger (components)
-        new Trigger(mix_trigger);
+        const mix_triggerGameTrigger = new GameTrigger(mix_trigger);
+        mix_triggerGameTrigger.game_id = "mixmaster";
+        mix_triggerGameTrigger.prompt = "mixmaster_prompt";
 
         // dj3k (components)
         const dj3kButtonComponent = new ButtonComponent(dj3k);
@@ -765,20 +769,6 @@ export default class Dance extends Phaser.Scene implements Room {
         });
 
         this.puffle.play('dance-puffleidle-animation');
-
-        Trigger.getComponent(this.mix_trigger).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('mixmaster_prompt', () => {
-                this.world.startGame('mixmaster', {});
-            }, () => { });
-        }
-
-        Trigger.getComponent(this.dancing_trigger).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('dancing_prompt', () => {
-                this.world.startGame('dancing', {});
-            }, () => { });
-        }
 
         this.game.locale.register(this.localize, this);
 

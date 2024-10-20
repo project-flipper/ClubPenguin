@@ -706,8 +706,10 @@
             "label": "waves_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "waves",
+            "GameTrigger.prompt": "waves_prompt",
             "texture": {
                 "key": "cove",
                 "frame": "cove/waves_mc"
@@ -855,8 +857,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

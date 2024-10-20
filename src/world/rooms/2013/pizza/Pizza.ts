@@ -5,7 +5,7 @@
 
 import ButtonComponent from "../../../../lib/components/ButtonComponent";
 import DepthEnabled from "../../../../lib/components/DepthEnabled";
-import Trigger from "../../../../lib/components/Trigger";
+import GameTrigger from "../../../../lib/components/GameTrigger";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
@@ -370,7 +370,9 @@ export default class Pizza extends Phaser.Scene implements Room {
         registerbtnButtonComponent.pixelPerfect = true;
 
         // pizzatron_trigger (components)
-        new Trigger(pizzatron_trigger);
+        const pizzatron_triggerGameTrigger = new GameTrigger(pizzatron_trigger);
+        pizzatron_triggerGameTrigger.game_id = "pizzatron";
+        pizzatron_triggerGameTrigger.prompt = "pizzatron_prompt";
 
         // plaza_trigger (components)
         const plaza_triggerRoomTrigger = new RoomTrigger(plaza_trigger);
@@ -488,13 +490,6 @@ export default class Pizza extends Phaser.Scene implements Room {
             this.interface.hideHint();
         })
         this.kitchendoor_hit.on('release', () => this.world.move(371.25, 348.75));
-
-        Trigger.getComponent(this.pizzatron_trigger).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('pizzatron_prompt', () => {
-                this.world.startGame('pizzatron', {});
-            }, () => { });
-        }
 
         this.cashOpen = false;
         this.registerbtn.on('over', () => {

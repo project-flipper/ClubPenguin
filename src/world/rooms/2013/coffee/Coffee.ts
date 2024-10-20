@@ -5,7 +5,7 @@
 
 import ButtonComponent from "../../../../lib/components/ButtonComponent";
 import DepthEnabled from "../../../../lib/components/DepthEnabled";
-import Trigger from "../../../../lib/components/Trigger";
+import GameTrigger from "../../../../lib/components/GameTrigger";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
@@ -413,7 +413,9 @@ export default class Coffee extends Phaser.Scene implements Room {
         beansareaButtonComponent.pixelPerfect = true;
 
         // smoothie_trigger (components)
-        new Trigger(smoothie_trigger);
+        const smoothie_triggerGameTrigger = new GameTrigger(smoothie_trigger);
+        smoothie_triggerGameTrigger.game_id = "smoothie";
+        smoothie_triggerGameTrigger.prompt = "smoothie_prompt";
 
         // coffee_door_trigger (components)
         const coffee_door_triggerRoomTrigger = new RoomTrigger(coffee_door_trigger);
@@ -422,7 +424,9 @@ export default class Coffee extends Phaser.Scene implements Room {
         coffee_door_triggerRoomTrigger.playerY = 585;
 
         // beans_trigger (components)
-        new Trigger(beans_trigger);
+        const beans_triggerGameTrigger = new GameTrigger(beans_trigger);
+        beans_triggerGameTrigger.game_id = "beans";
+        beans_triggerGameTrigger.prompt = "beans_prompt";
 
         // coffee_upstairs_trigger (components)
         const coffee_upstairs_triggerRoomTrigger = new RoomTrigger(coffee_upstairs_trigger);
@@ -574,20 +578,6 @@ export default class Coffee extends Phaser.Scene implements Room {
                 this.smoothieCashOpen = false;
             }
         });
-
-        Trigger.getComponent(this.beans_trigger).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('beans_prompt', () => {
-                this.world.startGame('beans', {});
-            }, () => { });
-        }
-
-        Trigger.getComponent(this.smoothie_trigger).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('smoothie_prompt', () => {
-                this.world.startGame('smoothie', {});
-            }, () => { });
-        }
 
         this.game.locale.register(this.localize, this);
 

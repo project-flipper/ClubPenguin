@@ -841,8 +841,10 @@
             "label": "bits_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "bitsandbolts",
+            "GameTrigger.prompt": "bitsandbolts_prompt",
             "texture": {
                 "key": "lounge",
                 "frame": "lounge/bits_trigger"
@@ -857,8 +859,10 @@
             "label": "astro_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "astro",
+            "GameTrigger.prompt": "astro_prompt",
             "texture": {
                 "key": "lounge",
                 "frame": "lounge/astro_trigger"
@@ -873,8 +877,10 @@
             "label": "thinice_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "thinice",
+            "GameTrigger.prompt": "thinice_prompt",
             "texture": {
                 "key": "lounge",
                 "frame": "lounge/thinice_trigger"
@@ -1085,8 +1091,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

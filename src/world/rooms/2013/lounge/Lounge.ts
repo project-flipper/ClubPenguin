@@ -8,7 +8,7 @@ import TargetGame from "./prefabs/TargetGame";
 import TargetGameScreen from "./prefabs/TargetGameScreen";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
 import ButtonComponent from "../../../../lib/components/ButtonComponent";
-import Trigger from "../../../../lib/components/Trigger";
+import GameTrigger from "../../../../lib/components/GameTrigger";
 import SnowballTrigger from "../../../../lib/components/SnowballTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
@@ -483,13 +483,19 @@ export default class Lounge extends Phaser.Scene implements Room {
         thinicebuttonButtonComponent.pixelPerfect = true;
 
         // bits_trigger (components)
-        new Trigger(bits_trigger);
+        const bits_triggerGameTrigger = new GameTrigger(bits_trigger);
+        bits_triggerGameTrigger.game_id = "bitsandbolts";
+        bits_triggerGameTrigger.prompt = "bitsandbolts_prompt";
 
         // astro_trigger (components)
-        new Trigger(astro_trigger);
+        const astro_triggerGameTrigger = new GameTrigger(astro_trigger);
+        astro_triggerGameTrigger.game_id = "astro";
+        astro_triggerGameTrigger.prompt = "astro_prompt";
 
         // thinice_trigger (components)
-        new Trigger(thinice_trigger);
+        const thinice_triggerGameTrigger = new GameTrigger(thinice_trigger);
+        thinice_triggerGameTrigger.game_id = "thinice";
+        thinice_triggerGameTrigger.prompt = "thinice_prompt";
 
         // chairbutton11 (components)
         const chairbutton11ButtonComponent = new ButtonComponent(chairbutton11);
@@ -700,27 +706,6 @@ export default class Lounge extends Phaser.Scene implements Room {
         this.game.locale.register(this.localize, this);
 
         SnowballTrigger.getComponent(this.snowballblock).execute = (_engine, _penguin, snowball) => snowball.destroy(true);
-
-        Trigger.getComponent(this.thinice_trigger).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('thinice_prompt', () => {
-                this.world.startGame('thinice', {});
-            }, () => { });
-        }
-
-        Trigger.getComponent(this.astro_trigger).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('astro_prompt', () => {
-                this.world.startGame('astro', {});
-            }, () => { });
-        }
-
-        Trigger.getComponent(this.bits_trigger).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('bitsandbolts_prompt', () => {
-                this.world.startGame('bitsandbolts', {});
-            }, () => { });
-        }
 
         this.screen.load(this.game.locale.abbreviation.toString()).then(() => {
             this.targetGame.start();

@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Aqua from "./prefabs/Aqua";
-import Trigger from "../../../../lib/components/Trigger";
+import GameTrigger from "../../../../lib/components/GameTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine,  Room } from "@clubpenguin/world/engine/engine";
@@ -60,7 +60,9 @@ export default class Berg extends Phaser.Scene implements Room {
         const triggers = [aqua_mc];
 
         // aqua_mc (components)
-        new Trigger(aqua_mc);
+        const aqua_mcGameTrigger = new GameTrigger(aqua_mc);
+        aqua_mcGameTrigger.game_id = "aqua";
+        aqua_mcGameTrigger.prompt = "aqua_prompt";
 
         this.block = block;
         this.aqua = aqua;
@@ -112,13 +114,6 @@ export default class Berg extends Phaser.Scene implements Room {
             run: () => aquaFloat.play(true)
         }]);
         aquaFloat.play();
-
-        Trigger.getComponent(this.aqua_mc).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('aqua_prompt', () => {
-                this.world.startGame('aqua', {});
-            }, () => { });
-        }
 
         this.game.locale.register(this.localize, this);
 

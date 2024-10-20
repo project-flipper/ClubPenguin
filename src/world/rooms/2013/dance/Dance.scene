@@ -986,8 +986,10 @@
             "label": "dancing_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "dancing",
+            "GameTrigger.prompt": "dancing_prompt",
             "texture": {
                 "key": "dance",
                 "frame": "dance/dancing_trigger"
@@ -1002,8 +1004,10 @@
             "label": "mix_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "mixmaster",
+            "GameTrigger.prompt": "mixmaster_prompt",
             "texture": {
                 "key": "dance",
                 "frame": "dance/mix_trigger"
@@ -1074,8 +1078,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },
