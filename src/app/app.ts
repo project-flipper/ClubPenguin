@@ -1,4 +1,4 @@
-import { Locale } from "@clubpenguin/app/locale";
+import { Locale, Language } from "@clubpenguin/app/locale";
 import { Config } from "@clubpenguin/app/config";
 import { Friends } from "@clubpenguin/friends/disney_friends";
 import { Airtower } from "@clubpenguin/net/airtower";
@@ -50,6 +50,51 @@ export class App extends Phaser.Game {
         this.cacheVersion = params.cacheVersion;
         this.contentVersion = params.contentVersion;
         this.minigameVersion = params.minigameVersion;
+    }
+
+    /**
+     * Gets a translated message to warn users about devtool usage.
+     * @returns The translated message.
+     */
+    getDevtoolsWarnMessage(): string {
+        switch (this.locale.language) {
+            case Language.PT:
+                return (
+                    '%cESPERE!\n%cSua conta pode estar em perigo.\n\n' +
+                    '%cQualquer criminoso pode induzi-lo a inserir códigos aqui que podem dar acesso à sua conta ou causar sua suspensão.\n\n' +
+                    '%cSe você sabe o que está fazendo, considere se juntar à nossa equipe :)'
+                );
+            case Language.FR:
+                return (
+                    '%cATTENDEZ!\n%cVotre compte peut être en danger.\n\n' +
+                    '%cTout criminel pourrait vous inciter à saisir ici des codes qui pourraient lui donner accès à votre compte ou entraîner votre suspension.\n\n' +
+                    '%cSi vous savez ce que vous faites, envisagez de rejoindre notre équipe :)'
+                );
+            case Language.ES:
+                return (
+                    '%c¡ESPERA!\n%cTu cuenta puede correr peligro.\n\n' +
+                    '%cCualquier malhechor podría engañarte al introducir códigos aquí que les puede dar acceso a tu cuenta, o causarle una suspención.\n\n' +
+                    '%cSi sabes lo que estás haciendo, considera unirte a nuestro equipo :)'
+                );
+            case Language.DE:
+                return (
+                    '%cWARTEN!\n%cIhr Konto könnte in Gefahr sein.\n\n' +
+                    '%cKriminelle könnten Sie dazu verleiten, hier Code einzuführen, der ihnen Zugriff auf Ihr Konto verschafft oder Sie sperrt.\n\n' +
+                    '%cWenn Sie wissen, was Sie tun, denken Sie darüber nach, unserem Team beizutreten :)'
+                );
+            case Language.RU:
+                return (
+                    '%cЖДАТЬ!\n%cВаш аккаунт может быть в опасности.\n\n' +
+                    '%cЗлоумышленники могут обманом заставить вас ввести здесь код, который может дать им доступ к вашей учетной записи или заблокировать вас.\n\n' +
+                    '%cЕсли вы знаете, что делаете, рассмотрите возможность присоединиться к нашей команде :)'
+                );
+            default:
+                return (
+                    '%cWAIT!\n%cYour account might be in danger.\n\n' +
+                    '%cBad actors might trick you into introducing code here that could give them access to your account or get you banned.\n\n' +
+                    '%cIf you know what you\'re doing, consider joining our team :)'
+                );
+        }
     }
 
     step(time: number, delta: number): void {

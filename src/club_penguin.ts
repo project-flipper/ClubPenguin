@@ -34,6 +34,16 @@ logger.formatter = new ColorLevelFormatter('%c{level}%c %c[%c{now}%c] [%c{name}%
 
 let app: App;
 
+window.addEventListener('devtoolschange', event => {
+    if (event.detail.isOpen && app) console.log(
+        app.getDevtoolsWarnMessage(),
+        'font-weight: bold; color: red; font-size: 350%; background: navy;',
+        'color: red; font-size: 250%; background: navy;',
+        'color: lime; font-size: 200%; background: teal;',
+        'color: white; font-size: 150%; background: olive;'
+    );
+});
+
 interface RunParams {
     parentId: string,
     elementId: string,
