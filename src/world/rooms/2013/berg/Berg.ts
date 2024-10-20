@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 import Aqua from "./prefabs/Aqua";
-import Trigger from "../../../../lib/ui/components/Trigger";
+import Trigger from "../../../../lib/components/Trigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine,  Room } from "@clubpenguin/world/engine/engine";

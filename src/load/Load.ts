@@ -1,6 +1,6 @@
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../lib/ui/components/InputBlocker";
+import InputBlocker from "../lib/components/InputBlocker";
 import CartSurfer from "./prefabs/CartSurfer";
 import TextBox from "../lib/ui/TextBox";
 import Spinner from "./prefabs/Spinner";

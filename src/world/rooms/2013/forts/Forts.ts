@@ -3,11 +3,11 @@
 
 /* START OF COMPILED CODE */
 
-import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
+import DepthEnabled from "../../../../lib/components/DepthEnabled";
 import TextBox from "../../../../lib/ui/TextBox";
-import SnowballTrigger from "../../../../lib/ui/components/SnowballTrigger";
-import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
-import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
+import SnowballTrigger from "../../../../lib/components/SnowballTrigger";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
+import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";

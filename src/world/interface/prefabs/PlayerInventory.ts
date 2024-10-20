@@ -15,8 +15,8 @@ enum InventorySort {
 
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../../../lib/ui/components/InputBlocker";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import InputBlocker from "../../../lib/components/InputBlocker";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import InventoryItem from "./InventoryItem";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */

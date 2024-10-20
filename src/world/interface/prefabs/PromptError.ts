@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";

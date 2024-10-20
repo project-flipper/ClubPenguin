@@ -3,13 +3,13 @@
 
 /* START OF COMPILED CODE */
 
-import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
-import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
+import DepthEnabled from "../../../../lib/components/DepthEnabled";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
 import FirstLane from "./prefabs/FirstLane";
 import SecondLane from "./prefabs/SecondLane";
 import ThirdLane from "./prefabs/ThirdLane";
 import FourthLane from "./prefabs/FourthLane";
-import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
+import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";

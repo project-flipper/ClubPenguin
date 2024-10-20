@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import SnowballTrigger from "../../../../../lib/ui/components/SnowballTrigger";
+import SnowballTrigger from "../../../../../lib/components/SnowballTrigger";
 /* START-USER-IMPORTS */
 import Lounge from "../Lounge";
 /* END-USER-IMPORTS */

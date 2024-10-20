@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 import TextField from "../../../lib/ui/TextField";
 /* START-USER-IMPORTS */

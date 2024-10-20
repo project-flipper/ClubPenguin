@@ -1,7 +1,7 @@
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../lib/ui/components/InputBlocker";
-import ButtonComponent from "../lib/ui/components/ButtonComponent";
+import InputBlocker from "../lib/components/InputBlocker";
+import ButtonComponent from "../lib/components/ButtonComponent";
 import TextBox from "../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import Load from "@clubpenguin/load/Load";

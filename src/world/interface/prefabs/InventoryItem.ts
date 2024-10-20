@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
 import { getLogger } from "@clubpenguin/lib/log";

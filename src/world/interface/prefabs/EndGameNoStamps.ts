@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import EndGameTitle from "./EndGameTitle";
 import EndGameCoins from "./EndGameCoins";
 /* START-USER-IMPORTS */

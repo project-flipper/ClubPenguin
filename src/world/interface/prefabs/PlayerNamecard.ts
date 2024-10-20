@@ -4,11 +4,11 @@
 /* START OF COMPILED CODE */
 
 import PlayerInventory from "./PlayerInventory";
-import InputBlocker from "../../../lib/ui/components/InputBlocker";
+import InputBlocker from "../../../lib/components/InputBlocker";
 import Paperdoll from "../../../lib/ui/Paperdoll";
 import TextBox from "../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
 import { MyUserData } from "@clubpenguin/net/types/user";

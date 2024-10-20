@@ -3,7 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import ButtonComponent from "../../../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Mtn from "../Mtn";
 /* END-USER-IMPORTS */

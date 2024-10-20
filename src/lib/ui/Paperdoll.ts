@@ -33,8 +33,8 @@ export enum Layer {
 
 /* START OF COMPILED CODE */
 
-import DepthEnabled from "./components/DepthEnabled";
-import ButtonComponent from "./components/ButtonComponent";
+import DepthEnabled from "../components/DepthEnabled";
+import ButtonComponent from "../components/ButtonComponent";
 /* START-USER-IMPORTS */
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { App } from "@clubpenguin/app/app";

@@ -3,8 +3,8 @@
 
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../../../lib/ui/components/InputBlocker";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import InputBlocker from "../../../lib/components/InputBlocker";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import Interface, { Content } from "@clubpenguin/world/interface/Interface";

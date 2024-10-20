@@ -1,6 +1,6 @@
 /* START OF COMPILED CODE */
 
-import ButtonComponent from "../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../lib/components/ButtonComponent";
 import Paperdoll from "./prefabs/Paperdoll";
 import ColorSelector from "./sections/ColorSelector";
 import TextBox from "../lib/ui/TextBox";
@@ -10,7 +10,7 @@ import EmailArea from "./sections/EmailArea";
 import CheckBoxTerms from "./sections/CheckBoxTerms";
 import CheckBoxRules from "./sections/CheckBoxRules";
 import PaperdollAlternate from "./prefabs/PaperdollAlternate";
-import InputBlocker from "../lib/ui/components/InputBlocker";
+import InputBlocker from "../lib/components/InputBlocker";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import ErrorArea from "@clubpenguin/app/ErrorArea";

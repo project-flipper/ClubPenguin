@@ -4,7 +4,7 @@
 /* START OF COMPILED CODE */
 
 import TextBox from "../../../../lib/ui/TextBox";
-import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import MapScene, { MapCategory } from "../Map";
 /* END-USER-IMPORTS */

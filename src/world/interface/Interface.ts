@@ -9,8 +9,8 @@ export interface ContentCls {
 
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../../lib/ui/components/InputBlocker";
-import ButtonComponent from "../../lib/ui/components/ButtonComponent";
+import InputBlocker from "../../lib/components/InputBlocker";
+import ButtonComponent from "../../lib/components/ButtonComponent";
 import TextField from "../../lib/ui/TextField";
 import EmoteMenu from "./prefabs/EmoteMenu";
 import ActionsMenu from "./prefabs/ActionsMenu";

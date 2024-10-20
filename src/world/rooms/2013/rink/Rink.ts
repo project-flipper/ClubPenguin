@@ -3,9 +3,9 @@
 
 /* START OF COMPILED CODE */
 
-import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
-import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
-import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
+import DepthEnabled from "../../../../lib/components/DepthEnabled";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
+import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";

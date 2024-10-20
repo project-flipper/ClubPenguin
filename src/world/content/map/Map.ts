@@ -10,8 +10,8 @@ export enum MapCategory {
 
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../../../lib/ui/components/InputBlocker";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import InputBlocker from "../../../lib/components/InputBlocker";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import Navigation from "./prefabs/Navigation";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";

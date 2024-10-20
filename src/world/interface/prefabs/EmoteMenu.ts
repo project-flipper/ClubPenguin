@@ -3,8 +3,8 @@
 
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../../../lib/ui/components/InputBlocker";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import InputBlocker from "../../../lib/components/InputBlocker";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
 import { Emoji } from "@clubpenguin/net/types/message";

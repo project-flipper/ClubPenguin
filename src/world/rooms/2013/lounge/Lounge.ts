@@ -3,13 +3,13 @@
 
 /* START OF COMPILED CODE */
 
-import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
+import DepthEnabled from "../../../../lib/components/DepthEnabled";
 import TargetGame from "./prefabs/TargetGame";
 import TargetGameScreen from "./prefabs/TargetGameScreen";
-import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
-import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
-import Trigger from "../../../../lib/ui/components/Trigger";
-import SnowballTrigger from "../../../../lib/ui/components/SnowballTrigger";
+import RoomTrigger from "../../../../lib/components/RoomTrigger";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
+import Trigger from "../../../../lib/components/Trigger";
+import SnowballTrigger from "../../../../lib/components/SnowballTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";

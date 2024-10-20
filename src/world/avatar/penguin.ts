@@ -1,6 +1,6 @@
 /* START OF COMPILED CODE */
 
-import ButtonComponent from "../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import { Avatar } from "../engine/player/avatar";
 import { Engine } from "../engine/engine";

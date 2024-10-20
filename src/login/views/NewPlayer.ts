@@ -3,7 +3,7 @@
 import TextField from "../../lib/ui/TextField";
 import TextBox from "../../lib/ui/TextBox";
 import Checkbox from "../prefabs/Checkbox";
-import ButtonComponent from "../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Login from "@clubpenguin/login/Login";
 import { Locale } from "@clubpenguin/app/locale";

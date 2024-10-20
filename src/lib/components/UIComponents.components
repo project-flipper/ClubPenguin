@@ -158,6 +158,46 @@
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.Image",
             "properties": []
+        },
+        {
+            "name": "GameTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "game_id",
+                    "label": "Game",
+                    "tooltip": "The game ID to prompt to join",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "prompt",
+                    "label": "Prompt",
+                    "tooltip": "The localized prompt to show before joining the game. Joins directly if none is specified",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "options",
+                    "label": "Options",
+                    "tooltip": "An object of options to pass when starting the game",
+                    "defValue": "{}",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "object-var",
+                        "expressionType": "any"
+                    }
+                }
+            ]
         }
     ],
     "meta": {

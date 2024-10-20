@@ -36,9 +36,9 @@ export class CPError extends Error {
 
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../lib/ui/components/InputBlocker";
+import InputBlocker from "../lib/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
-import ButtonComponent from "../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import { App } from "./app";
 import { HTTPError } from "@clubpenguin/net/airtower";

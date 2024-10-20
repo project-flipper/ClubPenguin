@@ -12,10 +12,11 @@ import ErrorArea from "@clubpenguin/app/ErrorArea";
 import { getLogger } from "@clubpenguin/lib/log";
 import { randomRange } from "@clubpenguin/lib/math";
 import { TweenTracker } from "@clubpenguin/lib/tweenTracker";
-import ButtonComponent from "@clubpenguin/lib/ui/components/ButtonComponent";
-import PressureTrigger from "@clubpenguin/lib/ui/components/PressureTrigger";
-import RoomTrigger from "@clubpenguin/lib/ui/components/RoomTrigger";
-import SnowballTrigger from "@clubpenguin/lib/ui/components/SnowballTrigger";
+import ButtonComponent from "@clubpenguin/lib/components/ButtonComponent";
+import PressureTrigger from "@clubpenguin/lib/components/PressureTrigger";
+import RoomTrigger from "@clubpenguin/lib/components/RoomTrigger";
+import SnowballTrigger from "@clubpenguin/lib/components/SnowballTrigger";
+import GameTrigger from "@clubpenguin/lib/components/GameTrigger";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { PlayerData } from "@clubpenguin/net/types/player";
@@ -35,6 +36,7 @@ let logger = getLogger('CP.world.engine');
 
 export type Trigger =
     | RoomTrigger
+    | GameTrigger
     | PressureTrigger
     | SnowballTrigger;
 
