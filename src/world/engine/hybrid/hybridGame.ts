@@ -166,7 +166,7 @@ export class HybridGame extends Phaser.Scene implements Game {
 
         this.container = this.add.dom(0, 0, player, `width: 100%; height: 100%; pointerEvents: auto`) as HybridContainer;
         this.container.setOrigin(0, 0);
-        this.container.visible = false;
+        this.container.visible = true;
     }
 
     async play(url: string, params?: string): Promise<void> {
@@ -292,7 +292,6 @@ export class HybridGame extends Phaser.Scene implements Game {
     hideLoading(): void {
         let load = this.loadScreen;
         if (load.isShowing) load.hide();
-        this.container.visible = true;
     }
 
     airtowerMessage(command: string, args: any[]): void {
@@ -300,10 +299,6 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     endGame(score: number, roomId?: number): void {
-        let load = this.loadScreen;
-        if (!load.isShowing) load.show();
-
-        this.container.visible = false;
         setTimeout(() => this.world.endGame(score, roomId), 200);
     }
 

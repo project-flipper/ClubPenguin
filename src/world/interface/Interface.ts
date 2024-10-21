@@ -1133,7 +1133,7 @@ export default class Interface extends Phaser.Scene {
      * @param gameData The configuration data for the game.
      */
     showEndGame(score: number, stamps: number[], gameData: GameConfig): void {
-        this.closeEndGame();
+        this.hideEndGame();
         if (stamps.length == 0) {
             this.endGameNoStamps.setup(score, stamps, gameData);
             this.endGameNoStamps.visible = true;
@@ -1156,13 +1156,21 @@ export default class Interface extends Phaser.Scene {
     /**
      * Hides the end game screen.
      */
-    closeEndGame(): void {
+    hideEndGame(): void {
         this.endGameProgress.visible = false;
         this.endGameCongrats.visible = false;
         this.endGameCompleted.visible = false;
         this.endGameNoNewStamps.visible = false;
         this.endGameNoStamps.visible = false;
         this.endGameBlock.visible = false;
+    }
+
+    /**
+     * Closes the end game screen and returns to the world.
+     */
+    closeEndGame(): void {
+        this.hideEndGame();
+        this.world.closeGame();
     }
 
     /* ============ CONTENT ============ */

@@ -702,9 +702,10 @@ export default class World extends Phaser.Scene {
     public trackedEarnedStamps: number[];
     public showGameOver = true;
     public postGameRoomId: number;
-    public showGameOverAfterRoomReady = true;
+    public showGameOverAfterRoomReady = false;
 
     async endGame(score: number, roomId: number): Promise<void> {
+        this.interface.promptSpinner.show();
         this.send({
             op: 'game:over',
             d: {
@@ -713,6 +714,21 @@ export default class World extends Phaser.Scene {
         });
 
         this.postGameRoomId = roomId;
+    }
+
+    async closeGame(): Promise<void> {
+        let engine = this.engine;
+        if (!engine.currentGame) return;
+
+        if (this.postGameRoomId) await this.joinRoom(this.postGameRoomId);
+        else if (engine.currentRoom) await engine.resumeRoom();
+        else if (engine.previousRoomId) {
+            try {
+                await this.joinRoom(engine.previousRoomId, engine.previousPlayerX, engine.previousPlayerY);
+            } catch (e) {
+                logger.error('Failed to go back to previous room.', e);
+            }
+        } else this.interface.showMap();
     }
 
     /* ======== INTERFACE ======== */
@@ -824,7 +840,7 @@ export default class World extends Phaser.Scene {
             this.trackedEarnedStamps = [];
             this.showGameOver = true;
             this.postGameRoomId = undefined;
-            this.showGameOverAfterRoomReady = true;
+            this.showGameOverAfterRoomReady = false;
 
             await this.engine.startGame(gameData, this.gameStartParams);
         }
@@ -832,28 +848,21 @@ export default class World extends Phaser.Scene {
 
     @handle('game:over')
     async handleGameOver(data: Payloads['game:over']): Promise<void> {
+        this.interface.promptSpinner.hide();
+
         let engine = this.engine;
         if (!engine.currentGame) return;
 
         let gameData = engine.currentGame.gameData;
-        engine.endGame();
 
         if (this.showGameOverAfterRoomReady) {
-            if (engine.currentRoomId == this.postGameRoomId && engine.currentRoom) this.interface.showEndGame(data.coins, this.trackedEarnedStamps, gameData);
+            this.closeGame();
+
+            if (engine.currentRoomId == this.postGameRoomId && engine.currentRoom)this.interface.showEndGame(data.coins, this.trackedEarnedStamps, gameData);
             else engine.once('room:ready', () => {
                 this.interface.showEndGame(data.coins, this.trackedEarnedStamps, gameData);
             });
-        }
-
-        if (this.postGameRoomId) await this.joinRoom(this.postGameRoomId);
-        else if (engine.currentRoom) await engine.resumeRoom();
-        else if (engine.previousRoomId) {
-            try {
-                await this.joinRoom(engine.previousRoomId, engine.previousPlayerX, engine.previousPlayerY);
-            } catch (e) {
-                logger.error('Failed to go back to previous room.', e);
-            }
-        } else this.interface.showMap();
+        } else this.interface.showEndGame(data.coins, this.trackedEarnedStamps, gameData);
     }
 
     @handle('message:create')
