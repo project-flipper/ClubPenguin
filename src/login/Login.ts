@@ -1,6 +1,11 @@
+type SavedAccount = {
+    user: MyUserData;
+    key?: string;
+};
+
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../lib/ui/components/InputBlocker";
+import InputBlocker from "../lib/components/InputBlocker";
 import NewPlayer from "./views/NewPlayer";
 import PasswordPrompt from "./views/PasswordPrompt";
 import WorldSelect from "./views/WorldSelect";
@@ -12,6 +17,7 @@ import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { HTTPError } from "@clubpenguin/net/airtower";
 import { BanError } from "@clubpenguin/net/types/api";
+import { MyUserData } from "@clubpenguin/net/types/user";
 import { WorldData } from "@clubpenguin/net/types/world";
 /* END-USER-IMPORTS */
 
@@ -89,7 +95,15 @@ export default class Login extends Phaser.Scene {
         let load = this.scene.get('Load') as Load;
         if (load.isShowing) load.waitAllTasksComplete().then(() => load.hide());
 
-        this.showNewPlayer();
+        let accounts = this.getSavedAccounts();
+        let amount = Object.keys(accounts).length;
+        if (amount == 0) this.showNewPlayer();
+        else if (amount == 1) this.showNewPlayer();
+        else if (amount == 2) this.showNewPlayer();
+        else if (amount == 3) this.showNewPlayer();
+        else if (amount == 4) this.showNewPlayer();
+        else if (amount == 5) this.showNewPlayer();
+        else this.showNewPlayer();
     }
 
     localize(locale: Locale): void {
@@ -127,9 +141,10 @@ export default class Login extends Phaser.Scene {
     public MIN_USERNAME_LENGTH = 4;
     public MAX_USERNAME_LENGTH = 12;
 
-    async login({ name, password, saveName, savePassword }: {
+    async login({ name, password, key, saveName, savePassword }: {
         name: string,
-        password: string,
+        password?: string,
+        key?: string,
         saveName: boolean,
         savePassword: boolean
     }): Promise<void> {
@@ -144,16 +159,16 @@ export default class Login extends Phaser.Scene {
             if (name.length == 0) throw { message: 'shell.NAME_REQUIRED', buttonCallback, type: 'c', code: error.NAME_REQUIRED };
             else if (name.length < this.MIN_USERNAME_LENGTH) throw { message: 'shell.NAME_SHORT', buttonCallback, type: 'c', code: error.NAME_SHORT };
             else if (name.length > this.MAX_USERNAME_LENGTH) throw { message: 'shell.NAME_LONG', buttonCallback, type: 'c', code: error.NAME_LONG };
-            else if (password.length == 0) throw { message: 'shell.PASSWORD_REQUIRED', buttonCallback, type: 'c', code: error.PASSWORD_REQUIRED };
-            else if (password.length < this.MIN_PASS_LENGTH) throw { message: 'shell.PASSWORD_SHORT', buttonCallback, type: 'c', code: error.PASSWORD_SHORT };
-            else if (password.length > this.MAX_PASS_LENGTH) throw { message: 'shell.PASSWORD_LONG', buttonCallback, type: 'c', code: error.PASSWORD_LONG };
+            else if (!key && (!password || password.length == 0)) throw { message: 'shell.PASSWORD_REQUIRED', buttonCallback, type: 'c', code: error.PASSWORD_REQUIRED };
+            else if (!key && password.length < this.MIN_PASS_LENGTH) throw { message: 'shell.PASSWORD_SHORT', buttonCallback, type: 'c', code: error.PASSWORD_SHORT };
+            else if (!key && password.length > this.MAX_PASS_LENGTH) throw { message: 'shell.PASSWORD_LONG', buttonCallback, type: 'c', code: error.PASSWORD_LONG };
         }, e => e);
 
         if (!ok) return;
 
         load.show({ text: `${this.game.locale.localize('Logging in')} ${name}` });
 
-        await error.shield(this.game.airtower.logIn(name, password), e => {
+        let { result: { data: { session_key } } } = await error.shield(key ? this.game.airtower.refresh(key) : this.game.airtower.logIn(name, password), e => {
             if (e instanceof HTTPError) {
                 load.hide();
 
@@ -183,12 +198,31 @@ export default class Login extends Phaser.Scene {
             }, type: 'c', code: error.NO_SOCKET_CONNECTION};
         });
 
+        let { data: user } = await this.game.airtower.getMyUser();
+        if (saveName) this.saveAccount(user, savePassword ? session_key || key : undefined);
+
         let worlds = await this.game.airtower.getWorlds();
 
         this.worldSelect.setup(worlds.data);
         this.showWorldSelect();
 
         load.hide();
+    }
+
+    getSavedAccounts(): { [id: string]: SavedAccount } {
+        return JSON.parse(sessionStorage.getItem('accounts') || '{}');
+    }
+
+    saveAccount(user: MyUserData, key?: string): void {
+        let accounts = this.getSavedAccounts();
+        accounts[String(user.id)] = { user, key };
+        sessionStorage.setItem('accounts', JSON.stringify(accounts));
+    }
+
+    deleteAccount(id: number): void {
+        let accounts = this.getSavedAccounts();
+        delete accounts[String(id)];
+        sessionStorage.setItem('accounts', JSON.stringify(accounts));
     }
 
     async joinWorld(world: WorldData): Promise<void> {
