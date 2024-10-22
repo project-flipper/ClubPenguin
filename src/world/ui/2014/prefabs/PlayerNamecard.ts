@@ -4,13 +4,13 @@
 /* START OF COMPILED CODE */
 
 import PlayerInventory from "./PlayerInventory";
-import InputBlocker from "../../../lib/components/InputBlocker";
-import Paperdoll from "../../../lib/ui/Paperdoll";
-import TextBox from "../../../lib/ui/TextBox";
+import InputBlocker from "../../../../lib/components/InputBlocker";
+import Paperdoll from "../../../../lib/ui/Paperdoll";
+import TextBox from "../../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
-import ButtonComponent from "../../../lib/components/ButtonComponent";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Interface from "../Interface";
+import Interface from "@clubpenguin/world/interface/Interface";
 import { MyUserData } from "@clubpenguin/net/types/user";
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
@@ -25,17 +25,17 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         this.add(inventory);
 
         // bg
-        const bg = scene.add.nineslice(-9, -15.4, "interface", "interface/namecardBg", 522, 710.775, 46, 46, 46, 46);
+        const bg = scene.add.nineslice(-9, -15.4, "ui-2014", "2014/namecardBg", 522, 710.775, 46, 46, 46, 46);
         bg.setOrigin(0, 0);
         this.add(bg);
 
         // tab
-        const tab = scene.add.image(135, -52.52, "interface", "interface/namecardTab");
+        const tab = scene.add.image(135, -52.52, "ui-2014", "2014/namecardTab");
         tab.setOrigin(0, 0);
         this.add(tab);
 
         // photo
-        const photo = scene.add.image(18, 90, "interface", "interface/namecardPhoto");
+        const photo = scene.add.image(18, 90, "ui-2014", "2014/namecardPhoto");
         photo.setOrigin(0, 0);
         this.add(photo);
 
@@ -44,7 +44,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         this.add(paperdoll);
 
         // avatar
-        const avatar = scene.add.image(6.8625, 113.175, "interface", "interface/namecardAvatar0001");
+        const avatar = scene.add.image(6.8625, 113.175, "ui-2014", "2014/namecardAvatar0001");
         avatar.setOrigin(-0.0208, 0.05);
         avatar.visible = false;
         this.add(avatar);
@@ -66,28 +66,28 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         this.add(badge);
 
         // star
-        const star = scene.add.image(67.5, 67.5, "interface", "interface/playerStar");
+        const star = scene.add.image(67.5, 67.5, "ui-2014", "2014/playerStar");
         this.add(star);
 
         // moderatorEditButton
-        const moderatorEditButton = scene.add.image(387, 89.8875, "interface", "interface/namecardModerator0001");
+        const moderatorEditButton = scene.add.image(387, 89.8875, "ui-2014", "2014/namecardModerator0001");
         moderatorEditButton.setOrigin(0, 0);
         this.add(moderatorEditButton);
 
         // closeButton
-        const closeButton = scene.add.image(450, 54, "interface", "interface/namecardClose0001");
+        const closeButton = scene.add.image(450, 54, "ui-2014", "2014/namecardClose0001");
         this.add(closeButton);
 
-        // interface_coin
-        const interface_coin = scene.add.image(48.0375, 578.025, "interface", "interface/coin");
-        this.add(interface_coin);
+        // ui2014_coin
+        const ui2014_coin = scene.add.image(48.0375, 578.025, "ui-2014", "2014/coin");
+        this.add(ui2014_coin);
 
         // stampbookButton
-        const stampbookButton = scene.add.image(48.825, 638.775, "interface", "interface/namecardButton0001");
+        const stampbookButton = scene.add.image(48.825, 638.775, "ui-2014", "2014/namecardButton0001");
         this.add(stampbookButton);
 
         // stampbookButtonIcon
-        const stampbookButtonIcon = scene.add.image(48.825, 638.775, "interface", "interface/namecardStampbookButtonIcon");
+        const stampbookButtonIcon = scene.add.image(48.825, 638.775, "ui-2014", "2014/namecardStampbookButtonIcon");
         this.add(stampbookButtonIcon);
 
         // coins
@@ -113,7 +113,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         this.add(stamps);
 
         // inventoryTab
-        const inventoryTab = scene.add.image(504, 180, "interface", "interface/namecardInventoryTab");
+        const inventoryTab = scene.add.image(504, 180, "ui-2014", "2014/namecardInventoryTab");
         inventoryTab.setOrigin(0.09, 0.5);
         this.add(inventoryTab);
 
@@ -128,25 +128,25 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
 
         // moderatorEditButton (components)
         const moderatorEditButtonButtonComponent = new ButtonComponent(moderatorEditButton);
-        moderatorEditButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardModerator0001"};
-        moderatorEditButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardModerator0002"};
-        moderatorEditButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardModerator0003"};
+        moderatorEditButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardModerator0001"};
+        moderatorEditButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardModerator0002"};
+        moderatorEditButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardModerator0003"};
         moderatorEditButtonButtonComponent.handCursor = true;
         moderatorEditButtonButtonComponent.pixelPerfect = true;
 
         // closeButton (components)
         const closeButtonButtonComponent = new ButtonComponent(closeButton);
-        closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardClose0001"};
-        closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardClose0002"};
-        closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardClose0003"};
+        closeButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardClose0001"};
+        closeButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardClose0002"};
+        closeButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardClose0003"};
         closeButtonButtonComponent.handCursor = true;
         closeButtonButtonComponent.pixelPerfect = true;
 
         // stampbookButton (components)
         const stampbookButtonButtonComponent = new ButtonComponent(stampbookButton);
-        stampbookButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
-        stampbookButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
-        stampbookButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
+        stampbookButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardButton0001"};
+        stampbookButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardButton0002"};
+        stampbookButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardButton0003"};
         stampbookButtonButtonComponent.handCursor = true;
         stampbookButtonButtonComponent.pixelPerfect = true;
 
@@ -195,14 +195,14 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
             startY = this.y;
         });
         this.tab.on('drag', (pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
-            this.setPosition(startX - this.tab.x + dragX, startY - this.tab.y + dragY);
+            this.scene.repositionNamecard(startX - this.tab.x + dragX, startY - this.tab.y + dragY);
         });
         this.bg.on('dragstart', () => {
             startX = this.x;
             startY = this.y;
         });
         this.bg.on('drag', (pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
-            this.setPosition(startX - this.bg.x + dragX, startY - this.bg.y + dragY);
+            this.scene.repositionNamecard(startX - this.bg.x + dragX, startY - this.bg.y + dragY);
         });
 
         this.stampbookButton.on('over', () => {
@@ -219,7 +219,6 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         this.inventory.tab.on('release', () => this.closeInventory());
 
         this.closeButton.on('release', () => {
-            this.scene.namecard.setPosition(this.x, this.y);
             this.scene.closeNamecard();
         });
 

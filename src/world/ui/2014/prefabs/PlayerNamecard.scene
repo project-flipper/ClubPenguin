@@ -36,8 +36,8 @@
                     "label": "bg",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardBg"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardBg"
                     },
                     "x": -9,
                     "y": -15.4,
@@ -56,8 +56,8 @@
                     "label": "tab",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardTab"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardTab"
                     },
                     "x": 135,
                     "y": -52.52,
@@ -72,8 +72,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardPhoto"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardPhoto"
                     },
                     "x": 18,
                     "y": 90,
@@ -98,8 +98,8 @@
                     "label": "avatar",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardAvatar0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardAvatar0001"
                     },
                     "x": 6.8625,
                     "y": 113.175,
@@ -163,8 +163,8 @@
                     "label": "star",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/playerStar"
+                        "key": "ui-2014",
+                        "frame": "2014/playerStar"
                     },
                     "x": 67.5,
                     "y": 67.5
@@ -177,14 +177,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardModerator0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardModerator0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardModerator0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardModerator0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardModerator0001"
                     },
                     "x": 387,
                     "y": 89.8875,
@@ -199,14 +199,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardClose0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardClose0001"
                     },
                     "x": 450,
                     "y": 54
@@ -214,10 +214,10 @@
                 {
                     "type": "Image",
                     "id": "e91c4ba4-73a0-49ff-964f-028798d29646",
-                    "label": "interface_coin",
+                    "label": "ui2014_coin",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/coin"
+                        "key": "ui-2014",
+                        "frame": "2014/coin"
                     },
                     "x": 48.0375,
                     "y": 578.025
@@ -230,14 +230,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButton0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
                     },
                     "x": 48.825,
                     "y": 638.775
@@ -247,8 +247,8 @@
                     "id": "b59b6e28-1a4e-42e4-a828-e0ac085d84e1",
                     "label": "stampbookButtonIcon",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardStampbookButtonIcon"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardStampbookButtonIcon"
                     },
                     "x": 48.825,
                     "y": 638.775
@@ -332,8 +332,8 @@
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardInventoryTab"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardInventoryTab"
                     },
                     "x": 504,
                     "y": 180,

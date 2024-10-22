@@ -15,12 +15,12 @@ enum InventorySort {
 
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../../../lib/components/InputBlocker";
-import ButtonComponent from "../../../lib/components/ButtonComponent";
+import InputBlocker from "../../../../lib/components/InputBlocker";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
 import InventoryItem from "./InventoryItem";
-import TextBox from "../../../lib/ui/TextBox";
+import TextBox from "../../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
-import Interface from "../Interface";
+import Interface from "@clubpenguin/world/interface/Interface";
 /* END-USER-IMPORTS */
 
 export default class PlayerInventory extends Phaser.GameObjects.Container {
@@ -29,29 +29,29 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // bg
-        const bg = scene.add.image(247.1625, -8.4375, "interface", "interface/inventoryBg");
+        const bg = scene.add.image(247.1625, -8.4375, "ui-2014", "2014/inventoryBg");
         bg.setOrigin(0, 0);
         this.add(bg);
 
         // sortBg
-        const sortBg = scene.add.image(767.25, 679.5, "interface", "interface/inventorySortBg");
+        const sortBg = scene.add.image(767.25, 679.5, "ui-2014", "2014/inventorySortBg");
         this.add(sortBg);
 
         // tab
-        const tab = scene.add.image(1063.25, 180, "interface", "interface/namecardInventoryTabOpen");
+        const tab = scene.add.image(1063.25, 180, "ui-2014", "2014/namecardInventoryTabOpen");
         tab.setOrigin(0.09, 0.5);
         this.add(tab);
 
         // scroll
-        const scroll = scene.add.image(1012.3875, 319.275, "interface", "interface/inventoryScroll");
+        const scroll = scene.add.image(1012.3875, 319.275, "ui-2014", "2014/inventoryScroll");
         this.add(scroll);
 
         // backButton
-        const backButton = scene.add.image(1012.5, 55.0125, "interface", "interface/inventoryBackButton0001");
+        const backButton = scene.add.image(1012.5, 55.0125, "ui-2014", "2014/inventoryBackButton0001");
         this.add(backButton);
 
         // nextButton
-        const nextButton = scene.add.image(1012.5, 583.7625, "interface", "interface/inventoryNextButton0001");
+        const nextButton = scene.add.image(1012.5, 583.7625, "ui-2014", "2014/inventoryNextButton0001");
         this.add(nextButton);
 
         // item0
@@ -104,7 +104,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(item11);
 
         // sortButton
-        const sortButton = scene.add.image(767.25, 675, "interface", "interface/inventorySortButton0001");
+        const sortButton = scene.add.image(767.25, 675, "ui-2014", "2014/inventorySortButton0001");
         this.add(sortButton);
 
         // sortText
@@ -121,7 +121,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortText);
 
         // sortHeadButton
-        const sortHeadButton = scene.add.image(767.25, 17.66, "interface", "interface/inventoryButton0001");
+        const sortHeadButton = scene.add.image(767.25, 17.66, "ui-2014", "2014/inventoryButton0001");
         this.add(sortHeadButton);
 
         // sortHeadLabel
@@ -138,7 +138,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortHeadLabel);
 
         // sortFaceButton
-        const sortFaceButton = scene.add.image(767.25, 89.66, "interface", "interface/inventoryButton0001");
+        const sortFaceButton = scene.add.image(767.25, 89.66, "ui-2014", "2014/inventoryButton0001");
         this.add(sortFaceButton);
 
         // sortFaceLabel
@@ -155,7 +155,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortFaceLabel);
 
         // sortNeckButton
-        const sortNeckButton = scene.add.image(767.25, 161.66, "interface", "interface/inventoryButton0001");
+        const sortNeckButton = scene.add.image(767.25, 161.66, "ui-2014", "2014/inventoryButton0001");
         this.add(sortNeckButton);
 
         // sortNeckLabel
@@ -172,7 +172,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortNeckLabel);
 
         // sortBodyButton
-        const sortBodyButton = scene.add.image(767.25, 233.66, "interface", "interface/inventoryButton0001");
+        const sortBodyButton = scene.add.image(767.25, 233.66, "ui-2014", "2014/inventoryButton0001");
         this.add(sortBodyButton);
 
         // sortBodyLabel
@@ -189,7 +189,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortBodyLabel);
 
         // sortHandButton
-        const sortHandButton = scene.add.image(767.25, 305.66, "interface", "interface/inventoryButton0001");
+        const sortHandButton = scene.add.image(767.25, 305.66, "ui-2014", "2014/inventoryButton0001");
         this.add(sortHandButton);
 
         // sortHandLabel
@@ -206,7 +206,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortHandLabel);
 
         // sortFeetButton
-        const sortFeetButton = scene.add.image(767.25, 377.66, "interface", "interface/inventoryButton0001");
+        const sortFeetButton = scene.add.image(767.25, 377.66, "ui-2014", "2014/inventoryButton0001");
         this.add(sortFeetButton);
 
         // sortFeetLabel
@@ -223,7 +223,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortFeetLabel);
 
         // sortColorButton
-        const sortColorButton = scene.add.image(767.25, 449.66, "interface", "interface/inventoryButton0001");
+        const sortColorButton = scene.add.image(767.25, 449.66, "ui-2014", "2014/inventoryButton0001");
         this.add(sortColorButton);
 
         // sortColorLabel
@@ -240,7 +240,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortColorLabel);
 
         // sortOtherButton
-        const sortOtherButton = scene.add.image(767.25, 526.16, "interface", "interface/inventoryOtherButton0001");
+        const sortOtherButton = scene.add.image(767.25, 526.16, "ui-2014", "2014/inventoryOtherButton0001");
         this.add(sortOtherButton);
 
         // sortOtherLabel
@@ -257,7 +257,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortOtherLabel);
 
         // sortAllButton
-        const sortAllButton = scene.add.image(767.25, 598.16, "interface", "interface/inventoryButton0001");
+        const sortAllButton = scene.add.image(767.25, 598.16, "ui-2014", "2014/inventoryButton0001");
         this.add(sortAllButton);
 
         // sortAllLabel
@@ -274,7 +274,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortAllLabel);
 
         // sortFlagsButton
-        const sortFlagsButton = scene.add.image(1064.25, 449.66, "interface", "interface/inventoryButton0001");
+        const sortFlagsButton = scene.add.image(1064.25, 449.66, "ui-2014", "2014/inventoryButton0001");
         this.add(sortFlagsButton);
 
         // sortFlagsLabel
@@ -291,7 +291,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortFlagsLabel);
 
         // sortAwardsButton
-        const sortAwardsButton = scene.add.image(1064.25, 526.16, "interface", "interface/inventoryButton0001");
+        const sortAwardsButton = scene.add.image(1064.25, 526.16, "ui-2014", "2014/inventoryButton0001");
         this.add(sortAwardsButton);
 
         // sortAwardsLabel
@@ -308,7 +308,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         this.add(sortAwardsLabel);
 
         // sortPhotosButton
-        const sortPhotosButton = scene.add.image(1064.25, 598.16, "interface", "interface/inventoryButton0001");
+        const sortPhotosButton = scene.add.image(1064.25, 598.16, "ui-2014", "2014/inventoryButton0001");
         this.add(sortPhotosButton);
 
         // sortPhotosLabel
@@ -339,25 +339,25 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // backButton (components)
         const backButtonButtonComponent = new ButtonComponent(backButton);
-        backButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryBackButton0001"};
-        backButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryBackButton0002"};
-        backButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryBackButton0003"};
+        backButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryBackButton0001"};
+        backButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryBackButton0002"};
+        backButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryBackButton0003"};
         backButtonButtonComponent.handCursor = true;
         backButtonButtonComponent.pixelPerfect = true;
 
         // nextButton (components)
         const nextButtonButtonComponent = new ButtonComponent(nextButton);
-        nextButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryNextButton0001"};
-        nextButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryNextButton0002"};
-        nextButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryNextButton0003"};
+        nextButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryNextButton0001"};
+        nextButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryNextButton0002"};
+        nextButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryNextButton0003"};
         nextButtonButtonComponent.handCursor = true;
         nextButtonButtonComponent.pixelPerfect = true;
 
         // sortButton (components)
         const sortButtonButtonComponent = new ButtonComponent(sortButton);
-        sortButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventorySortButton0001"};
-        sortButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventorySortButton0002"};
-        sortButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventorySortButton0002"};
+        sortButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventorySortButton0001"};
+        sortButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventorySortButton0002"};
+        sortButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventorySortButton0002"};
         sortButtonButtonComponent.handCursor = true;
         sortButtonButtonComponent.pixelPerfect = true;
 
@@ -369,9 +369,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortHeadButton (components)
         const sortHeadButtonButtonComponent = new ButtonComponent(sortHeadButton);
-        sortHeadButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortHeadButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortHeadButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortHeadButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortHeadButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortHeadButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortHeadButtonButtonComponent.handCursor = true;
         sortHeadButtonButtonComponent.pixelPerfect = true;
 
@@ -383,9 +383,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortFaceButton (components)
         const sortFaceButtonButtonComponent = new ButtonComponent(sortFaceButton);
-        sortFaceButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortFaceButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortFaceButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortFaceButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortFaceButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortFaceButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortFaceButtonButtonComponent.handCursor = true;
         sortFaceButtonButtonComponent.pixelPerfect = true;
 
@@ -397,9 +397,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortNeckButton (components)
         const sortNeckButtonButtonComponent = new ButtonComponent(sortNeckButton);
-        sortNeckButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortNeckButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortNeckButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortNeckButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortNeckButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortNeckButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortNeckButtonButtonComponent.handCursor = true;
         sortNeckButtonButtonComponent.pixelPerfect = true;
 
@@ -411,9 +411,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortBodyButton (components)
         const sortBodyButtonButtonComponent = new ButtonComponent(sortBodyButton);
-        sortBodyButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortBodyButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortBodyButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortBodyButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortBodyButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortBodyButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortBodyButtonButtonComponent.handCursor = true;
         sortBodyButtonButtonComponent.pixelPerfect = true;
 
@@ -425,9 +425,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortHandButton (components)
         const sortHandButtonButtonComponent = new ButtonComponent(sortHandButton);
-        sortHandButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortHandButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortHandButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortHandButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortHandButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortHandButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortHandButtonButtonComponent.handCursor = true;
         sortHandButtonButtonComponent.pixelPerfect = true;
 
@@ -439,9 +439,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortFeetButton (components)
         const sortFeetButtonButtonComponent = new ButtonComponent(sortFeetButton);
-        sortFeetButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortFeetButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortFeetButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortFeetButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortFeetButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortFeetButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortFeetButtonButtonComponent.handCursor = true;
         sortFeetButtonButtonComponent.pixelPerfect = true;
 
@@ -453,9 +453,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortColorButton (components)
         const sortColorButtonButtonComponent = new ButtonComponent(sortColorButton);
-        sortColorButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortColorButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortColorButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortColorButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortColorButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortColorButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortColorButtonButtonComponent.handCursor = true;
         sortColorButtonButtonComponent.pixelPerfect = true;
 
@@ -467,9 +467,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortOtherButton (components)
         const sortOtherButtonButtonComponent = new ButtonComponent(sortOtherButton);
-        sortOtherButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryOtherButton0001"};
-        sortOtherButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryOtherButton0002"};
-        sortOtherButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryOtherButton0002"};
+        sortOtherButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryOtherButton0001"};
+        sortOtherButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryOtherButton0002"};
+        sortOtherButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryOtherButton0002"};
         sortOtherButtonButtonComponent.handCursor = true;
         sortOtherButtonButtonComponent.pixelPerfect = true;
 
@@ -481,9 +481,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortAllButton (components)
         const sortAllButtonButtonComponent = new ButtonComponent(sortAllButton);
-        sortAllButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortAllButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortAllButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortAllButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortAllButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortAllButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortAllButtonButtonComponent.handCursor = true;
         sortAllButtonButtonComponent.pixelPerfect = true;
 
@@ -495,9 +495,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortFlagsButton (components)
         const sortFlagsButtonButtonComponent = new ButtonComponent(sortFlagsButton);
-        sortFlagsButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortFlagsButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortFlagsButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortFlagsButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortFlagsButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortFlagsButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortFlagsButtonButtonComponent.handCursor = true;
         sortFlagsButtonButtonComponent.pixelPerfect = true;
 
@@ -509,9 +509,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortAwardsButton (components)
         const sortAwardsButtonButtonComponent = new ButtonComponent(sortAwardsButton);
-        sortAwardsButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortAwardsButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortAwardsButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortAwardsButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortAwardsButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortAwardsButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortAwardsButtonButtonComponent.handCursor = true;
         sortAwardsButtonButtonComponent.pixelPerfect = true;
 
@@ -523,9 +523,9 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
 
         // sortPhotosButton (components)
         const sortPhotosButtonButtonComponent = new ButtonComponent(sortPhotosButton);
-        sortPhotosButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/inventoryButton0001"};
-        sortPhotosButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
-        sortPhotosButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/inventoryButton0002"};
+        sortPhotosButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/inventoryButton0001"};
+        sortPhotosButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
+        sortPhotosButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/inventoryButton0002"};
         sortPhotosButtonButtonComponent.handCursor = true;
         sortPhotosButtonButtonComponent.pixelPerfect = true;
 

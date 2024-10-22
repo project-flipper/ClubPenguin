@@ -3,13 +3,13 @@
 
 /* START OF COMPILED CODE */
 
-import InputBlocker from "../../../lib/components/InputBlocker";
-import Paperdoll from "../../../lib/ui/Paperdoll";
-import TextBox from "../../../lib/ui/TextBox";
+import InputBlocker from "../../../../lib/components/InputBlocker";
+import Paperdoll from "../../../../lib/ui/Paperdoll";
+import TextBox from "../../../../lib/ui/TextBox";
 import MemberBadge from "./MemberBadge";
-import ButtonComponent from "../../../lib/components/ButtonComponent";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Interface from "../Interface";
+import Interface from "@clubpenguin/world/interface/Interface";
 import { UserData } from "@clubpenguin/net/types/user";
 import { Locale } from "@clubpenguin/app/locale";
 /* END-USER-IMPORTS */
@@ -20,17 +20,17 @@ export default class Namecard extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // bg
-        const bg = scene.add.nineslice(-9, -15.4, "interface", "interface/namecardBg", 522, 710.775, 46, 46, 46, 46);
+        const bg = scene.add.nineslice(-9, -15.4, "ui-2014", "2014/namecardBg", 522, 710.775, 46, 46, 46, 46);
         bg.setOrigin(0, 0);
         this.add(bg);
 
         // tab
-        const tab = scene.add.image(135, -52.52, "interface", "interface/namecardTab");
+        const tab = scene.add.image(135, -52.52, "ui-2014", "2014/namecardTab");
         tab.setOrigin(0, 0);
         this.add(tab);
 
         // photo
-        const photo = scene.add.image(18, 90, "interface", "interface/namecardPhoto");
+        const photo = scene.add.image(18, 90, "ui-2014", "2014/namecardPhoto");
         photo.setOrigin(0, 0);
         this.add(photo);
 
@@ -39,7 +39,7 @@ export default class Namecard extends Phaser.GameObjects.Container {
         this.add(paperdoll);
 
         // avatar
-        const avatar = scene.add.image(6.8625, 113.175, "interface", "interface/namecardAvatar0001");
+        const avatar = scene.add.image(6.8625, 113.175, "ui-2014", "2014/namecardAvatar0001");
         avatar.setOrigin(-0.0208, 0.05);
         avatar.visible = false;
         this.add(avatar);
@@ -61,103 +61,103 @@ export default class Namecard extends Phaser.GameObjects.Container {
         this.add(badge);
 
         // moderatorEditButton
-        const moderatorEditButton = scene.add.image(387, 89.8875, "interface", "interface/namecardModerator0001");
+        const moderatorEditButton = scene.add.image(387, 89.8875, "ui-2014", "2014/namecardModerator0001");
         moderatorEditButton.setOrigin(0, 0);
         this.add(moderatorEditButton);
 
         // closeButton
-        const closeButton = scene.add.image(450, 54, "interface", "interface/namecardClose0001");
+        const closeButton = scene.add.image(450, 54, "ui-2014", "2014/namecardClose0001");
         this.add(closeButton);
 
         // friendButton
-        const friendButton = scene.add.image(49.6125, 616.5, "interface", "interface/namecardButton0001");
+        const friendButton = scene.add.image(49.6125, 616.5, "ui-2014", "2014/namecardButton0001");
         this.add(friendButton);
 
         // friendsButtonDisabled
-        const friendsButtonDisabled = scene.add.image(49.6125, 616.5, "interface", "interface/namecardButtonDisabled");
+        const friendsButtonDisabled = scene.add.image(49.6125, 616.5, "ui-2014", "2014/namecardButtonDisabled");
         friendsButtonDisabled.visible = false;
         this.add(friendsButtonDisabled);
 
         // friendsButtonIcon
-        const friendsButtonIcon = scene.add.image(49.6125, 616.5, "interface", "interface/namecardFriendsButtonDisabled");
+        const friendsButtonIcon = scene.add.image(49.6125, 616.5, "ui-2014", "2014/namecardFriendsButtonDisabled");
         this.add(friendsButtonIcon);
 
         // locateButton
-        const locateButton = scene.add.image(117.1125, 616.5, "interface", "interface/namecardButton0001");
+        const locateButton = scene.add.image(117.1125, 616.5, "ui-2014", "2014/namecardButton0001");
         this.add(locateButton);
 
         // locateButtonDisabled
-        const locateButtonDisabled = scene.add.image(117.1125, 616.5, "interface", "interface/namecardButtonDisabled");
+        const locateButtonDisabled = scene.add.image(117.1125, 616.5, "ui-2014", "2014/namecardButtonDisabled");
         locateButtonDisabled.visible = false;
         this.add(locateButtonDisabled);
 
         // locateButtonIcon
-        const locateButtonIcon = scene.add.image(117.1125, 616.5, "interface", "interface/namecardLocateButtonDisabled");
+        const locateButtonIcon = scene.add.image(117.1125, 616.5, "ui-2014", "2014/namecardLocateButtonDisabled");
         this.add(locateButtonIcon);
 
         // iglooButton
-        const iglooButton = scene.add.image(184.5, 616.5, "interface", "interface/namecardButton0001");
+        const iglooButton = scene.add.image(184.5, 616.5, "ui-2014", "2014/namecardButton0001");
         this.add(iglooButton);
 
         // iglooButtonDisabled
-        const iglooButtonDisabled = scene.add.image(184.5, 616.5, "interface", "interface/namecardButtonDisabled");
+        const iglooButtonDisabled = scene.add.image(184.5, 616.5, "ui-2014", "2014/namecardButtonDisabled");
         iglooButtonDisabled.visible = false;
         this.add(iglooButtonDisabled);
 
         // iglooButtonIcon
-        const iglooButtonIcon = scene.add.image(184.5, 616.5, "interface", "interface/namecardIglooButtonDisabled");
+        const iglooButtonIcon = scene.add.image(184.5, 616.5, "ui-2014", "2014/namecardIglooButtonDisabled");
         this.add(iglooButtonIcon);
 
         // mailButton
-        const mailButton = scene.add.image(252, 616.5, "interface", "interface/namecardButton0001");
+        const mailButton = scene.add.image(252, 616.5, "ui-2014", "2014/namecardButton0001");
         this.add(mailButton);
 
         // mailButtonDisabled
-        const mailButtonDisabled = scene.add.image(252, 616.5, "interface", "interface/namecardButtonDisabled");
+        const mailButtonDisabled = scene.add.image(252, 616.5, "ui-2014", "2014/namecardButtonDisabled");
         mailButtonDisabled.visible = false;
         this.add(mailButtonDisabled);
 
         // mailButtonIcon
-        const mailButtonIcon = scene.add.image(252, 616.5, "interface", "interface/namecardMailButtonDisabled");
+        const mailButtonIcon = scene.add.image(252, 616.5, "ui-2014", "2014/namecardMailButtonDisabled");
         this.add(mailButtonIcon);
 
         // stampbookButton
-        const stampbookButton = scene.add.image(319.5, 616.5, "interface", "interface/namecardButton0001");
+        const stampbookButton = scene.add.image(319.5, 616.5, "ui-2014", "2014/namecardButton0001");
         this.add(stampbookButton);
 
         // stampbookButtonDisabled
-        const stampbookButtonDisabled = scene.add.image(319.5, 616.5, "interface", "interface/namecardButtonDisabled");
+        const stampbookButtonDisabled = scene.add.image(319.5, 616.5, "ui-2014", "2014/namecardButtonDisabled");
         stampbookButtonDisabled.visible = false;
         this.add(stampbookButtonDisabled);
 
         // stampbookButtonIcon
-        const stampbookButtonIcon = scene.add.image(319.5, 616.5, "interface", "interface/namecardStampbookButtonDisabled");
+        const stampbookButtonIcon = scene.add.image(319.5, 616.5, "ui-2014", "2014/namecardStampbookButtonDisabled");
         this.add(stampbookButtonIcon);
 
         // ignoreButton
-        const ignoreButton = scene.add.image(387, 616.5, "interface", "interface/namecardButton0001");
+        const ignoreButton = scene.add.image(387, 616.5, "ui-2014", "2014/namecardButton0001");
         this.add(ignoreButton);
 
         // ignoreButtonDisabled
-        const ignoreButtonDisabled = scene.add.image(387, 616.5, "interface", "interface/namecardButtonDisabled");
+        const ignoreButtonDisabled = scene.add.image(387, 616.5, "ui-2014", "2014/namecardButtonDisabled");
         ignoreButtonDisabled.visible = false;
         this.add(ignoreButtonDisabled);
 
         // ignoreButtonIcon
-        const ignoreButtonIcon = scene.add.image(387, 616.5, "interface", "interface/namecardIgnoreButtonDisabled");
+        const ignoreButtonIcon = scene.add.image(387, 616.5, "ui-2014", "2014/namecardIgnoreButtonDisabled");
         this.add(ignoreButtonIcon);
 
         // reportButton
-        const reportButton = scene.add.image(454.5, 616.5, "interface", "interface/namecardButton0001");
+        const reportButton = scene.add.image(454.5, 616.5, "ui-2014", "2014/namecardButton0001");
         this.add(reportButton);
 
         // reportButtonDisabled
-        const reportButtonDisabled = scene.add.image(454.5, 616.5, "interface", "interface/namecardButtonDisabled");
+        const reportButtonDisabled = scene.add.image(454.5, 616.5, "ui-2014", "2014/namecardButtonDisabled");
         reportButtonDisabled.visible = false;
         this.add(reportButtonDisabled);
 
         // reportButtonIcon
-        const reportButtonIcon = scene.add.image(454.5, 616.5, "interface", "interface/namecardReportButtonDisabled");
+        const reportButtonIcon = scene.add.image(454.5, 616.5, "ui-2014", "2014/namecardReportButtonDisabled");
         this.add(reportButtonIcon);
 
         // photo (components)
@@ -174,25 +174,25 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // moderatorEditButton (components)
         const moderatorEditButtonButtonComponent = new ButtonComponent(moderatorEditButton);
-        moderatorEditButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardModerator0001"};
-        moderatorEditButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardModerator0002"};
-        moderatorEditButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardModerator0003"};
+        moderatorEditButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardModerator0001"};
+        moderatorEditButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardModerator0002"};
+        moderatorEditButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardModerator0003"};
         moderatorEditButtonButtonComponent.handCursor = true;
         moderatorEditButtonButtonComponent.pixelPerfect = true;
 
         // closeButton (components)
         const closeButtonButtonComponent = new ButtonComponent(closeButton);
-        closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardClose0001"};
-        closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardClose0002"};
-        closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardClose0003"};
+        closeButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardClose0001"};
+        closeButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardClose0002"};
+        closeButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardClose0003"};
         closeButtonButtonComponent.handCursor = true;
         closeButtonButtonComponent.pixelPerfect = true;
 
         // friendButton (components)
         const friendButtonButtonComponent = new ButtonComponent(friendButton);
-        friendButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
-        friendButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
-        friendButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
+        friendButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardButton0001"};
+        friendButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardButton0002"};
+        friendButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardButton0003"};
         friendButtonButtonComponent.handCursor = true;
         friendButtonButtonComponent.pixelPerfect = true;
 
@@ -201,9 +201,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // locateButton (components)
         const locateButtonButtonComponent = new ButtonComponent(locateButton);
-        locateButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
-        locateButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
-        locateButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
+        locateButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardButton0001"};
+        locateButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardButton0002"};
+        locateButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardButton0003"};
         locateButtonButtonComponent.handCursor = true;
         locateButtonButtonComponent.pixelPerfect = true;
 
@@ -212,9 +212,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // iglooButton (components)
         const iglooButtonButtonComponent = new ButtonComponent(iglooButton);
-        iglooButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
-        iglooButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
-        iglooButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
+        iglooButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardButton0001"};
+        iglooButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardButton0002"};
+        iglooButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardButton0003"};
         iglooButtonButtonComponent.handCursor = true;
         iglooButtonButtonComponent.pixelPerfect = true;
 
@@ -223,9 +223,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // mailButton (components)
         const mailButtonButtonComponent = new ButtonComponent(mailButton);
-        mailButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
-        mailButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
-        mailButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
+        mailButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardButton0001"};
+        mailButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardButton0002"};
+        mailButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardButton0003"};
         mailButtonButtonComponent.handCursor = true;
         mailButtonButtonComponent.pixelPerfect = true;
 
@@ -234,9 +234,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // stampbookButton (components)
         const stampbookButtonButtonComponent = new ButtonComponent(stampbookButton);
-        stampbookButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
-        stampbookButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
-        stampbookButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
+        stampbookButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardButton0001"};
+        stampbookButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardButton0002"};
+        stampbookButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardButton0003"};
         stampbookButtonButtonComponent.handCursor = true;
         stampbookButtonButtonComponent.pixelPerfect = true;
 
@@ -245,9 +245,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // ignoreButton (components)
         const ignoreButtonButtonComponent = new ButtonComponent(ignoreButton);
-        ignoreButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
-        ignoreButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
-        ignoreButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
+        ignoreButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardButton0001"};
+        ignoreButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardButton0002"};
+        ignoreButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardButton0003"};
         ignoreButtonButtonComponent.handCursor = true;
         ignoreButtonButtonComponent.pixelPerfect = true;
 
@@ -256,9 +256,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         // reportButton (components)
         const reportButtonButtonComponent = new ButtonComponent(reportButton);
-        reportButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardButton0001"};
-        reportButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardButton0002"};
-        reportButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardButton0003"};
+        reportButtonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/namecardButton0001"};
+        reportButtonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/namecardButton0002"};
+        reportButtonButtonComponent.downTexture = {"key":"ui-2014","frame":"2014/namecardButton0003"};
         reportButtonButtonComponent.handCursor = true;
         reportButtonButtonComponent.pixelPerfect = true;
 
@@ -310,14 +310,14 @@ export default class Namecard extends Phaser.GameObjects.Container {
             startY = this.y;
         });
         this.tab.on('drag', (pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
-            this.setPosition(startX - this.tab.x + dragX, startY - this.tab.y + dragY);
+            this.scene.repositionNamecard(startX - this.tab.x + dragX, startY - this.tab.y + dragY);
         });
         this.bg.on('dragstart', () => {
             startX = this.x;
             startY = this.y;
         });
         this.bg.on('drag', (pointer: Phaser.Input.Pointer, dragX: number, dragY: number) => {
-            this.setPosition(startX - this.bg.x + dragX, startY - this.bg.y + dragY);
+            this.scene.repositionNamecard(startX - this.bg.x + dragX, startY - this.bg.y + dragY);
         });
 
         this.friendButton.on('over', () => {
@@ -401,7 +401,6 @@ export default class Namecard extends Phaser.GameObjects.Container {
         });
 
         this.closeButton.on('release', () => {
-            this.scene.playerNamecard.setPosition(this.x, this.y);
             this.scene.closeNamecard();
         });
 
@@ -469,9 +468,9 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         if (this.scene.world.isMascot(data)) {
             this.friendButton.visible = !this.scene.world.isFriend(data);
-            this.friendsButtonIcon.setFrame(this.friendButton.visible ? 'interface/namecardFriendsButtonIcon' : 'interface/namecardFriendsButtonDisabled');
+            this.friendsButtonIcon.setFrame(this.friendButton.visible ? '2014/namecardFriendsButtonIcon' : '2014/namecardFriendsButtonDisabled');
         } else {
-            this.friendsButtonIcon.setFrame(this.scene.world.isFriend(data) ? 'interface/namecardFriendsButtonUnfriend' : 'interface/namecardFriendsButtonIcon');
+            this.friendsButtonIcon.setFrame(this.scene.world.isFriend(data) ? '2014/namecardFriendsButtonUnfriend' : '2014/namecardFriendsButtonIcon');
             this.friendButton.visible = true;
         }
         this.friendHint = this.scene.world.isFriend(data) ? 'remove_buddy_hint' : 'add_buddy_hint';
@@ -479,29 +478,29 @@ export default class Namecard extends Phaser.GameObjects.Container {
 
         if (this.scene.world.isMascot(data)) {
             this.locateButton.visible = true; // TODO: check for item
-            this.locateButtonIcon.setFrame('interface/namecardLocateButtonGift');
+            this.locateButtonIcon.setFrame('2014/namecardLocateButtonGift');
             this.locateHint = 'free_item_hint';
         } else if (this.scene.world.isMyPlayerModerator()) {
             this.locateButton.visible = true;
-            this.locateButtonIcon.setFrame('interface/namecardLocateButtonMute');
+            this.locateButtonIcon.setFrame('2014/namecardLocateButtonMute');
             this.locateHint = 'mute_player_hint';
         } else {
             this.locateButton.visible = this.scene.world.isFriend(data) ? (data.presence ? data.presence.world_id == this.scene.world.worldId : false) : false;
-            this.locateButtonIcon.setFrame(this.locateButton.visible ? 'interface/namecardLocateButtonIcon' : 'interface/namecardLocateButtonDisabled');
+            this.locateButtonIcon.setFrame(this.locateButton.visible ? '2014/namecardLocateButtonIcon' : '2014/namecardLocateButtonDisabled');
             this.locateHint = 'online_hint';
         }
         this.locateButtonDisabled.visible = !this.locateButton.visible;
 
         this.iglooButton.visible = data?.igloo_id != undefined;
-        this.iglooButtonIcon.setFrame(this.iglooButton.visible ? 'interface/namecardIglooButtonIcon' : 'interface/namecardIglooButtonDisabled');
+        this.iglooButtonIcon.setFrame(this.iglooButton.visible ? '2014/namecardIglooButtonIcon' : '2014/namecardIglooButtonDisabled');
         this.iglooButtonDisabled.visible = !this.iglooButton.visible;
 
         this.mailButton.visible = !this.scene.world.isMascot(data);
-        this.mailButtonIcon.setFrame(this.mailButton.visible ? 'interface/namecardMailButtonIcon' : 'interface/namecardMailButtonDisabled');
+        this.mailButtonIcon.setFrame(this.mailButton.visible ? '2014/namecardMailButtonIcon' : '2014/namecardMailButtonDisabled');
         this.mailButtonDisabled.visible = !this.mailButton.visible;
 
         this.stampbookButton.visible = data.public_stampbook ? true : false;
-        this.stampbookButtonIcon.setFrame(this.stampbookButton.visible ? 'interface/namecardStampbookButtonIcon' : 'interface/namecardStampbookButtonDisabled');
+        this.stampbookButtonIcon.setFrame(this.stampbookButton.visible ? '2014/namecardStampbookButtonIcon' : '2014/namecardStampbookButtonDisabled');
         this.stampbookButtonDisabled.visible = !this.stampbookButton.visible;
 
         if (this.scene.world.isMyPlayerModerator() && !this.scene.world.isMascot(data)) {
@@ -517,10 +516,10 @@ export default class Namecard extends Phaser.GameObjects.Container {
             this.ignoreHint = this.scene.world.isIgnored(data) ? 'remove_ignore_hint' : 'add_ignore_hint';
             this.reportHint = 'report_player_hint';
         }
-        this.ignoreButtonIcon.setFrame(this.ignoreButton.visible ? 'interface/namecardIgnoreButtonIcon' : (this.scene.world.isIgnored(data) ? 'interface/namecardIgnoreButtonUnignore' : 'interface/namecardIgnoreButtonDisabled'));
+        this.ignoreButtonIcon.setFrame(this.ignoreButton.visible ? '2014/namecardIgnoreButtonIcon' : (this.scene.world.isIgnored(data) ? '2014/namecardIgnoreButtonUnignore' : '2014/namecardIgnoreButtonDisabled'));
         this.ignoreButtonDisabled.visible = !this.ignoreButton.visible;
 
-        this.reportButtonIcon.setFrame(this.reportButton.visible ? 'interface/namecardReportButtonIcon' : 'interface/namecardReportButtonDisabled')
+        this.reportButtonIcon.setFrame(this.reportButton.visible ? '2014/namecardReportButtonIcon' : '2014/namecardReportButtonDisabled')
         this.reportButtonDisabled.visible = !this.reportButton.visible;
 
         this.moderatorEditButton.visible = this.scene.world.isMyPlayerModerator();

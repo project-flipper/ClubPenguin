@@ -25,7 +25,7 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         this.add(okayButton);
 
         // closeButton
-        const closeButton = scene.add.image(1188.1125, 231.8625, "interface", "interface/namecardClose0001");
+        const closeButton = scene.add.image(1188.1125, 231.8625, "interface", "interface/promptClose0001");
         this.add(closeButton);
 
         // icon
@@ -63,8 +63,8 @@ export default class PromptInput extends Phaser.GameObjects.Container {
 
         // closeButton (components)
         const closeButtonButtonComponent = new ButtonComponent(closeButton);
-        closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardClose0001"};
-        closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardClose0002"};
+        closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptClose0001"};
+        closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptClose0002"};
         closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardClose0003"};
         closeButtonButtonComponent.handCursor = true;
         closeButtonButtonComponent.pixelPerfect = true;

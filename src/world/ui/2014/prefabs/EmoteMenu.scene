@@ -27,8 +27,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emoteBg"
+                        "key": "ui-2014",
+                        "frame": "2014/emoteBg"
                     },
                     "x": -3,
                     "y": -3,
@@ -43,13 +43,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 40.5,
                     "y": 41.4
@@ -57,10 +57,10 @@
                 {
                     "type": "Image",
                     "id": "70fe8dbf-ad82-4c68-8369-ef0355dc1834",
-                    "label": "interface_emojiLaughing",
+                    "label": "ui2014_emojiLaughing",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiLaughing"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiLaughing"
                     },
                     "x": 40.5,
                     "y": 41.4,
@@ -75,13 +75,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 112.5,
                     "y": 41.4
@@ -89,10 +89,10 @@
                 {
                     "type": "Image",
                     "id": "440dedc6-d90c-4c2f-9381-cee24918c497",
-                    "label": "interface_emojiHappy",
+                    "label": "ui2014_emojiHappy",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiHappy"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiHappy"
                     },
                     "x": 112.5,
                     "y": 41.4,
@@ -107,13 +107,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 184.5,
                     "y": 41.4
@@ -121,10 +121,10 @@
                 {
                     "type": "Image",
                     "id": "7f8def99-ba42-4170-bf0f-4787a4dd1c75",
-                    "label": "interface_emojiCoffee",
+                    "label": "ui2014_emojiCoffee",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiCoffee"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiCoffee"
                     },
                     "x": 184.5,
                     "y": 41.4,
@@ -139,13 +139,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 40.5,
                     "y": 113.4
@@ -153,10 +153,10 @@
                 {
                     "type": "Image",
                     "id": "2134a66a-1d2d-450f-b3e1-9ce812b9d7e1",
-                    "label": "interface_emojiIndifferent",
+                    "label": "ui2014_emojiIndifferent",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiIndifferent"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiIndifferent"
                     },
                     "x": 40.5,
                     "y": 113.4,
@@ -171,13 +171,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 112.5,
                     "y": 113.4
@@ -185,10 +185,10 @@
                 {
                     "type": "Image",
                     "id": "c6b6ef3b-f9b7-4389-921e-5359b1b6e7ce",
-                    "label": "interface_emojiSad",
+                    "label": "ui2014_emojiSad",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiSad"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiSad"
                     },
                     "x": 112.5,
                     "y": 113.4,
@@ -203,13 +203,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 184.5,
                     "y": 113.4
@@ -217,10 +217,10 @@
                 {
                     "type": "Image",
                     "id": "3f8f95d7-00ec-45c4-b330-03270379aae1",
-                    "label": "interface_emojiController",
+                    "label": "ui2014_emojiController",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiController"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiController"
                     },
                     "x": 184.5,
                     "y": 113.4,
@@ -235,13 +235,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 40.5,
                     "y": 185.4
@@ -249,10 +249,10 @@
                 {
                     "type": "Image",
                     "id": "e8f34974-d9c4-4aa7-9339-fdb212567929",
-                    "label": "interface_emojiSurprised",
+                    "label": "ui2014_emojiSurprised",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiSurprised"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiSurprised"
                     },
                     "x": 40.5,
                     "y": 185.4,
@@ -267,13 +267,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 112.5,
                     "y": 185.4
@@ -281,10 +281,10 @@
                 {
                     "type": "Image",
                     "id": "58e836b3-ee78-4f30-bb95-606304c9aab7",
-                    "label": "interface_emojiPokingOutTongue",
+                    "label": "ui2014_emojiPokingOutTongue",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiPokingOutTongue"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiPokingOutTongue"
                     },
                     "x": 112.5,
                     "y": 185.4,
@@ -299,13 +299,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 184.5,
                     "y": 185.4
@@ -313,10 +313,10 @@
                 {
                     "type": "Image",
                     "id": "712a34d3-b8b9-4a2c-a478-6d340048a22d",
-                    "label": "interface_emojiPopcorn",
+                    "label": "ui2014_emojiPopcorn",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiPopcorn"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiPopcorn"
                     },
                     "x": 184.5,
                     "y": 185.4,
@@ -331,13 +331,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 40.5,
                     "y": 257.4
@@ -345,10 +345,10 @@
                 {
                     "type": "Image",
                     "id": "1cc27faf-5ec7-4bc1-bd6e-085e5a351a47",
-                    "label": "interface_emojiWinking",
+                    "label": "ui2014_emojiWinking",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiWinking"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiWinking"
                     },
                     "x": 40.5,
                     "y": 257.4,
@@ -363,13 +363,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 112.5,
                     "y": 257.4
@@ -377,10 +377,10 @@
                 {
                     "type": "Image",
                     "id": "c8d8c7c0-7f56-45b0-9d2f-923a2e7b4818",
-                    "label": "interface_emojiSick",
+                    "label": "ui2014_emojiSick",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiSick"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiSick"
                     },
                     "x": 112.5,
                     "y": 257.4,
@@ -395,13 +395,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 184.5,
                     "y": 257.4
@@ -409,10 +409,10 @@
                 {
                     "type": "Image",
                     "id": "425927e9-8a55-498c-ac10-a575f7262ee3",
-                    "label": "interface_emojiPizza",
+                    "label": "ui2014_emojiPizza",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiPizza"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiPizza"
                     },
                     "x": 184.5,
                     "y": 257.4,
@@ -427,13 +427,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 40.5,
                     "y": 329.4
@@ -441,10 +441,10 @@
                 {
                     "type": "Image",
                     "id": "b4647825-babe-464b-a44d-bdc112db305d",
-                    "label": "interface_emojiMad",
+                    "label": "ui2014_emojiMad",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiMad"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiMad"
                     },
                     "x": 40.5,
                     "y": 329.4,
@@ -459,13 +459,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 112.5,
                     "y": 329.4
@@ -473,10 +473,10 @@
                 {
                     "type": "Image",
                     "id": "40f58f4f-461a-4b3f-98bc-669ba0c3b784",
-                    "label": "interface_emojiUpset",
+                    "label": "ui2014_emojiUpset",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiUpset"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiUpset"
                     },
                     "x": 112.5,
                     "y": 329.4,
@@ -491,13 +491,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 184.5,
                     "y": 329.4
@@ -505,10 +505,10 @@
                 {
                     "type": "Image",
                     "id": "21522668-edb8-439c-bbfe-4324f92fef86",
-                    "label": "interface_emojiStrawberryIceCream",
+                    "label": "ui2014_emojiStrawberryIceCream",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiStrawberryIceCream"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiStrawberryIceCream"
                     },
                     "x": 184.5,
                     "y": 329.4,
@@ -523,13 +523,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 40.5,
                     "y": 401.4
@@ -537,10 +537,10 @@
                 {
                     "type": "Image",
                     "id": "fef0439e-38bf-467c-8879-fe6eb5065909",
-                    "label": "interface_emojiMeh",
+                    "label": "ui2014_emojiMeh",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiMeh"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiMeh"
                     },
                     "x": 40.5,
                     "y": 401.4,
@@ -555,13 +555,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 112.5,
                     "y": 401.4
@@ -569,10 +569,10 @@
                 {
                     "type": "Image",
                     "id": "c8f275b2-1287-4620-818e-0141172cd76e",
-                    "label": "interface_emojiCake",
+                    "label": "ui2014_emojiCake",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiCake"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiCake"
                     },
                     "x": 112.5,
                     "y": 401.4,
@@ -587,13 +587,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 184.5,
                     "y": 401.4
@@ -601,10 +601,10 @@
                 {
                     "type": "Image",
                     "id": "d95b6d04-c2e0-43ee-a63d-0ad0a865d8f8",
-                    "label": "interface_emojiShamrock",
+                    "label": "ui2014_emojiShamrock",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiShamrock"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiShamrock"
                     },
                     "x": 184.5,
                     "y": 401.4,
@@ -619,13 +619,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 40.5,
                     "y": 473.4
@@ -633,10 +633,10 @@
                 {
                     "type": "Image",
                     "id": "c16c994c-c350-4d9f-9dd4-76c7cabc9d47",
-                    "label": "interface_emojiHeart",
+                    "label": "ui2014_emojiHeart",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiHeart"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiHeart"
                     },
                     "x": 40.5,
                     "y": 473.4,
@@ -651,13 +651,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 112.5,
                     "y": 473.4
@@ -665,10 +665,10 @@
                 {
                     "type": "Image",
                     "id": "eb13d123-f812-493c-a73f-73576b6e1101",
-                    "label": "interface_emojiLightBulb",
+                    "label": "ui2014_emojiLightBulb",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiLightBulb"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiLightBulb"
                     },
                     "x": 112.5,
                     "y": 473.4,
@@ -683,13 +683,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/emote0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/emote0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emote0001"
+                        "key": "ui-2014",
+                        "frame": "2014/emote0001"
                     },
                     "x": 184.5,
                     "y": 473.4
@@ -697,10 +697,10 @@
                 {
                     "type": "Image",
                     "id": "db6f51fe-298f-490a-8c2c-1a061fa9106c",
-                    "label": "interface_emojiFlower",
+                    "label": "ui2014_emojiFlower",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/emojiFlower"
+                        "key": "ui-2014",
+                        "frame": "2014/emojiFlower"
                     },
                     "x": 184.5,
                     "y": 473.4,

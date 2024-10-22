@@ -21,10 +21,10 @@
                 {
                     "type": "Image",
                     "id": "29b9e781-7f3d-44cc-82bd-91f8b7a8bd2e",
-                    "label": "interface_member_badge",
+                    "label": "ui2014_member_badge",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/member_badge"
+                        "key": "ui-2014",
+                        "frame": "2014/member_badge"
                     },
                     "x": -52.65,
                     "y": -42.6375,
@@ -37,8 +37,8 @@
                     "label": "chevron",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/chevron0002"
+                        "key": "ui-2014",
+                        "frame": "2014/chevron0002"
                     },
                     "x": -31.05,
                     "y": 22.8375,
@@ -52,8 +52,8 @@
                     "label": "ribbon",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/member_ribbon0001"
+                        "key": "ui-2014",
+                        "frame": "2014/member_ribbon0001"
                     },
                     "x": -45.5625,
                     "y": 4.275,

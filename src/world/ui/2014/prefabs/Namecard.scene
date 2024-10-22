@@ -24,8 +24,8 @@
                     "label": "bg",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardBg"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardBg"
                     },
                     "x": -9,
                     "y": -15.4,
@@ -44,8 +44,8 @@
                     "label": "tab",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardTab"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardTab"
                     },
                     "x": 135,
                     "y": -52.52,
@@ -60,8 +60,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardPhoto"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardPhoto"
                     },
                     "x": 18,
                     "y": 90,
@@ -88,8 +88,8 @@
                     "label": "avatar",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardAvatar0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardAvatar0001"
                     },
                     "x": 6.8625,
                     "y": 113.175,
@@ -155,14 +155,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardModerator0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardModerator0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardModerator0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardModerator0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardModerator0001"
                     },
                     "x": 387,
                     "y": 89.8875,
@@ -177,14 +177,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardClose0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardClose0001"
                     },
                     "x": 450,
                     "y": 54
@@ -197,14 +197,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButton0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
                     },
                     "x": 49.6125,
                     "y": 616.5
@@ -218,8 +218,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
                     },
                     "x": 49.6125,
                     "y": 616.5,
@@ -231,8 +231,8 @@
                     "label": "friendsButtonIcon",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardFriendsButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardFriendsButtonDisabled"
                     },
                     "x": 49.6125,
                     "y": 616.5
@@ -245,14 +245,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButton0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
                     },
                     "x": 117.1125,
                     "y": 616.5
@@ -266,8 +266,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
                     },
                     "x": 117.1125,
                     "y": 616.5,
@@ -279,8 +279,8 @@
                     "label": "locateButtonIcon",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardLocateButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardLocateButtonDisabled"
                     },
                     "x": 117.1125,
                     "y": 616.5
@@ -293,14 +293,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButton0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
                     },
                     "x": 184.5,
                     "y": 616.5
@@ -314,8 +314,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
                     },
                     "x": 184.5,
                     "y": 616.5,
@@ -327,8 +327,8 @@
                     "label": "iglooButtonIcon",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardIglooButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardIglooButtonDisabled"
                     },
                     "x": 184.5,
                     "y": 616.5
@@ -341,14 +341,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButton0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
                     },
                     "x": 252,
                     "y": 616.5
@@ -362,8 +362,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
                     },
                     "x": 252,
                     "y": 616.5,
@@ -375,8 +375,8 @@
                     "label": "mailButtonIcon",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardMailButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardMailButtonDisabled"
                     },
                     "x": 252,
                     "y": 616.5
@@ -389,14 +389,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButton0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
                     },
                     "x": 319.5,
                     "y": 616.5
@@ -410,8 +410,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
                     },
                     "x": 319.5,
                     "y": 616.5,
@@ -423,8 +423,8 @@
                     "label": "stampbookButtonIcon",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardStampbookButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardStampbookButtonDisabled"
                     },
                     "x": 319.5,
                     "y": 616.5
@@ -437,14 +437,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButton0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
                     },
                     "x": 387,
                     "y": 616.5
@@ -458,8 +458,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
                     },
                     "x": 387,
                     "y": 616.5,
@@ -471,8 +471,8 @@
                     "label": "ignoreButtonIcon",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardIgnoreButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardIgnoreButtonDisabled"
                     },
                     "x": 387,
                     "y": 616.5
@@ -485,14 +485,14 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardButton0003\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButton0001"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
                     },
                     "x": 454.5,
                     "y": 616.5
@@ -506,8 +506,8 @@
                         "InputBlocker"
                     ],
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
                     },
                     "x": 454.5,
                     "y": 616.5,
@@ -519,8 +519,8 @@
                     "label": "reportButtonIcon",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/namecardReportButtonDisabled"
+                        "key": "ui-2014",
+                        "frame": "2014/namecardReportButtonDisabled"
                     },
                     "x": 454.5,
                     "y": 616.5

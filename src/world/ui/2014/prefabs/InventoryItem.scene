@@ -26,13 +26,13 @@
                     "components": [
                         "ButtonComponent"
                     ],
-                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/item0001\"}",
-                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/item0002\"}",
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/item0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/item0002\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/item0001"
+                        "key": "ui-2014",
+                        "frame": "2014/item0001"
                     }
                 },
                 {
@@ -41,8 +41,8 @@
                     "label": "notFound",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/itemNotFound"
+                        "key": "ui-2014",
+                        "frame": "2014/itemNotFound"
                     },
                     "visible": false
                 },
@@ -52,11 +52,11 @@
                     "label": "spinner",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "interface",
-                        "frame": "interface/spinner0001"
+                        "key": "ui-2014",
+                        "frame": "2014/spinner0001"
                     },
                     "animationPlayMethod": 1,
-                    "animationKey": "interface-inventoryspinner-animation",
+                    "animationKey": "ui-inventoryspinner-animation",
                     "animationPreview": true
                 }
             ]

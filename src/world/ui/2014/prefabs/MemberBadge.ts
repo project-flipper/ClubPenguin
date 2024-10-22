@@ -12,19 +12,19 @@ export default class MemberBadge extends Phaser.GameObjects.Container {
     constructor(scene: Phaser.Scene, x?: number, y?: number) {
         super(scene, x ?? 0, y ?? 0);
 
-        // interface_member_badge
-        const interface_member_badge = scene.add.image(-52.65, -42.6375, "interface", "interface/member_badge");
-        interface_member_badge.setOrigin(0, 0);
-        this.add(interface_member_badge);
+        // ui2014_member_badge
+        const ui2014_member_badge = scene.add.image(-52.65, -42.6375, "ui-2014", "2014/member_badge");
+        ui2014_member_badge.setOrigin(0, 0);
+        this.add(ui2014_member_badge);
 
         // chevron
-        const chevron = scene.add.image(-31.05, 22.8375, "interface", "interface/chevron0002");
+        const chevron = scene.add.image(-31.05, 22.8375, "ui-2014", "2014/chevron0002");
         chevron.setOrigin(0, 0);
         chevron.visible = false;
         this.add(chevron);
 
         // ribbon
-        const ribbon = scene.add.image(-45.5625, 4.275, "interface", "interface/member_ribbon0001");
+        const ribbon = scene.add.image(-45.5625, 4.275, "ui-2014", "2014/member_ribbon0001");
         ribbon.setOrigin(0, 0);
         this.add(ribbon);
 
@@ -44,7 +44,7 @@ export default class MemberBadge extends Phaser.GameObjects.Container {
     setLevel(value: number): void {
         value = Math.min(Math.max(value, 0), 5);
         if (value > 1) {
-            this.chevron.setFrame(`interface/chevron${value.toString().padStart(4, '0')}`);
+            this.chevron.setFrame(`2014/chevron${value.toString().padStart(4, '0')}`);
             this.chevron.visible = true;
         } else {
             this.chevron.visible = false;
@@ -53,7 +53,7 @@ export default class MemberBadge extends Phaser.GameObjects.Container {
     }
 
     localize(locale: Locale): void {
-        this.ribbon.setFrame(`interface/member_ribbon${locale.frame}`);
+        this.ribbon.setFrame(`2014/member_ribbon${locale.frame}`);
     }
 
     /* END-USER-CODE */

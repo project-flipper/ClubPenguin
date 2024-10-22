@@ -3,11 +3,11 @@
 
 /* START OF COMPILED CODE */
 
-import { LoaderTask } from "@clubpenguin/load/tasks";
-import ButtonComponent from "../../../lib/components/ButtonComponent";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import Interface from "../Interface";
+import Interface from "@clubpenguin/world/interface/Interface";
 import { getLogger } from "@clubpenguin/lib/log";
+import { LoaderTask } from "@clubpenguin/load/tasks";
 
 let logger = getLogger('CP.world.interface');
 /* END-USER-IMPORTS */
@@ -18,23 +18,23 @@ export default class InventoryItem extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // button
-        const button = scene.add.image(0, 0, "interface", "interface/item0001");
+        const button = scene.add.image(0, 0, "ui-2014", "2014/item0001");
         this.add(button);
 
         // notFound
-        const notFound = scene.add.image(0, 0, "interface", "interface/itemNotFound");
+        const notFound = scene.add.image(0, 0, "ui-2014", "2014/itemNotFound");
         notFound.visible = false;
         this.add(notFound);
 
         // spinner
-        const spinner = scene.add.sprite(0, 0, "interface", "interface/spinner0001");
-        spinner.play("interface-inventoryspinner-animation");
+        const spinner = scene.add.sprite(0, 0, "ui-2014", "2014/spinner0001");
+        spinner.play("ui-inventoryspinner-animation");
         this.add(spinner);
 
         // button (components)
         const buttonButtonComponent = new ButtonComponent(button);
-        buttonButtonComponent.upTexture = {"key":"interface","frame":"interface/item0001"};
-        buttonButtonComponent.overTexture = {"key":"interface","frame":"interface/item0002"};
+        buttonButtonComponent.upTexture = {"key":"ui-2014","frame":"2014/item0001"};
+        buttonButtonComponent.overTexture = {"key":"ui-2014","frame":"2014/item0002"};
         buttonButtonComponent.handCursor = true;
         buttonButtonComponent.pixelPerfect = true;
 
@@ -120,7 +120,7 @@ export default class InventoryItem extends Phaser.GameObjects.Container {
             let key = `clothing-icons-${this.itemId}`;
 
             this.scene.game.cleaner.deallocateResource('multiatlas', key, this.playerId);
-    
+
             this.scene.game.unloadMultiatlas(key);
             this.itemId = undefined;
         }

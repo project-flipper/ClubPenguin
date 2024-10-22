@@ -122,6 +122,7 @@ export default class World extends Phaser.Scene {
         this.engine.init();
 
         await new Promise<void>(resolve => this.scene.run('Interface', {
+            ui: '2014/UI2014',
             oninit: (scene: Interface) => load.track(new LoaderTask('Interface loader', scene.load)),
             onready: () => resolve()
         }));
@@ -810,9 +811,7 @@ export default class World extends Phaser.Scene {
         }
 
         if (updatePlayer) this.engine.updatePlayerWith(data);
-
-        if (this.interface.playerNamecard.visible && this.isMyPlayer(data)) this.interface.playerNamecard.setup(data);
-        else if (this.interface.namecard.visible && !this.isMyPlayer(data) && data.id == this.interface.namecard.userId) this.interface.namecard.setup(data);
+        this.interface.updateUser(data);
     }
 
     @handle('user:update')
