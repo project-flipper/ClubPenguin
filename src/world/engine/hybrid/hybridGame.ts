@@ -54,8 +54,17 @@ export class GameLoaderTask extends EventEmitter implements Task {
     label?: string;
     _progress: number;
     important: boolean;
+    bound: boolean;
 
     didFail: boolean;
+
+    constructor() {
+        super();
+
+        this.important = false;
+        this.didFail = false;
+        this.bound = false;
+    }
 
     get progress(): number {
         return this._progress;
@@ -83,11 +92,13 @@ export class GameLoaderTask extends EventEmitter implements Task {
             this.once('done', payload => resolve(payload));
         });
     }
+
     bind(): void {
-
+        this.bound = true;
     }
-    unbind(): void {
 
+    unbind(): void {
+        this.bound = false;
     }
 }
 
