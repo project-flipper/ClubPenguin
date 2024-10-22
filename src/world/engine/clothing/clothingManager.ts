@@ -9,7 +9,7 @@ import { ActionFrame } from "@clubpenguin/net/types/action";
 
 let logger = getLogger('CP.world.engine.clothing');
 
-export type ClothingSprite = Phaser.GameObjects.Sprite & { paper_item_id: number, animations: { [frame: number]: Phaser.Animations.Animation } };
+export type ClothingSprite = Phaser.GameObjects.Sprite & { paper_item_id: number, animations: { [frame: number]: string } };
 
 /**
  * Manages the clothing sprites for players.
@@ -146,8 +146,7 @@ export class ClothingManager {
                 let key = this.getSpriteKey(clothing.paper_item_id);
 
                 this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
-                for (let anim of Object.values(clothing.animations)) this.engine.cleaner.deallocateResource('animation', anim.key, player.userData.id);
-                delete clothing.animations;
+                for (let anim of Object.values(clothing.animations)) this.engine.cleaner.deallocateResource('animation', anim, player.userData.id);
                 clothing.destroy();
                 player.clothes.delete(type);
             }
@@ -162,8 +161,7 @@ export class ClothingManager {
 
             if (slot == type) {
                 this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
-                for (let anim of Object.values(clothing.animations)) this.engine.cleaner.deallocateResource('animation', anim.key, player.userData.id);
-                delete clothing.animations;
+                for (let anim of Object.values(clothing.animations)) this.engine.cleaner.deallocateResource('animation', anim, player.userData.id);
                 clothing.destroy();
                 player.clothes.delete(slot);
                 break;
@@ -184,8 +182,7 @@ export class ClothingManager {
             let key = this.getSpriteKey(clothing.paper_item_id);
 
             this.engine.cleaner.deallocateResource('multiatlas', key, player.userData.id);
-            for (let anim of Object.values(clothing.animations)) this.engine.cleaner.deallocateResource('animation', anim.key, player.userData.id);
-            delete clothing.animations;
+            for (let anim of Object.values(clothing.animations)) this.engine.cleaner.deallocateResource('animation', anim, player.userData.id);
             clothing.destroy();
             player.clothes.delete(type);
         }
@@ -255,8 +252,8 @@ export class ClothingManager {
      * @param spriteKey - clothing sprite key.
      * @returns Phaser animations to bind to clothing sprite.
      */
-    createClothingAnimations(player: Player, spriteKey: string): { [actionFrame: number]: Phaser.Animations.Animation } {
-        let animations: { [actionFrame: number]: Phaser.Animations.Animation } = {};
+    createClothingAnimations(player: Player, spriteKey: string): { [actionFrame: number]: string } {
+        let animations: { [actionFrame: number]: string } = {};
 
         let frameKeys = Object.keys(this.world.textures.get(spriteKey).frames);
         let sortedFrameKeys = frameKeys.filter(frameKey => frameKey !== "__BASE");
@@ -302,7 +299,7 @@ export class ClothingManager {
             let animationKey = this.getSpriteAnimationKey(spriteKey, actionFrameIndex);
 
             if (this.world.anims.exists(animationKey)) {
-                animations[actionFrameIndex] = this.world.anims.get(animationKey);
+                animations[actionFrameIndex] = animationKey;
                 continue;
             }
 
@@ -334,7 +331,7 @@ export class ClothingManager {
                 continue;
             };
 
-            animations[actionFrameIndex] = animation;
+            animations[actionFrameIndex] = animationKey;
         }
 
         return animations;
