@@ -172,12 +172,13 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             this.loadItem(ItemType.FEET, data.feet),
             this.loadItem(ItemType.PHOTO, data.photo),
             this.loadItem(ItemType.FLAG, data.flag)
-        ].flat()).then(callbacks => { for (let callback of callbacks) callback(); });
+        ]);
         loader.start();
-        await promises;
+        let items = await promises;
+        for (let args of items.flat()) this.addItem(...args);
     }
 
-    loadItem(type: ItemType, id: number): Promise<ItemPromiseReturn>[] {
+    async loadItem(type: ItemType, id: number): Promise<Parameters<typeof this.addItem>[]> {
         if (!id) {
             if (this.items.has(type)) this.removeItem(type);
             return [];
@@ -197,12 +198,13 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         let path = pathByItemType(type);
         let key = `clothing-${path}-${id}`;
 
-        let promises: Promise<ItemPromiseReturn>[] = [];
+        let itemsToAdd: Parameters<typeof this.addItem>[] = [];
 
+        let promises: Promise<void>[] = [];
         if (this.scene.textures.exists(key)) {
-            promises.push(new Promise(resolve => resolve(() => this.addItem(type, config, key, id.toString(), false))));
+            itemsToAdd.push([type, config, key, id.toString(), false]);
         } else {
-            promises.push(new Promise(resolve => {
+            promises.push(new Promise<void>(resolve => {
                 this.scene.load.multiatlas({
                     key,
                     atlasURL: `assets/clothing/${path}/${id}.json`,
@@ -218,9 +220,11 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
                         if (!this.hasItem(id)) {
                             this.game.cleaner.markTrash(type_, key_);
-                            return resolve(() => { });
+                            return resolve();
                         } else this.game.cleaner.allocateResource(type_, key_, this.playerId);
-                        resolve(() => this.addItem(type, config, key, id.toString(), false))
+
+                        itemsToAdd.push([type, config, key, id.toString(), false]);
+                        resolve();
                     }
                 }
                 this.scene.load.on('filecomplete', completeCallback);
@@ -230,7 +234,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                         this.scene.load.off('filecomplete', completeCallback);
                         this.scene.load.off('loaderror', errorCallback);
 
-                        resolve(() => { });
+                        resolve();
                     }
                 }
                 this.scene.load.on('loaderror', errorCallback);
@@ -241,7 +245,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             let back_key = `${key}_back`;
 
             if (this.scene.textures.exists(back_key)) {
-                promises.push(new Promise(resolve => resolve(() => this.addItem(type, config, back_key, `${id}_back`, true))));
+                itemsToAdd.push([type, config, back_key, `${id}_back`, true]);
             } else {
                 promises.push(new Promise(resolve => {
                     this.scene.load.multiatlas({
@@ -257,9 +261,11 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
                             if (!this.hasItem(id)) {
                                 this.game.cleaner.markTrash(type_, key_);
-                                return resolve(() => { });
+                                return resolve();
                             } else this.game.cleaner.allocateResource(type_, key_, this.playerId);
-                            resolve(() => this.addItem(type, config, back_key, `${id}_back`, true))
+
+                            itemsToAdd.push([type, config, back_key, `${id}_back`, true]);
+                            resolve();
                         }
                     }
                     this.scene.load.on('filecomplete', completeCallback);
@@ -269,7 +275,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                             this.scene.load.off('filecomplete', completeCallback);
                             this.scene.load.off('loaderror', errorCallback);
 
-                            resolve(() => { });
+                            resolve();
                         }
                     }
                     this.scene.load.on('loaderror', errorCallback);
@@ -277,7 +283,8 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             }
         }
 
-        return promises;
+        await Promise.all(promises);
+        return itemsToAdd;
     }
 
     loadPuffleItem(id: number): Promise<ItemPromiseReturn> {
