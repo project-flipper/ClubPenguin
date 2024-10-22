@@ -21,6 +21,10 @@ export interface Task extends EventEmitter {
     wait(): Promise<DonePayload>;
 
     /**
+     * Whether the task is bound to an event system.
+     */
+    bound: boolean;
+    /**
      * Initializes binding. Useful to link together event systems.
      */
     bind(): void;
@@ -34,6 +38,7 @@ export class LoaderTask extends EventEmitter implements Task {
     label?: string;
     important: boolean;
     didFail: boolean;
+    bound: boolean;
 
     loader: Phaser.Loader.LoaderPlugin;
 
@@ -44,16 +49,19 @@ export class LoaderTask extends EventEmitter implements Task {
         this.loader = loader;
         this.important = false;
         this.didFail = false;
+        this.bound = false;
     }
 
     bind(): void {
         this.loader.on('fileprogress', this.onFileProgress, this);
         this.loader.on('complete', this.onComplete, this);
+        this.bound = true;
     }
 
     unbind(): void {
         this.loader.off('fileprogress', this.onFileProgress, this);
         this.loader.off('complete', this.onComplete, this);
+        this.bound = false;
     }
 
     get progress(): number {
@@ -90,7 +98,9 @@ export class LoaderTask extends EventEmitter implements Task {
     }
 
     wait(): Promise<{ ok: boolean, data: { totalComplete: number, totalFailed: number } }> {
+        if (!this.bound) throw new Error('Task is not bound to an event system.');
         return new Promise(resolve => {
+            if (this.loader.totalToLoad == 0) this.onComplete(this.loader, this.loader.totalComplete, this.loader.totalFailed);
             if (this._result) return resolve(this._result);
             this.once('done', payload => resolve(payload));
         });
@@ -102,6 +112,7 @@ export class PromiseTask extends EventEmitter implements Task {
     isDone: boolean;
     important: boolean;
     didFail: boolean;
+    bound: boolean;
 
     wrapper: Promise<any>;
 
@@ -112,6 +123,7 @@ export class PromiseTask extends EventEmitter implements Task {
 
         this.important = false;
         this.didFail = false;
+        this.bound = false;
 
         this.wrap(callback);
     }
@@ -137,15 +149,20 @@ export class PromiseTask extends EventEmitter implements Task {
         }
     }
 
-    bind(): void { }
+    bind(): void {
+        this.bound = true;
+    }
 
-    unbind(): void { }
+    unbind(): void {
+        this.bound = false;
+    }
 
     get progress(): number {
         return Number(this.isDone);
     }
 
     wait(): Promise<{ ok: boolean, data: { value: any, reason: any } }> {
+        if (!this.bound) throw new Error('Task is not bound to an event system.');
         return new Promise(resolve => {
             if (this._result) return resolve(this._result);
             this.once('done', payload => resolve(payload));
@@ -166,6 +183,7 @@ export class GroupTask extends EventEmitter implements Task {
         this._tasks = [];
 
         this.important = false;
+        this._isBinded = false;
 
         if (tasks !== undefined) for (let task of tasks) this.addTask(task);
     }
@@ -214,6 +232,10 @@ export class GroupTask extends EventEmitter implements Task {
         return progress / this._tasks.length;
     }
 
+    get bound(): boolean {
+        return this._isBinded;
+    }
+
     bind(): void {
         this._isBinded = true;
         for (let task of this._tasks) task.bind();
@@ -225,6 +247,7 @@ export class GroupTask extends EventEmitter implements Task {
     }
 
     async wait(): Promise<DonePayload> {
+        if (!this.bound) throw new Error('Task is not bound to an event system.');
         let payloads = await Promise.all(this._tasks.map(task => task.wait()));
         return { ok: payloads.every(payload => payload.ok), data: payloads };
     }
