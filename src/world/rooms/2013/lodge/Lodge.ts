@@ -185,8 +185,7 @@ export default class Lodge extends Phaser.Scene implements Room {
         table1.setOrigin(0.48970588235294116, 0.6617647058823529);
 
         // table1btn
-        const table1btn = this.add.image(676.01, 577.69, "lodge", "lodge/table10004");
-        table1btn.setOrigin(0.48970588235294116, 0.6617647058823529);
+        const table1btn = this.add.image(671.96, 525.04, "lodge", "lodge/table_button0004");
         table1btn.alpha = 0.01;
         table1btn.alphaTopLeft = 0.01;
         table1btn.alphaTopRight = 0.01;
@@ -198,8 +197,7 @@ export default class Lodge extends Phaser.Scene implements Room {
         table2.setOrigin(0.8088235294117647, 0.8011363636363636);
 
         // table2btn
-        const table2btn = this.add.image(698.51, 892.69, "lodge", "lodge/table20004");
-        table2btn.setOrigin(0.8088235294117647, 0.8011363636363636);
+        const table2btn = this.add.image(653.96, 831.04, "lodge", "lodge/table_button0004");
         table2btn.alpha = 0.01;
         table2btn.alphaTopLeft = 0.01;
         table2btn.alphaTopRight = 0.01;
@@ -211,8 +209,7 @@ export default class Lodge extends Phaser.Scene implements Room {
         table3.setOrigin(0.45478723404255317, 0.7601351351351351);
 
         // table3btn
-        const table3btn = this.add.image(1148.51, 915.19, "lodge", "lodge/table30004");
-        table3btn.setOrigin(0.45478723404255317, 0.7601351351351351);
+        const table3btn = this.add.image(1148.96, 853.54, "lodge", "lodge/table_button0004");
         table3btn.alpha = 0.01;
         table3btn.alphaTopLeft = 0.01;
         table3btn.alphaTopRight = 0.01;
@@ -491,7 +488,7 @@ export default class Lodge extends Phaser.Scene implements Room {
             this.table1.setFrame('lodge/table10001');
         });
         this.table1btn.on('over', () => {
-            this.interface.showLocalizedHint({ x: this.table1.x - 1.8, y: this.table1.y - 54.79 }, 'four_hint');
+            this.interface.showLocalizedHint(this.table1btn, 'four_hint');
             this.table1.setFrame('lodge/table10002');
         });
         this.table1btn.on('release', () => this.world.move(this.table1.x, this.table1.y));
@@ -501,7 +498,7 @@ export default class Lodge extends Phaser.Scene implements Room {
             this.table2.setFrame('lodge/table20001');
         });
         this.table2btn.on('over', () => {
-            this.interface.showLocalizedHint({ x: this.table2.x - 42.64, y: this.table2.y - 64.91 }, 'four_hint');
+            this.interface.showLocalizedHint(this.table2btn, 'four_hint');
             this.table2.setFrame('lodge/table20002');
         });
         this.table2btn.on('release', () => this.world.move(this.table2.x, this.table2.y));
@@ -511,7 +508,7 @@ export default class Lodge extends Phaser.Scene implements Room {
             this.table3.setFrame('lodge/table30001');
         });
         this.table3btn.on('over', () => {
-            this.interface.showLocalizedHint({ x: this.table3.x + 3.71, y: this.table3.y - 59.51 }, 'four_hint');
+            this.interface.showLocalizedHint(this.table3btn, 'four_hint');
             this.table3.setFrame('lodge/table30002');
         });
         this.table3btn.on('release', () => this.world.move(this.table3.x, this.table3.y));

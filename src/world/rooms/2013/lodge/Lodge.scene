@@ -515,12 +515,10 @@
             "ButtonComponent.pixelPerfect": true,
             "texture": {
                 "key": "lodge",
-                "frame": "lodge/table10004"
+                "frame": "lodge/table_button0004"
             },
-            "x": 676.01,
-            "y": 577.69,
-            "originX": 0.48970588235294116,
-            "originY": 0.6617647058823529,
+            "x": 671.96,
+            "y": 525.04,
             "alpha": 0.01,
             "alphaTopLeft": 0.01,
             "alphaTopRight": 0.01,
@@ -553,12 +551,10 @@
             "ButtonComponent.pixelPerfect": true,
             "texture": {
                 "key": "lodge",
-                "frame": "lodge/table20004"
+                "frame": "lodge/table_button0004"
             },
-            "x": 698.51,
-            "y": 892.69,
-            "originX": 0.8088235294117647,
-            "originY": 0.8011363636363636,
+            "x": 653.96,
+            "y": 831.04,
             "alpha": 0.01,
             "alphaTopLeft": 0.01,
             "alphaTopRight": 0.01,
@@ -591,12 +587,10 @@
             "ButtonComponent.pixelPerfect": true,
             "texture": {
                 "key": "lodge",
-                "frame": "lodge/table30004"
+                "frame": "lodge/table_button0004"
             },
-            "x": 1148.51,
-            "y": 915.19,
-            "originX": 0.45478723404255317,
-            "originY": 0.7601351351351351,
+            "x": 1148.96,
+            "y": 853.54,
             "alpha": 0.01,
             "alphaTopLeft": 0.01,
             "alphaTopRight": 0.01,
