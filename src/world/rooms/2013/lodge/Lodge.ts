@@ -439,8 +439,14 @@ export default class Lodge extends Phaser.Scene implements Room {
             if (this.candle.anims.currentAnim?.key == 'lodge-candlefire-animation') this.candle.play('lodge-candleblow-animation').chain('lodge-candlefire-animation');
         });
 
-        this.noteButton.on('out', () => this.note.setFrame('lodge/note0001'));
-        this.noteButton.on('over', () => this.note.play('lodge-note-animation'));
+        this.noteButton.on('out', () => {
+            this.note.stop();
+            this.note.setFrame('lodge/note0001');
+        });
+        this.noteButton.on('over', () => {
+            this.note.stop();
+            this.note.play('lodge-note-animation');
+        });
 
         this.catalogbtn.on('out', () => this.catalog.setFrame('lodge/catalog0001'));
         this.catalogbtn.on('over', () => this.catalog.setFrame('lodge/catalog0002'));
