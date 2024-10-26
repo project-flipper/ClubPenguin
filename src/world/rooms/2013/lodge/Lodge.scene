@@ -65,8 +65,8 @@
             },
             "x": 559.57,
             "y": 333.23,
-            "originX": -1.8558333333333332,
-            "originY": 1.9302631578947367,
+            "originX": -1.85583,
+            "originY": 1.93026,
             "animationPlayMethod": 1,
             "animationKey": "lodge-candlefire-animation",
             "animationPreview": true
@@ -229,18 +229,19 @@
         {
             "type": "Image",
             "id": "7ed06916-06e8-4967-9993-3282b9357bc4",
-            "label": "lodge_gear",
+            "label": "gear",
+            "scope": "PUBLIC",
             "components": [
                 "DepthEnabled"
             ],
             "texture": {
                 "key": "lodge",
-                "frame": "lodge/gear"
+                "frame": "lodge/gear0001"
             },
             "x": 894.26,
             "y": 483.75,
-            "originX": -0.07258064516129033,
-            "originY": 0.4175257731958763
+            "originX": 0,
+            "originY": 0.60309
         },
         {
             "type": "Image",
@@ -662,6 +663,28 @@
             "x": 1367.89,
             "y": 524.25,
             "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "1cc15bfa-9156-48ab-a210-74974833391b",
+            "label": "gearButton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/gear0004"
+            },
+            "x": 894.26,
+            "y": 483.75,
+            "originX": 0,
+            "originY": 0.60309,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
         }
     ],
     "plainObjects": [],

@@ -46,7 +46,7 @@ export default class Lodge extends Phaser.Scene implements Room {
 
         // candle
         const candle = this.add.sprite(559.57, 333.23, "lodge", "lodge/candleblow0001");
-        candle.setOrigin(-1.8558333333333332, 1.9302631578947367);
+        candle.setOrigin(-1.85583, 1.93026);
         candle.play("lodge-candlefire-animation");
 
         // minuteHand
@@ -96,9 +96,9 @@ export default class Lodge extends Phaser.Scene implements Room {
         const lodge_rods = this.add.image(918.11, 284.64, "lodge", "lodge/rods");
         lodge_rods.setOrigin(0.48992, 0.14286);
 
-        // lodge_gear
-        const lodge_gear = this.add.image(894.26, 483.75, "lodge", "lodge/gear");
-        lodge_gear.setOrigin(-0.07258064516129033, 0.4175257731958763);
+        // gear
+        const gear = this.add.image(894.26, 483.75, "lodge", "lodge/gear0001");
+        gear.setOrigin(0, 0.60309);
 
         // lodge_rest
         const lodge_rest = this.add.image(1437.64, 810, "lodge", "lodge/rest");
@@ -236,11 +236,20 @@ export default class Lodge extends Phaser.Scene implements Room {
         const lodge_attic_trigger = this.add.image(1367.89, 524.25, "lodge", "lodge/attic_trigger");
         lodge_attic_trigger.visible = false;
 
+        // gearButton
+        const gearButton = this.add.image(894.26, 483.75, "lodge", "lodge/gear0004");
+        gearButton.setOrigin(0, 0.60309);
+        gearButton.alpha = 0.01;
+        gearButton.alphaTopLeft = 0.01;
+        gearButton.alphaTopRight = 0.01;
+        gearButton.alphaBottomLeft = 0.01;
+        gearButton.alphaBottomRight = 0.01;
+
         // lists
         const triggers = [fish_trigger, village_trigger, lodge_table_trigger, lodge_table_trigger_2, lodge_table_trigger_1, lodge_attic_trigger];
 
-        // lodge_gear (components)
-        new DepthEnabled(lodge_gear);
+        // gear (components)
+        new DepthEnabled(gear);
 
         // lodge_rest (components)
         new DepthEnabled(lodge_rest);
@@ -315,6 +324,9 @@ export default class Lodge extends Phaser.Scene implements Room {
         lodge_attic_triggerRoomTrigger.playerX = 1086.75;
         lodge_attic_triggerRoomTrigger.playerY = 630;
 
+        // gearButton (components)
+        new ButtonComponent(gearButton);
+
         this.mullet = mullet;
         this.candle = candle;
         this.minuteHand = minuteHand;
@@ -324,6 +336,7 @@ export default class Lodge extends Phaser.Scene implements Room {
         this.fishDoor = fishDoor;
         this.sign = sign;
         this.fish = fish;
+        this.gear = gear;
         this.fishButton = fishButton;
         this.atticButton = atticButton;
         this.entranceButton = entranceButton;
@@ -339,6 +352,7 @@ export default class Lodge extends Phaser.Scene implements Room {
         this.table3btn = table3btn;
         this.catalog = catalog;
         this.catalogbtn = catalogbtn;
+        this.gearButton = gearButton;
         this.triggers = triggers;
 
         this.events.emit("scene-awake");
@@ -353,6 +367,7 @@ export default class Lodge extends Phaser.Scene implements Room {
     public fishDoor!: Phaser.GameObjects.Image;
     public sign!: Phaser.GameObjects.Image;
     public fish!: Phaser.GameObjects.Sprite;
+    public gear!: Phaser.GameObjects.Image;
     public fishButton!: Phaser.GameObjects.Image;
     public atticButton!: Phaser.GameObjects.Image;
     public entranceButton!: Phaser.GameObjects.Image;
@@ -368,6 +383,7 @@ export default class Lodge extends Phaser.Scene implements Room {
     public table3btn!: Phaser.GameObjects.Image;
     public catalog!: Phaser.GameObjects.Image;
     public catalogbtn!: Phaser.GameObjects.Image;
+    public gearButton!: Phaser.GameObjects.Image;
     public triggers!: Phaser.GameObjects.Image[];
 
     /* START-USER-CODE */
@@ -447,6 +463,15 @@ export default class Lodge extends Phaser.Scene implements Room {
 
         this.candleButton.on('over', () => {
             if (this.candle.anims.currentAnim?.key == 'lodge-candlefire-animation') this.candle.play('lodge-candleblow-animation').chain('lodge-candlefire-animation');
+        });
+
+        this.gearButton.on('out', () => {
+            this.gear.setFrame('lodge/gear0001');
+            this.sound.play('lodge_gearclose');
+        });
+        this.gearButton.on('over', () => {
+            this.gear.setFrame('lodge/gear0002');
+            this.sound.play('lodge_gearopen');
         });
 
         this.noteButton.on('out', () => {
