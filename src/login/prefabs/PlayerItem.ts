@@ -45,6 +45,7 @@ export default class PlayerItem extends Phaser.GameObjects.Container {
         paperdoll.interactive = false;
         paperdoll.showBackground = false;
         paperdoll.showPin = false;
+        paperdoll.fadeAfterLoad = false;
 
         // playername (prefab fields)
         playername.boxWidth = 427.5;
@@ -70,10 +71,10 @@ export default class PlayerItem extends Phaser.GameObjects.Container {
     declare scene: Login;
 
     setup(account: SavedAccount, goesBackToGallery = false): void {
-        this.playername.text = account.user.username;
+        this.playername.text = account.user.username.toUpperCase();
         this.paperdoll.setup(account.user.avatar, account.user.id);
         this.button.off('release');
-        this.button.on('release', () => goesBackToGallery ? this.scene.showPlayerSelection(this.scene.getSavedAccounts()) : this.scene.showExistingPlayer(account));
+        this.button.on('release', () => goesBackToGallery ? this.scene.showInitialState() : this.scene.showExistingPlayer(account));
     }
 
     /* END-USER-CODE */

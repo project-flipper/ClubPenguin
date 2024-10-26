@@ -80,12 +80,14 @@
                         "x",
                         "y",
                         "showBackground",
-                        "showPin"
+                        "showPin",
+                        "fadeAfterLoad"
                     ],
                     "label": "paperdoll",
                     "scope": "PUBLIC",
                     "showBackground": false,
                     "showPin": false,
+                    "fadeAfterLoad": false,
                     "x": -0.34,
                     "y": 0
                 },

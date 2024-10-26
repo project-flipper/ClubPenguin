@@ -56,6 +56,7 @@ export default class MiniPlayerItem extends Phaser.GameObjects.Container {
         // paperdoll (prefab fields)
         paperdoll.showBackground = false;
         paperdoll.showPin = false;
+        paperdoll.fadeAfterLoad = false;
 
         this.button = button;
         this.playername = playername;
@@ -79,7 +80,7 @@ export default class MiniPlayerItem extends Phaser.GameObjects.Container {
     declare scene: Login;
 
     setup(account: SavedAccount): void {
-        this.playername.text = account.user.username;
+        this.playername.text = account.user.username.toUpperCase();
         this.paperdoll.setup(account.user.avatar, account.user.id);
         this.button.off('release');
         this.button.on('release', () => this.scene.showExistingPlayer(account));

@@ -47,13 +47,15 @@
                         "y",
                         "interactive",
                         "showPin",
-                        "showBackground"
+                        "showBackground",
+                        "fadeAfterLoad"
                     ],
                     "label": "paperdoll",
                     "scope": "PUBLIC",
                     "interactive": false,
                     "showBackground": false,
                     "showPin": false,
+                    "fadeAfterLoad": false,
                     "x": 0.11,
                     "y": 0.34
                 },
