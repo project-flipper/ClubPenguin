@@ -182,7 +182,7 @@ export default class Cleaner {
         return this.resources.filter(res => {
             let usages = this.resourcesUsedByPlayers[res];
             let isFloating = this.floatingResources.includes(res);
-            return (!usages || usages.length == 0) && !isFloating
+            return (!usages || usages.length == 0) && !isFloating;
         });
     }
 

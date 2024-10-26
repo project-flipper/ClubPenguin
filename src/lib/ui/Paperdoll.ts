@@ -154,6 +154,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
     public playerId: number;
 
     setup(data: AvatarData, playerId: number): void {
+        let previousPlayerId = this.playerId;
         this.playerId = playerId;
         this.photo_button.visible = false;
         this.avatarData = data;
@@ -161,22 +162,22 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         let tintFill = this.game.gameConfig.player_colors[String(data.color)];
         this.body_art.setTintFill(Number(tintFill));
 
-        this.load(data);
+        this.load(data, previousPlayerId);
     }
 
-    async load(data: AvatarData): Promise<void> {
+    async load(data: AvatarData, previousPlayerId?: number): Promise<void> {
         let loader = this.scene.load;
 
         let promises = [
-            this.loadItem(ItemType.HEAD, data.head),
-            this.loadItem(ItemType.FACE, data.face),
-            this.loadItem(ItemType.NECK, data.neck),
-            this.loadItem(ItemType.BODY, data.body),
-            this.loadItem(ItemType.HAND, data.hand),
-            this.loadItem(ItemType.FEET, data.feet)
+            this.loadItem(ItemType.HEAD, data.head, previousPlayerId),
+            this.loadItem(ItemType.FACE, data.face, previousPlayerId),
+            this.loadItem(ItemType.NECK, data.neck, previousPlayerId),
+            this.loadItem(ItemType.BODY, data.body, previousPlayerId),
+            this.loadItem(ItemType.HAND, data.hand, previousPlayerId),
+            this.loadItem(ItemType.FEET, data.feet, previousPlayerId),
         ];
-        if (this.showBackground) promises.push(this.loadItem(ItemType.PHOTO, data.photo));
-        if (this.showPin) promises.push(this.loadItem(ItemType.FLAG, data.flag));
+        if (this.showBackground) promises.push(this.loadItem(ItemType.PHOTO, data.photo, previousPlayerId));
+        if (this.showPin) promises.push(this.loadItem(ItemType.FLAG, data.flag, previousPlayerId));
 
         let task = Promise.all(promises);
         loader.start();
@@ -184,9 +185,9 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         for (let args of items.flat()) this.addItem(...args);
     }
 
-    async loadItem(type: ItemType, id: number): Promise<Parameters<typeof this.addItem>[]> {
+    async loadItem(type: ItemType, id: number, previousPlayerId?: number): Promise<Parameters<typeof this.addItem>[]> {
         if (!id) {
-            if (this.items.has(type)) this.removeItem(type);
+            if (this.items.has(type)) this.removeItem(type, previousPlayerId);
             return [];
         }
 
@@ -198,7 +199,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             let array = this.items.get(type);
             if (array[0].config.paper_item_id == id) return [];
 
-            this.removeItem(type);
+            this.removeItem(type, previousPlayerId);
         }
 
         let path = pathByItemType(type);
@@ -383,14 +384,14 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         }
     }
 
-    removeItem(type: ItemType): void {
+    removeItem(type: ItemType, previousPlayerId?: number): void {
         if (!this.items.has(type)) return;
 
         let array = this.items.get(type);
         for (let item of array) {
             let key = item.texture.key;
             item.destroy();
-            this.game.cleaner.deallocateResource('multiatlas', key, this.playerId);
+            this.game.cleaner.deallocateResource('multiatlas', key, previousPlayerId);
         }
 
         this.game.cleaner.collect();
@@ -399,9 +400,13 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
     }
 
     clear(): void {
-        for (let [type, _] of this.items) this.removeItem(type);
-        this.game.cleaner.collect();
+        for (let [type, _] of this.items) this.removeItem(type, this.playerId);
         this.items.clear();
+    }
+
+    destroy(fromScene?: boolean): void {
+        this.clear();
+        super.destroy(fromScene);
     }
 
     /* END-USER-CODE */
