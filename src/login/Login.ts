@@ -267,6 +267,7 @@ export default class Login extends Phaser.Scene {
 
         let { data: user } = await this.game.airtower.getMyUser();
         if (saveName) this.saveAccount(user, savePassword ? result.data.session_key || key : undefined);
+        else this.deleteAccount(user.id);
 
         let worlds = await this.game.airtower.getWorlds();
 
