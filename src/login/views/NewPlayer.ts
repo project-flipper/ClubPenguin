@@ -440,7 +440,13 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         this.accountLabel2.text = locale.localize('Create a free account now');
         this.rulesLabel.text = locale.localize('w.login.prompt.rules');
         this.backLabel.text = locale.localize('Back');
-        this.secret.setFrame(`login-screen/secret${locale.frame}`)
+        this.secret.setFrame(`login-screen/secret${locale.frame}`);
+    }
+
+    setVisible(value: boolean): this {
+        this.nameTextField.visible = value;
+        this.passwordTextField.visible = value;
+        return super.setVisible(value);
     }
 
     /* END-USER-CODE */

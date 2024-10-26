@@ -1,0 +1,171 @@
+{
+    "id": "371c4c10-4c52-43ba-be66-1dd2dfa791e3",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "ecf0db4e-e72f-4325-9b4e-9674840205f5",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Rectangle",
+                    "id": "76829475-4dcf-4980-b123-7744a2f8be23",
+                    "label": "rectangle_1",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "originX": 0,
+                    "originY": 0,
+                    "alpha": 0.01,
+                    "isFilled": true,
+                    "width": 1710,
+                    "height": 1080
+                },
+                {
+                    "type": "Image",
+                    "id": "39ce012b-8815-4efd-bb28-854e1d606a1c",
+                    "label": "login_screen_moreserversbg",
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/moreserversbg"
+                    },
+                    "x": 121.5,
+                    "y": 40.5,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "9eeb83dd-d4d2-4f11-ace1-23893851d887",
+                    "label": "close",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"login\",\"frame\":\"login-screen/moreserversclose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"login\",\"frame\":\"login-screen/moreserversclose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"login\",\"frame\":\"login-screen/moreserversclose0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/moreserversclose0001"
+                    },
+                    "x": 1550.25,
+                    "y": 108.11
+                },
+                {
+                    "type": "Image",
+                    "id": "09d6fca9-a24e-4c00-87bd-15c6ea70ceca",
+                    "label": "login_screen_moreserversscroll",
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/moreserversscroll"
+                    },
+                    "x": 1448.21,
+                    "y": 214.31,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "746a7380-3f8a-43ac-8e22-1e7d96b87a07",
+                    "label": "up",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"login\",\"frame\":\"login-screen/moreserversup0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"login\",\"frame\":\"login-screen/moreserversup0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"login\",\"frame\":\"login-screen/moreserversup0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/moreserversup0001"
+                    },
+                    "x": 1476,
+                    "y": 211.73
+                },
+                {
+                    "type": "Image",
+                    "id": "ebbb339b-b04d-4a21-ad2d-eb051d5eb7d0",
+                    "label": "down",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"login\",\"frame\":\"login-screen/moreserversdown0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"login\",\"frame\":\"login-screen/moreserversdown0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"login\",\"frame\":\"login-screen/moreserversdown0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/moreserversdown0001"
+                    },
+                    "x": 1476,
+                    "y": 963.45
+                },
+                {
+                    "type": "Container",
+                    "id": "48ed9123-1407-4978-b4d8-e3822cfdcd55",
+                    "label": "worlds",
+                    "scope": "PUBLIC",
+                    "x": 240.75,
+                    "y": 180
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "cead25c6-9b76-4080-83a9-5905a055b2ab",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "verticalAlign",
+                        "horizontalAlign",
+                        "boxHeight",
+                        "boxWidth",
+                        "originX",
+                        "originY"
+                    ],
+                    "label": "serversLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 1293.525,
+                    "boxHeight": 66.6,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 208.24,
+                    "y": 92.25,
+                    "originX": 0,
+                    "originY": 0,
+                    "text": "PLEASE SELECT A SERVER",
+                    "font": "CCComiccrazy-BoldItalicShadow",
+                    "align": 1,
+                    "fontSize": 45
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

@@ -9,6 +9,7 @@ import WorldTile from "../prefabs/WorldTile";
 /* START-USER-IMPORTS */
 import { WorldData } from "@clubpenguin/net/types/world";
 import { Locale } from "@clubpenguin/app/locale";
+import Login from "../Login";
 /* END-USER-IMPORTS */
 
 export default class WorldSelect extends Phaser.GameObjects.Container {
@@ -137,6 +138,10 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
         /* START-USER-CTR-CODE */
 
         this.serversLabel.setOrigin(0);
+        this.more.on('release', () => {
+            this.visible = false;
+            this.scene.moreServers.visible = true;
+        });
 
         /* END-USER-CTR-CODE */
     }
@@ -156,6 +161,8 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
+    declare scene: Login;
+
     setup(data: WorldData[]): void {
         for (let i = 0; i < 5; i++) {
             let world = data[i];
@@ -166,13 +173,11 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
                 continue;
             }
 
-            tile.worldData = world;
-
-            tile.worldName.text = world.name;
-            tile.buddy.visible = world.buddies;
-            tile.safeChat.visible = world.safe_chat;
-            tile.setPopulation(world.population);
+            tile.setup(world);
+            tile.visible = true;
         }
+
+        this.scene.moreServers.visible = false;
     }
 
     localize(locale: Locale): void {

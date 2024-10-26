@@ -113,6 +113,14 @@ export default class WorldTile extends Phaser.GameObjects.Container {
 
     public worldData: WorldData;
 
+    setup(data: WorldData): void {
+        this.worldData = data;
+        this.worldName.text = data.name;
+        this.buddy.visible = data.buddies;
+        this.safeChat.visible = data.safe_chat;
+        this.setPopulation(data.population);
+    }
+
     setPopulation(value: number): void {
         let off = 'login-screen/populationOff';
         let on = 'login-screen/populationOn';

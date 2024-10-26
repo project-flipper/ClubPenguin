@@ -1,0 +1,483 @@
+{
+    "id": "020273c6-2457-44cc-b5ad-9b27da304c42",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "4aac3ff3-db91-42a1-9aa8-9f1110ab9eef",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "86d9af72-c143-4af5-97a2-24240f9b6f4b",
+                    "label": "forgot",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/forgotExisting0001"
+                    },
+                    "x": 1081.01,
+                    "y": 680.51,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "09fd0ded-09e3-458c-a077-92c5f9504899",
+                    "label": "forget",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/forgotExisting0001"
+                    },
+                    "x": 1081.01,
+                    "y": 748.01,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "c2a2ba4c-87e9-4784-810c-954192bc70fe",
+                    "label": "forgotButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/forgotExistingHover"
+                    },
+                    "x": 1081.01,
+                    "y": 680.51,
+                    "alpha": 0.01,
+                    "alphaTopLeft": 0.01,
+                    "alphaTopRight": 0.01,
+                    "alphaBottomLeft": 0.01,
+                    "alphaBottomRight": 0.01
+                },
+                {
+                    "type": "Image",
+                    "id": "23befb7b-e3ec-4191-a77c-e2052c52fd94",
+                    "label": "forgetButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/forgotExistingHover"
+                    },
+                    "x": 1081.01,
+                    "y": 748.01,
+                    "alpha": 0.01,
+                    "alphaTopLeft": 0.01,
+                    "alphaTopRight": 0.01,
+                    "alphaBottomLeft": 0.01,
+                    "alphaBottomRight": 0.01
+                },
+                {
+                    "type": "Image",
+                    "id": "f47b1ee7-7b43-4795-9c20-01f135a77b59",
+                    "label": "login_screen_itembg",
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/itembg"
+                    },
+                    "x": 265.5,
+                    "y": 105.75,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "9cc5dc20-06e9-47be-a300-cd5e375beeb5",
+                    "id": "412e0b63-0df5-4171-b499-2e393806ef2d",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "item",
+                    "scope": "PUBLIC",
+                    "x": 540,
+                    "y": 427.5
+                },
+                {
+                    "prefabId": "f58c5cab-2cab-446d-beda-1099ff2e1881",
+                    "id": "47f9d5b1-b6bb-4cb2-9285-f324354ebda5",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "checked"
+                    ],
+                    "label": "nameCheckbox",
+                    "scope": "PUBLIC",
+                    "checked": true,
+                    "x": 916.31,
+                    "y": 366.41
+                },
+                {
+                    "prefabId": "f58c5cab-2cab-446d-beda-1099ff2e1881",
+                    "id": "aa403dc1-8a4a-49f5-9368-52ad68020be0",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "passwordCheckbox",
+                    "scope": "PUBLIC",
+                    "x": 916.31,
+                    "y": 429.41
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "5b617fb1-44a1-42dc-ab01-86245b0661a5",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "tintBottomRight",
+                        "tintBottomLeft",
+                        "tintTopRight",
+                        "tintTopLeft",
+                        "tintFill",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "horizontalAlign",
+                        "boxWidth",
+                        "boxHeight",
+                        "verticalAlign",
+                        "maxWidth"
+                    ],
+                    "label": "nameCheckLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 657.45,
+                    "boxHeight": 52.2,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": 962.44,
+                    "y": 344.59,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Remember me on this computer",
+                    "font": "BurbankSmallMedium",
+                    "align": 0,
+                    "fontSize": -36,
+                    "maxWidth": 760.3875
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "8098e212-23dd-4ce1-9a20-1eb76e02bfe7",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "tintBottomRight",
+                        "tintBottomLeft",
+                        "tintTopRight",
+                        "tintTopLeft",
+                        "tintFill",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "horizontalAlign",
+                        "boxWidth",
+                        "boxHeight",
+                        "verticalAlign",
+                        "maxWidth"
+                    ],
+                    "label": "passwordCheckLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 657.45,
+                    "boxHeight": 52.2,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": 962.44,
+                    "y": 403.09,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Remember my password",
+                    "font": "BurbankSmallMedium",
+                    "align": 0,
+                    "fontSize": -36,
+                    "maxWidth": 760.3875
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "7206fdb2-4750-4587-802f-c2bb39926b4c",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "tintBottomRight",
+                        "tintBottomLeft",
+                        "tintTopRight",
+                        "tintTopLeft",
+                        "tintFill",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "horizontalAlign",
+                        "boxWidth",
+                        "boxHeight",
+                        "verticalAlign"
+                    ],
+                    "label": "passwordLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 452.7,
+                    "boxHeight": 52.2,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": 885.94,
+                    "y": 182.59,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Password:",
+                    "font": "BurbankSmallMedium",
+                    "align": 2,
+                    "fontSize": -36
+                },
+                {
+                    "prefabId": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",
+                    "id": "a0e7864a-9836-454a-b521-f55a9e585c20",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "fieldWidth",
+                        "maxLength",
+                        "backgroundStrokeWidth",
+                        "backgroundIsStroked",
+                        "fieldHeight",
+                        "font",
+                        "fontSize",
+                        "fontColor",
+                        "backgroundStrokeColor",
+                        "inputType",
+                        "autocomplete",
+                        "backgroundIsFilled"
+                    ],
+                    "label": "passwordTextField",
+                    "scope": "PUBLIC",
+                    "inputType": "password",
+                    "fieldWidth": 456.6375,
+                    "fieldHeight": 63,
+                    "maxLength": 32,
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -45,
+                    "fontColor": "#000000",
+                    "backgroundIsFilled": true,
+                    "backgroundIsStroked": true,
+                    "backgroundStrokeWidth": 2,
+                    "backgroundStrokeColor": "#000000",
+                    "autocomplete": "password",
+                    "x": 886.73,
+                    "y": 245.03
+                },
+                {
+                    "type": "Image",
+                    "id": "0e8c469d-c004-41f9-a843-cb497b26eb6a",
+                    "label": "loginButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"login\",\"frame\":\"login-screen/button\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"login\",\"frame\":\"login-screen/buttonHover\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"login\",\"frame\":\"login-screen/buttonDown\"}",
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/button"
+                    },
+                    "x": 878.85,
+                    "y": 489.83,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "57ae626a-587c-4cf8-b4c2-94b95122d499",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "text",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "loginLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 293.2875,
+                    "boxHeight": 63,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 910.91,
+                    "y": 518.4,
+                    "text": "Sign In",
+                    "font": "BurbankSmallMedium",
+                    "align": 1,
+                    "fontSize": -45
+                },
+                {
+                    "type": "Image",
+                    "id": "e9355f0a-326d-4981-851a-a9a942e08d8d",
+                    "label": "secret",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/secret0001"
+                    },
+                    "x": 1455.75,
+                    "y": 875.25,
+                    "originX": 0.4921875,
+                    "originY": 0.49058824
+                },
+                {
+                    "type": "Image",
+                    "id": "d4adeb6c-0f1b-4a0d-a030-7bc726bb466a",
+                    "label": "differentButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/moreGalleryHover"
+                    },
+                    "x": 853.76,
+                    "y": 988.76,
+                    "alpha": 0.01,
+                    "alphaTopLeft": 0.01,
+                    "alphaTopRight": 0.01,
+                    "alphaBottomLeft": 0.01,
+                    "alphaBottomRight": 0.01
+                },
+                {
+                    "type": "Sprite",
+                    "id": "fbd5bb29-a96d-418f-ab3c-017ab7dbc1ef",
+                    "label": "different",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/moreGallery0001"
+                    },
+                    "x": 853.76,
+                    "y": 988.76,
+                    "visible": false
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "940e828a-0109-4116-8de2-f3631684cccb",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "text",
+                        "fontSize",
+                        "font"
+                    ],
+                    "label": "differentLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 896.625,
+                    "boxHeight": 52.2,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 406.58,
+                    "y": 963,
+                    "text": "Login as a different penguin",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": -36
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "3fab741b-7e25-4c85-93d7-e984cbafd9b9",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "text",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "forgotLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 622.9125,
+                    "boxHeight": 52.2,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": 875.48,
+                    "y": 655.88,
+                    "text": "Forgot your password?",
+                    "font": "BurbankSmallMedium",
+                    "align": 1,
+                    "fontSize": -36
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "20683edb-0f0b-4844-a9f1-669de3a65e60",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "text",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "forgetLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 535.95,
+                    "boxHeight": 52.2,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": 874.69,
+                    "y": 723.15,
+                    "text": "Forget my penguin",
+                    "font": "BurbankSmallMedium",
+                    "align": 1,
+                    "fontSize": -36
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

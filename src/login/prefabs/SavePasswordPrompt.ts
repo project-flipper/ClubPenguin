@@ -90,7 +90,7 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         this.add(dontSaveButton);
 
         // dontSaveLabel
-        const dontSaveLabel = new TextBox(scene, 725, 802.35, "BurbankSmallBold");
+        const dontSaveLabel = new TextBox(scene, 725.63, 802.35, "BurbankSmallBold");
         dontSaveLabel.text = "Don't save password";
         dontSaveLabel.fontSize = -31.5;
         dontSaveLabel.align = 1;
@@ -150,7 +150,7 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         dontSaveButtonButtonComponent.handCursor = true;
 
         // dontSaveLabel (prefab fields)
-        dontSaveLabel.boxWidth = 316.075;
+        dontSaveLabel.boxWidth = 310.5;
         dontSaveLabel.boxHeight = 120.825;
         dontSaveLabel.horizontalAlign = 1;
         dontSaveLabel.verticalAlign = 1;
