@@ -136,6 +136,9 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
     public body_art: Phaser.GameObjects.Image;
     public outline_art: Phaser.GameObjects.Image;
     public interactive: boolean = true;
+    public showBackground: boolean = true;
+    public showPin: boolean = true;
+    public fadeAfterLoad: boolean = true;
 
     /* START-USER-CODE */
 
@@ -163,18 +166,21 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
     async load(data: AvatarData): Promise<void> {
         let loader = this.scene.load;
-        let promises = Promise.all([
+
+        let promises = [
             this.loadItem(ItemType.HEAD, data.head),
             this.loadItem(ItemType.FACE, data.face),
             this.loadItem(ItemType.NECK, data.neck),
             this.loadItem(ItemType.BODY, data.body),
             this.loadItem(ItemType.HAND, data.hand),
-            this.loadItem(ItemType.FEET, data.feet),
-            this.loadItem(ItemType.PHOTO, data.photo),
-            this.loadItem(ItemType.FLAG, data.flag)
-        ]);
+            this.loadItem(ItemType.FEET, data.feet)
+        ];
+        if (this.showBackground) promises.push(this.loadItem(ItemType.PHOTO, data.photo));
+        if (this.showPin) promises.push(this.loadItem(ItemType.FLAG, data.flag));
+
+        let task = Promise.all(promises);
         loader.start();
-        let items = await promises;
+        let items = await task;
         for (let args of items.flat()) this.addItem(...args);
     }
 
@@ -315,7 +321,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         if (!this.scene.textures.exists(key)) return;
 
         let image = this.scene.add.image(0, 0, key, `${path}/0`) as PaperItem;
-        image.alpha = 0;
+        image.alpha = this.fadeAfterLoad ? 0 : 1;
         image.scale = type == ItemType.FLAG ? 0.66 : 1;
         image.depth = config.custom_depth ?? (isBack ? Layer.BACK : this.getLayer(config.type));
         image.config = config;
@@ -332,7 +338,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             this.photo_button.visible = true;
         }
 
-        this.scene.tweens.add({
+        if (this.fadeAfterLoad) this.scene.tweens.add({
             targets: image,
             alpha: { from: 0, to: 1 },
             duration: 150

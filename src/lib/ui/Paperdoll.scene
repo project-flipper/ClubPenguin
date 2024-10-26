@@ -119,8 +119,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },
@@ -129,6 +129,36 @@
             "name": "interactive",
             "label": "Enable Interactive",
             "tooltip": "Whether to enable the clothing items as interactive.",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "showBackground",
+            "label": "Show Background",
+            "tooltip": "",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "showPin",
+            "label": "Show Pin",
+            "tooltip": "",
+            "defValue": true,
+            "customDefinition": false,
+            "type": {
+                "id": "boolean"
+            }
+        },
+        {
+            "name": "fadeAfterLoad",
+            "label": "Fade After Load",
+            "tooltip": "",
             "defValue": true,
             "customDefinition": false,
             "type": {

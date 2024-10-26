@@ -53,6 +53,10 @@ export default class MiniPlayerItem extends Phaser.GameObjects.Container {
         playername.horizontalAlign = 1;
         playername.verticalAlign = 1;
 
+        // paperdoll (prefab fields)
+        paperdoll.showBackground = false;
+        paperdoll.showPin = false;
+
         this.button = button;
         this.playername = playername;
         this.paperdoll = paperdoll;

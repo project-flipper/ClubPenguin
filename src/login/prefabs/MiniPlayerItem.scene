@@ -78,10 +78,14 @@
                     "id": "b54506cb-41ba-4974-839e-aa3d7c6e7375",
                     "unlock": [
                         "x",
-                        "y"
+                        "y",
+                        "showBackground",
+                        "showPin"
                     ],
                     "label": "paperdoll",
                     "scope": "PUBLIC",
+                    "showBackground": false,
+                    "showPin": false,
                     "x": -0.34,
                     "y": 0
                 },

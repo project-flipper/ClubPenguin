@@ -43,6 +43,8 @@ export default class PlayerItem extends Phaser.GameObjects.Container {
 
         // paperdoll (prefab fields)
         paperdoll.interactive = false;
+        paperdoll.showBackground = false;
+        paperdoll.showPin = false;
 
         // playername (prefab fields)
         playername.boxWidth = 427.5;
