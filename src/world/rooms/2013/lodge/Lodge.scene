@@ -644,6 +644,24 @@
             "alphaTopRight": 0.01,
             "alphaBottomLeft": 0.01,
             "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "c094af67-5276-4eb1-a317-6a2b4fbc6f8a",
+            "label": "lodge_attic_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 221,
+            "RoomTrigger.playerX": 1086.75,
+            "RoomTrigger.playerY": 630,
+            "texture": {
+                "key": "lodge",
+                "frame": "lodge/attic_trigger"
+            },
+            "x": 1367.89,
+            "y": 524.25,
+            "visible": false
         }
     ],
     "plainObjects": [],
@@ -662,7 +680,8 @@
                 "fc4db964-9318-45b8-ae7b-6b409e55d13c",
                 "71a832e0-a7c9-419a-9798-88325295fce9",
                 "c0393558-85ab-4e3f-b5fd-57ab28509fd7",
-                "def6841e-58bc-4e4b-a7b3-1b74f66f5643"
+                "def6841e-58bc-4e4b-a7b3-1b74f66f5643",
+                "c094af67-5276-4eb1-a317-6a2b4fbc6f8a"
             ],
             "scope": "PUBLIC"
         }

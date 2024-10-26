@@ -232,8 +232,12 @@ export default class Lodge extends Phaser.Scene implements Room {
         catalogbtn.alphaBottomLeft = 0.01;
         catalogbtn.alphaBottomRight = 0.01;
 
+        // lodge_attic_trigger
+        const lodge_attic_trigger = this.add.image(1367.89, 524.25, "lodge", "lodge/attic_trigger");
+        lodge_attic_trigger.visible = false;
+
         // lists
-        const triggers = [fish_trigger, village_trigger, lodge_table_trigger, lodge_table_trigger_2, lodge_table_trigger_1];
+        const triggers = [fish_trigger, village_trigger, lodge_table_trigger, lodge_table_trigger_2, lodge_table_trigger_1, lodge_attic_trigger];
 
         // lodge_gear (components)
         new DepthEnabled(lodge_gear);
@@ -304,6 +308,12 @@ export default class Lodge extends Phaser.Scene implements Room {
         const catalogbtnButtonComponent = new ButtonComponent(catalogbtn);
         catalogbtnButtonComponent.handCursor = true;
         catalogbtnButtonComponent.pixelPerfect = true;
+
+        // lodge_attic_trigger (components)
+        const lodge_attic_triggerRoomTrigger = new RoomTrigger(lodge_attic_trigger);
+        lodge_attic_triggerRoomTrigger.destination = 221;
+        lodge_attic_triggerRoomTrigger.playerX = 1086.75;
+        lodge_attic_triggerRoomTrigger.playerY = 630;
 
         this.mullet = mullet;
         this.candle = candle;
