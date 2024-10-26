@@ -5,7 +5,12 @@ import { Airtower } from "@clubpenguin/net/airtower";
 import { getLogger } from "@clubpenguin/lib/log";
 import Cleaner from "@clubpenguin/lib/cleaner";
 
-let logger = getLogger('CP.app');
+export let logger = getLogger('CP.app');
+
+export interface Dependency {
+    mount(app: App): void;
+    unmount(app: App): void;
+}
 
 interface AppParams {
     language: string,
@@ -26,6 +31,7 @@ export class App extends Phaser.Game {
     public gameConfig: Config;
     public friends: Friends;
     public cleaner: Cleaner;
+    public dependencies: Record<string, Dependency>;
 
     public environmentType: string;
     public lastBlur?: number;
@@ -50,6 +56,8 @@ export class App extends Phaser.Game {
         this.cacheVersion = params.cacheVersion;
         this.contentVersion = params.contentVersion;
         this.minigameVersion = params.minigameVersion;
+
+        this.dependencies = {};
     }
 
     /**
