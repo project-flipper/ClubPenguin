@@ -179,25 +179,23 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         if (this.showBackground) promises.push(this.loadItem(ItemType.PHOTO, data.photo, previousPlayerId));
         if (this.showPin) promises.push(this.loadItem(ItemType.FLAG, data.flag, previousPlayerId));
 
-        let task = Promise.all(promises);
         loader.start();
-        let items = await task;
-        for (let args of items.flat()) this.addItem(...args);
+        await Promise.all(promises);
     }
 
-    async loadItem(type: ItemType, id: number, previousPlayerId?: number): Promise<Parameters<typeof this.addItem>[]> {
+    async loadItem(type: ItemType, id: number, previousPlayerId?: number): Promise<void> {
         if (!id) {
             if (this.items.has(type)) this.removeItem(type, previousPlayerId);
-            return [];
+            return;
         }
 
         let config = this.game.gameConfig.paper_items[id];
 
-        if (!config) return [];
+        if (!config) return;
 
         if (this.items.has(type)) {
             let array = this.items.get(type);
-            if (array[0].config.paper_item_id == id) return [];
+            if (array[0].config.paper_item_id == id) return;
 
             this.removeItem(type, previousPlayerId);
         }
@@ -205,11 +203,9 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         let path = pathByItemType(type);
         let key = `clothing-${path}-${id}`;
 
-        let itemsToAdd: Parameters<typeof this.addItem>[] = [];
-
         let promises: Promise<void>[] = [];
         if (this.scene.textures.exists(key)) {
-            itemsToAdd.push([type, config, key, id.toString(), false]);
+            this.addItem(type, config, key, id.toString(), false);
         } else {
             promises.push(new Promise<void>(resolve => {
                 this.scene.load.multiatlas({
@@ -230,7 +226,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                             return resolve();
                         } else this.game.cleaner.allocateResource(type_, key_, this.playerId);
 
-                        itemsToAdd.push([type, config, key, id.toString(), false]);
+                        this.addItem(type, config, key, id.toString(), false);
                         resolve();
                     }
                 }
@@ -252,7 +248,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             let back_key = `${key}_back`;
 
             if (this.scene.textures.exists(back_key)) {
-                itemsToAdd.push([type, config, back_key, `${id}_back`, true]);
+                this.addItem(type, config, back_key, `${id}_back`, true);
             } else {
                 promises.push(new Promise(resolve => {
                     this.scene.load.multiatlas({
@@ -271,7 +267,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
                                 return resolve();
                             } else this.game.cleaner.allocateResource(type_, key_, this.playerId);
 
-                            itemsToAdd.push([type, config, back_key, `${id}_back`, true]);
+                            this.addItem(type, config, back_key, `${id}_back`, true);
                             resolve();
                         }
                     }
@@ -291,7 +287,6 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         }
 
         await Promise.all(promises);
-        return itemsToAdd;
     }
 
     loadPuffleItem(id: number): Promise<ItemPromiseReturn> {
