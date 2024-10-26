@@ -165,7 +165,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         this.load(data, previousPlayerId);
     }
 
-    async load(data: AvatarData, previousPlayerId?: number): Promise<void> {
+    load(data: AvatarData, previousPlayerId?: number): Promise<void[][]> {
         let loader = this.scene.load;
 
         let promises = [
@@ -180,10 +180,10 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         if (this.showPin) promises.push(this.loadItem(ItemType.FLAG, data.flag, previousPlayerId));
 
         loader.start();
-        await Promise.all(promises);
+        return Promise.all(promises);
     }
 
-    async loadItem(type: ItemType, id: number, previousPlayerId?: number): Promise<void> {
+    loadItem(type: ItemType, id: number, previousPlayerId?: number): Promise<void[]> {
         if (!id) {
             if (this.items.has(type)) this.removeItem(type, previousPlayerId);
             return;
@@ -286,7 +286,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             }
         }
 
-        await Promise.all(promises);
+        return Promise.all(promises);
     }
 
     loadPuffleItem(id: number): Promise<ItemPromiseReturn> {
