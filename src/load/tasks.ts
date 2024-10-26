@@ -98,7 +98,7 @@ export class LoaderTask extends EventEmitter implements Task {
     }
 
     wait(): Promise<{ ok: boolean, data: { totalComplete: number, totalFailed: number } }> {
-        if (!this.bound) throw new Error('Task is not bound to an event system.');
+        if (!this.bound && !this._result) throw new Error('Task is not bound to an event system.');
         return new Promise(resolve => {
             if (this.loader.totalToLoad == 0) this.onComplete(this.loader, this.loader.totalComplete, this.loader.totalFailed);
             if (this._result) return resolve(this._result);
