@@ -350,7 +350,9 @@ export default class TextField extends Phaser.GameObjects.Container {
 
     render(): void {
         let value = this.inputType == 'password' ? this.passwordCharacter.repeat(this.html.value.length) : this.html.value;
-        this.textBox.text = value.length > this.maxLength ? value.slice(value.length - this.maxLength) : value;
+        value = this.placeholder && !value ? this.placeholder : value;
+        value = value.length > this.maxLength ? value.slice(value.length - this.maxLength) : value;
+        this.textBox.text = value;
     }
 
     setup(): void {
