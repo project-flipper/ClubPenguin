@@ -165,7 +165,8 @@ export function run(params: RunParams): void {
         loader: {
             baseURL: params.mediaPath,
             maxParallelDownloads: 10,
-            crossOrigin: params.crossOrigin
+            crossOrigin: params.crossOrigin,
+            maxRetries: 1
         },
         powerPreference: 'high-performance',
         failIfMajorPerformanceCaveat: true,
