@@ -349,8 +349,8 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
                 password: this.passwordTextField.value,
                 saveName: this.nameCheckbox.checked,
                 savePassword: this.passwordCheckbox.checked,
-                key: account.key
-            });
+                key: this.passwordTextField.value ? undefined : account.key
+            }).catch(() => this.unlock());
         });
 
         this.forgetButton.off('release');
