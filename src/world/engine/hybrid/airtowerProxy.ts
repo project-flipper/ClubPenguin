@@ -1,7 +1,7 @@
 import { getLogger } from "@clubpenguin/lib/log";
 import { HybridBridge } from "./hybridBridge";
 
-let logger = getLogger('CP.world.engine.hybrid.airtowerProxy');
+let logger = getLogger('CP.world.engine.hybrid');
 
 enum CardPackets {
     MESSAGE_GET_GAME = "gz",

@@ -10,7 +10,6 @@ import { Avatar } from "@clubpenguin/world/engine/player/avatar";
 import Interface from "@clubpenguin/world/interface/Interface";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import { getLogger } from "@clubpenguin/lib/log";
-import { ItemType } from "./world/engine/clothing/itemType";
 
 let logger = getLogger('CP.debug');
 

@@ -31,7 +31,7 @@ import { WorldData } from "@clubpenguin/net/types/world";
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { ItemType } from "./engine/clothing/itemType";
 
-let logger = getLogger('CP.world');
+export let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
 
 export default class World extends Phaser.Scene {

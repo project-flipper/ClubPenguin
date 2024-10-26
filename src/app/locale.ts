@@ -1,10 +1,7 @@
-import { App } from "@clubpenguin/app/app";
+import { App, logger } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { getLogger } from "@clubpenguin/lib/log";
 import { LoaderPlugin } from "./loader";
-
-let logger = getLogger('CP.app.locale');
 
 /**
  * Represents a supported game language by ID.

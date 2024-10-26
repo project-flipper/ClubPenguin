@@ -1,7 +1,7 @@
 import { RufflePlayer } from "./ruffle";
 import { getLogger } from "@clubpenguin/lib/log";
 
-let logger = getLogger('CP.world.engine.hybrid.hybridBridge');
+let logger = getLogger('CP.world.engine.hybrid');
 
 export type BridgedPlayer = RufflePlayer & {
     messageFromHTML5(payload: string): void;

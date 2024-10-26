@@ -7,6 +7,9 @@ import Spinner from "./prefabs/Spinner";
 /* START-USER-IMPORTS */
 import { Task } from "@clubpenguin/load/tasks";
 import Logo from "@clubpenguin/logo/Logo";
+import { getLogger } from "@clubpenguin/lib/log";
+
+export let logger = getLogger('CP.load');
 /* END-USER-IMPORTS */
 
 export default class Load extends Phaser.Scene {

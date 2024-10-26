@@ -1,10 +1,6 @@
-import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { Engine } from "@clubpenguin/world/engine/engine";
+import { Engine, logger } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
-import { getLogger } from "@clubpenguin/lib/log";
-
-let logger = getLogger('CP.world.engine.music');
 
 /**
  * Manages the music in the game.

@@ -1,6 +1,4 @@
-import { getLogger } from "@clubpenguin/lib/log";
-
-let logger = getLogger('CP.app.loader');
+import { logger } from "@clubpenguin/app/app";
 
 /**
  * Set a querystring in the specified URL.

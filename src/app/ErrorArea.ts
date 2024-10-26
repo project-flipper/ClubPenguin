@@ -40,11 +40,8 @@ import InputBlocker from "../lib/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
 import ButtonComponent from "../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import { App } from "./app";
+import { App, logger } from "./app";
 import { HTTPError } from "@clubpenguin/net/airtower";
-import { getLogger } from "@clubpenguin/lib/log";
-
-let logger = getLogger('CP.app.error');
 /* END-USER-IMPORTS */
 
 export default class ErrorArea extends Phaser.Scene {

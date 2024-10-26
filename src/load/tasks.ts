@@ -1,7 +1,5 @@
-import { getLogger } from "@clubpenguin/lib/log";
 import EventEmitter from "eventemitter3";
-
-let logger = getLogger('CP.load.tasks');
+import { logger } from "./Load";
 
 export type DonePayload = {
     ok: boolean,

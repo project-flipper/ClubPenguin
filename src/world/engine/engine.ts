@@ -32,7 +32,7 @@ import { Player } from "./player/avatar";
 import { PlayerManager } from "./player/playerManager";
 import { SnowballManager } from "./snowballs/snowballManager";
 
-let logger = getLogger('CP.world.engine');
+export let logger = getLogger('CP.world.engine');
 
 export type Trigger =
     | RoomTrigger

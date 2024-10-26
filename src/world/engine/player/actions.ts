@@ -1,11 +1,8 @@
 import { getAngle, getDirection, getDirectionQuarters } from "@clubpenguin/lib/math";
 import World from "@clubpenguin/world/World";
-import { Engine } from "../engine";
+import { Engine, logger } from "../engine";
 import { Player } from "./avatar";
 import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
-import { getLogger } from "@clubpenguin/lib/log";
-
-let logger = getLogger('CP.world.engine.player');
 
 /**
  * Manages the player's actions, such as movement and throwing snowballs.

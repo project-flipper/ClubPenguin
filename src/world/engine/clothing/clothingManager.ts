@@ -1,13 +1,10 @@
 import { App } from "@clubpenguin/app/app";
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
-import { Engine } from "@clubpenguin/world/engine/engine";
+import { Engine, logger } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
-import { getLogger } from "@clubpenguin/lib/log";
 import { ItemType } from "./itemType";
 import { ActionFrame } from "@clubpenguin/net/types/action";
-
-let logger = getLogger('CP.world.engine.clothing');
 
 export type ClothingSprite = Phaser.GameObjects.Sprite & { paper_item_id: number, animations: { [frame: number]: string } };
 
