@@ -466,7 +466,7 @@ export default class Lodge extends Phaser.Scene implements Room {
             this.table1.setFrame('lodge/table10001');
         });
         this.table1btn.on('over', () => {
-            this.interface.showLocalizedHint(this.table1, 'four_hint');
+            this.interface.showLocalizedHint({ x: this.table1.x - 1.8, y: this.table1.y - 54.79 }, 'four_hint');
             this.table1.setFrame('lodge/table10002');
         });
         this.table1btn.on('release', () => this.world.move(this.table1.x, this.table1.y));
@@ -476,7 +476,7 @@ export default class Lodge extends Phaser.Scene implements Room {
             this.table2.setFrame('lodge/table20001');
         });
         this.table2btn.on('over', () => {
-            this.interface.showLocalizedHint(this.table2, 'four_hint');
+            this.interface.showLocalizedHint({ x: this.table2.x - 42.64, y: this.table2.y - 64.91 }, 'four_hint');
             this.table2.setFrame('lodge/table20002');
         });
         this.table2btn.on('release', () => this.world.move(this.table2.x, this.table2.y));
@@ -486,7 +486,7 @@ export default class Lodge extends Phaser.Scene implements Room {
             this.table3.setFrame('lodge/table30001');
         });
         this.table3btn.on('over', () => {
-            this.interface.showLocalizedHint(this.table3, 'four_hint');
+            this.interface.showLocalizedHint({ x: this.table3.x + 3.71, y: this.table3.y - 59.51 }, 'four_hint');
             this.table3.setFrame('lodge/table30002');
         });
         this.table3btn.on('release', () => this.world.move(this.table3.x, this.table3.y));
