@@ -47,6 +47,7 @@ export default class WaddleTrigger {
     public options: any = {};
     public prompt: string = "";
     public waddle_id: number = 0;
+    public waddle_type: "WADDLE"|"TABLE" = "WADDLE";
     public seat1: boolean = false;
     public seat1x: number = 0;
     public seat1y: number = 0;
@@ -124,7 +125,7 @@ export default class WaddleTrigger {
             return;
         }
 
-        engine.world.joinWaddle(this.waddle_id);
+        engine.world.joinWaddle(this.waddle_id, this.waddle_type == 'TABLE');
     }
 
     rejected(engine: Engine): void {

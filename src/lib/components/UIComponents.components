@@ -248,6 +248,20 @@
                     }
                 },
                 {
+                    "name": "waddle_type",
+                    "label": "Type",
+                    "tooltip": "The type for this waddle",
+                    "defValue": "WADDLE",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "option",
+                        "options": [
+                            "WADDLE",
+                            "TABLE"
+                        ]
+                    }
+                },
+                {
                     "name": "seat1",
                     "label": "Enable Seat 1",
                     "tooltip": "Enables this seat",

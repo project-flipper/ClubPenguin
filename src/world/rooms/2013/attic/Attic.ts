@@ -172,6 +172,7 @@ export default class Attic extends Phaser.Scene implements Room {
         tabletrigger1WaddleTrigger.game_id = "four";
         tabletrigger1WaddleTrigger.prompt = "four_prompt";
         tabletrigger1WaddleTrigger.waddle_id = 200;
+        tabletrigger1WaddleTrigger.waddle_type = "TABLE";
         tabletrigger1WaddleTrigger.seat1 = true;
         tabletrigger1WaddleTrigger.seat1frame = 23;
         tabletrigger1WaddleTrigger.seat1x = 606.82;
@@ -197,6 +198,7 @@ export default class Attic extends Phaser.Scene implements Room {
         tabletrigger2WaddleTrigger.game_id = "four";
         tabletrigger2WaddleTrigger.prompt = "four_prompt";
         tabletrigger2WaddleTrigger.waddle_id = 201;
+        tabletrigger2WaddleTrigger.waddle_type = "TABLE";
         tabletrigger2WaddleTrigger.seat1 = true;
         tabletrigger2WaddleTrigger.seat1frame = 23;
         tabletrigger2WaddleTrigger.seat1x = 904.95;
@@ -222,6 +224,7 @@ export default class Attic extends Phaser.Scene implements Room {
         tabletrigger3WaddleTrigger.game_id = "four";
         tabletrigger3WaddleTrigger.prompt = "four_prompt";
         tabletrigger3WaddleTrigger.waddle_id = 203;
+        tabletrigger3WaddleTrigger.waddle_type = "TABLE";
         tabletrigger3WaddleTrigger.seat1 = true;
         tabletrigger3WaddleTrigger.seat1frame = 23;
         tabletrigger3WaddleTrigger.seat1x = 837.45;
@@ -247,6 +250,7 @@ export default class Attic extends Phaser.Scene implements Room {
         tabletrigger4WaddleTrigger.game_id = "four";
         tabletrigger4WaddleTrigger.prompt = "four_prompt";
         tabletrigger4WaddleTrigger.waddle_id = 202;
+        tabletrigger4WaddleTrigger.waddle_type = "TABLE";
         tabletrigger4WaddleTrigger.seat1 = true;
         tabletrigger4WaddleTrigger.seat1frame = 17;
         tabletrigger4WaddleTrigger.seat1x = 558.34;
@@ -272,6 +276,7 @@ export default class Attic extends Phaser.Scene implements Room {
         tabletrigger5WaddleTrigger.game_id = "four";
         tabletrigger5WaddleTrigger.prompt = "four_prompt";
         tabletrigger5WaddleTrigger.waddle_id = 204;
+        tabletrigger5WaddleTrigger.waddle_type = "TABLE";
         tabletrigger5WaddleTrigger.seat1 = true;
         tabletrigger5WaddleTrigger.seat1frame = 21;
         tabletrigger5WaddleTrigger.seat1x = 1205.77;
