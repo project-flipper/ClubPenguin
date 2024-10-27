@@ -2,11 +2,21 @@ import { ActionData } from "./action";
 import { MessageData } from "./message";
 import { PlayerData } from "./player";
 import { AnyUserData } from "./user";
+import { Waddle } from "./waddle";
 
 export type Payloads = {
     'room:join': {
         room_id: number,
-        players: PlayerData[]
+        players: PlayerData[],
+        waddles: Waddle[]
+    },
+    'waddle:join': {
+        player: number,
+        waddle_id: number
+    },
+    'waddle:leave': {
+        player: number,
+        waddle_id: number
     },
     'game:start': {
         game_id: string
@@ -32,6 +42,12 @@ export type ClientPayloads = {
         room_id: number,
         x: number,
         y: number
+    },
+    'waddle:join': {
+        waddle_id: number
+    },
+    'waddle:leave': {
+        waddle_id: number
     },
     'game:start': {
         game_id: string

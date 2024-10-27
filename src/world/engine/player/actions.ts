@@ -26,6 +26,9 @@ export class Actions {
         return this.world.engine;
     }
 
+    /**
+     * Gets the current animation frame.
+     */
     get frame(): ActionFrame {
         return this.player.currentAnimation;
     }
@@ -98,6 +101,7 @@ export class Actions {
 
         let direction = this.getDirection(x, y);
         this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
+        this.player.emit('action:update', this);
     }
 
     /**
@@ -119,6 +123,7 @@ export class Actions {
 
             this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
             this.engine.players.testTriggers(this.player, true);
+            this.player.emit('action:complete', this);
             return;
         }
 
@@ -139,9 +144,11 @@ export class Actions {
                 this.engine.tweenTracker.untrackTween(tween);
                 this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
                 this.engine.players.testTriggers(this.player, true);
+                this.player.emit('action:complete', this);
             },
             duration: (distance / this.player.spriteSpeed) * 1000
         });
+        this.player.emit('action:update', this);
     }
 
     /**
@@ -173,6 +180,7 @@ export class Actions {
         this.player.playAnimation(ActionFrame.THROW_DOWN_LEFT + direction);
 
         this.engine.snowballs.throw(snowball, x, y, this.player);
+        this.player.emit('action:update', this);
     }
 
     /**
@@ -227,6 +235,7 @@ export class Actions {
                 break;
             default:
                 logger.warn('Unknown action received', data);
+                break;
         }
     }
 
@@ -238,5 +247,6 @@ export class Actions {
         this.engine.players.testTriggers(this.player, true, undefined, undefined, true);
 
         this.player.playAnimation(ActionFrame.IDLE_DOWN);
+        this.player.emit('action:update', this);
     }
 }

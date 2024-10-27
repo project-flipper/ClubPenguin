@@ -668,6 +668,34 @@ export default class World extends Phaser.Scene {
         }
     }
 
+    async joinWaddle(waddleId: number): Promise<void> {
+        if (this.currentWaddleId) {
+            logger.warn('Already in a waddle', this.currentWaddleId);
+            return;
+        }
+        this.send({
+            op: 'waddle:join',
+            d: {
+                waddle_id: waddleId
+            }
+        });
+    }
+
+    public currentWaddleId: number;
+
+    async leaveWaddle(): Promise<void> {
+        if (!this.currentWaddleId) {
+            logger.warn('Not in a waddle');
+            return;
+        }
+        this.send({
+            op: 'waddle:leave',
+            d: {
+                waddle_id: this.currentWaddleId
+            }
+        });
+    }
+
     public gameStartParams: any;
 
     /**
@@ -828,6 +856,54 @@ export default class World extends Phaser.Scene {
         if (roomData) {
             await this.engine.joinRoom(roomData, data.players);
             for (let player of data.players) this.updateUser(player.user, false);
+            for (let waddleData of data.waddles) {
+                let waddle = this.engine.getWaddle(waddleData.waddle_id);
+                if (!waddle) {
+                    logger.warn('Waddle not found', waddleData.waddle_id);
+                    return;
+                }
+
+                for (let playerId of waddleData.players) {
+                    let player = this.engine.getPlayer(playerId);
+                    if (player) waddle.place(player);
+                    else logger.warn('Player not found', playerId);
+                }
+            }
+        }
+    }
+
+    @handle('waddle:join')
+    async handleWaddleJoin(data: Payloads['waddle:join']): Promise<void> {
+        let player = this.engine.getPlayer(data.player);
+        if (!player) {
+            logger.warn('Player not found', data.player);
+            return;
+        }
+
+        if (player == this.engine.player) {
+            this.currentWaddleId = data.waddle_id;
+            this.engine.lockRoom();
+        }
+
+        let waddle = this.engine.getWaddle(data.waddle_id);
+        waddle.place(player);
+        //await this.startGame(waddle.game_id, waddle.options);
+    }
+
+    @handle('waddle:leave')
+    async handleWaddleLeave(data: Payloads['waddle:leave']): Promise<void> {
+        let player = this.engine.getPlayer(data.player);
+        if (!player) {
+            logger.warn('Player not found', data.player);
+            return;
+        }
+
+        let waddle = this.engine.getWaddle(data.waddle_id);
+        waddle.remove(player);
+
+        if (player == this.engine.player) {
+            this.currentWaddleId = undefined;
+            this.engine.unlockRoom();
         }
     }
 

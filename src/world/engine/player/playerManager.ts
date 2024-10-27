@@ -2,6 +2,7 @@ import { App } from "@clubpenguin/app/app";
 import PressureTrigger from "@clubpenguin/lib/components/PressureTrigger";
 import RoomTrigger from "@clubpenguin/lib/components/RoomTrigger";
 import GameTrigger from "@clubpenguin/lib/components/GameTrigger";
+import WaddleTrigger from "@clubpenguin/lib/components/WaddleTrigger";
 import Trigger from "@clubpenguin/lib/components/Trigger";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { ActionFrame } from "@clubpenguin/net/types/action";
@@ -43,13 +44,6 @@ export class PlayerManager {
 
     public avatars: { [key: string]: AvatarCls };
     public players: { [id: number]: Player };
-
-    /**
-     * The current player.
-     */
-    get player(): Player {
-        return this.players[this.world.myUser.id];
-    }
 
     /**
      * Loads an avatar class from the given key.
@@ -281,13 +275,16 @@ export class PlayerManager {
 
         for (let trigger of triggers) {
             let genericTrigger = Trigger.getComponent(trigger);
-            if (genericTrigger && finishedMoving && !prohibitJoinRoom && genericTrigger.test(x, y)) genericTrigger.execute(this.engine, player);
+            if (genericTrigger && finishedMoving && genericTrigger.test(x, y)) genericTrigger.execute(this.engine, player);
 
             let roomTrigger = RoomTrigger.getComponent(trigger);
             if (roomTrigger && finishedMoving && !prohibitJoinRoom && roomTrigger.test(x, y)) roomTrigger.execute(this.engine, player);
 
             let gameTrigger = GameTrigger.getComponent(trigger);
             if (gameTrigger && finishedMoving && !prohibitJoinRoom && gameTrigger.test(x, y)) gameTrigger.execute(this.engine, player);
+
+            let waddleTrigger = WaddleTrigger.getComponent(trigger);
+            if (waddleTrigger && finishedMoving && !prohibitJoinRoom && waddleTrigger.test(x, y)) waddleTrigger.execute(this.engine, player);
 
             let pressureTrigger = PressureTrigger.getComponent(trigger);
             if (pressureTrigger) {
@@ -348,15 +345,4 @@ export class PlayerManager {
 
         return origin;
     }
-
-    enablePlayerPhysics(): void {
-        this.player.scene.matter.add.gameObject(this.player, {
-            shape: {
-                type: 'circle',
-                radius: 25
-            },
-            isStatic: false
-        });
-    }
-
 }

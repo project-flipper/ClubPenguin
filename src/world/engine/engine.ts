@@ -13,10 +13,6 @@ import { getLogger } from "@clubpenguin/lib/log";
 import { randomRange } from "@clubpenguin/lib/math";
 import { TweenTracker } from "@clubpenguin/lib/tweenTracker";
 import ButtonComponent from "@clubpenguin/lib/components/ButtonComponent";
-import PressureTrigger from "@clubpenguin/lib/components/PressureTrigger";
-import RoomTrigger from "@clubpenguin/lib/components/RoomTrigger";
-import SnowballTrigger from "@clubpenguin/lib/components/SnowballTrigger";
-import GameTrigger from "@clubpenguin/lib/components/GameTrigger";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { PlayerData } from "@clubpenguin/net/types/player";
@@ -31,14 +27,9 @@ import { MusicManager } from "./music/musicManager";
 import { Player } from "./player/avatar";
 import { PlayerManager } from "./player/playerManager";
 import { SnowballManager } from "./snowballs/snowballManager";
+import WaddleTrigger from "@clubpenguin/lib/components/WaddleTrigger";
 
 export let logger = getLogger('CP.world.engine');
-
-export type Trigger =
-    | RoomTrigger
-    | GameTrigger
-    | PressureTrigger
-    | SnowballTrigger;
 
 export interface Room extends Phaser.Scene {
     safeX?: number;
@@ -108,7 +99,7 @@ export class Engine extends EventEmitter {
      * Gets the current player instance.
      */
     get player(): Player {
-        return this.players.player;
+        return this.getPlayer(this.world.myUser.id);
     }
 
     /**
@@ -219,6 +210,25 @@ export class Engine extends EventEmitter {
     public currentRoom: Room;
 
     /**
+     * Gets the triggers in the current room.
+     */
+    get triggers(): Phaser.GameObjects.Image[] {
+        return 'triggers' in this.currentRoom ? this.currentRoom.triggers : [];
+    }
+
+    /**
+     * Gets a waddle trigger by its ID.
+     * @param id The ID of the waddle trigger.
+     * @returns The waddle trigger with the given ID.
+     */
+    getWaddle(id: number): WaddleTrigger {
+        for (let trigger of this.triggers) {
+            let waddle = WaddleTrigger.getComponent(trigger);
+            if (waddle && waddle.waddle_id == id) return waddle;
+        }
+    }
+
+    /**
      * Imports a room module dynamically.
      * @param path The path of the room module to import.
      * @returns A promise that resolves to the default export of the imported room module.
@@ -313,8 +323,8 @@ export class Engine extends EventEmitter {
      */
     unloadRoom(): void {
         if (this.currentRoom) {
-            this.previousPlayerX = this.players.player?.x;
-            this.previousPlayerY = this.players.player?.y;
+            this.previousPlayerX = this.player?.x;
+            this.previousPlayerY = this.player?.y;
 
             this.currentRoom.scene.remove();
             if ('unload' in this.currentRoom) this.currentRoom.unload(this);
