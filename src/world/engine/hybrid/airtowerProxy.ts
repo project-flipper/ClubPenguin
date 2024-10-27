@@ -136,11 +136,11 @@ export class AirtowerProxy {
 
     @transform(Source.FROM_HTML5, 'sled', 'game:sled:move')
     async sledGameMove(d: Payloads['game:sled:move']): Promise<void> {
-        this.messageToFlash(SledPackets.MESSAGE_UPDATE_GAME, []);
+        this.messageToFlash(SledPackets.MESSAGE_UPDATE_GAME, [0, d.player, d.x, d.y, d.gameTime]);
     }
 
     @transform(Source.FROM_HTML5, 'sled', 'game:sled:update')
-    async sledUpdateGame(d: Payloads['game:sled:move']): Promise<void> {
-        this.messageToFlash(SledPackets.MESSAGE_UPDATE_GAME, []);
+    async sledUpdateGame(d: Payloads['game:sled:update']): Promise<void> {
+        this.messageToFlash(SledPackets.MESSAGE_UPDATE_GAME, [0, d.seats, ...d.players.map(p => `${p.nickname}|${p.avatar.color}|${p.avatar.hand}|${p.username}`)]);
     }
 }
