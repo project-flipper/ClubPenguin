@@ -97,7 +97,7 @@ export default class WaddleTrigger {
     }
 
     execute(engine: Engine, player: Player): void {
-        if (engine.player != player || this.players.includes(player)) return;
+        if (engine.player != player || this.players.includes(player) || this.players.length >= this.seatLimit) return;
 
         if (this.prompt) engine.interface.promptQuestion.showLocalized(this.prompt, () => this.confirmed(engine), () => this.rejected(engine));
         else this.confirmed(engine);
