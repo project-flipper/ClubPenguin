@@ -39,7 +39,10 @@ export type Payloads = {
     'player:update': PlayerData,
     'player:action': ActionData,
     'player:remove': PlayerData,
-    'user:update': AnyUserData
+    'user:update': AnyUserData,
+    'inventory:add': {
+        item_id: number
+    }
 };
 
 export type Payload<P extends any, O extends keyof P, D extends P[O]> = {

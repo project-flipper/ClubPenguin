@@ -9,7 +9,7 @@ export function handle<K extends keyof Payloads, T extends WorldHandler<Payloads
         logger.info(handler, context);
         WORLD_HANDLERS[op] = handler;
         return handler;
-    }
+    };
 }
 
 /* START OF COMPILED CODE */
@@ -96,10 +96,12 @@ export default class World extends Phaser.Scene {
 
         let error = this.scene.get('ErrorArea') as ErrorArea;
 
-        if (!this.game.airtower.isConnected()) error.show(error.createError({ message: 'shell.CONNECTION_LOST', buttonCallback: () => {
-            window.location.reload();
-            return false;
-        }, type: 'c', code: error.CONNECTION_LOST}));
+        if (!this.game.airtower.isConnected()) error.show(error.createError({
+            message: 'shell.CONNECTION_LOST', buttonCallback: () => {
+                window.location.reload();
+                return false;
+            }, type: 'c', code: error.CONNECTION_LOST
+        }));
 
         this.game.airtower.on('ws:message', this.onWorldMessage, this);
         this.game.airtower.on('ws:close', this.onWorldClose, this);
@@ -155,10 +157,12 @@ export default class World extends Phaser.Scene {
     onWorldClose(code: number, reason: string): void {
         let error = this.scene.get('ErrorArea') as ErrorArea;
 
-        let err: Partial<CPError> = { message: 'shell.CONNECTION_LOST', buttonCallback: () => {
-            window.location.reload();
-            return false;
-        }, type: 'c', code: error.CONNECTION_LOST};
+        let err: Partial<CPError> = {
+            message: 'shell.CONNECTION_LOST', buttonCallback: () => {
+                window.location.reload();
+                return false;
+            }, type: 'c', code: error.CONNECTION_LOST
+        };
 
         if (code == 4000) {
             // TODO: Add close codes
@@ -256,7 +260,7 @@ export default class World extends Phaser.Scene {
         return data.relationship?.type == RelationshipType.IGNORED;
     }
 
-    /* ========= PLAYER ========= */
+    /* ========= AVATAR ========= */
 
     /**
      * Updates the avatar of the current user with the provided partial avatar data.
@@ -383,6 +387,49 @@ export default class World extends Phaser.Scene {
         this.updateAvatar(mask);
     }
 
+    /* ========= ITEMS ========= */
+
+    async buyItem(id: number, prompt = true): Promise<void> {
+        let config = this.game.gameConfig.paper_items[id];
+        if (!config) {
+            logger.error('Couldn\'t buy unknown item', id);
+            return;
+        }
+
+        if (prompt) {
+            let msg = config.cost == 0 ? this.game.locale.localize('inventory_free').replace('%name%', config.label) : this.game.locale.localize('buy_inventory').replace('%name%', config.label).replace('%cost%', config.cost.toString());
+            this.interface.promptShop.show(msg.replace('%name%', config.label), this.game.locale.localize('Yes'), this.game.locale.localize('No'), () => {
+                this.interface.promptSpinner.show();
+                this.game.airtower.buyItem(id);
+            }, () => { });
+            this.interface.promptShop.setLoading();
+
+            logger.info('Loading room pin');
+            let key = `clothing-icons-${id}`;
+            let load = this.loadScreen;
+
+            if (!this.textures.exists(key)) {
+                let task = load.track(new LoaderTask('Icon loader', this.load));
+                this.load.multiatlas({
+                    key,
+                    atlasURL: `assets/clothing/icons/${id}.json`,
+                    path: `assets/clothing/icons`
+                });
+                this.load.start();
+                await task.wait();
+                this.engine.cleaner.allocateResource('multiatlas', key);
+            }
+
+            let icon = this.interface.promptShop.scene.add.image(0, 0, key, `${id}/0`);
+            this.interface.promptShop.setIcon(icon);
+        } else {
+            this.interface.promptSpinner.show();
+            await this.game.airtower.buyItem(id);
+        }
+    }
+
+    /* ========= ACTIONS ========= */
+
     /**
      * Moves the player to the specified coordinates.
      * @param x The x-coordinate to move the player to.
@@ -390,7 +437,7 @@ export default class World extends Phaser.Scene {
      */
     move(x: number, y: number): void {
         let player = this.engine.player;
-        let safe = this.engine.players.findPlayerPath(player, x, y)
+        let safe = this.engine.players.findPlayerPath(player, x, y);
         let action: ActionData = {
             frame: ActionFrame.WADDLE,
             x: safe.x,
@@ -945,7 +992,7 @@ export default class World extends Phaser.Scene {
         if (this.showGameOverAfterRoomReady) {
             this.closeGame();
 
-            if (engine.currentRoomId == this.postGameRoomId && engine.currentRoom)this.interface.showEndGame(data.coins, this.trackedEarnedStamps, gameData);
+            if (engine.currentRoomId == this.postGameRoomId && engine.currentRoom) this.interface.showEndGame(data.coins, this.trackedEarnedStamps, gameData);
             else engine.once('room:ready', () => {
                 this.interface.showEndGame(data.coins, this.trackedEarnedStamps, gameData);
             });
@@ -988,6 +1035,12 @@ export default class World extends Phaser.Scene {
     @handle('player:remove')
     async handlePlayerRemove(data: Payloads['player:remove']): Promise<void> {
         this.engine.removePlayer(data.user.id);
+    }
+
+    @handle('inventory:add')
+    async handleInventoryAdd(data: Payloads['inventory:add']): Promise<void> {
+        this.inventory.push(data.item_id);
+        this.interface.promptOkay.show(this.game.locale.localize('buy_inventory_done'), this.game.locale.localize('Okay'), () => { }, () => { });
     }
 
     /* END-USER-CODE */

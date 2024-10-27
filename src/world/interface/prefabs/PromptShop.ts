@@ -29,6 +29,8 @@ export default class PromptShop extends Phaser.GameObjects.Container {
 
         // icon
         const icon = scene.add.container(858.2625, 336.15);
+        icon.scaleX = 2;
+        icon.scaleY = 2;
         this.add(icon);
 
         // yes
@@ -44,7 +46,7 @@ export default class PromptShop extends Phaser.GameObjects.Container {
         this.add(no);
 
         // message
-        const message = new TextBox(scene, 534.9375, 458.2125, "BurbankSmallMedium");
+        const message = new TextBox(scene, 522.68, 458.55, "BurbankSmallMedium");
         message.tintFill = true;
         message.tintTopLeft = 0;
         message.tintTopRight = 0;
@@ -83,9 +85,10 @@ export default class PromptShop extends Phaser.GameObjects.Container {
         no.verticalAlign = 1;
 
         // message (prefab fields)
-        message.boxWidth = 642.15;
-        message.boxHeight = 151.9875;
+        message.boxWidth = 659.8125;
+        message.boxHeight = 152.6625;
         message.horizontalAlign = 1;
+        message.verticalAlign = 1;
 
         this.bg = bg;
         this.yesButton = yesButton;
@@ -141,6 +144,13 @@ export default class PromptShop extends Phaser.GameObjects.Container {
     setIcon(icon: Phaser.GameObjects.GameObject): void {
         this.icon.removeAll(true);
         this.icon.add(icon);
+    }
+
+    setLoading(): void {
+        this.icon.removeAll(true);
+        let spinner = this.scene.add.sprite(0, 0, 'interface', 'interface/promptLoading0001');
+        spinner.play('interface-promptloading-animation');
+        this.icon.add(spinner);
     }
 
     hide(): void {

@@ -451,4 +451,10 @@ export class Airtower extends Phaser.Events.EventEmitter {
     async getFriends(): Promise<FriendsResponse> {
         return await this.request<FriendsResponse>(new Route('GET', '/friends/'), {});
     }
+
+    /* ============ ITEMS ============ */
+
+    async buyItem(itemId: number): Promise<void> {
+        
+    }
 }

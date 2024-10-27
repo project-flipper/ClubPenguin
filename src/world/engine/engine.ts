@@ -246,7 +246,7 @@ export class Engine extends EventEmitter {
         try {
             await this.importRoomModule(path);
             return true;
-        } catch(e) {
+        } catch (e) {
             return false;
         }
     }
@@ -300,9 +300,9 @@ export class Engine extends EventEmitter {
             component.handCursor = true;
             component.pixelPerfect = true;
 
-            pin.on('release', () => {
-                // TODO: grant pin_id
-            });
+            let paper = this.app.gameConfig.paper_items[config.pin_id];
+
+            pin.on('release', () => this.world.buyItem(config.pin_id, true));
         }
 
         await this.music.play(config.music_id);
@@ -453,7 +453,7 @@ export class Engine extends EventEmitter {
         try {
             await this.importGameModule(path);
             return true;
-        } catch(e) {
+        } catch (e) {
             return false;
         }
     }

@@ -31,12 +31,12 @@
                     "y": 166.5,
                     "originX": 0,
                     "originY": 0,
-                    "width": 796.5,
-                    "height": 657,
                     "leftWidth": 47,
                     "rightWidth": 47,
                     "topHeight": 47,
-                    "bottomHeight": 47
+                    "bottomHeight": 47,
+                    "width": 796.5,
+                    "height": 657
                 },
                 {
                     "type": "Image",
@@ -84,7 +84,9 @@
                     "label": "icon",
                     "scope": "PUBLIC",
                     "x": 858.2625,
-                    "y": 336.15
+                    "y": 336.15,
+                    "scaleX": 2,
+                    "scaleY": 2
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -154,15 +156,17 @@
                         "horizontalAlign",
                         "boxHeight",
                         "boxWidth",
-                        "text"
+                        "text",
+                        "verticalAlign"
                     ],
                     "label": "message",
                     "scope": "PUBLIC",
-                    "boxWidth": 642.15,
-                    "boxHeight": 151.9875,
+                    "boxWidth": 659.8125,
+                    "boxHeight": 152.6625,
                     "horizontalAlign": 1,
-                    "x": 534.9375,
-                    "y": 458.2125,
+                    "verticalAlign": 1,
+                    "x": 522.68,
+                    "y": 458.55,
                     "tintTopLeft": "#000000",
                     "tintTopRight": "#000000",
                     "tintBottomLeft": "#000000",
@@ -177,8 +181,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }
