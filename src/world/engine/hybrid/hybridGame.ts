@@ -11,6 +11,9 @@ import { RufflePlayer } from "./ruffle";
 import World from "@clubpenguin/world/World";
 import { LoaderPlugin, setQuery } from "@clubpenguin/app/loader";
 import { AirtowerProxy } from "./airtowerProxy";
+import { getLogger } from "@clubpenguin/lib/log";
+
+let logger = getLogger('CP.world.engine.hybrid');
 
 interface HybridContainer extends Phaser.GameObjects.DOMElement {
     node: RufflePlayer;
@@ -152,8 +155,16 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     update(time: number, delta: number): void {
-        if (this.interface.contentShowing || this.loadScreen.isShowing) this.game.domContainer.style.zIndex = '-1';
-        else this.game.domContainer.style.zIndex = 'auto';
+        if (this.interface.contentShowing || this.loadScreen.isShowing) this.sendToBack();
+        else this.bringToTop();
+    }
+
+    bringToTop(): void {
+        this.game.domContainer.style.zIndex = 'auto';
+    }
+
+    sendToBack(): void {
+        this.game.domContainer.style.zIndex = '-1';
     }
 
     /* ================= FLASH ================= */
@@ -224,7 +235,7 @@ export class HybridGame extends Phaser.Scene implements Game {
     createBridge(): string {
         if (this.bridge) this.destroyBridge();
         this.bridge = new HybridBridge();
-        this.airtower = new AirtowerProxy(this.bridge, this.gameData.game_key);
+        this.airtower = new AirtowerProxy(this.bridge, this.world, this.gameData.game_key);
 
         this.bridge.setHandler('loaded', this.loaded, this);
         this.bridge.setHandler('progress', this.progress, this);
@@ -238,6 +249,10 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.bridge.setHandler('stopGameMusic', this.stopGameMusic, this);
         this.bridge.setHandler('hideLoading', this.hideLoading, this);
         this.bridge.setHandler('airtowerMessage', this.airtowerMessage, this);
+        this.bridge.setHandler('getActiveWaddleId', this.getActiveWaddleId, this);
+        this.bridge.setHandler('showPrompt', this.showPrompt, this);
+        this.bridge.setHandler('closePrompt', this.closePrompt, this);
+        this.bridge.setHandler('sendJoinLastRoom', this.sendJoinLastRoom, this);
         this.bridge.setHandler('endGame', this.endGame, this);
 
         this.loaderTask = new GameLoaderTask();
@@ -251,7 +266,7 @@ export class HybridGame extends Phaser.Scene implements Game {
         let userData = this.world.myUser;
         let colorHex = this.game.gameConfig.player_colors;
 
-        this.bridge.send('populateFlashData', {
+        this.bridge.sendSafe('populateFlashData', {
             basePath: '',
             baseConfigPath: '',
             globalContentPath: `${this.load.baseURL}assets/world/`,
@@ -309,17 +324,55 @@ export class HybridGame extends Phaser.Scene implements Game {
         this.airtower.messageFromFlash(command, args);
     }
 
+    getActiveWaddleId(): number {
+        return this.world.currentWaddleId;
+    }
+
+    showPrompt(style: string, message: string, file: string): void {
+        let yes = this.game.locale.localize('Yes');
+        let no = this.game.locale.localize('No');
+        let okay = this.game.locale.localize('Ok');
+        let positiveCallback = () => { if (this.bridge) this.bridge.sendSafe('promptPositiveCallback') };
+        let negativeCallback = () => { if (this.bridge) this.bridge.sendSafe('promptNegativeCallback') };
+        switch (String(style)) {
+            case 'question':
+                this.interface.promptQuestion.show(message, yes, no, positiveCallback, negativeCallback);
+                break;
+            case 'ok':
+            case 'ok_big':
+                this.interface.promptOkay.show(message, okay, positiveCallback, negativeCallback);
+                break;
+            case 'wait':
+                this.interface.promptSpinner.show();
+                break;
+            default:
+                logger.warn('Unknown prompt style', style);
+                break;
+        }
+    }
+
+    closePrompt(): void {
+        this.interface.closePrompt();
+    }
+
+    sendJoinLastRoom(): void {
+        this.world.joinRoom(this.engine.previousRoomId);
+    }
+
     endGame(score: number, roomId?: number): void {
         setTimeout(() => this.world.endGame(score, roomId), 200);
     }
 
     destroyBridge(): void {
         this.bridge = undefined;
+        this.airtower.destroy();
+        this.airtower = undefined;
     }
 
     /* ================= CLEANUP ================= */
 
     unload(engine: Engine): void {
         this.stop();
+        this.bringToTop.call(engine.world);
     }
 }
