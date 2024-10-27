@@ -6,6 +6,7 @@
 import ButtonComponent from "../../../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Mtn from "../Mtn";
+import WaddleTrigger from "@clubpenguin/lib/components/WaddleTrigger";
 /* END-USER-IMPORTS */
 
 export default class ThirdLane extends Phaser.GameObjects.Container {
@@ -54,7 +55,11 @@ export default class ThirdLane extends Phaser.GameObjects.Container {
         this.btn.on('over', () => this.scene.interface.showLocalizedHint(this.btn, 'sled_hint'));
         this.btn.on('release', () => {
             this.scene.interface.hideHint();
+            this.scene.world.move(974.25, 706.5);
         });
+
+        this.scene.events.on('waddle:join', this.updateWaddle, this);
+        this.scene.events.on('waddle:leave', this.updateWaddle, this);
 
         /* END-USER-CTR-CODE */
     }
@@ -66,6 +71,13 @@ export default class ThirdLane extends Phaser.GameObjects.Container {
     /* START-USER-CODE */
 
     declare scene: Mtn;
+
+    updateWaddle(waddle: WaddleTrigger): void {
+        if (waddle.waddle_id == 102) {
+            this.seat1.visible = waddle.seats[0].player != null;
+            this.seat2.visible = waddle.seats[1].player != null;
+        }
+    }
 
     /* END-USER-CODE */
 }

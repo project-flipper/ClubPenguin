@@ -10,6 +10,7 @@ import SecondLane from "./prefabs/SecondLane";
 import ThirdLane from "./prefabs/ThirdLane";
 import FourthLane from "./prefabs/FourthLane";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
+import WaddleTrigger from "../../../../lib/components/WaddleTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
@@ -161,8 +162,24 @@ export default class Mtn extends Phaser.Scene implements Room {
         exit_btn.alphaBottomLeft = 0.01;
         exit_btn.alphaBottomRight = 0.01;
 
+        // waddle103
+        const waddle103 = this.add.image(1249.09, 697.28, "mtn", "mtn/waddle103_mc");
+        waddle103.visible = false;
+
+        // waddle102
+        const waddle102 = this.add.image(1002.71, 735.98, "mtn", "mtn/waddle102_mc");
+        waddle102.visible = false;
+
+        // waddle101
+        const waddle101 = this.add.image(698.85, 733.84, "mtn", "mtn/waddle101_mc");
+        waddle101.visible = false;
+
+        // waddle100
+        const waddle100 = this.add.image(352.13, 628.2, "mtn", "mtn/waddle100_mc");
+        waddle100.visible = false;
+
         // lists
-        const triggers = [mtn_village_mc, mtn_plaza_mc];
+        const triggers = [mtn_village_mc, mtn_plaza_mc, waddle100, waddle101, waddle102, waddle103];
 
         // mtn_foreground (components)
         const mtn_foregroundDepthEnabled = new DepthEnabled(mtn_foreground);
@@ -261,12 +278,105 @@ export default class Mtn extends Phaser.Scene implements Room {
         const exit_btnButtonComponent = new ButtonComponent(exit_btn);
         exit_btnButtonComponent.pixelPerfect = true;
 
+        // waddle103 (components)
+        const waddle103WaddleTrigger = new WaddleTrigger(waddle103);
+        waddle103WaddleTrigger.game_id = "sled";
+        waddle103WaddleTrigger.prompt = "sled_prompt";
+        waddle103WaddleTrigger.waddle_id = 103;
+        waddle103WaddleTrigger.seat1 = true;
+        waddle103WaddleTrigger.seat1frame = 23;
+        waddle103WaddleTrigger.seat1x = 1196.66;
+        waddle103WaddleTrigger.seat1y = 696.94;
+        waddle103WaddleTrigger.done1x = 1184.96;
+        waddle103WaddleTrigger.done1y = 572.4;
+        waddle103WaddleTrigger.seat2 = true;
+        waddle103WaddleTrigger.seat2frame = 23;
+        waddle103WaddleTrigger.seat2x = 1287;
+        waddle103WaddleTrigger.seat2y = 666.11;
+        waddle103WaddleTrigger.done2x = 1265.96;
+        waddle103WaddleTrigger.done2y = 545.4;
+
+        // waddle102 (components)
+        const waddle102WaddleTrigger = new WaddleTrigger(waddle102);
+        waddle102WaddleTrigger.game_id = "sled";
+        waddle102WaddleTrigger.prompt = "sled_prompt";
+        waddle102WaddleTrigger.waddle_id = 102;
+        waddle102WaddleTrigger.seat1 = true;
+        waddle102WaddleTrigger.seat1frame = 16;
+        waddle102WaddleTrigger.seat1x = 940.5;
+        waddle102WaddleTrigger.seat1y = 716.4;
+        waddle102WaddleTrigger.done1x = 938.7;
+        waddle102WaddleTrigger.done1y = 627.41;
+        waddle102WaddleTrigger.seat2 = true;
+        waddle102WaddleTrigger.seat2frame = 16;
+        waddle102WaddleTrigger.seat2x = 1053;
+        waddle102WaddleTrigger.seat2y = 709.65;
+        waddle102WaddleTrigger.done2x = 1039.95;
+        waddle102WaddleTrigger.done2y = 618.41;
+
+        // waddle101 (components)
+        const waddle101WaddleTrigger = new WaddleTrigger(waddle101);
+        waddle101WaddleTrigger.game_id = "sled";
+        waddle101WaddleTrigger.prompt = "sled_prompt";
+        waddle101WaddleTrigger.waddle_id = 101;
+        waddle101WaddleTrigger.seat1 = true;
+        waddle101WaddleTrigger.seat1frame = 17;
+        waddle101WaddleTrigger.seat1x = 606.26;
+        waddle101WaddleTrigger.seat1y = 699.53;
+        waddle101WaddleTrigger.done1x = 654.07;
+        waddle101WaddleTrigger.done1y = 555.07;
+        waddle101WaddleTrigger.seat2 = true;
+        waddle101WaddleTrigger.seat2frame = 17;
+        waddle101WaddleTrigger.seat2x = 711.45;
+        waddle101WaddleTrigger.seat2y = 714.04;
+        waddle101WaddleTrigger.done2x = 748.58;
+        waddle101WaddleTrigger.done2y = 561.82;
+        waddle101WaddleTrigger.seat3 = true;
+        waddle101WaddleTrigger.seat3frame = 17;
+        waddle101WaddleTrigger.seat3x = 816.64;
+        waddle101WaddleTrigger.seat3y = 716.4;
+        waddle101WaddleTrigger.done3x = 840.83;
+        waddle101WaddleTrigger.done3y = 582.07;
+
+        // waddle100 (components)
+        const waddle100WaddleTrigger = new WaddleTrigger(waddle100);
+        waddle100WaddleTrigger.game_id = "sled";
+        waddle100WaddleTrigger.prompt = "sled_prompt";
+        waddle100WaddleTrigger.waddle_id = 100;
+        waddle100WaddleTrigger.seat1 = true;
+        waddle100WaddleTrigger.seat1frame = 17;
+        waddle100WaddleTrigger.seat1x = 231.86;
+        waddle100WaddleTrigger.seat1y = 538.76;
+        waddle100WaddleTrigger.done1x = 338.63;
+        waddle100WaddleTrigger.done1y = 492.75;
+        waddle100WaddleTrigger.seat2 = true;
+        waddle100WaddleTrigger.seat2frame = 17;
+        waddle100WaddleTrigger.seat2x = 297.11;
+        waddle100WaddleTrigger.seat2y = 593.89;
+        waddle100WaddleTrigger.done2x = 406.13;
+        waddle100WaddleTrigger.done2y = 515.25;
+        waddle100WaddleTrigger.seat3 = true;
+        waddle100WaddleTrigger.seat3frame = 17;
+        waddle100WaddleTrigger.seat3x = 372.04;
+        waddle100WaddleTrigger.seat3y = 641.7;
+        waddle100WaddleTrigger.done3x = 473.63;
+        waddle100WaddleTrigger.done3y = 551.25;
+        waddle100WaddleTrigger.seat4 = true;
+        waddle100WaddleTrigger.seat4frame = 17;
+        waddle100WaddleTrigger.seat4x = 456.75;
+        waddle100WaddleTrigger.seat4y = 676.01;
+        waddle100WaddleTrigger.done4x = 541.13;
+        waddle100WaddleTrigger.done4y = 596.25;
+
         this.cablecar = cablecar;
         this.cat = cat;
         this.cat_btn = cat_btn;
         this.catalogue = catalogue;
         this.catalogue_btn = catalogue_btn;
         this.firstLane = firstLane;
+        this.secondLane = secondLane;
+        this.thirdLane = thirdLane;
+        this.fourthLane = fourthLane;
         this.block = block;
         this.shop_btn = shop_btn;
         this.exit_btn = exit_btn;
@@ -281,6 +391,9 @@ export default class Mtn extends Phaser.Scene implements Room {
     public catalogue!: Phaser.GameObjects.Image;
     public catalogue_btn!: Phaser.GameObjects.Image;
     public firstLane!: FirstLane;
+    public secondLane!: SecondLane;
+    public thirdLane!: ThirdLane;
+    public fourthLane!: FourthLane;
     public block!: Phaser.GameObjects.Image;
     public shop_btn!: Phaser.GameObjects.Image;
     public exit_btn!: Phaser.GameObjects.Image;

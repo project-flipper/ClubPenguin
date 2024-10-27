@@ -358,6 +358,7 @@
                 "y"
             ],
             "label": "secondLane",
+            "scope": "PUBLIC",
             "components": [
                 "DepthEnabled"
             ],
@@ -372,6 +373,7 @@
                 "y"
             ],
             "label": "thirdLane",
+            "scope": "PUBLIC",
             "components": [
                 "DepthEnabled"
             ],
@@ -386,6 +388,7 @@
                 "y"
             ],
             "label": "fourthLane",
+            "scope": "PUBLIC",
             "components": [
                 "DepthEnabled"
             ],
@@ -482,12 +485,150 @@
             "alphaTopRight": 0.01,
             "alphaBottomLeft": 0.01,
             "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "401eac71-12f4-4074-8146-4fc859182b38",
+            "label": "waddle103",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "sled",
+            "WaddleTrigger.prompt": "sled_prompt",
+            "WaddleTrigger.waddle_id": 103,
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 23,
+            "WaddleTrigger.seat1x": 1196.66,
+            "WaddleTrigger.seat1y": 696.94,
+            "WaddleTrigger.done1x": 1184.96,
+            "WaddleTrigger.done1y": 572.4,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 23,
+            "WaddleTrigger.seat2x": 1287,
+            "WaddleTrigger.seat2y": 666.11,
+            "WaddleTrigger.done2x": 1265.96,
+            "WaddleTrigger.done2y": 545.4,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/waddle103_mc"
+            },
+            "x": 1249.09,
+            "y": 697.28,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "72c97341-9105-4714-b4e2-c15e47c07f5b",
+            "label": "waddle102",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "sled",
+            "WaddleTrigger.prompt": "sled_prompt",
+            "WaddleTrigger.waddle_id": 102,
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 16,
+            "WaddleTrigger.seat1x": 940.5,
+            "WaddleTrigger.seat1y": 716.4,
+            "WaddleTrigger.done1x": 938.7,
+            "WaddleTrigger.done1y": 627.41,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 16,
+            "WaddleTrigger.seat2x": 1053,
+            "WaddleTrigger.seat2y": 709.65,
+            "WaddleTrigger.done2x": 1039.95,
+            "WaddleTrigger.done2y": 618.41,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/waddle102_mc"
+            },
+            "x": 1002.71,
+            "y": 735.98,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "0f0ad63e-363b-442e-94b3-c8d84b8e505d",
+            "label": "waddle101",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "sled",
+            "WaddleTrigger.prompt": "sled_prompt",
+            "WaddleTrigger.waddle_id": 101,
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 17,
+            "WaddleTrigger.seat1x": 606.26,
+            "WaddleTrigger.seat1y": 699.53,
+            "WaddleTrigger.done1x": 654.07,
+            "WaddleTrigger.done1y": 555.07,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 17,
+            "WaddleTrigger.seat2x": 711.45,
+            "WaddleTrigger.seat2y": 714.04,
+            "WaddleTrigger.done2x": 748.58,
+            "WaddleTrigger.done2y": 561.82,
+            "WaddleTrigger.seat3": true,
+            "WaddleTrigger.seat3frame": 17,
+            "WaddleTrigger.seat3x": 816.64,
+            "WaddleTrigger.seat3y": 716.4,
+            "WaddleTrigger.done3x": 840.83,
+            "WaddleTrigger.done3y": 582.07,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/waddle101_mc"
+            },
+            "x": 698.85,
+            "y": 733.84,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "7246cd53-285a-4f60-848a-00e9dc7c4963",
+            "label": "waddle100",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "sled",
+            "WaddleTrigger.prompt": "sled_prompt",
+            "WaddleTrigger.waddle_id": 100,
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 17,
+            "WaddleTrigger.seat1x": 231.86,
+            "WaddleTrigger.seat1y": 538.76,
+            "WaddleTrigger.done1x": 338.63,
+            "WaddleTrigger.done1y": 492.75,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 17,
+            "WaddleTrigger.seat2x": 297.11,
+            "WaddleTrigger.seat2y": 593.89,
+            "WaddleTrigger.done2x": 406.13,
+            "WaddleTrigger.done2y": 515.25,
+            "WaddleTrigger.seat3": true,
+            "WaddleTrigger.seat3frame": 17,
+            "WaddleTrigger.seat3x": 372.04,
+            "WaddleTrigger.seat3y": 641.7,
+            "WaddleTrigger.done3x": 473.63,
+            "WaddleTrigger.done3y": 551.25,
+            "WaddleTrigger.seat4": true,
+            "WaddleTrigger.seat4frame": 17,
+            "WaddleTrigger.seat4x": 456.75,
+            "WaddleTrigger.seat4y": 676.01,
+            "WaddleTrigger.done4x": 541.13,
+            "WaddleTrigger.done4y": 596.25,
+            "texture": {
+                "key": "mtn",
+                "frame": "mtn/waddle100_mc"
+            },
+            "x": 352.13,
+            "y": 628.2,
+            "visible": false
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },
@@ -497,7 +638,11 @@
             "label": "triggers",
             "objectIds": [
                 "24b9f091-f6b0-4e8d-a01c-06180fd7b317",
-                "4302a89c-ba7e-4f02-8550-c72e6d16aea4"
+                "4302a89c-ba7e-4f02-8550-c72e6d16aea4",
+                "7246cd53-285a-4f60-848a-00e9dc7c4963",
+                "0f0ad63e-363b-442e-94b3-c8d84b8e505d",
+                "72c97341-9105-4714-b4e2-c15e47c07f5b",
+                "401eac71-12f4-4074-8146-4fc859182b38"
             ],
             "scope": "PUBLIC"
         }
