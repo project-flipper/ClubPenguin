@@ -7,6 +7,7 @@ import DepthEnabled from "../../../../lib/components/DepthEnabled";
 import ButtonComponent from "../../../../lib/components/ButtonComponent";
 import GameTrigger from "../../../../lib/components/GameTrigger";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
+import WaddleTrigger from "../../../../lib/components/WaddleTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine,  Room } from "@clubpenguin/world/engine/engine";
@@ -282,6 +283,62 @@ export default class Lodge extends Phaser.Scene implements Room {
         village_triggerRoomTrigger.playerX = 1057.5;
         village_triggerRoomTrigger.playerY = 607.5;
 
+        // lodge_table_trigger (components)
+        const lodge_table_triggerWaddleTrigger = new WaddleTrigger(lodge_table_trigger);
+        lodge_table_triggerWaddleTrigger.game_id = "four";
+        lodge_table_triggerWaddleTrigger.prompt = "four_prompt";
+        lodge_table_triggerWaddleTrigger.waddle_id = 205;
+        lodge_table_triggerWaddleTrigger.waddle_type = "TABLE";
+        lodge_table_triggerWaddleTrigger.seat1 = true;
+        lodge_table_triggerWaddleTrigger.seat1frame = 23;
+        lodge_table_triggerWaddleTrigger.seat1x = 606.82;
+        lodge_table_triggerWaddleTrigger.seat1y = 531.23;
+        lodge_table_triggerWaddleTrigger.done1x = 534.26;
+        lodge_table_triggerWaddleTrigger.done1y = 618.3;
+        lodge_table_triggerWaddleTrigger.seat2 = true;
+        lodge_table_triggerWaddleTrigger.seat2frame = 19;
+        lodge_table_triggerWaddleTrigger.seat2x = 730.69;
+        lodge_table_triggerWaddleTrigger.seat2y = 613.01;
+        lodge_table_triggerWaddleTrigger.done2x = 665.21;
+        lodge_table_triggerWaddleTrigger.done2y = 681.19;
+
+        // lodge_table_trigger_1 (components)
+        const lodge_table_trigger_1WaddleTrigger = new WaddleTrigger(lodge_table_trigger_1);
+        lodge_table_trigger_1WaddleTrigger.game_id = "four";
+        lodge_table_trigger_1WaddleTrigger.prompt = "four_prompt";
+        lodge_table_trigger_1WaddleTrigger.waddle_id = 206;
+        lodge_table_trigger_1WaddleTrigger.waddle_type = "TABLE";
+        lodge_table_trigger_1WaddleTrigger.seat1 = true;
+        lodge_table_trigger_1WaddleTrigger.seat1frame = 17;
+        lodge_table_trigger_1WaddleTrigger.seat1x = 715.84;
+        lodge_table_trigger_1WaddleTrigger.seat1y = 845.78;
+        lodge_table_trigger_1WaddleTrigger.done1x = 773.33;
+        lodge_table_trigger_1WaddleTrigger.done1y = 922.28;
+        lodge_table_trigger_1WaddleTrigger.seat2 = true;
+        lodge_table_trigger_1WaddleTrigger.seat2frame = 21;
+        lodge_table_trigger_1WaddleTrigger.seat2x = 600.07;
+        lodge_table_trigger_1WaddleTrigger.seat2y = 915.41;
+        lodge_table_trigger_1WaddleTrigger.done2x = 636.41;
+        lodge_table_trigger_1WaddleTrigger.done2y = 965.7;
+
+        // lodge_table_trigger_2 (components)
+        const lodge_table_trigger_2WaddleTrigger = new WaddleTrigger(lodge_table_trigger_2);
+        lodge_table_trigger_2WaddleTrigger.game_id = "four";
+        lodge_table_trigger_2WaddleTrigger.prompt = "four_prompt";
+        lodge_table_trigger_2WaddleTrigger.waddle_type = "TABLE";
+        lodge_table_trigger_2WaddleTrigger.seat1 = true;
+        lodge_table_trigger_2WaddleTrigger.seat1frame = 21;
+        lodge_table_trigger_2WaddleTrigger.seat1x = 1070.77;
+        lodge_table_trigger_2WaddleTrigger.seat1y = 927.68;
+        lodge_table_trigger_2WaddleTrigger.done1x = 1114.2;
+        lodge_table_trigger_2WaddleTrigger.done1y = 985.16;
+        lodge_table_trigger_2WaddleTrigger.seat2 = true;
+        lodge_table_trigger_2WaddleTrigger.seat2frame = 17;
+        lodge_table_trigger_2WaddleTrigger.seat2x = 1216.13;
+        lodge_table_trigger_2WaddleTrigger.seat2y = 868.73;
+        lodge_table_trigger_2WaddleTrigger.done2x = 1259.77;
+        lodge_table_trigger_2WaddleTrigger.done2y = 962.66;
+
         // note (components)
         const noteDepthEnabled = new DepthEnabled(note);
         noteDepthEnabled.automaticSort = false;
@@ -290,15 +347,24 @@ export default class Lodge extends Phaser.Scene implements Room {
         const noteButtonButtonComponent = new ButtonComponent(noteButton);
         noteButtonButtonComponent.handCursor = true;
 
+        // table1 (components)
+        new DepthEnabled(table1);
+
         // table1btn (components)
         const table1btnButtonComponent = new ButtonComponent(table1btn);
         table1btnButtonComponent.handCursor = true;
         table1btnButtonComponent.pixelPerfect = true;
 
+        // table2 (components)
+        new DepthEnabled(table2);
+
         // table2btn (components)
         const table2btnButtonComponent = new ButtonComponent(table2btn);
         table2btnButtonComponent.handCursor = true;
         table2btnButtonComponent.pixelPerfect = true;
+
+        // table3 (components)
+        new DepthEnabled(table3);
 
         // table3btn (components)
         const table3btnButtonComponent = new ButtonComponent(table3btn);
