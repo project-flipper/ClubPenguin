@@ -22,10 +22,14 @@ export type Payloads = {
         game_id: string
     },
     'game:sled:move': {
-
+        player: number,
+        x: number,
+        y: number, 
+        gameTime: number
     },
     'game:sled:update': {
-        
+        seats: number,
+        players: AnyUserData[],
     },
     'game:over': {
         coins: number
