@@ -21,6 +21,12 @@ export type Payloads = {
     'game:start': {
         game_id: string
     },
+    'game:sled:move': {
+
+    },
+    'game:sled:update': {
+        
+    },
     'game:over': {
         coins: number
     },
@@ -51,6 +57,12 @@ export type ClientPayloads = {
     },
     'game:start': {
         game_id: string
+    },
+    'game:sled:join': {},
+    'game:sled:move': {
+        x: number,
+        y: number,
+        gameTime: number
     },
     'game:over': {
         score: number
