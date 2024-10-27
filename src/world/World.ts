@@ -668,6 +668,11 @@ export default class World extends Phaser.Scene {
         }
     }
 
+    /**
+     * Joins a waddle with the specified ID.
+     * @param waddleId The ID of the waddle to join.
+     * @param isTable A boolean indicating whether the waddle is a table.
+     */
     async joinWaddle(waddleId: number, isTable: boolean): Promise<void> {
         if (this.currentWaddleId) {
             logger.warn('Already in a waddle', this.currentWaddleId);
@@ -684,6 +689,9 @@ export default class World extends Phaser.Scene {
 
     public currentWaddleId: number;
 
+    /**
+     * Leaves the current waddle.
+     */
     async leaveWaddle(): Promise<void> {
         if (!this.currentWaddleId) {
             logger.warn('Not in a waddle');
@@ -884,14 +892,15 @@ export default class World extends Phaser.Scene {
             return;
         }
 
+        let waddle = this.engine.getWaddle(data.waddle_id);
         if (player == this.engine.player) {
             this.currentWaddleId = data.waddle_id;
+            this.gameStartParams = waddle.options;
             this.engine.lockRoom();
         }
 
-        let waddle = this.engine.getWaddle(data.waddle_id);
         waddle.place(player);
-        //await this.startGame(waddle.game_id, waddle.options);
+        //if (waddle.waddle_type != 'TABLE') this.interface.promptSpinner.show();
     }
 
     @handle('waddle:leave')
