@@ -38,30 +38,37 @@ export default class Lounge extends Phaser.Scene implements Room {
         // dancefloor
         const dancefloor = this.add.sprite(627.975, 801.1125, "lounge", "lounge/dancefloor0001");
         dancefloor.setOrigin(0, 0);
+        dancefloor.play("lounge-dancefloor-animation");
 
         // penguin1
         const penguin1 = this.add.sprite(756.225, 893.1375, "lounge", "lounge/penguin0001");
-        penguin1.setOrigin(0.5069863, 0.54971831);
+        penguin1.setOrigin(0.506986, 0.549718);
+        penguin1.play("lounge-penguin1-animation");
 
         // penguin2
         const penguin2 = this.add.sprite(846.3375, 875.7, "lounge", "lounge/penguin0001");
-        penguin2.setOrigin(0.5069863, 0.54971831);
+        penguin2.setOrigin(0.506986, 0.549718);
+        penguin2.play("lounge-penguin2-animation");
 
         // penguin3
         const penguin3 = this.add.sprite(894.15, 905.5125, "lounge", "lounge/penguin0001");
-        penguin3.setOrigin(0.5069863, 0.54971831);
+        penguin3.setOrigin(0.506986, 0.549718);
+        penguin3.play("lounge-penguin3-animation");
 
         // penguin4
         const penguin4 = this.add.sprite(945.225, 882.225, "lounge", "lounge/penguin0001");
-        penguin4.setOrigin(0.5069863, 0.54971831);
+        penguin4.setOrigin(0.506986, 0.549718);
+        penguin4.play("lounge-penguin4-animation");
 
         // penguin5
         const penguin5 = this.add.sprite(928.125, 959.175, "lounge", "lounge/penguin0001");
-        penguin5.setOrigin(0.5069863, 0.54971831);
+        penguin5.setOrigin(0.506986, 0.549718);
+        penguin5.play("lounge-penguin1-animation");
 
         // penguin6
         const penguin6 = this.add.sprite(803.475, 941.4, "lounge", "lounge/penguin0001");
-        penguin6.setOrigin(0.5069863, 0.54971831);
+        penguin6.setOrigin(0.506986, 0.549718);
+        penguin6.play("lounge-penguin4-animation");
 
         // lounge_base
         const lounge_base = this.add.image(-21.0375, -7.5375, "lounge", "lounge/base");
@@ -78,10 +85,12 @@ export default class Lounge extends Phaser.Scene implements Room {
         // speaker1
         const speaker1 = this.add.sprite(257.4, 9.7875, "lounge", "lounge/speaker10001");
         speaker1.setOrigin(0, 0);
+        speaker1.play("lounge-speaker1-animation");
 
         // speaker2
         const speaker2 = this.add.sprite(1330.7625, 9.7875, "lounge", "lounge/speaker20001");
         speaker2.setOrigin(0, 0);
+        speaker2.play("lounge-speaker2-animation");
 
         // lounge_foreground1
         const lounge_foreground1 = this.add.image(366.525, -70.9875, "lounge", "lounge/foreground1");
@@ -102,6 +111,7 @@ export default class Lounge extends Phaser.Scene implements Room {
         // bitsscreen
         const bitsscreen = this.add.sprite(222.9375, 395.6375, "lounge", "lounge/bits_idle0001");
         bitsscreen.setOrigin(0, 0);
+        bitsscreen.play("lounge-bits-animation");
 
         // bitsmachine
         const bitsmachine = this.add.image(136.35, 278.55, "lounge", "lounge/bitsmachine0001");
@@ -114,6 +124,7 @@ export default class Lounge extends Phaser.Scene implements Room {
         // thinicescreen
         const thinicescreen = this.add.sprite(1290, 270, "lounge", "lounge/thinice_idle0001");
         thinicescreen.setOrigin(0, 0);
+        thinicescreen.play("lounge-thinice-animation");
 
         // thinicelight
         const thinicelight = this.add.image(1407, 255, "lounge", "lounge/thinice_lightoff");
@@ -130,6 +141,7 @@ export default class Lounge extends Phaser.Scene implements Room {
         // astroscreen
         const astroscreen = this.add.sprite(1344.2625, 358.425, "lounge", "lounge/astro_idle0001");
         astroscreen.setOrigin(0, 0);
+        astroscreen.play("lounge-astro-animation");
 
         // astrolight
         const astrolight = this.add.image(1511, 416, "lounge", "lounge/astro_lightoff");
@@ -639,18 +651,6 @@ export default class Lounge extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.dancefloor.play('lounge-dancefloor-animation');
-        this.penguin1.play('lounge-penguin1-animation');
-        this.penguin2.play('lounge-penguin2-animation');
-        this.penguin3.play('lounge-penguin3-animation');
-        this.penguin4.play('lounge-penguin4-animation');
-        this.penguin5.play('lounge-penguin1-animation');
-        this.penguin6.play('lounge-penguin4-animation');
-        this.speaker1.play('lounge-speaker1-animation');
-        this.speaker2.play('lounge-speaker2-animation');
-
-        this.bitsscreen.play('lounge-bits-animation');
-
         this.chairbutton11.on('release', () => this.world.move(371.25, 810));
         this.chairbutton12.on('release', () => this.world.move(450, 945));
         this.chairbutton13.on('release', () => this.world.move(225, 990));
@@ -673,8 +673,6 @@ export default class Lounge extends Phaser.Scene implements Room {
         })
         this.bitsbutton.on('release', () => this.world.move(360, 551.25));
 
-        this.thinicescreen.play('lounge-thinice-animation');
-
         this.thinicebutton.on('over', () => {
             this.thinicescreen.stop();
             this.thinicescreen.setFrame('lounge/thinice_over');
@@ -687,8 +685,6 @@ export default class Lounge extends Phaser.Scene implements Room {
             this.interface.hideHint();
         })
         this.thinicebutton.on('release', () => this.world.move(1237.5, 427.5));
-
-        this.astroscreen.play('lounge-astro-animation');
 
         this.astrobutton.on('over', () => {
             this.astroscreen.stop();

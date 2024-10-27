@@ -365,7 +365,10 @@
             "x": 343.6875,
             "y": 582.4125,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "cove-fire-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",

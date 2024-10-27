@@ -54,6 +54,7 @@ export default class Mtn extends Phaser.Scene implements Room {
         // cablecar
         const cablecar = this.add.sprite(744.075, 16.9875, "mtn", "mtn/cablecar0001");
         cablecar.setOrigin(0, 0);
+        cablecar.play("mtn-cablecar-animation");
 
         // mtn_mountain
         const mtn_mountain = this.add.image(-126, 67.95, "mtn", "mtn/base");
@@ -426,7 +427,6 @@ export default class Mtn extends Phaser.Scene implements Room {
         this.editorCreate();
 
         this.cablecar.on('animationupdate', this.updateCableDepth, this);
-        this.cablecar.play('mtn-cablecar-animation');
 
         this.cat_btn.on('over', () => this.cat.play('mtn-cat-animation'));
         this.cat_btn.on('out', () => {

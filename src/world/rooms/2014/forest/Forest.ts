@@ -74,18 +74,22 @@ export default class Forest extends Phaser.Scene implements Room {
         // waterfallparticles
         const waterfallparticles = this.add.sprite(884.25, 177.6375, "forest", "forest/waterfallparticles0001");
         waterfallparticles.setOrigin(0, 0);
+        waterfallparticles.play("forest-waterfallparticles-animation");
 
         // waterfallmidrolls
         const waterfallmidrolls = this.add.sprite(890, 223, "forest", "forest/waterfallmidrolls0001");
         waterfallmidrolls.setOrigin(0, 0);
+        waterfallmidrolls.play("forest-waterfallmidrolls-animation");
 
         // waterfallfoam
         const waterfallfoam = this.add.sprite(875, 313, "forest", "forest/waterfallfoam0001");
         waterfallfoam.setOrigin(0, 0);
+        waterfallfoam.play("forest-waterfallfoam-animation");
 
         // waterfallrolls
         const waterfallrolls = this.add.sprite(881.4, 177.725, "forest", "forest/waterfallrolls0001");
         waterfallrolls.setOrigin(0, 0);
+        waterfallrolls.play("forest-waterfallrolls-animation");
 
         // forest_waterfallside
         const forest_waterfallside = this.add.image(497.025, 50.175, "forest", "forest/waterfallside");
@@ -411,11 +415,6 @@ export default class Forest extends Phaser.Scene implements Room {
     create(data: any) {
 
         this.editorCreate();
-
-        this.waterfallrolls.play('forest-waterfallrolls-animation');
-        this.waterfallparticles.play('forest-waterfallparticles-animation');
-        this.waterfallmidrolls.play('forest-waterfallmidrolls-animation');
-        this.waterfallfoam.play('forest-waterfallfoam-animation');
 
         this.trash1_btn.on('over', () => {
             this.trash1_btn.visible = false;

@@ -54,7 +54,10 @@
             "x": 293.0625,
             "y": 548.6625,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance-dancefloor-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -420,7 +423,10 @@
             "x": 303.525,
             "y": 24.4125,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance-speaker1-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -434,7 +440,10 @@
             "x": 389.5875,
             "y": 91.4625,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance-speaker2-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -448,7 +457,10 @@
             "x": 1201.6125,
             "y": 19.575,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance-speaker3-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -486,7 +498,10 @@
             "x": 1176.6375,
             "y": 247.275,
             "originX": 0.453474,
-            "originY": 0.782609
+            "originY": 0.782609,
+            "animationPlayMethod": 1,
+            "animationKey": "dance-puffleidle-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -526,7 +541,10 @@
             "x": 1118.1375,
             "y": 293.85,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance-boilerspeakercone-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -666,7 +684,10 @@
             "x": 1228.725,
             "y": 60.6375,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance-neon-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -680,7 +701,10 @@
             "x": 522.45,
             "y": 109.8,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance-djleft-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -694,7 +718,10 @@
             "x": 935.1,
             "y": 105.3,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance-djright-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",

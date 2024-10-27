@@ -39,6 +39,7 @@ export default class Dance extends Phaser.Scene implements Room {
         // dancefloor
         const dancefloor = this.add.sprite(293.0625, 548.6625, "dance", "dance/dancefloor0001");
         dancefloor.setOrigin(0, 0);
+        dancefloor.play("dance-dancefloor-animation");
 
         // doorbehind
         const doorbehind = this.add.image(121.95, 235.6875, "dance", "dance/doorbehind");
@@ -130,14 +131,17 @@ export default class Dance extends Phaser.Scene implements Room {
         // speaker1
         const speaker1 = this.add.sprite(303.525, 24.4125, "dance", "dance/speaker10001");
         speaker1.setOrigin(0, 0);
+        speaker1.play("dance-speaker1-animation");
 
         // speaker2
         const speaker2 = this.add.sprite(389.5875, 91.4625, "dance", "dance/speaker20001");
         speaker2.setOrigin(0, 0);
+        speaker2.play("dance-speaker2-animation");
 
         // speaker3
         const speaker3 = this.add.sprite(1201.6125, 19.575, "dance", "dance/speaker30001");
         speaker3.setOrigin(0, 0);
+        speaker3.play("dance-speaker3-animation");
 
         // boilerspeaker
         const boilerspeaker = this.add.image(1028.025, 247.05, "dance", "dance/boilerspeaker0001");
@@ -146,6 +150,7 @@ export default class Dance extends Phaser.Scene implements Room {
         // puffle
         const puffle = this.add.sprite(1176.6375, 247.275, "dance", "dance/puffle0001");
         puffle.setOrigin(0.453474, 0.782609);
+        puffle.play("dance-puffleidle-animation");
 
         // pufflehitbox
         const pufflehitbox = this.add.image(1176.6375, 247.275, "dance", "dance/pufflehitbox0004");
@@ -158,6 +163,7 @@ export default class Dance extends Phaser.Scene implements Room {
         // boilerspeakercone
         const boilerspeakercone = this.add.sprite(1118.1375, 293.85, "dance", "dance/boilerspeakercone0001");
         boilerspeakercone.setOrigin(0, 0);
+        boilerspeakercone.play("dance-boilerspeakercone-animation");
 
         // boilerButton
         const boilerButton = this.add.image(1028.025, 247.05, "dance", "dance/boilerspeaker0004");
@@ -195,14 +201,17 @@ export default class Dance extends Phaser.Scene implements Room {
         // neon
         const neon = this.add.sprite(1228.725, 60.6375, "dance", "dance/neon0001");
         neon.setOrigin(0, 0);
+        neon.play("dance-neon-animation");
 
         // djleft
         const djleft = this.add.sprite(522.45, 109.8, "dance", "dance/dj_left0001");
         djleft.setOrigin(0, 0);
+        djleft.play("dance-djleft-animation");
 
         // djright
         const djright = this.add.sprite(935.1, 105.3, "dance", "dance/dj_right0001");
         djright.setOrigin(0, 0);
+        djright.play("dance-djright-animation");
 
         // disks
         const disks = this.add.image(363.2625, 455.5125, "dance", "dance/disks0001");
@@ -656,15 +665,6 @@ export default class Dance extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.dancefloor.play('dance-dancefloor-animation');
-        this.speaker1.play('dance-speaker1-animation');
-        this.speaker2.play('dance-speaker2-animation');
-        this.speaker3.play('dance-speaker3-animation');
-        this.boilerspeakercone.play('dance-boilerspeakercone-animation');
-        this.neon.play('dance-neon-animation');
-        this.djleft.play('dance-djleft-animation');
-        this.djright.play('dance-djright-animation');
-
         this.doorbehind.on('over', () => {
             this.sound.play('dance_door');
             this.door.play('dance-dooropen-animation');
@@ -767,8 +767,6 @@ export default class Dance extends Phaser.Scene implements Room {
             this.puffle.anims.chain();
             this.puffle.play('dance-pufflejump-animation').chain('dance-puffleidle-animation');
         });
-
-        this.puffle.play('dance-puffleidle-animation');
 
         this.game.locale.register(this.localize, this);
 

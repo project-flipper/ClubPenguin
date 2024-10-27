@@ -85,7 +85,10 @@
             "x": 744.075,
             "y": 16.9875,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "mtn-cablecar-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",

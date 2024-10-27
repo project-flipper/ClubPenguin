@@ -179,7 +179,10 @@
             "x": 884.25,
             "y": 177.6375,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "forest-waterfallparticles-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -193,7 +196,10 @@
             "x": 890,
             "y": 223,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "forest-waterfallmidrolls-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -207,7 +213,10 @@
             "x": 875,
             "y": 313,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "forest-waterfallfoam-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -221,7 +230,10 @@
             "x": 881.4,
             "y": 177.725,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "forest-waterfallrolls-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -770,8 +782,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

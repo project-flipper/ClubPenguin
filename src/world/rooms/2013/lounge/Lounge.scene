@@ -28,7 +28,10 @@
             "x": 627.975,
             "y": 801.1125,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-dancefloor-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -41,8 +44,11 @@
             },
             "x": 756.225,
             "y": 893.1375,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-penguin1-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -55,8 +61,11 @@
             },
             "x": 846.3375,
             "y": 875.7,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-penguin2-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -69,8 +78,11 @@
             },
             "x": 894.15,
             "y": 905.5125,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-penguin3-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -83,8 +95,11 @@
             },
             "x": 945.225,
             "y": 882.225,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-penguin4-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -97,8 +112,11 @@
             },
             "x": 928.125,
             "y": 959.175,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-penguin1-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -111,8 +129,11 @@
             },
             "x": 803.475,
             "y": 941.4,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-penguin4-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -174,7 +195,10 @@
             "x": 257.4,
             "y": 9.7875,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-speaker1-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -188,7 +212,10 @@
             "x": 1330.7625,
             "y": 9.7875,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-speaker2-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -258,7 +285,10 @@
             "x": 222.9375,
             "y": 395.6375,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-bits-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -309,7 +339,10 @@
             "x": 1290,
             "y": 270,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-thinice-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -379,7 +412,10 @@
             "x": 1344.2625,
             "y": 358.425,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge-astro-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",

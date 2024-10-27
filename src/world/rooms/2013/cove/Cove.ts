@@ -119,6 +119,7 @@ export default class Cove extends Phaser.Scene implements Room {
         // fire
         const fire = this.add.sprite(343.6875, 582.4125, "cove", "cove/fire0001");
         fire.setOrigin(0, 0);
+        fire.play("cove-fire-animation");
 
         // cove_chairside
         const cove_chairside = this.add.image(460.4625, 214.65, "cove", "cove/chairside");
@@ -473,8 +474,6 @@ export default class Cove extends Phaser.Scene implements Room {
     create(data: any) {
 
         this.editorCreate();
-
-        this.fire.play('cove-fire-animation');
 
         this.binoculars_btn.on('over', () => this.binoculars.setFrame('cove/binoculars0002'));
         this.binoculars_btn.on('out', () => this.binoculars.setFrame('cove/binoculars0001'));
