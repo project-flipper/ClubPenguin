@@ -23,7 +23,7 @@
                     "id": "b4c142b7-2335-457e-93b5-bff2a44fc271",
                     "label": "book_mancalatable",
                     "texture": {
-                        "key": "book",
+                        "key": "book2013",
                         "frame": "book/mancalatable"
                     },
                     "x": 1.2375,
@@ -37,7 +37,7 @@
                     "label": "board",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "book",
+                        "key": "book2013",
                         "frame": "book/mancalaboard0001"
                     },
                     "x": 0.5625,
@@ -55,7 +55,7 @@
                     ],
                     "ButtonComponent.handCursor": true,
                     "texture": {
-                        "key": "book",
+                        "key": "book2013",
                         "frame": "book/mancala_btn0004"
                     },
                     "x": 4,

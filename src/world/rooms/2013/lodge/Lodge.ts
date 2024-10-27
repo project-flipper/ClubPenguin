@@ -28,89 +28,89 @@ export default class Lodge extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("lodge-pack", "assets/world/rooms/2013/lodge/lodge-pack.json");
+        this.load.pack("lodge2013-pack", "assets/world/rooms/2013/lodge/lodge2013-pack.json");
     }
 
     editorCreate(): void {
 
         // lodge_base
-        const lodge_base = this.add.image(0, 0, "lodge", "lodge/base");
+        const lodge_base = this.add.image(0, 0, "lodge2013", "lodge/base");
         lodge_base.setOrigin(0.009299655568312285, -0.002062328139321723);
 
         // mullet
-        const mullet = this.add.image(688.5, 267.75, "lodge", "lodge/mullet0001");
+        const mullet = this.add.image(688.5, 267.75, "lodge2013", "lodge/mullet0001");
         mullet.setOrigin(0, 0);
 
         // lodge_candle
-        const lodge_candle = this.add.image(509.18, 293.96, "lodge", "lodge/candle");
+        const lodge_candle = this.add.image(509.18, 293.96, "lodge2013", "lodge/candle");
         lodge_candle.setOrigin(0, 0);
 
         // candle
-        const candle = this.add.sprite(559.57, 333.23, "lodge", "lodge/candleblow0001");
+        const candle = this.add.sprite(559.57, 333.23, "lodge2013", "lodge/candleblow0001");
         candle.setOrigin(-1.85583, 1.93026);
-        candle.play("lodge-candlefire-animation");
+        candle.play("lodge2013-candlefire-animation");
 
         // minuteHand
-        const minuteHand = this.add.image(328.73, 391.5, "lodge", "lodge/minuteHand");
+        const minuteHand = this.add.image(328.73, 391.5, "lodge2013", "lodge/minuteHand");
         minuteHand.setOrigin(0.495, 0.8045);
 
         // hourHand
-        const hourHand = this.add.image(328.73, 391.5, "lodge", "lodge/hourHand");
+        const hourHand = this.add.image(328.73, 391.5, "lodge2013", "lodge/hourHand");
         hourHand.angle = 90;
         hourHand.setOrigin(0.562, 0.76625);
 
         // clock
-        const clock = this.add.sprite(316.13, 331.88, "lodge", "lodge/clock0001");
+        const clock = this.add.sprite(316.13, 331.88, "lodge2013", "lodge/clock0001");
         clock.setOrigin(0, 0);
 
         // lodge_firebase
-        const lodge_firebase = this.add.image(1380.6, 485.44, "lodge", "lodge/firebase");
+        const lodge_firebase = this.add.image(1380.6, 485.44, "lodge2013", "lodge/firebase");
         lodge_firebase.setOrigin(0, 0);
 
         // lodge_fire0001
-        const lodge_fire0001 = this.add.sprite(1450.01, 494.55, "lodge", "lodge/fire0001");
+        const lodge_fire0001 = this.add.sprite(1450.01, 494.55, "lodge2013", "lodge/fire0001");
         lodge_fire0001.setOrigin(0, 0);
-        lodge_fire0001.play("lodge-fire-animation");
+        lodge_fire0001.play("lodge2013-fire-animation");
 
         // lodge_chimney
-        const lodge_chimney = this.add.image(1392.86, 10.69, "lodge", "lodge/chimney");
+        const lodge_chimney = this.add.image(1392.86, 10.69, "lodge2013", "lodge/chimney");
         lodge_chimney.setOrigin(0, 0);
 
         // entrance
-        const entrance = this.add.image(133.99, 518.51, "lodge", "lodge/lodgeEntrance0001");
+        const entrance = this.add.image(133.99, 518.51, "lodge2013", "lodge/lodgeEntrance0001");
         entrance.setOrigin(0.3292700729927007, 0.48927374301675974);
 
         // fishDoor
-        const fishDoor = this.add.image(990, 130.5, "lodge", "lodge/fishDoor0001");
+        const fishDoor = this.add.image(990, 130.5, "lodge2013", "lodge/fishDoor0001");
         fishDoor.setOrigin(0, 0);
 
         // sign
-        const sign = this.add.image(1021.73, 220.95, "lodge", "lodge/sign0001_0001");
+        const sign = this.add.image(1021.73, 220.95, "lodge2013", "lodge/sign0001_0001");
         sign.setOrigin(0, 0);
 
         // fish
-        const fish = this.add.sprite(1136.25, 419.75, "lodge", "lodge/fish0001");
+        const fish = this.add.sprite(1136.25, 419.75, "lodge2013", "lodge/fish0001");
         fish.setOrigin(0, 0);
         fish.visible = false;
 
         // lodge_rods
-        const lodge_rods = this.add.image(918.11, 284.64, "lodge", "lodge/rods");
+        const lodge_rods = this.add.image(918.11, 284.64, "lodge2013", "lodge/rods");
         lodge_rods.setOrigin(0.48992, 0.14286);
 
         // gear
-        const gear = this.add.image(894.26, 483.75, "lodge", "lodge/gear0001");
+        const gear = this.add.image(894.26, 483.75, "lodge2013", "lodge/gear0001");
         gear.setOrigin(0, 0.60309);
 
         // lodge_rest
-        const lodge_rest = this.add.image(1437.64, 810, "lodge", "lodge/rest");
+        const lodge_rest = this.add.image(1437.64, 810, "lodge2013", "lodge/rest");
         lodge_rest.setOrigin(0.511213389121339, 0.25555555555555554);
 
         // lodge_chair0001
-        const lodge_chair0001 = this.add.image(1370.25, 926.66, "lodge", "lodge/chair0001");
+        const lodge_chair0001 = this.add.image(1370.25, 926.66, "lodge2013", "lodge/chair0001");
         lodge_chair0001.setOrigin(-0.0006666666666666666, 0.7358688524590163);
 
         // fishButton
-        const fishButton = this.add.image(988.76, 128.92, "lodge", "lodge/fishButton");
+        const fishButton = this.add.image(988.76, 128.92, "lodge2013", "lodge/fishButton");
         fishButton.setOrigin(0, 0);
         fishButton.alpha = 0.01;
         fishButton.alphaTopLeft = 0.01;
@@ -119,7 +119,7 @@ export default class Lodge extends Phaser.Scene implements Room {
         fishButton.alphaBottomRight = 0.01;
 
         // atticButton
-        const atticButton = this.add.image(1375.76, 227.25, "lodge", "lodge/attic_button0004");
+        const atticButton = this.add.image(1375.76, 227.25, "lodge2013", "lodge/attic_button0004");
         atticButton.alpha = 0.01;
         atticButton.alphaTopLeft = 0.01;
         atticButton.alphaTopRight = 0.01;
@@ -127,7 +127,7 @@ export default class Lodge extends Phaser.Scene implements Room {
         atticButton.alphaBottomRight = 0.01;
 
         // entranceButton
-        const entranceButton = this.add.image(133.99, 518.51, "lodge", "lodge/lodgeEntrance0004");
+        const entranceButton = this.add.image(133.99, 518.51, "lodge2013", "lodge/lodgeEntrance0004");
         entranceButton.setOrigin(0.3292700729927007, 0.48927374301675974);
         entranceButton.alpha = 0.01;
         entranceButton.alphaTopLeft = 0.01;
@@ -136,7 +136,7 @@ export default class Lodge extends Phaser.Scene implements Room {
         entranceButton.alphaBottomRight = 0.01;
 
         // candleButton
-        const candleButton = this.add.image(589.95, 333.23, "lodge", "lodge/candle_button0004");
+        const candleButton = this.add.image(589.95, 333.23, "lodge2013", "lodge/candle_button0004");
         candleButton.alpha = 0.01;
         candleButton.alphaTopLeft = 0.01;
         candleButton.alphaTopRight = 0.01;
@@ -144,36 +144,36 @@ export default class Lodge extends Phaser.Scene implements Room {
         candleButton.alphaBottomRight = 0.01;
 
         // block
-        const block = this.add.image(0, 0, "lodge", "lodge/block");
+        const block = this.add.image(0, 0, "lodge2013", "lodge/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
         // fish_trigger
-        const fish_trigger = this.add.image(1090.01, 509.63, "lodge", "lodge/fish_trigger");
+        const fish_trigger = this.add.image(1090.01, 509.63, "lodge2013", "lodge/fish_trigger");
         fish_trigger.visible = false;
 
         // village_trigger
-        const village_trigger = this.add.image(172.24, 690.19, "lodge", "lodge/village_trigger");
+        const village_trigger = this.add.image(172.24, 690.19, "lodge2013", "lodge/village_trigger");
         village_trigger.visible = false;
 
         // lodge_table_trigger
-        const lodge_table_trigger = this.add.image(673.65, 588.38, "lodge", "lodge/table_trigger");
+        const lodge_table_trigger = this.add.image(673.65, 588.38, "lodge2013", "lodge/table_trigger");
         lodge_table_trigger.visible = false;
 
         // lodge_table_trigger_1
-        const lodge_table_trigger_1 = this.add.image(649.01, 887.51, "lodge", "lodge/table_trigger");
+        const lodge_table_trigger_1 = this.add.image(649.01, 887.51, "lodge2013", "lodge/table_trigger");
         lodge_table_trigger_1.visible = false;
 
         // lodge_table_trigger_2
-        const lodge_table_trigger_2 = this.add.image(1146.26, 903.26, "lodge", "lodge/table_trigger");
+        const lodge_table_trigger_2 = this.add.image(1146.26, 903.26, "lodge2013", "lodge/table_trigger");
         lodge_table_trigger_2.visible = false;
 
         // note
-        const note = this.add.sprite(923.85, 273.83, "lodge", "lodge/note0001");
+        const note = this.add.sprite(923.85, 273.83, "lodge2013", "lodge/note0001");
         note.setOrigin(0, 0);
 
         // noteButton
-        const noteButton = this.add.image(923.85, 273.83, "lodge", "lodge/note0009");
+        const noteButton = this.add.image(923.85, 273.83, "lodge2013", "lodge/note0009");
         noteButton.setOrigin(0, 0);
         noteButton.alpha = 0.01;
         noteButton.alphaTopLeft = 0.01;
@@ -182,11 +182,11 @@ export default class Lodge extends Phaser.Scene implements Room {
         noteButton.alphaBottomRight = 0.01;
 
         // table1
-        const table1 = this.add.image(676.01, 577.69, "lodge", "lodge/table10001");
+        const table1 = this.add.image(676.01, 577.69, "lodge2013", "lodge/table10001");
         table1.setOrigin(0.48970588235294116, 0.6617647058823529);
 
         // table1btn
-        const table1btn = this.add.image(671.96, 525.04, "lodge", "lodge/table_button0004");
+        const table1btn = this.add.image(671.96, 525.04, "lodge2013", "lodge/table_button0004");
         table1btn.alpha = 0.01;
         table1btn.alphaTopLeft = 0.01;
         table1btn.alphaTopRight = 0.01;
@@ -194,11 +194,11 @@ export default class Lodge extends Phaser.Scene implements Room {
         table1btn.alphaBottomRight = 0.01;
 
         // table2
-        const table2 = this.add.image(698.51, 892.69, "lodge", "lodge/table20001");
+        const table2 = this.add.image(698.51, 892.69, "lodge2013", "lodge/table20001");
         table2.setOrigin(0.8088235294117647, 0.8011363636363636);
 
         // table2btn
-        const table2btn = this.add.image(653.96, 831.04, "lodge", "lodge/table_button0004");
+        const table2btn = this.add.image(653.96, 831.04, "lodge2013", "lodge/table_button0004");
         table2btn.alpha = 0.01;
         table2btn.alphaTopLeft = 0.01;
         table2btn.alphaTopRight = 0.01;
@@ -206,11 +206,11 @@ export default class Lodge extends Phaser.Scene implements Room {
         table2btn.alphaBottomRight = 0.01;
 
         // table3
-        const table3 = this.add.image(1148.51, 915.19, "lodge", "lodge/table30001");
+        const table3 = this.add.image(1148.51, 915.19, "lodge2013", "lodge/table30001");
         table3.setOrigin(0.45478723404255317, 0.7601351351351351);
 
         // table3btn
-        const table3btn = this.add.image(1148.96, 853.54, "lodge", "lodge/table_button0004");
+        const table3btn = this.add.image(1148.96, 853.54, "lodge2013", "lodge/table_button0004");
         table3btn.alpha = 0.01;
         table3btn.alphaTopLeft = 0.01;
         table3btn.alphaTopRight = 0.01;
@@ -218,11 +218,11 @@ export default class Lodge extends Phaser.Scene implements Room {
         table3btn.alphaBottomRight = 0.01;
 
         // catalog
-        const catalog = this.add.image(1533.15, 946.8, "lodge", "lodge/catalog0001");
+        const catalog = this.add.image(1533.15, 946.8, "lodge2013", "lodge/catalog0001");
         catalog.setOrigin(-0.15957, -0.0186);
 
         // catalogbtn
-        const catalogbtn = this.add.image(1533.15, 946.8, "lodge", "lodge/catalog0004");
+        const catalogbtn = this.add.image(1533.15, 946.8, "lodge2013", "lodge/catalog0004");
         catalogbtn.setOrigin(-0.1595744680851064, -0.01859504132231405);
         catalogbtn.alpha = 0.01;
         catalogbtn.alphaTopLeft = 0.01;
@@ -231,11 +231,11 @@ export default class Lodge extends Phaser.Scene implements Room {
         catalogbtn.alphaBottomRight = 0.01;
 
         // lodge_attic_trigger
-        const lodge_attic_trigger = this.add.image(1367.89, 524.25, "lodge", "lodge/attic_trigger");
+        const lodge_attic_trigger = this.add.image(1367.89, 524.25, "lodge2013", "lodge/attic_trigger");
         lodge_attic_trigger.visible = false;
 
         // gearButton
-        const gearButton = this.add.image(894.26, 483.75, "lodge", "lodge/gear0004");
+        const gearButton = this.add.image(894.26, 483.75, "lodge2013", "lodge/gear0004");
         gearButton.setOrigin(0, 0.60309);
         gearButton.alpha = 0.01;
         gearButton.alphaTopLeft = 0.01;
@@ -496,11 +496,11 @@ export default class Lodge extends Phaser.Scene implements Room {
 
         this.entranceButton.on('out', () => {
             this.entrance.setFrame('lodge/lodgeEntrance0001');
-            this.sound.play('lodge_doorclose');
+            this.sound.play('lodge2013-doorclose');
         });
         this.entranceButton.on('over', () => {
             this.entrance.setFrame('lodge/lodgeEntrance0002');
-            this.sound.play('lodge_dooropen');
+            this.sound.play('lodge2013-dooropen');
         });
         this.entranceButton.on('release', () => this.world.move(207, 704.25));
 
@@ -509,32 +509,32 @@ export default class Lodge extends Phaser.Scene implements Room {
             this.sign.setFrame(`lodge/sign${this.game.locale.frame}_0001`);
             this.fish.visible = false;
             this.interface.hideHint();
-            this.sound.play('lodge_doorclose');
+            this.sound.play('lodge2013-doorclose');
         });
         this.fishButton.on('over', () => {
             this.fishDoor.setFrame('lodge/fishDoor0002');
             this.sign.setFrame(`lodge/sign${this.game.locale.frame}_0002`);
             this.fish.visible = true;
-            this.fish.play('lodge-fish-animation');
+            this.fish.play('lodge2013-fish-animation');
             this.interface.showLocalizedHint({ x: 1072.46, y: 320.63 }, 'fish_hint');
-            this.sound.play('lodge_dooropen');
-            this.sound.play('lodge_fish');
+            this.sound.play('lodge2013-dooropen');
+            this.sound.play('lodge2013-fish');
         });
         this.fishButton.on('release', () => this.world.move(1170, 382.5));
 
         this.atticButton.on('release', () => this.world.move(1361.25, 517.5));
 
         this.candleButton.on('over', () => {
-            if (this.candle.anims.currentAnim?.key == 'lodge-candlefire-animation') this.candle.play('lodge-candleblow-animation').chain('lodge-candlefire-animation');
+            if (this.candle.anims.currentAnim?.key == 'lodge2013-candlefire-animation') this.candle.play('lodge2013-candleblow-animation').chain('lodge2013-candlefire-animation');
         });
 
         this.gearButton.on('out', () => {
             this.gear.setFrame('lodge/gear0001');
-            this.sound.play('lodge_gearclose');
+            this.sound.play('lodge2013-gearclose');
         });
         this.gearButton.on('over', () => {
             this.gear.setFrame('lodge/gear0002');
-            this.sound.play('lodge_gearopen');
+            this.sound.play('lodge2013-gearopen');
         });
 
         this.noteButton.on('out', () => {
@@ -543,7 +543,7 @@ export default class Lodge extends Phaser.Scene implements Room {
         });
         this.noteButton.on('over', () => {
             this.note.stop();
-            this.note.play('lodge-note-animation');
+            this.note.play('lodge2013-note-animation');
         });
 
         this.catalogbtn.on('out', () => this.catalog.setFrame('lodge/catalog0001'));
@@ -589,13 +589,13 @@ export default class Lodge extends Phaser.Scene implements Room {
 
     update(time: number, delta: number): void {
         if (this.clock.frame.name == 'lodge/clock0005' && !this.soundchime) {
-            this.sound.play('lodge_clock');
+            this.sound.play('lodge2013-clock');
             this.soundchime = true;
         } else this.soundchime = false;
     }
 
     chime(): void {
-        this.clock.play('lodge-clock-animation');
+        this.clock.play('lodge2013-clock-animation');
         this.clock.once('animationcomplete', () => this.clock.setFrame('lodge/clock0001'));
     }
 
@@ -606,7 +606,7 @@ export default class Lodge extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('lodge-pack');
+        engine.app.unloadAssetPack('lodge2013-pack');
     }
 
     /* END-USER-CODE */

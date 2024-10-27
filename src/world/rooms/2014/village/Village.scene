@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2014/village/village-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2014/village/village2014-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Village",
@@ -21,7 +21,7 @@
             "id": "c42408f8-f9cb-45c2-aa49-0935a87f1329",
             "label": "village_sky",
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/sky"
             },
             "x": -22.5,
@@ -34,7 +34,7 @@
             "id": "0abb8d5e-bf5d-4194-a443-e4bb7135d1c0",
             "label": "village_base",
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/base"
             },
             "x": -135,
@@ -48,7 +48,7 @@
             "label": "belt",
             "scope": "PUBLIC",
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/belt0001"
             },
             "x": -207,
@@ -57,7 +57,7 @@
             "originX": 0,
             "originY": 0,
             "animationPlayMethod": 1,
-            "animationKey": "village-belt-animation",
+            "animationKey": "village2014-belt-animation",
             "animationPreview": true
         },
         {
@@ -71,7 +71,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 5,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/cable0001"
             },
             "x": -251.6625,
@@ -79,7 +79,7 @@
             "originX": 0,
             "originY": 0,
             "animationPlayMethod": 1,
-            "animationKey": "village-cable-animation",
+            "animationKey": "village2014-cable-animation",
             "animationPreview": true
         },
         {
@@ -88,7 +88,7 @@
             "label": "sleds",
             "scope": "PUBLIC",
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/sleds0001"
             },
             "x": 440.8875,
@@ -96,7 +96,7 @@
             "originX": 0,
             "originY": 0,
             "animationPlayMethod": 1,
-            "animationKey": "village-sleds-animation",
+            "animationKey": "village2014-sleds-animation",
             "animationPreview": true
         },
         {
@@ -109,7 +109,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 10,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/fronts"
             },
             "x": -135,
@@ -123,7 +123,7 @@
             "label": "lodge_door",
             "scope": "PUBLIC",
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/lodge_door0001"
             },
             "x": 1155.7125,
@@ -142,7 +142,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/lodge_door0004"
             },
             "x": 1155.7125,
@@ -161,7 +161,7 @@
             "label": "epf_door",
             "scope": "PUBLIC",
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/epf_door0001"
             },
             "x": 1413.45,
@@ -180,7 +180,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/epf_door0004"
             },
             "x": 1413.45,
@@ -201,7 +201,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/trees"
             },
             "x": 289.2375,
@@ -217,7 +217,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/signleft"
             },
             "x": 186.4125,
@@ -233,7 +233,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/bottom"
             },
             "originX": 0.0147968,
@@ -245,7 +245,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/block"
             },
             "originX": 0,
@@ -261,7 +261,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/tours0001_0001"
             },
             "x": 839.3625,
@@ -277,7 +277,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/snow"
             },
             "x": 839.1375,
@@ -296,7 +296,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/tours_btn"
             },
             "x": 839.3625,
@@ -320,7 +320,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 10,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/epf_title0001"
             },
             "x": 1361.5875,
@@ -336,7 +336,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/signright"
             },
             "x": 1557,
@@ -355,7 +355,7 @@
             "RoomTrigger.playerX": 1001.25,
             "RoomTrigger.playerY": 393.75,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/beach_mc"
             },
             "x": 281.25,
@@ -373,7 +373,7 @@
             "RoomTrigger.playerX": 945,
             "RoomTrigger.playerY": 360,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/mtn_mc"
             },
             "x": 358.65,
@@ -391,7 +391,7 @@
             "RoomTrigger.playerX": 360,
             "RoomTrigger.playerY": 720,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/lodge_mc"
             },
             "x": 1189.0125,
@@ -409,7 +409,7 @@
             "RoomTrigger.playerX": 405,
             "RoomTrigger.playerY": 596.25,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/epf_mc"
             },
             "x": 1487.25,
@@ -427,7 +427,7 @@
             "RoomTrigger.playerX": 776.25,
             "RoomTrigger.playerY": 405,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/dock_mc"
             },
             "x": 1636.875,
@@ -444,7 +444,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 10,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/actualbelt0001"
             },
             "x": 429.75,
@@ -452,7 +452,7 @@
             "originX": 0,
             "originY": 0,
             "animationPlayMethod": 1,
-            "animationKey": "village-actualbelt-animation",
+            "animationKey": "village2014-actualbelt-animation",
             "animationPreview": true
         },
         {
@@ -465,7 +465,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 10,
             "texture": {
-                "key": "village",
+                "key": "village2014",
                 "frame": "village/cog0001"
             },
             "x": 470.25,
@@ -473,7 +473,7 @@
             "originX": 0,
             "originY": 0,
             "animationPlayMethod": 1,
-            "animationKey": "village-cog-animation",
+            "animationKey": "village2014-cog-animation",
             "animationPreview": true
         }
     ],

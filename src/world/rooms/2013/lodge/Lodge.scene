@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/lodge/lodge-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/lodge/lodge2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Lodge",
@@ -21,7 +21,7 @@
             "id": "1a98e6ca-cb31-4b42-807b-145dd284030c",
             "label": "lodge_base",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/base"
             },
             "originX": 0.009299655568312285,
@@ -33,7 +33,7 @@
             "label": "mullet",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/mullet0001"
             },
             "x": 688.5,
@@ -46,7 +46,7 @@
             "id": "9c92824a-212f-469f-a981-9b99362f90f2",
             "label": "lodge_candle",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/candle"
             },
             "x": 509.18,
@@ -60,7 +60,7 @@
             "label": "candle",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/candleblow0001"
             },
             "x": 559.57,
@@ -68,7 +68,7 @@
             "originX": -1.85583,
             "originY": 1.93026,
             "animationPlayMethod": 1,
-            "animationKey": "lodge-candlefire-animation",
+            "animationKey": "lodge2013-candlefire-animation",
             "animationPreview": true
         },
         {
@@ -77,7 +77,7 @@
             "label": "minuteHand",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/minuteHand"
             },
             "x": 328.73,
@@ -91,7 +91,7 @@
             "label": "hourHand",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/hourHand"
             },
             "x": 328.73,
@@ -106,7 +106,7 @@
             "label": "clock",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/clock0001"
             },
             "x": 316.13,
@@ -119,7 +119,7 @@
             "id": "e82977dd-4d88-4b44-b2e7-36cbc29bda2c",
             "label": "lodge_firebase",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/firebase"
             },
             "x": 1380.6,
@@ -132,7 +132,7 @@
             "id": "5e747a57-82d1-4349-b9f9-ba58c99c8d55",
             "label": "lodge_fire0001",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/fire0001"
             },
             "x": 1450.01,
@@ -140,7 +140,7 @@
             "originX": 0,
             "originY": 0,
             "animationPlayMethod": 1,
-            "animationKey": "lodge-fire-animation",
+            "animationKey": "lodge2013-fire-animation",
             "animationPreview": true
         },
         {
@@ -148,7 +148,7 @@
             "id": "2acc303b-77c7-4a88-bb82-db9f09d6ef30",
             "label": "lodge_chimney",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/chimney"
             },
             "x": 1392.86,
@@ -162,7 +162,7 @@
             "label": "entrance",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/lodgeEntrance0001"
             },
             "x": 133.99,
@@ -176,7 +176,7 @@
             "label": "fishDoor",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/fishDoor0001"
             },
             "x": 990,
@@ -190,7 +190,7 @@
             "label": "sign",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/sign0001_0001"
             },
             "x": 1021.73,
@@ -204,7 +204,7 @@
             "label": "fish",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/fish0001"
             },
             "x": 1136.25,
@@ -218,7 +218,7 @@
             "id": "26b2cb69-fee1-4e1b-be90-c0afca2b0ced",
             "label": "lodge_rods",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/rods"
             },
             "x": 918.11,
@@ -235,7 +235,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/gear0001"
             },
             "x": 894.26,
@@ -251,7 +251,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/rest"
             },
             "x": 1437.64,
@@ -267,7 +267,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/chair0001"
             },
             "x": 1370.25,
@@ -286,7 +286,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/fishButton"
             },
             "x": 988.76,
@@ -309,7 +309,7 @@
             ],
             "ButtonComponent.handCursor": true,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/attic_button0004"
             },
             "x": 1375.76,
@@ -331,7 +331,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/lodgeEntrance0004"
             },
             "x": 133.99,
@@ -353,7 +353,7 @@
                 "ButtonComponent"
             ],
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/candle_button0004"
             },
             "x": 589.95,
@@ -370,7 +370,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/block"
             },
             "originX": 0,
@@ -387,7 +387,7 @@
             "GameTrigger.game_id": "fish",
             "GameTrigger.prompt": "fish_prompt",
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/fish_trigger"
             },
             "x": 1090.01,
@@ -405,7 +405,7 @@
             "RoomTrigger.playerX": 1057.5,
             "RoomTrigger.playerY": 607.5,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/village_trigger"
             },
             "x": 172.24,
@@ -436,7 +436,7 @@
             "WaddleTrigger.done2x": 665.21,
             "WaddleTrigger.done2y": 681.19,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/table_trigger"
             },
             "x": 673.65,
@@ -467,7 +467,7 @@
             "WaddleTrigger.done2x": 636.41,
             "WaddleTrigger.done2y": 965.7,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/table_trigger"
             },
             "x": 649.01,
@@ -497,7 +497,7 @@
             "WaddleTrigger.done2x": 1259.77,
             "WaddleTrigger.done2y": 962.66,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/table_trigger"
             },
             "x": 1146.26,
@@ -514,7 +514,7 @@
             ],
             "DepthEnabled.automaticSort": false,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/note0001"
             },
             "x": 923.85,
@@ -532,7 +532,7 @@
             ],
             "ButtonComponent.handCursor": true,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/note0009"
             },
             "x": 923.85,
@@ -554,7 +554,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/table10001"
             },
             "x": 676.01,
@@ -573,7 +573,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/table_button0004"
             },
             "x": 671.96,
@@ -593,7 +593,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/table20001"
             },
             "x": 698.51,
@@ -612,7 +612,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/table_button0004"
             },
             "x": 653.96,
@@ -632,7 +632,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/table30001"
             },
             "x": 1148.51,
@@ -651,7 +651,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/table_button0004"
             },
             "x": 1148.96,
@@ -673,7 +673,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/catalog0001"
             },
             "x": 1533.15,
@@ -692,7 +692,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/catalog0004"
             },
             "x": 1533.15,
@@ -716,7 +716,7 @@
             "RoomTrigger.playerX": 1086.75,
             "RoomTrigger.playerY": 630,
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/attic_trigger"
             },
             "x": 1367.89,
@@ -732,7 +732,7 @@
                 "ButtonComponent"
             ],
             "texture": {
-                "key": "lodge",
+                "key": "lodge2013",
                 "frame": "lodge/gear0004"
             },
             "x": 894.26,

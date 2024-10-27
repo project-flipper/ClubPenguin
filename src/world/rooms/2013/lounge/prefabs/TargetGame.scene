@@ -23,7 +23,7 @@
                     "id": "91533bfd-4aea-4a01-97c2-ab77377f90cb",
                     "label": "lounge_gameback",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/gameback"
                     },
                     "x": 29.3625,
@@ -36,7 +36,7 @@
                     "id": "5c82cba0-b093-40dd-aea3-06afe89c5ba7",
                     "label": "lounge_gamebg4",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/gamebg4"
                     },
                     "x": 88.3125,
@@ -105,7 +105,7 @@
                     "id": "22d7aade-a5b5-4dd3-9422-553ec237fdf6",
                     "label": "lounge_gamebg3",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/gamebg3"
                     },
                     "x": 79.65,
@@ -174,7 +174,7 @@
                     "id": "b0441836-80b4-4912-a823-96f916f2f1af",
                     "label": "lounge_gamebg2",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/gamebg2"
                     },
                     "x": 62.8875,
@@ -228,7 +228,7 @@
                     "id": "8644d7d4-06d9-4925-b7e8-e451eefcc86a",
                     "label": "lounge_gamebg1",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/gamebg1"
                     },
                     "x": 136.6875,
@@ -241,7 +241,7 @@
                     "id": "40eec27c-2fed-4c15-8f3c-5df2ad9936a9",
                     "label": "lounge_gamefloor",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/gamefloor"
                     },
                     "x": 53.6625,
@@ -254,7 +254,7 @@
                     "id": "51719519-d75d-4c26-bd8c-1f3397541a03",
                     "label": "lounge_gamestrip",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/gamestrip"
                     },
                     "x": 23.0625,
@@ -267,7 +267,7 @@
                     "id": "b3390c04-70b7-43f7-8fda-9e90eb2c8c16",
                     "label": "lounge_gamecover",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/gamecover"
                     },
                     "y": 1.125,
@@ -280,7 +280,7 @@
                     "label": "title",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/gametitle0001"
                     },
                     "x": 154.2375,
@@ -294,7 +294,7 @@
                     "label": "light1",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/light10001"
                     },
                     "x": 77.5125,
@@ -307,7 +307,7 @@
                     "label": "light2",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/light20001"
                     },
                     "x": 90.3375,
@@ -320,7 +320,7 @@
                     "label": "light3",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/light10001"
                     },
                     "x": 103.95,
@@ -333,7 +333,7 @@
                     "label": "light4",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/light10001"
                     },
                     "x": 445.5,
@@ -346,7 +346,7 @@
                     "label": "light5",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/light20001"
                     },
                     "x": 458.325,
@@ -359,7 +359,7 @@
                     "label": "light6",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/light10001"
                     },
                     "x": 471.9375,
@@ -371,7 +371,7 @@
                     "id": "7c49358f-b6ea-4e74-b180-351c8a279d8a",
                     "label": "lounge_redScore",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/redScore"
                     },
                     "x": 73.9125,
@@ -410,7 +410,7 @@
                     "id": "58e26a96-0907-455a-9e3f-b3f171fcfb84",
                     "label": "lounge_blueScore",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/blueScore"
                     },
                     "x": 487.35,

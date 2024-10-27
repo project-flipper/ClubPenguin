@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2014/mtn/mtn-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2014/mtn/mtn2014-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Mtn",
@@ -21,7 +21,7 @@
             "id": "416d33de-e747-4722-b074-246ff43a9724",
             "label": "mtn_sky",
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/sky"
             },
             "x": -133.3125,
@@ -34,7 +34,7 @@
             "id": "2a19a452-8a18-45aa-9de7-85cce054513e",
             "label": "mtn_bg",
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/bg"
             },
             "x": -32.0625,
@@ -52,7 +52,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/foreground"
             },
             "x": 92.25,
@@ -65,7 +65,7 @@
             "id": "431b10ec-dad1-4b8a-87f9-e570301fc672",
             "label": "mtn_cables",
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/cables"
             },
             "x": 1063.2375,
@@ -79,7 +79,7 @@
             "label": "cablecar",
             "scope": "PUBLIC",
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/cablecar0001"
             },
             "x": 744.075,
@@ -87,7 +87,7 @@
             "originX": 0,
             "originY": 0,
             "animationPlayMethod": 1,
-            "animationKey": "mtn-cablecar-animation",
+            "animationKey": "mtn2014-cablecar-animation",
             "animationPreview": true
         },
         {
@@ -100,7 +100,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/base"
             },
             "x": -126,
@@ -118,7 +118,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/cable1"
             },
             "x": 871.875,
@@ -136,7 +136,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/cable2"
             },
             "x": 1014.8625,
@@ -154,7 +154,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 3,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/snow"
             },
             "x": 862.875,
@@ -172,7 +172,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 3,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/front"
             },
             "x": 335.8125,
@@ -190,7 +190,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 5,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/shopback"
             },
             "x": 1117.35,
@@ -206,7 +206,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/store"
             },
             "x": 1172.8125,
@@ -222,7 +222,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/secondlane"
             },
             "x": 546.075,
@@ -238,7 +238,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/thirdlane"
             },
             "x": 1127.5875,
@@ -254,7 +254,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/fourthlane"
             },
             "x": 1346.4,
@@ -271,7 +271,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/cat0001"
             },
             "x": 548.075,
@@ -288,7 +288,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/cat_btn"
             },
             "x": 545.625,
@@ -310,7 +310,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/catalogue0001"
             },
             "x": 1617.6375,
@@ -327,7 +327,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/catalogue0004"
             },
             "x": 1617.6375,
@@ -404,7 +404,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/block"
             },
             "originX": 0,
@@ -422,7 +422,7 @@
             "RoomTrigger.playerX": 501.75,
             "RoomTrigger.playerY": 657,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/village_mc"
             },
             "x": 1020.2625,
@@ -440,7 +440,7 @@
             "RoomTrigger.playerX": 501.75,
             "RoomTrigger.playerY": 657,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/plaza_mc"
             },
             "x": 1401.075,
@@ -457,7 +457,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/shop_btn0004"
             },
             "x": 1178.8875,
@@ -478,7 +478,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/exit_btn0004"
             },
             "x": 1415.1375,
@@ -512,7 +512,7 @@
             "WaddleTrigger.done2x": 1265.96,
             "WaddleTrigger.done2y": 545.4,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/waddle103_mc"
             },
             "x": 1249.09,
@@ -542,7 +542,7 @@
             "WaddleTrigger.done2x": 1039.95,
             "WaddleTrigger.done2y": 618.41,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/waddle102_mc"
             },
             "x": 1002.71,
@@ -578,7 +578,7 @@
             "WaddleTrigger.done3x": 840.83,
             "WaddleTrigger.done3y": 582.07,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/waddle101_mc"
             },
             "x": 698.85,
@@ -620,7 +620,7 @@
             "WaddleTrigger.done4x": 541.13,
             "WaddleTrigger.done4y": 596.25,
             "texture": {
-                "key": "mtn",
+                "key": "mtn2014",
                 "frame": "mtn/waddle100_mc"
             },
             "x": 352.13,

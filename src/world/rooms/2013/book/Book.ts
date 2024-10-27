@@ -28,21 +28,21 @@ export default class Book extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("book-pack", "assets/world/rooms/2013/book/book-pack.json");
+        this.load.pack("book2013-pack", "assets/world/rooms/2013/book/book2013-pack.json");
     }
 
     editorCreate(): void {
 
         // book_base
-        const book_base = this.add.image(-136.35, -11.25, "book", "book/base");
+        const book_base = this.add.image(-136.35, -11.25, "book2013", "book/base");
         book_base.setOrigin(0, 0);
 
         // artshowcase
-        const artshowcase = this.add.image(704.475, 187.2, "book", "book/artshowcase0001");
+        const artshowcase = this.add.image(704.475, 187.2, "book2013", "book/artshowcase0001");
         artshowcase.setOrigin(0.48079, 0.51911);
 
         // artshowcasebutton
-        const artshowcasebutton = this.add.image(704.475, 187.2, "book", "book/artshowcase0004");
+        const artshowcasebutton = this.add.image(704.475, 187.2, "book2013", "book/artshowcase0004");
         artshowcasebutton.setOrigin(0.48079, 0.51911);
         artshowcasebutton.alpha = 0.01;
         artshowcasebutton.alphaTopLeft = 0.01;
@@ -51,126 +51,126 @@ export default class Book extends Phaser.Scene implements Room {
         artshowcasebutton.alphaBottomRight = 0.01;
 
         // mancalanotice
-        const mancalanotice = this.add.image(1571.4, 206.6625, "book", "book/mancalanotice0001");
+        const mancalanotice = this.add.image(1571.4, 206.6625, "book2013", "book/mancalanotice0001");
         mancalanotice.setOrigin(-0.01566, -0.04476);
 
         // mancalatitle
-        const mancalatitle = this.add.image(1634, 342, "book", "book/mancalatitle0001");
+        const mancalatitle = this.add.image(1634, 342, "book2013", "book/mancalatitle0001");
 
         // book_logo
-        const book_logo = this.add.image(1140.4125, 219.825, "book", "book/logo");
+        const book_logo = this.add.image(1140.4125, 219.825, "book2013", "book/logo");
         book_logo.setOrigin(0.49074803, 0.49232472);
 
         // block
-        const block = this.add.image(-112.5, 0, "book", "book/block");
+        const block = this.add.image(-112.5, 0, "book2013", "book/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
         // coffee_trigger
-        const coffee_trigger = this.add.image(1425.6, 458.55, "book", "book/coffee_trigger");
+        const coffee_trigger = this.add.image(1425.6, 458.55, "book2013", "book/coffee_trigger");
         coffee_trigger.visible = false;
 
         // book_couch1
-        const book_couch1 = this.add.image(1578.15, 492.525, "book", "book/couch1");
+        const book_couch1 = this.add.image(1578.15, 492.525, "book2013", "book/couch1");
         book_couch1.setOrigin(0.48875598, 0.22683128);
 
         // book_table
-        const book_table = this.add.image(1598.9625, 738.9, "book", "book/table");
+        const book_table = this.add.image(1598.9625, 738.9, "book2013", "book/table");
         book_table.setOrigin(0.49496296, 0.19293103);
 
         // book_tableplant
-        const book_tableplant = this.add.image(1630.125, 670.5, "book", "book/tableplant");
+        const book_tableplant = this.add.image(1630.125, 670.5, "book2013", "book/tableplant");
         book_tableplant.setOrigin(0.44354286, 0.45810811);
 
         // book_couch2
-        const book_couch2 = this.add.image(1554.75, 824.85, "book", "book/couch2");
+        const book_couch2 = this.add.image(1554.75, 824.85, "book2013", "book/couch2");
         book_couch2.setOrigin(0.49038462, 0.12903226);
 
         // book_cubicleseparator
-        const book_cubicleseparator = this.add.image(999.1125, 774.675, "book", "book/cubicleseparator");
+        const book_cubicleseparator = this.add.image(999.1125, 774.675, "book2013", "book/cubicleseparator");
         book_cubicleseparator.setOrigin(0.4889011, 0.87415301);
 
         // book_deskback1
-        const book_deskback1 = this.add.image(1127.8125, 787.95, "book", "book/deskback1");
+        const book_deskback1 = this.add.image(1127.8125, 787.95, "book2013", "book/deskback1");
         book_deskback1.setOrigin(0.46936364, 0.18685121);
 
         // book_chair3
-        const book_chair3 = this.add.image(838.125, 808.9875, "book", "book/chair3");
+        const book_chair3 = this.add.image(838.125, 808.9875, "book2013", "book/chair3");
         book_chair3.setOrigin(0.04968992, 0.40934911);
 
         // book_desk3
-        const book_desk3 = this.add.image(1004.85, 809.1, "book", "book/desk3");
+        const book_desk3 = this.add.image(1004.85, 809.1, "book2013", "book/desk3");
         book_desk3.setOrigin(0.48333333, 0.366139);
 
         // books
-        const books = this.add.image(477.7875, 360.1125, "book", "book/books0001");
+        const books = this.add.image(477.7875, 360.1125, "book2013", "book/books0001");
         books.setOrigin(0.48173387, 0.48567976);
 
         // book_chair2
-        const book_chair2 = this.add.image(731.25, 339.1875, "book", "book/chair2");
+        const book_chair2 = this.add.image(731.25, 339.1875, "book2013", "book/chair2");
         book_chair2.setOrigin(0.48772455, 0.48151515);
 
         // book_desk2
-        const book_desk2 = this.add.image(700.425, 443.5875, "book", "book/desk2");
+        const book_desk2 = this.add.image(700.425, 443.5875, "book2013", "book/desk2");
         book_desk2.setOrigin(0.49054264, 0.43826389);
 
         // book_rack
-        const book_rack = this.add.image(895.725, 375.75, "book", "book/rack");
+        const book_rack = this.add.image(895.725, 375.75, "book2013", "book/rack");
         book_rack.setOrigin(0.50410714, 0.72337748);
 
         // book_plant
-        const book_plant = this.add.image(897.525, 468.45, "book", "book/plant");
+        const book_plant = this.add.image(897.525, 468.45, "book2013", "book/plant");
         book_plant.setOrigin(0.4795614, 0.55837838);
 
         // book_deskback
-        const book_deskback = this.add.image(1133.1, 401.4, "book", "book/deskback");
+        const book_deskback = this.add.image(1133.1, 401.4, "book2013", "book/deskback");
         book_deskback.setOrigin(0.53571429, 0.57698454);
 
         // book_separator
-        const book_separator = this.add.image(942.975, 523.35, "book", "book/separator");
+        const book_separator = this.add.image(942.975, 523.35, "book2013", "book/separator");
         book_separator.setOrigin(0.4205681818181818, 0.9438053097345133);
 
         // book_railing
-        const book_railing = this.add.image(993.15, 531.675, "book", "book/railing");
+        const book_railing = this.add.image(993.15, 531.675, "book2013", "book/railing");
         book_railing.setOrigin(0.6383720930232558, 0.4775471698113207);
 
         // book_chair1
-        const book_chair1 = this.add.image(1202.0625, 460.2375, "book", "book/chair1");
+        const book_chair1 = this.add.image(1202.0625, 460.2375, "book2013", "book/chair1");
         book_chair1.setOrigin(0.48316547, 0.57979021);
 
         // book_desk1
-        const book_desk1 = this.add.image(1228.05, 487.9125, "book", "book/desk1");
+        const book_desk1 = this.add.image(1228.05, 487.9125, "book2013", "book/desk1");
         book_desk1.setOrigin(0.48892683, 0.31981132);
 
         // book_chair
-        const book_chair = this.add.image(540.45, 801.3375, "book", "book/chair");
+        const book_chair = this.add.image(540.45, 801.3375, "book2013", "book/chair");
         book_chair.setOrigin(0.41670455, 0.07494624);
 
         // book_chair_1
-        const book_chair_1 = this.add.image(675.45, 801.3375, "book", "book/chair");
+        const book_chair_1 = this.add.image(675.45, 801.3375, "book2013", "book/chair");
         book_chair_1.setOrigin(0.41670455, 0.07494624);
 
         // book_archives
-        const book_archives = this.add.image(360.3375, 492.3, "book", "book/archives");
+        const book_archives = this.add.image(360.3375, 492.3, "book2013", "book/archives");
         book_archives.setOrigin(0.48373333, 0.45182186);
 
         // book_box
-        const book_box = this.add.image(108.9, 917.1, "book", "book/box");
+        const book_box = this.add.image(108.9, 917.1, "book2013", "book/box");
         book_box.setOrigin(0.4880597, 0.49017857);
 
         // book_newspaperpile
-        const book_newspaperpile = this.add.image(211.6125, 1028.1375, "book", "book/newspaperpile");
+        const book_newspaperpile = this.add.image(211.6125, 1028.1375, "book2013", "book/newspaperpile");
         book_newspaperpile.setOrigin(0.48302521, 0.44313043);
 
         // book_board
-        const book_board = this.add.image(317.025, 759.15, "book", "book/board");
+        const book_board = this.add.image(317.025, 759.15, "book2013", "book/board");
         book_board.setOrigin(0.46631372549019606, 0.7605633802816901);
 
         // boardLabel
-        const boardLabel = this.add.image(360, 623, "book", "book/boardLabel0001");
+        const boardLabel = this.add.image(360, 623, "book2013", "book/boardLabel0001");
 
         // times
-        const times = this.add.image(1154, 234, "book", "book/times0001");
+        const times = this.add.image(1154, 234, "book2013", "book/times0001");
 
         // mancalaBoard1
         const mancalaBoard1 = new MancalaBoard(this, 1399.1625, 640.575);
@@ -189,37 +189,37 @@ export default class Book extends Phaser.Scene implements Room {
         this.add.existing(mancalaBoard4);
 
         // book_conveyorbelt
-        const book_conveyorbelt = this.add.image(-4.275, 571.725, "book", "book/conveyorbelt");
+        const book_conveyorbelt = this.add.image(-4.275, 571.725, "book2013", "book/conveyorbelt");
         book_conveyorbelt.setOrigin(0, 0);
 
         // book_conveyorbase
-        const book_conveyorbase = this.add.image(-4.275, 571.725, "book", "book/conveyorbase");
+        const book_conveyorbase = this.add.image(-4.275, 571.725, "book2013", "book/conveyorbase");
         book_conveyorbase.setOrigin(0, 0);
 
         // conveyoritems
-        const conveyoritems = this.add.sprite(-130.5, 519.1875, "book", "book/conveyoritems0001");
+        const conveyoritems = this.add.sprite(-130.5, 519.1875, "book2013", "book/conveyoritems0001");
         conveyoritems.setOrigin(0, 0);
 
         // book_conveyorcover
-        const book_conveyorcover = this.add.image(259.9875, 813.4875, "book", "book/conveyorcover");
+        const book_conveyorcover = this.add.image(259.9875, 813.4875, "book2013", "book/conveyorcover");
         book_conveyorcover.setOrigin(0, 0);
 
         // conveyorroll
-        const conveyorroll = this.add.sprite(344.475, 836.2125, "book", "book/conveyorroll0001");
+        const conveyorroll = this.add.sprite(344.475, 836.2125, "book2013", "book/conveyorroll0001");
         conveyorroll.setOrigin(0, 0);
 
         // book_foreground
-        const book_foreground = this.add.image(857.1125, 1107.6, "book", "book/foreground");
+        const book_foreground = this.add.image(857.1125, 1107.6, "book2013", "book/foreground");
         book_foreground.setOrigin(0.5, 1);
 
         // book_arttitle
-        this.add.image(710.325, 85.5, "book", "book/arttitle");
+        this.add.image(710.325, 85.5, "book2013", "book/arttitle");
 
         // artlabel
-        const artlabel = this.add.image(710, 84, "book", "book/artlabel0001");
+        const artlabel = this.add.image(710, 84, "book2013", "book/artlabel0001");
 
         // stairsbutton
-        const stairsbutton = this.add.image(1356.4125, 276.525, "book", "book/stairs0004");
+        const stairsbutton = this.add.image(1356.4125, 276.525, "book2013", "book/stairs0004");
         stairsbutton.setOrigin(0, 0);
         stairsbutton.alpha = 0.01;
         stairsbutton.alphaTopLeft = 0.01;
@@ -228,26 +228,26 @@ export default class Book extends Phaser.Scene implements Room {
         stairsbutton.alphaBottomRight = 0.01;
 
         // stairslight
-        const stairslight = this.add.image(1360, 278, "book", "book/stairs0002");
+        const stairslight = this.add.image(1360, 278, "book2013", "book/stairs0002");
         stairslight.setOrigin(0, 0);
         stairslight.visible = false;
 
         // chair1_trigger
-        const chair1_trigger = this.add.image(515.1375, 809.8875, "book", "book/chair1_trigger");
+        const chair1_trigger = this.add.image(515.1375, 809.8875, "book2013", "book/chair1_trigger");
         chair1_trigger.setOrigin(0, 0);
         chair1_trigger.visible = false;
 
         // chair2_trigger
-        const chair2_trigger = this.add.image(645.6375, 807.6375, "book", "book/chair2_trigger");
+        const chair2_trigger = this.add.image(645.6375, 807.6375, "book2013", "book/chair2_trigger");
         chair2_trigger.setOrigin(0, 0);
         chair2_trigger.visible = false;
 
         // book
-        const book = this.add.image(1566.5625, 909.3375, "book", "book/book0001");
+        const book = this.add.image(1566.5625, 909.3375, "book2013", "book/book0001");
         book.setOrigin(0, 0);
 
         // booklabel
-        const booklabel = this.add.image(1584, 942, "book", "book/booklabel0001");
+        const booklabel = this.add.image(1584, 942, "book2013", "book/booklabel0001");
         booklabel.setOrigin(0, 0);
 
         // lists
@@ -260,8 +260,8 @@ export default class Book extends Phaser.Scene implements Room {
 
         // mancalanotice (components)
         const mancalanoticeButtonComponent = new ButtonComponent(mancalanotice);
-        mancalanoticeButtonComponent.upTexture = {"key":"book","frame":"book/mancalanotice0001"};
-        mancalanoticeButtonComponent.overTexture = {"key":"book","frame":"book/mancalanotice0002"};
+        mancalanoticeButtonComponent.upTexture = {"key":"book2013","frame":"book/mancalanotice0001"};
+        mancalanoticeButtonComponent.overTexture = {"key":"book2013","frame":"book/mancalanotice0002"};
         mancalanoticeButtonComponent.handCursor = true;
         mancalanoticeButtonComponent.pixelPerfect = true;
 
@@ -294,8 +294,8 @@ export default class Book extends Phaser.Scene implements Room {
 
         // books (components)
         const booksButtonComponent = new ButtonComponent(books);
-        booksButtonComponent.upTexture = {"key":"book","frame":"book/books0001"};
-        booksButtonComponent.overTexture = {"key":"book","frame":"book/books0002"};
+        booksButtonComponent.upTexture = {"key":"book2013","frame":"book/books0001"};
+        booksButtonComponent.overTexture = {"key":"book2013","frame":"book/books0002"};
         booksButtonComponent.handCursor = true;
         booksButtonComponent.pixelPerfect = true;
 
@@ -387,8 +387,8 @@ export default class Book extends Phaser.Scene implements Room {
 
         // book (components)
         const bookButtonComponent = new ButtonComponent(book);
-        bookButtonComponent.upTexture = {"key":"book","frame":"book/book0001"};
-        bookButtonComponent.overTexture = {"key":"book","frame":"book/book0002"};
+        bookButtonComponent.upTexture = {"key":"book2013","frame":"book/book0001"};
+        bookButtonComponent.overTexture = {"key":"book2013","frame":"book/book0002"};
         bookButtonComponent.handCursor = true;
         bookButtonComponent.pixelPerfect = true;
         const bookDepthEnabled = new DepthEnabled(book);
@@ -476,11 +476,11 @@ export default class Book extends Phaser.Scene implements Room {
         this.editorCreate();
 
         this.stairsbutton.on('over', () => {
-            this.sound.play('book_lighton');
+            this.sound.play('book2013-lighton');
             this.stairslight.visible = true;
         });
         this.stairsbutton.on('out', () => {
-            this.sound.play('book_lightoff');
+            this.sound.play('book2013-lightoff');
             this.stairslight.visible = false;
         });
         this.stairsbutton.on('release', () => this.world.move(1419.75, 463.5));
@@ -489,12 +489,12 @@ export default class Book extends Phaser.Scene implements Room {
         this.artshowcasebutton.on('out', () => this.artshowcase.setFrame('book/artshowcase0001'));
 
         this.book.on('over', () => {
-            this.sound.play('book_bookopen');
+            this.sound.play('book2013-bookopen');
             this.book.setFrame('book/book0002');
             this.booklabel.visible = false;
         });
         this.book.on('out', () => {
-            this.sound.play('book_bookclose');
+            this.sound.play('book2013-bookclose');
             this.book.setFrame('book/book0001');
             this.booklabel.visible = true;
         });
@@ -522,9 +522,9 @@ export default class Book extends Phaser.Scene implements Room {
         let active = trigger1.active || trigger2.active;
 
         if (active && !this.conveyoritems.anims.isPlaying) {
-            this.conveyoritems.play('book-conveyoritems-animation');
-            this.conveyorroll.play('book-conveyorroll-animation');
-            this.sound.play('book_conveyor', {
+            this.conveyoritems.play('book2013-conveyoritems-animation');
+            this.conveyorroll.play('book2013-conveyorroll-animation');
+            this.sound.play('book2013-conveyor', {
                 loop: true
             });
         } else if (!active && this.conveyoritems.anims.isPlaying) {
@@ -532,13 +532,13 @@ export default class Book extends Phaser.Scene implements Room {
             this.conveyoritems.setFrame('book/conveyoritems0001');
             this.conveyorroll.stop();
             this.conveyorroll.setFrame('book/conveyorroll0001');
-            this.sound.stopByKey('book_conveyor');
+            this.sound.stopByKey('book2013-conveyor');
         }
     }
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('book-pack');
+        engine.app.unloadAssetPack('book2013-pack');
     }
 
     /* END-USER-CODE */

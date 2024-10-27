@@ -25,25 +25,25 @@ export default class Berg extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("berg-pack", "assets/world/rooms/2013/berg/berg-pack.json");
+        this.load.pack("berg2013-pack", "assets/world/rooms/2013/berg/berg2013-pack.json");
     }
 
     editorCreate(): void {
 
         // berg_sky
-        const berg_sky = this.add.image(-22.5, -22.5, "berg", "berg/sky");
+        const berg_sky = this.add.image(-22.5, -22.5, "berg2013", "berg/sky");
         berg_sky.setOrigin(0, 0);
 
         // berg_island
-        const berg_island = this.add.image(774.7875, 83.475, "berg", "berg/island");
+        const berg_island = this.add.image(774.7875, 83.475, "berg2013", "berg/island");
         berg_island.setOrigin(0, 0);
 
         // berg_base
-        const berg_base = this.add.image(-22.5, 193.1625, "berg", "berg/base");
+        const berg_base = this.add.image(-22.5, 193.1625, "berg2013", "berg/base");
         berg_base.setOrigin(0, 0);
 
         // block
-        const block = this.add.image(0, 0, "berg", "berg/block");
+        const block = this.add.image(0, 0, "berg2013", "berg/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
@@ -52,7 +52,7 @@ export default class Berg extends Phaser.Scene implements Room {
         this.add.existing(aqua);
 
         // aqua_mc
-        const aqua_mc = this.add.image(1163.1375, 304.425, "berg", "berg/aqua_mc");
+        const aqua_mc = this.add.image(1163.1375, 304.425, "berg2013", "berg/aqua_mc");
         aqua_mc.setOrigin(0, 0);
         aqua_mc.visible = false;
 
@@ -126,7 +126,7 @@ export default class Berg extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         engine.app.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('berg-pack');
+        engine.app.unloadAssetPack('berg2013-pack');
     }
 
     /* END-USER-CODE */

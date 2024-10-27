@@ -27,25 +27,25 @@ export default class Pizza extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("pizza-pack", "assets/world/rooms/2013/pizza/pizza-pack.json");
+        this.load.pack("pizza2013-pack", "assets/world/rooms/2013/pizza/pizza2013-pack.json");
     }
 
     editorCreate(): void {
 
         // pizza_base
-        const pizza_base = this.add.image(0, 0, "pizza", "pizza/base");
+        const pizza_base = this.add.image(0, 0, "pizza2013", "pizza/base");
         pizza_base.setOrigin(0.09918483904465213, 0.02);
 
         // kitchensign
-        const kitchensign = this.add.image(290.25, 89.34, "pizza", "pizza/kitchensign0001");
+        const kitchensign = this.add.image(290.25, 89.34, "pizza2013", "pizza/kitchensign0001");
         kitchensign.setOrigin(0, 0);
 
         // kitchendoor
-        const kitchendoor = this.add.image(282.38, 121.95, "pizza", "pizza/kitchendoor0001");
+        const kitchendoor = this.add.image(282.38, 121.95, "pizza2013", "pizza/kitchendoor0001");
         kitchendoor.setOrigin(0, 0);
 
         // kitchendoor_hit
-        const kitchendoor_hit = this.add.image(282.38, 121.95, "pizza", "pizza/kitchendoor0004");
+        const kitchendoor_hit = this.add.image(282.38, 121.95, "pizza2013", "pizza/kitchendoor0004");
         kitchendoor_hit.setOrigin(0, 0);
         kitchendoor_hit.alpha = 0.01;
         kitchendoor_hit.alphaTopLeft = 0.01;
@@ -54,11 +54,11 @@ export default class Pizza extends Phaser.Scene implements Room {
         kitchendoor_hit.alphaBottomRight = 0.01;
 
         // door
-        const door = this.add.image(696.38, 70.31, "pizza", "pizza/door0001");
+        const door = this.add.image(696.38, 70.31, "pizza2013", "pizza/door0001");
         door.setOrigin(0, 0);
 
         // door_hit
-        const door_hit = this.add.image(696.38, 70.31, "pizza", "pizza/door0004");
+        const door_hit = this.add.image(696.38, 70.31, "pizza2013", "pizza/door0004");
         door_hit.setOrigin(0, 0);
         door_hit.alpha = 0.01;
         door_hit.alphaTopLeft = 0.01;
@@ -67,91 +67,91 @@ export default class Pizza extends Phaser.Scene implements Room {
         door_hit.alphaBottomRight = 0.01;
 
         // pizza_arc
-        const pizza_arc = this.add.image(0, 0, "pizza", "pizza/arc");
+        const pizza_arc = this.add.image(0, 0, "pizza2013", "pizza/arc");
         pizza_arc.setOrigin(-0.027106261859582544, 0.10418013856812933);
 
         // pizza_seats
-        const pizza_seats = this.add.image(793.8, 891.23, "pizza", "pizza/seats");
+        const pizza_seats = this.add.image(793.8, 891.23, "pizza2013", "pizza/seats");
         pizza_seats.setOrigin(0.4988972565895643, 0.7266153846153846);
 
         // pizza_stage
-        const pizza_stage = this.add.image(1544.74, 481.16, "pizza", "pizza/stage");
+        const pizza_stage = this.add.image(1544.74, 481.16, "pizza2013", "pizza/stage");
         pizza_stage.setOrigin(0.48323863636363634, 0.8432642487046632);
 
         // pizza_stagestool
-        const pizza_stagestool = this.add.image(1437.64, 496.69, "pizza", "pizza/stagestool");
+        const pizza_stagestool = this.add.image(1437.64, 496.69, "pizza2013", "pizza/stagestool");
         pizza_stagestool.setOrigin(0.4745977011494253, 0.06964285714285715);
 
         // pizza_speaker
-        const pizza_speaker = this.add.image(1641.6, 635.4, "pizza", "pizza/speaker");
+        const pizza_speaker = this.add.image(1641.6, 635.4, "pizza2013", "pizza/speaker");
         pizza_speaker.setOrigin(0.468, 0.37321739130434783);
 
         // pizza_mic
-        const pizza_mic = this.add.image(1477.8, 609.86, "pizza", "pizza/mic");
+        const pizza_mic = this.add.image(1477.8, 609.86, "pizza2013", "pizza/mic");
         pizza_mic.setOrigin(0.48594249201277956, 0.4525373134328358);
 
         // pizza_curtain
-        const pizza_curtain = this.add.image(1525.16, 661.16, "pizza", "pizza/curtain");
+        const pizza_curtain = this.add.image(1525.16, 661.16, "pizza2013", "pizza/curtain");
         pizza_curtain.setOrigin(0.49646753246753245, 0.8879420289855072);
 
         // pizza_seatback
-        const pizza_seatback = this.add.image(1053.9, 386.33, "pizza", "pizza/seatback");
+        const pizza_seatback = this.add.image(1053.9, 386.33, "pizza2013", "pizza/seatback");
         pizza_seatback.setOrigin(0.47472527472527476, 0.7157062146892655);
 
         // pizza_squaretable
-        const pizza_squaretable = this.add.image(1244.59, 396, "pizza", "pizza/squaretable");
+        const pizza_squaretable = this.add.image(1244.59, 396, "pizza2013", "pizza/squaretable");
         pizza_squaretable.setOrigin(0.4864835164835165, 0.8245508982035927);
 
         // pizza_desk
-        const pizza_desk = this.add.image(604.24, 383.4, "pizza", "pizza/desk");
+        const pizza_desk = this.add.image(604.24, 383.4, "pizza2013", "pizza/desk");
         pizza_desk.setOrigin(0.4758196721311475, 0.7596396396396395);
 
         // pizza_chair1
-        const pizza_chair1 = this.add.image(752.85, 514.8, "pizza", "pizza/chair1");
+        const pizza_chair1 = this.add.image(752.85, 514.8, "pizza2013", "pizza/chair1");
         pizza_chair1.setOrigin(0.4811607142857143, 0.42937172774869115);
 
         // pizza_chair2
-        const pizza_chair2 = this.add.image(914.96, 471.83, "pizza", "pizza/chair2");
+        const pizza_chair2 = this.add.image(914.96, 471.83, "pizza2013", "pizza/chair2");
         pizza_chair2.setOrigin(0.48214285714285715, 0.42937172774869115);
 
         // pizza_table1
-        const pizza_table1 = this.add.image(850.84, 643.73, "pizza", "pizza/table1");
+        const pizza_table1 = this.add.image(850.84, 643.73, "pizza2013", "pizza/table1");
         pizza_table1.setOrigin(0.4897512437810945, 0.759375);
 
         // pizza_chair3
-        const pizza_chair3 = this.add.image(1013.74, 664.43, "pizza", "pizza/chair3");
+        const pizza_chair3 = this.add.image(1013.74, 664.43, "pizza2013", "pizza/chair3");
         pizza_chair3.setOrigin(0.48191666666666666, 0.4272677595628415);
 
         // pizza_chair4
-        const pizza_chair4 = this.add.image(1153.24, 538.2, "pizza", "pizza/chair4");
+        const pizza_chair4 = this.add.image(1153.24, 538.2, "pizza2013", "pizza/chair4");
         pizza_chair4.setOrigin(0.47980392156862745, 0.4354054054054054);
 
         // pizza_table2
-        const pizza_table2 = this.add.image(1164.26, 708.41, "pizza", "pizza/table2");
+        const pizza_table2 = this.add.image(1164.26, 708.41, "pizza2013", "pizza/table2");
         pizza_table2.setOrigin(0.5022727272727273, 0.7672164948453608);
 
         // pizza_stool
-        const pizza_stool = this.add.image(559.13, 462.6, "pizza", "pizza/stool");
+        const pizza_stool = this.add.image(559.13, 462.6, "pizza2013", "pizza/stool");
         pizza_stool.setOrigin(0.47351648351648357, 0.0921551724137931);
 
         // pizza_stool_1
-        const pizza_stool_1 = this.add.image(562.5, 555.3, "pizza", "pizza/stool");
+        const pizza_stool_1 = this.add.image(562.5, 555.3, "pizza2013", "pizza/stool");
         pizza_stool_1.setOrigin(0.47351648351648357, 0.0921551724137931);
 
         // pizza_counter
-        const pizza_counter = this.add.image(409.5, 532.69, "pizza", "pizza/counter");
+        const pizza_counter = this.add.image(409.5, 532.69, "pizza2013", "pizza/counter");
         pizza_counter.setOrigin(0.48847368421052634, 0.49619402985074623);
 
         // register
-        const register = this.add.sprite(387.9, 408.04, "pizza", "pizza/register0001");
+        const register = this.add.sprite(387.9, 408.04, "pizza2013", "pizza/register0001");
         register.setOrigin(0.5495575221238939, 0.6435119047619048);
 
         // pizza_counter2
-        const pizza_counter2 = this.add.image(363.83, 642.6, "pizza", "pizza/counter2");
+        const pizza_counter2 = this.add.image(363.83, 642.6, "pizza2013", "pizza/counter2");
         pizza_counter2.setOrigin(0.49411764705882355, 0.6368551236749116);
 
         // stoolbtn
-        const stoolbtn = this.add.image(1438.88, 523.13, "pizza", "pizza/stoolbtn0004");
+        const stoolbtn = this.add.image(1438.88, 523.13, "pizza2013", "pizza/stoolbtn0004");
         stoolbtn.alpha = 0.01;
         stoolbtn.alphaTopLeft = 0.01;
         stoolbtn.alphaTopRight = 0.01;
@@ -159,7 +159,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         stoolbtn.alphaBottomRight = 0.01;
 
         // seat4btn
-        const seat4btn = this.add.image(1150.88, 574.88, "pizza", "pizza/seatbtn0004");
+        const seat4btn = this.add.image(1150.88, 574.88, "pizza2013", "pizza/seatbtn0004");
         seat4btn.setOrigin(0.45, 0.49675);
         seat4btn.alpha = 0.01;
         seat4btn.alphaTopLeft = 0.01;
@@ -168,7 +168,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         seat4btn.alphaBottomRight = 0.01;
 
         // seat3btn
-        const seat3btn = this.add.image(1018.13, 694.13, "pizza", "pizza/seatbtn0004");
+        const seat3btn = this.add.image(1018.13, 694.13, "pizza2013", "pizza/seatbtn0004");
         seat3btn.setOrigin(0.45, 0.4967532467532468);
         seat3btn.alpha = 0.01;
         seat3btn.alphaTopLeft = 0.01;
@@ -177,7 +177,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         seat3btn.alphaBottomRight = 0.01;
 
         // seat2btn
-        const seat2btn = this.add.image(905.63, 502.88, "pizza", "pizza/seatbtn0004");
+        const seat2btn = this.add.image(905.63, 502.88, "pizza2013", "pizza/seatbtn0004");
         seat2btn.setOrigin(0.45, 0.4967532467532468);
         seat2btn.alpha = 0.01;
         seat2btn.alphaTopLeft = 0.01;
@@ -186,7 +186,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         seat2btn.alphaBottomRight = 0.01;
 
         // seat1btn
-        const seat1btn = this.add.image(752.63, 550.13, "pizza", "pizza/seatbtn0004");
+        const seat1btn = this.add.image(752.63, 550.13, "pizza2013", "pizza/seatbtn0004");
         seat1btn.setOrigin(0.45, 0.4967532467532468);
         seat1btn.alpha = 0.01;
         seat1btn.alphaTopLeft = 0.01;
@@ -195,7 +195,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         seat1btn.alphaBottomRight = 0.01;
 
         // stool1btn
-        const stool1btn = this.add.image(559.13, 487.13, "pizza", "pizza/stoolbtn0004");
+        const stool1btn = this.add.image(559.13, 487.13, "pizza2013", "pizza/stoolbtn0004");
         stool1btn.alpha = 0.01;
         stool1btn.alphaTopLeft = 0.01;
         stool1btn.alphaTopRight = 0.01;
@@ -203,7 +203,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         stool1btn.alphaBottomRight = 0.01;
 
         // stool2btn
-        const stool2btn = this.add.image(561.38, 579.38, "pizza", "pizza/stoolbtn0004");
+        const stool2btn = this.add.image(561.38, 579.38, "pizza2013", "pizza/stoolbtn0004");
         stool2btn.alpha = 0.01;
         stool2btn.alphaTopLeft = 0.01;
         stool2btn.alphaTopRight = 0.01;
@@ -211,7 +211,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         stool2btn.alphaBottomRight = 0.01;
 
         // stool3btn
-        const stool3btn = this.add.image(498.38, 664.88, "pizza", "pizza/stoolbtn0004");
+        const stool3btn = this.add.image(498.38, 664.88, "pizza2013", "pizza/stoolbtn0004");
         stool3btn.alpha = 0.01;
         stool3btn.alphaTopLeft = 0.01;
         stool3btn.alphaTopRight = 0.01;
@@ -219,7 +219,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         stool3btn.alphaBottomRight = 0.01;
 
         // standbtn
-        const standbtn = this.add.image(562.5, 362.25, "pizza", "pizza/standbtn0004");
+        const standbtn = this.add.image(562.5, 362.25, "pizza2013", "pizza/standbtn0004");
         standbtn.alpha = 0.01;
         standbtn.alphaTopLeft = 0.01;
         standbtn.alphaTopRight = 0.01;
@@ -227,7 +227,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         standbtn.alphaBottomRight = 0.01;
 
         // registerbtn
-        const registerbtn = this.add.image(387.9, 408.04, "pizza", "pizza/registerbtn0004");
+        const registerbtn = this.add.image(387.9, 408.04, "pizza2013", "pizza/registerbtn0004");
         registerbtn.setOrigin(0.5011818181818182, 0.49963963963963964);
         registerbtn.alpha = 0.01;
         registerbtn.alphaTopLeft = 0.01;
@@ -236,19 +236,19 @@ export default class Pizza extends Phaser.Scene implements Room {
         registerbtn.alphaBottomRight = 0.01;
 
         // pizzatron_trigger
-        const pizzatron_trigger = this.add.image(376.88, 348.75, "pizza", "pizza/pizzatron_trigger");
+        const pizzatron_trigger = this.add.image(376.88, 348.75, "pizza2013", "pizza/pizzatron_trigger");
         pizzatron_trigger.visible = false;
 
         // plaza_trigger
-        const plaza_trigger = this.add.image(859.5, 348.75, "pizza", "pizza/plaza_trigger");
+        const plaza_trigger = this.add.image(859.5, 348.75, "pizza2013", "pizza/plaza_trigger");
         plaza_trigger.visible = false;
 
         // pizza_foreground
-        const pizza_foreground = this.add.image(0, 0, "pizza", "pizza/foreground");
+        const pizza_foreground = this.add.image(0, 0, "pizza2013", "pizza/foreground");
         pizza_foreground.setOrigin(-0.028756476683937826, 0.03481874447391689);
 
         // block
-        const block = this.add.image(0, 0, "pizza", "pizza/block");
+        const block = this.add.image(0, 0, "pizza2013", "pizza/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
@@ -469,23 +469,23 @@ export default class Pizza extends Phaser.Scene implements Room {
         this.seat4btn.on('release', () => this.world.move(1156.5, 569.25));
 
         this.door_hit.on('over', () => {
-            this.sound.play('pizza_dooropen');
+            this.sound.play('pizza2013-dooropen');
             this.door.setFrame('pizza/door0002');
         })
         this.door_hit.on('out', () => {
-            this.sound.play('pizza_doorclose');
+            this.sound.play('pizza2013-doorclose');
             this.door.setFrame('pizza/door0001');
             this.interface.hideHint();
         })
         this.door_hit.on('release', () => this.world.move(855.0, 348.75));
 
         this.kitchendoor_hit.on('over', () => {
-            this.sound.play('pizza_kitchendooropen');
+            this.sound.play('pizza2013-kitchendooropen');
             this.kitchendoor.setFrame('pizza/kitchendoor0002');
             this.interface.showLocalizedHint({ x: 371.25, y: 213.75 }, 'pizzatron_hint');
         })
         this.kitchendoor_hit.on('out', () => {
-            this.sound.play('pizza_kitchendoorclose');
+            this.sound.play('pizza2013-kitchendoorclose');
             this.kitchendoor.setFrame('pizza/kitchendoor0001');
             this.interface.hideHint();
         })
@@ -496,12 +496,12 @@ export default class Pizza extends Phaser.Scene implements Room {
             if (this.register.anims.isPlaying) return;
 
             if (!this.cashOpen) {
-                this.sound.play('pizza_registeropen');
-                this.register.play('pizza-registeropen-animation');
+                this.sound.play('pizza2013-registeropen');
+                this.register.play('pizza2013-registeropen-animation');
                 this.cashOpen = true;
             } else {
-                this.sound.play('pizza_registerclose');
-                this.register.play('pizza-registerclose-animation');
+                this.sound.play('pizza2013-registerclose');
+                this.register.play('pizza2013-registerclose-animation');
                 this.cashOpen = false;
             }
         });
@@ -517,7 +517,7 @@ export default class Pizza extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('pizza-pack');
+        engine.app.unloadAssetPack('pizza2013-pack');
     }
 
     /* END-USER-CODE */

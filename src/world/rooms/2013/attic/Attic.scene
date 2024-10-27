@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/attic/attic-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/attic/attic2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Attic",
@@ -21,7 +21,7 @@
             "id": "a64ca16d-110b-4a8d-9994-14a943a46129",
             "label": "attic_base",
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/base"
             },
             "x": -14.06,
@@ -37,7 +37,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/couchside"
             },
             "x": 251.33,
@@ -55,7 +55,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/foreground"
             },
             "x": -6.19,
@@ -72,7 +72,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/horse0001"
             },
             "x": 1538.89,
@@ -90,7 +90,7 @@
             ],
             "ButtonComponent.handCursor": true,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/horsehover0004"
             },
             "x": 1538.89,
@@ -109,7 +109,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/block"
             },
             "originX": 0,
@@ -125,7 +125,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/table10001"
             },
             "x": 676.01,
@@ -158,7 +158,7 @@
             "WaddleTrigger.done2x": 665.21,
             "WaddleTrigger.done2y": 816.19,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tabletrigger"
             },
             "x": 678.26,
@@ -175,7 +175,7 @@
             ],
             "ButtonComponent.handCursor": true,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tablebtn0004"
             },
             "x": 671.96,
@@ -195,7 +195,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/table20001"
             },
             "x": 968.51,
@@ -228,7 +228,7 @@
             "WaddleTrigger.done2x": 981.34,
             "WaddleTrigger.done2y": 740.7,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tabletrigger"
             },
             "x": 968.51,
@@ -245,7 +245,7 @@
             ],
             "ButtonComponent.handCursor": true,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tablebtn0004"
             },
             "x": 964.46,
@@ -265,7 +265,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/table30001"
             },
             "x": 541.01,
@@ -298,7 +298,7 @@
             "WaddleTrigger.done2x": 913.84,
             "WaddleTrigger.done2y": 943.2,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tabletrigger"
             },
             "x": 901.01,
@@ -315,7 +315,7 @@
             ],
             "ButtonComponent.handCursor": true,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tablebtn0004"
             },
             "x": 496.46,
@@ -335,7 +335,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/table20001"
             },
             "x": 901.01,
@@ -368,7 +368,7 @@
             "WaddleTrigger.done2x": 478.91,
             "WaddleTrigger.done2y": 943.2,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tabletrigger"
             },
             "x": 491.51,
@@ -385,7 +385,7 @@
             ],
             "ButtonComponent.handCursor": true,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tablebtn0004"
             },
             "x": 896.96,
@@ -405,7 +405,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/table40001"
             },
             "x": 1283.51,
@@ -437,7 +437,7 @@
             "WaddleTrigger.done2x": 1394.78,
             "WaddleTrigger.done2y": 962.66,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tabletrigger"
             },
             "x": 1285.76,
@@ -454,7 +454,7 @@
             ],
             "ButtonComponent.handCursor": true,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/tablebtn0004"
             },
             "x": 1283.96,
@@ -476,7 +476,7 @@
             "RoomTrigger.playerX": 1289.25,
             "RoomTrigger.playerY": 632.25,
             "texture": {
-                "key": "attic",
+                "key": "attic2013",
                 "frame": "attic/lodge_trigger"
             },
             "x": 1280.14,

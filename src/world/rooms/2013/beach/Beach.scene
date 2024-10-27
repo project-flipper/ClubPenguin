@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/beach/beach-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/beach/beach2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Beach",
@@ -21,7 +21,7 @@
             "id": "db611faa-3e18-4897-ae56-52f5b0be374a",
             "label": "beach_sky",
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/sky"
             },
             "x": -22.5,
@@ -34,7 +34,7 @@
             "id": "8ab1f8e7-40af-49d6-8b59-e772865a0c93",
             "label": "beach_sea",
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/sea"
             },
             "x": -162.9,
@@ -54,7 +54,7 @@
                     "label": "ship",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "beach",
+                        "key": "beach2013",
                         "frame": "beach/migrator0001"
                     },
                     "x": 41.7375,
@@ -68,7 +68,7 @@
                     "label": "migratortext",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "beach",
+                        "key": "beach2013",
                         "frame": "beach/migratortext0001"
                     },
                     "x": 51.4125,
@@ -82,7 +82,7 @@
                     "label": "migratorplank",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "beach",
+                        "key": "beach2013",
                         "frame": "beach/migratorplank"
                     },
                     "x": 570.4874,
@@ -97,7 +97,7 @@
             "id": "2c9edf27-244c-4cfb-9de3-f32d95cf9e91",
             "label": "beach_base",
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/base"
             },
             "x": 20.3625,
@@ -111,7 +111,7 @@
             "label": "door",
             "scope": "PUBLIC",
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/door0001"
             },
             "x": 367.65,
@@ -130,7 +130,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/door0004"
             },
             "x": 367.65,
@@ -151,7 +151,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/trees"
             },
             "x": 1544.175,
@@ -167,7 +167,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/rightrocks"
             },
             "x": 1510.425,
@@ -183,7 +183,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/leftrocks"
             },
             "x": 268.65,
@@ -199,7 +199,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/castle"
             },
             "x": 864,
@@ -216,7 +216,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/bucket0001"
             },
             "x": 1116,
@@ -233,7 +233,7 @@
                 "ButtonComponent"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/bucket_btn"
             },
             "x": 1114.9875,
@@ -254,7 +254,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/railing"
             },
             "x": 171.45,
@@ -270,7 +270,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/deckchairright"
             },
             "x": 1124.1,
@@ -286,7 +286,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/deckchairrest"
             },
             "x": 1049.0625,
@@ -302,7 +302,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/deckchairleft"
             },
             "x": 941.0625,
@@ -318,7 +318,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/stairsrailing"
             },
             "x": 421.2,
@@ -337,7 +337,7 @@
             "RoomTrigger.playerX": 517.5,
             "RoomTrigger.playerY": 405,
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/dock_mc"
             },
             "x": 1328.2875,
@@ -355,7 +355,7 @@
             "RoomTrigger.playerX": 360,
             "RoomTrigger.playerY": 888.75,
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/village_mc"
             },
             "x": 1040.9625,
@@ -374,7 +374,7 @@
             "RoomTrigger.playerX": 990,
             "RoomTrigger.playerY": 675,
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/ship_mc"
             },
             "x": 721.0125,
@@ -392,7 +392,7 @@
             "RoomTrigger.playerX": 675,
             "RoomTrigger.playerY": 618.75,
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/light_mc"
             },
             "x": 482.175,
@@ -405,7 +405,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "beach",
+                "key": "beach2013",
                 "frame": "beach/block"
             },
             "originX": 0,

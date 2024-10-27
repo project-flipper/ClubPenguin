@@ -15,46 +15,46 @@ export default class FirstLane extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // seat1
-        const seat1 = scene.add.image(-52.2, -20.7, "mtn", "mtn/firstlane_seat1");
+        const seat1 = scene.add.image(-52.2, -20.7, "mtn2014", "mtn/firstlane_seat1");
         seat1.setOrigin(0, 0);
         seat1.visible = false;
         this.add(seat1);
 
         // mtn_firstlane_separator1
-        const mtn_firstlane_separator1 = scene.add.image(-23.5125, 24.6375, "mtn", "mtn/firstlane_separator1");
+        const mtn_firstlane_separator1 = scene.add.image(-23.5125, 24.6375, "mtn2014", "mtn/firstlane_separator1");
         mtn_firstlane_separator1.setOrigin(0, 0);
         this.add(mtn_firstlane_separator1);
 
         // seat2
-        const seat2 = scene.add.image(13.05, 34.425, "mtn", "mtn/firstlane_seat2");
+        const seat2 = scene.add.image(13.05, 34.425, "mtn2014", "mtn/firstlane_seat2");
         seat2.setOrigin(0, 0);
         seat2.visible = false;
         this.add(seat2);
 
         // mtn_firstlane_separator2
-        const mtn_firstlane_separator2 = scene.add.image(53.8875, 69.4125, "mtn", "mtn/firstlane_separator2");
+        const mtn_firstlane_separator2 = scene.add.image(53.8875, 69.4125, "mtn2014", "mtn/firstlane_separator2");
         mtn_firstlane_separator2.setOrigin(0, 0);
         this.add(mtn_firstlane_separator2);
 
         // seat3
-        const seat3 = scene.add.image(85.975, 80.2375, "mtn", "mtn/firstlane_seat3");
+        const seat3 = scene.add.image(85.975, 80.2375, "mtn2014", "mtn/firstlane_seat3");
         seat3.setOrigin(0, 0);
         seat3.visible = false;
         this.add(seat3);
 
         // mtn_firstlane_separator3
-        const mtn_firstlane_separator3 = scene.add.image(120.0375, 113.9625, "mtn", "mtn/firstlane_separator3");
+        const mtn_firstlane_separator3 = scene.add.image(120.0375, 113.9625, "mtn2014", "mtn/firstlane_separator3");
         mtn_firstlane_separator3.setOrigin(0, 0);
         this.add(mtn_firstlane_separator3);
 
         // seat4
-        const seat4 = scene.add.image(172.6875, 116.55, "mtn", "mtn/firstlane_seat4");
+        const seat4 = scene.add.image(172.6875, 116.55, "mtn2014", "mtn/firstlane_seat4");
         seat4.setOrigin(0, 0);
         seat4.visible = false;
         this.add(seat4);
 
         // btn
-        const btn = scene.add.image(117.45, 92.025, "mtn", "mtn/firstlane_btn0004");
+        const btn = scene.add.image(117.45, 92.025, "mtn2014", "mtn/firstlane_btn0004");
         btn.alpha = 0.01;
         btn.alphaTopLeft = 0.01;
         btn.alphaTopRight = 0.01;

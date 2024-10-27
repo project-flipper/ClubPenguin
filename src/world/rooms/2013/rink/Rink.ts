@@ -27,48 +27,48 @@ export default class Rink extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("rink-pack", "assets/world/rooms/2013/rink/rink-pack.json");
+        this.load.pack("rink2013-pack", "assets/world/rooms/2013/rink/rink2013-pack.json");
     }
 
     editorCreate(): void {
 
         // rink_sky
-        const rink_sky = this.add.image(-135.675, -22.5, "rink", "rink/sky");
+        const rink_sky = this.add.image(-135.675, -22.5, "rink2013", "rink/sky");
         rink_sky.setOrigin(0, 0);
 
         // rink_base
-        const rink_base = this.add.image(-141.4125, -59.175, "rink", "rink/base");
+        const rink_base = this.add.image(-141.4125, -59.175, "rink2013", "rink/base");
         rink_base.setOrigin(0, 0);
 
         // rink_leftgoalbehind
-        const rink_leftgoalbehind = this.add.image(304.875, 564.4125, "rink", "rink/leftgoalbehind");
+        const rink_leftgoalbehind = this.add.image(304.875, 564.4125, "rink2013", "rink/leftgoalbehind");
         rink_leftgoalbehind.setOrigin(0.6480281690140844, 0.4164596273291925);
 
         // leftgoal
-        const leftgoal = this.add.image(273.6, 628.3125, "rink", "rink/leftgoal");
+        const leftgoal = this.add.image(273.6, 628.3125, "rink2013", "rink/leftgoal");
         leftgoal.setOrigin(0.42636363636363633, 0.7543333333333333);
 
         // puck
-        const puck = this.add.image(859.5, 607.5, "rink", "rink/puck");
+        const puck = this.add.image(859.5, 607.5, "rink2013", "rink/puck");
 
         // rink_rightgoalbehind
-        const rink_rightgoalbehind = this.add.image(1407.15, 562.6125, "rink", "rink/rightgoalbehind");
+        const rink_rightgoalbehind = this.add.image(1407.15, 562.6125, "rink2013", "rink/rightgoalbehind");
         rink_rightgoalbehind.setOrigin(0.32161972, 0.41645963);
 
         // rightgoal
-        const rightgoal = this.add.image(1439.1, 628.3125, "rink", "rink/rightgoal");
+        const rightgoal = this.add.image(1439.1, 628.3125, "rink2013", "rink/rightgoal");
         rightgoal.setOrigin(0.5404195804195804, 0.7543333333333333);
 
         // rink_fishdog
-        const rink_fishdog = this.add.image(169.425, 243.45, "rink", "rink/fishdog");
+        const rink_fishdog = this.add.image(169.425, 243.45, "rink2013", "rink/fishdog");
         rink_fishdog.setOrigin(0.48278146, 0.58852217);
 
         // fishdogsign
-        const fishdogsign = this.add.image(104.7375, 130.6125, "rink", "rink/fishdog_sign0001");
+        const fishdogsign = this.add.image(104.7375, 130.6125, "rink2013", "rink/fishdog_sign0001");
         fishdogsign.setOrigin(0, 0);
 
         // fishdog_btn
-        const fishdog_btn = this.add.image(132.3, 230.625, "rink", "rink/fishdog_btn0004");
+        const fishdog_btn = this.add.image(132.3, 230.625, "rink2013", "rink/fishdog_btn0004");
         fishdog_btn.setOrigin(0, 0);
         fishdog_btn.alpha = 0.01;
         fishdog_btn.alphaTopLeft = 0.01;
@@ -77,35 +77,35 @@ export default class Rink extends Phaser.Scene implements Room {
         fishdog_btn.alphaBottomRight = 0.01;
 
         // rink_juryseats
-        const rink_juryseats = this.add.image(590.4, 186.75, "rink", "rink/juryseats");
+        const rink_juryseats = this.add.image(590.4, 186.75, "rink2013", "rink/juryseats");
         rink_juryseats.setOrigin(0.5012970711297071, 0.6431474103585658);
 
         // stadiumsign
-        const stadiumsign = this.add.image(504.9, 183, "rink", "rink/stadiumsign0001");
+        const stadiumsign = this.add.image(504.9, 183, "rink2013", "rink/stadiumsign0001");
         stadiumsign.setOrigin(0, 0);
 
         // rink_snow
-        const rink_snow = this.add.image(1286.1, 126.675, "rink", "rink/snow");
+        const rink_snow = this.add.image(1286.1, 126.675, "rink2013", "rink/snow");
         rink_snow.setOrigin(0, 0);
 
         // rink_tree
-        const rink_tree = this.add.image(1370.5875, 96.8625, "rink", "rink/tree");
+        const rink_tree = this.add.image(1370.5875, 96.8625, "rink2013", "rink/tree");
         rink_tree.setOrigin(0, 0);
 
         // rink_trees
-        const rink_trees = this.add.image(1542.2625, 123.3, "rink", "rink/trees");
+        const rink_trees = this.add.image(1542.2625, 123.3, "rink2013", "rink/trees");
         rink_trees.setOrigin(0, 0);
 
         // rink_sign
-        const rink_sign = this.add.image(1374.4125, 179.6625, "rink", "rink/sign");
+        const rink_sign = this.add.image(1374.4125, 179.6625, "rink2013", "rink/sign");
         rink_sign.setOrigin(0, 0);
 
         // snacksdoor
-        const snacksdoor = this.add.image(1341.45, 126.5625, "rink", "rink/snacksdoor0001");
+        const snacksdoor = this.add.image(1341.45, 126.5625, "rink2013", "rink/snacksdoor0001");
         snacksdoor.setOrigin(0, 0);
 
         // snacksdoor_btn
-        const snacksdoor_btn = this.add.image(1341.45, 126.5625, "rink", "rink/snacksdoor0004");
+        const snacksdoor_btn = this.add.image(1341.45, 126.5625, "rink2013", "rink/snacksdoor0004");
         snacksdoor_btn.setOrigin(0, 0);
         snacksdoor_btn.alpha = 0.01;
         snacksdoor_btn.alphaTopLeft = 0.01;
@@ -114,31 +114,31 @@ export default class Rink extends Phaser.Scene implements Room {
         snacksdoor_btn.alphaBottomRight = 0.01;
 
         // snack_light
-        const snack_light = this.add.image(1029.9375, 147.4875, "rink", "rink/snack_light");
+        const snack_light = this.add.image(1029.9375, 147.4875, "rink2013", "rink/snack_light");
         snack_light.setOrigin(0, 0);
 
         // rink_snacks
-        const rink_snacks = this.add.image(981.9, 18.3375, "rink", "rink/snacks");
+        const rink_snacks = this.add.image(981.9, 18.3375, "rink2013", "rink/snacks");
         rink_snacks.setOrigin(0, 0);
 
         // snackssign
-        const snackssign = this.add.image(1019.25, 40.95, "rink", "rink/snackssign0001");
+        const snackssign = this.add.image(1019.25, 40.95, "rink2013", "rink/snackssign0001");
         snackssign.setOrigin(0, 0);
 
         // rink_snacklights
-        const rink_snacklights = this.add.image(1035.9, -6.4125, "rink", "rink/snacklights");
+        const rink_snacklights = this.add.image(1035.9, -6.4125, "rink2013", "rink/snacklights");
         rink_snacklights.setOrigin(0, 0);
 
         // rink_backwall
-        const rink_backwall = this.add.image(144.3375, 316.0125, "rink", "rink/backwall");
+        const rink_backwall = this.add.image(144.3375, 316.0125, "rink2013", "rink/backwall");
         rink_backwall.setOrigin(0, 0);
 
         // door
-        const door = this.add.image(788.7375, 287.55, "rink", "rink/door0001");
+        const door = this.add.image(788.7375, 287.55, "rink2013", "rink/door0001");
         door.setOrigin(0, 0);
 
         // door_btn
-        const door_btn = this.add.image(788.7375, 287.55, "rink", "rink/door0004");
+        const door_btn = this.add.image(788.7375, 287.55, "rink2013", "rink/door0004");
         door_btn.setOrigin(0, 0);
         door_btn.alpha = 0.01;
         door_btn.alphaTopLeft = 0.01;
@@ -147,56 +147,56 @@ export default class Rink extends Phaser.Scene implements Room {
         door_btn.alphaBottomRight = 0.01;
 
         // rink_lefttribune
-        const rink_lefttribune = this.add.image(120.4875, 287.6625, "rink", "rink/lefttribune");
+        const rink_lefttribune = this.add.image(120.4875, 287.6625, "rink2013", "rink/lefttribune");
         rink_lefttribune.setOrigin(0.5257051282051283, 0.15574209245742093);
 
         // rink_prop1
-        const rink_prop1 = this.add.image(31.8375, 333.45, "rink", "rink/prop1");
+        const rink_prop1 = this.add.image(31.8375, 333.45, "rink2013", "rink/prop1");
         rink_prop1.setOrigin(0.4525, 0.106);
 
         // rink_prop2
-        const rink_prop2 = this.add.image(131.625, 403.875, "rink", "rink/prop2");
+        const rink_prop2 = this.add.image(131.625, 403.875, "rink2013", "rink/prop2");
         rink_prop2.setOrigin(0.45, 0.10914285714285714);
 
         // rink_prop3
-        const rink_prop3 = this.add.image(74.5875, 542.475, "rink", "rink/prop3");
+        const rink_prop3 = this.add.image(74.5875, 542.475, "rink2013", "rink/prop3");
         rink_prop3.setOrigin(0.48333333333333334, 0.654074074074074);
 
         // rink_lefttribuneside
-        const rink_lefttribuneside = this.add.image(47.475, 625.3874999999999, "rink", "rink/lefttribuneside");
+        const rink_lefttribuneside = this.add.image(47.475, 625.3874999999999, "rink2013", "rink/lefttribuneside");
         rink_lefttribuneside.setOrigin(0.8588782051282052, 0.84274);
 
         // rink_righttribune
-        const rink_righttribune = this.add.image(1585.125, 287.6625, "rink", "rink/righttribune");
+        const rink_righttribune = this.add.image(1585.125, 287.6625, "rink2013", "rink/righttribune");
         rink_righttribune.setOrigin(0.45900641025641026, 0.15574209245742093);
 
         // rink_prop4
-        const rink_prop4 = this.add.image(1596.2625, 342.675, "rink", "rink/prop4");
+        const rink_prop4 = this.add.image(1596.2625, 342.675, "rink2013", "rink/prop4");
         rink_prop4.setOrigin(0.41222222222222227, 0.6483636363636363);
 
         // rink_prop5
-        const rink_prop5 = this.add.image(1655.4375, 473.2875, "rink", "rink/prop5");
+        const rink_prop5 = this.add.image(1655.4375, 473.2875, "rink2013", "rink/prop5");
         rink_prop5.setOrigin(0.469625, 0.05555555555555555);
 
         // rink_righttribuneside
-        const rink_righttribuneside = this.add.image(1658.8125, 625.3875, "rink", "rink/righttribuneside");
+        const rink_righttribuneside = this.add.image(1658.8125, 625.3875, "rink2013", "rink/righttribuneside");
         rink_righttribuneside.setOrigin(0.12583333333333332, 0.8427433628318585);
 
         // rink_pot
-        const rink_pot = this.add.image(966.7125, 241.425, "rink", "rink/pot");
+        const rink_pot = this.add.image(966.7125, 241.425, "rink2013", "rink/pot");
         rink_pot.setOrigin(0.47947368, 0.7125);
 
         // rink_foreground
-        const rink_foreground = this.add.image(-215.6625, 628.425, "rink", "rink/foreground");
+        const rink_foreground = this.add.image(-215.6625, 628.425, "rink2013", "rink/foreground");
         rink_foreground.setOrigin(0, 0);
 
         // block
-        const block = this.add.image(0, 0, "rink", "rink/block");
+        const block = this.add.image(0, 0, "rink2013", "rink/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
         // snack_btn
-        const snack_btn = this.add.image(994.8375, 18.675, "rink", "rink/snack_btn0004");
+        const snack_btn = this.add.image(994.8375, 18.675, "rink2013", "rink/snack_btn0004");
         snack_btn.setOrigin(0, 0);
         snack_btn.alpha = 0.01;
         snack_btn.alphaTopLeft = 0.01;
@@ -205,22 +205,22 @@ export default class Rink extends Phaser.Scene implements Room {
         snack_btn.alphaBottomRight = 0.01;
 
         // catalogue
-        const catalogue = this.add.image(1581.1875, 970.875, "rink", "rink/catalogue0001");
+        const catalogue = this.add.image(1581.1875, 970.875, "rink2013", "rink/catalogue0001");
 
         // catalogue_title
-        const catalogue_title = this.add.image(1554.1875, 909.7875, "rink", "rink/catalogue_title0001");
+        const catalogue_title = this.add.image(1554.1875, 909.7875, "rink2013", "rink/catalogue_title0001");
         catalogue_title.setOrigin(0, 0);
 
         // rink_forts_mc
-        const rink_forts_mc = this.add.image(861.75, 213.75, "rink", "rink/forts_mc");
+        const rink_forts_mc = this.add.image(861.75, 213.75, "rink2013", "rink/forts_mc");
         rink_forts_mc.visible = false;
 
         // rink_shack_mc
-        const rink_shack_mc = this.add.image(1473, 232, "rink", "rink/shack_mc");
+        const rink_shack_mc = this.add.image(1473, 232, "rink2013", "rink/shack_mc");
         rink_shack_mc.visible = false;
 
         // chair1_btn
-        const chair1_btn = this.add.image(456.4125, 158.625, "rink", "rink/chair_btn0004");
+        const chair1_btn = this.add.image(456.4125, 158.625, "rink2013", "rink/chair_btn0004");
         chair1_btn.alpha = 0.01;
         chair1_btn.alphaTopLeft = 0.01;
         chair1_btn.alphaTopRight = 0.01;
@@ -228,7 +228,7 @@ export default class Rink extends Phaser.Scene implements Room {
         chair1_btn.alphaBottomRight = 0.01;
 
         // chair2_btn
-        const chair2_btn = this.add.image(534.7125, 152.325, "rink", "rink/chair_btn0004");
+        const chair2_btn = this.add.image(534.7125, 152.325, "rink2013", "rink/chair_btn0004");
         chair2_btn.alpha = 0.01;
         chair2_btn.alphaTopLeft = 0.01;
         chair2_btn.alphaTopRight = 0.01;
@@ -236,7 +236,7 @@ export default class Rink extends Phaser.Scene implements Room {
         chair2_btn.alphaBottomRight = 0.01;
 
         // chair3_btn
-        const chair3_btn = this.add.image(603.225, 145.35, "rink", "rink/chair_btn0004");
+        const chair3_btn = this.add.image(603.225, 145.35, "rink2013", "rink/chair_btn0004");
         chair3_btn.alpha = 0.01;
         chair3_btn.alphaTopLeft = 0.01;
         chair3_btn.alphaTopRight = 0.01;
@@ -244,7 +244,7 @@ export default class Rink extends Phaser.Scene implements Room {
         chair3_btn.alphaBottomRight = 0.01;
 
         // chair4_btn
-        const chair4_btn = this.add.image(673.5375, 140.175, "rink", "rink/chair_btn0004");
+        const chair4_btn = this.add.image(673.5375, 140.175, "rink2013", "rink/chair_btn0004");
         chair4_btn.alpha = 0.01;
         chair4_btn.alphaTopLeft = 0.01;
         chair4_btn.alphaTopRight = 0.01;
@@ -381,8 +381,8 @@ export default class Rink extends Phaser.Scene implements Room {
         catalogueDepthEnabled.automaticSort = false;
         catalogueDepthEnabled.depth = 1080;
         const catalogueButtonComponent = new ButtonComponent(catalogue);
-        catalogueButtonComponent.upTexture = {"key":"rink","frame":"rink/catalogue0001"};
-        catalogueButtonComponent.overTexture = {"key":"rink","frame":"rink/catalogue0002"};
+        catalogueButtonComponent.upTexture = {"key":"rink2013","frame":"rink/catalogue0001"};
+        catalogueButtonComponent.overTexture = {"key":"rink2013","frame":"rink/catalogue0002"};
         catalogueButtonComponent.handCursor = true;
         catalogueButtonComponent.pixelPerfect = true;
 
@@ -587,7 +587,7 @@ export default class Rink extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('rink-pack');
+        engine.app.unloadAssetPack('rink2013-pack');
     }
 
     /* END-USER-CODE */

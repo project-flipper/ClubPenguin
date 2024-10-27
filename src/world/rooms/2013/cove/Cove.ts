@@ -27,110 +27,110 @@ export default class Cove extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("cove-pack", "assets/world/rooms/2013/cove/cove-pack.json");
+        this.load.pack("cove2013-pack", "assets/world/rooms/2013/cove/cove2013-pack.json");
     }
 
     editorCreate(): void {
 
         // cove_sky
-        const cove_sky = this.add.image(-22.5, -22.5, "cove", "cove/sky");
+        const cove_sky = this.add.image(-22.5, -22.5, "cove2013", "cove/sky");
         cove_sky.setOrigin(0, 0);
 
         // cove_base
-        const cove_base = this.add.image(-65.75, -113.7, "cove", "cove/base");
+        const cove_base = this.add.image(-65.75, -113.7, "cove2013", "cove/base");
         cove_base.setOrigin(0, 0);
 
         // cove_oceantile1
-        const cove_oceantile1 = this.add.image(1248.6375, 742.8375, "cove", "cove/oceantile1");
+        const cove_oceantile1 = this.add.image(1248.6375, 742.8375, "cove2013", "cove/oceantile1");
         cove_oceantile1.setOrigin(0.24318627450980393, 1.3772);
 
         // cove_oceantile2
-        const cove_oceantile2 = this.add.image(1166.85, 770.625, "cove", "cove/oceantile2");
+        const cove_oceantile2 = this.add.image(1166.85, 770.625, "cove2013", "cove/oceantile2");
         cove_oceantile2.setOrigin(0.5013106159895151, 1.4852);
 
         // cove_oceantile3
-        const cove_oceantile3 = this.add.image(1130.625, 795.375, "cove", "cove/oceantile3");
+        const cove_oceantile3 = this.add.image(1130.625, 795.375, "cove2013", "cove/oceantile3");
         cove_oceantile3.setOrigin(0.5290878754171301, 1.4896);
 
         // cove_oceantile4
-        const cove_oceantile4 = this.add.image(1118.7, 820.125, "cove", "cove/oceantile4");
+        const cove_oceantile4 = this.add.image(1118.7, 820.125, "cove2013", "cove/oceantile4");
         cove_oceantile4.setOrigin(0.5396599999999999, 1.4896);
 
         // cove_oceantile5
-        const cove_oceantile5 = this.add.image(1134.9, 844.875, "cove", "cove/oceantile5");
+        const cove_oceantile5 = this.add.image(1134.9, 844.875, "cove2013", "cove/oceantile5");
         cove_oceantile5.setOrigin(0.5000933, 1.4852);
 
         // cove_oceantile6
-        const cove_oceantile6 = this.add.image(1154.925, 869.625, "cove", "cove/oceantile6");
+        const cove_oceantile6 = this.add.image(1154.925, 869.625, "cove2013", "cove/oceantile6");
         cove_oceantile6.setOrigin(0.525765306122449, 1.4896);
 
         // cove_oceantile7
-        const cove_oceantile7 = this.add.image(1148.2875, 894.375, "cove", "cove/oceantile7");
+        const cove_oceantile7 = this.add.image(1148.2875, 894.375, "cove2013", "cove/oceantile7");
         cove_oceantile7.setOrigin(0.52040816, 1.4852);
 
         // cove_oceantile8
-        const cove_oceantile8 = this.add.image(1135.2375, 919.125, "cove", "cove/oceantile8");
+        const cove_oceantile8 = this.add.image(1135.2375, 919.125, "cove2013", "cove/oceantile8");
         cove_oceantile8.setOrigin(0.508458, 1.4852);
 
         // cove_oceantile9
-        const cove_oceantile9 = this.add.image(1128.7125, 943.875, "cove", "cove/oceantile9");
+        const cove_oceantile9 = this.add.image(1128.7125, 943.875, "cove2013", "cove/oceantile9");
         cove_oceantile9.setOrigin(0.444971, 1.4852);
 
         // cove_oceantile10
-        const cove_oceantile10 = this.add.image(1127.925, 968.625, "cove", "cove/oceantile10");
+        const cove_oceantile10 = this.add.image(1127.925, 968.625, "cove2013", "cove/oceantile10");
         cove_oceantile10.setOrigin(0.415205, 1.4852);
 
         // cove_oceantile11
-        const cove_oceantile11 = this.add.image(1141.875, 993.375, "cove", "cove/oceantile11");
+        const cove_oceantile11 = this.add.image(1141.875, 993.375, "cove2013", "cove/oceantile11");
         cove_oceantile11.setOrigin(0.41714, 1.4852);
 
         // cove_oceantile12
-        const cove_oceantile12 = this.add.image(1151.2125, 1018.125, "cove", "cove/oceantile12");
+        const cove_oceantile12 = this.add.image(1151.2125, 1018.125, "cove2013", "cove/oceantile12");
         cove_oceantile12.setOrigin(0.492722, 1.4852);
 
         // cove_oceantile13
-        const cove_oceantile13 = this.add.image(1128.0375, 1042.875, "cove", "cove/oceantile13");
+        const cove_oceantile13 = this.add.image(1128.0375, 1042.875, "cove2013", "cove/oceantile13");
         cove_oceantile13.setOrigin(0.403003, 1.4852);
 
         // cove_oceantile14
-        const cove_oceantile14 = this.add.image(1128.0375, 1067.625, "cove", "cove/oceantile14");
+        const cove_oceantile14 = this.add.image(1128.0375, 1067.625, "cove2013", "cove/oceantile14");
         cove_oceantile14.setOrigin(0.400801, 1.4852);
 
         // cove_oceantile15
-        const cove_oceantile15 = this.add.image(1128.0375, 1067.625, "cove", "cove/oceantile15");
+        const cove_oceantile15 = this.add.image(1128.0375, 1067.625, "cove2013", "cove/oceantile15");
         cove_oceantile15.setOrigin(0.399424, 0.4952);
 
         // cove_rock
-        const cove_rock = this.add.image(564.975, 906.75, "cove", "cove/rock");
+        const cove_rock = this.add.image(564.975, 906.75, "cove2013", "cove/rock");
         cove_rock.setOrigin(0.46977337, 0.11830986);
 
         // cove_fish
-        const cove_fish = this.add.image(160.7625, 617.2875, "cove", "cove/fish");
+        const cove_fish = this.add.image(160.7625, 617.2875, "cove2013", "cove/fish");
         cove_fish.setOrigin(0.64565217, 0.72954545);
 
         // cove_umbrella
-        const cove_umbrella = this.add.image(271.125, 592.5375, "cove", "cove/umbrella");
+        const cove_umbrella = this.add.image(271.125, 592.5375, "cove2013", "cove/umbrella");
         cove_umbrella.setOrigin(0.62863799, 0.64453083);
 
         // cove_fireplace
-        const cove_fireplace = this.add.image(304.3125, 672.75, "cove", "cove/fireplace");
+        const cove_fireplace = this.add.image(304.3125, 672.75, "cove2013", "cove/fireplace");
         cove_fireplace.setOrigin(0, 0);
 
         // fire
-        const fire = this.add.sprite(343.6875, 582.4125, "cove", "cove/fire0001");
+        const fire = this.add.sprite(343.6875, 582.4125, "cove2013", "cove/fire0001");
         fire.setOrigin(0, 0);
-        fire.play("cove-fire-animation");
+        fire.play("cove2013-fire-animation");
 
         // cove_chairside
-        const cove_chairside = this.add.image(460.4625, 214.65, "cove", "cove/chairside");
+        const cove_chairside = this.add.image(460.4625, 214.65, "cove2013", "cove/chairside");
         cove_chairside.setOrigin(-0.38734177, -0.46931034);
 
         // binoculars
-        const binoculars = this.add.image(456.8625, 210.15, "cove", "cove/binoculars0001");
+        const binoculars = this.add.image(456.8625, 210.15, "cove2013", "cove/binoculars0001");
         binoculars.setOrigin(0, 0);
 
         // binoculars_btn
-        const binoculars_btn = this.add.image(456.8625, 210.15, "cove", "cove/binoculars0004");
+        const binoculars_btn = this.add.image(456.8625, 210.15, "cove2013", "cove/binoculars0004");
         binoculars_btn.setOrigin(0, 0);
         binoculars_btn.alpha = 0.01;
         binoculars_btn.alphaTopLeft = 0.01;
@@ -139,89 +139,89 @@ export default class Cove extends Phaser.Scene implements Room {
         binoculars_btn.alphaBottomRight = 0.01;
 
         // cove_tree1
-        const cove_tree1 = this.add.image(1626.3, 665.4375, "cove", "cove/tree1");
+        const cove_tree1 = this.add.image(1626.3, 665.4375, "cove2013", "cove/tree1");
         cove_tree1.setOrigin(0.318974358974359, 0.5946153846153847);
 
         // cove_surfshack
-        const cove_surfshack = this.add.image(1416.9375, 414.7875, "cove", "cove/surfshack");
+        const cove_surfshack = this.add.image(1416.9375, 414.7875, "cove2013", "cove/surfshack");
         cove_surfshack.setOrigin(0.44294425, 0.86802905);
 
         // surfshacksign
-        const surfshacksign = this.add.image(1354.05, 113.2125, "cove", "cove/surfshacksign0001");
+        const surfshacksign = this.add.image(1354.05, 113.2125, "cove2013", "cove/surfshacksign0001");
         surfshacksign.setOrigin(0, 0);
 
         // cove_chair
-        const cove_chair = this.add.image(1262.5875, 501.75, "cove", "cove/chair");
+        const cove_chair = this.add.image(1262.5875, 501.75, "cove2013", "cove/chair");
         cove_chair.setOrigin(0.571875, 0.46379888);
 
         // cove_table
-        const cove_table = this.add.image(1367.1, 534.15, "cove", "cove/table");
+        const cove_table = this.add.image(1367.1, 534.15, "cove2013", "cove/table");
         cove_table.setOrigin(0.482, 0.68101604);
 
         // cove_chairbase
-        const cove_chairbase = this.add.image(1472.0625, 559.2375, "cove", "cove/chairbase");
+        const cove_chairbase = this.add.image(1472.0625, 559.2375, "cove2013", "cove/chairbase");
         cove_chairbase.setOrigin(0.47237179487179487, 0.051287128712871284);
 
         // cove_chairback
-        const cove_chairback = this.add.image(1479.6, 615.4875, "cove", "cove/chairback");
+        const cove_chairback = this.add.image(1479.6, 615.4875, "cove2013", "cove/chairback");
         cove_chairback.setOrigin(0.18586957, 0.72607362);
 
         // cove_nail1
-        const cove_nail1 = this.add.image(1159.875, 562.05, "cove", "cove/nail1");
+        const cove_nail1 = this.add.image(1159.875, 562.05, "cove2013", "cove/nail1");
         cove_nail1.setOrigin(0.4652702702702703, 0.6465934065934066);
 
         // cove_nail2
-        const cove_nail2 = this.add.image(1242.675, 621.9, "cove", "cove/nail2");
+        const cove_nail2 = this.add.image(1242.675, 621.9, "cove2013", "cove/nail2");
         cove_nail2.setOrigin(0.7125252525252526, 0.8347727272727272);
 
         // cove_nail3
-        const cove_nail3 = this.add.image(1425.7125, 646.3125, "cove", "cove/nail3");
+        const cove_nail3 = this.add.image(1425.7125, 646.3125, "cove2013", "cove/nail3");
         cove_nail3.setOrigin(0.47961538, 0.7155);
 
         // cove_tree
-        const cove_tree = this.add.image(163.8, 626.85, "cove", "cove/tree");
+        const cove_tree = this.add.image(163.8, 626.85, "cove2013", "cove/tree");
         cove_tree.setOrigin(1.06876068, 0.05820189);
 
         // cove_foreground
-        const cove_foreground = this.add.image(-91.35, 824.7375, "cove", "cove/foreground");
+        const cove_foreground = this.add.image(-91.35, 824.7375, "cove2013", "cove/foreground");
         cove_foreground.setOrigin(0, 0);
 
         // block
-        const block = this.add.image(0, 0, "cove", "cove/block");
+        const block = this.add.image(0, 0, "cove2013", "cove/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
         // cove_ring
-        const cove_ring = this.add.image(512.8875, 409.725, "cove", "cove/ring");
+        const cove_ring = this.add.image(512.8875, 409.725, "cove2013", "cove/ring");
         cove_ring.setOrigin(0.39428571, 0.82372881);
 
         // cove_cup
-        const cove_cup = this.add.image(1020.375, 591.075, "cove", "cove/cup");
+        const cove_cup = this.add.image(1020.375, 591.075, "cove2013", "cove/cup");
         cove_cup.setOrigin(0.46333333, 0.72146667);
 
         // cove_medicsign
-        const cove_medicsign = this.add.image(946.575, 293.7375, "cove", "cove/medicsign");
+        const cove_medicsign = this.add.image(946.575, 293.7375, "cove2013", "cove/medicsign");
         cove_medicsign.setOrigin(0.31238579, 0.88648148);
 
         // cove_ocean_water_mc
-        const cove_ocean_water_mc = this.add.image(530.6625, 701.55, "cove", "cove/ocean_water_mc");
+        const cove_ocean_water_mc = this.add.image(530.6625, 701.55, "cove2013", "cove/ocean_water_mc");
         cove_ocean_water_mc.setOrigin(0, 0);
         cove_ocean_water_mc.visible = false;
 
         // waves_trigger
-        const waves_trigger = this.add.image(1394.8875, 750.2625, "cove", "cove/waves_mc");
+        const waves_trigger = this.add.image(1394.8875, 750.2625, "cove2013", "cove/waves_mc");
         waves_trigger.visible = false;
 
         // cove_forest_mc
-        const cove_forest_mc = this.add.image(338.175, 310.725, "cove", "cove/forest_mc");
+        const cove_forest_mc = this.add.image(338.175, 310.725, "cove2013", "cove/forest_mc");
         cove_forest_mc.visible = false;
 
         // waves
-        const waves = this.add.image(1334.7, 744.3, "cove", "cove/waves0001");
+        const waves = this.add.image(1334.7, 744.3, "cove2013", "cove/waves0001");
         waves.setOrigin(0.47191977, 0.48719844);
 
         // waves_btn
-        const waves_btn = this.add.image(1334.7, 744.3, "cove", "cove/waves0004");
+        const waves_btn = this.add.image(1334.7, 744.3, "cove2013", "cove/waves0004");
         waves_btn.setOrigin(0.47191977, 0.48719844);
         waves_btn.alpha = 0.01;
         waves_btn.alphaTopLeft = 0.01;
@@ -230,10 +230,10 @@ export default class Cove extends Phaser.Scene implements Room {
         waves_btn.alphaBottomRight = 0.01;
 
         // cat
-        const cat = this.add.image(1621.0125, 1000.9125, "cove", "cove/cat_btn0001");
+        const cat = this.add.image(1621.0125, 1000.9125, "cove2013", "cove/cat_btn0001");
 
         // cat_btn
-        const cat_btn = this.add.image(1621.0125, 1000.9125, "cove", "cove/cat_btn0004");
+        const cat_btn = this.add.image(1621.0125, 1000.9125, "cove2013", "cove/cat_btn0004");
         cat_btn.alpha = 0.01;
         cat_btn.alphaTopLeft = 0.01;
         cat_btn.alphaTopRight = 0.01;
@@ -241,11 +241,11 @@ export default class Cove extends Phaser.Scene implements Room {
         cat_btn.alphaBottomRight = 0.01;
 
         // catalogue
-        const catalogue = this.add.sprite(1093.05, 265.1625, "cove", "cove/catalogue0001");
+        const catalogue = this.add.sprite(1093.05, 265.1625, "cove2013", "cove/catalogue0001");
         catalogue.setOrigin(0, 0);
 
         // catalogue_btn
-        const catalogue_btn = this.add.image(1088.325, 263.025, "cove", "cove/catalogue_btn");
+        const catalogue_btn = this.add.image(1088.325, 263.025, "cove2013", "cove/catalogue_btn");
         catalogue_btn.setOrigin(0, 0);
         catalogue_btn.alpha = 0.01;
         catalogue_btn.alphaTopLeft = 0.01;
@@ -493,7 +493,7 @@ export default class Cove extends Phaser.Scene implements Room {
         this.waves_btn.on('release', () => this.world.move(1383.75, 787.5));
 
         this.catalogue_btn.on('over', () => {
-            this.catalogue.play('cove-catalogue-animation');
+            this.catalogue.play('cove2013-catalogue-animation');
         });
         this.catalogue_btn.on('out', () => {
             this.catalogue.stop();
@@ -511,7 +511,7 @@ export default class Cove extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('cove-pack');
+        engine.app.unloadAssetPack('cove2013-pack');
     }
 
     /* END-USER-CODE */

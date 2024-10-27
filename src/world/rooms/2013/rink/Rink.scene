@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/rink/rink-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/rink/rink2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Rink",
@@ -21,7 +21,7 @@
             "id": "44a6fc46-938c-4cd1-b24c-744637c3ad95",
             "label": "rink_sky",
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/sky"
             },
             "x": -135.675,
@@ -34,7 +34,7 @@
             "id": "a41ac540-4064-45ff-9e7e-f8b3d7e3c9bc",
             "label": "rink_base",
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/base"
             },
             "x": -141.4125,
@@ -50,7 +50,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/leftgoalbehind"
             },
             "x": 304.875,
@@ -67,7 +67,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/leftgoal"
             },
             "x": 273.6,
@@ -84,7 +84,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/puck"
             },
             "x": 859.5,
@@ -98,7 +98,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/rightgoalbehind"
             },
             "x": 1407.15,
@@ -115,7 +115,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/rightgoal"
             },
             "x": 1439.1,
@@ -133,7 +133,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 261,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/fishdog"
             },
             "x": 169.425,
@@ -152,7 +152,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 261,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/fishdog_sign0001"
             },
             "x": 104.7375,
@@ -170,7 +170,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/fishdog_btn0004"
             },
             "x": 132.3,
@@ -191,7 +191,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/juryseats"
             },
             "x": 590.4,
@@ -210,7 +210,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 186.75,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/stadiumsign0001"
             },
             "x": 504.9,
@@ -223,7 +223,7 @@
             "id": "1bc4821b-fe95-4675-a3e7-f5e69fb30dbb",
             "label": "rink_snow",
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/snow"
             },
             "x": 1286.1,
@@ -236,7 +236,7 @@
             "id": "14204b52-c291-490a-a084-26abf5344aaa",
             "label": "rink_tree",
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/tree"
             },
             "x": 1370.5875,
@@ -249,7 +249,7 @@
             "id": "de353327-bdca-4776-83a7-a9ea4477949e",
             "label": "rink_trees",
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/trees"
             },
             "x": 1542.2625,
@@ -267,7 +267,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 260.8875,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/sign"
             },
             "x": 1374.4125,
@@ -286,7 +286,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 260.8875,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/snacksdoor0001"
             },
             "x": 1341.45,
@@ -305,7 +305,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/snacksdoor0004"
             },
             "x": 1341.45,
@@ -329,7 +329,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 260.8875,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/snack_light"
             },
             "x": 1029.9375,
@@ -347,7 +347,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 260.8875,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/snacks"
             },
             "x": 981.9,
@@ -366,7 +366,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 260.8875,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/snackssign0001"
             },
             "x": 1019.25,
@@ -384,7 +384,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 260.8875,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/snacklights"
             },
             "x": 1035.9,
@@ -402,7 +402,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 379.0125,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/backwall"
             },
             "x": 144.3375,
@@ -421,7 +421,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 379.0125,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/door0001"
             },
             "x": 788.7375,
@@ -438,7 +438,7 @@
                 "ButtonComponent"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/door0004"
             },
             "x": 788.7375,
@@ -459,7 +459,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/lefttribune"
             },
             "x": 120.4875,
@@ -475,7 +475,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/prop1"
             },
             "x": 31.8375,
@@ -491,7 +491,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/prop2"
             },
             "x": 131.625,
@@ -507,7 +507,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/prop3"
             },
             "x": 74.5875,
@@ -523,7 +523,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/lefttribuneside"
             },
             "x": 47.475,
@@ -539,7 +539,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/righttribune"
             },
             "x": 1585.125,
@@ -552,7 +552,7 @@
             "id": "607c3203-75eb-43a2-9cea-9a0d359af593",
             "label": "rink_prop4",
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/prop4"
             },
             "x": 1596.2625,
@@ -568,7 +568,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/prop5"
             },
             "x": 1655.4375,
@@ -584,7 +584,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/righttribuneside"
             },
             "x": 1658.8125,
@@ -600,7 +600,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/pot"
             },
             "x": 966.7125,
@@ -618,7 +618,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/foreground"
             },
             "x": -215.6625,
@@ -632,7 +632,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/block"
             },
             "originX": 0,
@@ -650,7 +650,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/snack_btn0004"
             },
             "x": 994.8375,
@@ -674,12 +674,12 @@
             ],
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
-            "ButtonComponent.upTexture": "{\"key\":\"rink\",\"frame\":\"rink/catalogue0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"rink\",\"frame\":\"rink/catalogue0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"rink2013\",\"frame\":\"rink/catalogue0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"rink2013\",\"frame\":\"rink/catalogue0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/catalogue0001"
             },
             "x": 1581.1875,
@@ -696,7 +696,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/catalogue_title0001"
             },
             "x": 1554.1875,
@@ -715,7 +715,7 @@
             "RoomTrigger.playerX": 652.5,
             "RoomTrigger.playerY": 459,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/forts_mc"
             },
             "x": 861.75,
@@ -733,7 +733,7 @@
             "RoomTrigger.playerX": 123.75,
             "RoomTrigger.playerY": 810,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/shack_mc"
             },
             "x": 1473,
@@ -750,7 +750,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/chair_btn0004"
             },
             "x": 456.4125,
@@ -771,7 +771,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/chair_btn0004"
             },
             "x": 534.7125,
@@ -792,7 +792,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/chair_btn0004"
             },
             "x": 603.225,
@@ -813,7 +813,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "rink",
+                "key": "rink2013",
                 "frame": "rink/chair_btn0004"
             },
             "x": 673.5375,

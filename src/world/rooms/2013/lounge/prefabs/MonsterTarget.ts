@@ -14,12 +14,12 @@ export default class MonsterTarget extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // art
-        const art = scene.add.sprite(-103, -190, "lounge", "lounge/bluemonster");
+        const art = scene.add.sprite(-103, -190, "lounge2013", "lounge/bluemonster");
         art.setOrigin(0, 0);
         this.add(art);
 
         // hitbox
-        const hitbox = scene.add.image(2, -63, "lounge", "lounge/monsterhitbox");
+        const hitbox = scene.add.image(2, -63, "lounge2013", "lounge/monsterhitbox");
         hitbox.visible = false;
         this.add(hitbox);
 
@@ -65,7 +65,7 @@ export default class MonsterTarget extends Phaser.GameObjects.Container {
         if (this.team == 'blue') this.scene.targetGame.blueScore += 1;
         else this.scene.targetGame.redScore += 1;
 
-        this.art.play(`lounge-${this.team}monster-animation`);
+        this.art.play(`lounge2013-${this.team}monster-animation`);
         this.art.once('animationcomplete', () => this.hide());
     }
 

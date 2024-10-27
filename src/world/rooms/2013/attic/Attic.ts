@@ -27,29 +27,29 @@ export default class Attic extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("attic-pack", "assets/world/rooms/2013/attic/attic-pack.json");
+        this.load.pack("attic2013-pack", "assets/world/rooms/2013/attic/attic2013-pack.json");
     }
 
     editorCreate(): void {
 
         // attic_base
-        const attic_base = this.add.image(-14.06, -7.31, "attic", "attic/base");
+        const attic_base = this.add.image(-14.06, -7.31, "attic2013", "attic/base");
         attic_base.setOrigin(0, 0);
 
         // attic_couchside
-        const attic_couchside = this.add.image(251.33, 672.19, "attic", "attic/couchside");
+        const attic_couchside = this.add.image(251.33, 672.19, "attic2013", "attic/couchside");
         attic_couchside.setOrigin(0.5008121827411167, 0.6189399293286219);
 
         // attic_foreground
-        const attic_foreground = this.add.image(-6.19, 267.19, "attic", "attic/foreground");
+        const attic_foreground = this.add.image(-6.19, 267.19, "attic2013", "attic/foreground");
         attic_foreground.setOrigin(0, 0);
 
         // horse
-        const horse = this.add.sprite(1538.89, 704.48, "attic", "attic/horse0001");
+        const horse = this.add.sprite(1538.89, 704.48, "attic2013", "attic/horse0001");
         horse.setOrigin(0.5604982206405694, 0.4780453257790368);
 
         // horseButton
-        const horseButton = this.add.image(1538.89, 704.48, "attic", "attic/horsehover0004");
+        const horseButton = this.add.image(1538.89, 704.48, "attic2013", "attic/horsehover0004");
         horseButton.setOrigin(0.42047138047138044, 0.5097897897897897);
         horseButton.alpha = 0.01;
         horseButton.alphaTopLeft = 0.01;
@@ -58,20 +58,20 @@ export default class Attic extends Phaser.Scene implements Room {
         horseButton.alphaBottomRight = 0.01;
 
         // block
-        const block = this.add.image(0, 0, "attic", "attic/block");
+        const block = this.add.image(0, 0, "attic2013", "attic/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
         // table1
-        const table1 = this.add.image(676.01, 712.69, "attic", "attic/table10001");
+        const table1 = this.add.image(676.01, 712.69, "attic2013", "attic/table10001");
         table1.setOrigin(0.48970588235294116, 0.6617647058823529);
 
         // tabletrigger1
-        const tabletrigger1 = this.add.image(678.26, 709.76, "attic", "attic/tabletrigger");
+        const tabletrigger1 = this.add.image(678.26, 709.76, "attic2013", "attic/tabletrigger");
         tabletrigger1.visible = false;
 
         // tablebtn1
-        const tablebtn1 = this.add.image(671.96, 660.04, "attic", "attic/tablebtn0004");
+        const tablebtn1 = this.add.image(671.96, 660.04, "attic2013", "attic/tablebtn0004");
         tablebtn1.alpha = 0.01;
         tablebtn1.alphaTopLeft = 0.01;
         tablebtn1.alphaTopRight = 0.01;
@@ -79,15 +79,15 @@ export default class Attic extends Phaser.Scene implements Room {
         tablebtn1.alphaBottomRight = 0.01;
 
         // table2
-        const table2 = this.add.image(968.51, 667.69, "attic", "attic/table20001");
+        const table2 = this.add.image(968.51, 667.69, "attic2013", "attic/table20001");
         table2.setOrigin(0.5089285714285714, 0.709731543624161);
 
         // tabletrigger2
-        const tabletrigger2 = this.add.image(968.51, 658.01, "attic", "attic/tabletrigger");
+        const tabletrigger2 = this.add.image(968.51, 658.01, "attic2013", "attic/tabletrigger");
         tabletrigger2.visible = false;
 
         // tablebtn2
-        const tablebtn2 = this.add.image(964.46, 606.04, "attic", "attic/tablebtn0004");
+        const tablebtn2 = this.add.image(964.46, 606.04, "attic2013", "attic/tablebtn0004");
         tablebtn2.alpha = 0.01;
         tablebtn2.alphaTopLeft = 0.01;
         tablebtn2.alphaTopRight = 0.01;
@@ -95,15 +95,15 @@ export default class Attic extends Phaser.Scene implements Room {
         tablebtn2.alphaBottomRight = 0.01;
 
         // table3
-        const table3 = this.add.image(541.01, 870.19, "attic", "attic/table30001");
+        const table3 = this.add.image(541.01, 870.19, "attic2013", "attic/table30001");
         table3.setOrigin(0.8088235294117647, 0.8072519083969466);
 
         // tabletrigger3
-        const tabletrigger3 = this.add.image(901.01, 876.26, "attic", "attic/tabletrigger");
+        const tabletrigger3 = this.add.image(901.01, 876.26, "attic2013", "attic/tabletrigger");
         tabletrigger3.visible = false;
 
         // tablebtn3
-        const tablebtn3 = this.add.image(496.46, 808.54, "attic", "attic/tablebtn0004");
+        const tablebtn3 = this.add.image(496.46, 808.54, "attic2013", "attic/tablebtn0004");
         tablebtn3.alpha = 0.01;
         tablebtn3.alphaTopLeft = 0.01;
         tablebtn3.alphaTopRight = 0.01;
@@ -111,15 +111,15 @@ export default class Attic extends Phaser.Scene implements Room {
         tablebtn3.alphaBottomRight = 0.01;
 
         // table4
-        const table4 = this.add.image(901.01, 870.19, "attic", "attic/table20001");
+        const table4 = this.add.image(901.01, 870.19, "attic2013", "attic/table20001");
         table4.setOrigin(0.5089285714285714, 0.709731543624161);
 
         // tabletrigger4
-        const tabletrigger4 = this.add.image(491.51, 860.51, "attic", "attic/tabletrigger");
+        const tabletrigger4 = this.add.image(491.51, 860.51, "attic2013", "attic/tabletrigger");
         tabletrigger4.visible = false;
 
         // tablebtn4
-        const tablebtn4 = this.add.image(896.96, 808.54, "attic", "attic/tablebtn0004");
+        const tablebtn4 = this.add.image(896.96, 808.54, "attic2013", "attic/tablebtn0004");
         tablebtn4.alpha = 0.01;
         tablebtn4.alphaTopLeft = 0.01;
         tablebtn4.alphaTopRight = 0.01;
@@ -127,15 +127,15 @@ export default class Attic extends Phaser.Scene implements Room {
         tablebtn4.alphaBottomRight = 0.01;
 
         // table5
-        const table5 = this.add.image(1283.51, 915.19, "attic", "attic/table40001");
+        const table5 = this.add.image(1283.51, 915.19, "attic2013", "attic/table40001");
         table5.setOrigin(0.45478723404255317, 0.7601351351351351);
 
         // tabletrigger5
-        const tabletrigger5 = this.add.image(1285.76, 903.26, "attic", "attic/tabletrigger");
+        const tabletrigger5 = this.add.image(1285.76, 903.26, "attic2013", "attic/tabletrigger");
         tabletrigger5.visible = false;
 
         // tablebtn5
-        const tablebtn5 = this.add.image(1283.96, 853.54, "attic", "attic/tablebtn0004");
+        const tablebtn5 = this.add.image(1283.96, 853.54, "attic2013", "attic/tablebtn0004");
         tablebtn5.alpha = 0.01;
         tablebtn5.alphaTopLeft = 0.01;
         tablebtn5.alphaTopRight = 0.01;
@@ -143,7 +143,7 @@ export default class Attic extends Phaser.Scene implements Room {
         tablebtn5.alphaBottomRight = 0.01;
 
         // attic_lodge_trigger
-        const attic_lodge_trigger = this.add.image(1280.14, 703.13, "attic", "attic/lodge_trigger");
+        const attic_lodge_trigger = this.add.image(1280.14, 703.13, "attic2013", "attic/lodge_trigger");
         attic_lodge_trigger.visible = false;
 
         // lists
@@ -368,8 +368,8 @@ export default class Attic extends Phaser.Scene implements Room {
         this.editorCreate();
 
         this.horseButton.on('over', () => {
-            this.horse.play('attic-horse-animation');
-            this.sound.play('attic_horse');
+            this.horse.play('attic2013-horse-animation');
+            this.sound.play('attic2013-horse');
         });
 
         this.tablebtn1.on('out', () => {
@@ -435,7 +435,7 @@ export default class Attic extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('attic-pack');
+        engine.app.unloadAssetPack('attic2013-pack');
     }
 
     /* END-USER-CODE */

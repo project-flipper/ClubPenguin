@@ -18,12 +18,12 @@ export default class TargetGame extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // lounge_gameback
-        const lounge_gameback = scene.add.image(29.3625, 33.3, "lounge", "lounge/gameback");
+        const lounge_gameback = scene.add.image(29.3625, 33.3, "lounge2013", "lounge/gameback");
         lounge_gameback.setOrigin(0, 0);
         this.add(lounge_gameback);
 
         // lounge_gamebg4
-        const lounge_gamebg4 = scene.add.image(88.3125, 29.8125, "lounge", "lounge/gamebg4");
+        const lounge_gamebg4 = scene.add.image(88.3125, 29.8125, "lounge2013", "lounge/gamebg4");
         lounge_gamebg4.setOrigin(0, 0);
         this.add(lounge_gamebg4);
 
@@ -48,7 +48,7 @@ export default class TargetGame extends Phaser.GameObjects.Container {
         this.add(target5);
 
         // lounge_gamebg3
-        const lounge_gamebg3 = scene.add.image(79.65, 92.1375, "lounge", "lounge/gamebg3");
+        const lounge_gamebg3 = scene.add.image(79.65, 92.1375, "lounge2013", "lounge/gamebg3");
         lounge_gamebg3.setOrigin(0, 0);
         this.add(lounge_gamebg3);
 
@@ -73,7 +73,7 @@ export default class TargetGame extends Phaser.GameObjects.Container {
         this.add(target4);
 
         // lounge_gamebg2
-        const lounge_gamebg2 = scene.add.image(62.8875, 98.55, "lounge", "lounge/gamebg2");
+        const lounge_gamebg2 = scene.add.image(62.8875, 98.55, "lounge2013", "lounge/gamebg2");
         lounge_gamebg2.setOrigin(0, 0);
         this.add(lounge_gamebg2);
 
@@ -93,62 +93,62 @@ export default class TargetGame extends Phaser.GameObjects.Container {
         this.add(target11);
 
         // lounge_gamebg1
-        const lounge_gamebg1 = scene.add.image(136.6875, 160.9875, "lounge", "lounge/gamebg1");
+        const lounge_gamebg1 = scene.add.image(136.6875, 160.9875, "lounge2013", "lounge/gamebg1");
         lounge_gamebg1.setOrigin(0, 0);
         this.add(lounge_gamebg1);
 
         // lounge_gamefloor
-        const lounge_gamefloor = scene.add.image(53.6625, 309.7125, "lounge", "lounge/gamefloor");
+        const lounge_gamefloor = scene.add.image(53.6625, 309.7125, "lounge2013", "lounge/gamefloor");
         lounge_gamefloor.setOrigin(0, 0);
         this.add(lounge_gamefloor);
 
         // lounge_gamestrip
-        const lounge_gamestrip = scene.add.image(23.0625, 307.9125, "lounge", "lounge/gamestrip");
+        const lounge_gamestrip = scene.add.image(23.0625, 307.9125, "lounge2013", "lounge/gamestrip");
         lounge_gamestrip.setOrigin(0, 0);
         this.add(lounge_gamestrip);
 
         // lounge_gamecover
-        const lounge_gamecover = scene.add.image(0, 1.125, "lounge", "lounge/gamecover");
+        const lounge_gamecover = scene.add.image(0, 1.125, "lounge2013", "lounge/gamecover");
         lounge_gamecover.setOrigin(0, 0);
         this.add(lounge_gamecover);
 
         // title
-        const title = scene.add.image(154.2375, 233.2125, "lounge", "lounge/gametitle0001");
+        const title = scene.add.image(154.2375, 233.2125, "lounge2013", "lounge/gametitle0001");
         title.setOrigin(0, 0);
         this.add(title);
 
         // light1
-        const light1 = scene.add.sprite(77.5125, 0, "lounge", "lounge/light10001");
+        const light1 = scene.add.sprite(77.5125, 0, "lounge2013", "lounge/light10001");
         light1.setOrigin(0, 0);
         this.add(light1);
 
         // light2
-        const light2 = scene.add.sprite(90.3375, 0, "lounge", "lounge/light20001");
+        const light2 = scene.add.sprite(90.3375, 0, "lounge2013", "lounge/light20001");
         light2.setOrigin(0, 0);
         this.add(light2);
 
         // light3
-        const light3 = scene.add.sprite(103.95, 0, "lounge", "lounge/light10001");
+        const light3 = scene.add.sprite(103.95, 0, "lounge2013", "lounge/light10001");
         light3.setOrigin(0, 0);
         this.add(light3);
 
         // light4
-        const light4 = scene.add.sprite(445.5, 0, "lounge", "lounge/light10001");
+        const light4 = scene.add.sprite(445.5, 0, "lounge2013", "lounge/light10001");
         light4.setOrigin(0, 0);
         this.add(light4);
 
         // light5
-        const light5 = scene.add.sprite(458.325, 0, "lounge", "lounge/light20001");
+        const light5 = scene.add.sprite(458.325, 0, "lounge2013", "lounge/light20001");
         light5.setOrigin(0, 0);
         this.add(light5);
 
         // light6
-        const light6 = scene.add.sprite(471.9375, 0, "lounge", "lounge/light10001");
+        const light6 = scene.add.sprite(471.9375, 0, "lounge2013", "lounge/light10001");
         light6.setOrigin(0, 0);
         this.add(light6);
 
         // lounge_redScore
-        const lounge_redScore = scene.add.image(73.9125, 263.25, "lounge", "lounge/redScore");
+        const lounge_redScore = scene.add.image(73.9125, 263.25, "lounge2013", "lounge/redScore");
         this.add(lounge_redScore);
 
         // redScoreText
@@ -159,7 +159,7 @@ export default class TargetGame extends Phaser.GameObjects.Container {
         this.add(redScoreText);
 
         // lounge_blueScore
-        const lounge_blueScore = scene.add.image(487.35, 263.25, "lounge", "lounge/blueScore");
+        const lounge_blueScore = scene.add.image(487.35, 263.25, "lounge2013", "lounge/blueScore");
         this.add(lounge_blueScore);
 
         // blueScoreText
@@ -207,12 +207,12 @@ export default class TargetGame extends Phaser.GameObjects.Container {
 
         /* START-USER-CTR-CODE */
 
-        this.light1.play('lounge-light1-animation');
-        this.light2.play('lounge-light2-animation');
-        this.light3.play('lounge-light1-animation');
-        this.light4.play('lounge-light1-animation');
-        this.light5.play('lounge-light2-animation');
-        this.light6.play('lounge-light1-animation');
+        this.light1.play('lounge2013-light1-animation');
+        this.light2.play('lounge2013-light2-animation');
+        this.light3.play('lounge2013-light1-animation');
+        this.light4.play('lounge2013-light1-animation');
+        this.light5.play('lounge2013-light2-animation');
+        this.light6.play('lounge2013-light1-animation');
 
         /* END-USER-CTR-CODE */
     }

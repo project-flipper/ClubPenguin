@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/shop/shop-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/shop/shop2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Shop",
@@ -21,7 +21,7 @@
             "id": "0d0a3e51-2728-4f71-bed4-9049b1e08617",
             "label": "shop_base",
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/base"
             },
             "x": -123.8625,
@@ -37,7 +37,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/clothes"
             },
             "x": 399.375,
@@ -51,7 +51,7 @@
             "label": "door",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/door0001"
             },
             "x": 1170.675,
@@ -67,12 +67,12 @@
             "components": [
                 "ButtonComponent"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"shop\",\"frame\":\"shop/changeroom0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"shop\",\"frame\":\"shop/changeroom0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"shop2013\",\"frame\":\"shop/changeroom0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"shop2013\",\"frame\":\"shop/changeroom0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/changeroom0001"
             },
             "x": 474.3,
@@ -86,7 +86,7 @@
             "label": "speakers",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/speakers0001"
             },
             "x": 608.85,
@@ -102,7 +102,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/chair2"
             },
             "x": 1243.125,
@@ -118,7 +118,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/chair1"
             },
             "x": 1175.625,
@@ -134,7 +134,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/chairback1"
             },
             "x": 328.275,
@@ -150,7 +150,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/chairrest1"
             },
             "x": 344.475,
@@ -166,7 +166,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/chairback2"
             },
             "x": 376.2,
@@ -182,7 +182,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/chairrest2"
             },
             "x": 393.8625,
@@ -198,7 +198,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/chair3"
             },
             "x": 1528.65,
@@ -216,7 +216,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 553.95,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/desk"
             },
             "x": 1363.05,
@@ -235,7 +235,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 553.95,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/registeropen0001"
             },
             "x": 1371.6,
@@ -254,7 +254,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 640.575,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/chest0001"
             },
             "x": 1451.25,
@@ -273,7 +273,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 553.95,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/display0001"
             },
             "x": 1517.5125,
@@ -291,7 +291,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/foreground1"
             },
             "x": -74.8125,
@@ -309,7 +309,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/foreground2"
             },
             "x": 498.825,
@@ -322,7 +322,7 @@
             "id": "c2c9ba51-09ee-4033-ba3c-90fa6dd09de4",
             "label": "shop_bluelightflare",
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/bluelightflare"
             },
             "x": 405.1125,
@@ -336,7 +336,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/block"
             },
             "originX": 0,
@@ -353,7 +353,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/display_button0004"
             },
             "x": 1543.8375,
@@ -376,7 +376,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/register_button0004"
             },
             "x": 1377,
@@ -394,7 +394,7 @@
             "id": "074f0b55-ecd0-4dcf-a5f4-bb3c2521088f",
             "label": "shop_redemption_trigger",
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/redemption_trigger"
             },
             "x": 1500.75,
@@ -412,7 +412,7 @@
             "RoomTrigger.playerX": 1192.5,
             "RoomTrigger.playerY": 551.25,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/town_trigger"
             },
             "x": 1231.875,
@@ -424,7 +424,7 @@
             "id": "8269bf72-5ad8-4c53-bc09-e86d5de598d1",
             "label": "shop_changeroom_trigger",
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/changeroom_trigger"
             },
             "x": 520.875,
@@ -440,14 +440,14 @@
                 "ButtonComponent",
                 "DepthEnabled"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"shop\",\"frame\":\"shop/unlockbook0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"shop\",\"frame\":\"shop/unlockbook0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"shop2013\",\"frame\":\"shop/unlockbook0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"shop2013\",\"frame\":\"shop/unlockbook0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1081,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/unlockbook0001"
             },
             "x": 1495.35,
@@ -464,13 +464,13 @@
                 "ButtonComponent",
                 "DepthEnabled"
             ],
-            "ButtonComponent.overTexture": "{\"key\":\"shop\",\"frame\":\"shop/stylebook_open\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"shop2013\",\"frame\":\"shop/stylebook_open\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1081,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/stylebook0001"
             },
             "x": 1501.9875,
@@ -489,7 +489,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/chest_btn"
             },
             "x": 1514.3625,
@@ -511,7 +511,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/changeroom_btn"
             },
             "x": 510.6375,
@@ -533,7 +533,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shop",
+                "key": "shop2013",
                 "frame": "shop/door_btn"
             },
             "x": 1235.8125,

@@ -24,7 +24,7 @@
                     "label": "art",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/smallbluetarget"
                     },
                     "x": -28.5,
@@ -41,7 +41,7 @@
                         "SnowballTrigger"
                     ],
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/smalltargethitbox"
                     },
                     "visible": false

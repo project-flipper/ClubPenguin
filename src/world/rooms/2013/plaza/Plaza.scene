@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/plaza/plaza-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/plaza/plaza2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Plaza",
@@ -21,7 +21,7 @@
             "id": "68d311b7-2c78-40a4-b171-540e69d56198",
             "label": "plaza_sky",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/sky"
             },
             "x": -130.3875,
@@ -34,7 +34,7 @@
             "id": "88ef8cde-e826-42be-a16c-5f2c00ed7400",
             "label": "plaza_base",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/base"
             },
             "x": -116.8875,
@@ -48,7 +48,7 @@
             "label": "canon",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/canon0001"
             },
             "x": 178.9875,
@@ -66,7 +66,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/canon_btn0004"
             },
             "x": 233.6625,
@@ -83,7 +83,7 @@
             "label": "petdoor",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/petdoor0001"
             },
             "x": 266.9625,
@@ -96,7 +96,7 @@
             "id": "f2e7df6e-76d2-40c8-bf36-6b9576ae0f01",
             "label": "plaza_pufflefront",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/pufflefront"
             },
             "x": 152.4375,
@@ -110,7 +110,7 @@
             "label": "hoteldoor",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/hoteldoor0001"
             },
             "x": 580.95,
@@ -123,7 +123,7 @@
             "id": "adc247f2-1e9d-460e-b584-673f111cfc74",
             "label": "plaza_hotelfront",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/hotelfront"
             },
             "x": 511.2,
@@ -137,7 +137,7 @@
             "label": "stagedoor1",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/stagedoor10001"
             },
             "x": 813.375,
@@ -151,7 +151,7 @@
             "label": "stagedoor2",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/stagedoor20001"
             },
             "x": 1030.275,
@@ -169,7 +169,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 517.95,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/tickets"
             },
             "x": 895.725,
@@ -183,7 +183,7 @@
             "label": "stagelights",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/lights0001"
             },
             "x": 859.9125,
@@ -196,7 +196,7 @@
             "id": "789ce3e3-770e-4748-bcbe-08999d621560",
             "label": "plaza_stagefront",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/stagefront"
             },
             "x": 792.9,
@@ -210,7 +210,7 @@
             "label": "pizzadoor",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/pizzadoor0001"
             },
             "x": 1273.1625,
@@ -224,7 +224,7 @@
             "label": "stageplay",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/stageplay0001"
             },
             "x": 834.4125,
@@ -238,7 +238,7 @@
             "label": "fronts",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/fronts0001"
             },
             "x": 154.0125,
@@ -252,7 +252,7 @@
             "label": "manhole",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/manhole0001"
             },
             "x": 446.7375,
@@ -266,7 +266,7 @@
             "label": "smoke",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/smoke0001"
             },
             "x": -13.8375,
@@ -286,7 +286,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/puffle0001"
             },
             "x": -423.7875,
@@ -305,7 +305,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 353.9,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/tree"
             },
             "x": 1571.5125,
@@ -323,7 +323,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/foreground"
             },
             "x": -187.425,
@@ -337,7 +337,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/block"
             },
             "originX": 0,
@@ -355,7 +355,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/manhole_mc"
             },
             "x": 511,
@@ -377,7 +377,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/petdoor0004"
             },
             "x": 266.9625,
@@ -401,7 +401,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/hoteldoor0004"
             },
             "x": 580.95,
@@ -425,7 +425,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/stagedoor10004"
             },
             "x": 813.375,
@@ -449,7 +449,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/stagedoor20004"
             },
             "x": 1030.275,
@@ -473,7 +473,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/pizzadoor0004"
             },
             "x": 1273.1625,
@@ -496,7 +496,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/forest_btn0004"
             },
             "x": 1575,
@@ -517,7 +517,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/forts_btn0004"
             },
             "x": 5.625,
@@ -539,7 +539,7 @@
             "RoomTrigger.playerX": 1473.75,
             "RoomTrigger.playerY": 528.75,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/forts_mc"
             },
             "x": 13.3875,
@@ -557,7 +557,7 @@
             "RoomTrigger.playerX": 855,
             "RoomTrigger.playerY": 472.5,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/pet_mc"
             },
             "x": 364.3875,
@@ -575,7 +575,7 @@
             "RoomTrigger.playerX": 1327.5,
             "RoomTrigger.playerY": 690.75,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/cave_mc"
             },
             "x": 476,
@@ -593,7 +593,7 @@
             "RoomTrigger.playerX": 855,
             "RoomTrigger.playerY": 472.5,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/hotel_mc"
             },
             "x": 659.8125,
@@ -611,7 +611,7 @@
             "RoomTrigger.playerX": 236.25,
             "RoomTrigger.playerY": 742.5,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/stage_mc"
             },
             "x": 857.925,
@@ -629,7 +629,7 @@
             "RoomTrigger.playerX": 236.25,
             "RoomTrigger.playerY": 742.5,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/stage_mc"
             },
             "x": 1076.175,
@@ -647,7 +647,7 @@
             "RoomTrigger.playerX": 821.25,
             "RoomTrigger.playerY": 438.75,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/pizza_mc"
             },
             "x": 1334.1375,
@@ -665,7 +665,7 @@
             "RoomTrigger.playerX": 303.75,
             "RoomTrigger.playerY": 483.75,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/forest_mc"
             },
             "x": 1644.6375,
@@ -682,7 +682,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "plaza",
+                "key": "plaza2013",
                 "frame": "plaza/tickets_btn0004"
             },
             "x": 965.25,

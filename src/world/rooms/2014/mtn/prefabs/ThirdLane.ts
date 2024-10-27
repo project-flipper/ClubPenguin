@@ -15,24 +15,24 @@ export default class ThirdLane extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // seat2
-        const seat2 = scene.add.image(-53.325, -19.9125, "mtn", "mtn/thirdlane_seat2");
+        const seat2 = scene.add.image(-53.325, -19.9125, "mtn2014", "mtn/thirdlane_seat2");
         seat2.setOrigin(0, 0);
         seat2.visible = false;
         this.add(seat2);
 
         // mtn_thirdlane_separator
-        const mtn_thirdlane_separator = scene.add.image(-65.25, -18.45, "mtn", "mtn/thirdlane_separator");
+        const mtn_thirdlane_separator = scene.add.image(-65.25, -18.45, "mtn2014", "mtn/thirdlane_separator");
         mtn_thirdlane_separator.setOrigin(0, 0);
         this.add(mtn_thirdlane_separator);
 
         // seat1
-        const seat1 = scene.add.image(-165.825, -13.1625, "mtn", "mtn/thirdlane_seat1");
+        const seat1 = scene.add.image(-165.825, -13.1625, "mtn2014", "mtn/thirdlane_seat1");
         seat1.setOrigin(0, 0);
         seat1.visible = false;
         this.add(seat1);
 
         // btn
-        const btn = scene.add.image(-52.875, 8.8875, "mtn", "mtn/thirdlane_btn0004");
+        const btn = scene.add.image(-52.875, 8.8875, "mtn2014", "mtn/thirdlane_btn0004");
         btn.alpha = 0.01;
         btn.alphaTopLeft = 0.01;
         btn.alphaTopRight = 0.01;

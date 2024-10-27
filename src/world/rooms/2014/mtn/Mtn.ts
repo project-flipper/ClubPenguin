@@ -30,77 +30,77 @@ export default class Mtn extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("mtn-pack", "assets/world/rooms/2014/mtn/mtn-pack.json");
+        this.load.pack("mtn2014-pack", "assets/world/rooms/2014/mtn/mtn2014-pack.json");
     }
 
     editorCreate(): void {
 
         // mtn_sky
-        const mtn_sky = this.add.image(-133.3125, -24.75, "mtn", "mtn/sky");
+        const mtn_sky = this.add.image(-133.3125, -24.75, "mtn2014", "mtn/sky");
         mtn_sky.setOrigin(0, 0);
 
         // mtn_bg
-        const mtn_bg = this.add.image(-32.0625, 165.375, "mtn", "mtn/bg");
+        const mtn_bg = this.add.image(-32.0625, 165.375, "mtn2014", "mtn/bg");
         mtn_bg.setOrigin(0, 0);
 
         // mtn_foreground
-        const mtn_foreground = this.add.image(92.25, 841.1625, "mtn", "mtn/foreground");
+        const mtn_foreground = this.add.image(92.25, 841.1625, "mtn2014", "mtn/foreground");
         mtn_foreground.setOrigin(0, 0);
 
         // mtn_cables
-        const mtn_cables = this.add.image(1063.2375, 99.7875, "mtn", "mtn/cables");
+        const mtn_cables = this.add.image(1063.2375, 99.7875, "mtn2014", "mtn/cables");
         mtn_cables.setOrigin(0, 0);
 
         // cablecar
-        const cablecar = this.add.sprite(744.075, 16.9875, "mtn", "mtn/cablecar0001");
+        const cablecar = this.add.sprite(744.075, 16.9875, "mtn2014", "mtn/cablecar0001");
         cablecar.setOrigin(0, 0);
-        cablecar.play("mtn-cablecar-animation");
+        cablecar.play("mtn2014-cablecar-animation");
 
         // mtn_mountain
-        const mtn_mountain = this.add.image(-126, 67.95, "mtn", "mtn/base");
+        const mtn_mountain = this.add.image(-126, 67.95, "mtn2014", "mtn/base");
         mtn_mountain.setOrigin(0, 0);
 
         // mtn_cable1
-        const mtn_cable1 = this.add.image(871.875, 26.2125, "mtn", "mtn/cable1");
+        const mtn_cable1 = this.add.image(871.875, 26.2125, "mtn2014", "mtn/cable1");
         mtn_cable1.setOrigin(0, 0);
 
         // mtn_cable2
-        const mtn_cable2 = this.add.image(1014.8625, 29.7, "mtn", "mtn/cable2");
+        const mtn_cable2 = this.add.image(1014.8625, 29.7, "mtn2014", "mtn/cable2");
         mtn_cable2.setOrigin(0, 0);
 
         // mtn_snow
-        const mtn_snow = this.add.image(862.875, 230.85, "mtn", "mtn/snow");
+        const mtn_snow = this.add.image(862.875, 230.85, "mtn2014", "mtn/snow");
         mtn_snow.setOrigin(0, 0);
 
         // mtn_front
-        const mtn_front = this.add.image(335.8125, 12.9375, "mtn", "mtn/front");
+        const mtn_front = this.add.image(335.8125, 12.9375, "mtn2014", "mtn/front");
         mtn_front.setOrigin(0, 0);
 
         // mtn_shopback
-        const mtn_shopback = this.add.image(1117.35, 243.5625, "mtn", "mtn/shopback");
+        const mtn_shopback = this.add.image(1117.35, 243.5625, "mtn2014", "mtn/shopback");
         mtn_shopback.setOrigin(0, 0);
 
         // mtn_store
-        const mtn_store = this.add.image(1172.8125, 364.275, "mtn", "mtn/store");
+        const mtn_store = this.add.image(1172.8125, 364.275, "mtn2014", "mtn/store");
         mtn_store.setOrigin(0.317165, 0.890653);
 
         // mtn_secondlane
-        const mtn_secondlane = this.add.image(546.075, 679.5, "mtn", "mtn/secondlane");
+        const mtn_secondlane = this.add.image(546.075, 679.5, "mtn2014", "mtn/secondlane");
         mtn_secondlane.setOrigin(0.5892079207920792, 0.7910752688172042);
 
         // mtn_thirdlane
-        const mtn_thirdlane = this.add.image(1127.5875, 758.7, "mtn", "mtn/thirdlane");
+        const mtn_thirdlane = this.add.image(1127.5875, 758.7, "mtn2014", "mtn/thirdlane");
         mtn_thirdlane.setOrigin(0.4061052631578947, 0.8309090909090909);
 
         // mtn_fourthlane
-        const mtn_fourthlane = this.add.image(1346.4, 649.125, "mtn", "mtn/fourthlane");
+        const mtn_fourthlane = this.add.image(1346.4, 649.125, "mtn2014", "mtn/fourthlane");
         mtn_fourthlane.setOrigin(0.34204918032786885, 0.8220879120879121);
 
         // cat
-        const cat = this.add.sprite(548.075, 203.7375, "mtn", "mtn/cat0001");
+        const cat = this.add.sprite(548.075, 203.7375, "mtn2014", "mtn/cat0001");
 
         // cat_btn
-        const cat_btn = this.add.image(545.625, 201.9375, "mtn", "mtn/cat_btn");
+        const cat_btn = this.add.image(545.625, 201.9375, "mtn2014", "mtn/cat_btn");
         cat_btn.alpha = 0.01;
         cat_btn.alphaTopLeft = 0.01;
         cat_btn.alphaTopRight = 0.01;
@@ -108,10 +108,10 @@ export default class Mtn extends Phaser.Scene implements Room {
         cat_btn.alphaBottomRight = 0.01;
 
         // catalogue
-        const catalogue = this.add.image(1617.6375, 1005.525, "mtn", "mtn/catalogue0001");
+        const catalogue = this.add.image(1617.6375, 1005.525, "mtn2014", "mtn/catalogue0001");
 
         // catalogue_btn
-        const catalogue_btn = this.add.image(1617.6375, 1005.525, "mtn", "mtn/catalogue0004");
+        const catalogue_btn = this.add.image(1617.6375, 1005.525, "mtn2014", "mtn/catalogue0004");
         catalogue_btn.alpha = 0.01;
         catalogue_btn.alphaTopLeft = 0.01;
         catalogue_btn.alphaTopRight = 0.01;
@@ -135,20 +135,20 @@ export default class Mtn extends Phaser.Scene implements Room {
         this.add.existing(fourthLane);
 
         // block
-        const block = this.add.image(0, 0, "mtn", "mtn/block");
+        const block = this.add.image(0, 0, "mtn2014", "mtn/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
         // mtn_village_mc
-        const mtn_village_mc = this.add.image(1020.2625, 299.025, "mtn", "mtn/village_mc");
+        const mtn_village_mc = this.add.image(1020.2625, 299.025, "mtn2014", "mtn/village_mc");
         mtn_village_mc.visible = false;
 
         // mtn_plaza_mc
-        const mtn_plaza_mc = this.add.image(1401.075, 567.3375, "mtn", "mtn/plaza_mc");
+        const mtn_plaza_mc = this.add.image(1401.075, 567.3375, "mtn2014", "mtn/plaza_mc");
         mtn_plaza_mc.visible = false;
 
         // shop_btn
-        const shop_btn = this.add.image(1178.8875, 337.3875, "mtn", "mtn/shop_btn0004");
+        const shop_btn = this.add.image(1178.8875, 337.3875, "mtn2014", "mtn/shop_btn0004");
         shop_btn.alpha = 0.01;
         shop_btn.alphaTopLeft = 0.01;
         shop_btn.alphaTopRight = 0.01;
@@ -156,7 +156,7 @@ export default class Mtn extends Phaser.Scene implements Room {
         shop_btn.alphaBottomRight = 0.01;
 
         // exit_btn
-        const exit_btn = this.add.image(1415.1375, 575.8875, "mtn", "mtn/exit_btn0004");
+        const exit_btn = this.add.image(1415.1375, 575.8875, "mtn2014", "mtn/exit_btn0004");
         exit_btn.alpha = 0.01;
         exit_btn.alphaTopLeft = 0.01;
         exit_btn.alphaTopRight = 0.01;
@@ -164,19 +164,19 @@ export default class Mtn extends Phaser.Scene implements Room {
         exit_btn.alphaBottomRight = 0.01;
 
         // waddle103
-        const waddle103 = this.add.image(1249.09, 697.28, "mtn", "mtn/waddle103_mc");
+        const waddle103 = this.add.image(1249.09, 697.28, "mtn2014", "mtn/waddle103_mc");
         waddle103.visible = false;
 
         // waddle102
-        const waddle102 = this.add.image(1002.71, 735.98, "mtn", "mtn/waddle102_mc");
+        const waddle102 = this.add.image(1002.71, 735.98, "mtn2014", "mtn/waddle102_mc");
         waddle102.visible = false;
 
         // waddle101
-        const waddle101 = this.add.image(698.85, 733.84, "mtn", "mtn/waddle101_mc");
+        const waddle101 = this.add.image(698.85, 733.84, "mtn2014", "mtn/waddle101_mc");
         waddle101.visible = false;
 
         // waddle100
-        const waddle100 = this.add.image(352.13, 628.2, "mtn", "mtn/waddle100_mc");
+        const waddle100 = this.add.image(352.13, 628.2, "mtn2014", "mtn/waddle100_mc");
         waddle100.visible = false;
 
         // lists
@@ -428,7 +428,7 @@ export default class Mtn extends Phaser.Scene implements Room {
 
         this.cablecar.on('animationupdate', this.updateCableDepth, this);
 
-        this.cat_btn.on('over', () => this.cat.play('mtn-cat-animation'));
+        this.cat_btn.on('over', () => this.cat.play('mtn2014-cat-animation'));
         this.cat_btn.on('out', () => {
             this.cat.stop();
             this.cat.setFrame('mtn/cat0001');
@@ -449,7 +449,7 @@ export default class Mtn extends Phaser.Scene implements Room {
     }
 
     unload(engine: Engine): void {
-        engine.app.unloadAssetPack('mtn-pack');
+        engine.app.unloadAssetPack('mtn2014-pack');
     }
 
     /* END-USER-CODE */

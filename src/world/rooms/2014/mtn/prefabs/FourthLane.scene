@@ -24,7 +24,7 @@
                     "label": "seat2",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/fourthlane_seat2"
                     },
                     "x": -51.4125,
@@ -38,7 +38,7 @@
                     "id": "0ea86445-aa29-44b9-9d16-e0f6114bb495",
                     "label": "mtn_fourthlane_separator_png",
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/fourthlane_separator.png"
                     },
                     "x": -86.7375,
@@ -52,7 +52,7 @@
                     "label": "seat1",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/fourthlane_seat1"
                     },
                     "x": -141.75,
@@ -72,7 +72,7 @@
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/fourthlane_btn0004"
                     },
                     "x": -37.125,
