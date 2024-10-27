@@ -5,6 +5,7 @@
 
 import DepthEnabled from "../../../../lib/components/DepthEnabled";
 import ButtonComponent from "../../../../lib/components/ButtonComponent";
+import WaddleTrigger from "../../../../lib/components/WaddleTrigger";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
@@ -146,7 +147,7 @@ export default class Attic extends Phaser.Scene implements Room {
         attic_lodge_trigger.visible = false;
 
         // lists
-        const triggers = [attic_lodge_trigger];
+        const triggers = [attic_lodge_trigger, tabletrigger1, tabletrigger2, tabletrigger3, tabletrigger4, tabletrigger5];
 
         // attic_couchside (components)
         new DepthEnabled(attic_couchside);
@@ -166,12 +167,48 @@ export default class Attic extends Phaser.Scene implements Room {
         // table1 (components)
         new DepthEnabled(table1);
 
+        // tabletrigger1 (components)
+        const tabletrigger1WaddleTrigger = new WaddleTrigger(tabletrigger1);
+        tabletrigger1WaddleTrigger.game_id = "four";
+        tabletrigger1WaddleTrigger.prompt = "four_prompt";
+        tabletrigger1WaddleTrigger.waddle_id = 200;
+        tabletrigger1WaddleTrigger.seat1 = true;
+        tabletrigger1WaddleTrigger.seat1frame = 23;
+        tabletrigger1WaddleTrigger.seat1x = 606.82;
+        tabletrigger1WaddleTrigger.seat1y = 666.23;
+        tabletrigger1WaddleTrigger.done1x = 534.26;
+        tabletrigger1WaddleTrigger.done1y = 753.3;
+        tabletrigger1WaddleTrigger.seat2 = true;
+        tabletrigger1WaddleTrigger.seat2frame = 19;
+        tabletrigger1WaddleTrigger.seat2x = 730.69;
+        tabletrigger1WaddleTrigger.seat2y = 748.01;
+        tabletrigger1WaddleTrigger.done2x = 665.21;
+        tabletrigger1WaddleTrigger.done2y = 816.19;
+
         // tablebtn1 (components)
         const tablebtn1ButtonComponent = new ButtonComponent(tablebtn1);
         tablebtn1ButtonComponent.handCursor = true;
 
         // table2 (components)
         new DepthEnabled(table2);
+
+        // tabletrigger2 (components)
+        const tabletrigger2WaddleTrigger = new WaddleTrigger(tabletrigger2);
+        tabletrigger2WaddleTrigger.game_id = "four";
+        tabletrigger2WaddleTrigger.prompt = "four_prompt";
+        tabletrigger2WaddleTrigger.waddle_id = 201;
+        tabletrigger2WaddleTrigger.seat1 = true;
+        tabletrigger2WaddleTrigger.seat1frame = 23;
+        tabletrigger2WaddleTrigger.seat1x = 904.95;
+        tabletrigger2WaddleTrigger.seat1y = 617.06;
+        tabletrigger2WaddleTrigger.done1x = 844.43;
+        tabletrigger2WaddleTrigger.done1y = 697.28;
+        tabletrigger2WaddleTrigger.seat2 = true;
+        tabletrigger2WaddleTrigger.seat2frame = 19;
+        tabletrigger2WaddleTrigger.seat2x = 1017.68;
+        tabletrigger2WaddleTrigger.seat2y = 690.41;
+        tabletrigger2WaddleTrigger.done2x = 981.34;
+        tabletrigger2WaddleTrigger.done2y = 740.7;
 
         // tablebtn2 (components)
         const tablebtn2ButtonComponent = new ButtonComponent(tablebtn2);
@@ -180,6 +217,24 @@ export default class Attic extends Phaser.Scene implements Room {
         // table3 (components)
         new DepthEnabled(table3);
 
+        // tabletrigger3 (components)
+        const tabletrigger3WaddleTrigger = new WaddleTrigger(tabletrigger3);
+        tabletrigger3WaddleTrigger.game_id = "four";
+        tabletrigger3WaddleTrigger.prompt = "four_prompt";
+        tabletrigger3WaddleTrigger.waddle_id = 203;
+        tabletrigger3WaddleTrigger.seat1 = true;
+        tabletrigger3WaddleTrigger.seat1frame = 23;
+        tabletrigger3WaddleTrigger.seat1x = 837.45;
+        tabletrigger3WaddleTrigger.seat1y = 819.56;
+        tabletrigger3WaddleTrigger.done1x = 776.93;
+        tabletrigger3WaddleTrigger.done1y = 899.78;
+        tabletrigger3WaddleTrigger.seat2 = true;
+        tabletrigger3WaddleTrigger.seat2frame = 19;
+        tabletrigger3WaddleTrigger.seat2x = 950.18;
+        tabletrigger3WaddleTrigger.seat2y = 892.91;
+        tabletrigger3WaddleTrigger.done2x = 913.84;
+        tabletrigger3WaddleTrigger.done2y = 943.2;
+
         // tablebtn3 (components)
         const tablebtn3ButtonComponent = new ButtonComponent(tablebtn3);
         tablebtn3ButtonComponent.handCursor = true;
@@ -187,12 +242,48 @@ export default class Attic extends Phaser.Scene implements Room {
         // table4 (components)
         new DepthEnabled(table4);
 
+        // tabletrigger4 (components)
+        const tabletrigger4WaddleTrigger = new WaddleTrigger(tabletrigger4);
+        tabletrigger4WaddleTrigger.game_id = "four";
+        tabletrigger4WaddleTrigger.prompt = "four_prompt";
+        tabletrigger4WaddleTrigger.waddle_id = 202;
+        tabletrigger4WaddleTrigger.seat1 = true;
+        tabletrigger4WaddleTrigger.seat1frame = 17;
+        tabletrigger4WaddleTrigger.seat1x = 558.34;
+        tabletrigger4WaddleTrigger.seat1y = 823.28;
+        tabletrigger4WaddleTrigger.done1x = 615.82;
+        tabletrigger4WaddleTrigger.done1y = 899.78;
+        tabletrigger4WaddleTrigger.seat2 = true;
+        tabletrigger4WaddleTrigger.seat2frame = 21;
+        tabletrigger4WaddleTrigger.seat2x = 442.58;
+        tabletrigger4WaddleTrigger.seat2y = 892.91;
+        tabletrigger4WaddleTrigger.done2x = 478.91;
+        tabletrigger4WaddleTrigger.done2y = 943.2;
+
         // tablebtn4 (components)
         const tablebtn4ButtonComponent = new ButtonComponent(tablebtn4);
         tablebtn4ButtonComponent.handCursor = true;
 
         // table5 (components)
         new DepthEnabled(table5);
+
+        // tabletrigger5 (components)
+        const tabletrigger5WaddleTrigger = new WaddleTrigger(tabletrigger5);
+        tabletrigger5WaddleTrigger.game_id = "four";
+        tabletrigger5WaddleTrigger.prompt = "four_prompt";
+        tabletrigger5WaddleTrigger.waddle_id = 204;
+        tabletrigger5WaddleTrigger.seat1 = true;
+        tabletrigger5WaddleTrigger.seat1frame = 21;
+        tabletrigger5WaddleTrigger.seat1x = 1205.77;
+        tabletrigger5WaddleTrigger.seat1y = 927.68;
+        tabletrigger5WaddleTrigger.done1x = 1249.2;
+        tabletrigger5WaddleTrigger.done1y = 985.16;
+        tabletrigger5WaddleTrigger.seat2 = true;
+        tabletrigger5WaddleTrigger.seat2frame = 17;
+        tabletrigger5WaddleTrigger.seat2x = 1351.13;
+        tabletrigger5WaddleTrigger.seat2y = 868.73;
+        tabletrigger5WaddleTrigger.done2x = 1394.78;
+        tabletrigger5WaddleTrigger.done2y = 962.66;
 
         // tablebtn5 (components)
         const tablebtn5ButtonComponent = new ButtonComponent(tablebtn5);
@@ -326,7 +417,7 @@ export default class Attic extends Phaser.Scene implements Room {
         });
         this.tablebtn5.on('release', () => this.world.move(this.table5.x, this.table5.y));
 
-        
+
 
         this.game.locale.register(this.localize, this);
 
