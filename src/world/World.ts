@@ -644,6 +644,7 @@ export default class World extends Phaser.Scene {
      * @param y The y-coordinate to join at.
      */
     async joinRoom(roomId: number, x?: number, y?: number): Promise<void> {
+        this.leaveWaddle();
         let roomData = this.game.gameConfig.rooms[roomId];
 
         if (roomData) {
@@ -693,10 +694,7 @@ export default class World extends Phaser.Scene {
      * Leaves the current waddle.
      */
     async leaveWaddle(): Promise<void> {
-        if (!this.currentWaddleId) {
-            logger.warn('Not in a waddle');
-            return;
-        }
+        if (!this.currentWaddleId) return;
         this.send({
             op: 'waddle:leave',
             d: {
@@ -863,6 +861,7 @@ export default class World extends Phaser.Scene {
 
     @handle('room:join')
     async handleRoomJoin(data: Payloads['room:join']): Promise<void> {
+        this.leaveWaddle();
         let roomData = this.game.gameConfig.rooms[data.room_id];
 
         if (roomData) {
