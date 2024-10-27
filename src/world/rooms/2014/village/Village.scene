@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/village/village-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2014/village/village-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Village",
@@ -55,7 +55,10 @@
             "y": 90,
             "angle": 28.49860000000001,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "village-belt-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -74,7 +77,10 @@
             "x": -251.6625,
             "y": -193.1625,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "village-cable-animation",
+            "animationPreview": true
         },
         {
             "type": "Sprite",
@@ -88,7 +94,10 @@
             "x": 440.8875,
             "y": 411.525,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "village-sleds-animation",
+            "animationPreview": true
         },
         {
             "type": "Image",
@@ -424,12 +433,54 @@
             "x": 1636.875,
             "y": 770.625,
             "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "6f2fc8ec-9306-4ce0-8c22-bd544eabe789",
+            "label": "village_actualbelt0001",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 10,
+            "texture": {
+                "key": "village",
+                "frame": "village/actualbelt0001"
+            },
+            "x": 429.75,
+            "y": 348.75,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "village-actualbelt-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "e4e39d50-33b0-4eb1-9b9d-2338b1566756",
+            "label": "village_cog0001",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 10,
+            "texture": {
+                "key": "village",
+                "frame": "village/cog0001"
+            },
+            "x": 470.25,
+            "y": 364.5,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "village-cog-animation",
+            "animationPreview": true
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

@@ -26,7 +26,7 @@ export default class Village extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("village-pack", "assets/world/rooms/2013/village/village-pack.json");
+        this.load.pack("village-pack", "assets/world/rooms/2014/village/village-pack.json");
     }
 
     editorCreate(): void {
@@ -43,14 +43,17 @@ export default class Village extends Phaser.Scene implements Room {
         const belt = this.add.sprite(-207, 90, "village", "village/belt0001");
         belt.angle = 28.49860000000001;
         belt.setOrigin(0, 0);
+        belt.play("village-belt-animation");
 
         // cable
         const cable = this.add.sprite(-251.6625, -193.1625, "village", "village/cable0001");
         cable.setOrigin(0, 0);
+        cable.play("village-cable-animation");
 
         // sleds
         const sleds = this.add.sprite(440.8875, 411.525, "village", "village/sleds0001");
         sleds.setOrigin(0, 0);
+        sleds.play("village-sleds-animation");
 
         // village_fronts
         const village_fronts = this.add.image(-135, -22.5, "village", "village/fronts");
@@ -144,6 +147,16 @@ export default class Village extends Phaser.Scene implements Room {
         const village_dock_mc = this.add.image(1636.875, 770.625, "village", "village/dock_mc");
         village_dock_mc.visible = false;
 
+        // village_actualbelt0001
+        const village_actualbelt0001 = this.add.sprite(429.75, 348.75, "village", "village/actualbelt0001");
+        village_actualbelt0001.setOrigin(0, 0);
+        village_actualbelt0001.play("village-actualbelt-animation");
+
+        // village_cog0001
+        const village_cog0001 = this.add.sprite(470.25, 364.5, "village", "village/cog0001");
+        village_cog0001.setOrigin(0, 0);
+        village_cog0001.play("village-cog-animation");
+
         // lists
         const triggers = [village_dock_mc, village_epf_mc, village_lodge_mc, village_mtn_mc, village_beach_mc];
 
@@ -225,6 +238,16 @@ export default class Village extends Phaser.Scene implements Room {
         village_dock_mcRoomTrigger.playerX = 776.25;
         village_dock_mcRoomTrigger.playerY = 405;
 
+        // village_actualbelt0001 (components)
+        const village_actualbelt0001DepthEnabled = new DepthEnabled(village_actualbelt0001);
+        village_actualbelt0001DepthEnabled.automaticSort = false;
+        village_actualbelt0001DepthEnabled.depth = 10;
+
+        // village_cog0001 (components)
+        const village_cog0001DepthEnabled = new DepthEnabled(village_cog0001);
+        village_cog0001DepthEnabled.automaticSort = false;
+        village_cog0001DepthEnabled.depth = 10;
+
         this.belt = belt;
         this.cable = cable;
         this.sleds = sleds;
@@ -281,10 +304,6 @@ export default class Village extends Phaser.Scene implements Room {
         this.editorCreate();
 
         this.cable.on('animationupdate', this.updateCableDepth, this);
-        this.cable.play('village-cable-animation');
-
-        this.sleds.play('village-sleds-animation');
-        this.belt.play('village-belt-animation');
 
         this.lodge_btn.on('over', () => {
             this.lodge_door.setFrame('village/lodge_door0002');
