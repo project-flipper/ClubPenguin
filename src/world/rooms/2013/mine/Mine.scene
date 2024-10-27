@@ -1,0 +1,610 @@
+{
+    "id": "a882dacf-3a3d-4877-a018-45296991f8e5",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/2013/mine/mine2013-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Mine",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "2ed88fba-b7cc-4f2e-8ecd-206dbaebe2ea",
+            "label": "mine_base",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/base"
+            },
+            "x": -6.75,
+            "y": 12.94,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "b75d446d-390b-41db-8e70-1cae9ac694d9",
+            "label": "rescuesign",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/rescuesign0001"
+            },
+            "x": 513,
+            "y": 47.25,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "e8bd8028-7a94-4d4d-9ef1-37794d6feb11",
+            "label": "board",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/rescue0001_0001"
+            },
+            "x": 497.25,
+            "y": 103.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3e578bf5-13f7-4639-962c-00e3e47d930a",
+            "label": "mine_shelf",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/shelf"
+            },
+            "x": 382.39,
+            "y": 139.73,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "8ce6a1ee-afb9-4d2e-9c6e-2cc42fa88c10",
+            "label": "cart",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 345.6,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/cart0001"
+            },
+            "x": 1316.25,
+            "y": 279,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "a74f4058-15c9-41d0-af07-fd92d59695d2",
+            "label": "cavelit",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/cave"
+            },
+            "x": 708.19,
+            "y": 122.18,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "5b0de423-432a-4edf-bb96-227d0378f8ee",
+            "label": "mine_bulb0001",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/bulb0001"
+            },
+            "x": 900,
+            "y": 186.75,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "mine2013-bulb-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Image",
+            "id": "b3cbba64-0587-4d05-98f4-12be3ac09368",
+            "label": "mine_bulbs",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/bulbs"
+            },
+            "x": 812.93,
+            "y": 137.25,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "6a29cd3b-f0aa-4ce2-84a3-275161c22bc3",
+            "label": "mine_entrance",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/entrance"
+            },
+            "x": 733.5,
+            "y": -13.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "dc60df83-b724-4086-8034-2ac240978d00",
+            "label": "mine_details",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/details"
+            },
+            "x": 398.25,
+            "y": -31.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "de0dc4a9-e33d-4a30-94ff-8bb8b257c758",
+            "label": "mine_caveback",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/caveback"
+            },
+            "x": 765.56,
+            "y": 479.59,
+            "originX": 0.4999569707401033,
+            "originY": 0.8801636363636364
+        },
+        {
+            "type": "Sprite",
+            "id": "22783753-b5af-4b10-bf4d-a10a44377907",
+            "label": "mine_flame",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/flame0001"
+            },
+            "x": 346.5,
+            "y": 200.25,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "mine2013-flame-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Image",
+            "id": "0b8e7d24-92b3-4062-92ac-c13cd2b44042",
+            "label": "mine_cavefront",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/cavefront"
+            },
+            "x": 352.58,
+            "y": 647.89,
+            "originX": 0.5001106500691562,
+            "originY": 0.8512873862158647
+        },
+        {
+            "type": "Image",
+            "id": "f4dfa472-acd0-4b0c-ad84-00633a8ea0b0",
+            "label": "mine_poles",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/poles"
+            },
+            "x": 1256.29,
+            "y": 413.66,
+            "originX": 0.5009937888198758,
+            "originY": 0.9359354838709677
+        },
+        {
+            "type": "Image",
+            "id": "b1a9043c-b515-4526-8a5f-7a6b8c16d399",
+            "label": "minesign",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/minesign0001"
+            },
+            "x": 1348.43,
+            "y": 584.78,
+            "originX": 0.5001375515818433,
+            "originY": 0.8645508100147276
+        },
+        {
+            "type": "Image",
+            "id": "6e494489-291b-4499-9dd5-df8f932e2b3d",
+            "label": "mine_rocks",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/rocks"
+            },
+            "x": 910.58,
+            "y": 296.44,
+            "originX": 0.4840555555555555,
+            "originY": -0.12651785714285715
+        },
+        {
+            "type": "Image",
+            "id": "eca93e92-dbed-4e74-ad1d-5a0c215ec69d",
+            "label": "mine_foreground",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/foreground"
+            },
+            "x": -3.6,
+            "y": 767.03,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "06b5f1c9-f8c7-4651-a34f-16e84d8d1dd3",
+            "label": "mine_chair",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/chair"
+            },
+            "x": 632.59,
+            "y": 322.65,
+            "originX": 0.3422222222222222,
+            "originY": 0.3465333333333333
+        },
+        {
+            "type": "Image",
+            "id": "56698ef0-2f3c-4e1b-b081-302219c4348c",
+            "label": "mine_desk",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 418.84,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/desk"
+            },
+            "x": 528.86,
+            "y": 348.19,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "47933933-7767-4bdb-a880-6f4462c03ce0",
+            "label": "phone",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 418.84,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/phone0001"
+            },
+            "x": 569.25,
+            "y": 357.75,
+            "scaleX": 0.95,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "310157b6-e186-4618-9734-2c7dccb617a8",
+            "label": "puffle",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 418.84,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/puffle0001"
+            },
+            "x": 693,
+            "y": 362.25,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "d222c847-c5ad-46db-8de7-1904c6e63ce9",
+            "label": "eyes",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 418.84,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/eyes0001"
+            },
+            "x": 704.25,
+            "y": 383.5,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "mine2013-eyes-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Image",
+            "id": "3330137e-b706-40f4-9493-814783a88969",
+            "label": "mine_minecart2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/minecart2"
+            },
+            "x": 1279.35,
+            "y": 474.98,
+            "originX": 0.5006111111111111,
+            "originY": 0.5865408805031447
+        },
+        {
+            "type": "Image",
+            "id": "84aa5530-2f4c-47d1-ae78-69635d6e628d",
+            "label": "mine_mineshovel",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/mineshovel"
+            },
+            "x": 1026.79,
+            "y": 517.73,
+            "originX": 0.497816091954023,
+            "originY": 0.8291095890410959
+        },
+        {
+            "type": "Image",
+            "id": "62b9a67b-719c-4f74-aeb1-e9e386984078",
+            "label": "mine_minecart1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/minecart1"
+            },
+            "x": 1135.69,
+            "y": 528.64,
+            "originX": 0.4999568965517241,
+            "originY": 0.6354455445544556
+        },
+        {
+            "type": "Image",
+            "id": "3b12efae-11b0-4962-9671-43b8544914fc",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "3d58a8ca-5773-46a7-83b9-4c92f23b95a9",
+            "label": "mine_cart_trigger",
+            "components": [
+                "GameTrigger"
+            ],
+            "GameTrigger.game_id": "cart",
+            "GameTrigger.prompt": "cart_prompt",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/cart_trigger"
+            },
+            "x": 1435.05,
+            "y": 446.06,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "19d58d48-3649-47d6-90c0-0ed62d9f157d",
+            "label": "mine_cavemine_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 813,
+            "RoomTrigger.playerX": 243,
+            "RoomTrigger.playerY": 668.25,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/cavemine_trigger"
+            },
+            "x": 918.11,
+            "y": 372.6,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "951ce331-f936-4efb-b701-09336392ba3a",
+            "label": "mine_cave_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 806,
+            "RoomTrigger.playerX": 1399.5,
+            "RoomTrigger.playerY": 810,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/cave_trigger"
+            },
+            "x": 141.41,
+            "y": 571.05,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "9f3e7e16-e715-4cf5-b3db-bc7c71b1e5d8",
+            "label": "mine_rescue_trigger",
+            "components": [
+                "GameTrigger"
+            ],
+            "GameTrigger.game_id": "rescue",
+            "GameTrigger.prompt": "rescue_prompt",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/rescue_trigger"
+            },
+            "x": 669.49,
+            "y": 470.36,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "4f01bac2-85af-49b0-a4d0-53d65aa23d7a",
+            "label": "rescuebtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/rescuehover"
+            },
+            "x": 515.25,
+            "y": 166.5,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "5a0a88a3-5ea2-4482-bfe0-29f55175229a",
+            "label": "cartbtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/carthover"
+            },
+            "x": 1377,
+            "y": 200.25,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "5eea6ba4-543d-4454-a786-6d0f0905db21",
+            "label": "pufflebtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/puffle_btn0004"
+            },
+            "x": 717.3,
+            "y": 384.08,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "06e44e89-efb5-4dd0-9d6b-fde7fd51c615",
+            "label": "phonebtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/phone_btn0004"
+            },
+            "x": 597.49,
+            "y": 383.96,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "5f799a66-815b-434b-93f3-cb544f61d527",
+            "label": "triggers",
+            "objectIds": [
+                "3d58a8ca-5773-46a7-83b9-4c92f23b95a9",
+                "9f3e7e16-e715-4cf5-b3db-bc7c71b1e5d8",
+                "951ce331-f936-4efb-b701-09336392ba3a",
+                "19d58d48-3649-47d6-90c0-0ed62d9f157d"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}
