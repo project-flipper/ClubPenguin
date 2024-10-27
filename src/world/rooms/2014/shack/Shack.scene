@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/shack/shack-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2014/shack/shack2014-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Shack",
@@ -21,7 +21,7 @@
             "id": "ce462f94-e9e6-4d04-8c61-31d417013c7e",
             "label": "shack_sky",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/sky"
             },
             "x": -150.75,
@@ -34,7 +34,7 @@
             "id": "46051279-c629-4386-9305-cf1f9b4f8bfb",
             "label": "shack_base",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/base"
             },
             "x": -40.3875,
@@ -50,7 +50,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop1"
             },
             "x": 1640.025,
@@ -66,7 +66,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop2"
             },
             "x": 1610.8875,
@@ -82,7 +82,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop3"
             },
             "x": 1560.2625,
@@ -98,7 +98,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop4"
             },
             "x": 1525.95,
@@ -114,7 +114,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop5"
             },
             "x": 1482.75,
@@ -130,7 +130,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop6"
             },
             "x": 1699.9875,
@@ -146,7 +146,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop7"
             },
             "x": 1651.8375,
@@ -162,7 +162,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop8"
             },
             "x": 1608.3,
@@ -178,7 +178,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop9"
             },
             "x": 1569.6,
@@ -194,7 +194,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop10"
             },
             "x": 1740.9375,
@@ -210,7 +210,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop11"
             },
             "x": 1702.0125,
@@ -226,7 +226,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop12"
             },
             "x": 1648.575,
@@ -242,7 +242,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop13"
             },
             "x": 1608.525,
@@ -258,7 +258,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop14"
             },
             "x": 1725.525,
@@ -274,7 +274,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/crop15"
             },
             "x": 1673.6625,
@@ -290,7 +290,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/arcs"
             },
             "x": 237.2625,
@@ -309,7 +309,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 279.675,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/flag0001"
             },
             "x": 257.7375,
@@ -325,7 +325,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/pole"
             },
             "x": 367.9875,
@@ -339,7 +339,7 @@
             "label": "schooldoor",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/schooldoor0001"
             },
             "x": 401.0375,
@@ -358,7 +358,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/schooldoor0004"
             },
             "x": 401.0375,
@@ -377,7 +377,7 @@
             "label": "minelight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/mine_btn0001"
             },
             "x": 1038.125,
@@ -391,7 +391,7 @@
             "id": "37134ba4-e523-49fe-8ce9-4a96e8c557ec",
             "label": "shack_mineroof",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/mineroof"
             },
             "x": 1036.35,
@@ -405,7 +405,7 @@
             "label": "minesign",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/minesign0001"
             },
             "x": 1057.125,
@@ -424,7 +424,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/mine_btn0004"
             },
             "x": 1038.125,
@@ -442,7 +442,7 @@
             "id": "4d2003e1-4305-4942-9068-1b98088c7785",
             "label": "shack_clock",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/clock"
             },
             "x": 532.1,
@@ -454,7 +454,7 @@
             "label": "hourHandShadow",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/hourHandShadow"
             },
             "x": 531.65,
@@ -467,7 +467,7 @@
             "label": "hourHand",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/hourHand"
             },
             "x": 532.1,
@@ -480,7 +480,7 @@
             "label": "minuteHandShadow",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/minuteHandShadow"
             },
             "x": 531.65,
@@ -494,7 +494,7 @@
             "label": "minuteHand",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/minuteHand"
             },
             "x": 533.225,
@@ -509,7 +509,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/center"
             },
             "x": 798.75,
@@ -525,7 +525,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/tree"
             },
             "x": 21.2625,
@@ -541,7 +541,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/bench"
             },
             "x": 1387.8,
@@ -557,7 +557,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/lamp"
             },
             "x": 1187.1,
@@ -573,7 +573,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/entranceside"
             },
             "x": 59.85,
@@ -589,7 +589,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/cpuentrance"
             },
             "x": 343.125,
@@ -608,7 +608,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 963.9,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/cpu0001"
             },
             "x": 164.25,
@@ -624,7 +624,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/book"
             },
             "x": 792.3375,
@@ -640,7 +640,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/case"
             },
             "x": 985.6125,
@@ -656,7 +656,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/mug"
             },
             "x": 920.5875,
@@ -672,7 +672,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/bucket"
             },
             "x": 1509.8625,
@@ -688,7 +688,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/pole1"
             },
             "x": 1156.275,
@@ -704,7 +704,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/volleynet"
             },
             "x": 1424.7,
@@ -720,7 +720,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/pole2"
             },
             "x": 1421.4375,
@@ -737,7 +737,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/volleyball"
             },
             "x": 1197,
@@ -755,7 +755,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/foreground"
             },
             "x": 1199.3625,
@@ -771,7 +771,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/tree1"
             },
             "x": 1665,
@@ -787,7 +787,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/rock"
             },
             "x": 1660.1625,
@@ -801,7 +801,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/block"
             },
             "x": -45,
@@ -820,7 +820,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/exit_btn"
             },
             "x": 134.2125,
@@ -841,7 +841,7 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/dojoext_btn"
             },
             "x": 840.825,
@@ -863,7 +863,7 @@
             "RoomTrigger.playerX": 877.5,
             "RoomTrigger.playerY": 855,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/dojo_mc"
             },
             "x": 844.65,
@@ -881,7 +881,7 @@
             "RoomTrigger.playerX": 1451.25,
             "RoomTrigger.playerY": 832.5,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/school_mc"
             },
             "x": 554.0625,
@@ -899,7 +899,7 @@
             "RoomTrigger.playerX": 888.75,
             "RoomTrigger.playerY": 393.75,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/mine_mc"
             },
             "x": 1091.025,
@@ -917,7 +917,7 @@
             "RoomTrigger.playerX": 1417.5,
             "RoomTrigger.playerY": 461.25,
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/forest_mc"
             },
             "x": 171,
@@ -933,7 +933,7 @@
                 "PressureTrigger"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/volleya_mc"
             },
             "x": 1361.025,
@@ -949,7 +949,7 @@
                 "PressureTrigger"
             ],
             "texture": {
-                "key": "shack",
+                "key": "shack2014",
                 "frame": "shack/volleyb_mc"
             },
             "x": 1205.6625,

@@ -27,97 +27,97 @@ export default class Shack extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("shack-pack", "assets/world/rooms/2013/shack/shack-pack.json");
+        this.load.pack("shack2014-pack", "assets/world/rooms/2014/shack/shack2014-pack.json");
     }
 
     editorCreate(): void {
 
         // shack_sky
-        const shack_sky = this.add.image(-150.75, -45, "shack", "shack/sky");
+        const shack_sky = this.add.image(-150.75, -45, "shack2014", "shack/sky");
         shack_sky.setOrigin(0, 0);
 
         // shack_base
-        const shack_base = this.add.image(-40.3875, -67.05, "shack", "shack/base");
+        const shack_base = this.add.image(-40.3875, -67.05, "shack2014", "shack/base");
         shack_base.setOrigin(0, 0);
 
         // shack_crop1
-        const shack_crop1 = this.add.image(1640.025, 841.6125, "shack", "shack/crop1");
+        const shack_crop1 = this.add.image(1640.025, 841.6125, "shack2014", "shack/crop1");
         shack_crop1.setOrigin(0.5512, 0.5708955223880597);
 
         // shack_crop2
-        const shack_crop2 = this.add.image(1610.8875, 880.425, "shack", "shack/crop2");
+        const shack_crop2 = this.add.image(1610.8875, 880.425, "shack2014", "shack/crop2");
         shack_crop2.setOrigin(0.4546, 0.5708955223880597);
 
         // shack_crop3
-        const shack_crop3 = this.add.image(1560.2625, 907.3125, "shack", "shack/crop3");
+        const shack_crop3 = this.add.image(1560.2625, 907.3125, "shack2014", "shack/crop3");
         shack_crop3.setOrigin(0.6133333333333334, 0.591044776119403);
 
         // shack_crop4
-        const shack_crop4 = this.add.image(1525.95, 954, "shack", "shack/crop4");
+        const shack_crop4 = this.add.image(1525.95, 954, "shack2014", "shack/crop4");
         shack_crop4.setOrigin(0.4546, 0.5708955223880597);
 
         // shack_crop5
-        const shack_crop5 = this.add.image(1482.75, 981.675, "shack", "shack/crop5");
+        const shack_crop5 = this.add.image(1482.75, 981.675, "shack2014", "shack/crop5");
         shack_crop5.setOrigin(0.6507843137254902, 0.6136363636363636);
 
         // shack_crop6
-        const shack_crop6 = this.add.image(1699.9875, 872.775, "shack", "shack/crop6");
+        const shack_crop6 = this.add.image(1699.9875, 872.775, "shack2014", "shack/crop6");
         shack_crop6.setOrigin(0.4970149253731343, 0.4973684210526316);
 
         // shack_crop7
-        const shack_crop7 = this.add.image(1651.8375, 915.975, "shack", "shack/crop7");
+        const shack_crop7 = this.add.image(1651.8375, 915.975, "shack2014", "shack/crop7");
         shack_crop7.setOrigin(0.5012658227848101, 0.49470588235294116);
 
         // shack_crop8
-        const shack_crop8 = this.add.image(1608.3, 950.2875, "shack", "shack/crop8");
+        const shack_crop8 = this.add.image(1608.3, 950.2875, "shack2014", "shack/crop8");
         shack_crop8.setOrigin(0.5555, 0.6075384615384616);
 
         // shack_crop9
-        const shack_crop9 = this.add.image(1569.6, 1003.5, "shack", "shack/crop9");
+        const shack_crop9 = this.add.image(1569.6, 1003.5, "shack2014", "shack/crop9");
         shack_crop9.setOrigin(0.5525555555555555, 0.6056164383561644);
 
         // shack_crop10
-        const shack_crop10 = this.add.image(1740.9375, 911.5875, "shack", "shack/crop10");
+        const shack_crop10 = this.add.image(1740.9375, 911.5875, "shack2014", "shack/crop10");
         shack_crop10.setOrigin(0.49694444444444447, 0.49592592592592594);
 
         // shack_crop11
-        const shack_crop11 = this.add.image(1702.0125, 960.1875, "shack", "shack/crop11");
+        const shack_crop11 = this.add.image(1702.0125, 960.1875, "shack2014", "shack/crop11");
         shack_crop11.setOrigin(0.6128358208955225, 0.5854237288135593);
 
         // shack_crop12
-        const shack_crop12 = this.add.image(1648.575, 1005.075, "shack", "shack/crop12");
+        const shack_crop12 = this.add.image(1648.575, 1005.075, "shack2014", "shack/crop12");
         shack_crop12.setOrigin(0.616268656716418, 0.5854237288135593);
 
         // shack_crop13
-        const shack_crop13 = this.add.image(1608.525, 1050.8625, "shack", "shack/crop13");
+        const shack_crop13 = this.add.image(1608.525, 1050.8625, "shack2014", "shack/crop13");
         shack_crop13.setOrigin(0.49694444444444447, 0.49592592592592594);
 
         // shack_crop14
-        const shack_crop14 = this.add.image(1725.525, 1071.45, "shack", "shack/crop14");
+        const shack_crop14 = this.add.image(1725.525, 1071.45, "shack2014", "shack/crop14");
         shack_crop14.setOrigin(0.5547126436781609, 0.9396373056994818);
 
         // shack_crop15
-        const shack_crop15 = this.add.image(1673.6625, 1130.9625, "shack", "shack/crop15");
+        const shack_crop15 = this.add.image(1673.6625, 1130.9625, "shack2014", "shack/crop15");
         shack_crop15.setOrigin(0.4984, 0.9357603686635945);
 
         // shack_arcs
-        const shack_arcs = this.add.image(237.2625, 458.55, "shack", "shack/arcs");
+        const shack_arcs = this.add.image(237.2625, 458.55, "shack2014", "shack/arcs");
         shack_arcs.setOrigin(0.65876289, 0.80915493);
 
         // flag
-        const flag = this.add.sprite(257.7375, 88.9875, "shack", "shack/flag0001");
+        const flag = this.add.sprite(257.7375, 88.9875, "shack2014", "shack/flag0001");
         flag.setOrigin(0, 0);
 
         // shack_pole
-        const shack_pole = this.add.image(367.9875, 279.675, "shack", "shack/pole");
+        const shack_pole = this.add.image(367.9875, 279.675, "shack2014", "shack/pole");
         shack_pole.setOrigin(0.45234042553191495, 0.5091770573566085);
 
         // schooldoor
-        const schooldoor = this.add.image(401.0375, 216.1875, "shack", "shack/schooldoor0001");
+        const schooldoor = this.add.image(401.0375, 216.1875, "shack2014", "shack/schooldoor0001");
         schooldoor.setOrigin(0, 0);
 
         // schooldoor_btn
-        const schooldoor_btn = this.add.image(401.0375, 216.1875, "shack", "shack/schooldoor0004");
+        const schooldoor_btn = this.add.image(401.0375, 216.1875, "shack2014", "shack/schooldoor0004");
         schooldoor_btn.setOrigin(0, 0);
         schooldoor_btn.alpha = 0.01;
         schooldoor_btn.alphaTopLeft = 0.01;
@@ -126,20 +126,20 @@ export default class Shack extends Phaser.Scene implements Room {
         schooldoor_btn.alphaBottomRight = 0.01;
 
         // minelight
-        const minelight = this.add.image(1038.125, 288.875, "shack", "shack/mine_btn0001");
+        const minelight = this.add.image(1038.125, 288.875, "shack2014", "shack/mine_btn0001");
         minelight.setOrigin(0, 0);
         minelight.visible = false;
 
         // shack_mineroof
-        const shack_mineroof = this.add.image(1036.35, 287.6625, "shack", "shack/mineroof");
+        const shack_mineroof = this.add.image(1036.35, 287.6625, "shack2014", "shack/mineroof");
         shack_mineroof.setOrigin(0, 0);
 
         // minesign
-        const minesign = this.add.image(1057.125, 286.8375, "shack", "shack/minesign0001");
+        const minesign = this.add.image(1057.125, 286.8375, "shack2014", "shack/minesign0001");
         minesign.setOrigin(0, 0);
 
         // mine_btn
-        const mine_btn = this.add.image(1038.125, 288.875, "shack", "shack/mine_btn0004");
+        const mine_btn = this.add.image(1038.125, 288.875, "shack2014", "shack/mine_btn0004");
         mine_btn.setOrigin(0, 0);
         mine_btn.alpha = 0.01;
         mine_btn.alphaTopLeft = 0.01;
@@ -148,103 +148,103 @@ export default class Shack extends Phaser.Scene implements Room {
         mine_btn.alphaBottomRight = 0.01;
 
         // shack_clock
-        this.add.image(532.1, 145.9, "shack", "shack/clock");
+        this.add.image(532.1, 145.9, "shack2014", "shack/clock");
 
         // hourHandShadow
-        const hourHandShadow = this.add.image(531.65, 145.5625, "shack", "shack/hourHandShadow");
+        const hourHandShadow = this.add.image(531.65, 145.5625, "shack2014", "shack/hourHandShadow");
         hourHandShadow.setOrigin(0.5, 0.88722222);
 
         // hourHand
-        const hourHand = this.add.image(532.1, 145.9, "shack", "shack/hourHand");
+        const hourHand = this.add.image(532.1, 145.9, "shack2014", "shack/hourHand");
         hourHand.setOrigin(0.5, 0.8872222222222222);
 
         // minuteHandShadow
-        const minuteHandShadow = this.add.image(531.65, 145.675, "shack", "shack/minuteHandShadow");
+        const minuteHandShadow = this.add.image(531.65, 145.675, "shack2014", "shack/minuteHandShadow");
         minuteHandShadow.setOrigin(0.45, 0.92074074);
 
         // minuteHand
-        const minuteHand = this.add.image(533.225, 145.675, "shack", "shack/minuteHand");
+        const minuteHand = this.add.image(533.225, 145.675, "shack2014", "shack/minuteHand");
         minuteHand.setOrigin(0.5, 0.92074074);
 
         // shack_center
-        const shack_center = this.add.image(798.75, 526.6125, "shack", "shack/center");
+        const shack_center = this.add.image(798.75, 526.6125, "shack2014", "shack/center");
         shack_center.setOrigin(0.48094303, 0.1862069);
 
         // shack_tree
-        const shack_tree = this.add.image(21.2625, 539.8875, "shack", "shack/tree");
+        const shack_tree = this.add.image(21.2625, 539.8875, "shack2014", "shack/tree");
         shack_tree.setOrigin(0.37493569, 0.78931174);
 
         // shack_bench
-        const shack_bench = this.add.image(1387.8, 618.3, "shack", "shack/bench");
+        const shack_bench = this.add.image(1387.8, 618.3, "shack2014", "shack/bench");
         shack_bench.setOrigin(0.52941176, 0.37666667);
 
         // shack_lamp
-        const shack_lamp = this.add.image(1187.1, 523.0125, "shack", "shack/lamp");
+        const shack_lamp = this.add.image(1187.1, 523.0125, "shack2014", "shack/lamp");
         shack_lamp.setOrigin(0.49607143, 0.63275);
 
         // shack_entranceside
-        const shack_entranceside = this.add.image(59.85, 751.275, "shack", "shack/entranceside");
+        const shack_entranceside = this.add.image(59.85, 751.275, "shack2014", "shack/entranceside");
         shack_entranceside.setOrigin(0.6267857142857143, 0.7648943661971831);
 
         // shack_cpuentrance
-        const shack_cpuentrance = this.add.image(343.125, 963.9, "shack", "shack/cpuentrance");
+        const shack_cpuentrance = this.add.image(343.125, 963.9, "shack2014", "shack/cpuentrance");
         shack_cpuentrance.setOrigin(0.26383954, 0.71635739);
 
         // cpu
-        const cpu = this.add.image(164.25, 573.6375, "shack", "shack/cpu0001");
+        const cpu = this.add.image(164.25, 573.6375, "shack2014", "shack/cpu0001");
         cpu.setOrigin(0, 0);
 
         // shack_book
-        const shack_book = this.add.image(792.3375, 875.5875, "shack", "shack/book");
+        const shack_book = this.add.image(792.3375, 875.5875, "shack2014", "shack/book");
         shack_book.setOrigin(0.46153846, 0.20376812);
 
         // shack_case
-        const shack_case = this.add.image(985.6125, 905.7375, "shack", "shack/case");
+        const shack_case = this.add.image(985.6125, 905.7375, "shack2014", "shack/case");
         shack_case.setOrigin(0.42025157, 0.25366667);
 
         // shack_mug
-        const shack_mug = this.add.image(920.5875, 960.4125, "shack", "shack/mug");
+        const shack_mug = this.add.image(920.5875, 960.4125, "shack2014", "shack/mug");
         shack_mug.setOrigin(0.53488889, 0.61595238);
 
         // shack_bucket
-        const shack_bucket = this.add.image(1509.8625, 844.65, "shack", "shack/bucket");
+        const shack_bucket = this.add.image(1509.8625, 844.65, "shack2014", "shack/bucket");
         shack_bucket.setOrigin(0.47181818, 0.47307692);
 
         // shack_pole1
-        const shack_pole1 = this.add.image(1156.275, 861.1875, "shack", "shack/pole1");
+        const shack_pole1 = this.add.image(1156.275, 861.1875, "shack2014", "shack/pole1");
         shack_pole1.setOrigin(0.42043478260869566, 0.9208609271523179);
 
         // shack_volleynet
-        const shack_volleynet = this.add.image(1424.7, 920.25, "shack", "shack/volleynet");
+        const shack_volleynet = this.add.image(1424.7, 920.25, "shack2014", "shack/volleynet");
         shack_volleynet.setOrigin(0.9661732851985559, 1.4016788321167883);
 
         // shack_pole2
-        const shack_pole2 = this.add.image(1421.4375, 948.825, "shack", "shack/pole2");
+        const shack_pole2 = this.add.image(1421.4375, 948.825, "shack2014", "shack/pole2");
         shack_pole2.setOrigin(0.2682051282051282, 0.9266129032258065);
 
         // volleyball
-        const volleyball = this.add.sprite(1197, 924.75, "shack", "shack/volleyball");
+        const volleyball = this.add.sprite(1197, 924.75, "shack2014", "shack/volleyball");
         volleyball.setOrigin(0.40970149, 0.42890625);
 
         // shack_foreground
-        const shack_foreground = this.add.image(1199.3625, 948.2625, "shack", "shack/foreground");
+        const shack_foreground = this.add.image(1199.3625, 948.2625, "shack2014", "shack/foreground");
         shack_foreground.setOrigin(0, 0);
 
         // shack_tree1
-        const shack_tree1 = this.add.image(1665, 697.275, "shack", "shack/tree1");
+        const shack_tree1 = this.add.image(1665, 697.275, "shack2014", "shack/tree1");
         shack_tree1.setOrigin(0.47062802, 0.62583673);
 
         // shack_rock
-        const shack_rock = this.add.image(1660.1625, 787.05, "shack", "shack/rock");
+        const shack_rock = this.add.image(1660.1625, 787.05, "shack2014", "shack/rock");
         shack_rock.setOrigin(0.51798507, 0.42423913);
 
         // block
-        const block = this.add.image(-45, -45, "shack", "shack/block");
+        const block = this.add.image(-45, -45, "shack2014", "shack/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
         // exit_btn
-        const exit_btn = this.add.image(134.2125, 908.55, "shack", "shack/exit_btn");
+        const exit_btn = this.add.image(134.2125, 908.55, "shack2014", "shack/exit_btn");
         exit_btn.alpha = 0.01;
         exit_btn.alphaTopLeft = 0.01;
         exit_btn.alphaTopRight = 0.01;
@@ -252,7 +252,7 @@ export default class Shack extends Phaser.Scene implements Room {
         exit_btn.alphaBottomRight = 0.01;
 
         // dojoext_btn
-        const dojoext_btn = this.add.image(840.825, 237.0375, "shack", "shack/dojoext_btn");
+        const dojoext_btn = this.add.image(840.825, 237.0375, "shack2014", "shack/dojoext_btn");
         dojoext_btn.alpha = 0.01;
         dojoext_btn.alphaTopLeft = 0.01;
         dojoext_btn.alphaTopRight = 0.01;
@@ -260,27 +260,27 @@ export default class Shack extends Phaser.Scene implements Room {
         dojoext_btn.alphaBottomRight = 0.01;
 
         // shack_dojo_mc
-        const shack_dojo_mc = this.add.image(844.65, 372.15, "shack", "shack/dojo_mc");
+        const shack_dojo_mc = this.add.image(844.65, 372.15, "shack2014", "shack/dojo_mc");
         shack_dojo_mc.visible = false;
 
         // shack_school_mc
-        const shack_school_mc = this.add.image(554.0625, 448.9875, "shack", "shack/school_mc");
+        const shack_school_mc = this.add.image(554.0625, 448.9875, "shack2014", "shack/school_mc");
         shack_school_mc.visible = false;
 
         // shack_mine_mc
-        const shack_mine_mc = this.add.image(1091.025, 481.95, "shack", "shack/mine_mc");
+        const shack_mine_mc = this.add.image(1091.025, 481.95, "shack2014", "shack/mine_mc");
         shack_mine_mc.visible = false;
 
         // shack_forest_mc
-        const shack_forest_mc = this.add.image(171, 947.3625, "shack", "shack/forest_mc");
+        const shack_forest_mc = this.add.image(171, 947.3625, "shack2014", "shack/forest_mc");
         shack_forest_mc.visible = false;
 
         // volleya_mc
-        const volleya_mc = this.add.image(1361.025, 823.5, "shack", "shack/volleya_mc");
+        const volleya_mc = this.add.image(1361.025, 823.5, "shack2014", "shack/volleya_mc");
         volleya_mc.visible = false;
 
         // volleyb_mc
-        const volleyb_mc = this.add.image(1205.6625, 969.525, "shack", "shack/volleyb_mc");
+        const volleyb_mc = this.add.image(1205.6625, 969.525, "shack2014", "shack/volleyb_mc");
         volleyb_mc.visible = false;
 
         // lists
@@ -531,28 +531,28 @@ export default class Shack extends Phaser.Scene implements Room {
 
         this.mine_btn.on('over', () => {
             this.minelight.visible = true;
-            this.sound.play('shack_lighton');
+            this.sound.play('shack2014-lighton');
         });
         this.mine_btn.on('out', () => {
             this.minelight.visible = false;
-            this.sound.play('shack_lightoff');
+            this.sound.play('shack2014-lightoff');
         });
         this.mine_btn.on('release', () => this.world.move(1113.75, 472.5));
 
         this.schooldoor_btn.on('over', () => {
             this.schooldoor.setFrame('shack/schooldoor0002');
-            this.sound.play('shack_dooropen');
+            this.sound.play('shack2014-dooropen');
         });
         this.schooldoor_btn.on('out', () => {
             this.schooldoor.setFrame('shack/schooldoor0001');
-            this.sound.play('shack_doorclose');
+            this.sound.play('shack2014-doorclose');
         });
         this.schooldoor_btn.on('release', () => this.world.move(540, 450));
 
         this.exit_btn.on('release', () => this.world.move(101.25, 922.5));
         this.dojoext_btn.on('release', () => this.world.move(832.5, 360));
 
-        this.flag.play('shack-flag-animation');
+        this.flag.play('shack2014-flag-animation');
 
         let volleyA = PressureTrigger.getComponent(this.volleya_mc);
         let volleyB = PressureTrigger.getComponent(this.volleyb_mc);
@@ -568,7 +568,7 @@ export default class Shack extends Phaser.Scene implements Room {
     updateVolleyGame(state: boolean): void {
         if (state == this.volleyActive) return;
 
-        if (state) this.volleyball.play('shack-volleyball-animation');
+        if (state) this.volleyball.play('shack2014-volleyball-animation');
         else {
             this.volleyball.anims.stop();
             this.volleyball.setFrame('shack/volleyball');
@@ -584,7 +584,7 @@ export default class Shack extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('shack-pack');
+        engine.app.unloadAssetPack('shack2014-pack');
     }
 
     /* END-USER-CODE */
