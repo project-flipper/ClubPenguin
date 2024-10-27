@@ -668,7 +668,7 @@ export default class World extends Phaser.Scene {
         }
     }
 
-    async joinWaddle(waddleId: number): Promise<void> {
+    async joinWaddle(waddleId: number, isTable: boolean): Promise<void> {
         if (this.currentWaddleId) {
             logger.warn('Already in a waddle', this.currentWaddleId);
             return;
@@ -676,7 +676,8 @@ export default class World extends Phaser.Scene {
         this.send({
             op: 'waddle:join',
             d: {
-                waddle_id: waddleId
+                waddle_id: waddleId,
+                is_table: isTable
             }
         });
     }
@@ -827,6 +828,9 @@ export default class World extends Phaser.Scene {
             } catch (e) {
                 logger.error('Uncaught error in world handler', payload.op, e);
             }
+        } else if (this.events.listenerCount(payload.op) > 0) {
+            logger.debug('Dispatching external', payload.op);
+            this.events.emit(payload.op, payload.d);
         } else {
             logger.warn('Missing handler for op', payload.op, 'ignoring');
         }
