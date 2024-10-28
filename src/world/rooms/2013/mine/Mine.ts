@@ -371,17 +371,32 @@ export default class Mine extends Phaser.Scene {
         this.rescuebtn.on('release', () => this.world.move(675, 450));
 
         this.pufflebtn.on('over', () => {
-            if (!this.puffle.anims.isPlaying) this.puffle.play('mine2013-puffle-animation');
+            if (!this.puffle.anims.isPlaying) {
+                this.puffle.play('mine2013-puffle-animation');
+                this.eyes.visible = false;
+                this.puffle.once('animationcomplete', () => {
+                    this.puffle.setFrame('mine/puffle0001');
+                    this.eyes.play('mine2013-eyes-animation');
+                    this.eyes.visible = true;
+                });
+            }
         });
         this.phonebtn.on('over', () => {
             if (!this.phone.anims.isPlaying) {
-                this.phone.play('mine2013-phone-animation');
                 this.sound.play('mine2013-ring');
+                this.phone.play('mine2013-phone-animation');
+                // The Flash client forgot to unmark the phone hover button as a hand cursor.
+                // As a result, you could briefly see the hand cursor when hovering over the phone.
+                // This imiates this behavior as a fun easter egg. :)
+                this.phonebtn.visible = false;
+                this.phone.once('animationcomplete', () => {
+                    this.phonebtn.visible = true;
+                });
             }
         });
 
         this.tweens.chain({
-            targets: [this.cavelit],
+            targets: this.cavelit,
             tweens: [
                 {
                     alpha: { from: 0, to : 1 },
@@ -400,20 +415,6 @@ export default class Mine extends Phaser.Scene {
         this.game.locale.register(this.localize, this);
 
         if (data.onready) data.onready(this);
-    }
-
-    update(time: number, delta: number): void {
-        if (this.puffle.frame.name === 'mine/puffle0001') {
-            if (!this.eyes.anims.isPlaying) this.eyes.play('mine2013-eyes-animation');
-            this.eyes.visible = true;
-        } else {
-            this.eyes.visible = false;
-        }
-
-        // The Flash client forgot to unmark the phone hover button as a hand cursor.
-        // As a result, you could briefly see the hand cursor when hovering over the phone.
-        // This imiates this behavior as a fun easter egg. :)
-        this.phonebtn.visible = !this.phone.anims.isPlaying;
     }
 
     localize(locale: Locale): void {
