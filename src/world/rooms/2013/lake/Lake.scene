@@ -1,0 +1,967 @@
+{
+    "id": "6ecd81ea-814b-43a5-9de4-ba0677694246",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/2013/lake/lake2013-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Lake",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "b9bc13a3-3707-4545-a51f-ca7ee815984b",
+            "label": "lake_base",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/base"
+            },
+            "x": -22.5,
+            "y": -22.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "433edea9-909b-4985-8254-1b57199288b6",
+            "label": "squiddoor",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/squiddoor"
+            },
+            "x": 1486.69,
+            "y": 479.36,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "b5a882a1-7bf6-466f-b7bc-9f7f3e9c9e11",
+            "label": "keyclue",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/keyclue0001"
+            },
+            "x": 1508.18,
+            "y": 530.44,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "40cdde6f-8ee1-4971-a104-312833aede91",
+            "label": "keycluebtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/keyclue0004"
+            },
+            "x": 1508.18,
+            "y": 530.44,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Sprite",
+            "id": "05f0a625-723e-4482-bdd8-ad1ad244b1d4",
+            "label": "lake_fall2_top10001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall2_top10001"
+            },
+            "x": 1172.25,
+            "y": 132.75,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall2_top1-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "3a0fd67b-3a83-4ce1-9564-e7b2e82d7633",
+            "label": "lake_fall2_top20001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall2_top20001"
+            },
+            "x": 1239.75,
+            "y": 146.25,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall2_top2-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "5632e3c1-4aa9-4472-a47a-48888087d616",
+            "label": "lake_fall2_rolls0001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall2_rolls0001"
+            },
+            "x": 1138.5,
+            "y": 162,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall2_rolls-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "1610d911-1704-406b-8101-c18986902d49",
+            "label": "lake_fall2_foam0001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall2_foam0001"
+            },
+            "x": 1100.25,
+            "y": 434.25,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall2_foam-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "81fbf821-d45e-4f25-93c2-df30460e3d7c",
+            "label": "lake_fall2_bottom10001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall2_bottom10001"
+            },
+            "x": 1165.5,
+            "y": 488.25,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall2_bottom1-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "d0e5bc39-3839-4973-8a03-69071a19cc9c",
+            "label": "lake_fall2_bottom20001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall2_bottom20001"
+            },
+            "x": 1212.75,
+            "y": 488.25,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall2_bottom2-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "c132357d-020f-4f81-be94-906194fed06e",
+            "label": "lake_fall1_rolls0001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall1_rolls0001"
+            },
+            "x": 747,
+            "y": 155.25,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall1_rolls-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "e19ddaf1-e1c8-44aa-93e4-aa5c5a4b32b3",
+            "label": "lake_fall1_bottom10001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall1_bottom10001"
+            },
+            "x": 767.25,
+            "y": 483.75,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall1_bottom1-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "3af4b90c-9ebc-4045-b85e-f5398967c502",
+            "label": "lake_fall1_bottom20001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall1_bottom20001"
+            },
+            "x": 798.75,
+            "y": 483.75,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall1_bottom2-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "54734d44-84bd-4ace-940c-2ba9de80e1d1",
+            "label": "lake_fall1_foam0001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall1_foam0001"
+            },
+            "x": 711,
+            "y": 427.5,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall1_foam-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "2cb7eca3-d009-48bd-ac64-4dfede0f54ab",
+            "label": "lake_fall1_top20001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall1_top20001"
+            },
+            "x": 819,
+            "y": 123.75,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall1_top2-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Sprite",
+            "id": "c9712349-d23e-46db-9306-f8fcc49ccd00",
+            "label": "lake_fall1_top10001",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fall1_top10001"
+            },
+            "x": 762.75,
+            "y": 130.5,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lake2013-fall1_top1-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Image",
+            "id": "ac831c8d-dd60-4a8e-9b75-f31703dae063",
+            "label": "lake_tide0",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide0"
+            },
+            "x": 371.25,
+            "y": 618.75,
+            "originX": -0.3683689024390244,
+            "originY": 1.3040845070422535
+        },
+        {
+            "type": "Image",
+            "id": "37d692f3-ef64-448f-b08a-3b0fa9e12c5d",
+            "label": "lake_tide1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide1"
+            },
+            "x": 371.25,
+            "y": 641.25,
+            "originX": -0.17401997503121097,
+            "originY": 1.1351685393258426
+        },
+        {
+            "type": "Image",
+            "id": "879e30bd-96eb-4e2f-b01e-29e2fc19d5c8",
+            "label": "lake_tide2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide2"
+            },
+            "x": 371.25,
+            "y": 686.25,
+            "originX": -0.05188953488372093,
+            "originY": 1.0752884615384615
+        },
+        {
+            "type": "Image",
+            "id": "79ce99b5-ce00-4831-a546-ae584efc0c8b",
+            "label": "lake_tide3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide3"
+            },
+            "x": 371.25,
+            "y": 708.75,
+            "originX": -0.09099903006789524,
+            "originY": 1.097663551401869
+        },
+        {
+            "type": "Image",
+            "id": "8a30e167-bff9-4c8b-85f0-d7757f173a0d",
+            "label": "lake_tide4",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide4"
+            },
+            "x": 371.25,
+            "y": 776.25,
+            "originX": -0.23274490785645005,
+            "originY": 1.2257142857142855
+        },
+        {
+            "type": "Image",
+            "id": "58523601-0309-4e23-bc30-82461a2d9726",
+            "label": "lake_tide5",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide5"
+            },
+            "x": 371.25,
+            "y": 798.75,
+            "originX": -0.25884723523898784,
+            "originY": 1.2522429906542056
+        },
+        {
+            "type": "Image",
+            "id": "3c3aa33f-dd56-4dbd-a342-895636954f13",
+            "label": "lake_tide6",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide6"
+            },
+            "x": 371.25,
+            "y": 821.25,
+            "originX": -0.3034529582929195,
+            "originY": 1.2384955752212388
+        },
+        {
+            "type": "Image",
+            "id": "12519542-277d-4d57-b049-3960e2ebda90",
+            "label": "lake_tide7",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide7"
+            },
+            "x": 371.25,
+            "y": 843.75,
+            "originX": -0.30112294288480157,
+            "originY": 1.2394690265486725
+        },
+        {
+            "type": "Image",
+            "id": "60243cd5-04d2-4544-9b9f-c55e9e44fae6",
+            "label": "lake_tide8",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide8"
+            },
+            "x": 371.25,
+            "y": 888.75,
+            "originX": -0.2158371040723982,
+            "originY": 1.176050420168067
+        },
+        {
+            "type": "Image",
+            "id": "e3ddae03-ff37-4fdf-9ffd-3c29435ed6bd",
+            "label": "lake_tide9",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide9"
+            },
+            "x": 371.25,
+            "y": 753.75,
+            "originX": -0.1618086124401914,
+            "originY": 1.1975
+        },
+        {
+            "type": "Image",
+            "id": "07f71212-2593-4eb0-8fe4-6f2c710af630",
+            "label": "lake_tide10",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide10"
+            },
+            "x": 371.25,
+            "y": 911.25,
+            "originX": -0.18740053050397876,
+            "originY": 1.176050420168067
+        },
+        {
+            "type": "Image",
+            "id": "17105a37-1897-43d7-a825-da05e8fd9530",
+            "label": "lake_tide11",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide11"
+            },
+            "x": 371.25,
+            "y": 933.75,
+            "originX": -0.2206,
+            "originY": 1.2608108108108107
+        },
+        {
+            "type": "Image",
+            "id": "38bf06fe-2b9e-44ea-98f6-f86647095a4e",
+            "label": "lake_tide12",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide12"
+            },
+            "x": 371.25,
+            "y": 956.25,
+            "originX": -0.3309217046580773,
+            "originY": 1.3079439252336447
+        },
+        {
+            "type": "Image",
+            "id": "515fad35-9fc1-42df-a43e-04b184f26b28",
+            "label": "lake_tide13",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide13"
+            },
+            "x": 371.25,
+            "y": 978.75,
+            "originX": -0.385562435500516,
+            "originY": 1.3328571428571427
+        },
+        {
+            "type": "Image",
+            "id": "cb8f7d08-8024-4413-bf2c-9c2e4398a420",
+            "label": "lake_tide14",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide14"
+            },
+            "x": 371.25,
+            "y": 1001.25,
+            "originX": -0.421215644820296,
+            "originY": 1.4381443298969072
+        },
+        {
+            "type": "Image",
+            "id": "2ad994af-198f-4098-83d1-d590af057f6d",
+            "label": "lake_tide15",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide15"
+            },
+            "x": 371.25,
+            "y": 1046.25,
+            "originX": -1.1844408427876822,
+            "originY": 2.507142857142857
+        },
+        {
+            "type": "Image",
+            "id": "59b4b191-4126-49b8-a2e2-a90ae99d692e",
+            "label": "lake_tide16",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide16"
+            },
+            "x": 371.25,
+            "y": 596.25,
+            "originX": -1.8387222222222224,
+            "originY": 2.045
+        },
+        {
+            "type": "Image",
+            "id": "c6792834-ad4e-4299-9412-cae31a5dc77d",
+            "label": "lake_tide17",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide17"
+            },
+            "x": 371.25,
+            "y": 663.75,
+            "originX": -0.05659420289855072,
+            "originY": 1.0473999999999999
+        },
+        {
+            "type": "Image",
+            "id": "d1c4dbfb-6af8-4135-b9ba-873eced36e22",
+            "label": "lake_tide18",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide18"
+            },
+            "x": 371.25,
+            "y": 731.25,
+            "originX": -0.120489443378119,
+            "originY": 1.1399056603773585
+        },
+        {
+            "type": "Image",
+            "id": "bf08602b-afad-4230-92fb-978d02405ccd",
+            "label": "lake_tide19",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide19"
+            },
+            "x": 371.25,
+            "y": 866.25,
+            "originX": -0.28087702573879886,
+            "originY": 1.2285964912280702
+        },
+        {
+            "type": "Image",
+            "id": "365f42e1-7da2-4b52-9011-09cb7b1216d7",
+            "label": "lake_tide20",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/tide20"
+            },
+            "x": 371.25,
+            "y": 1023.75,
+            "originX": -0.564199535962877,
+            "originY": 1.8428947368421054
+        },
+        {
+            "type": "Image",
+            "id": "69260b53-0934-401a-afcb-6580f53d900e",
+            "label": "lake_basetop",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/basetop"
+            },
+            "x": -22.5,
+            "y": -22.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "6593e380-455f-478f-8f98-2f9d33dd294c",
+            "label": "lake_barrel",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/barrel"
+            },
+            "x": 324.34,
+            "y": 326.59,
+            "originX": 0.5008,
+            "originY": 0.8711570247933884
+        },
+        {
+            "type": "Image",
+            "id": "1455bb97-a675-4165-8948-9d3814e4a935",
+            "label": "lake_gold1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/gold1"
+            },
+            "x": 368.44,
+            "y": 340.43,
+            "originX": 0.496453488372093,
+            "originY": 0.22342857142857145
+        },
+        {
+            "type": "Image",
+            "id": "574bc104-9eb7-4a82-af1f-ac88aaf30ef4",
+            "label": "lake_rock1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/rock1"
+            },
+            "x": 688.39,
+            "y": 346.05,
+            "originX": 0.556930693069307,
+            "originY": 0.5192307692307693
+        },
+        {
+            "type": "Image",
+            "id": "426d4686-ebc7-4028-8d45-38791323fe44",
+            "label": "lake_rock2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/rock2"
+            },
+            "x": 649.57,
+            "y": 479.25,
+            "originX": 0.4899193548387097,
+            "originY": 0.9264705882352942
+        },
+        {
+            "type": "Image",
+            "id": "c1acd21a-08f5-4936-98ed-5015ccdcdd3b",
+            "label": "lake_gold2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/gold2"
+            },
+            "x": 591.86,
+            "y": 505.24,
+            "originX": 0.5011483253588517,
+            "originY": 0.3346086956521739
+        },
+        {
+            "type": "Image",
+            "id": "91d1d3d1-5099-4f11-8785-236bb41ea7bf",
+            "label": "lake_rock3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/rock3"
+            },
+            "x": 259.76,
+            "y": 371.03,
+            "originX": 0.5056179775280899,
+            "originY": 0.8571428571428571
+        },
+        {
+            "type": "Image",
+            "id": "7fc637db-657c-43da-9d47-79eff5f5fdd6",
+            "label": "lake_rock4",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/rock4"
+            },
+            "x": 371.14,
+            "y": 393.64,
+            "originX": 0.5123762376237624,
+            "originY": 0.3673469387755102
+        },
+        {
+            "type": "Image",
+            "id": "4c1de1f6-35b1-4fca-b4fa-20e6401038a6",
+            "label": "lake_rock5",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/rock5"
+            },
+            "x": 53.55,
+            "y": 641.81,
+            "originX": 0.5585106382978723,
+            "originY": 0.8416030534351145
+        },
+        {
+            "type": "Image",
+            "id": "300d3079-bab0-4b8f-ac76-2ea5118e3e65",
+            "label": "lake_gold3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/gold3"
+            },
+            "x": 99.79,
+            "y": 679.05,
+            "originX": 0.4983798882681564,
+            "originY": 0.1610091743119266
+        },
+        {
+            "type": "Image",
+            "id": "6532f1d4-6409-4fbb-9004-237e5c9c42ed",
+            "label": "lake_rock6",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/rock6"
+            },
+            "x": 71.44,
+            "y": 742.05,
+            "originX": 0.5466101694915254,
+            "originY": 0.7071428571428572
+        },
+        {
+            "type": "Image",
+            "id": "e0fecbd9-af8a-4354-92a9-1227560d1547",
+            "label": "lake_aquaback",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/aquaback"
+            },
+            "x": 249.3,
+            "y": 827.1,
+            "originX": 0.5021739130434782,
+            "originY": 0.5016891891891891
+        },
+        {
+            "type": "Image",
+            "id": "fbc1f201-488c-4327-9cfa-d9b15112ebf8",
+            "label": "lake_aquafront",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/aquafront"
+            },
+            "x": 199.58,
+            "y": 943.88,
+            "originX": 0.4401098901098901,
+            "originY": 0.7526978417266187
+        },
+        {
+            "type": "Image",
+            "id": "9529a2a6-d09c-48aa-889d-c4cda72ae610",
+            "label": "lake_fg",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/fg"
+            },
+            "x": -22.5,
+            "y": -22.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "eaf5c135-b8c5-4497-8f04-9a85c3f34470",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "66118996-e8a9-4fee-a432-0dd6c0fdd310",
+            "label": "lake_forest_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 809,
+            "RoomTrigger.playerX": 528.75,
+            "RoomTrigger.playerY": 776.25,
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/forest_trigger"
+            },
+            "x": 457.88,
+            "y": 177.75,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "930ca416-a9e9-4608-84b7-6fc2e7c5290b",
+            "label": "underwater_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 815,
+            "RoomTrigger.playerX": 607.5,
+            "RoomTrigger.playerY": 533.25,
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/underwater_trigger"
+            },
+            "x": 1575,
+            "y": 680.63,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "0057a8e6-39f0-47b1-bd6c-34c40c1ab133",
+            "label": "lake_cavemine_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 813,
+            "RoomTrigger.playerX": 1482.75,
+            "RoomTrigger.playerY": 630,
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/cavemine_trigger"
+            },
+            "x": 100.46,
+            "y": 483.3,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "ac8d2ac9-dead-454c-b61a-67ce818a9045",
+            "label": "pizza2btn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/pizza2btn0004"
+            },
+            "x": 1588.39,
+            "y": 619.43,
+            "visible": false,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        },
+        {
+            "type": "Image",
+            "id": "e3d4701e-8e3b-47de-9138-753a80b33f28",
+            "label": "pizzabtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "lake2013",
+                "frame": "lake/pizzabtn0004"
+            },
+            "x": 1596.94,
+            "y": 608.4,
+            "alpha": 0.01,
+            "alphaTopLeft": 0.01,
+            "alphaTopRight": 0.01,
+            "alphaBottomLeft": 0.01,
+            "alphaBottomRight": 0.01
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "d74c6c4b-0c9f-4cd1-abe9-9542454d004e",
+            "label": "triggers",
+            "objectIds": [
+                "66118996-e8a9-4fee-a432-0dd6c0fdd310",
+                "0057a8e6-39f0-47b1-bd6c-34c40c1ab133",
+                "930ca416-a9e9-4608-84b7-6fc2e7c5290b"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}
