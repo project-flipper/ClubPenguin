@@ -10,7 +10,6 @@ import RoomTrigger from "../../../../lib/components/RoomTrigger";
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import Interface from "@clubpenguin/world/interface/Interface";
-import { Locale } from "@clubpenguin/app/locale";
 import World from "@clubpenguin/world/World";
 /* END-USER-IMPORTS */
 
