@@ -549,7 +549,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send( 'player:action', action);
+        this.send('player:action', action);
     }
 
     /**
@@ -593,7 +593,7 @@ export default class World extends Phaser.Scene {
 
         player.actions.set(action);
 
-        this.send( 'player:action', action);
+        this.send('player:action', action);
     }
 
     /**
@@ -658,7 +658,7 @@ export default class World extends Phaser.Scene {
             let load = this.loadScreen;
             if (!load.isShowing) load.show();
 
-            this.send('room:join',{
+            this.send('room:join', {
                 room_id: roomId,
                 x,
                 y
@@ -678,7 +678,7 @@ export default class World extends Phaser.Scene {
             logger.warn('Already in a waddle', this.currentWaddleId);
             return;
         }
-        this.send('waddle:join',{
+        this.send('waddle:join', {
             waddle_id: waddleId,
             is_table: isTable
         });
@@ -865,6 +865,8 @@ export default class World extends Phaser.Scene {
                     else logger.warn('Player not found', playerId);
                 }
             }
+        } else {
+            logger.warn('Room not found', data.room_id);
         }
     }
 
@@ -915,6 +917,8 @@ export default class World extends Phaser.Scene {
             this.showGameOverAfterRoomReady = false;
 
             await this.engine.startGame(gameData, this.gameStartParams);
+        } else {
+            logger.warn('Game not found', data.game_id);
         }
     }
 
@@ -923,7 +927,10 @@ export default class World extends Phaser.Scene {
         this.interface.promptSpinner.hide();
 
         let engine = this.engine;
-        if (!engine.currentGame) return;
+        if (!engine.currentGame) {
+            logger.warn('There are no currently active games');
+            return;
+        }
 
         let gameData = engine.currentGame.gameData;
 
@@ -962,17 +969,25 @@ export default class World extends Phaser.Scene {
 
     @handle('player:action')
     async handlePlayerAction(data: Payloads['player:action']): Promise<void> {
-        let player = this.engine.getPlayer(data.player);
+        let player = this.engine.getPlayer(data.player_id);
         if (player) {
-            if (player.actions.equals(data)) return;
+            if (player.actions.equals(data)) {
+                logger.warn('Player already has the same action', data);
+                return;
+            }
 
             player.actions.set(data);
+        } else {
+            logger.warn('Player not found', data.player_id);
         }
     }
 
     @handle('player:remove')
     async handlePlayerRemove(data: Payloads['player:remove']): Promise<void> {
-        this.engine.removePlayer(data.user.id);
+        let removed = this.engine.removePlayer(data.user.id);
+        if (!removed) {
+            logger.warn('Player not found', data.user.id);
+        }
     }
 
     @handle('inventory:add')

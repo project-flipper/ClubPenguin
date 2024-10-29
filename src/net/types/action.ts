@@ -52,7 +52,7 @@ export enum ActionFrame {
 }
 
 export type ActionData = {
-    player?: number,
+    player_id?: number,
     frame: ActionFrame,
     x?: number,
     y?: number,
