@@ -636,7 +636,7 @@ export default class World extends Phaser.Scene {
      * The server is expected to send a room:join payload in response.
      */
     async spawnRoom(): Promise<void> {
-        this.send('room:spawn', {});
+        this.send('room:join', {});
     }
 
     /**

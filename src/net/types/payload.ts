@@ -52,9 +52,9 @@ export type Payload<P extends any, O extends keyof P, D extends P[O]> = {
 
 export type ClientPayloads = {
     'room:join': {
-        room_id: number,
-        x: number,
-        y: number
+        room_id?: number,
+        x?: number,
+        y?: number
     },
     'waddle:join': {
         waddle_id: number
