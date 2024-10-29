@@ -376,9 +376,8 @@ export class Airtower extends Phaser.Events.EventEmitter {
                 logger.info('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', packet);
                 this.emit('s:message', packet);
             });
-            this.socket.onAnyOutgoing((op, d) => {
-                let packet = { op, d };
-                logger.info('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', packet);
+            this.socket.onAnyOutgoing((event, op, d) => {
+                logger.info('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', { op, d });
             });
             this.socket.once('disconnect', (reason, description) => {
                 logger.info('Socket connection closed', { reason, description });
