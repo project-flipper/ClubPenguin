@@ -237,8 +237,10 @@ export class DisneySocial {
      * 
      * The `allData` function retrieves all data associated with the first element
      * in the jQuery collection, utilizing jQuery's internal data cache.
+     * @param lang The language to use for the page. Defaults to "en".
      */
-    static init(): void {
+    static init(lang: string = "en"): void {
+        this.pageLang = lang;
         this.getPageLang();
         if (typeof $ !== 'undefined') {
             ($.fn as any).allData = function () {
@@ -259,7 +261,7 @@ export class DisneySocial {
      * @returns The language of the current page in lowercase, or "en" if not specified.
      */
     static getPageLang(): string {
-        let lang = "en";
+        let lang = this.pageLang;
         if (document.documentElement.lang && document.documentElement.lang !== "") {
             lang = document.documentElement.lang.toLowerCase();
         }

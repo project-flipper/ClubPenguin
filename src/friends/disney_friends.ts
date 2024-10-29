@@ -88,7 +88,7 @@ export class Friends extends Phaser.Events.EventEmitter {
         Environment.CLUBPENGUIN_CONTENT_URL = basePath;
         Environment.getAvatarUrl = getAvatarUrl;
     
-        DisneySocial.init();
+        DisneySocial.init(this.app.locale.abbreviation);
         Environment.init();
         SocialEvent.initEventManager();
     
