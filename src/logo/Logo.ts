@@ -91,7 +91,7 @@ export default class Logo extends Phaser.Scene {
         this.tweens.addMultiple([
             {
                 targets: [this.logo, this.logo_mask1, this.logo_mask2],
-                scale: 1.09842733,
+                scale: { from: 1, to: 1.09842733 },
                 duration: 7625,
                 onStart: () => this.scene.setVisible(true),
                 onComplete: () => this.hide()
