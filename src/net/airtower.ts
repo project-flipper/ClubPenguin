@@ -1,3 +1,5 @@
+import { io, Socket } from "socket.io-client";
+
 import { App } from "@clubpenguin/app/app";
 import { ApiResponse, CreateUserResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse, CreateUserForm } from "@clubpenguin/net/types/api";
 import { getLogger } from "@clubpenguin/lib/log";
@@ -187,7 +189,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
     #token: string;
     #key: string;
 
-    #ws: WebSocket;
+    socket: Socket;
 
     /**
      * Makes a request to the game API.
@@ -348,58 +350,61 @@ export class Airtower extends Phaser.Events.EventEmitter {
     }
 
     connect(url: string): Promise<void> {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             this.disconnect(1000);
-            this.#ws = new WebSocket(url);
-            this.#ws.onopen = () => {
-                logger.info('WebSocket connection opened');
-                this.emit('ws:open');
+            let response = await this.refresh();
+            this.socket = io(url, {
+                transports: ['websocket'],
+                reconnection: false,
+                auth: {
+                    token: response.data.access_token
+                }
+            });
+
+            this.socket.once('connect', () => {
+                logger.info('Socket connection opened');
+                this.emit('s:connect');
                 resolve();
-            };
-            this.#ws.onerror = () => {
-                logger.error('WebSocket connection closed due to an error');
-                this.emit('ws:error');
-                this.#ws = undefined;
+            });
+            this.socket.once('connect_error', error => {
+                logger.error('Socket connection closed due to an error', error);
+                this.emit('s:error');
+                this.socket = undefined;
                 reject();
-            };
-            this.#ws.onmessage = event => {
-                logger.debug('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', event.data);
-                this.emit('ws:message', event.data);
-            };
-            this.#ws.onclose = event => {
-                logger.info('WebSocket connection closed', event.code, event.reason);
-                this.emit('ws:close', event.code, event.reason);
-                this.#ws = undefined;
-            };
+            });
+            this.socket.on('message', packet => {
+                logger.info('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', packet);
+                this.emit('s:message', packet);
+            });
+            this.socket.onAnyOutgoing((op, d) => {
+                let packet = { op, d };
+                logger.info('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', packet);
+            });
+            this.socket.once('disconnect', (reason, description) => {
+                logger.info('Socket connection closed', { reason, description });
+                this.emit('s:disconnect', reason, description);
+                this.socket = undefined;
+                reject();
+            });
         });
     }
 
     isConnected(): boolean {
-        return this.#ws && this.#ws.readyState == this.#ws.OPEN;
+        return this.socket && this.socket.active;
     }
 
-    send(payload: any): void {
+    send(event: string, data: any): void {
         if (this.isConnected()) {
-            let data = JSON.stringify(payload);
-            this.#ws.send(data);
-            logger.debug('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', data);
+            logger.info('Sending', event, data);
+            this.socket.send(event, data);
         } else throw new Error('Connection not yet established');
     }
 
-    async sendAuth(): Promise<void> {
-        let response = await this.refresh();
-        this.send({
-            op: 'auth',
-            d: {
-                token: response.data.access_token
-            }
-        });
-    }
-
     disconnect(code?: number, reason?: string): void {
-        if (this.#ws) {
-            this.#ws.close(code, reason);
-            this.#ws = undefined;
+        if (this.socket) {
+            this.send('disconnect', { code, reason });
+            this.socket.disconnect();
+            this.socket = undefined;
         }
     }
 

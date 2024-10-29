@@ -78,6 +78,8 @@ export type ClientPayloads = {
     'player:action': ActionData,
 };
 
+export type ClientAcks = {};
+
 export type ClientPayload<P extends any, O extends keyof P, D extends P[O]> = {
     op: O,
     d: D

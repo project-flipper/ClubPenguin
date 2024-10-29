@@ -115,22 +115,16 @@ export class AirtowerProxy {
     @transform(Source.FROM_FLASH, 'sled', SledPackets.MESSAGE_JOIN_GAME)
     sledJoinGameFromFlash(...args: any[]): void {
         console.error('Received sled join game from flash', args);
-        this.world.send({
-            op: 'game:sled:join',
-            d: {}
-        });
+        this.world.send('game:sled:join', {});
     }
 
     @transform(Source.FROM_FLASH, 'sled', SledPackets.MESSAGE_GAME_MOVE)
     async sledGameMoveFromFlash(...args: any[]): Promise<void> {
         console.error('Received sled game move from flash', args);
-        this.world.send({
-            op: 'game:sled:move',
-            d: {
-                x: args[1],
-                y: args[2],
-                gameTime: args[3]
-            }
+        this.world.send('game:sled:move', {
+            x: args[1],
+            y: args[2],
+            gameTime: args[3]
         });
     }
 

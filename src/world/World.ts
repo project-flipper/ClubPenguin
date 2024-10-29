@@ -24,7 +24,7 @@ import { App } from "@clubpenguin/app/app";
 import { RelationshipType } from "@clubpenguin/net/types/relationship";
 import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
 import { getLogger } from "@clubpenguin/lib/log";
-import { ClientPayload, ClientPayloads, Payload, Payloads } from "@clubpenguin/net/types/payload";
+import { ClientAcks, ClientPayload, ClientPayloads, Payload, Payloads } from "@clubpenguin/net/types/payload";
 import { Emoji } from "@clubpenguin/net/types/message";
 import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
 import { WorldData } from "@clubpenguin/net/types/world";
@@ -103,10 +103,8 @@ export default class World extends Phaser.Scene {
             }, type: 'c', code: error.CONNECTION_LOST
         }));
 
-        this.game.airtower.on('ws:message', this.onWorldMessage, this);
-        this.game.airtower.on('ws:close', this.onWorldClose, this);
-
-        await this.game.airtower.sendAuth();
+        this.game.airtower.on('s:message', this.onWorldMessage, this);
+        this.game.airtower.on('s:disconnect', this.onWorldClose, this);
 
         let { data: myUser } = await this.game.airtower.getMyUser();
         this.myUser = myUser;
@@ -145,8 +143,7 @@ export default class World extends Phaser.Scene {
      * @param data The raw message data received from the world server.
      */
     onWorldMessage(data: any) {
-        let payload = JSON.parse(data);
-        this.handle(payload);
+        this.handle(data);
     }
 
     /**
@@ -158,7 +155,7 @@ export default class World extends Phaser.Scene {
         let error = this.scene.get('ErrorArea') as ErrorArea;
 
         let err: Partial<CPError> = {
-            message: 'shell.CONNECTION_LOST', buttonCallback: () => {
+            message: 'shell.CONNECTION_LOST', buttonLabel: 'Learn More', buttonCallback: () => {
                 window.location.reload();
                 return false;
             }, type: 'c', code: error.CONNECTION_LOST
@@ -447,10 +444,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -465,10 +459,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -483,10 +474,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -501,10 +489,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -519,10 +504,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -537,10 +519,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -555,10 +534,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -573,10 +549,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send( 'player:action', action);
     }
 
     /**
@@ -591,10 +564,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -609,10 +579,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -626,10 +593,7 @@ export default class World extends Phaser.Scene {
 
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send( 'player:action', action);
     }
 
     /**
@@ -643,10 +607,7 @@ export default class World extends Phaser.Scene {
 
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /**
@@ -665,10 +626,7 @@ export default class World extends Phaser.Scene {
         if (player.actions.equals(action)) return;
         player.actions.set(action);
 
-        this.send({
-            op: 'player:action',
-            d: action
-        });
+        this.send('player:action', action);
     }
 
     /* ========= ENGINE ========= */
@@ -678,10 +636,7 @@ export default class World extends Phaser.Scene {
      * The server is expected to send a room:join payload in response.
      */
     async spawnRoom(): Promise<void> {
-        this.send({
-            op: 'room:spawn',
-            d: {}
-        });
+        this.send('room:spawn', {});
     }
 
     /**
@@ -703,13 +658,10 @@ export default class World extends Phaser.Scene {
             let load = this.loadScreen;
             if (!load.isShowing) load.show();
 
-            this.send({
-                op: 'room:join',
-                d: {
-                    room_id: roomId,
-                    x,
-                    y
-                }
+            this.send('room:join',{
+                room_id: roomId,
+                x,
+                y
             });
         } else {
             logger.warn('Room not found', roomId);
@@ -726,12 +678,9 @@ export default class World extends Phaser.Scene {
             logger.warn('Already in a waddle', this.currentWaddleId);
             return;
         }
-        this.send({
-            op: 'waddle:join',
-            d: {
-                waddle_id: waddleId,
-                is_table: isTable
-            }
+        this.send('waddle:join',{
+            waddle_id: waddleId,
+            is_table: isTable
         });
     }
 
@@ -742,11 +691,8 @@ export default class World extends Phaser.Scene {
      */
     async leaveWaddle(): Promise<void> {
         if (!this.currentWaddleId) return;
-        this.send({
-            op: 'waddle:leave',
-            d: {
-                waddle_id: this.currentWaddleId
-            }
+        this.send('waddle:leave', {
+            waddle_id: this.currentWaddleId
         });
     }
 
@@ -771,11 +717,8 @@ export default class World extends Phaser.Scene {
 
             // TODO: Request
             this.gameStartParams = options;
-            this.send({
-                op: 'game:start',
-                d: {
-                    game_id: gameId
-                }
+            this.send('game:start', {
+                game_id: gameId
             });
         } else {
             logger.warn('Game not found', gameId);
@@ -789,12 +732,7 @@ export default class World extends Phaser.Scene {
 
     async endGame(score: number, roomId: number): Promise<void> {
         this.interface.promptSpinner.show();
-        this.send({
-            op: 'game:over',
-            d: {
-                score
-            }
-        });
+        this.send('game:over', { score });
 
         this.postGameRoomId = roomId;
     }
@@ -865,8 +803,8 @@ export default class World extends Phaser.Scene {
      * Sends a payload to the server.
      * @param payload The payload to be sent, which includes the operation key and the associated data.
      */
-    send<O extends keyof ClientPayloads, D extends ClientPayloads[O]>(payload: ClientPayload<ClientPayloads, O, D>): void {
-        this.game.airtower.send(payload);
+    send<O extends keyof ClientPayloads, D extends ClientPayloads[O]>(op: O, d: D): void {
+        this.game.airtower.send(op, d);
     }
 
     /**
