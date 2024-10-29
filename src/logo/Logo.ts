@@ -65,12 +65,6 @@ export default class Logo extends Phaser.Scene {
 
     /* START-USER-CODE */
 
-    // Write your code here
-
-    public animation: Phaser.Tweens.Tween;
-    public shine1: Phaser.Tweens.Tween;
-    public shine2: Phaser.Tweens.Tween;
-
     init(data: any): void {
         if (data?.oninit) data.oninit(this);
     }
@@ -92,32 +86,34 @@ export default class Logo extends Phaser.Scene {
     }
 
     show(): void {
-        this.scene.setVisible(true);
+        this.tweens.killAll();
 
-        this.animation = this.tweens.add({
-            targets: [this.logo, this.logo_mask1, this.logo_mask2],
-            scale: 1.09842733,
-            duration: 7625,
-            onComplete: () => this.hide()
-        });
-
-        this.shine1 = this.tweens.add({
-            targets: this.logo_shine1,
-            x: { from: -539, to: 543 },
-            ease: 'Sine.In',
-            duration: 1125,
-            delay: 2958
-        });
-        this.shine2 = this.tweens.add({
-            targets: this.logo_shine2,
-            x: { from: -499, to: 543 },
-            ease: 'Sine.In',
-            duration: 1083,
-            delay: 3083
-        });
+        this.tweens.addMultiple([
+            {
+                targets: [this.logo, this.logo_mask1, this.logo_mask2],
+                scale: 1.09842733,
+                duration: 7625,
+                onStart: () => this.scene.setVisible(true),
+                onComplete: () => this.hide()
+            }, {
+                targets: this.logo_shine1,
+                x: { from: -539, to: 543 },
+                ease: 'Sine.In',
+                duration: 1125,
+                delay: 2958
+            }, {
+                targets: this.logo_shine2,
+                x: { from: -499, to: 543 },
+                ease: 'Sine.In',
+                duration: 1083,
+                delay: 3083
+            }
+        ]);
     }
 
     hide(): void {
+        this.tweens.killAll();
+
         this.scene.setVisible(false);
     }
 
