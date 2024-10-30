@@ -253,6 +253,8 @@ export class PlayerManager {
         this.world.interface.removePlayerOverlay(player);
         this.engine.emit('player:remove', player);
 
+        if (player.actions) player.actions.stopMoving();
+        if (player.overlay) player.overlay.destroy();
         player.destroy();
         delete this.players[player.userData.id];
 
