@@ -764,8 +764,7 @@ export default class World extends Phaser.Scene {
         this.engine.player.overlay.balloon.showMessage(message, false);
         this.send('message:create', {
             type: 'TEXT',
-            message,
-            banned: false
+            message
         });
     }
 
@@ -778,8 +777,7 @@ export default class World extends Phaser.Scene {
         this.engine.player.overlay.balloon.showMessage(message, true);
         this.send('message:create', {
             type: 'JOKE',
-            joke,
-            banned: false
+            joke
         });
     }
 
@@ -788,8 +786,7 @@ export default class World extends Phaser.Scene {
      */
     async sendTour(): Promise<void> {
         this.send('message:create', {
-            type: 'TOUR',
-            banned: false
+            type: 'TOUR'
         });
     }
 

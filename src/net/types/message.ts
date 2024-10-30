@@ -35,27 +35,27 @@ export type TextMessageData = {
     type: 'TEXT',
     player_id?: number,
     message: string,
-    banned: boolean
+    banned?: boolean
 };
 
 export type EmojiMessageData = {
     type: 'EMOJI',
     player_id?: number,
     emoji: Emoji,
-    banned: boolean
+    banned?: boolean
 };
 
 export type JokeMessageData = {
     type: 'JOKE',
     player_id?: number,
     joke: number,
-    banned: boolean
+    banned?: boolean
 };
 
 export type TourMessageData = {
     type: 'TOUR',
     player_id?: number,
-    banned: boolean
+    banned?: boolean
 };
 
 export type MessageData = TextMessageData | JokeMessageData | EmojiMessageData | TourMessageData;
