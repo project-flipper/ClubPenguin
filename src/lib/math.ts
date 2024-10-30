@@ -43,3 +43,14 @@ export function getDirectionQuarters(angle: number): number {
 export function randomRange(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+/**
+ * Rounds the value to the specified precision.
+ * @param value The value to round.
+ * @param precision The number of decimal places to round to.
+ * @returns The rounded value.
+ */
+export function roundTo(value: number, precision: number): number {
+    let factor = Math.pow(10, precision);
+    return Math.round(value * factor) / factor;
+}

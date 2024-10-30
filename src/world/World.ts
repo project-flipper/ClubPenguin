@@ -30,6 +30,7 @@ import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
 import { WorldData } from "@clubpenguin/net/types/world";
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { ItemType } from "./engine/clothing/itemType";
+import { roundTo } from "@clubpenguin/lib/math";
 
 export let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
@@ -437,8 +438,8 @@ export default class World extends Phaser.Scene {
         let safe = this.engine.players.findPlayerPath(player, x, y);
         let action: ActionData = {
             frame: ActionFrame.WADDLE,
-            x: safe.x,
-            y: safe.y
+            x: roundTo(safe.x, 2),
+            y: roundTo(safe.y, 2)
         };
 
         if (player.actions.equals(action)) return;
@@ -619,8 +620,8 @@ export default class World extends Phaser.Scene {
         let player = this.engine.player;
         let action: ActionData = {
             frame: ActionFrame.THROW,
-            x: x,
-            y: y
+            x: roundTo(x, 2),
+            y: roundTo(y, 2)
         };
 
         if (player.actions.equals(action)) return;
@@ -971,10 +972,7 @@ export default class World extends Phaser.Scene {
     async handlePlayerAction(data: Payloads['player:action']): Promise<void> {
         let player = this.engine.getPlayer(data.player_id);
         if (player) {
-            if (player.actions.equals(data)) {
-                logger.warn('Player already has the same action', data);
-                return;
-            }
+            if (player.actions.equals(data)) return;
 
             player.actions.set(data);
         } else {
