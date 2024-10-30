@@ -858,7 +858,7 @@ export default class World extends Phaser.Scene {
     async handleUserUpdate(data: Payloads['user:update']): Promise<void> {
         if (this.isMyPlayer(data)) this.myUser = data;
 
-        this.updateUser(data);
+        this.updateUser(data, true);
     }
 
     @handle('room:join')

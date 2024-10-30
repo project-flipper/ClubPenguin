@@ -183,7 +183,7 @@ export class PlayerManager {
         player.createAnimations(this.engine);
         player.actions.reset();
 
-        player.hitbox.on('release', () => this.world.isMyPlayer(data) ? this.world.interface.openMyNamecard() : this.world.interface.openNamecard(data));
+        player.hitbox.on('release', () => this.world.isMyPlayer(player.userData) ? this.world.interface.openMyNamecard() : this.world.interface.openNamecard(player.userData));
         this.world.interface.attachPlayerOverlay(player);
 
         this._updatePlayer(player, data);
