@@ -74,7 +74,7 @@ export type ClientPayloads = {
     'game:over': {
         score: number
     },
-    'room:spawn': {},
+    'message:create': MessageData,
     'player:action': ActionData,
 };
 

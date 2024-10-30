@@ -418,8 +418,8 @@ export default class Interface extends Phaser.Scene {
                 handled = true;
                 break;
             case 'j':
-                let joke = Phaser.Math.RND.pick(this.game.gameConfig.jokes);
-                this.world.sendMessage(joke, true);
+                let joke = Phaser.Math.RND.between(0, this.game.gameConfig.jokes.length);
+                this.world.sendJoke(joke);
                 handled = true;
                 break;
             case '?':
@@ -514,7 +514,7 @@ export default class Interface extends Phaser.Scene {
 
         let message = this.ui.chatValue;
         if (message.length > 0) {
-            this.world.sendMessage(message, false);
+            this.world.sendMessage(message);
             this.ui.chatValue = '';
         }
     }

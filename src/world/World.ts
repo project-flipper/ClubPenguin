@@ -760,8 +760,37 @@ export default class World extends Phaser.Scene {
      * @param message The message to be sent.
      * @param allowAutopart Whether autopart messages are allowed.
      */
-    async sendMessage(message: string, allowAutopart: boolean = false): Promise<void> {
-        this.engine.player.overlay.balloon.showMessage(message, allowAutopart);
+    async sendMessage(message: string): Promise<void> {
+        this.engine.player.overlay.balloon.showMessage(message, false);
+        this.send('message:create', {
+            type: 'TEXT',
+            message,
+            banned: false
+        });
+    }
+
+    /**
+     * Sends a joke message.
+     * @param joke The joke ID to be sent.
+     */
+    async sendJoke(joke: number): Promise<void> {
+        let message = this.game.gameConfig.jokes[joke];
+        this.engine.player.overlay.balloon.showMessage(message, true);
+        this.send('message:create', {
+            type: 'JOKE',
+            joke,
+            banned: false
+        });
+    }
+
+    /**
+     * Sends a tour message.
+     */
+    async sendTour(): Promise<void> {
+        this.send('message:create', {
+            type: 'TOUR',
+            banned: false
+        });
     }
 
     /**
@@ -949,8 +978,12 @@ export default class World extends Phaser.Scene {
     async handleMessageCreate(data: Payloads['message:create']): Promise<void> {
         let author = this.engine.getPlayer(data.player_id);
         if (author) {
-            if (data.type == 'TEXT') author.overlay.balloon.showMessage(data.message, data.multipart);
+            if (data.type == 'TEXT') author.overlay.balloon.showMessage(data.message, false);
             else if (data.type == 'EMOJI') author.overlay.balloon.showEmoji(data.emoji);
+            else if (data.type == 'JOKE') {
+                let message = this.game.gameConfig.jokes[data.joke];
+                author.overlay.balloon.showMessage(message, true);
+            }
             else logger.warn('Received unknown message type!', data);
 
             author.overlay.balloon.setBanned(data.banned);
