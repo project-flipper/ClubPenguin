@@ -124,33 +124,37 @@ export class Engine extends EventEmitter {
      * Adds a player to the game world. If the player already exists, updates the player's data.
      * @param data - The data of the player to be added or updated.
      */
-    async addPlayer(data: PlayerData): Promise<void> {
+    async addPlayer(data: PlayerData): Promise<Player> {
         if (this.playerExists(data.user.id)) return this.updatePlayer(data);
 
         let player = await this.players.createPlayer(data.user, data.x, data.y);
         this.players.addPlayer(player);
         player.actions.set(data.action);
+        logger.info('Player added', data);
+        return player;
     }
 
     /**
      * Updates the player's state with the provided data.
      * @param data The data containing the player's new state.
      */
-    updatePlayer(data: PlayerData): void {
+    updatePlayer(data: PlayerData): Player {
         let player = this.getPlayer(data.user.id);
         this.players.updatePlayer(player, data.user);
         player.x = data.x;
         player.y = data.y;
         player.actions.set(data.action);
+        return player;
     }
 
     /**
      * Updates the player with the given user data if they exist in the world.
      * @param data The data to update the player with.
      */
-    updatePlayerWith(data: AnyUserData): void {
+    updatePlayerWith(data: AnyUserData): Player {
         let player = this.getPlayer(data.id);
         if (player) this.players.updatePlayer(player, data);
+        return player;
     }
 
     /**
@@ -382,7 +386,17 @@ export class Engine extends EventEmitter {
         this.interface.closeAll();
         this.interface.clearAvatarOverlays();
 
-        for (let playerData of players) await this.addPlayer(playerData);
+        for (let playerData of players) {
+            let player = await this.addPlayer(playerData);
+            
+            let clothingCallback = (p: Player) => {
+                if (p == player) {
+                    player.actions.set(playerData.action);
+                    this.off('clothing:ready', clothingCallback);
+                }
+            };
+            this.on('clothing:ready', clothingCallback);
+        }
 
         this.currentRoom.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.playerPointerUpHandler(pointer));
         this.currentRoom.input.on('pointermove', (pointer: Phaser.Input.Pointer) => this.playerPointerMoveHandler(pointer));

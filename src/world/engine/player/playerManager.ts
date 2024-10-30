@@ -27,7 +27,6 @@ export class PlayerManager {
         this.avatars = {};
         this.players = {};
 
-        this.engine.on('clothing:ready', (player: Player) => player.actions.reset());
         this.engine.on('clothing:add', (player: Player, sprite: ClothingSprite) => player.actions.reset());
         this.engine.on('room:unload', () => {
             this.players = {};
