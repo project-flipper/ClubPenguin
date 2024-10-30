@@ -285,6 +285,7 @@ export default class Login extends Phaser.Scene {
         if (accounts.length > 6) return;
         for (let account of accounts) if (account.user.id == user.id) {
             account.key = key;
+            account.user = user;
             localStorage.setItem('accounts', JSON.stringify(accounts));
             return;
         }
