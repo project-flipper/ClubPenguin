@@ -1,4 +1,5 @@
 import { ActionData } from "./action";
+import { AvatarData } from "./avatar";
 import { MessageData } from "./message";
 import { PlayerData } from "./player";
 import { AnyUserData } from "./user";
@@ -75,6 +76,7 @@ export type ClientPayloads = {
         score: number
     },
     'message:create': MessageData,
+    'player:avatar': Partial<AvatarData>,
     'player:action': ActionData,
 };
 

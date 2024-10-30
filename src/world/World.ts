@@ -266,21 +266,7 @@ export default class World extends Phaser.Scene {
      * @param mask - A partial object containing the avatar data to be updated.
      */
     updateAvatar(mask: Partial<AvatarData>) {
-        let player = this.engine.player;
-        let user = this.myUser;
-        user.avatar = { ...user.avatar, ...mask };
-        this.handle({
-            op: 'player:update',
-            d: {
-                user,
-                x: player.x,
-                y: player.y,
-                action: {
-                    frame: 0,
-                    player: user.id
-                }
-            }
-        });
+        this.send('player:avatar', mask);
     }
 
     /**
@@ -796,6 +782,10 @@ export default class World extends Phaser.Scene {
      */
     async sendEmoji(emoji: Emoji): Promise<void> {
         this.engine.player.overlay.balloon.showEmoji(emoji);
+        this.send('message:create', {
+            type: 'EMOJI',
+            emoji
+        });
     }
 
     /**
