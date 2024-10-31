@@ -513,7 +513,7 @@ export default class Town extends Phaser.Scene implements Room {
 
         this.danceDoorArea.on('over', () => {
             this.playDiscoAnimation();
-            this.sound.play('town2013-discoopen-animation');
+            this.sound.play('town2013-discoopen');
             this.tweens.killTweensOf(this.danceDoor);
             this.tweens.add({
                 targets: this.danceDoor,
@@ -525,7 +525,7 @@ export default class Town extends Phaser.Scene implements Room {
         });
         this.danceDoorArea.on('out', () => {
             this.stopDiscoAnimation();
-            this.sound.play('town2013-discoclose-animation');
+            this.sound.play('town2013-discoclose');
             this.tweens.killTweensOf(this.danceDoor);
             this.tweens.add({
                 targets: this.danceDoor,
