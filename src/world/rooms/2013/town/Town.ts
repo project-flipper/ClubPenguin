@@ -74,6 +74,7 @@ export default class Town extends Phaser.Scene implements Room {
         // speakers
         const speakers = this.add.sprite(751.5, 328.275, "town2013", "town/speakers1");
         speakers.setOrigin(0, 0);
+        speakers.play("town2013-speakers-animation");
 
         // spotlightLeft
         const spotlightLeft = this.add.image(824.7375, 242.8875, "town2013", "town/spotlightleft");
@@ -422,7 +423,6 @@ export default class Town extends Phaser.Scene implements Room {
     create(data: any): void {
 
         this.editorCreate();
-        this.speakers.play('town2013-townspeakers');
 
         this.discolights.visible = false;
         this.discolights.on('animationstart', () => this.discolights.visible = true);
@@ -513,7 +513,7 @@ export default class Town extends Phaser.Scene implements Room {
 
         this.danceDoorArea.on('over', () => {
             this.playDiscoAnimation();
-            this.sound.play('town2013-discoopen');
+            this.sound.play('town2013-discoopen-animation');
             this.tweens.killTweensOf(this.danceDoor);
             this.tweens.add({
                 targets: this.danceDoor,
@@ -525,7 +525,7 @@ export default class Town extends Phaser.Scene implements Room {
         });
         this.danceDoorArea.on('out', () => {
             this.stopDiscoAnimation();
-            this.sound.play('town2013-discoclose');
+            this.sound.play('town2013-discoclose-animation');
             this.tweens.killTweensOf(this.danceDoor);
             this.tweens.add({
                 targets: this.danceDoor,
@@ -559,29 +559,29 @@ export default class Town extends Phaser.Scene implements Room {
     discoAnimationComplete(animation: Phaser.Animations.Animation): void {
         this.discolights.visible = false;
 
-        if (animation.key == 'town2013-discostars1') {
+        if (animation.key == 'town2013-discostars1-animation') {
             this.animation2Count = 0;
             this.animation2Phase = 0;
-            this.discolights.playAfterDelay('town2013-discostars2', 250);
-        } else if (animation.key == 'town2013-discostars2' && this.animation2Count < 2) {
+            this.discolights.playAfterDelay('town2013-discostars2-animation', 250);
+        } else if (animation.key == 'town2013-discostars2-animation' && this.animation2Count < 2) {
             this.animation2Count += 1;
-            this.discolights.playAfterDelay('town2013-discostars2', 83.3333333);
-        } else if (animation.key == 'town2013-discostars2' && this.animation2Count > 1 && this.animation2Phase == 0) {
+            this.discolights.playAfterDelay('town2013-discostars2-animation', 83.3333333);
+        } else if (animation.key == 'town2013-discostars2-animation' && this.animation2Count > 1 && this.animation2Phase == 0) {
             this.animation2Count = 0;
-            this.discolights.playAfterDelay('town2013-discostars3', 416.666667);
-        } else if (animation.key == 'town2013-discostars3') {
+            this.discolights.playAfterDelay('town2013-discostars3-animation', 416.666667);
+        } else if (animation.key == 'town2013-discostars3-animation') {
             this.animation2Count = 0;
             this.animation2Phase = 1;
-            this.discolights.playAfterDelay('town2013-discostars2', 250);
-        } else if (animation.key == 'town2013-discostars2' && this.animation2Count > 1 && this.animation2Phase == 1) {
+            this.discolights.playAfterDelay('town2013-discostars2-animation', 250);
+        } else if (animation.key == 'town2013-discostars2-animation' && this.animation2Count > 1 && this.animation2Phase == 1) {
             this.animation2Count = 0;
-            this.discolights.playAfterDelay('town2013-discostars1', 375);
+            this.discolights.playAfterDelay('town2013-discostars1-animation', 375);
         }
     }
 
     playDiscoAnimation(): void {
         this.stopDiscoAnimation();
-        this.discolights.play('town2013-discostars1');
+        this.discolights.play('town2013-discostars1-animation');
     }
 
     stopDiscoAnimation(): void {
