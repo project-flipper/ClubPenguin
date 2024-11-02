@@ -635,9 +635,12 @@
             "label": "standbtn",
             "scope": "PUBLIC",
             "components": [
-                "ButtonComponent"
+                "ButtonComponent",
+                "GameTrigger"
             ],
             "ButtonComponent.pixelPerfect": true,
+            "GameTrigger.game_id": "fnaf",
+            "GameTrigger.prompt": "fnaf_prompt",
             "texture": {
                 "key": "pizza2013",
                 "frame": "pizza/standbtn0004"
@@ -753,7 +756,8 @@
             "label": "triggers",
             "objectIds": [
                 "32f436bf-ec2a-4abe-8777-ea907d1dc6c8",
-                "0afeb940-99be-427f-aac8-2b9f2ca8cacd"
+                "0afeb940-99be-427f-aac8-2b9f2ca8cacd",
+                "3056e6b3-d618-421f-85bd-d425b4e8f318"
             ],
             "scope": "PUBLIC"
         }

@@ -253,7 +253,7 @@ export default class Pizza extends Phaser.Scene implements Room {
         block.visible = false;
 
         // lists
-        const triggers = [pizzatron_trigger, plaza_trigger];
+        const triggers = [pizzatron_trigger, plaza_trigger, standbtn];
 
         // kitchendoor_hit (components)
         const kitchendoor_hitButtonComponent = new ButtonComponent(kitchendoor_hit);
@@ -364,6 +364,9 @@ export default class Pizza extends Phaser.Scene implements Room {
         // standbtn (components)
         const standbtnButtonComponent = new ButtonComponent(standbtn);
         standbtnButtonComponent.pixelPerfect = true;
+        const standbtnGameTrigger = new GameTrigger(standbtn);
+        standbtnGameTrigger.game_id = "fnaf";
+        standbtnGameTrigger.prompt = "fnaf_prompt";
 
         // registerbtn (components)
         const registerbtnButtonComponent = new ButtonComponent(registerbtn);
