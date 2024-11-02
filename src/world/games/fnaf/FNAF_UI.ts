@@ -35,26 +35,40 @@ export default class FNAF_UI extends Phaser.Scene {
         camstatic.play("fnaf-static-animation");
 
         // fastLeft
-        const fastLeft = this.add.rectangle(0, 0, 164, 720);
+        const fastLeft = this.add.rectangle(0, 0, 80, 720);
         fastLeft.setOrigin(0, 0);
         fastLeft.alpha = 0.01;
         fastLeft.isFilled = true;
 
-        // fastRight
-        const fastRight = this.add.rectangle(1140, 0, 164, 720);
-        fastRight.setOrigin(1, 0);
-        fastRight.alpha = 0.01;
-        fastRight.isFilled = true;
+        // mediumLeft
+        const mediumLeft = this.add.rectangle(80, 0, 130, 720);
+        mediumLeft.setOrigin(0, 0);
+        mediumLeft.alpha = 0.01;
+        mediumLeft.isFilled = true;
+        mediumLeft.fillColor = 12697278;
 
         // scrollLeft
-        const scrollLeft = this.add.rectangle(164, 0, 256, 720);
+        const scrollLeft = this.add.rectangle(210, 0, 200, 720);
         scrollLeft.setOrigin(0, 0);
         scrollLeft.alpha = 0.01;
         scrollLeft.isFilled = true;
         scrollLeft.fillColor = 7763574;
 
+        // fastRight
+        const fastRight = this.add.rectangle(1140, 0, 80, 720);
+        fastRight.setOrigin(1, 0);
+        fastRight.alpha = 0.01;
+        fastRight.isFilled = true;
+
+        // mediumRight
+        const mediumRight = this.add.rectangle(1060, 0, 130, 720);
+        mediumRight.setOrigin(1, 0);
+        mediumRight.alpha = 0.01;
+        mediumRight.isFilled = true;
+        mediumRight.fillColor = 12697278;
+
         // scrollRight
-        const scrollRight = this.add.rectangle(976, 0, 256, 720);
+        const scrollRight = this.add.rectangle(930, 0, 200, 720);
         scrollRight.setOrigin(1, 0);
         scrollRight.alpha = 0.01;
         scrollRight.isFilled = true;
@@ -297,8 +311,10 @@ export default class FNAF_UI extends Phaser.Scene {
 
         this.camstatic = camstatic;
         this.fastLeft = fastLeft;
-        this.fastRight = fastRight;
+        this.mediumLeft = mediumLeft;
         this.scrollLeft = scrollLeft;
+        this.fastRight = fastRight;
+        this.mediumRight = mediumRight;
         this.scrollRight = scrollRight;
         this.monitor = monitor;
         this.blipper = blipper;
@@ -334,8 +350,10 @@ export default class FNAF_UI extends Phaser.Scene {
 
     public camstatic!: Phaser.GameObjects.Sprite;
     public fastLeft!: Phaser.GameObjects.Rectangle;
-    public fastRight!: Phaser.GameObjects.Rectangle;
+    public mediumLeft!: Phaser.GameObjects.Rectangle;
     public scrollLeft!: Phaser.GameObjects.Rectangle;
+    public fastRight!: Phaser.GameObjects.Rectangle;
+    public mediumRight!: Phaser.GameObjects.Rectangle;
     public scrollRight!: Phaser.GameObjects.Rectangle;
     public monitor!: Phaser.GameObjects.Sprite;
     public blipper!: Phaser.GameObjects.Sprite;
@@ -377,9 +395,11 @@ export default class FNAF_UI extends Phaser.Scene {
     public currentView: View;
 
     public scrollingLeft: boolean = false;
-    public scrollingFarLeft: boolean = false;
+    public scrollingMediumLeft: boolean = false;
+    public scrollingFastLeft: boolean = false;
     public scrollingRight: boolean = false;
-    public scrollingFarRight: boolean = false;
+    public scrollingMediumRight: boolean = false;
+    public scrollingFastRight: boolean = false;
 
     create() {
 
@@ -395,17 +415,25 @@ export default class FNAF_UI extends Phaser.Scene {
         this.scrollLeft.on('pointerover', () => this.scrollingLeft = true);
         this.scrollLeft.on('pointerout', () => this.scrollingLeft = false);
 
+        this.mediumLeft.setInteractive();
+        this.mediumLeft.on('pointerover', () => this.scrollingMediumLeft = true);
+        this.mediumLeft.on('pointerout', () => this.scrollingMediumLeft = false);
+
         this.fastLeft.setInteractive();
-        this.fastLeft.on('pointerover', () => this.scrollingFarLeft = true);
-        this.fastLeft.on('pointerout', () => this.scrollingFarLeft = false);
+        this.fastLeft.on('pointerover', () => this.scrollingFastLeft = true);
+        this.fastLeft.on('pointerout', () => this.scrollingFastLeft = false);
 
         this.scrollRight.setInteractive();
         this.scrollRight.on('pointerover', () => this.scrollingRight = true);
         this.scrollRight.on('pointerout', () => this.scrollingRight = false);
 
+        this.mediumRight.setInteractive();
+        this.mediumRight.on('pointerover', () => this.scrollingMediumRight = true);
+        this.mediumRight.on('pointerout', () => this.scrollingMediumRight = false);
+
         this.fastRight.setInteractive();
-        this.fastRight.on('pointerover', () => this.scrollingFarRight = true);
-        this.fastRight.on('pointerout', () => this.scrollingFarRight = false);
+        this.fastRight.on('pointerover', () => this.scrollingFastRight = true);
+        this.fastRight.on('pointerout', () => this.scrollingFastRight = false);
 
         this.cameraFlipper.on('out', () => this.cameraFlipper.alpha = 1);
         this.cameraFlipper.on('over', () => {
@@ -615,13 +643,12 @@ export default class FNAF_UI extends Phaser.Scene {
         else if (usage >= 2) usageFrame = "fnaf/Office/Door & Lights/Power/213";
         else usageFrame = "fnaf/Office/Door & Lights/Power/212";
 
-        this.usage.visible = true;
         this.usage.setFrame(usageFrame);
     }
 
     onPowerUpdate(power: number): void {
         if (power <= 0) {
-            if (this.fnaf.isLookingAtCameras) this.flipCamerasDown();
+            if (this.currentView == View.CAMERAS) this.flipCamerasDown(false);
             this.usage.visible = false;
             this.hour.visible = false;
             this.power.visible = false;
@@ -703,9 +730,11 @@ export default class FNAF_UI extends Phaser.Scene {
     update(time: number, delta: number): void {
         if (this.fnaf.isGameLocked) return;
         this.fnaf.officeScroller.x -= this.scrollingLeft ? delta * 0.1 : 0;
-        this.fnaf.officeScroller.x -= this.scrollingFarLeft ? delta * 0.5 : 0;
+        this.fnaf.officeScroller.x -= this.scrollingMediumLeft ? delta * 0.5 : 0;
+        this.fnaf.officeScroller.x -= this.scrollingFastLeft ? delta * 1 : 0;
         this.fnaf.officeScroller.x += this.scrollingRight ? delta * 0.1 : 0;
-        this.fnaf.officeScroller.x += this.scrollingFarRight ? delta * 0.5 : 0;
+        this.fnaf.officeScroller.x += this.scrollingMediumRight ? delta * 0.5 : 0;
+        this.fnaf.officeScroller.x += this.scrollingFastRight ? delta * 1 : 0;
         this.fnaf.officeScroller.x = Math.min(Math.max(570, this.fnaf.officeScroller.x), 1030);
     }
 
