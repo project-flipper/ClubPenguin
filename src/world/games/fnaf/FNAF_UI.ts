@@ -7,6 +7,7 @@ enum View {
 
 import ButtonComponent from "../../../lib/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
+import InputBlocker from "../../../lib/components/InputBlocker";
 /* START-USER-IMPORTS */
 import FNAF, { Location } from "./FNAF";
 /* END-USER-IMPORTS */
@@ -87,11 +88,6 @@ export default class FNAF_UI extends Phaser.Scene {
 
         // cams
         const cams = this.add.layer();
-
-        // muteCall
-        const muteCall = this.add.image(36, 32, "fnaf", "fnaf/Numbers & Nights/Camera and Nights/481");
-        muteCall.setOrigin(0, 0);
-        cams.add(muteCall);
 
         // location
         const location = this.add.image(723, 309, "fnaf", "fnaf/Locations/Names/54");
@@ -247,6 +243,23 @@ export default class FNAF_UI extends Phaser.Scene {
         night.text = "Night 1";
         night.fontSize = -15;
 
+        // muteCall
+        const muteCall = this.add.image(36, 32, "fnaf", "fnaf/Numbers & Nights/Camera and Nights/481");
+        muteCall.setOrigin(0, 0);
+
+        // globalstatic
+        const globalstatic = this.add.sprite(-70, 0, "fnaf", "fnaf/Static & Menu/Full Static/12");
+        globalstatic.setOrigin(0, 0);
+        globalstatic.visible = false;
+        globalstatic.play("fnaf-static-animation");
+
+        // gameoverblock
+        const gameoverblock = this.add.rectangle(0, 0, 1140, 720);
+        gameoverblock.setOrigin(0, 0);
+        gameoverblock.visible = false;
+        gameoverblock.isFilled = true;
+        gameoverblock.fillColor = 0;
+
         // close
         const close = this.add.image(1115, 40, "interface", "interface/promptClose0001");
         close.scaleX = 0.5;
@@ -268,6 +281,12 @@ export default class FNAF_UI extends Phaser.Scene {
         night.boxHeight = 100;
         night.horizontalAlign = 2;
 
+        // globalstatic (components)
+        new InputBlocker(globalstatic);
+
+        // gameoverblock (components)
+        new InputBlocker(gameoverblock);
+
         // close (components)
         const closeButtonComponent = new ButtonComponent(close);
         closeButtonComponent.upTexture = {"key":"interface","frame":"interface/promptClose0001"};
@@ -287,7 +306,6 @@ export default class FNAF_UI extends Phaser.Scene {
         this.powerLabel = powerLabel;
         this.usage = usage;
         this.cameraFlipper = cameraFlipper;
-        this.muteCall = muteCall;
         this.location = location;
         this.cam1a = cam1a;
         this.cam1b = cam1b;
@@ -305,6 +323,9 @@ export default class FNAF_UI extends Phaser.Scene {
         this.power = power;
         this.hour = hour;
         this.night = night;
+        this.muteCall = muteCall;
+        this.globalstatic = globalstatic;
+        this.gameoverblock = gameoverblock;
         this.close = close;
         this.camsbtn = camsbtn;
 
@@ -322,7 +343,6 @@ export default class FNAF_UI extends Phaser.Scene {
     public powerLabel!: Phaser.GameObjects.Image;
     public usage!: Phaser.GameObjects.Image;
     public cameraFlipper!: Phaser.GameObjects.Image;
-    public muteCall!: Phaser.GameObjects.Image;
     public location!: Phaser.GameObjects.Image;
     public cam1a!: Phaser.GameObjects.Sprite;
     public cam1b!: Phaser.GameObjects.Sprite;
@@ -340,6 +360,9 @@ export default class FNAF_UI extends Phaser.Scene {
     public power!: Phaser.GameObjects.BitmapText;
     public hour!: TextBox;
     public night!: TextBox;
+    public muteCall!: Phaser.GameObjects.Image;
+    public globalstatic!: Phaser.GameObjects.Sprite;
+    public gameoverblock!: Phaser.GameObjects.Rectangle;
     public close!: Phaser.GameObjects.Image;
     private camsbtn!: Phaser.GameObjects.Sprite[];
 
@@ -361,6 +384,7 @@ export default class FNAF_UI extends Phaser.Scene {
     create() {
 
         this.editorCreate();
+        this.input.setTopOnly(true);
 
         this.cameras.main.setZoom(1080 / 720);
         this.cameras.main.setOrigin(0, 0);
@@ -389,7 +413,7 @@ export default class FNAF_UI extends Phaser.Scene {
             this.cameraFlipper.alpha = 0.01;
             if (this.monitor.anims.isPlaying) return;
 
-            if (this.fnaf.lookingAtCameras) this.flipCamerasDown();
+            if (this.fnaf.isLookingAtCameras) this.flipCamerasDown();
             else this.flipCamerasUp();
         });
 
@@ -540,6 +564,7 @@ export default class FNAF_UI extends Phaser.Scene {
         this.muteCall.visible = false;
         this.muteCall.setInteractive();
         let call = this.time.delayedCall(5000, () => this.muteCall.visible = true);
+        this.time.delayedCall(20000, () => this.muteCall.visible = false);
         switch (this.fnaf.currentNight) {
             case 1:
                 this.sound.play('fnaf-voiceover1c');
@@ -596,7 +621,7 @@ export default class FNAF_UI extends Phaser.Scene {
 
     onPowerUpdate(power: number): void {
         if (power <= 0) {
-            if (this.fnaf.lookingAtCameras) this.flipCamerasDown();
+            if (this.fnaf.isLookingAtCameras) this.flipCamerasDown();
             this.usage.visible = false;
             this.hour.visible = false;
             this.power.visible = false;
@@ -665,8 +690,14 @@ export default class FNAF_UI extends Phaser.Scene {
         this.powerLabel.visible = false;
     }
 
-    onGameEnd(): void {
-
+    onGameEnd(hour: number): void {
+        if (hour != 6) {
+            this.globalstatic.visible = true;
+            this.sound.play('fnaf-static');
+        } else {
+            this.gameoverblock.visible = true;
+            this.sound.play('fnaf-chimes-2');
+        }
     }
 
     update(time: number, delta: number): void {
@@ -697,7 +728,7 @@ export default class FNAF_UI extends Phaser.Scene {
     }
 
     blipCameras(): void {
-        if (!this.fnaf.lookingAtCameras) return;
+        if (!this.fnaf.isLookingAtCameras) return;
 
         this.sound.play('fnaf-blip3');
         this.blipper.visible = true;

@@ -87,7 +87,7 @@ class Freddy extends Animatronic {
                 if (this.game.bonnie.location != Location.SHOW_STAGE && this.game.chica.location != Location.SHOW_STAGE) return Location.DINING_HALL;
                 else return Location.SHOW_STAGE;
             case Location.DINING_HALL:
-                return Phaser.Math.RND.pick([ Location.EAST_HALL, Location.RESTROOMS, Location.KITCHEN ]);
+                return Phaser.Math.RND.pick([Location.EAST_HALL, Location.RESTROOMS, Location.KITCHEN]);
             case Location.EAST_HALL:
                 return Location.EAST_HALL_CORNER;
             case Location.EAST_HALL_CORNER:
@@ -107,19 +107,19 @@ class Freddy extends Animatronic {
 
     move(): void {
         if (this.canMove()) {
+            let laugh = false;
             let lastLocation = this.location;
             this.location = this.computeMove();
-            if (this.location != lastLocation) {
-                this.game.sound.play('fnaf-deep-steps');
-                this.game.sound.play(Phaser.Math.RND.pick(['fnaf-Laugh_Giggle_Girl_1d', 'fnaf-Laugh_Giggle_Girl_2d', 'fnaf-Laugh_Giggle_Girl_8d']));
-            }
+            if (this.location != lastLocation) laugh =true;
             if (this.location == Location.OFFICE) {
+                this.game.enteredOffice(this);
                 if (!this.game.rightDoorClosed) this.game.showJumpscare(this);
                 else {
-                    this.game.sound.play('fnaf-deep-steps');
                     this.reset();
+                    laugh = true;
                 }
             }
+            if (laugh) this.game.sound.play(Phaser.Math.RND.pick(['fnaf-Laugh_Giggle_Girl_1d', 'fnaf-Laugh_Giggle_Girl_2d', 'fnaf-Laugh_Giggle_Girl_8d']));
             this.game.updateFrame();
         }
     }
@@ -140,11 +140,11 @@ class Bonnie extends Animatronic {
             case Location.SHOW_STAGE:
                 return Location.DINING_HALL;
             case Location.DINING_HALL:
-                return Phaser.Math.RND.pick([ Location.WEST_HALL, Location.BACKSTAGE ]);
+                return Phaser.Math.RND.pick([Location.WEST_HALL, Location.BACKSTAGE]);
             case Location.BACKSTAGE:
                 return Location.DINING_HALL;
             case Location.WEST_HALL:
-                return Phaser.Math.RND.pick([ Location.WEST_HALL_CORNER, Location.SUPPLY_CLOSET]);
+                return Phaser.Math.RND.pick([Location.WEST_HALL_CORNER, Location.SUPPLY_CLOSET]);
             case Location.WEST_HALL_CORNER:
                 return Location.OUTSIDE_OFFICE;
             default:
@@ -158,27 +158,37 @@ class Bonnie extends Animatronic {
 
     move(): void {
         if (this.canMove()) {
+            let stepsVolume = 0;
             let lastLocation = this.location;
             this.location = this.computeMove();
-            if (this.location == Location.DINING_HALL) this.state = Phaser.Math.RND.between(0, 1);
             if (this.location != lastLocation) {
-                this.game.sound.play('fnaf-deep-steps');
-                if (this.location == Location.OUTSIDE_OFFICE) this.game.leftScare = false; 
+                stepsVolume = 0.1;
+                if (this.location == Location.OUTSIDE_OFFICE) this.game.leftScare = false;
             }
             if (this.location == Location.OFFICE) {
-                if (!this.game.leftDoorClosed) this.game.showJumpscare(this);
+                this.game.enteredOffice(this);
+                if (!this.game.leftDoorClosed) this.game.enteredOffice(this);
                 else {
-                    this.game.sound.play('fnaf-deep-steps');
                     this.reset();
+                    stepsVolume = 0.3;
                 }
             }
+            if (this.location == Location.DINING_HALL) {
+                stepsVolume = 0.2;
+                this.state = Phaser.Math.RND.between(0, 1);
+            }
+            if (this.location == Location.WEST_HALL || this.location == Location.SUPPLY_CLOSET) stepsVolume = 0.3;
+            if (this.location == Location.WEST_HALL_CORNER) stepsVolume = 0.4;
+            if (this.location == Location.OUTSIDE_OFFICE) stepsVolume = 0;
             if (this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) this.game.breakCameras();
+            if (stepsVolume > 0) this.game.sound.play('fnaf-deep-steps', { volume: stepsVolume });
             this.game.updateFrame();
         }
     }
 
     reset(): void {
         this.location = Location.DINING_HALL;
+        this.state = Phaser.Math.RND.between(0, 1);
     }
 }
 
@@ -193,11 +203,11 @@ class Chica extends Animatronic {
             case Location.SHOW_STAGE:
                 return Location.DINING_HALL;
             case Location.DINING_HALL:
-                return Phaser.Math.RND.pick([ Location.EAST_HALL, Location.RESTROOMS, Location.KITCHEN ]);
+                return Phaser.Math.RND.pick([Location.EAST_HALL, Location.RESTROOMS, Location.KITCHEN]);
             case Location.RESTROOMS:
-                return Phaser.Math.RND.pick([ Location.DINING_HALL, Location.KITCHEN ]);
+                return Phaser.Math.RND.pick([Location.DINING_HALL, Location.KITCHEN]);
             case Location.KITCHEN:
-                return Phaser.Math.RND.pick([ Location.EAST_HALL, Location.DINING_HALL ]);
+                return Phaser.Math.RND.pick([Location.EAST_HALL, Location.DINING_HALL]);
             case Location.EAST_HALL:
                 return Location.EAST_HALL_CORNER;
             case Location.EAST_HALL_CORNER:
@@ -213,27 +223,35 @@ class Chica extends Animatronic {
 
     move(): void {
         if (this.canMove()) {
+            let stepsVolume = 0;
             let lastLocation = this.location;
             this.location = this.computeMove();
-            if (this.location == Location.DINING_HALL || this.location == Location.RESTROOMS || this.location == Location.EAST_HALL) this.state = Phaser.Math.RND.between(0, 1);
             if (this.location != lastLocation) {
-                this.game.sound.play('fnaf-deep-steps');
+                stepsVolume = 0.1;
                 if (this.location == Location.OUTSIDE_OFFICE) this.game.rightScare = false;
             }
             if (this.location == Location.OFFICE) {
-                if (!this.game.rightDoorClosed) this.game.showJumpscare(this);
+                this.game.enteredOffice(this);
+                if (!this.game.rightDoorClosed) this.game.enteredOffice(this);
                 else {
-                    this.game.sound.play('fnaf-deep-steps');
                     this.reset();
+                    stepsVolume = 0.4;
                 }
             }
+            if (this.location == Location.DINING_HALL || this.location == Location.RESTROOMS || this.location == Location.EAST_HALL) this.state = Phaser.Math.RND.between(0, 1);
+            if (this.location == Location.KITCHEN || this.location == Location.RESTROOMS) stepsVolume = 0.2;
+            if (this.location == Location.EAST_HALL) stepsVolume = 0.3;
+            if (this.location == Location.EAST_HALL_CORNER) stepsVolume = 0.4;
+            if (this.location == Location.OUTSIDE_OFFICE) stepsVolume = 0;
             if (this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) this.game.breakCameras();
+            if (stepsVolume > 0) this.game.sound.play('fnaf-deep-steps', { volume: stepsVolume });
             this.game.updateFrame();
         }
     }
 
     reset(): void {
         this.location = Location.DINING_HALL;
+        this.state = Phaser.Math.RND.between(0, 1);
     }
 }
 
@@ -247,7 +265,7 @@ class Foxy extends Animatronic {
     }
 
     computeMove(): Location {
-        if (this.state < 3) {
+        if (this.state < 2) {
             return Location.PIRATE_COVE;
         } else if (this.state == 2) {
             return Location.WEST_HALL;
@@ -257,7 +275,7 @@ class Foxy extends Animatronic {
     }
 
     canMove(): boolean {
-        return this.hasMovementChance() && !this.game.lookingAtCameras;
+        return this.hasMovementChance() && !this.game.isLookingAtCameras;
     }
 
     move(): void {
@@ -271,6 +289,7 @@ class Foxy extends Animatronic {
 
         this.game.updateFrame();
         if (this.location == Location.OFFICE) {
+            this.game.enteredOffice(this);
             if (!this.game.leftDoorClosed) this.game.showJumpscare(this);
             else {
                 this.game.sound.play('fnaf-knock2');
@@ -446,7 +465,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     public currentCamera: Location = Location.SHOW_STAGE;
     public powerDecreaseRate = 0.125;
 
-    public lookingAtCameras = false;
+    public isLookingAtCameras = false;
     public isGameLocked = false;
     public isGameOver = false;
 
@@ -459,6 +478,10 @@ export default class FNAF extends Phaser.Scene implements Game {
     public leftScare = false;
     public rightScare = false;
     public foxyRunning = false;
+
+    public poundingEvent: Phaser.Time.TimerEvent;
+    public circusEvent: Phaser.Time.TimerEvent;
+    public singingEvent: Phaser.Time.TimerEvent;
 
     public freddy: Freddy;
     public bonnie: Bonnie;
@@ -476,7 +499,9 @@ export default class FNAF extends Phaser.Scene implements Game {
     init(data: any): void {
         this.scene.moveBelow('Interface');
 
-        this.currentNight = 5//Phaser.Math.RND.between(1, 6);
+        let savedNight = sessionStorage.getItem('fnaf-night');
+        if (savedNight) this.currentNight = Math.min(parseInt(savedNight), 7);
+        else this.currentNight = 1;
 
         let freddyAI: number;
         let bonnieAI: number;
@@ -593,14 +618,46 @@ export default class FNAF extends Phaser.Scene implements Game {
         if (this.loadScreen.isShowing) this.loadScreen.hide();
     }
 
+    startRandomEvents(): void {
+        this.poundingEvent = this.time.addEvent({
+            callback: () => {
+                if (this.isGameOver || this.sound.isPlaying('fnaf-DOOR_POUNDING_ME_D0291401')) return;
+                if (Phaser.Math.RND.between(1, 50) <= 1) this.sound.play('fnaf-DOOR_POUNDING_ME_D0291401', { volume: Phaser.Math.RND.between(10, 40) });
+            },
+            delay: 10000
+        });
+
+        this.circusEvent = this.time.addEvent({
+            callback: () => {
+                if (this.isGameOver || this.sound.isPlaying('fnaf-circus')) return;
+                if (Phaser.Math.RND.between(1, 30) <= 1) this.sound.play('fnaf-circus');
+            },
+            delay: 5000
+        });
+
+        this.singingEvent = this.time.addEvent({
+            callback: () => {
+                if (this.isGameOver || this.sound.isPlaying('fnaf-pirate-song2')) return;
+                if (Phaser.Math.RND.between(1, 30) <= 1 && this.foxy.location == Location.PIRATE_COVE && this.foxy.state == 0) this.sound.play('fnaf-pirate-song2', { volume: (this.isLookingAtCameras && this.currentCamera == Location.PIRATE_COVE) ? 0.15 : 0.05 });
+            },
+            delay: 4000
+        });
+    }
+
+    stopRandomEvents(): void {
+        if (this.poundingEvent) this.poundingEvent.remove();
+        if (this.circusEvent) this.circusEvent.remove();
+        if (this.singingEvent) this.singingEvent.remove();
+    }
+
     get powerUsage(): number {
-        return 1 + (this.leftDoorClosed ? 1 : 0) + (this.rightDoorClosed ? 1 : 0) + (this.lookingAtCameras ? 1 : 0) + (this.leftDoorLight ? 1 : 0) + (this.rightDoorLight ? 1 : 0);
+        return 1 + (this.leftDoorClosed ? 1 : 0) + (this.rightDoorClosed ? 1 : 0) + (this.isLookingAtCameras ? 1 : 0) + (this.leftDoorLight ? 1 : 0) + (this.rightDoorLight ? 1 : 0);
     }
 
     updateFrame(): void {
         if (this.isGameLocked) return;
         let frame: string;
-        if (this.lookingAtCameras) {
+        if (this.isLookingAtCameras) {
             if (this.camerasBroken) {
                 this.office.visible = false;
                 return;
@@ -627,9 +684,9 @@ export default class FNAF extends Phaser.Scene implements Game {
                     break;
                 case Location.BACKSTAGE:
                     if (this.bonnie.location == Location.BACKSTAGE) {
-                        if (this.backstageSecret) frame = "fnaf/Locations/Backstage/555";
+                        if (this.commonSecret) frame = "fnaf/Locations/Backstage/555";
                         else frame = "fnaf/Locations/Backstage/205";
-                    } else if (this.backstageSecret) frame = "fnaf/Locations/Backstage/354";
+                    } else if (this.commonSecret) frame = "fnaf/Locations/Backstage/354";
                     else frame = "fnaf/Locations/Backstage/83";
                     break;
                 case Location.KITCHEN:
@@ -647,7 +704,7 @@ export default class FNAF extends Phaser.Scene implements Game {
                         if (this.foxy.state == 0) frame = "fnaf/Locations/Pirate Cove/66";
                         else if (this.foxy.state == 1) frame = "fnaf/Locations/Pirate Cove/211";
                         else if (this.foxy.state == 2) frame = "fnaf/Locations/Pirate Cove/338";
-                    } else if (this.pirateCoveSecret) frame = "fnaf/Locations/Pirate Cove/553";
+                    } else if (this.commonSecret) frame = "fnaf/Locations/Pirate Cove/553";
                     else frame = "fnaf/Locations/Pirate Cove/240";
                     break;
                 case Location.EAST_HALL:
@@ -665,7 +722,13 @@ export default class FNAF extends Phaser.Scene implements Game {
                         if (this.chica.state == 0) frame = "fnaf/Locations/E. Hall Corner/451";
                         else if (this.chica.state == 1) frame = "fnaf/Locations/E. Hall Corner/476";
                         else frame = "fnaf/Locations/E. Hall Corner/220";
-                    } else frame = "fnaf/Locations/E. Hall Corner/49";
+                    } else {
+                        if (this.eastHallCornerSecret == 1) frame = "fnaf/Locations/E. Hall Corner/549";
+                        else if (this.eastHallCornerSecret == 2) frame = "fnaf/Locations/E. Hall Corner/550";
+                        else if (this.eastHallCornerSecret == 3) frame = "fnaf/Locations/E. Hall Corner/551";
+                        else if (this.eastHallCornerSecret == 4) frame = "fnaf/Locations/E. Hall Corner/552";
+                        else frame = "fnaf/Locations/E. Hall Corner/49";
+                    }
                     break;
                 case Location.WEST_HALL:
                     if (this.foxyRunning) {
@@ -753,48 +816,62 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.cameraView.visible = false;
         this.cameras.main.stopFollow();
         this.cameras.main.startFollow(this.officeScroller);
-        this.lookingAtCameras = false;
+        this.isLookingAtCameras = false;
         this.updateFrame();
         this.sound.stopByKey('fnaf-MiniDV_Tape_Eject_1');
+        this.setCameraSoundsVolume();
 
-        this.events.emit('camera:state', this.lookingAtCameras);
+        this.events.emit('camera:state', this.isLookingAtCameras);
     }
 
-    public backstageSecret = false;
-    public pirateCoveSecret = false;
+    public commonSecret = false;
     public eastHallSecret1 = false;
     public eastHallSecret2 = false;
     public westHallCornerSecret = false;
+    public eastHallCornerSecret = 0;
 
     calculateSecretChance(): void {
-        this.backstageSecret = Phaser.Math.RND.weightedPick([false, false, false, false, false, true]);
-        this.pirateCoveSecret = Phaser.Math.RND.weightedPick([false, false, false, false, false, true]);
-        this.eastHallSecret1 = Phaser.Math.RND.weightedPick([false, false, false, false, false, false, true]);
-        this.eastHallSecret2 = Phaser.Math.RND.weightedPick([false, false, false, false, false, false, true]);
-        this.westHallCornerSecret = Phaser.Math.RND.weightedPick([false, false, false, false, false, true]);
+        this.commonSecret = Phaser.Math.RND.between(1, 100) <= 1;
+        this.eastHallSecret1 = Phaser.Math.RND.between(1, 100) <= 1;
+        this.eastHallSecret2 = Phaser.Math.RND.between(1, 100) <= 1;
+        this.westHallCornerSecret = Phaser.Math.RND.between(1, 100) <= 1;
+        this.eastHallCornerSecret = Phaser.Math.RND.between(1, 100) <= 1 ? Phaser.Math.RND.between(1, 4) : 0;
     }
 
     showCameras(): void {
         let fan = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-Buzz_Fan_Florescent2');
         if (fan) fan.volume = 0.1;
-        if (this.lookingAtCameras) return this.updateFrame();
+        if (this.isLookingAtCameras) return this.updateFrame();
 
         this.officeView.visible = false;
         this.cameraView.visible = true;
         this.cameras.main.stopFollow();
         this.cameras.main.startFollow(this.cameraScroller);
-        this.lookingAtCameras = true;
+        this.isLookingAtCameras = true;
         this.calculateSecretChance();
         this.updateFrame();
         if (!this.sound.isPlaying('fnaf-MiniDV_Tape_Eject_1')) this.sound.play('fnaf-MiniDV_Tape_Eject_1', { loop: true });
+        this.setCameraSoundsVolume();
 
-        this.events.emit('camera:state', this.lookingAtCameras);
+        this.events.emit('camera:state', this.isLookingAtCameras);
+    }
+
+    setCameraSoundsVolume(): void {
+        let pirateSong = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-pirate-song2');
+        if (pirateSong) pirateSong.volume = (this.isLookingAtCameras && this.currentCamera == Location.PIRATE_COVE) ? 0.15 : 0.05;
+
+        let kitchenSounds = ['fnaf-OVEN-DRA_1_GEN-HDF18119', 'fnaf-OVEN-DRA_2_GEN-HDF18120', 'fnaf-OVEN-DRA_7_GEN-HDF18121', 'fnaf-OVEN-DRAWE_GEN-HDF18122'];
+        for (let sound of kitchenSounds) {
+            let kitchenSound = this.sound.get<Phaser.Sound.HTML5AudioSound>(sound);
+            if (kitchenSound) kitchenSound.volume = (this.isLookingAtCameras && this.currentCamera == Location.KITCHEN) ? 0.15 : 0.05;
+        }
     }
 
     changeCamera(location: Location): void {
         this.currentCamera = location;
         if (this.currentCamera == Location.WEST_HALL && this.foxy.state == 3) this.breakCameras();
         this.updateFrame();
+        this.setCameraSoundsVolume();
         this.events.emit('camera:change', this.currentCamera);
     }
 
@@ -807,6 +884,10 @@ export default class FNAF extends Phaser.Scene implements Game {
             this.camerasBroken = false;
             this.updateFrame();
         });
+
+        if (!this.isLookingAtCameras) return;
+        let sounds = ['fnaf-garble3', 'fnaf-garble2', 'fnaf-garble1', 'fnaf-COMPUTER_DIGITAL_L2076505'];
+        this.sound.play(Phaser.Math.RND.pick(sounds));
     }
 
     openLeftDoor(): void {
@@ -885,6 +966,11 @@ export default class FNAF extends Phaser.Scene implements Game {
     toggleRightLight(): void {
         if (this.power <= 0) return;
 
+        if (this.chica.location == Location.OFFICE) {
+            this.sound.play('fnaf-error');
+            return;
+        }
+
         this.leftDoorLight = false;
         this.rightDoorLight = !this.rightDoorLight;
         this.lightBlinking = true;
@@ -897,10 +983,21 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.events.emit('usage:update', this.powerUsage);
     }
 
+    enteredOffice(animatronic: Animatronic): void {
+        if (this.isLookingAtCameras) return;
+
+        if (animatronic == this.bonnie || animatronic == this.foxy) {
+            this.rightDoorLight = false;
+            return;
+        } else if (animatronic == this.chica || animatronic == this.freddy) {
+            this.leftDoorLight = false;
+            return;
+        }
+    }
+
     showJumpscare(animatronic: Animatronic): void {
-        if (this.isGameLocked) return;
-        this.showOffice();
-        this.updateFrame();
+        if (this.isGameOver) return;
+        if (this.isLookingAtCameras) this.showOffice();
 
         this.isGameLocked = true;
         this.leftDoor.visible = false;
@@ -968,9 +1065,9 @@ export default class FNAF extends Phaser.Scene implements Game {
             this.lightBlinking = Phaser.Math.RND.weightedPick([true, true, true, false]);
             if (light) light.volume = this.lightBlinking ? 1 : 0;
             this.updateFrame();
-        } else if (!this.leftDoorLight && !this.rightDoorLight && light) light.volume = 0; 
+        } else if (!this.leftDoorLight && !this.rightDoorLight && light) light.volume = 0;
 
-        if (this.lookingAtCameras) {
+        if (this.isLookingAtCameras) {
             if (this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) {
                 this.chica.state = Phaser.Math.RND.between(0, 2);
                 this.updateFrame();
@@ -983,7 +1080,7 @@ export default class FNAF extends Phaser.Scene implements Game {
             }
         }
 
-        if (this.power > 0 && !this.isGameLocked) {
+        if (this.power > 0 && !this.isGameOver) {
             this.power -= this.powerUsage * (delta / 1000) * this.powerDecreaseRate;
             if (this.power <= 0) this.powerOut();
             this.events.emit('power:update', this.power);
@@ -996,7 +1093,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.time.delayedCall(fast ? 1500 : 2500, () => {
             this.foxy.stopMoving();
             this.foxy.doMove();
-            if (!this.isGameLocked) this.foxy.startMoving();
+            if (!this.isGameOver) this.foxy.startMoving();
             this.foxyRunning = false;
         });
         this.updateFrame();
@@ -1020,6 +1117,8 @@ export default class FNAF extends Phaser.Scene implements Game {
 
         this.sound.stopByKey('fnaf-Buzz_Fan_Florescent2');
         this.sound.play('fnaf-powerdown');
+
+        this.time.delayedCall(5000, () => this.showJumpscare(this.freddy));
     }
 
     endGame(): void {
@@ -1033,12 +1132,15 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.foxy.stopMoving();
         this.clock.remove(false);
 
-        let score = 100 * this.currentHour;
-        if (this.currentHour == 6) score += 200;
+        let score = 200 * this.currentHour;
+        if (this.currentHour == 6) {
+            score += 200;
+            sessionStorage.setItem('fnaf-night', (this.currentNight + 1).toString());
+        }
         score *= 1 + (this.currentNight / 5);
-        this.world.endGame(score);
+        this.time.delayedCall(2000, () => this.world.endGame(score));
 
-        this.events.emit('game:end', score);
+        this.events.emit('game:end', this.currentHour);
     }
 
     beforeUnload(engine: Engine): void {

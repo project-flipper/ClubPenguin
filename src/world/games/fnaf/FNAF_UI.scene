@@ -181,20 +181,6 @@
             "list": [
                 {
                     "type": "Image",
-                    "id": "caa6e131-376f-4212-93f2-e0580280b84b",
-                    "label": "muteCall",
-                    "scope": "PUBLIC",
-                    "texture": {
-                        "key": "fnaf",
-                        "frame": "fnaf/Numbers & Nights/Camera and Nights/481"
-                    },
-                    "x": 36,
-                    "y": 32,
-                    "originX": 0,
-                    "originY": 0
-                },
-                {
-                    "type": "Image",
                     "id": "afbfc1a9-edd4-4e14-bbff-78348b10d188",
                     "label": "location",
                     "scope": "PUBLIC",
@@ -622,6 +608,56 @@
             "text": "Night 1",
             "font": "BurbankSmallMedium",
             "fontSize": -15
+        },
+        {
+            "type": "Image",
+            "id": "caa6e131-376f-4212-93f2-e0580280b84b",
+            "label": "muteCall",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Numbers & Nights/Camera and Nights/481"
+            },
+            "x": 36,
+            "y": 32,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "c2542f74-e266-4304-9415-23266054f521",
+            "label": "globalstatic",
+            "scope": "PUBLIC",
+            "components": [
+                "InputBlocker"
+            ],
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Static & Menu/Full Static/12"
+            },
+            "x": -70,
+            "originX": 0,
+            "originY": 0,
+            "visible": false,
+            "animationPlayMethod": 1,
+            "animationKey": "fnaf-static-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Rectangle",
+            "id": "db3a6ccd-ad50-425a-b9c0-b02f3b8f39c3",
+            "label": "gameoverblock",
+            "scope": "PUBLIC",
+            "components": [
+                "InputBlocker"
+            ],
+            "originX": 0,
+            "originY": 0,
+            "visible": false,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "width": 1140,
+            "height": 720
         },
         {
             "type": "Image",
