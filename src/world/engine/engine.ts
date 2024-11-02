@@ -477,6 +477,15 @@ export class Engine extends EventEmitter {
         return (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/games/${path}`)).default;
     }
 
+    removeGameModule(path: string): boolean {
+        try {
+            //delete require.cache[require.resolve(/* webpackInclude: /\.ts$/ */ `@clubpenguin/world/games/${path}`)];
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
     /**
      * Checks if a game exists.
      * @param path The path to the game.
@@ -549,6 +558,7 @@ export class Engine extends EventEmitter {
             if ('beforeUnload' in this.currentGame) this.currentGame.beforeUnload(this);
             this.currentGame.scene.remove();
             if ('unload' in this.currentGame) this.currentGame.unload(this);
+            this.removeGameModule(this.currentGame.gameData.path);
             this.emit('game:unload', this.currentGame);
             this.currentGame = undefined;
         }
