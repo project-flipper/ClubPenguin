@@ -65,8 +65,16 @@ class Animatronic {
         return this.location;
     }
 
+    canMove(): boolean {
+        return this.hasMovementChance();
+    }
+
     move(): void {
-        if (this.hasMovementChance) this.location = this.computeMove();
+        if (this.canMove()) this.doMove();
+    }
+
+    doMove(location?: Location): void {
+        this.location = location ?? this.computeMove();
     }
 
     reset(): void {
@@ -105,26 +113,27 @@ class Freddy extends Animatronic {
     }
 
     lookingAtMe(): boolean {
-        return this.game.currentCamera == Location.EAST_HALL_CORNER;
+        return this.game.currentCamera == this.location;
     }
 
-    move(): void {
-        if (this.canMove()) {
-            let laugh = false;
-            let lastLocation = this.location;
-            this.location = this.computeMove();
-            if (this.location != lastLocation) laugh =true;
-            if (this.location == Location.OFFICE) {
-                if (!this.game.rightDoorClosed) this.game.enteredOffice(this);
-                else {
-                    this.reset();
-                    laugh = true;
-                }
-            }
+    doMove(location?: Location): void {
+        let laugh = false;
+        let lastLocation = location ?? this.location;
+        this.location = this.computeMove();
+        if (this.location != lastLocation) {
             if (this.location == Location.KITCHEN) this.game.enteredKitchen(this);
-            if (laugh) this.game.sound.play(Phaser.Math.RND.pick(['fnaf-Laugh_Giggle_Girl_1d', 'fnaf-Laugh_Giggle_Girl_2d', 'fnaf-Laugh_Giggle_Girl_8d']));
-            this.game.updateFrame();
+            else if (lastLocation == Location.KITCHEN) this.game.leftKitchen(this);
+            laugh = true;
         }
+        if (this.location == Location.OFFICE) {
+            if (!this.game.rightDoorClosed) this.game.enteredOffice(this);
+            else {
+                this.reset();
+                laugh = true;
+            }
+        }
+        if (laugh) this.game.sound.play(Phaser.Math.RND.pick(['fnaf-Laugh_Giggle_Girl_1d', 'fnaf-Laugh_Giggle_Girl_2d', 'fnaf-Laugh_Giggle_Girl_8d']));
+        this.game.updateFrame();
     }
 
     reset(): void {
@@ -161,33 +170,36 @@ class Bonnie extends Animatronic {
         return this.hasMovementChance();
     }
 
-    move(): void {
-        if (this.canMove()) {
-            let stepsVolume = 0;
-            let lastLocation = this.location;
-            this.location = this.computeMove();
-            if (this.location != lastLocation) {
-                stepsVolume = 0.1;
-                if (this.location == Location.OUTSIDE_OFFICE) this.game.leftScare = false;
-            }
-            if (this.location == Location.OFFICE) {
-                if (!this.game.leftDoorClosed) this.game.enteredOffice(this);
-                else {
-                    this.reset();
-                    stepsVolume = 0.3;
-                }
-            }
-            if (this.location == Location.DINING_HALL) {
-                stepsVolume = 0.2;
-                this.state = Phaser.Math.RND.between(0, 1);
-            }
-            if (this.location == Location.WEST_HALL || this.location == Location.SUPPLY_CLOSET) stepsVolume = 0.3;
-            if (this.location == Location.WEST_HALL_CORNER) stepsVolume = 0.4;
-            if (this.location == Location.OUTSIDE_OFFICE) stepsVolume = 0;
-            if (this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) this.game.breakCameras();
-            if (stepsVolume > 0) this.game.sound.play('fnaf-deep-steps', { volume: stepsVolume });
-            this.game.updateFrame();
+    doMove(location?: Location): void {
+        let stepsVolume = 0;
+        let lastLocation = this.location;
+        this.location = location ?? this.computeMove();
+        if (this.location != lastLocation) {
+            stepsVolume = 0.1;
+            if (this.location == Location.OUTSIDE_OFFICE) this.game.leftScare = false;
         }
+        if (this.location == Location.DINING_HALL) {
+            stepsVolume = 0.2;
+            this.state = Phaser.Math.RND.between(0, 1);
+        }
+        if (this.location == Location.WEST_HALL || this.location == Location.SUPPLY_CLOSET) stepsVolume = 0.3;
+        if (this.location == Location.WEST_HALL_CORNER) stepsVolume = 0.4;
+        if (this.location == Location.OUTSIDE_OFFICE) {
+            stepsVolume = 0;
+            this.game.leftDoorLight = false;
+        }
+        if (this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) this.game.breakCameras();
+        if (this.location == Location.OFFICE) {
+            this.game.leftDoorLight = false;
+            if (!this.game.leftDoorClosed) this.game.enteredOffice(this);
+            else {
+                this.reset();
+                stepsVolume = 0.3;
+            }
+        }
+        if (this.location == Location.OFFICE || this.location == Location.OUTSIDE_OFFICE) this.game.rightDoorLight = false;
+        if (stepsVolume > 0) this.game.sound.play('fnaf-deep-steps', { volume: stepsVolume });
+        this.game.updateFrame();
     }
 
     reset(): void {
@@ -225,32 +237,36 @@ class Chica extends Animatronic {
         return this.hasMovementChance();
     }
 
-    move(): void {
-        if (this.canMove()) {
-            let stepsVolume = 0;
-            let lastLocation = this.location;
-            this.location = this.computeMove();
-            if (this.location != lastLocation) {
-                stepsVolume = 0.1;
-                if (this.location == Location.OUTSIDE_OFFICE) this.game.rightScare = false;
-            }
-            if (this.location == Location.OFFICE) {
-                if (!this.game.rightDoorClosed) this.game.enteredOffice(this);
-                else {
-                    this.reset();
-                    stepsVolume = 0.4;
-                }
-            }
+    doMove(location?: Location): void {
+        let stepsVolume = 0;
+        let lastLocation = this.location;
+        this.location = location ?? this.computeMove();
+        if (this.location != lastLocation) {
+            stepsVolume = 0.1;
+            if (this.location == Location.OUTSIDE_OFFICE) this.game.rightScare = false;
             if (this.location == Location.KITCHEN) this.game.enteredKitchen(this);
-            if (this.location == Location.DINING_HALL || this.location == Location.RESTROOMS || this.location == Location.EAST_HALL) this.state = Phaser.Math.RND.between(0, 1);
-            if (this.location == Location.KITCHEN || this.location == Location.RESTROOMS) stepsVolume = 0.2;
-            if (this.location == Location.EAST_HALL) stepsVolume = 0.3;
-            if (this.location == Location.EAST_HALL_CORNER) stepsVolume = 0.4;
-            if (this.location == Location.OUTSIDE_OFFICE) stepsVolume = 0;
-            if (this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) this.game.breakCameras();
-            if (stepsVolume > 0) this.game.sound.play('fnaf-deep-steps', { volume: stepsVolume });
-            this.game.updateFrame();
+            else if (lastLocation == Location.KITCHEN) this.game.leftKitchen(this);
         }
+        if (this.location == Location.DINING_HALL || this.location == Location.RESTROOMS || this.location == Location.EAST_HALL) this.state = Phaser.Math.RND.between(0, 1);
+        if (this.location == Location.KITCHEN || this.location == Location.RESTROOMS) stepsVolume = 0.2;
+        if (this.location == Location.EAST_HALL) stepsVolume = 0.3;
+        if (this.location == Location.EAST_HALL_CORNER) stepsVolume = 0.4;
+        if (this.location == Location.OUTSIDE_OFFICE) {
+            this.game.rightDoorLight = false;
+            stepsVolume = 0;
+        }
+        if (this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) this.game.breakCameras();
+        if (this.location == Location.OFFICE) {
+            this.game.rightDoorLight = false;
+            if (!this.game.rightDoorClosed) this.game.enteredOffice(this);
+            else {
+                this.reset();
+                stepsVolume = 0.4;
+            }
+        }
+        if (this.location == Location.OFFICE || this.location == Location.OUTSIDE_OFFICE) this.game.rightDoorLight = false;
+        if (stepsVolume > 0) this.game.sound.play('fnaf-deep-steps', { volume: stepsVolume });
+        this.game.updateFrame();
     }
 
     reset(): void {
@@ -282,13 +298,9 @@ class Foxy extends Animatronic {
         return this.hasMovementChance() && !this.game.isLookingAtCameras;
     }
 
-    move(): void {
-        if (this.canMove()) this.doMove();
-    }
-
-    doMove(): void {
+    doMove(location?: Location): void {
         let lastLocation = this.location;
-        this.location = this.computeMove();
+        this.location = location ?? this.computeMove();
         this.state++;
 
         this.game.updateFrame();
@@ -953,11 +965,11 @@ export default class FNAF extends Phaser.Scene implements Game {
             let kitchenSounds = ['fnaf-OVEN-DRA_1_GEN-HDF18119', 'fnaf-OVEN-DRA_2_GEN-HDF18120', 'fnaf-OVEN-DRA_7_GEN-HDF18121', 'fnaf-OVEN-DRAWE_GEN-HDF18122'];
             for (let sound of kitchenSounds) {
                 let kitchenSound = this.sound.get<Phaser.Sound.HTML5AudioSound>(sound);
-                if (kitchenSound) kitchenSound.volume = (this.isLookingAtCameras && this.currentCamera == Location.KITCHEN) ? 0.15 : 0.05;
+                if (kitchenSound) kitchenSound.volume = this.isLookingAtCameras ? (this.currentCamera == Location.KITCHEN ? 0.75 : 0.2) : 0.1;
             }
 
             let musicBox = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-music-box');
-            if (musicBox && !this.isPowerOut) musicBox.volume = (this.isLookingAtCameras && this.currentCamera == Location.KITCHEN) ? 0.15 : 0.05;
+            if (musicBox && !this.isPowerOut) musicBox.volume = (this.isLookingAtCameras && this.currentCamera == Location.KITCHEN) ? 0.5 : 0.05;
         } catch(e) {
             return;
         }
@@ -1140,17 +1152,29 @@ export default class FNAF extends Phaser.Scene implements Game {
 
     enteredKitchen(animatronic: Animatronic): void {
         let key: string;
+        let volume: number;
         if (animatronic == this.freddy) {
             key = 'fnaf-music-box';
+            volume = (this.isLookingAtCameras && this.currentCamera == Location.KITCHEN) ? 0.5 : 0.05;
         } else {
             let keys = ['fnaf-OVEN-DRA_1_GEN-HDF18119', 'fnaf-OVEN-DRA_2_GEN-HDF18120', 'fnaf-OVEN-DRA_7_GEN-HDF18121', 'fnaf-OVEN-DRAWE_GEN-HDF18122'];
             key = Phaser.Math.RND.pick(keys);
+            volume = this.isLookingAtCameras ? (this.currentCamera == Location.KITCHEN ? 0.75 : 0.2) : 0.1;
         }
-        let volume = (this.isLookingAtCameras && this.currentCamera == Location.KITCHEN) ? 0.15 : 0.05;
         this.sound.play(key, { volume });
-        this.sound.on('complete', (sound: Phaser.Sound.HTML5AudioSound) => {
-            if (sound.key == key && animatronic.location == Location.KITCHEN) this.enteredKitchen(animatronic);
+        let sound = this.sound.get<Phaser.Sound.HTML5AudioSound>(key);
+        if (sound) sound.on('complete', () => {
+            sound.destroy();
+            if (animatronic.location == Location.KITCHEN) this.enteredKitchen(animatronic);
         });
+    }
+
+    leftKitchen(animatronic: Animatronic): void {
+        if (animatronic == this.freddy && !this.isFreddyLuring) this.sound.removeByKey('fnaf-music-box');
+        else {
+            let keys = ['fnaf-OVEN-DRA_1_GEN-HDF18119', 'fnaf-OVEN-DRA_2_GEN-HDF18120', 'fnaf-OVEN-DRA_7_GEN-HDF18121', 'fnaf-OVEN-DRAWE_GEN-HDF18122'];
+            for (let key of keys) this.sound.removeByKey(key);
+        }
     }
 
     showJumpscare(animatronic: Animatronic): void {
