@@ -717,7 +717,7 @@ export default class World extends Phaser.Scene {
     public postGameRoomId: number;
     public showGameOverAfterRoomReady = false;
 
-    async endGame(score: number, roomId: number): Promise<void> {
+    async endGame(score: number, roomId?: number): Promise<void> {
         this.interface.promptSpinner.show();
         this.send('game:over', { score });
 
