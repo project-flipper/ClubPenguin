@@ -249,7 +249,7 @@ class Foxy extends Animatronic {
     computeMove(): Location {
         if (this.state < 3) {
             return Location.PIRATE_COVE;
-        } else if (this.state == 3) {
+        } else if (this.state == 2) {
             return Location.WEST_HALL;
         } else {
             return Location.OFFICE;
@@ -669,8 +669,14 @@ export default class FNAF extends Phaser.Scene implements Game {
                     break;
                 case Location.WEST_HALL:
                     if (this.foxyRunning) {
-                        if (!this.office.anims.isPlaying) this.office.play('fnaf-foxyrunning-animation');
+                        if (!this.office.anims.isPlaying) {
+                            this.office.play('fnaf-foxyrunning-animation');
+                            this.office.once('animationcomplete', () => this.foxy.doMove());
+                        }
                         return;
+                    }
+                    if (this.foxy.location == Location.WEST_HALL) {
+                        return this.foxyRun(true);
                     }
                     if (this.westHallLight) {
                         if (this.bonnie.location == Location.WEST_HALL) frame = "fnaf/Locations/West Hall/206";
@@ -787,6 +793,7 @@ export default class FNAF extends Phaser.Scene implements Game {
 
     changeCamera(location: Location): void {
         this.currentCamera = location;
+        if (this.currentCamera == Location.WEST_HALL && this.foxy.state == 3) this.breakCameras();
         this.updateFrame();
         this.events.emit('camera:change', this.currentCamera);
     }
@@ -983,13 +990,14 @@ export default class FNAF extends Phaser.Scene implements Game {
         }
     }
 
-    foxyRun(): void {
+    foxyRun(fast = false): void {
         this.sound.play('fnaf-run');
         this.foxyRunning = true;
-        this.time.delayedCall(1500, () => {
+        this.time.delayedCall(fast ? 1500 : 2500, () => {
             this.foxy.stopMoving();
             this.foxy.doMove();
             if (!this.isGameLocked) this.foxy.startMoving();
+            this.foxyRunning = false;
         });
         this.updateFrame();
     }
@@ -1035,7 +1043,7 @@ export default class FNAF extends Phaser.Scene implements Game {
 
     beforeUnload(engine: Engine): void {
         for (let sound of this.sound.getAllPlaying()) {
-            if (sound.key.startsWith('fnaf-')) sound.stop();
+            if (sound.key.startsWith('fnaf-')) sound.destroy();
             console.log(sound.key);
         }
         this.input.setGlobalTopOnly(true);
