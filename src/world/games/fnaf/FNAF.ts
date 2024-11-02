@@ -58,7 +58,6 @@ class Animatronic {
 
     hasMovementChance(): boolean {
         let rng = Phaser.Math.RND.between(1, 20);
-        logger.info(`[${this.name}] RNG: ${rng} <= ${this.value} = ${rng <= this.value}`);
         return rng <= this.value;
     }
 
@@ -822,6 +821,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.setCameraSoundsVolume();
 
         this.events.emit('camera:state', this.isLookingAtCameras);
+        this.events.emit('usage:update', this.powerUsage);
     }
 
     public commonSecret = false;
@@ -854,6 +854,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.setCameraSoundsVolume();
 
         this.events.emit('camera:state', this.isLookingAtCameras);
+        this.events.emit('usage:update', this.powerUsage);
     }
 
     setCameraSoundsVolume(): void {
@@ -898,6 +899,8 @@ export default class FNAF extends Phaser.Scene implements Game {
 
         this.leftDoor.playReverse('fnaf-leftdoor-animation');
         this.sound.play('fnaf-SFXBible_12478');
+
+        this.events.emit('usage:update', this.powerUsage);
     }
 
     closeLeftDoor(): void {
@@ -908,6 +911,8 @@ export default class FNAF extends Phaser.Scene implements Game {
 
         this.leftDoor.play('fnaf-leftdoor-animation');
         this.sound.play('fnaf-SFXBible_12478');
+
+        this.events.emit('usage:update', this.powerUsage);
     }
 
     toggleLeftDoor(): void {

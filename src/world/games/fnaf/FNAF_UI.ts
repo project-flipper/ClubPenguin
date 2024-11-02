@@ -609,10 +609,10 @@ export default class FNAF_UI extends Phaser.Scene {
 
     onUsageUpdate(usage: number): void {
         let usageFrame = "fnaf/Office/Door & Lights/Power/212";
-        if (this.fnaf.powerUsage >= 5) usageFrame = "fnaf/Office/Door & Lights/Power/455";
-        else if (this.fnaf.powerUsage >= 4) usageFrame = "fnaf/Office/Door & Lights/Power/456";
-        else if (this.fnaf.powerUsage >= 3) usageFrame = "fnaf/Office/Door & Lights/Power/214";
-        else if (this.fnaf.powerUsage >= 2) usageFrame = "fnaf/Office/Door & Lights/Power/213";
+        if (usage >= 5) usageFrame = "fnaf/Office/Door & Lights/Power/455";
+        else if (usage >= 4) usageFrame = "fnaf/Office/Door & Lights/Power/456";
+        else if (usage >= 3) usageFrame = "fnaf/Office/Door & Lights/Power/214";
+        else if (usage >= 2) usageFrame = "fnaf/Office/Door & Lights/Power/213";
         else usageFrame = "fnaf/Office/Door & Lights/Power/212";
 
         this.usage.visible = true;
