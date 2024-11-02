@@ -113,7 +113,7 @@ class Freddy extends Animatronic {
     }
 
     lookingAtMe(): boolean {
-        return this.game.currentCamera == this.location;
+        return (this.game.currentCamera == Location.EAST_HALL && this.location == Location.EAST_HALL) || (this.game.currentCamera == Location.EAST_HALL_CORNER && this.location == Location.EAST_HALL_CORNER);
     }
 
     doMove(location?: Location): void {
@@ -1336,16 +1336,21 @@ export default class FNAF extends Phaser.Scene implements Game {
             sessionStorage.setItem('fnaf-night', (this.currentNight + 1).toString());
         }
         score *= 1 + (this.currentNight / 5);
-        this.time.delayedCall(2000, () => this.world.endGame(score));
+        this.time.delayedCall(this.currentHour == 6 ? 5000 : 2000, () => this.world.endGame(score));
 
+        this.stopAllSounds();
         this.events.emit('game:end', this.currentHour);
     }
 
-    beforeUnload(engine: Engine): void {
+    stopAllSounds(): void {
         for (let sound of this.sound.getAllPlaying()) {
             if (sound.key.startsWith('fnaf-')) sound.destroy();
             console.log(sound.key);
         }
+    }
+
+    beforeUnload(engine: Engine): void {
+        this.stopAllSounds();
         this.input.setGlobalTopOnly(true);
         this.scene.remove('FNAF_UI');
     }

@@ -688,6 +688,34 @@
             "height": 720
         },
         {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "48622cf0-2e7d-460a-83a9-e5086d2e4088",
+            "unlock": [
+                "x",
+                "y",
+                "text",
+                "fontSize",
+                "font",
+                "horizontalAlign",
+                "boxWidth",
+                "boxHeight",
+                "verticalAlign",
+                "visible"
+            ],
+            "label": "win6am",
+            "scope": "PUBLIC",
+            "boxWidth": 300,
+            "boxHeight": 200,
+            "horizontalAlign": 1,
+            "verticalAlign": 1,
+            "x": 420,
+            "y": 260,
+            "visible": false,
+            "text": "6 AM",
+            "font": "BurbankBigCondensatedBlack",
+            "fontSize": -105
+        },
+        {
             "type": "Image",
             "id": "f3e1a2cf-78ef-4e1e-9800-3fb52dab811b",
             "label": "close",

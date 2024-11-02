@@ -274,6 +274,13 @@ export default class FNAF_UI extends Phaser.Scene {
         gameoverblock.isFilled = true;
         gameoverblock.fillColor = 0;
 
+        // win6am
+        const win6am = new TextBox(this, 420, 260, "BurbankBigCondensatedBlack");
+        this.add.existing(win6am);
+        win6am.visible = false;
+        win6am.text = "6 AM";
+        win6am.fontSize = -105;
+
         // close
         const close = this.add.image(1115, 40, "interface", "interface/promptClose0001");
         close.scaleX = 0.5;
@@ -300,6 +307,12 @@ export default class FNAF_UI extends Phaser.Scene {
 
         // gameoverblock (components)
         new InputBlocker(gameoverblock);
+
+        // win6am (prefab fields)
+        win6am.boxWidth = 300;
+        win6am.boxHeight = 200;
+        win6am.horizontalAlign = 1;
+        win6am.verticalAlign = 1;
 
         // close (components)
         const closeButtonComponent = new ButtonComponent(close);
@@ -342,6 +355,7 @@ export default class FNAF_UI extends Phaser.Scene {
         this.muteCall = muteCall;
         this.globalstatic = globalstatic;
         this.gameoverblock = gameoverblock;
+        this.win6am = win6am;
         this.close = close;
         this.camsbtn = camsbtn;
 
@@ -381,6 +395,7 @@ export default class FNAF_UI extends Phaser.Scene {
     public muteCall!: Phaser.GameObjects.Image;
     public globalstatic!: Phaser.GameObjects.Sprite;
     public gameoverblock!: Phaser.GameObjects.Rectangle;
+    public win6am!: TextBox;
     public close!: Phaser.GameObjects.Image;
     private camsbtn!: Phaser.GameObjects.Sprite[];
 
@@ -723,7 +738,13 @@ export default class FNAF_UI extends Phaser.Scene {
             this.sound.play('fnaf-static');
         } else {
             this.gameoverblock.visible = true;
+            this.win6am.visible = true;
+            this.win6am.text = '5 AM';
             this.sound.play('fnaf-chimes-2');
+            this.time.delayedCall(1000, () => {
+                this.win6am.text = '6 AM';
+                this.sound.play('fnaf-CROWD_SMALL_CHIL_EC049202');
+            });
         }
     }
 
