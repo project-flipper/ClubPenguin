@@ -1,0 +1,675 @@
+{
+    "id": "d09b221d-4fab-4439-8268-4dd2e7bf0d97",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "FNAF_UI",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1140,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Sprite",
+            "id": "23280aaa-0a0c-41c7-b238-b18c44589480",
+            "label": "camstatic",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Static & Menu/Full Static/12"
+            },
+            "x": -70,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.25,
+            "alphaTopLeft": 0.25,
+            "alphaTopRight": 0.25,
+            "alphaBottomLeft": 0.25,
+            "alphaBottomRight": 0.25,
+            "animationPlayMethod": 1,
+            "animationKey": "fnaf-static-animation",
+            "animationPreview": true
+        },
+        {
+            "type": "Rectangle",
+            "id": "cf2b5ab3-8f48-4096-9618-3c5354a8f9ee",
+            "label": "fastLeft",
+            "scope": "PUBLIC",
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "isFilled": true,
+            "width": 164,
+            "height": 720
+        },
+        {
+            "type": "Rectangle",
+            "id": "06e198bc-b0f0-49d7-a826-39596fb27994",
+            "label": "fastRight",
+            "scope": "PUBLIC",
+            "x": 1140,
+            "originX": 1,
+            "originY": 0,
+            "alpha": 0.01,
+            "isFilled": true,
+            "width": 164,
+            "height": 720
+        },
+        {
+            "type": "Rectangle",
+            "id": "85731179-a517-4abb-92ef-b1beaa120ba3",
+            "label": "scrollLeft",
+            "scope": "PUBLIC",
+            "x": 164,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.01,
+            "isFilled": true,
+            "fillColor": "#767676",
+            "width": 256,
+            "height": 720
+        },
+        {
+            "type": "Rectangle",
+            "id": "ea76b1db-52f7-4a8e-87fd-184ebb96d983",
+            "label": "scrollRight",
+            "scope": "PUBLIC",
+            "x": 976,
+            "originX": 1,
+            "originY": 0,
+            "alpha": 0.01,
+            "isFilled": true,
+            "fillColor": "#767676",
+            "width": 256,
+            "height": 720
+        },
+        {
+            "type": "Sprite",
+            "id": "12381737-3ea2-4cfd-af51-abcb61caac3a",
+            "label": "monitor",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Office/Monitor/0"
+            },
+            "x": -70,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "f19d33b2-23d0-4d1f-a247-f5248fe239e4",
+            "label": "blipper",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Static & Menu/Divided Static/4"
+            },
+            "x": -70,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "6fbff858-7b2a-4be5-a20c-8329573e9efa",
+            "label": "usageLabel",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Numbers & Nights/Camera and Nights/209"
+            },
+            "x": 25,
+            "y": 677,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "4e881f2b-baab-4854-a17c-edac81a99e68",
+            "label": "powerLabel",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Numbers & Nights/Camera and Nights/207"
+            },
+            "x": 25,
+            "y": 646,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3e150dcf-1a46-4852-8d26-7ab1027476f1",
+            "label": "usage",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Office/Door & Lights/Power/212"
+            },
+            "x": 105,
+            "y": 667,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "23efc157-2825-40f2-8d89-b919ea6fcbe5",
+            "label": "cameraFlipper",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Other/420"
+            },
+            "x": 570,
+            "y": 720,
+            "originY": 1
+        },
+        {
+            "type": "Layer",
+            "id": "0e35548a-a47a-412c-b8e1-a8444b0d5fbc",
+            "label": "cams",
+            "scope": "PUBLIC",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "caa6e131-376f-4212-93f2-e0580280b84b",
+                    "label": "muteCall",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/481"
+                    },
+                    "x": 36,
+                    "y": 32,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "afbfc1a9-edd4-4e14-bbff-78348b10d188",
+                    "label": "location",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Locations/Names/54"
+                    },
+                    "x": 723,
+                    "y": 309,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "9f0a7492-64bf-4664-982f-8419365f6044",
+                    "label": "rec",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Other/7"
+                    },
+                    "x": 7,
+                    "y": 67,
+                    "originX": 0,
+                    "originY": 0,
+                    "animationPlayMethod": 1,
+                    "animationKey": "fnaf-rec-animation",
+                    "animationPreview": true
+                },
+                {
+                    "type": "Sprite",
+                    "id": "d5b45199-8135-4ca1-94ea-79440fb93e16",
+                    "label": "map",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Office/Map/145"
+                    },
+                    "x": 719,
+                    "y": 320,
+                    "originX": 0,
+                    "originY": 0,
+                    "animationPlayMethod": 1,
+                    "animationKey": "fnaf-map-animation",
+                    "animationPreview": true
+                },
+                {
+                    "type": "Image",
+                    "id": "a2f50bba-5162-4c46-90b0-976fd62723a5",
+                    "label": "camframe",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Other/11"
+                    },
+                    "x": -70,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "e9728b79-f0b1-496c-842d-16827624e274",
+                    "label": "cam1a",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 828,
+                    "y": 343,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c53697b5-39cc-48fe-80da-9e780c526acd",
+                    "label": "cam1b",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 804,
+                    "y": 396,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "9a2e4e9e-3b5c-41d8-9f27-0d6bdb0c0666",
+                    "label": "cam1c",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 773,
+                    "y": 475,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b08f2ce5-2e52-4ba2-b7be-26a8645e8652",
+                    "label": "cam2a",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 824,
+                    "y": 590,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c22d280c-0001-4732-8141-142af3d1c987",
+                    "label": "cam2b",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 824,
+                    "y": 632,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "8891d264-dece-4efb-a10b-1e8264ae5ea5",
+                    "label": "cam4a",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 932,
+                    "y": 590,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "91c9646b-4e69-4d96-8fe9-5ebc1edc1a87",
+                    "label": "cam4b",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 932,
+                    "y": 631,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "2b4b5834-c142-4b0b-b29e-50fb7e82d30c",
+                    "label": "cam3",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 743,
+                    "y": 572,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "0eb29225-bb25-48d6-add0-4e3a42f720b8",
+                    "label": "cam7",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 1036,
+                    "y": 425,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "359e6cd2-f4b7-4a82-8072-fe1a22b0f66f",
+                    "label": "cam6",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 1026,
+                    "y": 557,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "260fed0c-34e1-4b3d-8608-0b238dee2d1c",
+                    "label": "cam5",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/167"
+                    },
+                    "x": 700,
+                    "y": 425,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "de2e959b-9e99-4319-984f-ccd42fa5d1dc",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_170",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/170"
+                    },
+                    "x": 836,
+                    "y": 350,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "d34dcb8b-11f2-49ab-80a4-a7eff16fced7",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_171",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/171"
+                    },
+                    "x": 813,
+                    "y": 403,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "2e242aff-d126-4c12-ada7-44b54d8035a8",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_177",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/177"
+                    },
+                    "x": 782,
+                    "y": 482,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "bb4cc2e4-3ede-4c31-b35a-8c9829d32b87",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_172",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/172"
+                    },
+                    "x": 830,
+                    "y": 597,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "b35dd39d-ce05-40dc-b138-7d08d3c089af",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_165",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/165"
+                    },
+                    "x": 830,
+                    "y": 639,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "caead472-b605-4ae9-afe2-790afe2333da",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_169",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/169"
+                    },
+                    "x": 939,
+                    "y": 597,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "913d02d4-3a4e-48a9-a205-45a143d38baf",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_173",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/173"
+                    },
+                    "x": 938,
+                    "y": 638,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "25d31da4-feb1-4aa1-87f1-e0af4edba029",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_175",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/175"
+                    },
+                    "x": 1034,
+                    "y": 563,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "77042bf0-e04a-4a81-acfb-23c0905c8ddb",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_168",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/168"
+                    },
+                    "x": 750,
+                    "y": 580,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "d20bc380-c07e-450d-8087-2642f3a66f18",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_176",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/176"
+                    },
+                    "x": 1043,
+                    "y": 432,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "f5f554d9-b086-46db-98da-4b7ad2eda018",
+                    "label": "fnaf_Numbers___Nights_Camera_and_Nights_174",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/174"
+                    },
+                    "x": 706,
+                    "y": 433,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "0c8ba858-fd60-4c77-ac07-b658b2fbbdc5",
+                    "label": "cameraDisabled",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Numbers & Nights/Camera and Nights/42"
+                    },
+                    "x": 385,
+                    "y": 116,
+                    "originX": 0,
+                    "originY": 0
+                }
+            ]
+        },
+        {
+            "type": "BitmapText",
+            "id": "8628e24b-4bd4-4e1e-ac1a-7e60e3eb3b53",
+            "label": "power",
+            "scope": "PUBLIC",
+            "x": 168,
+            "y": 638,
+            "text": "100%",
+            "font": "BurbankBigCondensatedBlack",
+            "fontSize": -30
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "cd89ae7d-d067-481b-b149-4a5a3221e032",
+            "unlock": [
+                "x",
+                "y",
+                "text",
+                "fontSize",
+                "font",
+                "horizontalAlign",
+                "boxWidth",
+                "boxHeight"
+            ],
+            "label": "hour",
+            "scope": "PUBLIC",
+            "boxWidth": 75,
+            "boxHeight": 100,
+            "horizontalAlign": 2,
+            "x": 1016,
+            "y": 32,
+            "text": "12 AM",
+            "font": "BurbankBigCondensatedBlack",
+            "fontSize": -35
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "6b48fd60-f584-4ea9-af45-212b2c859c22",
+            "unlock": [
+                "x",
+                "y",
+                "text",
+                "fontSize",
+                "font",
+                "boxWidth",
+                "horizontalAlign",
+                "boxHeight"
+            ],
+            "label": "night",
+            "scope": "PUBLIC",
+            "boxWidth": 75,
+            "boxHeight": 100,
+            "horizontalAlign": 2,
+            "x": 1016,
+            "y": 65,
+            "text": "Night 1",
+            "font": "BurbankSmallMedium",
+            "fontSize": -15
+        },
+        {
+            "type": "Image",
+            "id": "f3e1a2cf-78ef-4e1e-9800-3fb52dab811b",
+            "label": "close",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptClose0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptClose0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptClose0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "interface",
+                "frame": "interface/promptClose0001"
+            },
+            "x": 1115,
+            "y": 40,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "6026e990-521e-440b-8156-f8bf62a53d73",
+            "label": "camsbtn",
+            "objectIds": [
+                "260fed0c-34e1-4b3d-8608-0b238dee2d1c",
+                "359e6cd2-f4b7-4a82-8072-fe1a22b0f66f",
+                "0eb29225-bb25-48d6-add0-4e3a42f720b8",
+                "2b4b5834-c142-4b0b-b29e-50fb7e82d30c",
+                "91c9646b-4e69-4d96-8fe9-5ebc1edc1a87",
+                "8891d264-dece-4efb-a10b-1e8264ae5ea5",
+                "c22d280c-0001-4732-8141-142af3d1c987",
+                "b08f2ce5-2e52-4ba2-b7be-26a8645e8652",
+                "9a2e4e9e-3b5c-41d8-9f27-0d6bdb0c0666",
+                "c53697b5-39cc-48fe-80da-9e780c526acd",
+                "e9728b79-f0b1-496c-842d-16827624e274"
+            ]
+        }
+    ]
+}
