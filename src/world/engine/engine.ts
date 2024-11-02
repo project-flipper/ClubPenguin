@@ -286,13 +286,19 @@ export class Engine extends EventEmitter {
         logger.info('Creating room scene by key', key);
 
         let load = this.loadScreen;
-        let roomScene = await new Promise<Room>(resolve => {
-            this.world.scene.add(key, room, true, {
-                config,
-                oninit: (scene: Room) => load.track(new LoaderTask('Room loader', scene.load)),
-                onready: (scene: Room) => resolve(scene)
+        let roomScene: Room;
+        try {
+            roomScene = await new Promise<Room>(resolve => {
+                this.world.scene.add(key, room, true, {
+                    config,
+                    oninit: (scene: Room) => load.track(new LoaderTask('Room loader', scene.load)),
+                    onready: (scene: Room) => resolve(scene)
+                });
             });
-        });
+        } catch (e) {
+            this.world.scene.remove(key);
+            throw e;
+        }
 
         if (config.pin_id !== undefined) {
             logger.info('Loading room pin');
@@ -508,15 +514,23 @@ export class Engine extends EventEmitter {
         } else this.lockRoom();
         this.unloadGame();
 
+        let key = `game-${config.name}`;
+
         let load = this.loadScreen;
-        let game = await new Promise<Game>(resolve => {
-            this.world.scene.add(`game-${config.name}`, cls, true, {
-                config,
-                options,
-                oninit: (scene: Game) => load.track(new LoaderTask('Game loader', scene.load)),
-                onready: (scene: Game) => resolve(scene)
+        let game: Game;
+        try {
+            game = await new Promise<Game>(resolve => {
+                this.world.scene.add(key, cls, true, {
+                    config,
+                    options,
+                    oninit: (scene: Game) => load.track(new LoaderTask('Game loader', scene.load)),
+                    onready: (scene: Game) => resolve(scene)
+                });
             });
-        });
+        } catch (e) {
+            this.world.scene.remove(key);
+            throw e;
+        }
 
         await this.music.play(config.music_id);
 
