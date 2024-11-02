@@ -38,12 +38,14 @@ export interface Room extends Phaser.Scene {
     customEase?: string | Function,
     customSnowballClass?: typeof Snowball,
     triggers?: Phaser.GameObjects.Image[];
-    unload(engine: Engine): void;
+    beforeUnload?(engine: Engine): void;
+    unload?(engine: Engine): void;
 }
 
 export interface Game extends Phaser.Scene {
     gameData: GameConfig;
-    unload(engine: Engine): void;
+    beforeUnload?(engine: Engine): void;
+    unload?(engine: Engine): void;
 }
 
 
@@ -241,6 +243,15 @@ export class Engine extends EventEmitter {
         return (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/rooms/${path}`)).default;
     }
 
+    removeRoomModule(path: string): boolean {
+        try {
+            //delete require.cache[require.resolve(/* webpackInclude: /\.ts$/ */ `@clubpenguin/world/rooms/${path}`)];
+            return true;
+        } catch (e) {
+            return false;
+        }
+    }
+
     /**
      * Checks if a room exists.
      * @param path The path to the room.
@@ -330,8 +341,10 @@ export class Engine extends EventEmitter {
             this.previousPlayerX = this.player?.x;
             this.previousPlayerY = this.player?.y;
 
+            if ('beforeUnload' in this.currentRoom) this.currentRoom.beforeUnload(this);
             this.currentRoom.scene.remove();
             if ('unload' in this.currentRoom) this.currentRoom.unload(this);
+            this.removeRoomModule(this.currentRoom.roomData.path);
             this.emit('room:unload', this.currentRoom);
 
             this.previousRoomId = this.currentRoomId;
@@ -519,6 +532,7 @@ export class Engine extends EventEmitter {
      */
     unloadGame(): void {
         if (this.currentGame) {
+            if ('beforeUnload' in this.currentGame) this.currentGame.beforeUnload(this);
             this.currentGame.scene.remove();
             if ('unload' in this.currentGame) this.currentGame.unload(this);
             this.emit('game:unload', this.currentGame);
