@@ -142,7 +142,7 @@ export class HybridGame extends Phaser.Scene implements Game {
     public gameData: GameConfig;
 
     async create(data: any): Promise<void> {
-        await this.play(`${this.load.baseURL}assets/world/games/loader.swf?v=${this.game.minigameVersion}`, this.asFlashVars({
+        await this.play(`${this.load.baseURL}assets/world/games/hybrid/loader.swf?v=${this.game.minigameVersion}`, this.asFlashVars({
             media: this.load.baseURL,
             game: this.url,
             bridgeId: this.createBridge()
@@ -172,7 +172,7 @@ export class HybridGame extends Phaser.Scene implements Game {
     public container: HybridContainer;
 
     get url(): string {
-        return `${this.load.baseURL}assets/world/games/${this.gameData.path}`;
+        return `${this.load.baseURL}assets/world/games/hybrid/${this.gameData.path}`;
     }
 
     asFlashVars(params: Record<string, string>): string {
