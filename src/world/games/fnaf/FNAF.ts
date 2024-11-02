@@ -113,6 +113,13 @@ class Freddy extends Animatronic {
                 this.game.sound.play('fnaf-deep-steps');
                 this.game.sound.play(Phaser.Math.RND.pick(['fnaf-Laugh_Giggle_Girl_1d', 'fnaf-Laugh_Giggle_Girl_2d', 'fnaf-Laugh_Giggle_Girl_8d']));
             }
+            if (this.location == Location.OFFICE) {
+                if (!this.game.rightDoorClosed) this.game.showJumpscare(this);
+                else {
+                    this.game.sound.play('fnaf-deep-steps');
+                    this.reset();
+                }
+            }
             this.game.updateFrame();
         }
     }
@@ -156,7 +163,7 @@ class Bonnie extends Animatronic {
             if (this.location == Location.DINING_HALL) this.state = Phaser.Math.RND.between(0, 1);
             if (this.location != lastLocation) this.game.sound.play('fnaf-deep-steps');
             if (this.location == Location.OFFICE) {
-                if (!this.game.rightDoorClosed) this.game.showJumpscare(this);
+                if (!this.game.leftDoorClosed) this.game.showJumpscare(this);
                 else {
                     this.game.sound.play('fnaf-deep-steps');
                     this.reset();
