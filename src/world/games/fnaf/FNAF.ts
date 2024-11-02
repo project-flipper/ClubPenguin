@@ -148,6 +148,8 @@ class Bonnie extends Animatronic {
                 return Location.DINING_HALL;
             case Location.WEST_HALL:
                 return Phaser.Math.RND.pick([Location.WEST_HALL_CORNER, Location.SUPPLY_CLOSET]);
+            case Location.SUPPLY_CLOSET:
+                return Location.WEST_HALL;
             case Location.WEST_HALL_CORNER:
                 return Location.OUTSIDE_OFFICE;
             default:
