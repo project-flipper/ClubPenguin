@@ -974,14 +974,13 @@ export default class FNAF extends Phaser.Scene implements Game {
     public camerasBroken = false;
 
     breakCameras(): void {
-        if (this.camerasBroken) return;
+        if (this.camerasBroken || !this.isLookingAtCameras) return;
         this.camerasBroken = true;
         this.time.delayedCall(5000, () => {
             this.camerasBroken = false;
             this.updateFrame();
         });
 
-        if (!this.isLookingAtCameras) return;
         let sounds = ['fnaf-garble3', 'fnaf-garble2', 'fnaf-garble1', 'fnaf-COMPUTER_DIGITAL_L2076505'];
         this.sound.play(Phaser.Math.RND.pick(sounds));
     }
@@ -1219,6 +1218,9 @@ export default class FNAF extends Phaser.Scene implements Game {
                 this.chica.value++;
                 this.foxy.value++;
                 break;
+            case 6:
+                this.endGame();
+                return;
         }
 
         this.events.emit('hour:update', this.currentHour);
