@@ -161,7 +161,10 @@ class Bonnie extends Animatronic {
             let lastLocation = this.location;
             this.location = this.computeMove();
             if (this.location == Location.DINING_HALL) this.state = Phaser.Math.RND.between(0, 1);
-            if (this.location != lastLocation) this.game.sound.play('fnaf-deep-steps');
+            if (this.location != lastLocation) {
+                this.game.sound.play('fnaf-deep-steps');
+                if (this.location == Location.OUTSIDE_OFFICE) this.game.leftScare = false; 
+            }
             if (this.location == Location.OFFICE) {
                 if (!this.game.leftDoorClosed) this.game.showJumpscare(this);
                 else {
@@ -213,7 +216,10 @@ class Chica extends Animatronic {
             let lastLocation = this.location;
             this.location = this.computeMove();
             if (this.location == Location.DINING_HALL || this.location == Location.RESTROOMS || this.location == Location.EAST_HALL) this.state = Phaser.Math.RND.between(0, 1);
-            if (this.location != lastLocation) this.game.sound.play('fnaf-deep-steps');
+            if (this.location != lastLocation) {
+                this.game.sound.play('fnaf-deep-steps');
+                if (this.location == Location.OUTSIDE_OFFICE) this.game.rightScare = false;
+            }
             if (this.location == Location.OFFICE) {
                 if (!this.game.rightDoorClosed) this.game.showJumpscare(this);
                 else {
@@ -442,6 +448,7 @@ export default class FNAF extends Phaser.Scene implements Game {
 
     public lookingAtCameras = false;
     public isGameLocked = false;
+    public isGameOver = false;
 
     public lightBlinking = true;
     public westHallLight = true;
@@ -787,7 +794,12 @@ export default class FNAF extends Phaser.Scene implements Game {
     public camerasBroken = false;
 
     breakCameras(): void {
-
+        if (this.camerasBroken) return;
+        this.camerasBroken = true;
+        this.time.delayedCall(5000, () => {
+            this.camerasBroken = false;
+            this.updateFrame();
+        });
     }
 
     openLeftDoor(): void {
@@ -855,6 +867,10 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.leftDoorLight = !this.leftDoorLight;
         this.lightBlinking = true;
         this.updateFrame();
+        if (!this.leftScare && this.leftDoorLight && this.bonnie.location == Location.OUTSIDE_OFFICE) {
+            this.leftScare = true;
+            this.sound.play('fnaf-windowscare');
+        }
 
         this.events.emit('usage:update', this.powerUsage);
     }
@@ -866,6 +882,10 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.rightDoorLight = !this.rightDoorLight;
         this.lightBlinking = true;
         this.updateFrame();
+        if (!this.rightScare && this.rightDoorLight && this.chica.location == Location.OUTSIDE_OFFICE) {
+            this.rightScare = true;
+            this.sound.play('fnaf-windowscare');
+        }
 
         this.events.emit('usage:update', this.powerUsage);
     }
@@ -910,7 +930,7 @@ export default class FNAF extends Phaser.Scene implements Game {
             this.officeScroller.setPosition(800, 360);
         }
 
-        this.time.delayedCall(2000, () => this.endGame());
+        this.time.delayedCall(1500, () => this.endGame());
     }
 
     tick(): void {
@@ -995,6 +1015,8 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     endGame(): void {
+        if (this.isGameOver) return;
+        this.isGameOver = true;
         this.input.setGlobalTopOnly(true);
 
         this.freddy.stopMoving();
@@ -1007,6 +1029,8 @@ export default class FNAF extends Phaser.Scene implements Game {
         if (this.currentHour == 6) score += 200;
         score *= 1 + (this.currentNight / 5);
         this.world.endGame(score);
+
+        this.events.emit('game:end', score);
     }
 
     beforeUnload(engine: Engine): void {

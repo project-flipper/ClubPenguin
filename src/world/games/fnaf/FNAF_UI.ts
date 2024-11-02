@@ -523,6 +523,7 @@ export default class FNAF_UI extends Phaser.Scene {
         this.fnaf.events.on('hour:update', this.onHourUpdate, this);
         this.fnaf.events.on('camera:change', this.onCameraChange, this);
         this.fnaf.events.on('jumpscare:show', this.onJumpscareShow, this);
+        this.fnaf.events.on('game:end', this.onGameEnd, this);
 
         this.fnaf.events.on('camera:state', (state: boolean) => {
             if (state) this.setView(View.CAMERAS);
@@ -662,6 +663,10 @@ export default class FNAF_UI extends Phaser.Scene {
         this.cameraFlipper.visible = false;
         this.usageLabel.visible = false;
         this.powerLabel.visible = false;
+    }
+
+    onGameEnd(): void {
+
     }
 
     update(time: number, delta: number): void {
