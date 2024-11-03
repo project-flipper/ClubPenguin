@@ -24,6 +24,7 @@ class Animatronic {
     public state: number;
 
     public mo: Phaser.Time.TimerEvent;
+    public moRestart: Phaser.Time.TimerEvent;
     public movementTime: number;
 
     constructor(game: FNAFNight, location: Location, name: string, value: number) {
@@ -49,8 +50,21 @@ class Animatronic {
     restartMovement(delay?: number): void {
         if (this.isMoving) {
             this.stopMoving();
-            if (delay > 0) this.game.time.delayedCall(delay, () => this.startMoving());
-            else this.startMoving();
+            if (delay > 0) {
+                this.moRestart = this.game.time.addEvent({
+                    callback: this.startMoving,
+                    callbackScope: this,
+                    delay: delay
+                });
+            } else this.startMoving();
+        } else if (this.moRestart) {
+            if (delay > 0) {
+                this.moRestart.reset({
+                    callback: this.startMoving,
+                    callbackScope: this,
+                    delay: delay
+                });
+            } else this.startMoving();
         }
     }
 
@@ -59,6 +73,11 @@ class Animatronic {
     }
 
     stopMoving(): void {
+        if (this.moRestart) {
+            this.moRestart.remove();
+            this.moRestart = undefined;
+        }
+
         if (this.mo) {
             this.mo.remove();
             this.mo = undefined;
@@ -361,15 +380,17 @@ class Foxy extends Animatronic {
     doMove(location?: Location): void {
         let lastState = this.state;
         let lastLocation = this.location;
+        if (lastState <= 2 && this.game.isLookingAtCameras && !location) return;
         this.state++;
         this.location = location ?? this.nextLocation();
-        if (this.state < 3 && this.game.isLookingAtCameras) return;
 
         if (this.location == Location.OFFICE) {
             if (!this.game.leftDoorClosed) this.game.showJumpscare(this);
             else {
                 this.game.sound.play('fnaf-knock2');
                 this.game.power -= 1 + this.drainCounter * 5;
+                this.game.power = Math.max(0, this.game.power);
+                this.game.events.emit('power:update', this.game.power);
                 this.drainCounter++;
                 this.reset();
             }
@@ -473,12 +494,12 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         const officeView = this.add.layer();
 
         // rightDoor
-        const rightDoor = this.add.sprite(1273, 0, "fnaf", "fnaf/Office/Door & Lights/R. Door/0");
+        const rightDoor = this.add.sprite(1270, -2, "fnaf", "fnaf/Office/Door & Lights/R. Door/0");
         rightDoor.setOrigin(0, 0);
         officeView.add(rightDoor);
 
         // leftDoor
-        const leftDoor = this.add.sprite(70, 0, "fnaf", "fnaf/Office/Door & Lights/L. Door/0");
+        const leftDoor = this.add.sprite(72, -1, "fnaf", "fnaf/Office/Door & Lights/L. Door/0");
         leftDoor.setOrigin(0, 0);
         officeView.add(leftDoor);
 
@@ -499,41 +520,46 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         officeView.add(cameraScroller);
 
         // leftButtons
-        const leftButtons = this.add.image(-1, 270, "fnaf", "fnaf/Office/Door & Lights/L. Light/122");
+        const leftButtons = this.add.image(6, 263, "fnaf", "fnaf/Office/Door & Lights/L. Light/122");
         leftButtons.setOrigin(0, 0);
         officeView.add(leftButtons);
 
         // rightButtons
-        const rightButtons = this.add.image(1498, 270, "fnaf", "fnaf/Office/Door & Lights/R. Light/134");
+        const rightButtons = this.add.image(1497, 273, "fnaf", "fnaf/Office/Door & Lights/R. Light/134");
         rightButtons.setOrigin(0, 0);
         officeView.add(rightButtons);
 
         // leftDoorButton
-        const leftDoorButton = this.add.rectangle(51, 351, 64, 64);
+        const leftDoorButton = this.add.rectangle(25, 251, 62, 120);
+        leftDoorButton.setOrigin(0, 0);
         leftDoorButton.alpha = 0.01;
         leftDoorButton.isFilled = true;
         officeView.add(leftDoorButton);
 
         // leftLightButton
-        const leftLightButton = this.add.rectangle(50, 431, 64, 64);
+        const leftLightButton = this.add.rectangle(25, 393, 62, 120);
+        leftLightButton.setOrigin(0, 0);
         leftLightButton.alpha = 0.01;
         leftLightButton.isFilled = true;
         officeView.add(leftLightButton);
 
         // rightDoorButton
-        const rightDoorButton = this.add.rectangle(1544, 353, 64, 64);
+        const rightDoorButton = this.add.rectangle(1519, 267, 62, 120);
+        rightDoorButton.setOrigin(0, 0);
         rightDoorButton.alpha = 0.01;
         rightDoorButton.isFilled = true;
         officeView.add(rightDoorButton);
 
         // rightLightButton
-        const rightLightButton = this.add.rectangle(1543, 433, 64, 64);
+        const rightLightButton = this.add.rectangle(1519, 398, 62, 120);
+        rightLightButton.setOrigin(0, 0);
         rightLightButton.alpha = 0.01;
         rightLightButton.isFilled = true;
         officeView.add(rightLightButton);
 
         // boop
-        const boop = this.add.rectangle(680, 244, 16, 16);
+        const boop = this.add.rectangle(674, 236, 8, 8);
+        boop.setOrigin(0, 0);
         boop.alpha = 0.01;
         boop.isFilled = true;
         officeView.add(boop);
@@ -587,6 +613,8 @@ export default class FNAFNight extends Phaser.Scene implements Game {
 
     declare game: App;
     public fnaf: FNAF;
+
+    public perspective: Phaser.FX.Displacement;
 
     public gameData: GameConfig;
     public clock: Phaser.Time.TimerEvent;
@@ -649,16 +677,13 @@ export default class FNAFNight extends Phaser.Scene implements Game {
     }
 
     create(data: any) {
+        this.scene.setVisible(false);
         this.input.setGlobalTopOnly(false);
-        this.scene.add('FNAFUI', FNAFUI, true, { game: this });
+
+        this.cameras.main.setZoom(1080 / 720);
+        this.perspective = this.cameras.main.postFX.addDisplacement('fnaf-panoramaDisplacement', 0, 0.3);
 
         this.editorCreate();
-        this.startGame();
-
-        if (data.onready) data.onready(this);
-    }
-
-    startGame(): void {
 
         this.leftDoorButton.setInteractive();
         this.leftDoorButton.off('pointerdown');
@@ -680,7 +705,15 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         this.boop.off('pointerdown');
         this.boop.on('pointerdown', () => this.sound.play('fnaf-PartyFavorraspyPart_AC01__3'));
 
-        this.cameras.main.setZoom(1080 / 720);
+        this.startGame();
+
+        this.scene.add('FNAFUI', FNAFUI, true, { game: this, onready: () => {
+            this.scene.setVisible(true);
+            if (data.onready) data.onready(this);
+        } });
+    }
+
+    startGame(): void {
 
         this.sound.play('fnaf-ColdPresc B', { loop: true, volume: 0.5 });
         this.sound.play('fnaf-EerieAmbienceLargeSca_MV005', { loop: true, volume: 0 });
@@ -720,11 +753,10 @@ export default class FNAFNight extends Phaser.Scene implements Game {
     startPowerDrainage(): void {
         if (!this.powerDrainage) this.powerDrainage = this.time.addEvent({
             callback: () => {
-                if (this.power > 0) {
-                    this.power -= this.powerUsage / 10;
-                    this.power = Math.max(0, this.power);
-                    this.events.emit('power:update', this.power);
-                }
+                if (this.power > 0) this.power -= this.powerUsage / 10;
+
+                this.power = Math.max(0, this.power);
+                if (this.power > 0) this.events.emit('power:update', this.power);
 
                 if (this.power <= 0) this.powerOut();
             },
@@ -751,11 +783,10 @@ export default class FNAFNight extends Phaser.Scene implements Game {
 
         if (!this.powerPenalty) this.powerPenalty = this.time.addEvent({
             callback: () => {
-                if (this.power > 0) {
-                    this.power -= 0.1;
-                    this.power = Math.max(0, this.power);
-                    this.events.emit('power:update', this.power);
-                }
+                if (this.power > 0) this.power -= 0.1;
+
+                this.power = Math.max(0, this.power);
+                if (this.power > 0) this.events.emit('power:update', this.power);
 
                 if (this.power <= 0) this.powerOut();
             },
@@ -1576,6 +1607,8 @@ export default class FNAFNight extends Phaser.Scene implements Game {
 
     powerOut(): void {
         this.stopPowerDrainage();
+        this.events.emit('power:update', 0);
+
         this.events.off('camera:state', this.jumpscareOnCameraFlip, this);
         this.events.off('camera:state', this.startRandomFreddyJumpscare, this);
         this.showOffice();
@@ -1621,6 +1654,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         score *= 1 + (this.currentNight / 5);
         this.time.delayedCall(this.currentHour == 6 ? 5000 : 2000, () => this.fnaf.endGame(score, this.currentNight, this.currentHour == 6));
 
+        this.fnaf.stopAllSounds();
         this.events.emit('game:end', this.currentHour);
     }
 

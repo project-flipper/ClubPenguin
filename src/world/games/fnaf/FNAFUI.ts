@@ -423,7 +423,8 @@ export default class FNAFUI extends Phaser.Scene {
     public scrollingMediumRight: boolean = false;
     public scrollingFastRight: boolean = false;
 
-    create() {
+    create(data: any): void {
+        this.scene.setVisible(false);
 
         this.editorCreate();
         this.input.setTopOnly(true);
@@ -610,6 +611,9 @@ export default class FNAFUI extends Phaser.Scene {
         this.onHourUpdate(this.fnaf.currentHour);
         this.onPowerUpdate(this.fnaf.power);
         this.onUsageUpdate(this.fnaf.powerUsage);
+
+        this.scene.setVisible(true);
+        if (data.onready) data.onready(this);
     }
 
     startCall(): void {
@@ -706,6 +710,7 @@ export default class FNAFUI extends Phaser.Scene {
             this.cameraFlipper.visible = false;
             this.usageLabel.visible = false;
             this.powerLabel.visible = false;
+            this.close.visible = false;
         } else {
             this.power.text = `${Math.round(this.fnaf.power)}%`;
         }

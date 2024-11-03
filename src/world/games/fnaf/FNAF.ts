@@ -492,15 +492,21 @@ export default class FNAF extends Phaser.Scene implements Game {
 
         this.close.on('release', () => this.endGame(0));
 
-        this.setupMenu();
-        this.setupCustomize();
+        if (data.options?.level) {
+            this.loadNight(data.options.level);
+        } else {
+            this.setupMenu();
+            this.setupCustomize();
+        }
 
         if (data.onready) data.onready(this);
         if (this.loadScreen.isShowing) this.loadScreen.hide();
 
-        this.sound.play('fnaf-pregame-static2');
-        this.sound.play('fnaf-pregame-darkness-music', { loop: true });
-        this.menublip.play('fnaf-pregame-load-animation');
+        if (!data.options?.level) {
+            this.sound.play('fnaf-pregame-static2');
+            this.sound.play('fnaf-pregame-darkness-music', { loop: true });
+            this.menublip.play('fnaf-pregame-load-animation');
+        }
     }
 
     setupMenu(): void {
@@ -664,6 +670,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     startNight(night: number): void {
+        this.close.visible = false;
         this.stopAllSounds();
 
         this.menu.visible = false;
@@ -711,11 +718,13 @@ export default class FNAF extends Phaser.Scene implements Game {
                 this.loadNight(night);
             },
             delay: 3000,
-            duration: 2000
+            duration: 1500
         });
     }
 
     loadNight(night: number): void {
+        this.close.visible = false;
+
         let freddyAI: number;
         let bonnieAI: number;
         let chicaAI: number;

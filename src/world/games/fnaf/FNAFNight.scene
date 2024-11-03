@@ -54,7 +54,8 @@
                         "key": "fnaf",
                         "frame": "fnaf/Office/Door & Lights/R. Door/0"
                     },
-                    "x": 1273,
+                    "x": 1270,
+                    "y": -2,
                     "originX": 0,
                     "originY": 0
                 },
@@ -67,7 +68,8 @@
                         "key": "fnaf",
                         "frame": "fnaf/Office/Door & Lights/L. Door/0"
                     },
-                    "x": 70,
+                    "x": 72,
+                    "y": -1,
                     "originX": 0,
                     "originY": 0
                 },
@@ -117,8 +119,8 @@
                         "key": "fnaf",
                         "frame": "fnaf/Office/Door & Lights/L. Light/122"
                     },
-                    "x": -1,
-                    "y": 270,
+                    "x": 6,
+                    "y": 263,
                     "originX": 0,
                     "originY": 0
                 },
@@ -131,8 +133,8 @@
                         "key": "fnaf",
                         "frame": "fnaf/Office/Door & Lights/R. Light/134"
                     },
-                    "x": 1498,
-                    "y": 270,
+                    "x": 1497,
+                    "y": 273,
                     "originX": 0,
                     "originY": 0
                 },
@@ -141,60 +143,70 @@
                     "id": "884bf6cb-88f9-4498-b292-664fd11d9e01",
                     "label": "leftDoorButton",
                     "scope": "PUBLIC",
-                    "x": 51,
-                    "y": 351,
+                    "x": 25,
+                    "y": 251,
+                    "originX": 0,
+                    "originY": 0,
                     "alpha": 0.01,
                     "isFilled": true,
-                    "width": 64,
-                    "height": 64
+                    "width": 62,
+                    "height": 120
                 },
                 {
                     "type": "Rectangle",
                     "id": "55abf2ab-f4ba-44bf-b16a-37b89671c3df",
                     "label": "leftLightButton",
                     "scope": "PUBLIC",
-                    "x": 50,
-                    "y": 431,
+                    "x": 25,
+                    "y": 393,
+                    "originX": 0,
+                    "originY": 0,
                     "alpha": 0.01,
                     "isFilled": true,
-                    "width": 64,
-                    "height": 64
+                    "width": 62,
+                    "height": 120
                 },
                 {
                     "type": "Rectangle",
                     "id": "f0dfcfa0-7974-4edf-a270-733ad81ea2bd",
                     "label": "rightDoorButton",
                     "scope": "PUBLIC",
-                    "x": 1544,
-                    "y": 353,
+                    "x": 1519,
+                    "y": 267,
+                    "originX": 0,
+                    "originY": 0,
                     "alpha": 0.01,
                     "isFilled": true,
-                    "width": 64,
-                    "height": 64
+                    "width": 62,
+                    "height": 120
                 },
                 {
                     "type": "Rectangle",
                     "id": "181ea9d6-2459-42dd-ae96-1cbbd01a717c",
                     "label": "rightLightButton",
                     "scope": "PUBLIC",
-                    "x": 1543,
-                    "y": 433,
+                    "x": 1519,
+                    "y": 398,
+                    "originX": 0,
+                    "originY": 0,
                     "alpha": 0.01,
                     "isFilled": true,
-                    "width": 64,
-                    "height": 64
+                    "width": 62,
+                    "height": 120
                 },
                 {
                     "type": "Rectangle",
                     "id": "d6c52d1b-2f68-4186-b84c-9922a905b726",
                     "label": "boop",
                     "scope": "PUBLIC",
-                    "x": 680,
-                    "y": 244,
+                    "x": 674,
+                    "y": 236,
+                    "originX": 0,
+                    "originY": 0,
                     "alpha": 0.01,
                     "isFilled": true,
-                    "width": 16,
-                    "height": 16
+                    "width": 8,
+                    "height": 8
                 }
             ]
         },
