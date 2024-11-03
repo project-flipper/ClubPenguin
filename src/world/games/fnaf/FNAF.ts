@@ -951,9 +951,9 @@ export default class FNAF extends Phaser.Scene implements Game {
                 case Location.EAST_HALL_CORNER:
                     if (this.freddy.location == Location.EAST_HALL_CORNER) frame = "fnaf/Locations/E. Hall Corner/486";
                     else if (this.chica.location == Location.EAST_HALL_CORNER) {
-                        if (this.chica.state == 0) frame = "fnaf/Locations/E. Hall Corner/451";
+                        if (this.chica.state == 0) frame = "fnaf/Locations/E. Hall Corner/220";
                         else if (this.chica.state == 1) frame = "fnaf/Locations/E. Hall Corner/476";
-                        else frame = "fnaf/Locations/E. Hall Corner/220";
+                        else frame = "fnaf/Locations/E. Hall Corner/451";
                     } else {
                         if (this.eastHallCornerSecret == 1) frame = "fnaf/Locations/E. Hall Corner/549";
                         else if (this.eastHallCornerSecret == 2) frame = "fnaf/Locations/E. Hall Corner/550";
