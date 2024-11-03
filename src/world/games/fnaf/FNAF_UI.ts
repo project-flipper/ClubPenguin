@@ -767,7 +767,7 @@ export default class FNAF_UI extends Phaser.Scene {
             this.win6am.visible = true;
             this.win6am.text = '5 AM';
             this.sound.play('fnaf-chimes-2');
-            this.time.delayedCall(1000, () => {
+            this.time.delayedCall(3000, () => {
                 this.win6am.text = '6 AM';
                 this.sound.play('fnaf-CROWD_SMALL_CHIL_EC049202');
             });
