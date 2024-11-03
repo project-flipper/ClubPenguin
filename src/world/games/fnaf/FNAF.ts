@@ -809,7 +809,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.circusEvent = this.time.addEvent({
             callback: () => {
                 if (this.isGameOver || this.sound.isPlaying('fnaf-circus')) return;
-                if (Phaser.Math.RND.between(1, 30) <= 1) this.sound.play('fnaf-circus');
+                if (Phaser.Math.RND.between(1, 30) <= 1) this.sound.play('fnaf-circus', { volume: 0.05 });
             },
             delay: 5000,
             repeat: -1
