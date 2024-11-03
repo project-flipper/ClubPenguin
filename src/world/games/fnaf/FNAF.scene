@@ -199,6 +199,21 @@
             ]
         },
         {
+            "type": "Image",
+            "id": "bf995d90-128f-48cc-ba6c-27bdcdc8b1dd",
+            "label": "goldenFreddySprite",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Other/573"
+            },
+            "x": 389.5,
+            "y": 217.5,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
             "type": "Layer",
             "id": "e0761c69-c395-439c-a8f7-32977b424036",
             "label": "cameraView",

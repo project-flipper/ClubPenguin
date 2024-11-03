@@ -652,6 +652,20 @@
             "originY": 0
         },
         {
+            "type": "Image",
+            "id": "731aa486-80eb-47e6-a923-433d42084c72",
+            "label": "flasher",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Other/Misc/520"
+            },
+            "x": -70,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
             "type": "Sprite",
             "id": "c2542f74-e266-4304-9415-23266054f521",
             "label": "globalstatic",

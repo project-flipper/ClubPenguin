@@ -261,6 +261,11 @@ export default class FNAF_UI extends Phaser.Scene {
         const muteCall = this.add.image(36, 32, "fnaf", "fnaf/Numbers & Nights/Camera and Nights/481");
         muteCall.setOrigin(0, 0);
 
+        // flasher
+        const flasher = this.add.image(-70, 0, "fnaf", "fnaf/Other/Misc/520");
+        flasher.setOrigin(0, 0);
+        flasher.visible = false;
+
         // globalstatic
         const globalstatic = this.add.sprite(-70, 0, "fnaf", "fnaf/Static & Menu/Full Static/12");
         globalstatic.setOrigin(0, 0);
@@ -353,6 +358,7 @@ export default class FNAF_UI extends Phaser.Scene {
         this.hour = hour;
         this.night = night;
         this.muteCall = muteCall;
+        this.flasher = flasher;
         this.globalstatic = globalstatic;
         this.gameoverblock = gameoverblock;
         this.win6am = win6am;
@@ -393,6 +399,7 @@ export default class FNAF_UI extends Phaser.Scene {
     public hour!: TextBox;
     public night!: TextBox;
     public muteCall!: Phaser.GameObjects.Image;
+    public flasher!: Phaser.GameObjects.Image;
     public globalstatic!: Phaser.GameObjects.Sprite;
     public gameoverblock!: Phaser.GameObjects.Rectangle;
     public win6am!: TextBox;
@@ -585,6 +592,7 @@ export default class FNAF_UI extends Phaser.Scene {
             this.cam7.play('fnaf-cam-animation');
         });
 
+        this.fnaf.events.on('flashing:frame', this.onFlashingFrame, this);
         this.fnaf.events.on('usage:update', this.onUsageUpdate, this);
         this.fnaf.events.on('power:update', this.onPowerUpdate, this);
         this.fnaf.events.on('hour:update', this.onHourUpdate, this);
@@ -646,6 +654,24 @@ export default class FNAF_UI extends Phaser.Scene {
                 break;
             default:
                 call.remove(false);
+                break;
+        }
+    }
+
+    onFlashingFrame(frame: number): void {
+        this.flasher.visible = frame != 0;
+        switch (frame) {
+            case 1:
+                this.flasher.setFrame("fnaf/Other/Misc/520");
+                break;
+            case 2:
+                this.flasher.setFrame("fnaf/Other/Misc/525");
+                break;
+            case 3:
+                this.flasher.setFrame("fnaf/Other/Misc/543");
+                break;
+            case 4:
+                this.flasher.setFrame("fnaf/Other/Misc/544");
                 break;
         }
     }
