@@ -601,6 +601,7 @@ export default class FNAF_UI extends Phaser.Scene {
         this.fnaf.events.on('game:end', this.onGameEnd, this);
 
         this.fnaf.events.on('camera:state', (state: boolean) => {
+            this.adjustCallVolume(state);
             if (state) this.setView(View.CAMERAS);
             else this.setView(View.OFFICE);
         });
@@ -614,8 +615,8 @@ export default class FNAF_UI extends Phaser.Scene {
     startCall(): void {
         this.muteCall.visible = false;
         this.muteCall.setInteractive();
-        let call = this.time.delayedCall(5000, () => this.muteCall.visible = true);
-        this.time.delayedCall(20000, () => this.muteCall.visible = false);
+        let call = this.time.delayedCall(20000, () => this.muteCall.visible = true);
+        this.time.delayedCall(40000, () => this.muteCall.visible = false);
         switch (this.fnaf.currentNight) {
             case 1:
                 this.sound.play('fnaf-voiceover1c');
@@ -655,6 +656,14 @@ export default class FNAF_UI extends Phaser.Scene {
             default:
                 call.remove(false);
                 break;
+        }
+    }
+
+    adjustCallVolume(lookingAtCameras: boolean): void {
+        let keys = ['fnaf-voiceover1c', 'fnaf-voiceover2a', 'fnaf-voiceover3', 'fnaf-voiceover4', 'fnaf-voiceover5'];
+        for (let key of keys) {
+            let sound = this.sound.get<Phaser.Sound.HTML5AudioSound>(key);
+            if (sound) sound.volume = lookingAtCameras ? 0.5 : 1;
         }
     }
 
