@@ -808,7 +808,15 @@ export default class FNAF extends Phaser.Scene implements Game {
         }
 
         if (!this.powerPenalty) this.powerPenalty = this.time.addEvent({
-            callback: () => this.power -= 0.1,
+            callback: () => {
+                if (this.power > 0) {
+                    this.power -= 0.1;
+                    this.power = Math.max(0, this.power);
+                    this.events.emit('power:update', this.power);
+                }
+
+                if (this.power <= 0) this.powerOut();
+            },
             delay: penaltyRate,
             repeat: -1
         });
@@ -1617,9 +1625,9 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     powerOut(): void {
+        this.stopPowerDrainage();
         this.events.off('camera:state', this.jumpscareOnCameraFlip, this);
         this.events.off('camera:state', this.startRandomFreddyJumpscare, this);
-        this.stopPowerDrainage();
         this.showOffice();
         this.sound.play('fnaf-ambience2', { loop: true, volume: 0.5 });
 
