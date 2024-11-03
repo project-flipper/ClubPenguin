@@ -1168,7 +1168,6 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.leftDoorClosed = false;
         this.updateFrame();
 
-        this.leftDoor.stop();
         this.leftDoor.playReverse('fnaf-leftdoor-animation');
         this.sound.play('fnaf-SFXBible_12478');
 
@@ -1181,7 +1180,6 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.leftDoorClosed = true;
         this.updateFrame();
 
-        this.leftDoor.stop();
         this.leftDoor.play('fnaf-leftdoor-animation');
         this.sound.play('fnaf-SFXBible_12478');
 
@@ -1206,7 +1204,6 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.rightDoorClosed = false;
         this.updateFrame();
 
-        this.rightDoor.stop();
         this.rightDoor.playReverse('fnaf-rightdoor-animation');
         this.sound.play('fnaf-SFXBible_12478');
 
@@ -1219,7 +1216,6 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.rightDoorClosed = true;
         this.updateFrame();
 
-        this.rightDoor.stop();
         this.rightDoor.play('fnaf-rightdoor-animation');
         this.sound.play('fnaf-SFXBible_12478');
 
