@@ -1173,6 +1173,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     showOffice(): void {
+        let lastCameraState = this.isLookingAtCameras;
         if (this.foxy.location == Location.PIRATE_COVE) this.foxy.restartMovement(randomRange(0.83, 16.67));
 
         if (this.goldenFreddy.location == Location.WEST_HALL_CORNER && this.goldenFreddy.state == 1) this.goldenFreddy.doMove();
@@ -1189,7 +1190,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.sound.stopByKey('fnaf-MiniDV_Tape_Eject_1');
         this.setCameraSoundsVolume();
 
-        this.events.emit('camera:state', this.isLookingAtCameras);
+        if (this.isLookingAtCameras != lastCameraState) this.events.emit('camera:state', this.isLookingAtCameras);
         this.events.emit('usage:update', this.powerUsage);
     }
 
@@ -1208,6 +1209,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     showCameras(): void {
+        let lastCameraState = this.isLookingAtCameras;
         let fan = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-Buzz_Fan_Florescent2');
         if (fan) fan.volume = 0.1;
         if (this.isLookingAtCameras) return this.updateFrame();
@@ -1230,7 +1232,7 @@ export default class FNAF extends Phaser.Scene implements Game {
             this.sound.play('fnaf-Laugh_Giggle_Girl_1');
         }
         this.updateFrame();
-        this.events.emit('camera:state', this.isLookingAtCameras);
+        if (this.isLookingAtCameras != lastCameraState) this.events.emit('camera:state', this.isLookingAtCameras);
         this.events.emit('usage:update', this.powerUsage);
 
         if (((this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) || (this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER)) && this.currentNight >= 4) this.startGlitching();
@@ -1415,10 +1417,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         if (this.animatronicToJumpscare) return;
 
         this.animatronicToJumpscare = animatronic;
-        this.events.on('camera:state', (isLookingAtCameras: boolean) => {
-            if (animatronic != this.freddy) this.jumpscareOnCameraFlip(isLookingAtCameras);
-            else this.startRandomFreddyJumpscare();
-        });
+        this.events.on('camera:state', animatronic != this.freddy ? this.jumpscareOnCameraFlip : this.startRandomFreddyJumpscare, this);
         if (animatronic != this.freddy) this.time.delayedCall(30000, () => {
             if (!this.isGameOver && this.isLookingAtCameras) this.showOffice();
         });
@@ -1618,6 +1617,8 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     powerOut(): void {
+        this.events.off('camera:state', this.jumpscareOnCameraFlip, this);
+        this.events.off('camera:state', this.startRandomFreddyJumpscare, this);
         this.stopPowerDrainage();
         this.showOffice();
         this.sound.play('fnaf-ambience2', { loop: true, volume: 0.5 });
