@@ -1283,7 +1283,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     toggleRightDoor(): void {
         if (this.power <= 0 || this.rightDoor.anims.isPlaying) return;
 
-        if (this.chica.location == Location.OFFICE || this.freddy.location == Location.OFFICE) {
+        if (this.chica.location == Location.OFFICE) {
             this.sound.play('fnaf-error');
             return;
         }
@@ -1315,7 +1315,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     toggleRightLight(): void {
         if (this.power <= 0) return;
 
-        if (this.chica.location == Location.OFFICE || this.freddy.location == Location.OFFICE) {
+        if (this.chica.location == Location.OFFICE) {
             this.sound.play('fnaf-error');
             return;
         }
