@@ -705,6 +705,8 @@ export default class FNAF extends Phaser.Scene implements Game {
             repeat: -1
         });
 
+        this.startRandomEvents();
+
         if (data.onready) data.onready(this);
         if (this.loadScreen.isShowing) this.loadScreen.hide();
     }
@@ -818,8 +820,6 @@ export default class FNAF extends Phaser.Scene implements Game {
             delay: 1000,
             repeat: -1
         });
-
-        this.flashingEvent
     }
 
     doFlashing(): void {
