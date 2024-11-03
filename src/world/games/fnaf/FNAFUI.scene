@@ -254,16 +254,19 @@
                     "animationPreview": true
                 },
                 {
-                    "type": "Image",
-                    "id": "a2f50bba-5162-4c46-90b0-976fd62723a5",
+                    "type": "NineSlice",
+                    "id": "3190fba7-fab9-4879-9099-f2b13a20face",
                     "label": "camframe",
                     "texture": {
                         "key": "fnaf",
                         "frame": "fnaf/Other/11"
                     },
-                    "x": -70,
+                    "x": 16,
+                    "y": 16,
                     "originX": 0,
-                    "originY": 0
+                    "originY": 0,
+                    "width": 1108,
+                    "height": 688
                 },
                 {
                     "type": "Sprite",
@@ -607,8 +610,8 @@
             "boxWidth": 75,
             "boxHeight": 100,
             "horizontalAlign": 2,
-            "x": 1016,
-            "y": 32,
+            "x": 1004,
+            "y": 24,
             "text": "12 AM",
             "font": "BurbankBigCondensatedBlack",
             "fontSize": -35
@@ -631,8 +634,8 @@
             "boxWidth": 75,
             "boxHeight": 100,
             "horizontalAlign": 2,
-            "x": 1016,
-            "y": 65,
+            "x": 1004,
+            "y": 55,
             "text": "Night 1",
             "font": "BurbankSmallMedium",
             "fontSize": -15
@@ -746,8 +749,8 @@
                 "key": "interface",
                 "frame": "interface/promptClose0001"
             },
-            "x": 1115,
-            "y": 40,
+            "x": 1103,
+            "y": 38,
             "scaleX": 0.5,
             "scaleY": 0.5
         }

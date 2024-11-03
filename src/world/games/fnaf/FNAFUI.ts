@@ -15,7 +15,7 @@ import FNAFNight, { Location } from "./FNAFNight";
 export default class FNAFUI extends Phaser.Scene {
 
     constructor() {
-        super("FNAF_UI");
+        super("FNAFUI");
 
         /* START-USER-CTR-CODE */
         // Write your code here.
@@ -121,7 +121,7 @@ export default class FNAFUI extends Phaser.Scene {
         cams.add(map);
 
         // camframe
-        const camframe = this.add.image(-70, 0, "fnaf", "fnaf/Other/11");
+        const camframe = this.add.nineslice(16, 16, "fnaf", "fnaf/Other/11", 1108, 688, 10, 10, 10, 10);
         camframe.setOrigin(0, 0);
         cams.add(camframe);
 
@@ -246,13 +246,13 @@ export default class FNAFUI extends Phaser.Scene {
         power.fontSize = -30;
 
         // hour
-        const hour = new TextBox(this, 1016, 32, "BurbankBigCondensatedBlack");
+        const hour = new TextBox(this, 1004, 24, "BurbankBigCondensatedBlack");
         this.add.existing(hour);
         hour.text = "12 AM";
         hour.fontSize = -35;
 
         // night
-        const night = new TextBox(this, 1016, 65, "BurbankSmallMedium");
+        const night = new TextBox(this, 1004, 55, "BurbankSmallMedium");
         this.add.existing(night);
         night.text = "Night 1";
         night.fontSize = -15;
@@ -287,7 +287,7 @@ export default class FNAFUI extends Phaser.Scene {
         win6am.fontSize = -105;
 
         // close
-        const close = this.add.image(1115, 40, "interface", "interface/promptClose0001");
+        const close = this.add.image(1103, 38, "interface", "interface/promptClose0001");
         close.scaleX = 0.5;
         close.scaleY = 0.5;
 
