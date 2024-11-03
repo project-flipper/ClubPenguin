@@ -124,6 +124,12 @@ class Freddy extends Animatronic {
         return (this.game.currentCamera == Location.EAST_HALL && this.location == Location.EAST_HALL) || (this.game.currentCamera == Location.EAST_HALL_CORNER && this.location == Location.EAST_HALL_CORNER);
     }
 
+    move(): void {
+        let hasMove = this.hasMovementChance();
+        if (hasMove && !this.lookingAtMe()) this.doMove();
+        else if (hasMove) this.game.sound.play(Phaser.Math.RND.pick(['fnaf-Laugh_Giggle_Girl_1d', 'fnaf-Laugh_Giggle_Girl_2d', 'fnaf-Laugh_Giggle_Girl_8d']));
+    }
+
     doMove(location?: Location): void {
         let laugh = false;
         let lastLocation = location ?? this.location;
@@ -134,18 +140,18 @@ class Freddy extends Animatronic {
             laugh = true;
         }
         if (this.location == Location.OFFICE) {
+            laugh = true;
             if (!this.game.rightDoorClosed) {
                 this.game.enteredOffice(this);
                 this.game.sound.play('fnaf-running-fast3');
             } else this.reset();
-            laugh = true;
         }
         if (laugh) this.game.sound.play(Phaser.Math.RND.pick(['fnaf-Laugh_Giggle_Girl_1d', 'fnaf-Laugh_Giggle_Girl_2d', 'fnaf-Laugh_Giggle_Girl_8d']));
         this.game.updateFrame();
     }
 
     reset(): void {
-        this.location = Location.DINING_HALL;
+        this.location = Location.EAST_HALL;
     }
 }
 
@@ -291,11 +297,13 @@ class Chica extends Animatronic {
 
 class Foxy extends Animatronic {
     public state: number;
+    public drainCounter: number;
 
     constructor(game: FNAF, location: Location, value: number) {
         super(game, location, 'Foxy', value);
         this.movementTime = 5010;
         this.state = 0;
+        this.drainCounter = 0;
     }
 
     computeMove(): Location {
@@ -322,13 +330,15 @@ class Foxy extends Animatronic {
             if (!this.game.leftDoorClosed) this.game.showJumpscare(this);
             else {
                 this.game.sound.play('fnaf-knock2');
+                this.game.power -= 1 + this.drainCounter * 5;
+                this.drainCounter++;
                 this.reset();
             }
         } else if (this.location != lastLocation && this.location == Location.WEST_HALL) this.game.foxyRun(false);
     }
 
     reset(): void {
-        this.state = 0;
+        this.state = Phaser.Math.RND.between(0, 2);
         this.location = Location.PIRATE_COVE;
     }
 }
@@ -1068,6 +1078,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     showOffice(): void {
+        this.foxy.restartMovement();
         if (this.goldenFreddy.location == Location.WEST_HALL_CORNER && this.goldenFreddy.state == 1) this.goldenFreddy.doMove();
         else this.goldenFreddy.reset();
         let fan = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-Buzz_Fan_Florescent2');
