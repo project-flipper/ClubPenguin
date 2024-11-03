@@ -1,0 +1,230 @@
+{
+    "id": "b6e6e653-ea74-416f-b775-0961556fcbd6",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Game",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/games/2013/fnaf/fnaf-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "FNAFNight",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1140,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "8082b4ac-6fe6-4630-83ce-031a8806ca65",
+            "label": "rectangle_1",
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "width": 1600,
+            "height": 720
+        },
+        {
+            "type": "Sprite",
+            "id": "3f59a915-4290-474b-a7a6-9e35cbcb638b",
+            "label": "office",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Office/Office Inside/126"
+            },
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Layer",
+            "id": "d0fcc801-dc9f-4c09-85f2-154d01d4b71e",
+            "label": "officeView",
+            "scope": "PUBLIC",
+            "list": [
+                {
+                    "type": "Sprite",
+                    "id": "d81d996e-5157-427d-a535-620943f166e9",
+                    "label": "rightDoor",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Office/Door & Lights/R. Door/0"
+                    },
+                    "x": 1273,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "c4e7bfaa-a83a-4b2b-8426-d668b6234cba",
+                    "label": "leftDoor",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Office/Door & Lights/L. Door/0"
+                    },
+                    "x": 70,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "386f39c7-7c6c-49fa-b2e2-581ae7ea4832",
+                    "label": "fan",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Office/Fan/57"
+                    },
+                    "x": 780,
+                    "y": 303,
+                    "originX": 0,
+                    "originY": 0,
+                    "animationPlayMethod": 1,
+                    "animationKey": "fnaf-fan-animation",
+                    "animationPreview": true
+                },
+                {
+                    "type": "Image",
+                    "id": "41cadc5a-56bc-4f0b-a048-6a6e40ed7ae0",
+                    "label": "officeScroller",
+                    "scope": "PUBLIC",
+                    "texture": {},
+                    "x": 800,
+                    "y": 360,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "51f05766-44c1-485f-9709-a07a7ada3ae0",
+                    "label": "cameraScroller",
+                    "scope": "PUBLIC",
+                    "texture": {},
+                    "x": 570,
+                    "y": 360,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "cfb92d8d-14fe-499a-b86c-d91038579387",
+                    "label": "leftButtons",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Office/Door & Lights/L. Light/122"
+                    },
+                    "x": -1,
+                    "y": 270,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "96da4348-d61a-4652-866b-c9b456d6d0e4",
+                    "label": "rightButtons",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf",
+                        "frame": "fnaf/Office/Door & Lights/R. Light/134"
+                    },
+                    "x": 1498,
+                    "y": 270,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "884bf6cb-88f9-4498-b292-664fd11d9e01",
+                    "label": "leftDoorButton",
+                    "scope": "PUBLIC",
+                    "x": 51,
+                    "y": 351,
+                    "alpha": 0.01,
+                    "isFilled": true,
+                    "width": 64,
+                    "height": 64
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "55abf2ab-f4ba-44bf-b16a-37b89671c3df",
+                    "label": "leftLightButton",
+                    "scope": "PUBLIC",
+                    "x": 50,
+                    "y": 431,
+                    "alpha": 0.01,
+                    "isFilled": true,
+                    "width": 64,
+                    "height": 64
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "f0dfcfa0-7974-4edf-a270-733ad81ea2bd",
+                    "label": "rightDoorButton",
+                    "scope": "PUBLIC",
+                    "x": 1544,
+                    "y": 353,
+                    "alpha": 0.01,
+                    "isFilled": true,
+                    "width": 64,
+                    "height": 64
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "181ea9d6-2459-42dd-ae96-1cbbd01a717c",
+                    "label": "rightLightButton",
+                    "scope": "PUBLIC",
+                    "x": 1543,
+                    "y": 433,
+                    "alpha": 0.01,
+                    "isFilled": true,
+                    "width": 64,
+                    "height": 64
+                },
+                {
+                    "type": "Rectangle",
+                    "id": "d6c52d1b-2f68-4186-b84c-9922a905b726",
+                    "label": "boop",
+                    "scope": "PUBLIC",
+                    "x": 680,
+                    "y": 244,
+                    "alpha": 0.01,
+                    "isFilled": true,
+                    "width": 16,
+                    "height": 16
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "bf995d90-128f-48cc-ba6c-27bdcdc8b1dd",
+            "label": "goldenFreddySprite",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "fnaf",
+                "frame": "fnaf/Other/573"
+            },
+            "x": 389.5,
+            "y": 217.5,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Layer",
+            "id": "e0761c69-c395-439c-a8f7-32977b424036",
+            "label": "cameraView",
+            "scope": "PUBLIC"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

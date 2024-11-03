@@ -7,7 +7,7 @@
         "autoImport": true,
         "preloadPackFiles": [],
         "createMethodName": "editorCreate",
-        "sceneKey": "FNAF_UI",
+        "sceneKey": "FNAFUI",
         "compilerOutputLanguage": "TYPE_SCRIPT",
         "borderWidth": 1140,
         "borderHeight": 720

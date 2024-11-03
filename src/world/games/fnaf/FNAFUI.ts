@@ -9,10 +9,10 @@ import ButtonComponent from "../../../lib/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 import InputBlocker from "../../../lib/components/InputBlocker";
 /* START-USER-IMPORTS */
-import FNAF, { Location } from "./FNAF";
+import FNAFNight, { Location } from "./FNAFNight";
 /* END-USER-IMPORTS */
 
-export default class FNAF_UI extends Phaser.Scene {
+export default class FNAFUI extends Phaser.Scene {
 
     constructor() {
         super("FNAF_UI");
@@ -413,7 +413,7 @@ export default class FNAF_UI extends Phaser.Scene {
         this.fnaf = data.game;
     }
 
-    public fnaf: FNAF;
+    public fnaf: FNAFNight;
     public currentView: View;
 
     public scrollingLeft: boolean = false;
