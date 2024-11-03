@@ -589,7 +589,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     init(data: any): void {
         this.scene.moveBelow('Interface');
 
-        let savedNight = sessionStorage.getItem('fnaf-night');
+        let savedNight = localStorage.getItem('fnaf-night');
         if (savedNight) this.currentNight = Math.min(parseInt(savedNight), 7);
         else this.currentNight = 1;
 
@@ -657,27 +657,39 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.scene.add('FNAF_UI', FNAF_UI, true, { game: this });
 
         this.editorCreate();
+        this.startGame();
+
+        if (data.onready) data.onready(this);
+        if (this.loadScreen.isShowing) this.loadScreen.hide();
+    }
+
+    startGame(): void {
 
         this.leftDoorButton.setInteractive();
+        this.leftDoorButton.off('pointerdown');
         this.leftDoorButton.on('pointerdown', () => this.toggleLeftDoor());
 
         this.leftLightButton.setInteractive();
+        this.leftLightButton.off('pointerdown');
         this.leftLightButton.on('pointerdown', () => this.toggleLeftLight());
 
         this.rightDoorButton.setInteractive();
+        this.rightDoorButton.off('pointerdown');
         this.rightDoorButton.on('pointerdown', () => this.toggleRightDoor());
 
         this.rightLightButton.setInteractive();
+        this.rightLightButton.off('pointerdown');
         this.rightLightButton.on('pointerdown', () => this.toggleRightLight());
 
         this.boop.setInteractive();
+        this.boop.off('pointerdown');
         this.boop.on('pointerdown', () => this.sound.play('fnaf-PartyFavorraspyPart_AC01__3'));
 
         this.cameras.main.setZoom(1080 / 720);
 
         this.sound.play('fnaf-ColdPresc B', { loop: true, volume: 0.5 });
         this.sound.play('fnaf-EerieAmbienceLargeSca_MV005', { loop: true, volume: 0 });
-        this.sound.play('fnaf-Buzz_Fan_Florescent2', { loop: true });
+        this.sound.play('fnaf-Buzz_Fan_Florescent2', { loop: true, volume: 0.25 });
         this.sound.play('fnaf-BallastHumMedium2', { loop: true, volume: 0 });
         this.sound.play('fnaf-robotvoice', { loop: true, volume: 0 });
 
@@ -706,9 +718,6 @@ export default class FNAF extends Phaser.Scene implements Game {
         });
 
         this.startRandomEvents();
-
-        if (data.onready) data.onready(this);
-        if (this.loadScreen.isShowing) this.loadScreen.hide();
     }
 
     setAmbienceVolume(volume: number): void {
@@ -788,7 +797,10 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.poundingEvent = this.time.addEvent({
             callback: () => {
                 if (this.isGameOver || this.sound.isPlaying('fnaf-DOOR_POUNDING_ME_D0291401')) return;
-                if (Phaser.Math.RND.between(1, 50) <= 1) this.sound.play('fnaf-DOOR_POUNDING_ME_D0291401', { volume: Phaser.Math.RND.between(10, 40) });
+                if (Phaser.Math.RND.between(1, 50) <= 1) {
+                    this.sound.play('fnaf-DOOR_POUNDING_ME_D0291401', { volume: Phaser.Math.RND.between(0.1, 0.4) });
+                    this.poundingEvent.paused = true;
+                }
             },
             delay: 10000,
             repeat: -1
@@ -1324,8 +1336,9 @@ export default class FNAF extends Phaser.Scene implements Game {
         let keys = ['fnaf-Vocals_Breaths_S_35972014', 'fnaf-Vocals_Breaths_S_35972006', 'fnaf-Vocals_Breaths_S_35972008', 'fnaf-Vocals_Breaths_S_35972012'];
         let key = Phaser.Math.RND.pick(keys);
         this.sound.play(key);
-        this.sound.on('complete', (sound: Phaser.Sound.HTML5AudioSound) => {
-            if (sound.key == key && this.isBreathing) this.time.delayedCall(Phaser.Math.RND.between(500, 1000), () => this.breathe());
+        let sound = this.sound.get<Phaser.Sound.HTML5AudioSound>(key);
+        if (sound) sound.on('complete', () => {
+            if (this.isBreathing) this.time.delayedCall(Phaser.Math.RND.between(500, 1000), () => this.breathe());
         });
     }
 
@@ -1523,7 +1536,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         let score = 200 * this.currentHour;
         if (this.currentHour == 6) {
             score += 200;
-            sessionStorage.setItem('fnaf-night', (this.currentNight + 1).toString());
+            localStorage.setItem('fnaf-night', (this.currentNight + 1).toString());
         }
         score *= 1 + (this.currentNight / 5);
         this.time.delayedCall(this.currentHour == 6 ? 5000 : 2000, () => this.world.endGame(score));
