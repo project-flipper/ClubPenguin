@@ -788,7 +788,8 @@ export default class FNAF extends Phaser.Scene implements Game {
                 if (this.isGameOver || this.sound.isPlaying('fnaf-DOOR_POUNDING_ME_D0291401')) return;
                 if (Phaser.Math.RND.between(1, 50) <= 1) this.sound.play('fnaf-DOOR_POUNDING_ME_D0291401', { volume: Phaser.Math.RND.between(10, 40) });
             },
-            delay: 10000
+            delay: 10000,
+            repeat: -1
         });
 
         this.circusEvent = this.time.addEvent({
@@ -796,7 +797,8 @@ export default class FNAF extends Phaser.Scene implements Game {
                 if (this.isGameOver || this.sound.isPlaying('fnaf-circus')) return;
                 if (Phaser.Math.RND.between(1, 30) <= 1) this.sound.play('fnaf-circus');
             },
-            delay: 5000
+            delay: 5000,
+            repeat: -1
         });
 
         this.singingEvent = this.time.addEvent({
@@ -804,7 +806,8 @@ export default class FNAF extends Phaser.Scene implements Game {
                 if (this.isGameOver || this.sound.isPlaying('fnaf-pirate-song2')) return;
                 if (Phaser.Math.RND.between(1, 30) <= 1 && this.foxy.location == Location.PIRATE_COVE && this.foxy.state == 0) this.sound.play('fnaf-pirate-song2', { volume: (this.isLookingAtCameras && this.currentCamera == Location.PIRATE_COVE) ? 0.15 : 0.05 });
             },
-            delay: 4000
+            delay: 4000,
+            repeat: -1
         });
 
         this.flashingEvent = this.time.addEvent({
@@ -812,7 +815,8 @@ export default class FNAF extends Phaser.Scene implements Game {
                 if (this.isGameOver) return;
                 if (Phaser.Math.RND.between(1, 30) <= 1) this.doFlashing();
             },
-            delay: 1000
+            delay: 1000,
+            repeat: -1
         });
 
         this.flashingEvent
@@ -1052,7 +1056,6 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     showOffice(): void {
-        this.foxy.restartMovement();
         if (this.goldenFreddy.location == Location.WEST_HALL_CORNER && this.goldenFreddy.state == 1) this.goldenFreddy.doMove();
         else this.goldenFreddy.reset();
         let fan = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-Buzz_Fan_Florescent2');
