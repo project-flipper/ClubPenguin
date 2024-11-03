@@ -719,7 +719,7 @@ export default class World extends Phaser.Scene {
 
     async endGame(score: number, roomId?: number): Promise<void> {
         this.interface.promptSpinner.show();
-        this.send('game:over', { score });
+        this.send('game:over', { score: Math.round(score) });
 
         this.postGameRoomId = roomId;
     }
