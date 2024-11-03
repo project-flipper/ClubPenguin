@@ -70,7 +70,7 @@ class Animatronic {
         return rng <= this.value;
     }
 
-    computeMove(): Location {
+    nextLocation(): Location {
         return this.location;
     }
 
@@ -83,7 +83,7 @@ class Animatronic {
     }
 
     doMove(location?: Location): void {
-        this.location = location ?? this.computeMove();
+        this.location = location ?? this.nextLocation();
     }
 
     reset(): void {
@@ -97,7 +97,7 @@ class Freddy extends Animatronic {
         this.movementTime = 3020;
     }
 
-    computeMove(): Location {
+    nextLocation(): Location {
         switch (this.location) {
             case Location.SHOW_STAGE:
                 if (this.game.bonnie.location != Location.SHOW_STAGE && this.game.chica.location != Location.SHOW_STAGE) return Location.DINING_HALL;
@@ -135,7 +135,7 @@ class Freddy extends Animatronic {
         let laughVolume = 0;
         let stepsVolume = 0;
         let lastLocation = this.location;
-        this.location = location ?? this.computeMove();
+        this.location = location ?? this.nextLocation();
         if (this.location == Location.DINING_HALL) {
             laughVolume = 0.15;
             stepsVolume = 0.3;
@@ -194,7 +194,7 @@ class Bonnie extends Animatronic {
         this.movementTime = 4970;
     }
 
-    computeMove(): Location {
+    nextLocation(): Location {
         switch (this.location) {
             case Location.SHOW_STAGE:
                 return Phaser.Math.RND.pick([ Location.DINING_HALL, Location.BACKSTAGE ]);
@@ -222,7 +222,7 @@ class Bonnie extends Animatronic {
     doMove(location?: Location): void {
         let stepsVolume = 0;
         let lastLocation = this.location;
-        this.location = location ?? this.computeMove();
+        this.location = location ?? this.nextLocation();
         if (this.location != lastLocation) {
             stepsVolume = 0.1;
             if (this.location == Location.OUTSIDE_OFFICE) this.game.leftScare = false;
@@ -266,7 +266,7 @@ class Chica extends Animatronic {
         this.movementTime = 4980;
     }
 
-    computeMove(): Location {
+    nextLocation(): Location {
         switch (this.location) {
             case Location.SHOW_STAGE:
                 return Location.DINING_HALL;
@@ -294,7 +294,7 @@ class Chica extends Animatronic {
     doMove(location?: Location): void {
         let stepsVolume = 0;
         let lastLocation = this.location;
-        this.location = location ?? this.computeMove();
+        this.location = location ?? this.nextLocation();
         if (this.location != lastLocation) {
             stepsVolume = 0.1;
             if (this.location == Location.OUTSIDE_OFFICE) this.game.rightScare = false;
@@ -343,13 +343,14 @@ class Foxy extends Animatronic {
         this.drainCounter = 0;
     }
 
-    computeMove(): Location {
-        if (this.state < 2) {
-            return Location.PIRATE_COVE;
-        } else if (this.state == 2) {
-            return Location.WEST_HALL;
-        } else {
-            return Location.OFFICE;
+    nextLocation(): Location {
+        switch (this.state) {
+            case 0:
+            case 1:
+            case 2:
+                return Location.PIRATE_COVE;
+            default:
+                return Location.WEST_HALL;
         }
     }
 
@@ -358,13 +359,12 @@ class Foxy extends Animatronic {
     }
 
     doMove(location?: Location): void {
+        let lastState = this.state;
         let lastLocation = this.location;
-        this.location = location ?? this.computeMove();
-        if (lastLocation == Location.PIRATE_COVE && this.location == Location.PIRATE_COVE && this.game.isLookingAtCameras) return;
-
         this.state++;
+        this.location = location ?? this.nextLocation();
+        if (this.state < 3 && this.game.isLookingAtCameras) return;
 
-        this.game.updateFrame();
         if (this.location == Location.OFFICE) {
             if (!this.game.leftDoorClosed) this.game.showJumpscare(this);
             else {
@@ -373,7 +373,9 @@ class Foxy extends Animatronic {
                 this.drainCounter++;
                 this.reset();
             }
-        } else if (this.location != lastLocation && this.location == Location.WEST_HALL) this.game.foxyRun(false);
+        } else if (!this.game.foxyRunning && this.location == Location.WEST_HALL && this.state == 4) this.game.foxyRun(false);
+
+        if (this.location != lastLocation && this.state != lastState) this.game.updateFrame();
     }
 
     reset(): void {
@@ -390,7 +392,7 @@ class GoldenFreddy extends Animatronic {
         this.movementTime = Number.MAX_SAFE_INTEGER;
     }
 
-    computeMove(): Location {
+    nextLocation(): Location {
         switch (this.location) {
             case Location.NOWHERE:
                 return Location.WEST_HALL_CORNER;
@@ -406,7 +408,7 @@ class GoldenFreddy extends Animatronic {
     }
 
     doMove(location?: Location): void {
-        this.location = location ?? this.computeMove();
+        this.location = location ?? this.nextLocation();
         if (this.location == Location.OFFICE) {
             this.fadeTween = this.game.tweens.add({
                 targets: this.game.goldenFreddySprite,
@@ -434,7 +436,7 @@ class GoldenFreddy extends Animatronic {
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { GameConfig } from "@clubpenguin/app/config";
-import { Engine, Game } from "@clubpenguin/world/engine/engine";
+import { Game } from "@clubpenguin/world/engine/engine";
 import FNAFUI from "./FNAFUI";
 import FNAF from "./FNAF";
 import { randomRange } from "@clubpenguin/lib/math";
@@ -1001,7 +1003,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
                     else frame = "fnaf/Locations/Restrooms/41";
                     break;
                 case Location.PIRATE_COVE:
-                    if (this.foxy.location == Location.PIRATE_COVE && this.foxy.state < 3) {
+                    if (this.foxy.location == Location.PIRATE_COVE) {
                         if (this.foxy.state == 0) frame = "fnaf/Locations/Pirate Cove/66";
                         else if (this.foxy.state == 1) frame = "fnaf/Locations/Pirate Cove/211";
                         else if (this.foxy.state == 2) frame = "fnaf/Locations/Pirate Cove/338";
@@ -1033,18 +1035,26 @@ export default class FNAFNight extends Phaser.Scene implements Game {
                     break;
                 case Location.WEST_HALL:
                     if (this.foxyRunning) {
-                        if (this.foxy.state == 4 && !this.office.anims.isPlaying) {
+                        if (this.foxy.state > 3 && !this.office.anims.isPlaying) {
                             this.office.play('fnaf-foxyrunning-animation');
                             this.office.once('animationcomplete', () => {
                                 this.foxy.doMove();
-                                this.foxy.state = 3;
+                                this.foxy.state = 4;
                                 this.breakCameras();
                             });
+                            return;
                         }
+                        this.office.visible = false;
+                        this.breakCameras();
                         return;
                     }
-                    if (this.foxy.location == Location.WEST_HALL) {
-                        return this.foxyRun(true);
+                    if (this.foxy.location == Location.WEST_HALL && this.foxy.state == 3) {
+                        this.foxyRun(true);
+                        return;
+                    } else if (this.foxy.location == Location.WEST_HALL) {
+                        this.office.visible = false;
+                        this.breakCameras();
+                        return;
                     }
                     if (this.westHallLight) {
                         if (this.bonnie.location == Location.WEST_HALL) frame = "fnaf/Locations/West Hall/206";
@@ -1211,7 +1221,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
             this.goldenFreddy.state = 1;
             this.sound.play('fnaf-Laugh_Giggle_Girl_1');
         }
-        if (this.currentCamera == Location.WEST_HALL && this.foxy.state == 3) this.breakCameras();
+        if (this.currentCamera == Location.WEST_HALL && this.foxy.state == 4) this.breakCameras();
         this.updateFrame();
         this.setCameraSoundsVolume();
         this.events.emit('camera:change', this.currentCamera);
@@ -1553,11 +1563,11 @@ export default class FNAFNight extends Phaser.Scene implements Game {
     foxyRun(fromCameras = false): void {
         this.sound.play('fnaf-run');
         this.foxyRunning = true;
-        if (fromCameras) this.foxy.state = 4;
-        else this.foxy.state = 3;
+        if (fromCameras) this.foxy.state = 5;
+        else this.foxy.state = 4;
         this.time.delayedCall(fromCameras ? 1500 : 2500, () => {
             this.foxy.stopMoving();
-            this.foxy.doMove();
+            this.foxy.doMove(Location.OFFICE);
             if (!this.isGameOver) this.foxy.startMoving();
             this.foxyRunning = false;
         });

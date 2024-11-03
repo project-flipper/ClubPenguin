@@ -440,6 +440,11 @@ export default class FNAF extends Phaser.Scene implements Game {
     public beatSixth: boolean = false;
     public beatNightmare: boolean = false;
 
+    public customFreddyAI: number = 1;
+    public customBonnieAI: number = 3;
+    public customChicaAI: number = 3;
+    public customFoxyAI: number = 1;
+
     get world(): World {
         return this.scene.get('World') as World;
     }
@@ -462,6 +467,18 @@ export default class FNAF extends Phaser.Scene implements Game {
 
         let beatNightmare = localStorage.getItem('fnaf-beat-nightmare');
         this.beatNightmare = beatNightmare ? beatNightmare == 'true' : false;
+
+        let freddyAI = localStorage.getItem('fnaf-custom-freddy-ai');
+        this.customFreddyAI = freddyAI ? Math.max(Math.min(parseInt(freddyAI), 20), 0) : 1;
+
+        let bonnieAI = localStorage.getItem('fnaf-custom-bonnie-ai');
+        this.customBonnieAI = bonnieAI ? Math.max(Math.min(parseInt(bonnieAI), 20), 0) : 3;
+
+        let chicaAI = localStorage.getItem('fnaf-custom-chica-ai');
+        this.customChicaAI = chicaAI ? Math.max(Math.min(parseInt(chicaAI), 20), 0) : 3;
+
+        let foxyAI = localStorage.getItem('fnaf-custom-foxy-ai');
+        this.customFoxyAI = foxyAI ? Math.max(Math.min(parseInt(foxyAI), 20), 0) : 1;
 
         if (data.oninit) data.oninit(this);
     }
@@ -585,57 +602,64 @@ export default class FNAF extends Phaser.Scene implements Game {
     setupCustomize(): void {
         this.freddyAISub.setInteractive();
         this.freddyAISub.on('pointerdown', () => {
-            let value = Math.max(parseInt(this.freddyAI.text) - 1, 0);
-            this.freddyAI.text = value.toString();
+            this.customFreddyAI = Math.max(this.customFreddyAI - 1, 0);
+            this.freddyAI.text = this.customFreddyAI.toString();
         });
         this.freddyAIAdd.setInteractive();
         this.freddyAIAdd.on('pointerdown', () => {
-            let value = Math.min(parseInt(this.freddyAI.text) + 1, 20);
-            this.freddyAI.text = value.toString();
+            this.customFreddyAI = Math.min(this.customFreddyAI + 1, 20);
+            this.freddyAI.text = this.customFreddyAI.toString();
         });
+        this.freddyAI.text = this.customFreddyAI.toString();
 
         this.bonnieAISub.setInteractive();
         this.bonnieAISub.on('pointerdown', () => {
-            let value = Math.max(parseInt(this.bonnieAI.text) - 1, 0);
-            this.bonnieAI.text = value.toString();
+            this.customBonnieAI = Math.max(this.customBonnieAI - 1, 0);
+            this.bonnieAI.text = this.customBonnieAI.toString();
         });
         this.bonnieAIAdd.setInteractive();
         this.bonnieAIAdd.on('pointerdown', () => {
-            let value = Math.min(parseInt(this.bonnieAI.text) + 1, 20);
-            this.bonnieAI.text = value.toString();
+            this.customBonnieAI = Math.min(this.customBonnieAI + 1, 20);
+            this.bonnieAI.text = this.customBonnieAI.toString();
         });
+        this.bonnieAI.text = this.customBonnieAI.toString();
 
         this.chicaAISub.setInteractive();
         this.chicaAISub.on('pointerdown', () => {
-            let value = Math.max(parseInt(this.chicaAI.text) - 1, 0);
-            this.chicaAI.text = value.toString();
+            this.customChicaAI = Math.max(this.customChicaAI - 1, 0);
+            this.chicaAI.text = this.customChicaAI.toString();
         });
 
         this.chicaAIAdd.setInteractive();
         this.chicaAIAdd.on('pointerdown', () => {
-            let value = Math.min(parseInt(this.chicaAI.text) + 1, 20);
-            this.chicaAI.text = value.toString();
+            this.customChicaAI = Math.min(this.customChicaAI + 1, 20);
+            this.chicaAI.text = this.customChicaAI.toString();
         });
+        this.chicaAI.text = this.customChicaAI.toString();
 
         this.foxyAISub.setInteractive();
         this.foxyAISub.on('pointerdown', () => {
-            let value = Math.max(parseInt(this.foxyAI.text) - 1, 0);
-            this.foxyAI.text = value.toString();
+            this.customFoxyAI = Math.max(this.customFoxyAI - 1, 0);
+            this.foxyAI.text = this.customFoxyAI.toString();
         });
 
         this.foxyAIAdd.setInteractive();
         this.foxyAIAdd.on('pointerdown', () => {
-            let value = Math.min(parseInt(this.foxyAI.text) + 1, 20);
-            this.foxyAI.text = value.toString();
+            this.customFoxyAI = Math.min(this.customFoxyAI + 1, 20);
+            this.foxyAI.text = this.customFoxyAI.toString();
         });
+        this.foxyAI.text = this.customFoxyAI.toString();
 
         this.customizeReady.setInteractive();
         this.customizeReady.on('pointerdown', () => {
-            if (`${this.freddyAI.text}${this.bonnieAI.text}${this.chicaAI.text}${this.foxyAI.text}` == '1987') {
+            if (this.customFreddyAI == 1 && this.customBonnieAI == 9 && this.customChicaAI == 8 && this.customFoxyAI == 7) {
                 this.goldenFreddy.visible = true;
                 this.sound.play('fnaf-pregame-XSCREAM2');
                 this.time.delayedCall(1500, () => window.location.replace('about:blank'));
-            } else this.startNight(7);
+            } else {
+                this.saveCustomizedNight();
+                this.startNight(7);
+            }
         });
     }
 
@@ -745,6 +769,13 @@ export default class FNAF extends Phaser.Scene implements Game {
         this.scene.add('FNAFNight', FNAFNight, true, { night, game: this, freddyAI, bonnieAI, chicaAI, foxyAI });
     }
 
+    saveCustomizedNight(): void {
+        localStorage.setItem('fnaf-custom-freddy-ai', this.customFreddyAI.toString());
+        localStorage.setItem('fnaf-custom-bonnie-ai', this.customBonnieAI.toString());
+        localStorage.setItem('fnaf-custom-chica-ai', this.customChicaAI.toString());
+        localStorage.setItem('fnaf-custom-foxy-ai', this.customFoxyAI.toString());
+    }
+
     setCurrentNight(night: number): void {
         this.currentNight = night;
         localStorage.setItem('fnaf-night', Math.min(Math.max(night, 1), 5).toString());
@@ -766,8 +797,6 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     endGame(score: number, night = 0, didWin = false): void {
-        this.stopAllSounds();
-
         if (night > 0 && didWin) {
             if (night < 5) {
                 this.setCurrentNight(night + 1);
@@ -775,7 +804,7 @@ export default class FNAF extends Phaser.Scene implements Game {
                 this.setBeatGame(true);
             } else if (night == 6) {
                 this.setBeatSixth(true);
-            } else if (night == 7 && `${this.freddyAI.text}${this.bonnieAI.text}${this.chicaAI.text}${this.foxyAI.text}` == '20202020') {
+            } else if (night == 7 && this.customFreddyAI == 20 && this.customBonnieAI == 20 && this.customChicaAI == 20 && this.customFoxyAI == 20) {
                 this.setBeatNightmare(true);
             }
         }
@@ -790,6 +819,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     beforeUnload?(engine: Engine): void {
+        this.stopAllSounds();
         this.input.setGlobalTopOnly(true);
         this.scene.remove('FNAFNight');
         this.scene.remove('FNAFUI');
