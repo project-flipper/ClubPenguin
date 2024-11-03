@@ -144,7 +144,7 @@
                     "label": "leftDoorButton",
                     "scope": "PUBLIC",
                     "x": 25,
-                    "y": 251,
+                    "y": 268,
                     "originX": 0,
                     "originY": 0,
                     "alpha": 0.01,
@@ -172,7 +172,7 @@
                     "label": "rightDoorButton",
                     "scope": "PUBLIC",
                     "x": 1519,
-                    "y": 267,
+                    "y": 275,
                     "originX": 0,
                     "originY": 0,
                     "alpha": 0.01,
@@ -199,14 +199,14 @@
                     "id": "d6c52d1b-2f68-4186-b84c-9922a905b726",
                     "label": "boop",
                     "scope": "PUBLIC",
-                    "x": 674,
+                    "x": 671,
                     "y": 236,
                     "originX": 0,
                     "originY": 0,
                     "alpha": 0.01,
                     "isFilled": true,
-                    "width": 8,
-                    "height": 8
+                    "width": 16,
+                    "height": 22
                 }
             ]
         },

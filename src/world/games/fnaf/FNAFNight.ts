@@ -396,7 +396,10 @@ class Foxy extends Animatronic {
             }
         } else if (!this.game.foxyRunning && this.location == Location.WEST_HALL && this.state == 4) this.game.foxyRun(false);
 
-        if (this.location != lastLocation && this.state != lastState) this.game.updateFrame();
+        if (this.location != lastLocation && this.state != lastState) {
+            if ((this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) && this.game.isLookingAtCameras) this.game.breakCameras();
+            this.game.updateFrame();
+        }
     }
 
     reset(): void {
@@ -530,7 +533,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         officeView.add(rightButtons);
 
         // leftDoorButton
-        const leftDoorButton = this.add.rectangle(25, 251, 62, 120);
+        const leftDoorButton = this.add.rectangle(25, 268, 62, 120);
         leftDoorButton.setOrigin(0, 0);
         leftDoorButton.alpha = 0.01;
         leftDoorButton.isFilled = true;
@@ -544,7 +547,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         officeView.add(leftLightButton);
 
         // rightDoorButton
-        const rightDoorButton = this.add.rectangle(1519, 267, 62, 120);
+        const rightDoorButton = this.add.rectangle(1519, 275, 62, 120);
         rightDoorButton.setOrigin(0, 0);
         rightDoorButton.alpha = 0.01;
         rightDoorButton.isFilled = true;
@@ -558,7 +561,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         officeView.add(rightLightButton);
 
         // boop
-        const boop = this.add.rectangle(674, 236, 8, 8);
+        const boop = this.add.rectangle(671, 236, 16, 22);
         boop.setOrigin(0, 0);
         boop.alpha = 0.01;
         boop.isFilled = true;
