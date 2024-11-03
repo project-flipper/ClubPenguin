@@ -46,6 +46,13 @@ class Animatronic {
         });
     }
 
+    restartMovement(): void {
+        if (this.isMoving) {
+            this.stopMoving();
+            this.startMoving();
+        }
+    }
+
     get isMoving(): boolean {
         return this.mo != undefined;
     }
@@ -294,7 +301,7 @@ class Foxy extends Animatronic {
     computeMove(): Location {
         if (this.state < 2) {
             return Location.PIRATE_COVE;
-        } else if (this.state < 4) {
+        } else if (this.state == 2) {
             return Location.WEST_HALL;
         } else {
             return Location.OFFICE;
@@ -957,9 +964,13 @@ export default class FNAF extends Phaser.Scene implements Game {
                     break;
                 case Location.WEST_HALL:
                     if (this.foxyRunning) {
-                        if (!this.office.anims.isPlaying) {
+                        if (this.foxy.state == 4 && !this.office.anims.isPlaying) {
                             this.office.play('fnaf-foxyrunning-animation');
-                            this.office.once('animationcomplete', () => this.foxy.doMove());
+                            this.office.once('animationcomplete', () => {
+                                this.foxy.doMove();
+                                this.foxy.state = 3;
+                                this.breakCameras();
+                            });
                         }
                         return;
                     }
@@ -1041,6 +1052,7 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     showOffice(): void {
+        this.foxy.restartMovement();
         if (this.goldenFreddy.location == Location.WEST_HALL_CORNER && this.goldenFreddy.state == 1) this.goldenFreddy.doMove();
         else this.goldenFreddy.reset();
         let fan = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-Buzz_Fan_Florescent2');
@@ -1437,7 +1449,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         } else if (!this.leftDoorLight && !this.rightDoorLight && light) light.volume = 0;
 
         if (this.isLookingAtCameras) {
-            if (this.currentCamera == Location.WEST_HALL && !this.office.anims.isPlaying) {
+            if (this.currentCamera == Location.WEST_HALL && !this.foxyRunning) {
                 this.westHallLight = Phaser.Math.RND.weightedPick([true, false]);
                 this.updateFrame();
             }
