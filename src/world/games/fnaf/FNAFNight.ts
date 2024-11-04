@@ -15,13 +15,20 @@ export enum Location {
     WEST_HALL,
 }
 
+/**
+ * Represents an animatronic character in the game.
+ * The animatronic has a location, a name, a value, and a state.
+ */
 class Animatronic {
     public game: FNAFNight;
 
-    public location: Location;
+    private _location: Location;
+    private _state: number;
+
+    public previousLocation: Location;
     public name: string;
     public value: number;
-    public state: number;
+    public previousState: number;
 
     public mo: Phaser.Time.TimerEvent;
     public moRestart: Phaser.Time.TimerEvent;
@@ -30,13 +37,60 @@ class Animatronic {
     constructor(game: FNAFNight, location: Location, name: string, value: number) {
         this.game = game;
 
+        this._location = undefined;
+        this._state = undefined;
         this.location = location;
         this.name = name;
         this.value = value;
         this.movementTime = 1000;
-        this.state = 0;
     }
 
+    /**
+     * Get the current location of the animatronic.
+     */
+    get location(): Location {
+        return this._location;
+    }
+
+    /**
+     * Set the current location of the animatronic.
+     */
+    set location(value: Location) {
+        if (this._location == value) return;
+        this.previousLocation = this.location;
+        this._location = value;
+        console.trace('Setting location', this.name, value);
+    }
+
+    /**
+     * Get the current state of the animatronic.
+     */
+    get state(): number {
+        return this._state;
+    }
+
+    /**
+     * Set the current state of the animatronic.
+     */
+    set state(value: number) {
+        if (this._state == value) return;
+        this.previousState = this.state;
+        this._state = value;
+    }
+
+    /**
+     * Check if the animatronic has moved or changed state and should trigger an update.
+     * @returns Whether the animatronic has moved or changed state.
+     */
+    isDirty(): boolean {
+        return this.location != this.previousLocation || this.state != this.previousState;
+    }
+
+    /**
+     * Start moving the animatronic, calculating movement opportunities every {@link movementTime} seconds.
+     * If the animatronic is already moving, it will stop the current movement and start a new one.
+     * If a movement restart is scheduled, it will be cancelled and started immediately.
+     */
     startMoving(): void {
         this.stopMoving();
         this.mo = this.game.time.addEvent({
@@ -47,6 +101,12 @@ class Animatronic {
         });
     }
 
+    /**
+     * Restart the movement of the animatronic.
+     * If a delay is provided, it will restart the movement after the delay in milliseconds.
+     * If a restart is already scheduled, it will be cancelled and started immediately, or replaced by the new delay.
+     * @param delay Delay in milliseconds to restart the movement.
+     */
     restartMovement(delay?: number): void {
         if (this.isMoving) {
             this.stopMoving();
@@ -68,10 +128,17 @@ class Animatronic {
         }
     }
 
+    /**
+     * Check if the animatronic is currently moving.
+     */
     get isMoving(): boolean {
         return this.mo != undefined;
     }
 
+    /**
+     * Stop the movement of the animatronic.
+     * If a movement restart is scheduled, it will be cancelled.
+     */
     stopMoving(): void {
         if (this.moRestart) {
             this.moRestart.remove();
@@ -84,27 +151,58 @@ class Animatronic {
         }
     }
 
+    /**
+     * Computes a random number between 1 and 20 and checks if it is less than or equal to the animatronic's value.
+     * This is used to determine if the animatronic has a chance to move.
+     * @returns True if the animatronic has a chance to move.
+     */
     hasMovementChance(): boolean {
         let rng = Phaser.Math.RND.between(1, 20);
         return rng <= this.value;
     }
 
+    /**
+     * Get the next location the animatronic will move to.
+     * This method should be overridden by the subclasses to provide the specific movement patterns.
+     * This method should remain pure and not have side effects.
+     * @returns The next location the animatronic will move to.
+     */
     nextLocation(): Location {
         return this.location;
     }
 
-    canMove(): boolean {
+    /**
+     * Checks whether a movement opportunity is available and the animatronic can move.
+     * If you need to check for additional conditions, override this method.
+     * @param to The location to move to. If not provided, it will move to the next location pattern.
+     * @returns Whether the animatronic can move.
+     */
+    canMove(to: Location): boolean {
         return this.hasMovementChance();
     }
 
+    /**
+     * Moves the animatronic to the next location.
+     * If additional movement logic is required, override {@link doMove}, or {@link canMove} for additional checks.
+     */
     move(): void {
-        if (this.canMove()) this.doMove();
+        let location = this.nextLocation();
+        if (this.canMove(location)) this.doMove(location);
     }
 
-    doMove(location?: Location): void {
-        this.location = location ?? this.nextLocation();
+    /**
+     * Perform the movement of the animatronic.
+     * If additional movement logic is required, override this method.
+     * @param location The location to move the animatronic to. If not provided, it will move to the next location pattern.
+     */
+    doMove(to?: Location): void {
+        this.location = to ?? this.nextLocation();
     }
 
+    /**
+     * Reset the animatronic to its initial state.
+     * If additional reset logic is required, override this method.
+     */
     reset(): void {
 
     }
@@ -131,50 +229,46 @@ class Freddy extends Animatronic {
                 return Location.EAST_HALL_CORNER;
             case Location.EAST_HALL_CORNER:
                 return Location.OUTSIDE_OFFICE;
-            case Location.OUTSIDE_OFFICE:
-                return Location.OFFICE;
             default:
-                return Location.OFFICE;
+                return this.location;
         }
     }
 
-    canMove(): boolean {
-        return this.hasMovementChance() && !this.lookingAtMe();
-    }
-
-    lookingAtMe(): boolean {
+    canMove(to: Location): boolean {
+        let mo = this.hasMovementChance();
         if (this.location == Location.EAST_HALL_CORNER) {
-            return this.game.currentCamera == Location.EAST_HALL_CORNER;
+            return mo && this.game.currentCamera != Location.EAST_HALL_CORNER;
         } else {
-            return this.game.isLookingAtCameras;
-        }   
+            return mo && !this.game.isLookingAtCameras;
+        }
     }
 
-    doMove(location?: Location): void {
+    doMove(to?: Location): void {
         let laughVolume = 0;
         let stepsVolume = 0;
-        let lastLocation = this.location;
-        this.location = location ?? this.nextLocation();
-        if (this.location == Location.DINING_HALL) {
-            laughVolume = 0.15;
-            stepsVolume = 0.3;
+        this.location = to ?? this.nextLocation();
+
+        if (this.location != this.previousLocation) {
+            if (this.location == Location.KITCHEN) this.game.enteredKitchen(this);
+            else if (this.previousLocation == Location.KITCHEN) this.game.leftKitchen(this);
+            if (this.location == Location.DINING_HALL) {
+                laughVolume = 0.15;
+                stepsVolume = 0.3;
+            } else if (this.location == Location.RESTROOMS) {
+                laughVolume = 0.2;
+                stepsVolume = 0.35;
+            } else if (this.location == Location.KITCHEN) {
+                laughVolume = 0.3;
+                stepsVolume = 0.4;
+            } else if (this.location == Location.EAST_HALL) {
+                laughVolume = 0.4;
+                stepsVolume = 0.6;
+            } else if (this.location == Location.EAST_HALL_CORNER) {
+                laughVolume = 0.6;
+                stepsVolume = 0.75;
+            }
         }
-        if (this.location == Location.RESTROOMS) {
-            laughVolume = 0.2;
-            stepsVolume = 0.35;
-        }
-        if (this.location == Location.KITCHEN) {
-            laughVolume = 0.3;
-            stepsVolume = 0.4;
-        }
-        if (this.location == Location.EAST_HALL) {
-            laughVolume = 0.4;
-            stepsVolume = 0.6;
-        }
-        if (this.location == Location.EAST_HALL_CORNER) {
-            laughVolume = 0.6;
-            stepsVolume = 0.75;
-        }
+
         if (this.location == Location.OUTSIDE_OFFICE) {
             if (!this.game.rightDoorClosed) {
                 this.location = Location.OFFICE;
@@ -182,24 +276,17 @@ class Freddy extends Animatronic {
                 laughVolume = 0.8;
                 stepsVolume = 1;
             } else {
-                if (this.game.currentCamera == Location.EAST_HALL) {
-                    this.location = lastLocation;
-                    return;
-                }
+                if (this.game.currentCamera == Location.EAST_HALL) return;
                 this.reset();
                 laughVolume = 0.6;
                 stepsVolume = 0.75;
             }
         }
-        if (this.location != lastLocation) {
-            if (this.location == Location.KITCHEN) this.game.enteredKitchen(this);
-            else if (lastLocation == Location.KITCHEN) this.game.leftKitchen(this);
-        }
-        if (this.location == Location.OFFICE) return;
-        if (this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) this.game.breakCameras();
+
+        if (this.location == this.game.currentCamera || this.previousLocation == this.game.currentCamera) this.game.breakCameras();
         if (laughVolume > 0) this.game.sound.play(Phaser.Math.RND.pick(['fnaf-Laugh_Giggle_Girl_1d', 'fnaf-Laugh_Giggle_Girl_2d', 'fnaf-Laugh_Giggle_Girl_8d']), { volume: laughVolume });
         if (stepsVolume > 0) this.game.sound.play('fnaf-running-fast3', { volume: stepsVolume });
-        this.game.updateFrame();
+        if (this.isDirty()) this.game.updateFrame();
     }
 
     reset(): void {
@@ -220,7 +307,7 @@ class Bonnie extends Animatronic {
             case Location.DINING_HALL:
                 return Phaser.Math.RND.pick([ Location.WEST_HALL, Location.BACKSTAGE ]);
             case Location.BACKSTAGE:
-                return Phaser.Math.RND.pick([ Location.DINING_HALL, Location.BACKSTAGE ]);
+                return Phaser.Math.RND.pick([ Location.DINING_HALL, Location.DINING_HALL ]);
             case Location.WEST_HALL:
                 return Phaser.Math.RND.pick([ Location.WEST_HALL_CORNER, Location.SUPPLY_CLOSET ]);
             case Location.SUPPLY_CLOSET:
@@ -230,36 +317,32 @@ class Bonnie extends Animatronic {
             case Location.OUTSIDE_OFFICE:
                 return Location.OFFICE;
             default:
-                return Location.OFFICE;
+                return this.location;
         }
     }
 
-    canMove(): boolean {
+    canMove(to: Location): boolean {
         return this.hasMovementChance();
     }
 
-    doMove(location?: Location): void {
+    doMove(to: Location): void {
         let stepsVolume = 0;
-        let lastLocation = this.location;
-        this.location = location ?? this.nextLocation();
-        if (this.location != lastLocation) {
+        this.location = to ?? this.nextLocation();
+        if (this.location != this.previousLocation) {
             stepsVolume = 0.1;
-            if (this.location == Location.OUTSIDE_OFFICE) this.game.leftScare = false;
+            if (this.location == Location.DINING_HALL) {
+                stepsVolume = 0.2;
+                this.state = Phaser.Math.RND.between(0, 1);
+            } else if (this.location == Location.WEST_HALL || this.location == Location.SUPPLY_CLOSET) {
+                stepsVolume = 0.3;
+            } else if (this.location == Location.WEST_HALL_CORNER) {
+                stepsVolume = 0.4;
+            } else if (this.location == Location.OUTSIDE_OFFICE) {
+                this.game.leftScare = false;
+                this.game.leftDoorLight = false;
+                stepsVolume = 0.4;
+            }
         }
-        if (this.location == Location.DINING_HALL) {
-            stepsVolume = 0.2;
-            this.state = Phaser.Math.RND.between(0, 1);
-        }
-        if (this.location == Location.WEST_HALL || this.location == Location.SUPPLY_CLOSET) stepsVolume = 0.3;
-        if (this.location == Location.WEST_HALL_CORNER) {
-            stepsVolume = 0.4;
-            this.state = 0;
-        }
-        if (this.location == Location.OUTSIDE_OFFICE) {
-            stepsVolume = 0;
-            this.game.leftDoorLight = false;
-        }
-        if (this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) this.game.breakCameras();
         if (this.location == Location.OFFICE) {
             this.game.leftDoorLight = false;
             if (!this.game.leftDoorClosed) this.game.enteredOffice(this);
@@ -268,9 +351,10 @@ class Bonnie extends Animatronic {
                 stepsVolume = 0.3;
             }
         }
-        if (this.location == Location.OFFICE || this.location == Location.OUTSIDE_OFFICE) this.game.rightDoorLight = false;
+        if (this.location == this.game.currentCamera || this.previousLocation == this.game.currentCamera) this.game.breakCameras();
         if (stepsVolume > 0) this.game.sound.play('fnaf-deep-steps', { volume: stepsVolume });
-        this.game.updateFrame();
+
+        if (this.isDirty()) this.game.updateFrame();
     }
 
     reset(): void {
@@ -302,7 +386,7 @@ class Chica extends Animatronic {
             case Location.OUTSIDE_OFFICE:
                 return Location.OFFICE;
             default:
-                return Location.OFFICE;
+                return this.location;
         }
     }
 
@@ -310,28 +394,28 @@ class Chica extends Animatronic {
         return this.hasMovementChance();
     }
 
-    doMove(location?: Location): void {
+    doMove(to: Location): void {
         let stepsVolume = 0;
-        let lastLocation = this.location;
-        this.location = location ?? this.nextLocation();
-        if (this.location != lastLocation) {
+        this.location = to ?? this.nextLocation();
+        if (this.location != this.previousLocation) {
             stepsVolume = 0.1;
-            if (this.location == Location.OUTSIDE_OFFICE) this.game.rightScare = false;
             if (this.location == Location.KITCHEN) this.game.enteredKitchen(this);
-            else if (lastLocation == Location.KITCHEN) this.game.leftKitchen(this);
+            else if (this.previousLocation == Location.KITCHEN) this.game.leftKitchen(this);
+            if (this.location == Location.DINING_HALL || this.location == Location.RESTROOMS || this.location == Location.EAST_HALL) this.state = Phaser.Math.RND.between(0, 1);
+
+            if (this.location == Location.OUTSIDE_OFFICE) {
+                this.game.rightScare = false;
+                this.game.rightDoorLight = false;
+                stepsVolume = 0.4;
+            } else if (this.location == Location.KITCHEN || this.location == Location.RESTROOMS) {
+                stepsVolume = 0.2;
+            } else if (this.location == Location.EAST_HALL) {
+                stepsVolume = 0.3;
+            } else if (this.location == Location.EAST_HALL_CORNER) {
+                stepsVolume = 0.3;
+                this.state = 0;
+            }
         }
-        if (this.location == Location.DINING_HALL || this.location == Location.RESTROOMS || this.location == Location.EAST_HALL) this.state = Phaser.Math.RND.between(0, 1);
-        if (this.location == Location.KITCHEN || this.location == Location.RESTROOMS) stepsVolume = 0.2;
-        if (this.location == Location.EAST_HALL) stepsVolume = 0.3;
-        if (this.location == Location.EAST_HALL_CORNER) {
-            stepsVolume = 0.3;
-            this.state = 0;
-        }
-        if (this.location == Location.OUTSIDE_OFFICE) {
-            this.game.rightDoorLight = false;
-            stepsVolume = 0.4;
-        }
-        if (this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) this.game.breakCameras();
         if (this.location == Location.OFFICE) {
             this.game.rightDoorLight = false;
             if (!this.game.rightDoorClosed) this.game.enteredOffice(this);
@@ -340,9 +424,9 @@ class Chica extends Animatronic {
                 stepsVolume = 0.4;
             }
         }
-        if (this.location == Location.OFFICE || this.location == Location.OUTSIDE_OFFICE) this.game.rightDoorLight = false;
+        if (this.location == this.game.currentCamera || this.previousLocation == this.game.currentCamera) this.game.breakCameras();
         if (stepsVolume > 0) this.game.sound.play('fnaf-deep-steps', { volume: stepsVolume });
-        this.game.updateFrame();
+        if (this.isDirty()) this.game.updateFrame();
     }
 
     reset(): void {
@@ -352,7 +436,6 @@ class Chica extends Animatronic {
 }
 
 class Foxy extends Animatronic {
-    public state: number;
     public drainCounter: number;
 
     constructor(game: FNAFNight, location: Location, value: number) {
@@ -368,38 +451,45 @@ class Foxy extends Animatronic {
             case 1:
             case 2:
                 return Location.PIRATE_COVE;
-            default:
+            case 3:
+            case 4:
+            case 5:
                 return Location.WEST_HALL;
+            default:
+                return this.location;
         }
     }
 
-    canMove(): boolean {
-        return this.hasMovementChance();
+    canMove(to: Location): boolean {
+        return this.hasMovementChance() && !(this.previousState <= 2 && this.game.isLookingAtCameras);
     }
 
-    doMove(location?: Location): void {
-        let lastState = this.state;
-        let lastLocation = this.location;
-        if (lastState <= 2 && this.game.isLookingAtCameras && !location) return;
-        this.state++;
-        this.location = location ?? this.nextLocation();
+    doMove(to?: Location): void {
+        this.location = to ?? this.nextLocation();
 
-        if (this.location == Location.OFFICE) {
-            if (!this.game.leftDoorClosed) this.game.showJumpscare(this);
-            else {
-                this.game.sound.play('fnaf-knock2');
-                this.game.power -= 1 + this.drainCounter * 5;
-                this.game.power = Math.max(0, this.game.power);
-                this.game.events.emit('power:update', this.game.power);
-                this.drainCounter++;
-                this.reset();
-            }
-        } else if (!this.game.foxyRunning && this.location == Location.WEST_HALL && this.state == 4) this.game.foxyRun(false);
+        if (this.isDirty()) {
+            if (this.location == Location.OFFICE) {
+                if (!this.game.leftDoorClosed) this.game.showJumpscare(this);
+                else {
+                    this.game.sound.play('fnaf-knock2');
+                    this.game.power -= 1 + this.drainCounter * 5;
+                    this.game.power = Math.max(0, this.game.power);
+                    this.game.events.emit('power:update', this.game.power);
+                    this.drainCounter++;
+                    this.reset();
+                }
+            } else if (!this.game.foxyRunning && this.location == Location.WEST_HALL && this.state == 4) this.game.foxyRun(false);
 
-        if (this.location != lastLocation && this.state != lastState) {
-            if ((this.location == this.game.currentCamera || lastLocation == this.game.currentCamera) && this.game.isLookingAtCameras) this.game.breakCameras();
+            if (this.location == this.game.currentCamera || this.previousLocation == this.game.currentCamera) this.game.breakCameras();
             this.game.updateFrame();
         }
+    }
+
+    move(): void {
+        this.state++;
+        let location = this.nextLocation();
+        if (this.canMove(location)) this.doMove(location);
+        else this.state = this.previousState;
     }
 
     reset(): void {
@@ -423,17 +513,17 @@ class GoldenFreddy extends Animatronic {
             case Location.WEST_HALL_CORNER:
                 return Location.OFFICE;
             default:
-                return Location.NOWHERE;
+                return this.location;
         }
     }
 
     hasMovementChance(): boolean {
-        return Phaser.Math.RND.between(1, 100_000) <= this.value;
+        return Phaser.Math.RND.between(1, 32_768) <= this.value;
     }
 
-    doMove(location?: Location): void {
-        this.location = location ?? this.nextLocation();
-        if (this.location == Location.OFFICE) {
+    doMove(to?: Location): void {
+        this.location = to ?? this.nextLocation();
+        if (this.location == Location.OFFICE && this.isDirty()) {
             this.fadeTween = this.game.tweens.add({
                 targets: this.game.goldenFreddySprite,
                 alpha: { from: 1, to: 0 },
@@ -933,6 +1023,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
                     this.events.emit('flashing:frame', 0);
                     this.activeFlashing = undefined;
                     if (robotvoice && !this.glitchingEvent) robotvoice.volume = 0;
+                    else if (robotvoice) robotvoice.volume = Phaser.Math.Between(0.1, 0.26);
                 } else {
                     this.events.emit('flashing:frame', Phaser.Math.RND.weightedPick([0, 0, 0, 1, 2, 3, 4]));
                     if (robotvoice) robotvoice.volume = 1;
@@ -954,9 +1045,6 @@ export default class FNAFNight extends Phaser.Scene implements Game {
     startGlitching(): void {
         if (this.glitchingEvent) return;
 
-        let robotvoice = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-robotvoice');
-        if (robotvoice && !this.activeFlashing) robotvoice.volume = Phaser.Math.Between(0.1, 0.26);
-
         this.glitchingEvent = this.time.addEvent({
             callback: () => {
                 if (!this.isLookingAtCameras) return;
@@ -967,12 +1055,27 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         });
     }
 
+    maybeGlitch(): void {
+        if (this.currentNight >= 4) {
+            let glitching = false;
+            if (this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) glitching = true;
+            if (this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER) glitching = true;
+
+            if (glitching) this.startGlitching();
+            else this.stopGlitching();
+        }
+    }
+
     doGlitching(): void {
+        let robotvoice = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-robotvoice');
+
         if (this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) {
             this.chica.state = Phaser.Math.RND.weightedPick([0, 1, 2]);
+            if (robotvoice && !this.activeFlashing) robotvoice.volume = Phaser.Math.Between(0.1, 0.26);
             this.updateFrame();
         } else if (this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER) {
             this.bonnie.state = Phaser.Math.RND.weightedPick([0, 1, 2]);
+            if (robotvoice && !this.activeFlashing) robotvoice.volume = Phaser.Math.Between(0.1, 0.26);
             this.updateFrame();
         }
     }
@@ -1165,6 +1268,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
     }
 
     showOffice(): void {
+        this.stopGlitching();
         let lastCameraState = this.isLookingAtCameras;
         if (this.foxy.location == Location.PIRATE_COVE) this.foxy.restartMovement(randomRange(0.83, 16.67));
 
@@ -1227,8 +1331,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         if (this.isLookingAtCameras != lastCameraState) this.events.emit('camera:state', this.isLookingAtCameras);
         this.events.emit('usage:update', this.powerUsage);
 
-        if (((this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) || (this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER)) && this.currentNight >= 4) this.startGlitching();
-        else this.stopGlitching();
+        this.maybeGlitch();
     }
 
     setCameraSoundsVolume(): void {
@@ -1260,8 +1363,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         this.setCameraSoundsVolume();
         this.events.emit('camera:change', this.currentCamera);
 
-        if (((this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) || (this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER)) && this.currentNight >= 4) this.startGlitching();
-        else this.stopGlitching();
+        this.maybeGlitch();
     }
 
     public camerasBroken = false;
@@ -1441,7 +1543,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
     startBreathing(): void {
         if (this.isBreathing) return;
         this.isBreathing = true;
-        this.breathe();
+        this.time.delayedCall(Phaser.Math.RND.between(1000, 2500), () => this.breathe());
     }
 
     startWhisper(): void {
@@ -1456,7 +1558,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         this.sound.play(key);
         let sound = this.sound.get<Phaser.Sound.HTML5AudioSound>(key);
         if (sound) sound.on('complete', () => {
-            if (this.isBreathing) this.time.delayedCall(Phaser.Math.RND.between(500, 1000), () => this.breathe());
+            if (this.isBreathing) this.time.delayedCall(Phaser.Math.RND.between(1000, 2500), () => this.breathe());
         });
     }
 

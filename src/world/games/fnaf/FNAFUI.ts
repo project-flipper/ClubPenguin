@@ -109,7 +109,7 @@ export default class FNAFUI extends Phaser.Scene {
         cams.add(location);
 
         // rec
-        const rec = this.add.sprite(7, 67, "fnaf", "fnaf/Other/7");
+        const rec = this.add.sprite(68, 52, "fnaf", "fnaf/Other/7");
         rec.setOrigin(0, 0);
         rec.play("fnaf-rec-animation");
         cams.add(rec);
@@ -258,8 +258,13 @@ export default class FNAFUI extends Phaser.Scene {
         night.fontSize = -15;
 
         // muteCall
-        const muteCall = this.add.image(36, 32, "fnaf", "fnaf/Numbers & Nights/Camera and Nights/481");
+        const muteCall = this.add.image(27, 22, "fnaf", "fnaf/Numbers & Nights/Camera and Nights/481");
         muteCall.setOrigin(0, 0);
+        muteCall.alpha = 0.4;
+        muteCall.alphaTopLeft = 0.4;
+        muteCall.alphaTopRight = 0.4;
+        muteCall.alphaBottomLeft = 0.4;
+        muteCall.alphaBottomRight = 0.4;
 
         // flasher
         const flasher = this.add.image(-70, 0, "fnaf", "fnaf/Other/Misc/520");
@@ -598,6 +603,7 @@ export default class FNAFUI extends Phaser.Scene {
         this.fnaf.events.on('power:update', this.onPowerUpdate, this);
         this.fnaf.events.on('hour:update', this.onHourUpdate, this);
         this.fnaf.events.on('camera:change', this.onCameraChange, this);
+        this.fnaf.events.on('camera:state', this.onCameraState, this);
         this.fnaf.events.on('jumpscare:show', this.onJumpscareShow, this);
         this.fnaf.events.on('game:end', this.onGameEnd, this);
 
@@ -800,6 +806,8 @@ export default class FNAFUI extends Phaser.Scene {
     }
 
     flipCamerasDown(showGame = true): void {
+        if (this.currentView == View.OFFICE) return;
+
         this.sound.stopByKey('fnaf-CAMERA_VIDEO_LOA_60105303');
         this.sound.play('fnaf-put-down');
         this.monitor.playReverse('fnaf-monitorflip-animation');
@@ -808,6 +816,10 @@ export default class FNAFUI extends Phaser.Scene {
     }
 
     flipCamerasUp(showGame = true): void {
+        if (this.currentView == View.CAMERAS) return;
+
+        this.currentView = View.CAMERAS;
+
         this.sound.play('fnaf-CAMERA_VIDEO_LOA_60105303');
         this.monitor.play('fnaf-monitorflip-animation');
         this.monitor.once('animationcomplete', () => {
@@ -815,6 +827,11 @@ export default class FNAFUI extends Phaser.Scene {
             this.setView(View.CAMERAS);
             this.blipCameras();
         });
+    }
+
+    onCameraState(state: boolean): void {
+        if (state) this.flipCamerasUp();
+        else this.flipCamerasDown();
     }
 
     blipCameras(): void {

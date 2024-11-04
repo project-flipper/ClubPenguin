@@ -31,8 +31,7 @@
             "alphaBottomLeft": 0.25,
             "alphaBottomRight": 0.25,
             "animationPlayMethod": 1,
-            "animationKey": "fnaf-static-animation",
-            "animationPreview": true
+            "animationKey": "fnaf-static-animation"
         },
         {
             "type": "Rectangle",
@@ -229,13 +228,12 @@
                         "key": "fnaf",
                         "frame": "fnaf/Other/7"
                     },
-                    "x": 7,
-                    "y": 67,
+                    "x": 68,
+                    "y": 52,
                     "originX": 0,
                     "originY": 0,
                     "animationPlayMethod": 1,
-                    "animationKey": "fnaf-rec-animation",
-                    "animationPreview": true
+                    "animationKey": "fnaf-rec-animation"
                 },
                 {
                     "type": "Sprite",
@@ -250,8 +248,7 @@
                     "originX": 0,
                     "originY": 0,
                     "animationPlayMethod": 1,
-                    "animationKey": "fnaf-map-animation",
-                    "animationPreview": true
+                    "animationKey": "fnaf-map-animation"
                 },
                 {
                     "type": "NineSlice",
@@ -649,10 +646,15 @@
                 "key": "fnaf",
                 "frame": "fnaf/Numbers & Nights/Camera and Nights/481"
             },
-            "x": 36,
-            "y": 32,
+            "x": 27,
+            "y": 22,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "alpha": 0.4,
+            "alphaTopLeft": 0.4,
+            "alphaTopRight": 0.4,
+            "alphaBottomLeft": 0.4,
+            "alphaBottomRight": 0.4
         },
         {
             "type": "Image",
