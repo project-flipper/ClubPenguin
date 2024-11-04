@@ -59,7 +59,6 @@ class Animatronic {
         if (this._location == value) return;
         this.previousLocation = this.location;
         this._location = value;
-        console.trace('Setting location', this.name, value);
     }
 
     /**
