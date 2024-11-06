@@ -270,7 +270,7 @@ export class HybridGame extends Phaser.Scene implements Game {
             basePath: '',
             baseConfigPath: '',
             globalContentPath: `${this.load.baseURL}assets/world/`,
-            gamesPath: `${this.load.baseURL}assets/world/games/`
+            gamesPath: `${this.load.baseURL}assets/world/games/hybrid/`
         }, userData, colorHex, this.game.locale.abbreviation);
     }
 
