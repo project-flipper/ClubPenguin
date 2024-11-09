@@ -205,6 +205,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
 
         let promises: Promise<void>[] = [];
         if (this.scene.textures.exists(key)) {
+            this.game.cleaner.allocateResource('multiatlas', key, this.playerId);
             this.addItem(type, config, key, id.toString(), false);
         } else {
             promises.push(new Promise<void>(resolve => {
@@ -248,6 +249,7 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
             let back_key = `${key}_back`;
 
             if (this.scene.textures.exists(back_key)) {
+                this.game.cleaner.allocateResource('multiatlas', back_key, this.playerId);
                 this.addItem(type, config, back_key, `${id}_back`, true);
             } else {
                 promises.push(new Promise(resolve => {
