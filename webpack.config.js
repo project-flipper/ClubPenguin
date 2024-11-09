@@ -194,7 +194,8 @@ module.exports = env => {
                 '__webpack_options__': JSON.stringify({
                     EXPOSE_DEBUG: env.development,
                     RECAPTCHA_SITE_KEY: env.recaptchaSiteKey,
-                    LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3)
+                    LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3),
+                    FPS_LIMIT: env.fpsLimit ? parseInt(env.fpsLimit) : 24
                 }),
                 '__environment__': JSON.stringify(environment)
             }),

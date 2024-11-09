@@ -58,6 +58,10 @@ export class Debug {
         return this.app.scene.getScene('Interface') as Interface;
     }
 
+    setFPS(fps: number): void {
+        this.app.setFPSLimit(fps);
+    }
+
     INTERNAL_ID = 10000;
 
     async spawn(name: string, color: number, member?: number, mascotId?: number): Promise<void> {

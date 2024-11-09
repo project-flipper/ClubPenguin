@@ -63,7 +63,8 @@ declare global {
     const __webpack_options__: {
         EXPOSE_DEBUG: boolean,
         RECAPTCHA_SITE_KEY: string,
-        LOG_LEVEL: number
+        LOG_LEVEL: number,
+        FPS_LIMIT: number
     };
     const __webpack_public_path__: string;
 
@@ -138,7 +139,7 @@ export function run(params: RunParams): void {
         },
         fps: {
             target: 24,
-            limit: 24
+            limit: __webpack_options__.FPS_LIMIT
         },
         dom: {
             createContainer: true
