@@ -121,8 +121,7 @@ export class SnowballManager {
      * @param player The player who threw the snowball.
      */
     testTriggers(snowball: Snowball, player: Player): void {
-        let room = player.scene as Room;
-        let triggers = 'triggers' in room ? room.triggers : [];
+        let triggers = this.engine.triggers;
     
         for (let trigger of triggers) {
             let snowballTrigger = SnowballTrigger.getComponent(trigger);
