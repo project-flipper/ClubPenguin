@@ -304,25 +304,14 @@ export class Actions {
                 this.player.playAnimation(data.type);
                 break;
             case ActionType.WADDLE:
-                logger.info('Waddling 0');
                 this.stopMoving();
 
-                logger.info('Waddling 1');
-                if (data.x && data.y) {
-                    logger.info('Waddling 2');
-                    this.player.setPosition(data.x, data.y);
-                    logger.info('Waddling 3');
-                }
-                logger.info('Waddling 4');
+                if (data.x && data.y) this.player.setPosition(data.x, data.y);
                 this.move(data.to_x, data.to_y);
-                logger.info('Waddling 5');
                 if (data.since) {
-                    logger.info('Waddling 6');
                     // Server sync
-                    let delta = Date.now() - data.since;
-                    logger.info('Seeking to', delta);
+                    let delta = Math.abs(Date.now() - data.since);
                     this.moveTween.forward(delta);
-                    logger.info('Waddling 7');
                 }
                 break;
             case ActionType.THROW:
