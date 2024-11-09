@@ -106,6 +106,7 @@ export class App extends Phaser.Game {
     }
 
     step(time: number, delta: number): void {
+        this.lastBlur = this.now();
         try {
             super.step(time, delta);
         } catch(e) {
@@ -117,6 +118,20 @@ export class App extends Phaser.Game {
 
     onCrash(e: any): void {
 
+    }
+
+    declare loop: Phaser.Core.TimeStep & { _limitRate: number };
+
+    setFPSLimit(fps?: number): void {
+        if (!fps) {
+            this.loop.hasFpsLimit = false;
+            this.loop.fpsLimit = 0;
+            this.loop._limitRate = 0;
+            return;
+        }
+        this.loop.hasFpsLimit = true;
+        this.loop.fpsLimit = fps;
+        this.loop._limitRate = 1000 / this.loop.fpsLimit;
     }
 
     /**
@@ -131,16 +146,19 @@ export class App extends Phaser.Game {
         return dom;
     }
 
-    protected onBlur(): void {
-        this.lastBlur = window.performance.now(); // TODO: is it safe to employ this API? Will it maintain accuracy when a freeze occurs?
-        logger.info('Snapshotting blur event');
-        super.onBlur();
+    /**
+     * Gets the current timestamp.
+     * If the browser supports the performance API, it will be used. Otherwise, Date.now() will be used.
+     * @returns The current timestamp.
+     */
+    now(): number {
+        return typeof window.performance != 'undefined' ? window.performance.now() : Date.now();
     }
 
     protected onFocus(): void {
-        let now = window.performance.now();
-        logger.info('Dispatching focusregain event');
-        this.events.emit('focusregain', now - this.lastBlur);
+        let delta = this.now() - this.lastBlur;
+        logger.info('Dispatching focusregain event', delta);
+        this.events.emit('focusregain', delta);
         super.onFocus();
     }
 
