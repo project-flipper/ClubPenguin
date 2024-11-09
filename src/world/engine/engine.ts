@@ -559,6 +559,7 @@ export class Engine extends EventEmitter {
             if ('beforeUnload' in this.currentGame) this.currentGame.beforeUnload(this);
             this.currentGame.scene.remove();
             if ('unload' in this.currentGame) this.currentGame.unload(this);
+            if (this.app.loop.fpsLimit != __webpack_options__.FPS_LIMIT) this.app.setFPSLimit(__webpack_options__.FPS_LIMIT);
             this.removeGameModule(this.currentGame.gameData.path);
             this.emit('game:unload', this.currentGame);
             this.currentGame = undefined;

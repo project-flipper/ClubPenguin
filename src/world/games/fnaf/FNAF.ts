@@ -485,6 +485,7 @@ export default class FNAF extends Phaser.Scene implements Game {
 
     create(data: any) {
 
+        this.game.setFPSLimit(60);
         this.editorCreate();
 
         this.cameras.main.setZoom(1080 / 720);
