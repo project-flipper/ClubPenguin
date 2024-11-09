@@ -3,6 +3,7 @@ import { io, Socket } from "socket.io-client";
 import { App } from "@clubpenguin/app/app";
 import { ApiResponse, CreateUserResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse, CreateUserForm } from "@clubpenguin/net/types/api";
 import { getLogger } from "@clubpenguin/lib/log";
+import { sleep } from "@clubpenguin/lib/time";
 
 let logger = getLogger('CP.net.airtower');
 
@@ -111,16 +112,6 @@ export class Route<M = string> {
 
         return url;
     }
-}
-
-/**
- * Creates a promise that fulfills after n milliseconds.
- * @param ms The number of milliseconds to sleep for.
- */
-export function sleep(ms?: number): Promise<void> {
-    return new Promise<void>(resolve => {
-        setTimeout(() => resolve(), ms);
-    });
 }
 
 /**
