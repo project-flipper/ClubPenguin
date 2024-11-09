@@ -336,11 +336,13 @@ class Bonnie extends Animatronic {
                 stepsVolume = 0.3;
             } else if (this.location == Location.WEST_HALL_CORNER) {
                 stepsVolume = 0.4;
+                this.state = 0;
             } else if (this.location == Location.OUTSIDE_OFFICE) {
                 this.game.leftScare = false;
                 this.game.leftDoorLight = false;
                 stepsVolume = 0.4;
             }
+            this.game.maybeGlitch();
         }
         if (this.location == Location.OFFICE) {
             this.game.leftDoorLight = false;
@@ -414,6 +416,7 @@ class Chica extends Animatronic {
                 stepsVolume = 0.3;
                 this.state = 0;
             }
+            this.game.maybeGlitch();
         }
         if (this.location == Location.OFFICE) {
             this.game.rightDoorLight = false;
@@ -1017,16 +1020,12 @@ export default class FNAFNight extends Phaser.Scene implements Game {
 
         this.activeFlashing = this.time.addEvent({
             callback: () => {
-                let robotvoice = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-robotvoice');
                 if (this.activeFlashing.getOverallProgress() >= 1) {
                     this.events.emit('flashing:frame', 0);
                     this.activeFlashing = undefined;
-                    if (robotvoice && !this.glitchingEvent) robotvoice.volume = 0;
-                    else if (robotvoice) robotvoice.volume = Phaser.Math.Between(0.1, 0.26);
-                } else {
-                    this.events.emit('flashing:frame', Phaser.Math.RND.weightedPick([0, 0, 0, 1, 2, 3, 4]));
-                    if (robotvoice) robotvoice.volume = 1;
-                }
+                } else this.events.emit('flashing:frame', Phaser.Math.RND.weightedPick([0, 0, 0, 1, 2, 3, 4]));
+
+                this.adjustRobotVoiceVolume();
             },
             delay: 50,
             repeat: Phaser.Math.RND.between(20, 30)
@@ -1045,10 +1044,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         if (this.glitchingEvent) return;
 
         this.glitchingEvent = this.time.addEvent({
-            callback: () => {
-                if (!this.isLookingAtCameras) return;
-                this.doGlitching();
-            },
+            callback: () => this.doGlitching(),
             delay: 100,
             repeat: -1
         });
@@ -1056,27 +1052,39 @@ export default class FNAFNight extends Phaser.Scene implements Game {
 
     maybeGlitch(): void {
         if (this.currentNight >= 4) {
-            let glitching = false;
-            if (this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) glitching = true;
-            if (this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER) glitching = true;
-
-            if (glitching) this.startGlitching();
+            if (this.chica.location == Location.EAST_HALL_CORNER || this.bonnie.location == Location.WEST_HALL_CORNER) this.startGlitching();
             else this.stopGlitching();
-        }
+        } else this.stopGlitching();
     }
 
     doGlitching(): void {
-        let robotvoice = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-robotvoice');
-
-        if (this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) {
+        if (this.isLookingAtCameras && this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) {
             this.chica.state = Phaser.Math.RND.weightedPick([0, 1, 2]);
-            if (robotvoice && !this.activeFlashing) robotvoice.volume = Phaser.Math.Between(0.1, 0.26);
             this.updateFrame();
-        } else if (this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER) {
+        } else if (this.isLookingAtCameras && this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER) {
             this.bonnie.state = Phaser.Math.RND.weightedPick([0, 1, 2]);
-            if (robotvoice && !this.activeFlashing) robotvoice.volume = Phaser.Math.Between(0.1, 0.26);
             this.updateFrame();
         }
+
+        this.adjustRobotVoiceVolume();
+    }
+
+    adjustRobotVoiceVolume(): void {
+        let robotvoice = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-robotvoice');
+
+        if (this.isLookingAtCameras && robotvoice) {
+            if (this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) {
+                robotvoice.volume = Phaser.Math.Between(0.01, 1);
+                return;
+            } else if (this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER) {
+                robotvoice.volume = Phaser.Math.Between(0.01, 1);
+                return;
+            }
+        }
+
+        if ((this.chica.location == Location.EAST_HALL_CORNER || this.bonnie.location == Location.WEST_HALL_CORNER) && robotvoice) robotvoice.volume = Phaser.Math.Between(0.01, 0.26);
+        else if (this.activeFlashing && robotvoice) robotvoice.volume = 1; 
+        else if (robotvoice) robotvoice.volume = 0;
     }
 
     stopGlitching(): void {
@@ -1085,8 +1093,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
             this.glitchingEvent = undefined;
         }
 
-        let robotvoice = this.sound.get<Phaser.Sound.HTML5AudioSound>('fnaf-robotvoice');
-        if (robotvoice && !this.activeFlashing) robotvoice.volume = 0;
+        this.adjustRobotVoiceVolume();
     }
 
     get powerUsage(): number {
@@ -1156,12 +1163,12 @@ export default class FNAFNight extends Phaser.Scene implements Game {
                     else frame = "fnaf/Locations/East Hall/67";
                     break;
                 case Location.EAST_HALL_CORNER:
-                    if (this.freddy.location == Location.EAST_HALL_CORNER) frame = "fnaf/Locations/E. Hall Corner/486";
-                    else if (this.chica.location == Location.EAST_HALL_CORNER) {
+                    if (this.chica.location == Location.EAST_HALL_CORNER) {
                         if (this.chica.state == 0) frame = "fnaf/Locations/E. Hall Corner/220";
                         else if (this.chica.state == 1) frame = "fnaf/Locations/E. Hall Corner/476";
                         else frame = "fnaf/Locations/E. Hall Corner/451";
-                    } else {
+                    } else if (this.freddy.location == Location.EAST_HALL_CORNER) frame = "fnaf/Locations/E. Hall Corner/486";
+                    else {
                         if (this.eastHallCornerSecret == 1) frame = "fnaf/Locations/E. Hall Corner/549";
                         else if (this.eastHallCornerSecret == 2) frame = "fnaf/Locations/E. Hall Corner/550";
                         else if (this.eastHallCornerSecret == 3) frame = "fnaf/Locations/E. Hall Corner/551";
@@ -1287,6 +1294,8 @@ export default class FNAFNight extends Phaser.Scene implements Game {
 
         if (this.isLookingAtCameras != lastCameraState) this.events.emit('camera:state', this.isLookingAtCameras);
         this.events.emit('usage:update', this.powerUsage);
+
+        this.adjustRobotVoiceVolume();
     }
 
     public commonSecret = false;
@@ -1330,7 +1339,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         if (this.isLookingAtCameras != lastCameraState) this.events.emit('camera:state', this.isLookingAtCameras);
         this.events.emit('usage:update', this.powerUsage);
 
-        this.maybeGlitch();
+        this.adjustRobotVoiceVolume();
     }
 
     setCameraSoundsVolume(): void {
@@ -1362,7 +1371,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         this.setCameraSoundsVolume();
         this.events.emit('camera:change', this.currentCamera);
 
-        this.maybeGlitch();
+        this.adjustRobotVoiceVolume();
     }
 
     public camerasBroken = false;
