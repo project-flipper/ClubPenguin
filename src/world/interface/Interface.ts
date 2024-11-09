@@ -412,7 +412,7 @@ export default class Interface extends Phaser.Scene {
                 break;
             case 't':
                 // Prioritize combo
-                let delta = window.performance.now() - this.lastFart;
+                let delta = this.game.now() - this.lastFart;
                 if (delta < 1) return;
                 if (this.ui) this.ui.snowballCrosshairActive = true;
                 handled = true;
@@ -498,7 +498,7 @@ export default class Interface extends Phaser.Scene {
                 break;
             case 84:
                 this.world.sendEmoji(Emoji.TOOT);
-                this.lastFart = window.performance.now();
+                this.lastFart = this.game.now();
                 break;
         }
 
