@@ -22,7 +22,7 @@ import { AnyUserData, MyUserData, UserData } from "@clubpenguin/net/types/user";
 import { Engine } from "@clubpenguin/world/engine/engine";
 import { App } from "@clubpenguin/app/app";
 import { RelationshipType } from "@clubpenguin/net/types/relationship";
-import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
+import { ActionData, ActionType } from "@clubpenguin/net/types/action";
 import { getLogger } from "@clubpenguin/lib/log";
 import { ClientAcks, ClientPayload, ClientPayloads, Payload, Payloads } from "@clubpenguin/net/types/payload";
 import { Emoji } from "@clubpenguin/net/types/message";
@@ -30,7 +30,7 @@ import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
 import { WorldData } from "@clubpenguin/net/types/world";
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { ItemType } from "./engine/clothing/itemType";
-import { roundTo } from "@clubpenguin/lib/math";
+import { Direction, roundTo } from "@clubpenguin/lib/math";
 
 export let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
@@ -401,8 +401,9 @@ export default class World extends Phaser.Scene {
                 });
                 this.load.start();
                 await task.wait();
-                this.engine.cleaner.allocateResource('multiatlas', key);
             }
+
+            this.engine.cleaner.allocateResource('multiatlas', key);
 
             let icon = this.interface.promptShop.scene.add.image(0, 0, key, `${id}/0`);
             this.interface.promptShop.setIcon(icon);
@@ -422,16 +423,10 @@ export default class World extends Phaser.Scene {
     move(x: number, y: number): void {
         let player = this.engine.player;
         let safe = this.engine.players.findPlayerPath(player, x, y);
-        let action: ActionData = {
-            frame: ActionFrame.WADDLE,
-            x: roundTo(safe.x, 2),
-            y: roundTo(safe.y, 2)
-        };
+        let action = player.actions.get();
+        player.actions.move(safe.x, safe.y);
 
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        if (!player.actions.equals(action)) this.send('player:action', player.actions.get());
     }
 
     /**
@@ -439,14 +434,10 @@ export default class World extends Phaser.Scene {
      */
     sit(facingX: number, facingY: number): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.SIT_DOWN + player.actions.getDirection(facingX, facingY)
-        };
+        let currentAction = player.actions.get();
+        player.actions.sitFacing(facingX, facingY);
 
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        if (!player.actions.equals(currentAction)) this.send('player:action', player.actions.get());
     }
 
     /**
@@ -454,14 +445,8 @@ export default class World extends Phaser.Scene {
      */
     sitDown(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.SIT_DOWN
-        };
-
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        let to = player.actions.getDirectionVector(Direction.DOWN);
+        this.sit(to.x, to.y);
     }
 
     /**
@@ -469,14 +454,8 @@ export default class World extends Phaser.Scene {
      */
     sitDownLeft(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.SIT_DOWN_LEFT
-        };
-
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        let to = player.actions.getDirectionVector(Direction.DOWN_LEFT);
+        this.sit(to.x, to.y);
     }
 
     /**
@@ -484,14 +463,8 @@ export default class World extends Phaser.Scene {
      */
     sitLeft(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.SIT_LEFT
-        };
-
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        let to = player.actions.getDirectionVector(Direction.LEFT);
+        this.sit(to.x, to.y);
     }
 
     /**
@@ -499,14 +472,8 @@ export default class World extends Phaser.Scene {
      */
     sitUpLeft(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.SIT_UP_LEFT
-        };
-
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        let to = player.actions.getDirectionVector(Direction.LEFT);
+        this.sit(to.x, to.y);
     }
 
     /**
@@ -514,14 +481,8 @@ export default class World extends Phaser.Scene {
      */
     sitUp(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.SIT_UP
-        };
-
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        let to = player.actions.getDirectionVector(Direction.UP);
+        this.sit(to.x, to.y);
     }
 
     /**
@@ -529,14 +490,8 @@ export default class World extends Phaser.Scene {
      */
     sitUpRight(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.SIT_UP_RIGHT
-        };
-
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        let to = player.actions.getDirectionVector(Direction.UP_RIGHT);
+        this.sit(to.x, to.y);
     }
 
     /**
@@ -544,14 +499,8 @@ export default class World extends Phaser.Scene {
      */
     sitRight(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.SIT_RIGHT
-        };
-
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        let to = player.actions.getDirectionVector(Direction.RIGHT);
+        this.sit(to.x, to.y);
     }
 
     /**
@@ -559,14 +508,8 @@ export default class World extends Phaser.Scene {
      */
     sitDownRight(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.SIT_DOWN_RIGHT
-        };
-
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        let to = player.actions.getDirectionVector(Direction.DOWN_RIGHT);
+        this.sit(to.x, to.y);
     }
 
     /**
@@ -574,13 +517,8 @@ export default class World extends Phaser.Scene {
      */
     wave(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.WAVE
-        };
-
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        player.actions.wave();
+        this.send('player:action', player.actions.get());
     }
 
     /**
@@ -588,13 +526,8 @@ export default class World extends Phaser.Scene {
      */
     dance(): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.DANCE
-        };
-
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        player.actions.dance();
+        this.send('player:action', player.actions.get());
     }
 
     /**
@@ -604,16 +537,8 @@ export default class World extends Phaser.Scene {
      */
     throwSnowball(x: number, y: number): void {
         let player = this.engine.player;
-        let action: ActionData = {
-            frame: ActionFrame.THROW,
-            x: roundTo(x, 2),
-            y: roundTo(y, 2)
-        };
-
-        if (player.actions.equals(action)) return;
-        player.actions.set(action);
-
-        this.send('player:action', action);
+        player.actions.throw(x, y);
+        this.send('player:action', player.actions.get());
     }
 
     /* ========= ENGINE ========= */

@@ -4,7 +4,7 @@ import { Player } from "@clubpenguin/world/engine/player/avatar";
 import { Engine, logger } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import { ItemType } from "./itemType";
-import { ActionFrame } from "@clubpenguin/net/types/action";
+import { AnimationFrame } from "../player/animationFrame";
 
 export type ClothingSprite = Phaser.GameObjects.Sprite & { paper_item_id: number, animations: { [frame: number]: string } };
 
@@ -95,7 +95,10 @@ export class ClothingManager {
         logger.info('Loading sprite', key);
 
         await new Promise<void>((resolve, reject) => {
-            if (this.world.textures.exists(key)) return resolve();
+            if (this.world.textures.exists(key)) {
+                this.engine.cleaner.allocateResource('multiatlas', key, playerId);
+                return resolve();
+            }
 
             this.world.load.multiatlas({
                 key,
@@ -286,41 +289,41 @@ export class ClothingManager {
             this.addFrame(animationFrames[actionFrame].frames, spriteKey, `${itemId}/${actionFrame};${subframe}`);
         }
 
-        for (let actionFrameIndex of Object.keys(animationFrames).map(x => Number(x))) {
+        for (let animationFrameIndex of Object.keys(animationFrames).map(x => Number(x))) {
             // TODO: remove once all frames are added
-            if(!(actionFrameIndex in player.animationsMeta)) {
-                logger.warn(`Unhandled action frame: ${actionFrameIndex}!`);
+            if(!(animationFrameIndex in player.animationsMeta)) {
+                logger.warn(`Unhandled action frame: ${animationFrameIndex}!`);
                 continue;
             }
 
-            let animationKey = this.getSpriteAnimationKey(spriteKey, actionFrameIndex);
+            let animationKey = this.getSpriteAnimationKey(spriteKey, animationFrameIndex);
 
             if (this.world.anims.exists(animationKey)) {
-                animations[actionFrameIndex] = animationKey;
+                animations[animationFrameIndex] = animationKey;
                 continue;
             }
 
             this.engine.cleaner.allocateResource('animation', animationKey, player.userData.id);
 
-            if (actionFrameIndex === ActionFrame.WAVE) {
+            if (animationFrameIndex === AnimationFrame.WAVE) {
                 let extraWaveFrames = {
                     start: 5,
                     end: 12,
                     spriteKey,
-                    itemId: animationFrames[actionFrameIndex].itemId,
-                    action: ActionFrame.WAVE
+                    itemId: animationFrames[animationFrameIndex].itemId,
+                    frame: AnimationFrame.WAVE
                 }
 
-                this.addFrames(animationFrames[actionFrameIndex].frames, extraWaveFrames, 2);
-                this.addFrames(animationFrames[actionFrameIndex].frames, { ...extraWaveFrames, start: 1, end: 1 });
+                this.addFrames(animationFrames[animationFrameIndex].frames, extraWaveFrames, 2);
+                this.addFrames(animationFrames[animationFrameIndex].frames, { ...extraWaveFrames, start: 1, end: 1 });
             }
 
             let animation = this.world.anims.create({
                 key: animationKey,
-                frames: animationFrames[actionFrameIndex].frames,
+                frames: animationFrames[animationFrameIndex].frames,
                 frameRate: 24,
                 skipMissedFrames: true,
-                repeat: player.animationsMeta[actionFrameIndex as ActionFrame]?.repeat ? -1 : 0
+                repeat: player.animationsMeta[animationFrameIndex as AnimationFrame]?.repeat ? -1 : 0
             });
 
             if (!animation) {
@@ -328,7 +331,7 @@ export class ClothingManager {
                 continue;
             };
 
-            animations[actionFrameIndex] = animationKey;
+            animations[animationFrameIndex] = animationKey;
         }
 
         return animations;
@@ -343,10 +346,10 @@ export class ClothingManager {
 
     private addFrames(
         frames: Phaser.Types.Animations.AnimationFrame[],
-        config: { start: number, end: number, spriteKey: string, itemId: number, action: ActionFrame },
+        config: { start: number, end: number, spriteKey: string, itemId: number, frame: AnimationFrame },
         repeat = 1
     ) {
-        let { start, end, spriteKey, itemId, action } = config;
+        let { start, end, spriteKey, itemId, frame: action } = config;
 
         for (let r = 0; r < repeat; r++)
             for (let j = start; j <= end; j++)

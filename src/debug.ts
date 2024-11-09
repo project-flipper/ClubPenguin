@@ -10,6 +10,7 @@ import { Avatar } from "@clubpenguin/world/engine/player/avatar";
 import Interface from "@clubpenguin/world/interface/Interface";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import { getLogger } from "@clubpenguin/lib/log";
+import { AnimationFrame } from "@clubpenguin/world/engine/player/animationFrame";
 
 let logger = getLogger('CP.debug');
 
@@ -121,8 +122,25 @@ export class Debug {
 
         limit = limit ?? this.engine.currentRoom.roomData.max_users;
 
-        let actions: number[] = [
-            0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
+        let actions: AnimationFrame[] = [
+            AnimationFrame.IDLE_DOWN,
+            AnimationFrame.IDLE_DOWN_LEFT,
+            AnimationFrame.IDLE_LEFT,
+            AnimationFrame.IDLE_UP_LEFT,
+            AnimationFrame.IDLE_UP,
+            AnimationFrame.IDLE_UP_RIGHT,
+            AnimationFrame.IDLE_RIGHT,
+            AnimationFrame.IDLE_DOWN_RIGHT,
+            AnimationFrame.SIT_DOWN,
+            AnimationFrame.SIT_DOWN_LEFT,
+            AnimationFrame.SIT_LEFT,
+            AnimationFrame.SIT_UP_LEFT,
+            AnimationFrame.SIT_UP,
+            AnimationFrame.SIT_UP_RIGHT,
+            AnimationFrame.SIT_RIGHT,
+            AnimationFrame.SIT_DOWN_RIGHT,
+            AnimationFrame.WAVE,
+            AnimationFrame.DANCE
         ];
 
         logger.debug('Starting stress test using', limit, 'mocked players');
@@ -159,7 +177,7 @@ export class Debug {
 
             let player = await this.engine.players.createPlayer(data, this.world.cameras.main.centerX + this.randomRange(-350, +350), this.world.cameras.main.centerY + this.randomRange(0, +400));
             this.engine.players.addPlayer(player);
-            player.actions.set({ player_id: data.id, frame: this.getRandomItem(actions) });
+            player.actions.fromFrame(this.getRandomItem(actions));
 
             this.INTERNAL_ID += 1;
         }

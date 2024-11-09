@@ -5,7 +5,7 @@ import GameTrigger from "@clubpenguin/lib/components/GameTrigger";
 import WaddleTrigger from "@clubpenguin/lib/components/WaddleTrigger";
 import Trigger from "@clubpenguin/lib/components/Trigger";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { ActionFrame } from "@clubpenguin/net/types/action";
+import { AnimationFrame } from "./animationFrame";
 import { AnyUserData } from "@clubpenguin/net/types/user";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
 import { Avatar, AvatarCls, Player } from "@clubpenguin/world/engine/player/avatar";
@@ -72,17 +72,17 @@ export class PlayerManager {
      * @param assetKey The key of the asset to generate the animation for.
      * @param frameKey The key of the frame to generate the animation for.
      * @param prefix The prefix of the animation to generate.
-     * @param action The action frame id of the animation to generate.
+     * @param frame The action frame id of the animation to generate.
      * @returns The generated animation.
      */
     generateSpriteAnimations(
         assetKey: string, 
         frameKey: string, 
         prefix: string, 
-        action: ActionFrame,
+        frame: AnimationFrame,
         meta: { totalFrames: number; repeat: boolean; }
     ): Phaser.Animations.Animation {
-        let key = this.getSpriteAnimationKey(assetKey, prefix, action);
+        let key = this.getSpriteAnimationKey(assetKey, prefix, frame);
         if (this.world.anims.exists(key)) return this.world.anims.get(key);
 
         let isNested = meta.totalFrames !== 1;
@@ -91,16 +91,16 @@ export class PlayerManager {
     
         let frames: Phaser.Types.Animations.AnimationFrame[] = [];
     
-        if (action === ActionFrame.WAVE) {
-            let conf = { start: 1, end: 12, assetKey, frameKey, prefix, action };
+        if (frame === AnimationFrame.WAVE) {
+            let conf = { start: 1, end: 12, assetKey, frameKey, prefix, frame };
             this.addFrames(frames, conf);
             this.addFrames(frames, { ...conf, start: 5 }, 2);
             this.addFrames(frames, { ...conf, start: 1, end: 1 });
         } else {
             if (toFrame !== null) {
-                this.addFrames(frames, { start: fromFrame, end: toFrame, assetKey, frameKey, prefix, action });
+                this.addFrames(frames, { start: fromFrame, end: toFrame, assetKey, frameKey, prefix, frame: frame });
             } else {
-                frames.push({ key: assetKey, frame: `${frameKey}/${prefix}/${action}`, duration: 0 });
+                frames.push({ key: assetKey, frame: `${frameKey}/${prefix}/${frame}`, duration: 0 });
             }
         }
 
@@ -117,10 +117,10 @@ export class PlayerManager {
     
     private addFrames(
         frames: Phaser.Types.Animations.AnimationFrame[], 
-        config: { start: number, end: number, assetKey: string, frameKey: string, prefix: string, action: ActionFrame }, 
+        config: { start: number, end: number, assetKey: string, frameKey: string, prefix: string, frame: AnimationFrame }, 
         repeat = 1
     ) {
-        let { start, end, assetKey, frameKey, prefix, action } = config;
+        let { start, end, assetKey, frameKey, prefix, frame: action } = config;
 
         for (let r = 0; r < repeat; r++) {
             for (let i = start; i <= end; i++) frames.push({ key: assetKey, frame: `${frameKey}/${prefix}/${action};${i}`, duration: 0 });

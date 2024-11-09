@@ -1,4 +1,28 @@
 /**
+ * An enum representation of a direction, ranging from 0 to 7.
+ */
+export enum Direction {
+    DOWN,
+    DOWN_LEFT,
+    LEFT,
+    UP_LEFT,
+    UP,
+    UP_RIGHT,
+    RIGHT,
+    DOWN_RIGHT,
+}
+
+/**
+ * An enum representation of a direction in quarters, ranging from 0 to 3.
+ */
+export enum DirectionQuarters {
+    DOWN_LEFT,
+    UP_LEFT,
+    UP_RIGHT,
+    DOWN_RIGHT
+}
+
+/**
  * Calculates the angle in degrees between two points.
  * @param fromX The x-coordinate of the starting point.
  * @param fromY The y-coordinate of the starting point.
@@ -19,7 +43,7 @@ export function getAngle(fromX: number, fromY: number, atX: number, atY: number)
  * @param angle The angle in degrees.
  * @returns The direction value ranging from 0 to 7.
  */
-export function getDirection(angle: number): number {
+export function getDirection(angle: number): Direction {
     let direction = Math.round(angle / 45);
     return (direction > 7) ? 0 : direction;
 }
@@ -29,7 +53,7 @@ export function getDirection(angle: number): number {
  * @param angle The angle in degrees.
  * @returns The direction in quarters ranging from 0 to 3.
  */
-export function getDirectionQuarters(angle: number): number {
+export function getDirectionQuarters(angle: number): DirectionQuarters {
     var direction = Math.floor(angle / 90);
     return (direction > 3) ? 0 : direction;
 }

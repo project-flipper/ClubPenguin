@@ -7,7 +7,7 @@ export type Seat = {
     y: number;
     doneX: number;
     doneY: number;
-    frame: ActionFrame;
+    frame: AnimationFrame;
     player?: Player
 };
 
@@ -16,7 +16,7 @@ export type Seat = {
 /* START-USER-IMPORTS */
 import { Engine, logger } from "@clubpenguin/world/engine/engine";
 import { Player } from "@clubpenguin/world/engine/player/avatar";
-import { ActionFrame } from "@clubpenguin/net/types/action";
+import { AnimationFrame } from "@clubpenguin/world/engine/player/animationFrame";
 /* END-USER-IMPORTS */
 
 export default class WaddleTrigger {
@@ -71,10 +71,10 @@ export default class WaddleTrigger {
 
     /* START-USER-CODE */
 
-    public seat1frame: ActionFrame = 0;
-    public seat2frame: ActionFrame = 0;
-    public seat3frame: ActionFrame = 0;
-    public seat4frame: ActionFrame = 0;
+    public seat1frame: AnimationFrame = 0;
+    public seat2frame: AnimationFrame = 0;
+    public seat3frame: AnimationFrame = 0;
+    public seat4frame: AnimationFrame = 0;
 
     test(x: number, y: number): boolean {
         let point = new Phaser.Math.Vector2(0, 0);
@@ -140,7 +140,7 @@ export default class WaddleTrigger {
             this.players.push(player);
 
             player.actions.reset();
-            player.once('action:complete', () => player.actions.set({ frame: seat.frame }));
+            player.once('action:complete', () => player.actions.fromFrame(seat.frame));
             player.actions.move(seat.x, seat.y);
 
             player.scene.events.emit('waddle:join', this, player);

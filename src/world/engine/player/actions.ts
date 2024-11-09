@@ -1,8 +1,9 @@
-import { getAngle, getDirection, getDirectionQuarters } from "@clubpenguin/lib/math";
+import { Direction, DirectionQuarters, getAngle, getDirection, getDirectionQuarters, roundTo } from "@clubpenguin/lib/math";
 import World from "@clubpenguin/world/World";
 import { Engine, logger } from "../engine";
 import { Player } from "./avatar";
-import { ActionData, ActionFrame } from "@clubpenguin/net/types/action";
+import { ActionData, ActionType } from "@clubpenguin/net/types/action";
+import { AnimationFrame } from "./animationFrame";
 
 /**
  * Manages the player's actions, such as movement and throwing snowballs.
@@ -11,11 +12,13 @@ export class Actions {
     public player: Player;
     public moveTween: Phaser.Tweens.Tween;
 
+    private _type: ActionType;
     private _x: number;
     private _y: number;
 
     constructor(player: Player) {
         this.player = player;
+        this._type = ActionType.IDLE;
     }
 
     get world(): World {
@@ -29,8 +32,15 @@ export class Actions {
     /**
      * Gets the current animation frame.
      */
-    get frame(): ActionFrame {
+    get frame(): AnimationFrame {
         return this.player.currentAnimation;
+    }
+
+    /**
+     * Gets the current animation frame.
+     */
+    get type(): ActionType {
+        return this._type;
     }
 
     /**
@@ -58,7 +68,7 @@ export class Actions {
      * @returns Whether the ActionData object is equal to the current instance.
      */
     equals(data: ActionData): boolean {
-        return this.frame === data.frame && this.currentX === data.x && this.currentY === data.y;
+        return this.type == data.type && (data.to_x == null || this.currentX == data.to_x) && (data.to_y == null || this.currentY == data.to_y);
     }
 
     /**
@@ -67,9 +77,56 @@ export class Actions {
      * @param y The y-coordinate.
      * @returns The direction ranging from 0 to 7.
      */
-    getDirection(x: number, y: number): number {
+    getDirection(x: number, y: number): Direction {
         let angle = getAngle(this.player.x, this.player.y, x, y);
         return getDirection(angle);
+    }
+
+    /**
+     * Gets a vector representation for the given direction.
+     * Useful to quickly calculate an offset to send to the server.
+     * @param direction The direction to get the vector for.
+     * @returns The vector for the given direction.
+     */
+    getDirectionVector(direction: Direction): Phaser.Types.Math.Vector2Like {
+        let x: number, y: number;
+
+        switch (direction) {
+            case 0:
+                x = 0;
+                y = 1;
+                break;
+            case 1:
+                x = -1;
+                y = 1;
+                break;
+            case 2:
+                x = -1;
+                y = 0;
+                break;
+            case 3:
+                x = -1;
+                y = -1;
+                break;
+            case 4:
+                x = 0;
+                y = -1;
+                break;
+            case 5:
+                x = 1;
+                y = -1;
+                break;
+            case 6:
+                x = 1;
+                y = 0;
+                break;
+            case 7:
+                x = 1;
+                y = 1;
+                break;
+        }
+
+        return { x: this.player.x + x, y: this.player.y + y };
     }
 
     /**
@@ -78,7 +135,7 @@ export class Actions {
      * @param y The y-coordinate.
      * @returns The direction in quarters from 0 to 3.
      */
-    getDirectionQuarters(x: number, y: number): number {
+    getDirectionQuarters(x: number, y: number): DirectionQuarters {
         let angle = getAngle(this.player.x, this.player.y, x, y);
         return getDirectionQuarters(angle);
     }
@@ -88,7 +145,7 @@ export class Actions {
      * @returns Whether the player is currently idle.
      */
     isIdle(): boolean {
-        return this.player.currentAnimation < ActionFrame.WADDLE_DOWN;
+        return this.player.currentAnimation < AnimationFrame.WADDLE_DOWN;
     }
 
     /**
@@ -100,7 +157,44 @@ export class Actions {
         this.stopMoving();
 
         let direction = this.getDirection(x, y);
-        this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
+        this.player.playAnimation(AnimationFrame.IDLE_DOWN + direction);
+        this._type = ActionType.IDLE;
+        this.player.emit('action:update', this);
+    }
+
+    /**
+     * Sits facing a point on the world.
+     * @param x The x-coordinate to sit facing at.
+     * @param y The y-coordinate to sit facing at.
+     */
+    sitFacing(x: number, y: number): void {
+        this.stopMoving();
+
+        let direction = this.getDirection(x, y);
+        this.player.playAnimation(AnimationFrame.SIT_DOWN + direction);
+        this._type = ActionType.SIT;
+        this.player.emit('action:update', this);
+    }
+
+    /**
+     * Performs a wave.
+     */
+    wave(): void {
+        this.stopMoving();
+
+        this.player.playAnimation(AnimationFrame.WAVE);
+        this._type = ActionType.WAVE;
+        this.player.emit('action:update', this);
+    }
+
+    /**
+     * Performs a dance.
+     */
+    dance(): void {
+        this.stopMoving();
+
+        this.player.playAnimation(AnimationFrame.DANCE);
+        this._type = ActionType.DANCE;
         this.player.emit('action:update', this);
     }
 
@@ -110,6 +204,8 @@ export class Actions {
      * @param y The y-coordinate to move to.
      */
     move(x: number, y: number): void {
+        x = roundTo(x, 2);
+        y = roundTo(y, 2);
         this.stopMoving();
 
         let distance = Phaser.Math.Distance.BetweenPoints(this.player, { x, y });
@@ -119,15 +215,17 @@ export class Actions {
         this._y = y;
 
         if (distance < 1) {
-            let direction = this.frame >= ActionFrame.WADDLE_DOWN && this.frame <= ActionFrame.WADDLE_DOWN_RIGHT ? this.frame - ActionFrame.WADDLE_DOWN : (this.frame < ActionFrame.WADDLE_DOWN ? this.frame : this.getDirection(x, y));
+            let direction = this.frame >= AnimationFrame.WADDLE_DOWN && this.frame <= AnimationFrame.WADDLE_DOWN_RIGHT ? this.frame - AnimationFrame.WADDLE_DOWN : (this.frame < AnimationFrame.WADDLE_DOWN ? this.frame : this.getDirection(x, y));
 
-            this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
+            this.player.playAnimation(AnimationFrame.IDLE_DOWN + direction);
+            this._type = ActionType.IDLE;
             this.engine.players.testTriggers(this.player, true);
             this.player.emit('action:complete', this);
             return;
         }
 
-        this.player.playAnimation(ActionFrame.WADDLE_DOWN + direction);
+        this.player.playAnimation(AnimationFrame.WADDLE_DOWN + direction);
+        this._type = ActionType.WADDLE;
         this.moveTween = this.player.scene.tweens.add({
             targets: this.player,
             x: x,
@@ -142,7 +240,8 @@ export class Actions {
             },
             onComplete: (tween: Phaser.Tweens.Tween) => {
                 this.engine.tweenTracker.untrackTween(tween);
-                this.player.playAnimation(ActionFrame.IDLE_DOWN + direction);
+                this.player.playAnimation(AnimationFrame.IDLE_DOWN + direction);
+                this._type = ActionType.IDLE;
                 this.engine.players.testTriggers(this.player, true);
                 this.player.emit('action:complete', this);
             },
@@ -166,6 +265,8 @@ export class Actions {
      * @param y The y-coordinate to throw the snowball to.
      */
     throw(x: number, y: number): void {
+        x = roundTo(x, 2);
+        y = roundTo(y, 2);
         this.stopMoving();
     
         let startX = this.player.x + this.player.snowballOffset.x;
@@ -177,7 +278,8 @@ export class Actions {
         this._x = x;
         this._y = y;
 
-        this.player.playAnimation(ActionFrame.THROW_DOWN_LEFT + direction);
+        this.player.playAnimation(AnimationFrame.THROW_DOWN_LEFT + direction);
+        this._type = ActionType.THROW;
 
         this.engine.snowballs.throw(snowball, x, y, this.player);
         this.player.emit('action:update', this);
@@ -188,55 +290,136 @@ export class Actions {
      * @param data The action data to set.
      */
     set(data: ActionData): void {
-        switch (data.frame) {
-            case ActionFrame.IDLE_DOWN:
-            case ActionFrame.IDLE_DOWN_LEFT:
-            case ActionFrame.IDLE_LEFT:
-            case ActionFrame.IDLE_UP_LEFT:
-            case ActionFrame.IDLE_UP:
-            case ActionFrame.IDLE_UP_RIGHT:
-            case ActionFrame.IDLE_RIGHT:
-            case ActionFrame.IDLE_DOWN_RIGHT:
-            case ActionFrame.SIT_DOWN:
-            case ActionFrame.SIT_DOWN_LEFT:
-            case ActionFrame.SIT_LEFT:
-            case ActionFrame.SIT_UP_LEFT:
-            case ActionFrame.SIT_UP:
-            case ActionFrame.SIT_UP_RIGHT:
-            case ActionFrame.SIT_RIGHT:
-            case ActionFrame.SIT_DOWN_RIGHT:
-            case ActionFrame.WAVE:
-            case ActionFrame.DANCE:
+        switch (data.type) {
+            case ActionType.IDLE:
+            case ActionType.SIT:
+            case ActionType.WAVE:
+            case ActionType.DANCE:
                 this.stopMoving();
-                this.player.playAnimation(data.frame);
+
+                if (data.x && data.y) {
+                    this.player.setPosition(data.x, data.y);
+                    this.engine.players.testTriggers(this.player, true);
+                }
+                this.player.playAnimation(data.type);
                 break;
-            case ActionFrame.WADDLE:
-            case ActionFrame.WADDLE_DOWN:
-            case ActionFrame.WADDLE_DOWN_LEFT:
-            case ActionFrame.WADDLE_LEFT:
-            case ActionFrame.WADDLE_UP_LEFT:
-            case ActionFrame.WADDLE_UP:
-            case ActionFrame.WADDLE_UP_RIGHT:
-            case ActionFrame.WADDLE_RIGHT:
-            case ActionFrame.WADDLE_DOWN_RIGHT:
-                this.move(data.x, data.y);
+            case ActionType.WADDLE:
+                logger.info('Waddling 0');
+                this.stopMoving();
+
+                logger.info('Waddling 1');
+                if (data.x && data.y) {
+                    logger.info('Waddling 2');
+                    this.player.setPosition(data.x, data.y);
+                    logger.info('Waddling 3');
+                }
+                logger.info('Waddling 4');
+                this.move(data.to_x, data.to_y);
+                logger.info('Waddling 5');
                 if (data.since) {
+                    logger.info('Waddling 6');
                     // Server sync
                     let delta = Date.now() - data.since;
-                    this.moveTween.seek(delta);
+                    logger.info('Seeking to', delta);
+                    this.moveTween.forward(delta);
+                    logger.info('Waddling 7');
                 }
                 break;
-            case ActionFrame.THROW:
-            case ActionFrame.THROW_DOWN_LEFT:
-            case ActionFrame.THROW_UP_LEFT:
-            case ActionFrame.THROW_UP_RIGHT:
-            case ActionFrame.THROW_DOWN_RIGHT:
-                this.throw(data.x, data.y);
+            case ActionType.THROW:
+                this.stopMoving();
+
+                if (data.x && data.y) {
+                    this.player.setPosition(data.x, data.y);
+                    this.engine.players.testTriggers(this.player, true);
+                }
+                this.throw(data.to_x, data.to_y);
                 break;
             default:
                 logger.warn('Unknown action received', data);
                 break;
         }
+    }
+
+    /**
+     * Sets the player's action data from an animation frame.
+     * @param frame The animation frame to set the action data from.
+     */
+    fromFrame(frame: AnimationFrame): void {
+        let to: Phaser.Types.Math.Vector2Like;
+        switch (frame) {
+            case AnimationFrame.IDLE_DOWN:
+            case AnimationFrame.IDLE_DOWN_LEFT:
+            case AnimationFrame.IDLE_LEFT:
+            case AnimationFrame.IDLE_UP_LEFT:
+            case AnimationFrame.IDLE_UP:
+            case AnimationFrame.IDLE_UP_RIGHT:
+            case AnimationFrame.IDLE_RIGHT:
+            case AnimationFrame.IDLE_DOWN_RIGHT:
+                to = this.getDirectionVector(frame - AnimationFrame.IDLE_DOWN);
+                this.lookAt(to.x, to.y);
+                break;
+            case AnimationFrame.WADDLE_DOWN:
+            case AnimationFrame.WADDLE_DOWN_LEFT:
+            case AnimationFrame.WADDLE_LEFT:
+            case AnimationFrame.WADDLE_UP_LEFT:
+            case AnimationFrame.WADDLE_UP:
+            case AnimationFrame.WADDLE_UP_RIGHT:
+            case AnimationFrame.WADDLE_RIGHT:
+            case AnimationFrame.WADDLE_DOWN_RIGHT:
+                to = this.getDirectionVector(frame - AnimationFrame.WADDLE_DOWN);
+                this.lookAt(to.x, to.y);
+                break;
+            case AnimationFrame.SIT_DOWN:
+            case AnimationFrame.SIT_DOWN_LEFT:
+            case AnimationFrame.SIT_LEFT:
+            case AnimationFrame.SIT_UP_LEFT:
+            case AnimationFrame.SIT_UP:
+            case AnimationFrame.SIT_UP_RIGHT:
+            case AnimationFrame.SIT_RIGHT:
+            case AnimationFrame.SIT_DOWN_RIGHT:
+                to = this.getDirectionVector(frame - AnimationFrame.SIT_DOWN);
+                this.sitFacing(to.x, to.y);
+                break;
+            case AnimationFrame.WAVE:
+                this.wave();
+                break;
+            case AnimationFrame.DANCE:
+                this.dance();
+                break;
+            case AnimationFrame.THROW_DOWN_LEFT:
+                to = this.getDirectionVector(Direction.DOWN_LEFT);
+                this.lookAt(to.x, to.y);
+                break;
+            case AnimationFrame.THROW_UP_LEFT:
+                to = this.getDirectionVector(Direction.UP_LEFT);
+                this.lookAt(to.x, to.y);
+                break;
+            case AnimationFrame.THROW_UP_RIGHT:
+                to = this.getDirectionVector(Direction.UP_RIGHT);
+                this.lookAt(to.x, to.y);
+                break;
+            case AnimationFrame.THROW_DOWN_RIGHT:
+                to = this.getDirectionVector(Direction.DOWN_RIGHT);
+                this.lookAt(to.x, to.y);
+                break;
+            default:
+                this.reset();
+                break;
+        }
+    }
+
+    /**
+     * Gets the player's action data.
+     * @returns The player's action data.
+     */
+    get(): ActionData {
+        return {
+            type: this.type,
+            x: roundTo(this.player.x, 2),
+            y: roundTo(this.player.y, 2),
+            to_x: this.currentX,
+            to_y: this.currentY
+        };
     }
 
     /**
@@ -246,7 +429,8 @@ export class Actions {
         this.stopMoving();
         this.engine.players.testTriggers(this.player, true, undefined, undefined, true);
 
-        this.player.playAnimation(ActionFrame.IDLE_DOWN);
+        this.player.playAnimation(AnimationFrame.IDLE_DOWN);
+        this._type = ActionType.IDLE;
         this.player.emit('action:update', this);
     }
 }
