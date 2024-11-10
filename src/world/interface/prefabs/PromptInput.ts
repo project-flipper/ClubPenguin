@@ -50,7 +50,7 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         this.add(okay);
 
         // field
-        const field = new TextField(scene, 680, 549);
+        const field = new TextField(scene, 626.63, 532.91);
         this.add(field);
 
         // okayButton (components)
@@ -65,7 +65,7 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         const closeButtonButtonComponent = new ButtonComponent(closeButton);
         closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptClose0001"};
         closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptClose0002"};
-        closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardClose0003"};
+        closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/promptClose0003"};
         closeButtonButtonComponent.handCursor = true;
         closeButtonButtonComponent.pixelPerfect = true;
 
@@ -87,6 +87,11 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         field.maxLength = 12;
         field.font = "Burbank Small Medium";
         field.fontSize = "45px";
+        field.fontColor = "#000000";
+        field.backgroundIsFilled = true;
+        field.backgroundIsStroked = true;
+        field.backgroundStrokeWidth = 2;
+        field.backgroundStrokeColor = "#000000";
         field.marginLeft = 4.5;
 
         this.bg = bg;
@@ -98,7 +103,9 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         this.field = field;
 
         /* START-USER-CTR-CODE */
-        // Write your code here.
+
+        this.field.setup();
+
         /* END-USER-CTR-CODE */
     }
 
@@ -120,6 +127,7 @@ export default class PromptInput extends Phaser.GameObjects.Container {
 
         this.message.text = message;
         this.okay.text = okay;
+        this.field.value = '';
 
         this.okayButton.on('release', () => {
             this.hide();
@@ -131,6 +139,7 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         })
         this.rejectCallback = rejectCallback;
 
+        this.field.visible = true;
         this.visible = true;
         this.scene.promptBlock.visible = true;
     }
@@ -144,10 +153,18 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         this.icon.add(icon);
     }
 
+    setLoading(): void {
+        this.icon.removeAll(true);
+        let spinner = this.scene.add.sprite(0, 0, 'interface', 'interface/promptLoading0001');
+        spinner.play('interface-promptloading-animation');
+        this.icon.add(spinner);
+    }
+
     hide(): void {
         this.okayButton.off('release');
         this.closeButton.off('release');
         this.icon.removeAll(true);
+        this.field.visible = false;
         this.visible = false;
         this.scene.promptBlock.visible = false;
     }

@@ -68,7 +68,7 @@
                     ],
                     "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptClose0001\"}",
                     "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptClose0002\"}",
-                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/namecardClose0003\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptClose0003\"}",
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
@@ -158,6 +158,11 @@
                         "maxLength",
                         "font",
                         "fontSize",
+                        "fontColor",
+                        "backgroundIsStroked",
+                        "backgroundStrokeWidth",
+                        "backgroundIsFilled",
+                        "backgroundStrokeColor",
                         "marginLeft"
                     ],
                     "label": "field",
@@ -168,9 +173,14 @@
                     "maxLength": 12,
                     "font": "Burbank Small Medium",
                     "fontSize": "45px",
+                    "fontColor": "#000000",
+                    "backgroundIsFilled": true,
+                    "backgroundIsStroked": true,
+                    "backgroundStrokeWidth": 2,
+                    "backgroundStrokeColor": "#000000",
                     "marginLeft": 4.5,
-                    "x": 680,
-                    "y": 549
+                    "x": 626.63,
+                    "y": 532.91
                 }
             ]
         }
