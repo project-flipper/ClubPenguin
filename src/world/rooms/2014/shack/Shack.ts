@@ -556,8 +556,10 @@ export default class Shack extends Phaser.Scene implements Room {
 
         let volleyA = PressureTrigger.getComponent(this.volleya_mc);
         let volleyB = PressureTrigger.getComponent(this.volleyb_mc);
-        volleyA.execute = () => this.updateVolleyGame(volleyA.active && volleyB.active);
-        volleyB.execute = () => this.updateVolleyGame(volleyA.active && volleyB.active);
+        volleyA.onActivate = this.updateVolleyGame.bind(this, volleyA, volleyB);
+        volleyA.onDeactivate = this.updateVolleyGame.bind(this, volleyA, volleyB);
+        volleyB.onActivate = this.updateVolleyGame.bind(this, volleyA, volleyB);
+        volleyB.onDeactivate = this.updateVolleyGame.bind(this, volleyA, volleyB);
 
         this.game.locale.register(this.localize, this);
 
@@ -565,7 +567,8 @@ export default class Shack extends Phaser.Scene implements Room {
     }
 
     public volleyActive = false;
-    updateVolleyGame(state: boolean): void {
+    updateVolleyGame(volleyA: PressureTrigger, volleyB: PressureTrigger): void {
+        let state = volleyA.hasPlayersOn() && volleyB.hasPlayersOn();
         if (state == this.volleyActive) return;
 
         if (state) this.volleyball.play('shack2014-volleyball-animation');

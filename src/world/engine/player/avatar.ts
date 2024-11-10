@@ -84,6 +84,15 @@ export interface Avatar extends Phaser.GameObjects.Container {
 }
 
 /**
+ * Represents the loading state of a player.
+ */
+export enum PlayerLoadingState {
+    NOT_LOADED,
+    LOADING,
+    READY
+}
+
+/**
  * Represents an instance of a player in the game.
  * A player differs from an avatar in that it has additional properties such as user data and clothing.
  */
@@ -104,6 +113,10 @@ export type Player = Avatar & {
      * The actions manager of the player.
      */
     actions: Actions;
+    /**
+     * The loading state of the player.
+     */
+    loadingState: PlayerLoadingState;
 };
 
 export interface AvatarCls {

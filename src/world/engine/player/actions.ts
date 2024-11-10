@@ -170,6 +170,9 @@ export class Actions {
     sitFacing(x: number, y: number): void {
         this.stopMoving();
 
+        this._x = x;
+        this._y = y;
+
         let direction = this.getDirection(x, y);
         this.player.playAnimation(AnimationFrame.SIT_DOWN + direction);
         this._type = ActionType.SIT;
@@ -220,7 +223,7 @@ export class Actions {
             this.player.playAnimation(AnimationFrame.IDLE_DOWN + direction);
             this._type = ActionType.IDLE;
             this.engine.players.testTriggers(this.player, true);
-            this.player.emit('action:complete', this);
+            this.player.emit('action:update', this);
             return;
         }
 
@@ -243,11 +246,19 @@ export class Actions {
                 this.player.playAnimation(AnimationFrame.IDLE_DOWN + direction);
                 this._type = ActionType.IDLE;
                 this.engine.players.testTriggers(this.player, true);
-                this.player.emit('action:complete', this);
+                this.player.emit('action:update', this);
             },
             duration: (distance / this.player.spriteSpeed) * 1000
         });
         this.player.emit('action:update', this);
+    }
+
+    teleport(x: number, y: number, testTriggers = true): void {
+        this.player.setPosition(x, y);
+        this.player.depth = this.player.y + 1;
+        this.player.overlay.setPosition(this.player.x, this.player.y);
+        this.player.overlay.depth = this.player.depth;
+        if (testTriggers) this.engine.players.testTriggers(this.player, true);
     }
 
     /**
@@ -292,21 +303,14 @@ export class Actions {
     set(data: ActionData): void {
         switch (data.type) {
             case ActionType.IDLE:
-            case ActionType.SIT:
-            case ActionType.WAVE:
-            case ActionType.DANCE:
                 this.stopMoving();
-
-                if (data.x && data.y) {
-                    this.player.setPosition(data.x, data.y);
-                    this.engine.players.testTriggers(this.player, true);
-                }
-                this.player.playAnimation(data.type);
+                if (data.x && data.y) this.teleport(data.x, data.y);
+                this.player.playAnimation(AnimationFrame.IDLE_DOWN + (data.to_x != null && data.to_y != null ? this.getDirection(data.to_x, data.to_y) : 0));
                 break;
             case ActionType.WADDLE:
                 this.stopMoving();
 
-                if (data.x && data.y) this.player.setPosition(data.x, data.y);
+                if (data.x && data.y) this.teleport(data.x, data.y, false);
                 this.move(data.to_x, data.to_y);
                 if (data.since) {
                     // Server sync
@@ -314,13 +318,24 @@ export class Actions {
                     this.moveTween.forward(delta);
                 }
                 break;
+            case ActionType.SIT:
+                this.stopMoving();
+                if (data.x && data.y) this.teleport(data.x, data.y);
+                this.player.playAnimation(AnimationFrame.SIT_DOWN + (data.to_x != null && data.to_y != null ? this.getDirection(data.to_x, data.to_y) : 0));
+                break;
+            case ActionType.WAVE:
+                this.stopMoving();
+                if (data.x && data.y) this.teleport(data.x, data.y);
+                this.player.playAnimation(AnimationFrame.WAVE);
+                break;
+            case ActionType.DANCE:
+                this.stopMoving();
+                if (data.x && data.y) this.teleport(data.x, data.y);
+                this.player.playAnimation(AnimationFrame.DANCE);
+                break;
             case ActionType.THROW:
                 this.stopMoving();
-
-                if (data.x && data.y) {
-                    this.player.setPosition(data.x, data.y);
-                    this.engine.players.testTriggers(this.player, true);
-                }
+                if (data.x && data.y) this.teleport(data.x, data.y);
                 this.throw(data.to_x, data.to_y);
                 break;
             default:

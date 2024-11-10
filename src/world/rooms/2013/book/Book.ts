@@ -380,10 +380,12 @@ export default class Book extends Phaser.Scene implements Room {
         stairsbuttonButtonComponent.pixelPerfect = true;
 
         // chair1_trigger (components)
-        new PressureTrigger(chair1_trigger);
+        const chair1_triggerPressureTrigger = new PressureTrigger(chair1_trigger);
+        chair1_triggerPressureTrigger.requiresIdle = true;
 
         // chair2_trigger (components)
-        new PressureTrigger(chair2_trigger);
+        const chair2_triggerPressureTrigger = new PressureTrigger(chair2_trigger);
+        chair2_triggerPressureTrigger.requiresIdle = true;
 
         // book (components)
         const bookButtonComponent = new ButtonComponent(book);
@@ -499,8 +501,12 @@ export default class Book extends Phaser.Scene implements Room {
             this.booklabel.visible = true;
         });
 
-        PressureTrigger.getComponent(this.chair1_trigger).execute = () => this.updatePressState();
-        PressureTrigger.getComponent(this.chair2_trigger).execute = () => this.updatePressState();
+        let trigger1 = PressureTrigger.getComponent(this.chair1_trigger);
+        trigger1.onActivate = this.updatePressState.bind(this);
+        trigger1.onDeactivate = this.updatePressState.bind(this);
+        let trigger2 = PressureTrigger.getComponent(this.chair2_trigger);
+        trigger2.onActivate = this.updatePressState.bind(this);
+        trigger2.onDeactivate = this.updatePressState.bind(this);
 
         this.game.locale.register(this.localize, this);
 
@@ -519,7 +525,7 @@ export default class Book extends Phaser.Scene implements Room {
         let trigger1 = PressureTrigger.getComponent(this.chair1_trigger);
         let trigger2 = PressureTrigger.getComponent(this.chair2_trigger);
 
-        let active = trigger1.active || trigger2.active;
+        let active = trigger1.hasPlayersOn() || trigger2.hasPlayersOn();
 
         if (active && !this.conveyoritems.anims.isPlaying) {
             this.conveyoritems.play('book2013-conveyoritems-animation');

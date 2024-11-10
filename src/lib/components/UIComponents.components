@@ -141,7 +141,18 @@
             "objectDisplayFormat": "",
             "baseClass": "",
             "gameObjectType": "Phaser.GameObjects.Image",
-            "properties": []
+            "properties": [
+                {
+                    "name": "requiresIdle",
+                    "label": "Requires Idling",
+                    "tooltip": "Whether to require players to be still before updating their state to active",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                }
+            ]
         },
         {
             "name": "SnowballTrigger",

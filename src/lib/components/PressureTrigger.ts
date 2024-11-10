@@ -16,7 +16,7 @@ export default class PressureTrigger {
 
         /* START-USER-CTR-CODE */
 
-        this.active = false;
+        this.actives = [];
 
         /* END-USER-CTR-CODE */
     }
@@ -26,10 +26,11 @@ export default class PressureTrigger {
     }
 
     private gameObject: Phaser.GameObjects.Image;
+    public requiresIdle: boolean = false;
 
     /* START-USER-CODE */
 
-    public active: boolean;
+    private actives: Player[];
 
     test(x: number, y: number): boolean {
         let point = new Phaser.Math.Vector2(0, 0);
@@ -51,7 +52,35 @@ export default class PressureTrigger {
         return test({}, point.x, point.y, this.gameObject);
     }
 
-    execute(engine: Engine, player: Player): void { }
+    execute(engine: Engine, player: Player, active: boolean, isIdle: boolean): void {
+        if (this.requiresIdle && !isIdle && !this.isPlayerOn(player)) return;
+
+        if (active) {
+            if (!this.isPlayerOn(player)) {
+                this.actives.push(player);
+                this.onActivate(engine, player);
+            }
+        } else {
+            if (this.isPlayerOn(player)) {
+                this.actives.splice(this.actives.indexOf(player), 1);
+                this.onDeactivate(engine, player);
+            }
+        }
+    }
+
+    onActivate(engine: Engine, player: Player): void {
+    }
+
+    onDeactivate(engine: Engine, player: Player): void {
+    }
+
+    isPlayerOn(player: Player): boolean {
+        return this.actives.includes(player);
+    }
+
+    hasPlayersOn(): boolean {
+        return this.actives.length > 0;
+    }
 
     /* END-USER-CODE */
 }

@@ -406,20 +406,37 @@ export class Engine extends EventEmitter {
         this.interface.closeAll();
         this.interface.clearAvatarOverlays();
 
+        let waitForLoad: Promise<void>[] = [];
+
         for (let playerData of players) {
             let player = await this.addPlayer(playerData);
+            player.actions.set(playerData.action);
 
-            let clothingCallback = (p: Player) => {
-                if (p == player) {
-                    player.actions.set(playerData.action);
-                    this.off('clothing:ready', clothingCallback);
-                }
-            };
-            this.on('clothing:ready', clothingCallback);
+            if (this.world.isMyPlayer(playerData.user)) waitForLoad.push(new Promise<void>(resolve => {
+                let clothingCallback = (p: Player) => {
+                    if (p == player) {
+                        resolve();
+                        this.off('clothing:ready', clothingCallback);
+                        this.off('player:remove', removeCallback);
+                    }
+                };
+
+                let removeCallback = (p: Player) => {
+                    if (p == player) {
+                        resolve();
+                        this.off('clothing:ready', clothingCallback);
+                    }
+                };
+
+                this.on('clothing:ready', clothingCallback);
+                this.once('player:remove', removeCallback);
+            }));
         }
 
         this.currentRoom.input.on('pointerup', (pointer: Phaser.Input.Pointer) => this.playerPointerUpHandler(pointer));
         this.currentRoom.input.on('pointermove', (pointer: Phaser.Input.Pointer) => this.playerPointerMoveHandler(pointer));
+
+        await Promise.all(waitForLoad);
 
         this.interface.show();
         load.hide();

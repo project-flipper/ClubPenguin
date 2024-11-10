@@ -1,6 +1,6 @@
 import { App } from "@clubpenguin/app/app";
 import { AvatarData } from "@clubpenguin/net/types/avatar";
-import { Player } from "@clubpenguin/world/engine/player/avatar";
+import { Player, PlayerLoadingState } from "@clubpenguin/world/engine/player/avatar";
 import { Engine, logger } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import { ItemType } from "./itemType";
@@ -18,10 +18,20 @@ export class ClothingManager {
         this.engine = engine;
 
         this.engine.on('player:add', (player: Player) => {
+            player.loadingState = PlayerLoadingState.LOADING;
             if (player.attachClothing) this.addClothingSprites(player, player.userData.avatar);
+            else {
+                player.loadingState = PlayerLoadingState.READY;
+                this.engine.emit('clothing:ready', player);
+            }
         });
         this.engine.on('player:update', (player: Player) => {
+            player.loadingState = PlayerLoadingState.LOADING;
             if (player.attachClothing) this.addClothingSprites(player, player.userData.avatar);
+            else {
+                player.loadingState = PlayerLoadingState.READY;
+                this.engine.emit('clothing:ready', player);
+            }
             this.engine.cleaner.collect();
         });
         this.engine.on('player:remove', (player: Player) => {
@@ -60,6 +70,7 @@ export class ClothingManager {
         this.world.load.start();
         let sprites = await promise;
 
+        player.loadingState = PlayerLoadingState.READY;
         this.engine.emit('clothing:ready', player);
 
         return sprites;

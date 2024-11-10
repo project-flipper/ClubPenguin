@@ -8,7 +8,7 @@ import { LoaderTask } from "@clubpenguin/load/tasks";
 import { AnimationFrame } from "./animationFrame";
 import { AnyUserData } from "@clubpenguin/net/types/user";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
-import { Avatar, AvatarCls, Player } from "@clubpenguin/world/engine/player/avatar";
+import { Avatar, AvatarCls, Player, PlayerLoadingState } from "@clubpenguin/world/engine/player/avatar";
 import World from "@clubpenguin/world/World";
 import { ClothingSprite } from "../clothing/clothingManager";
 import { Actions } from "./actions";
@@ -27,7 +27,12 @@ export class PlayerManager {
         this.avatars = {};
         this.players = {};
 
-        this.engine.on('clothing:add', (player: Player, sprite: ClothingSprite) => player.actions.reset());
+        this.engine.on('clothing:add', (player: Player, sprite: ClothingSprite) => {
+            if (player.loadingState == PlayerLoadingState.READY) player.actions.reset();
+        });
+        this.engine.on('clothing:ready', (player: Player) => {
+            player.actions.set(player.actions.get());
+        });
         this.engine.on('room:unload', () => {
             this.players = {};
         });
@@ -150,6 +155,7 @@ export class PlayerManager {
         player.userData = data;
         player.clothes = new Map();
         player.actions = new Actions(player);
+        player.loadingState = PlayerLoadingState.NOT_LOADED;
 
         return player;
     }
@@ -288,15 +294,7 @@ export class PlayerManager {
             if (waddleTrigger && finishedMoving && !prohibitJoinRoom && waddleTrigger.test(x, y)) waddleTrigger.execute(this.engine, player);
 
             let pressureTrigger = PressureTrigger.getComponent(trigger);
-            if (pressureTrigger) {
-                let test = pressureTrigger.test(x, y);
-                let state = Boolean(test);
-                if (state != pressureTrigger.active) {
-                    if (state && !finishedMoving) continue;
-                    pressureTrigger.active = state;
-                    pressureTrigger.execute(this.engine, player);
-                }
-            }
+            if (pressureTrigger) pressureTrigger.execute(this.engine, player, pressureTrigger.test(x, y), finishedMoving);
         }
     }
 

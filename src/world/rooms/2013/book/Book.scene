@@ -782,6 +782,7 @@
             "components": [
                 "PressureTrigger"
             ],
+            "PressureTrigger.requiresIdle": true,
             "texture": {
                 "key": "book2013",
                 "frame": "book/chair1_trigger"
@@ -800,6 +801,7 @@
             "components": [
                 "PressureTrigger"
             ],
+            "PressureTrigger.requiresIdle": true,
             "texture": {
                 "key": "book2013",
                 "frame": "book/chair2_trigger"
@@ -856,8 +858,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },
