@@ -153,11 +153,11 @@ export default class PlayerSelection extends Phaser.GameObjects.Container {
 
         // differentButton
         const differentButton = scene.add.image(856.01, 988.65, "login", "login-screen/moreGalleryHover");
-        differentButton.alpha = 0.01;
-        differentButton.alphaTopLeft = 0.01;
-        differentButton.alphaTopRight = 0.01;
-        differentButton.alphaBottomLeft = 0.01;
-        differentButton.alphaBottomRight = 0.01;
+        differentButton.alpha = 0.0001;
+        differentButton.alphaTopLeft = 0.0001;
+        differentButton.alphaTopRight = 0.0001;
+        differentButton.alphaBottomLeft = 0.0001;
+        differentButton.alphaBottomRight = 0.0001;
         this.add(differentButton);
 
         // different

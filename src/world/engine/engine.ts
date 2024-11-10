@@ -408,7 +408,7 @@ export class Engine extends EventEmitter {
 
         for (let playerData of players) {
             let player = await this.addPlayer(playerData);
-            
+
             let clothingCallback = (p: Player) => {
                 if (p == player) {
                     player.actions.set(playerData.action);

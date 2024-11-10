@@ -68,11 +68,11 @@ export default class Beach extends Phaser.Scene implements Room {
         // door_btn
         const door_btn = this.add.image(367.65, 235.6875, "beach2013", "beach/door0004");
         door_btn.setOrigin(0, 0);
-        door_btn.alpha = 0.01;
-        door_btn.alphaTopLeft = 0.01;
-        door_btn.alphaTopRight = 0.01;
-        door_btn.alphaBottomLeft = 0.01;
-        door_btn.alphaBottomRight = 0.01;
+        door_btn.alpha = 0.0001;
+        door_btn.alphaTopLeft = 0.0001;
+        door_btn.alphaTopRight = 0.0001;
+        door_btn.alphaBottomLeft = 0.0001;
+        door_btn.alphaBottomRight = 0.0001;
 
         // beach_trees
         const beach_trees = this.add.image(1544.175, 529.7625, "beach2013", "beach/trees");
@@ -97,11 +97,11 @@ export default class Beach extends Phaser.Scene implements Room {
         // bucket_btn
         const bucket_btn = this.add.image(1114.9875, 708.6375, "beach2013", "beach/bucket_btn");
         bucket_btn.setOrigin(0.32142857142857145, 0.8767647058823529);
-        bucket_btn.alpha = 0.01;
-        bucket_btn.alphaTopLeft = 0.01;
-        bucket_btn.alphaTopRight = 0.01;
-        bucket_btn.alphaBottomLeft = 0.01;
-        bucket_btn.alphaBottomRight = 0.01;
+        bucket_btn.alpha = 0.0001;
+        bucket_btn.alphaTopLeft = 0.0001;
+        bucket_btn.alphaTopRight = 0.0001;
+        bucket_btn.alphaBottomLeft = 0.0001;
+        bucket_btn.alphaBottomRight = 0.0001;
 
         // beach_railing
         const beach_railing = this.add.image(171.45, 594.5625, "beach2013", "beach/railing");

@@ -37,40 +37,40 @@ export default class FNAFUI extends Phaser.Scene {
         // fastLeft
         const fastLeft = this.add.rectangle(0, 0, 80, 720);
         fastLeft.setOrigin(0, 0);
-        fastLeft.alpha = 0.01;
+        fastLeft.alpha = 0.0001;
         fastLeft.isFilled = true;
 
         // mediumLeft
         const mediumLeft = this.add.rectangle(80, 0, 130, 720);
         mediumLeft.setOrigin(0, 0);
-        mediumLeft.alpha = 0.01;
+        mediumLeft.alpha = 0.0001;
         mediumLeft.isFilled = true;
         mediumLeft.fillColor = 12697278;
 
         // scrollLeft
         const scrollLeft = this.add.rectangle(210, 0, 200, 720);
         scrollLeft.setOrigin(0, 0);
-        scrollLeft.alpha = 0.01;
+        scrollLeft.alpha = 0.0001;
         scrollLeft.isFilled = true;
         scrollLeft.fillColor = 7763574;
 
         // fastRight
         const fastRight = this.add.rectangle(1140, 0, 80, 720);
         fastRight.setOrigin(1, 0);
-        fastRight.alpha = 0.01;
+        fastRight.alpha = 0.0001;
         fastRight.isFilled = true;
 
         // mediumRight
         const mediumRight = this.add.rectangle(1060, 0, 130, 720);
         mediumRight.setOrigin(1, 0);
-        mediumRight.alpha = 0.01;
+        mediumRight.alpha = 0.0001;
         mediumRight.isFilled = true;
         mediumRight.fillColor = 12697278;
 
         // scrollRight
         const scrollRight = this.add.rectangle(930, 0, 200, 720);
         scrollRight.setOrigin(1, 0);
-        scrollRight.alpha = 0.01;
+        scrollRight.alpha = 0.0001;
         scrollRight.isFilled = true;
         scrollRight.fillColor = 7763574;
 

@@ -166,7 +166,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
         // tide3
         const tide3 = this.add.sprite(526.6125, 103.95, "binoculars", "binoculars/tide0001");
         tide3.scaleX = -1;
-        tide3.setOrigin(0.37620567375886527, 0.2980701754385965);
+        tide3.setOrigin(0.37620567, 0.29807018);
         tide3.play("binoculars-tide-animation");
         boat2.add(tide3);
 

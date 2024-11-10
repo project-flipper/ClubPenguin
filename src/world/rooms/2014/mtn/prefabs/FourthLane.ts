@@ -33,11 +33,11 @@ export default class FourthLane extends Phaser.GameObjects.Container {
 
         // btn
         const btn = scene.add.image(-37.125, 32.5125, "mtn2014", "mtn/fourthlane_btn0004");
-        btn.alpha = 0.01;
-        btn.alphaTopLeft = 0.01;
-        btn.alphaTopRight = 0.01;
-        btn.alphaBottomLeft = 0.01;
-        btn.alphaBottomRight = 0.01;
+        btn.alpha = 0.0001;
+        btn.alphaTopLeft = 0.0001;
+        btn.alphaTopRight = 0.0001;
+        btn.alphaBottomLeft = 0.0001;
+        btn.alphaBottomRight = 0.0001;
         this.add(btn);
 
         // btn (components)

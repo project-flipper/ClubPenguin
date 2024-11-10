@@ -293,11 +293,11 @@
             "y": 128.92,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -314,11 +314,11 @@
             },
             "x": 1375.76,
             "y": 227.25,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -338,11 +338,11 @@
             "y": 518.51,
             "originX": 0.3292700729927007,
             "originY": 0.48927374301675974,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -358,11 +358,11 @@
             },
             "x": 589.95,
             "y": 333.23,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -539,11 +539,11 @@
             "y": 273.83,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -578,11 +578,11 @@
             },
             "x": 671.96,
             "y": 525.04,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -617,11 +617,11 @@
             },
             "x": 653.96,
             "y": 831.04,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -656,11 +656,11 @@
             },
             "x": 1148.96,
             "y": 853.54,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -699,11 +699,11 @@
             "y": 946.8,
             "originX": -0.1595744680851064,
             "originY": -0.01859504132231405,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -739,11 +739,11 @@
             "y": 483.75,
             "originX": 0,
             "originY": 0.60309,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         }
     ],
     "plainObjects": [],

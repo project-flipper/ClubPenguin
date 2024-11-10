@@ -149,11 +149,11 @@
             "y": 323.8875,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -187,11 +187,11 @@
             "y": 345.825,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -303,11 +303,11 @@
             "y": 500.525,
             "originX": 0.7025405405405406,
             "originY": 0.8079701492537313,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",

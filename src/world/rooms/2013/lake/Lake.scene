@@ -74,11 +74,11 @@
             "y": 530.44,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Sprite",
@@ -916,11 +916,11 @@
             "x": 1588.39,
             "y": 619.43,
             "visible": false,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -938,11 +938,11 @@
             },
             "x": 1596.94,
             "y": 608.4,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         }
     ],
     "plainObjects": [],

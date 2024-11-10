@@ -47,11 +47,11 @@ export default class Pizza extends Phaser.Scene implements Room {
         // kitchendoor_hit
         const kitchendoor_hit = this.add.image(282.38, 121.95, "pizza2013", "pizza/kitchendoor0004");
         kitchendoor_hit.setOrigin(0, 0);
-        kitchendoor_hit.alpha = 0.01;
-        kitchendoor_hit.alphaTopLeft = 0.01;
-        kitchendoor_hit.alphaTopRight = 0.01;
-        kitchendoor_hit.alphaBottomLeft = 0.01;
-        kitchendoor_hit.alphaBottomRight = 0.01;
+        kitchendoor_hit.alpha = 0.0001;
+        kitchendoor_hit.alphaTopLeft = 0.0001;
+        kitchendoor_hit.alphaTopRight = 0.0001;
+        kitchendoor_hit.alphaBottomLeft = 0.0001;
+        kitchendoor_hit.alphaBottomRight = 0.0001;
 
         // door
         const door = this.add.image(696.38, 70.31, "pizza2013", "pizza/door0001");
@@ -60,11 +60,11 @@ export default class Pizza extends Phaser.Scene implements Room {
         // door_hit
         const door_hit = this.add.image(696.38, 70.31, "pizza2013", "pizza/door0004");
         door_hit.setOrigin(0, 0);
-        door_hit.alpha = 0.01;
-        door_hit.alphaTopLeft = 0.01;
-        door_hit.alphaTopRight = 0.01;
-        door_hit.alphaBottomLeft = 0.01;
-        door_hit.alphaBottomRight = 0.01;
+        door_hit.alpha = 0.0001;
+        door_hit.alphaTopLeft = 0.0001;
+        door_hit.alphaTopRight = 0.0001;
+        door_hit.alphaBottomLeft = 0.0001;
+        door_hit.alphaBottomRight = 0.0001;
 
         // pizza_arc
         const pizza_arc = this.add.image(0, 0, "pizza2013", "pizza/arc");
@@ -152,88 +152,88 @@ export default class Pizza extends Phaser.Scene implements Room {
 
         // stoolbtn
         const stoolbtn = this.add.image(1438.88, 523.13, "pizza2013", "pizza/stoolbtn0004");
-        stoolbtn.alpha = 0.01;
-        stoolbtn.alphaTopLeft = 0.01;
-        stoolbtn.alphaTopRight = 0.01;
-        stoolbtn.alphaBottomLeft = 0.01;
-        stoolbtn.alphaBottomRight = 0.01;
+        stoolbtn.alpha = 0.0001;
+        stoolbtn.alphaTopLeft = 0.0001;
+        stoolbtn.alphaTopRight = 0.0001;
+        stoolbtn.alphaBottomLeft = 0.0001;
+        stoolbtn.alphaBottomRight = 0.0001;
 
         // seat4btn
         const seat4btn = this.add.image(1150.88, 574.88, "pizza2013", "pizza/seatbtn0004");
         seat4btn.setOrigin(0.45, 0.49675);
-        seat4btn.alpha = 0.01;
-        seat4btn.alphaTopLeft = 0.01;
-        seat4btn.alphaTopRight = 0.01;
-        seat4btn.alphaBottomLeft = 0.01;
-        seat4btn.alphaBottomRight = 0.01;
+        seat4btn.alpha = 0.0001;
+        seat4btn.alphaTopLeft = 0.0001;
+        seat4btn.alphaTopRight = 0.0001;
+        seat4btn.alphaBottomLeft = 0.0001;
+        seat4btn.alphaBottomRight = 0.0001;
 
         // seat3btn
         const seat3btn = this.add.image(1018.13, 694.13, "pizza2013", "pizza/seatbtn0004");
         seat3btn.setOrigin(0.45, 0.4967532467532468);
-        seat3btn.alpha = 0.01;
-        seat3btn.alphaTopLeft = 0.01;
-        seat3btn.alphaTopRight = 0.01;
-        seat3btn.alphaBottomLeft = 0.01;
-        seat3btn.alphaBottomRight = 0.01;
+        seat3btn.alpha = 0.0001;
+        seat3btn.alphaTopLeft = 0.0001;
+        seat3btn.alphaTopRight = 0.0001;
+        seat3btn.alphaBottomLeft = 0.0001;
+        seat3btn.alphaBottomRight = 0.0001;
 
         // seat2btn
         const seat2btn = this.add.image(905.63, 502.88, "pizza2013", "pizza/seatbtn0004");
         seat2btn.setOrigin(0.45, 0.4967532467532468);
-        seat2btn.alpha = 0.01;
-        seat2btn.alphaTopLeft = 0.01;
-        seat2btn.alphaTopRight = 0.01;
-        seat2btn.alphaBottomLeft = 0.01;
-        seat2btn.alphaBottomRight = 0.01;
+        seat2btn.alpha = 0.0001;
+        seat2btn.alphaTopLeft = 0.0001;
+        seat2btn.alphaTopRight = 0.0001;
+        seat2btn.alphaBottomLeft = 0.0001;
+        seat2btn.alphaBottomRight = 0.0001;
 
         // seat1btn
         const seat1btn = this.add.image(752.63, 550.13, "pizza2013", "pizza/seatbtn0004");
         seat1btn.setOrigin(0.45, 0.4967532467532468);
-        seat1btn.alpha = 0.01;
-        seat1btn.alphaTopLeft = 0.01;
-        seat1btn.alphaTopRight = 0.01;
-        seat1btn.alphaBottomLeft = 0.01;
-        seat1btn.alphaBottomRight = 0.01;
+        seat1btn.alpha = 0.0001;
+        seat1btn.alphaTopLeft = 0.0001;
+        seat1btn.alphaTopRight = 0.0001;
+        seat1btn.alphaBottomLeft = 0.0001;
+        seat1btn.alphaBottomRight = 0.0001;
 
         // stool1btn
         const stool1btn = this.add.image(559.13, 487.13, "pizza2013", "pizza/stoolbtn0004");
-        stool1btn.alpha = 0.01;
-        stool1btn.alphaTopLeft = 0.01;
-        stool1btn.alphaTopRight = 0.01;
-        stool1btn.alphaBottomLeft = 0.01;
-        stool1btn.alphaBottomRight = 0.01;
+        stool1btn.alpha = 0.0001;
+        stool1btn.alphaTopLeft = 0.0001;
+        stool1btn.alphaTopRight = 0.0001;
+        stool1btn.alphaBottomLeft = 0.0001;
+        stool1btn.alphaBottomRight = 0.0001;
 
         // stool2btn
         const stool2btn = this.add.image(561.38, 579.38, "pizza2013", "pizza/stoolbtn0004");
-        stool2btn.alpha = 0.01;
-        stool2btn.alphaTopLeft = 0.01;
-        stool2btn.alphaTopRight = 0.01;
-        stool2btn.alphaBottomLeft = 0.01;
-        stool2btn.alphaBottomRight = 0.01;
+        stool2btn.alpha = 0.0001;
+        stool2btn.alphaTopLeft = 0.0001;
+        stool2btn.alphaTopRight = 0.0001;
+        stool2btn.alphaBottomLeft = 0.0001;
+        stool2btn.alphaBottomRight = 0.0001;
 
         // stool3btn
         const stool3btn = this.add.image(498.38, 664.88, "pizza2013", "pizza/stoolbtn0004");
-        stool3btn.alpha = 0.01;
-        stool3btn.alphaTopLeft = 0.01;
-        stool3btn.alphaTopRight = 0.01;
-        stool3btn.alphaBottomLeft = 0.01;
-        stool3btn.alphaBottomRight = 0.01;
+        stool3btn.alpha = 0.0001;
+        stool3btn.alphaTopLeft = 0.0001;
+        stool3btn.alphaTopRight = 0.0001;
+        stool3btn.alphaBottomLeft = 0.0001;
+        stool3btn.alphaBottomRight = 0.0001;
 
         // standbtn
         const standbtn = this.add.image(562.5, 362.25, "pizza2013", "pizza/standbtn0004");
-        standbtn.alpha = 0.01;
-        standbtn.alphaTopLeft = 0.01;
-        standbtn.alphaTopRight = 0.01;
-        standbtn.alphaBottomLeft = 0.01;
-        standbtn.alphaBottomRight = 0.01;
+        standbtn.alpha = 0.0001;
+        standbtn.alphaTopLeft = 0.0001;
+        standbtn.alphaTopRight = 0.0001;
+        standbtn.alphaBottomLeft = 0.0001;
+        standbtn.alphaBottomRight = 0.0001;
 
         // registerbtn
         const registerbtn = this.add.image(387.9, 408.04, "pizza2013", "pizza/registerbtn0004");
         registerbtn.setOrigin(0.5011818181818182, 0.49963963963963964);
-        registerbtn.alpha = 0.01;
-        registerbtn.alphaTopLeft = 0.01;
-        registerbtn.alphaTopRight = 0.01;
-        registerbtn.alphaBottomLeft = 0.01;
-        registerbtn.alphaBottomRight = 0.01;
+        registerbtn.alpha = 0.0001;
+        registerbtn.alphaTopLeft = 0.0001;
+        registerbtn.alphaTopRight = 0.0001;
+        registerbtn.alphaBottomLeft = 0.0001;
+        registerbtn.alphaBottomRight = 0.0001;
 
         // pizzatron_trigger
         const pizzatron_trigger = this.add.image(376.88, 348.75, "pizza2013", "pizza/pizzatron_trigger");

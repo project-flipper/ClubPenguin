@@ -518,11 +518,11 @@
             },
             "x": 1176.6375,
             "y": 247.275,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Sprite",
@@ -564,11 +564,11 @@
             "y": 247.05,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -588,11 +588,11 @@
             "y": 141.1875,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -814,11 +814,11 @@
             "y": 455.5125,
             "originX": 0.53205405,
             "originY": 0.74149635,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -1061,11 +1061,11 @@
             "y": 278.325,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",

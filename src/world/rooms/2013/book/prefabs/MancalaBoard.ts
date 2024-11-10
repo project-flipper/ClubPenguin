@@ -27,11 +27,11 @@ export default class MancalaBoard extends Phaser.GameObjects.Container {
 
         // button
         const button = scene.add.image(4, -32, "book2013", "book/mancala_btn0004");
-        button.alpha = 0.01;
-        button.alphaTopLeft = 0.01;
-        button.alphaTopRight = 0.01;
-        button.alphaBottomLeft = 0.01;
-        button.alphaBottomRight = 0.01;
+        button.alpha = 0.0001;
+        button.alphaTopLeft = 0.0001;
+        button.alphaTopRight = 0.0001;
+        button.alphaBottomLeft = 0.0001;
+        button.alphaBottomRight = 0.0001;
         this.add(button);
 
         // button (components)

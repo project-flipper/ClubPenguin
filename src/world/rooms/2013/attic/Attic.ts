@@ -51,11 +51,11 @@ export default class Attic extends Phaser.Scene implements Room {
         // horseButton
         const horseButton = this.add.image(1538.89, 704.48, "attic2013", "attic/horsehover0004");
         horseButton.setOrigin(0.42047138047138044, 0.5097897897897897);
-        horseButton.alpha = 0.01;
-        horseButton.alphaTopLeft = 0.01;
-        horseButton.alphaTopRight = 0.01;
-        horseButton.alphaBottomLeft = 0.01;
-        horseButton.alphaBottomRight = 0.01;
+        horseButton.alpha = 0.0001;
+        horseButton.alphaTopLeft = 0.0001;
+        horseButton.alphaTopRight = 0.0001;
+        horseButton.alphaBottomLeft = 0.0001;
+        horseButton.alphaBottomRight = 0.0001;
 
         // block
         const block = this.add.image(0, 0, "attic2013", "attic/block");
@@ -72,11 +72,11 @@ export default class Attic extends Phaser.Scene implements Room {
 
         // tablebtn1
         const tablebtn1 = this.add.image(671.96, 660.04, "attic2013", "attic/tablebtn0004");
-        tablebtn1.alpha = 0.01;
-        tablebtn1.alphaTopLeft = 0.01;
-        tablebtn1.alphaTopRight = 0.01;
-        tablebtn1.alphaBottomLeft = 0.01;
-        tablebtn1.alphaBottomRight = 0.01;
+        tablebtn1.alpha = 0.0001;
+        tablebtn1.alphaTopLeft = 0.0001;
+        tablebtn1.alphaTopRight = 0.0001;
+        tablebtn1.alphaBottomLeft = 0.0001;
+        tablebtn1.alphaBottomRight = 0.0001;
 
         // table2
         const table2 = this.add.image(968.51, 667.69, "attic2013", "attic/table20001");
@@ -88,11 +88,11 @@ export default class Attic extends Phaser.Scene implements Room {
 
         // tablebtn2
         const tablebtn2 = this.add.image(964.46, 606.04, "attic2013", "attic/tablebtn0004");
-        tablebtn2.alpha = 0.01;
-        tablebtn2.alphaTopLeft = 0.01;
-        tablebtn2.alphaTopRight = 0.01;
-        tablebtn2.alphaBottomLeft = 0.01;
-        tablebtn2.alphaBottomRight = 0.01;
+        tablebtn2.alpha = 0.0001;
+        tablebtn2.alphaTopLeft = 0.0001;
+        tablebtn2.alphaTopRight = 0.0001;
+        tablebtn2.alphaBottomLeft = 0.0001;
+        tablebtn2.alphaBottomRight = 0.0001;
 
         // table3
         const table3 = this.add.image(541.01, 870.19, "attic2013", "attic/table30001");
@@ -104,11 +104,11 @@ export default class Attic extends Phaser.Scene implements Room {
 
         // tablebtn3
         const tablebtn3 = this.add.image(496.46, 808.54, "attic2013", "attic/tablebtn0004");
-        tablebtn3.alpha = 0.01;
-        tablebtn3.alphaTopLeft = 0.01;
-        tablebtn3.alphaTopRight = 0.01;
-        tablebtn3.alphaBottomLeft = 0.01;
-        tablebtn3.alphaBottomRight = 0.01;
+        tablebtn3.alpha = 0.0001;
+        tablebtn3.alphaTopLeft = 0.0001;
+        tablebtn3.alphaTopRight = 0.0001;
+        tablebtn3.alphaBottomLeft = 0.0001;
+        tablebtn3.alphaBottomRight = 0.0001;
 
         // table4
         const table4 = this.add.image(901.01, 870.19, "attic2013", "attic/table20001");
@@ -120,11 +120,11 @@ export default class Attic extends Phaser.Scene implements Room {
 
         // tablebtn4
         const tablebtn4 = this.add.image(896.96, 808.54, "attic2013", "attic/tablebtn0004");
-        tablebtn4.alpha = 0.01;
-        tablebtn4.alphaTopLeft = 0.01;
-        tablebtn4.alphaTopRight = 0.01;
-        tablebtn4.alphaBottomLeft = 0.01;
-        tablebtn4.alphaBottomRight = 0.01;
+        tablebtn4.alpha = 0.0001;
+        tablebtn4.alphaTopLeft = 0.0001;
+        tablebtn4.alphaTopRight = 0.0001;
+        tablebtn4.alphaBottomLeft = 0.0001;
+        tablebtn4.alphaBottomRight = 0.0001;
 
         // table5
         const table5 = this.add.image(1283.51, 915.19, "attic2013", "attic/table40001");
@@ -136,11 +136,11 @@ export default class Attic extends Phaser.Scene implements Room {
 
         // tablebtn5
         const tablebtn5 = this.add.image(1283.96, 853.54, "attic2013", "attic/tablebtn0004");
-        tablebtn5.alpha = 0.01;
-        tablebtn5.alphaTopLeft = 0.01;
-        tablebtn5.alphaTopRight = 0.01;
-        tablebtn5.alphaBottomLeft = 0.01;
-        tablebtn5.alphaBottomRight = 0.01;
+        tablebtn5.alpha = 0.0001;
+        tablebtn5.alphaTopLeft = 0.0001;
+        tablebtn5.alphaTopRight = 0.0001;
+        tablebtn5.alphaBottomLeft = 0.0001;
+        tablebtn5.alphaBottomRight = 0.0001;
 
         // attic_lodge_trigger
         const attic_lodge_trigger = this.add.image(1280.14, 703.13, "attic2013", "attic/lodge_trigger");

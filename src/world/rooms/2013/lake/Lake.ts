@@ -46,11 +46,11 @@ export default class Lake extends Phaser.Scene {
         // keycluebtn
         const keycluebtn = this.add.image(1508.18, 530.44, "lake2013", "lake/keyclue0004");
         keycluebtn.setOrigin(0, 0);
-        keycluebtn.alpha = 0.01;
-        keycluebtn.alphaTopLeft = 0.01;
-        keycluebtn.alphaTopRight = 0.01;
-        keycluebtn.alphaBottomLeft = 0.01;
-        keycluebtn.alphaBottomRight = 0.01;
+        keycluebtn.alpha = 0.0001;
+        keycluebtn.alphaTopLeft = 0.0001;
+        keycluebtn.alphaTopRight = 0.0001;
+        keycluebtn.alphaBottomLeft = 0.0001;
+        keycluebtn.alphaBottomRight = 0.0001;
 
         // lake_fall2_top10001
         const lake_fall2_top10001 = this.add.sprite(1172.25, 132.75, "lake2013", "lake/fall2_top10001");
@@ -272,19 +272,19 @@ export default class Lake extends Phaser.Scene {
         // pizza2btn
         const pizza2btn = this.add.image(1588.39, 619.43, "lake2013", "lake/pizza2btn0004");
         pizza2btn.visible = false;
-        pizza2btn.alpha = 0.01;
-        pizza2btn.alphaTopLeft = 0.01;
-        pizza2btn.alphaTopRight = 0.01;
-        pizza2btn.alphaBottomLeft = 0.01;
-        pizza2btn.alphaBottomRight = 0.01;
+        pizza2btn.alpha = 0.0001;
+        pizza2btn.alphaTopLeft = 0.0001;
+        pizza2btn.alphaTopRight = 0.0001;
+        pizza2btn.alphaBottomLeft = 0.0001;
+        pizza2btn.alphaBottomRight = 0.0001;
 
         // pizzabtn
         const pizzabtn = this.add.image(1596.94, 608.4, "lake2013", "lake/pizzabtn0004");
-        pizzabtn.alpha = 0.01;
-        pizzabtn.alphaTopLeft = 0.01;
-        pizzabtn.alphaTopRight = 0.01;
-        pizzabtn.alphaBottomLeft = 0.01;
-        pizzabtn.alphaBottomRight = 0.01;
+        pizzabtn.alpha = 0.0001;
+        pizzabtn.alphaTopLeft = 0.0001;
+        pizzabtn.alphaTopRight = 0.0001;
+        pizzabtn.alphaBottomLeft = 0.0001;
+        pizzabtn.alphaBottomRight = 0.0001;
 
         // lists
         const triggers = [lake_forest_trigger, lake_cavemine_trigger, underwater_trigger];

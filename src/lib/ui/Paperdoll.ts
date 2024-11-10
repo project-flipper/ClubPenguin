@@ -56,11 +56,11 @@ export default class Paperdoll extends Phaser.GameObjects.Container {
         const photo_button = scene.add.image(0, 0, "interface", "interface/namecardMask");
         photo_button.setOrigin(0, 0);
         photo_button.visible = false;
-        photo_button.alpha = 0.01;
-        photo_button.alphaTopLeft = 0.01;
-        photo_button.alphaTopRight = 0.01;
-        photo_button.alphaBottomLeft = 0.01;
-        photo_button.alphaBottomRight = 0.01;
+        photo_button.alpha = 0.0001;
+        photo_button.alphaTopLeft = 0.0001;
+        photo_button.alphaTopRight = 0.0001;
+        photo_button.alphaBottomLeft = 0.0001;
+        photo_button.alphaBottomRight = 0.0001;
         back_container.add(photo_button);
 
         // flag_container

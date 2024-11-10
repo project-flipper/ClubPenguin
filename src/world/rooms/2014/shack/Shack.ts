@@ -119,11 +119,11 @@ export default class Shack extends Phaser.Scene implements Room {
         // schooldoor_btn
         const schooldoor_btn = this.add.image(401.0375, 216.1875, "shack2014", "shack/schooldoor0004");
         schooldoor_btn.setOrigin(0, 0);
-        schooldoor_btn.alpha = 0.01;
-        schooldoor_btn.alphaTopLeft = 0.01;
-        schooldoor_btn.alphaTopRight = 0.01;
-        schooldoor_btn.alphaBottomLeft = 0.01;
-        schooldoor_btn.alphaBottomRight = 0.01;
+        schooldoor_btn.alpha = 0.0001;
+        schooldoor_btn.alphaTopLeft = 0.0001;
+        schooldoor_btn.alphaTopRight = 0.0001;
+        schooldoor_btn.alphaBottomLeft = 0.0001;
+        schooldoor_btn.alphaBottomRight = 0.0001;
 
         // minelight
         const minelight = this.add.image(1038.125, 288.875, "shack2014", "shack/mine_btn0001");
@@ -141,11 +141,11 @@ export default class Shack extends Phaser.Scene implements Room {
         // mine_btn
         const mine_btn = this.add.image(1038.125, 288.875, "shack2014", "shack/mine_btn0004");
         mine_btn.setOrigin(0, 0);
-        mine_btn.alpha = 0.01;
-        mine_btn.alphaTopLeft = 0.01;
-        mine_btn.alphaTopRight = 0.01;
-        mine_btn.alphaBottomLeft = 0.01;
-        mine_btn.alphaBottomRight = 0.01;
+        mine_btn.alpha = 0.0001;
+        mine_btn.alphaTopLeft = 0.0001;
+        mine_btn.alphaTopRight = 0.0001;
+        mine_btn.alphaBottomLeft = 0.0001;
+        mine_btn.alphaBottomRight = 0.0001;
 
         // shack_clock
         this.add.image(532.1, 145.9, "shack2014", "shack/clock");
@@ -245,19 +245,19 @@ export default class Shack extends Phaser.Scene implements Room {
 
         // exit_btn
         const exit_btn = this.add.image(134.2125, 908.55, "shack2014", "shack/exit_btn");
-        exit_btn.alpha = 0.01;
-        exit_btn.alphaTopLeft = 0.01;
-        exit_btn.alphaTopRight = 0.01;
-        exit_btn.alphaBottomLeft = 0.01;
-        exit_btn.alphaBottomRight = 0.01;
+        exit_btn.alpha = 0.0001;
+        exit_btn.alphaTopLeft = 0.0001;
+        exit_btn.alphaTopRight = 0.0001;
+        exit_btn.alphaBottomLeft = 0.0001;
+        exit_btn.alphaBottomRight = 0.0001;
 
         // dojoext_btn
         const dojoext_btn = this.add.image(840.825, 237.0375, "shack2014", "shack/dojoext_btn");
-        dojoext_btn.alpha = 0.01;
-        dojoext_btn.alphaTopLeft = 0.01;
-        dojoext_btn.alphaTopRight = 0.01;
-        dojoext_btn.alphaBottomLeft = 0.01;
-        dojoext_btn.alphaBottomRight = 0.01;
+        dojoext_btn.alpha = 0.0001;
+        dojoext_btn.alphaTopLeft = 0.0001;
+        dojoext_btn.alphaTopRight = 0.0001;
+        dojoext_btn.alphaBottomLeft = 0.0001;
+        dojoext_btn.alphaBottomRight = 0.0001;
 
         // shack_dojo_mc
         const shack_dojo_mc = this.add.image(844.65, 372.15, "shack2014", "shack/dojo_mc");

@@ -293,11 +293,11 @@
             },
             "x": 545.625,
             "y": 201.9375,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -332,11 +332,11 @@
             },
             "x": 1617.6375,
             "y": 1005.525,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "prefabId": "20d5cc0d-8fe6-446f-8628-1c62ae4aaf61",
@@ -462,11 +462,11 @@
             },
             "x": 1178.8875,
             "y": 337.3875,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -483,11 +483,11 @@
             },
             "x": 1415.1375,
             "y": 575.8875,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",

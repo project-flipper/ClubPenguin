@@ -94,7 +94,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
 
         // forgotHitbox
         const forgotHitbox = scene.add.rectangle(853.7625, 620.55, 486, 81);
-        forgotHitbox.alpha = 0.01;
+        forgotHitbox.alpha = 0.0001;
         forgotHitbox.isFilled = true;
         forgotHitbox.fillColor = 5694679;
         this.add(forgotHitbox);
@@ -114,7 +114,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
 
         // accountHitbox
         const accountHitbox = scene.add.rectangle(859.5, 747, 685.575, 162);
-        accountHitbox.alpha = 0.01;
+        accountHitbox.alpha = 0.0001;
         accountHitbox.isFilled = true;
         accountHitbox.fillColor = 5694679;
         this.add(accountHitbox);
@@ -146,7 +146,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
 
         // rulesHitbox
         const rulesHitbox = scene.add.rectangle(852.75, 876.375, 470.7, 88.2);
-        rulesHitbox.alpha = 0.01;
+        rulesHitbox.alpha = 0.0001;
         rulesHitbox.isFilled = true;
         rulesHitbox.fillColor = 5694679;
         this.add(rulesHitbox);
@@ -166,7 +166,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
 
         // backHitbox
         const backHitbox = scene.add.rectangle(853.7625, 991.0125, 486, 81);
-        backHitbox.alpha = 0.01;
+        backHitbox.alpha = 0.0001;
         backHitbox.isFilled = true;
         backHitbox.fillColor = 5694679;
         this.add(backHitbox);

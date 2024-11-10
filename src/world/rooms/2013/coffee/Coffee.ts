@@ -56,11 +56,11 @@ export default class Coffee extends Phaser.Scene implements Room {
         // stairs_btn
         const stairs_btn = this.add.image(1374.75, 242.4375, "coffee2013", "coffee/stairs-btn0004");
         stairs_btn.setOrigin(0, 0);
-        stairs_btn.alpha = 0.01;
-        stairs_btn.alphaTopLeft = 0.01;
-        stairs_btn.alphaTopRight = 0.01;
-        stairs_btn.alphaBottomLeft = 0.01;
-        stairs_btn.alphaBottomRight = 0.01;
+        stairs_btn.alpha = 0.0001;
+        stairs_btn.alphaTopLeft = 0.0001;
+        stairs_btn.alphaTopRight = 0.0001;
+        stairs_btn.alphaBottomLeft = 0.0001;
+        stairs_btn.alphaBottomRight = 0.0001;
 
         // coffee_paintings
         const coffee_paintings = this.add.image(95.9625, 57.375, "coffee2013", "coffee/paintings");
@@ -254,20 +254,20 @@ export default class Coffee extends Phaser.Scene implements Room {
         // smoothie_btn
         const smoothie_btn = this.add.image(-111.375, 283.6125, "coffee2013", "coffee/smoothie-btn0004");
         smoothie_btn.setOrigin(0, 0);
-        smoothie_btn.alpha = 0.01;
-        smoothie_btn.alphaTopLeft = 0.01;
-        smoothie_btn.alphaTopRight = 0.01;
-        smoothie_btn.alphaBottomLeft = 0.01;
-        smoothie_btn.alphaBottomRight = 0.01;
+        smoothie_btn.alpha = 0.0001;
+        smoothie_btn.alphaTopLeft = 0.0001;
+        smoothie_btn.alphaTopRight = 0.0001;
+        smoothie_btn.alphaBottomLeft = 0.0001;
+        smoothie_btn.alphaBottomRight = 0.0001;
 
         // beansarea
         const beansarea = this.add.image(1482.6375, 690.6375, "coffee2013", "coffee/beansarea");
         beansarea.setOrigin(0, 0);
-        beansarea.alpha = 0.01;
-        beansarea.alphaTopLeft = 0.01;
-        beansarea.alphaTopRight = 0.01;
-        beansarea.alphaBottomLeft = 0.01;
-        beansarea.alphaBottomRight = 0.01;
+        beansarea.alpha = 0.0001;
+        beansarea.alphaTopLeft = 0.0001;
+        beansarea.alphaTopRight = 0.0001;
+        beansarea.alphaBottomLeft = 0.0001;
+        beansarea.alphaBottomRight = 0.0001;
 
         // smoothie_trigger
         const smoothie_trigger = this.add.image(153, 731.25, "coffee2013", "coffee/smoothie-trigger");
@@ -288,20 +288,20 @@ export default class Coffee extends Phaser.Scene implements Room {
         // register_btn
         const register_btn = this.add.image(1022.4, 441.45, "coffee2013", "coffee/register_btn0004");
         register_btn.setOrigin(0.61464, -0.413);
-        register_btn.alpha = 0.01;
-        register_btn.alphaTopLeft = 0.01;
-        register_btn.alphaTopRight = 0.01;
-        register_btn.alphaBottomLeft = 0.01;
-        register_btn.alphaBottomRight = 0.01;
+        register_btn.alpha = 0.0001;
+        register_btn.alphaTopLeft = 0.0001;
+        register_btn.alphaTopRight = 0.0001;
+        register_btn.alphaBottomLeft = 0.0001;
+        register_btn.alphaBottomRight = 0.0001;
 
         // smoothieregister_btn
         const smoothieregister_btn = this.add.image(326.8125, 658.8, "coffee2013", "coffee/smoothieregister_btn0004");
         smoothieregister_btn.setOrigin(0.5, 0);
-        smoothieregister_btn.alpha = 0.01;
-        smoothieregister_btn.alphaTopLeft = 0.01;
-        smoothieregister_btn.alphaTopRight = 0.01;
-        smoothieregister_btn.alphaBottomLeft = 0.01;
-        smoothieregister_btn.alphaBottomRight = 0.01;
+        smoothieregister_btn.alpha = 0.0001;
+        smoothieregister_btn.alphaTopLeft = 0.0001;
+        smoothieregister_btn.alphaTopRight = 0.0001;
+        smoothieregister_btn.alphaBottomLeft = 0.0001;
+        smoothieregister_btn.alphaBottomRight = 0.0001;
 
         // block
         const block = this.add.image(-99, -72, "coffee2013", "coffee/block");

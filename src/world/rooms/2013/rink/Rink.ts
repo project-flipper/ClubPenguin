@@ -70,11 +70,11 @@ export default class Rink extends Phaser.Scene implements Room {
         // fishdog_btn
         const fishdog_btn = this.add.image(132.3, 230.625, "rink2013", "rink/fishdog_btn0004");
         fishdog_btn.setOrigin(0, 0);
-        fishdog_btn.alpha = 0.01;
-        fishdog_btn.alphaTopLeft = 0.01;
-        fishdog_btn.alphaTopRight = 0.01;
-        fishdog_btn.alphaBottomLeft = 0.01;
-        fishdog_btn.alphaBottomRight = 0.01;
+        fishdog_btn.alpha = 0.0001;
+        fishdog_btn.alphaTopLeft = 0.0001;
+        fishdog_btn.alphaTopRight = 0.0001;
+        fishdog_btn.alphaBottomLeft = 0.0001;
+        fishdog_btn.alphaBottomRight = 0.0001;
 
         // rink_juryseats
         const rink_juryseats = this.add.image(590.4, 186.75, "rink2013", "rink/juryseats");
@@ -107,11 +107,11 @@ export default class Rink extends Phaser.Scene implements Room {
         // snacksdoor_btn
         const snacksdoor_btn = this.add.image(1341.45, 126.5625, "rink2013", "rink/snacksdoor0004");
         snacksdoor_btn.setOrigin(0, 0);
-        snacksdoor_btn.alpha = 0.01;
-        snacksdoor_btn.alphaTopLeft = 0.01;
-        snacksdoor_btn.alphaTopRight = 0.01;
-        snacksdoor_btn.alphaBottomLeft = 0.01;
-        snacksdoor_btn.alphaBottomRight = 0.01;
+        snacksdoor_btn.alpha = 0.0001;
+        snacksdoor_btn.alphaTopLeft = 0.0001;
+        snacksdoor_btn.alphaTopRight = 0.0001;
+        snacksdoor_btn.alphaBottomLeft = 0.0001;
+        snacksdoor_btn.alphaBottomRight = 0.0001;
 
         // snack_light
         const snack_light = this.add.image(1029.9375, 147.4875, "rink2013", "rink/snack_light");
@@ -140,11 +140,11 @@ export default class Rink extends Phaser.Scene implements Room {
         // door_btn
         const door_btn = this.add.image(788.7375, 287.55, "rink2013", "rink/door0004");
         door_btn.setOrigin(0, 0);
-        door_btn.alpha = 0.01;
-        door_btn.alphaTopLeft = 0.01;
-        door_btn.alphaTopRight = 0.01;
-        door_btn.alphaBottomLeft = 0.01;
-        door_btn.alphaBottomRight = 0.01;
+        door_btn.alpha = 0.0001;
+        door_btn.alphaTopLeft = 0.0001;
+        door_btn.alphaTopRight = 0.0001;
+        door_btn.alphaBottomLeft = 0.0001;
+        door_btn.alphaBottomRight = 0.0001;
 
         // rink_lefttribune
         const rink_lefttribune = this.add.image(120.4875, 287.6625, "rink2013", "rink/lefttribune");
@@ -198,11 +198,11 @@ export default class Rink extends Phaser.Scene implements Room {
         // snack_btn
         const snack_btn = this.add.image(994.8375, 18.675, "rink2013", "rink/snack_btn0004");
         snack_btn.setOrigin(0, 0);
-        snack_btn.alpha = 0.01;
-        snack_btn.alphaTopLeft = 0.01;
-        snack_btn.alphaTopRight = 0.01;
-        snack_btn.alphaBottomLeft = 0.01;
-        snack_btn.alphaBottomRight = 0.01;
+        snack_btn.alpha = 0.0001;
+        snack_btn.alphaTopLeft = 0.0001;
+        snack_btn.alphaTopRight = 0.0001;
+        snack_btn.alphaBottomLeft = 0.0001;
+        snack_btn.alphaBottomRight = 0.0001;
 
         // catalogue
         const catalogue = this.add.image(1581.1875, 970.875, "rink2013", "rink/catalogue0001");
@@ -221,35 +221,35 @@ export default class Rink extends Phaser.Scene implements Room {
 
         // chair1_btn
         const chair1_btn = this.add.image(456.4125, 158.625, "rink2013", "rink/chair_btn0004");
-        chair1_btn.alpha = 0.01;
-        chair1_btn.alphaTopLeft = 0.01;
-        chair1_btn.alphaTopRight = 0.01;
-        chair1_btn.alphaBottomLeft = 0.01;
-        chair1_btn.alphaBottomRight = 0.01;
+        chair1_btn.alpha = 0.0001;
+        chair1_btn.alphaTopLeft = 0.0001;
+        chair1_btn.alphaTopRight = 0.0001;
+        chair1_btn.alphaBottomLeft = 0.0001;
+        chair1_btn.alphaBottomRight = 0.0001;
 
         // chair2_btn
         const chair2_btn = this.add.image(534.7125, 152.325, "rink2013", "rink/chair_btn0004");
-        chair2_btn.alpha = 0.01;
-        chair2_btn.alphaTopLeft = 0.01;
-        chair2_btn.alphaTopRight = 0.01;
-        chair2_btn.alphaBottomLeft = 0.01;
-        chair2_btn.alphaBottomRight = 0.01;
+        chair2_btn.alpha = 0.0001;
+        chair2_btn.alphaTopLeft = 0.0001;
+        chair2_btn.alphaTopRight = 0.0001;
+        chair2_btn.alphaBottomLeft = 0.0001;
+        chair2_btn.alphaBottomRight = 0.0001;
 
         // chair3_btn
         const chair3_btn = this.add.image(603.225, 145.35, "rink2013", "rink/chair_btn0004");
-        chair3_btn.alpha = 0.01;
-        chair3_btn.alphaTopLeft = 0.01;
-        chair3_btn.alphaTopRight = 0.01;
-        chair3_btn.alphaBottomLeft = 0.01;
-        chair3_btn.alphaBottomRight = 0.01;
+        chair3_btn.alpha = 0.0001;
+        chair3_btn.alphaTopLeft = 0.0001;
+        chair3_btn.alphaTopRight = 0.0001;
+        chair3_btn.alphaBottomLeft = 0.0001;
+        chair3_btn.alphaBottomRight = 0.0001;
 
         // chair4_btn
         const chair4_btn = this.add.image(673.5375, 140.175, "rink2013", "rink/chair_btn0004");
-        chair4_btn.alpha = 0.01;
-        chair4_btn.alphaTopLeft = 0.01;
-        chair4_btn.alphaTopRight = 0.01;
-        chair4_btn.alphaBottomLeft = 0.01;
-        chair4_btn.alphaBottomRight = 0.01;
+        chair4_btn.alpha = 0.0001;
+        chair4_btn.alphaTopLeft = 0.0001;
+        chair4_btn.alphaTopRight = 0.0001;
+        chair4_btn.alphaBottomLeft = 0.0001;
+        chair4_btn.alphaBottomRight = 0.0001;
 
         // lists
         const triggers = [rink_forts_mc, rink_shack_mc];

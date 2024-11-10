@@ -133,11 +133,11 @@
                     },
                     "x": 117.45,
                     "y": 92.025,
-                    "alpha": 0.01,
-                    "alphaTopLeft": 0.01,
-                    "alphaTopRight": 0.01,
-                    "alphaBottomLeft": 0.01,
-                    "alphaBottomRight": 0.01
+                    "alpha": 0.0001,
+                    "alphaTopLeft": 0.0001,
+                    "alphaTopRight": 0.0001,
+                    "alphaBottomLeft": 0.0001,
+                    "alphaBottomRight": 0.0001
                 }
             ]
         }

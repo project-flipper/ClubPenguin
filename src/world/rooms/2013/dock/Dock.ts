@@ -116,53 +116,53 @@ export default class Dock extends Phaser.Scene implements Room {
 
         // catalog_btn
         const catalog_btn = this.add.image(850.05, 717.6375, "dock2013", "dock/catalogArea");
-        catalog_btn.alpha = 0.01;
-        catalog_btn.alphaTopLeft = 0.01;
-        catalog_btn.alphaTopRight = 0.01;
-        catalog_btn.alphaBottomLeft = 0.01;
-        catalog_btn.alphaBottomRight = 0.01;
+        catalog_btn.alpha = 0.0001;
+        catalog_btn.alphaTopLeft = 0.0001;
+        catalog_btn.alphaTopRight = 0.0001;
+        catalog_btn.alphaBottomLeft = 0.0001;
+        catalog_btn.alphaBottomRight = 0.0001;
 
         // tubes_btn
         const tubes_btn = this.add.image(594, 832.6125, "dock2013", "dock/tubes_btn0004");
         tubes_btn.setOrigin(0.5225500000000001, 0.7348538011695906);
-        tubes_btn.alpha = 0.01;
-        tubes_btn.alphaTopLeft = 0.01;
-        tubes_btn.alphaTopRight = 0.01;
-        tubes_btn.alphaBottomLeft = 0.01;
-        tubes_btn.alphaBottomRight = 0.01;
+        tubes_btn.alpha = 0.0001;
+        tubes_btn.alphaTopLeft = 0.0001;
+        tubes_btn.alphaTopRight = 0.0001;
+        tubes_btn.alphaBottomLeft = 0.0001;
+        tubes_btn.alphaBottomRight = 0.0001;
 
         // boat_btn
         const boat_btn = this.add.image(25.2, 596.3625, "dock2013", "dock/boat_btn0004");
         boat_btn.setOrigin(0, 0);
-        boat_btn.alpha = 0.01;
-        boat_btn.alphaTopLeft = 0.01;
-        boat_btn.alphaTopRight = 0.01;
-        boat_btn.alphaBottomLeft = 0.01;
-        boat_btn.alphaBottomRight = 0.01;
+        boat_btn.alpha = 0.0001;
+        boat_btn.alphaTopLeft = 0.0001;
+        boat_btn.alphaTopRight = 0.0001;
+        boat_btn.alphaBottomLeft = 0.0001;
+        boat_btn.alphaBottomRight = 0.0001;
 
         // town_btn
         const town_btn = this.add.image(1524.375, 238.5, "dock2013", "dock/town_btn0004");
-        town_btn.alpha = 0.01;
-        town_btn.alphaTopLeft = 0.01;
-        town_btn.alphaTopRight = 0.01;
-        town_btn.alphaBottomLeft = 0.01;
-        town_btn.alphaBottomRight = 0.01;
+        town_btn.alpha = 0.0001;
+        town_btn.alphaTopLeft = 0.0001;
+        town_btn.alphaTopRight = 0.0001;
+        town_btn.alphaBottomLeft = 0.0001;
+        town_btn.alphaBottomRight = 0.0001;
 
         // beach_btn
         const beach_btn = this.add.image(408, 271, "dock2013", "dock/beach_btn0004");
-        beach_btn.alpha = 0.01;
-        beach_btn.alphaTopLeft = 0.01;
-        beach_btn.alphaTopRight = 0.01;
-        beach_btn.alphaBottomLeft = 0.01;
-        beach_btn.alphaBottomRight = 0.01;
+        beach_btn.alpha = 0.0001;
+        beach_btn.alphaTopLeft = 0.0001;
+        beach_btn.alphaTopRight = 0.0001;
+        beach_btn.alphaBottomLeft = 0.0001;
+        beach_btn.alphaBottomRight = 0.0001;
 
         // village_btn
         const village_btn = this.add.image(613.125, 146.25, "dock2013", "dock/village_btn0004");
-        village_btn.alpha = 0.01;
-        village_btn.alphaTopLeft = 0.01;
-        village_btn.alphaTopRight = 0.01;
-        village_btn.alphaBottomLeft = 0.01;
-        village_btn.alphaBottomRight = 0.01;
+        village_btn.alpha = 0.0001;
+        village_btn.alphaTopLeft = 0.0001;
+        village_btn.alphaTopRight = 0.0001;
+        village_btn.alphaBottomLeft = 0.0001;
+        village_btn.alphaBottomRight = 0.0001;
 
         // dock_village_trigger
         const dock_village_trigger = this.add.image(762.75, 315.1125, "dock2013", "dock/village_trigger");

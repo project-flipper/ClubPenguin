@@ -44,11 +44,11 @@ export default class SecondLane extends Phaser.GameObjects.Container {
 
         // btn
         const btn = scene.add.image(-7.875, 37.575, "mtn2014", "mtn/secondlane_btn0004");
-        btn.alpha = 0.01;
-        btn.alphaTopLeft = 0.01;
-        btn.alphaTopRight = 0.01;
-        btn.alphaBottomLeft = 0.01;
-        btn.alphaBottomRight = 0.01;
+        btn.alpha = 0.0001;
+        btn.alphaTopLeft = 0.0001;
+        btn.alphaTopRight = 0.0001;
+        btn.alphaBottomLeft = 0.0001;
+        btn.alphaBottomRight = 0.0001;
         this.add(btn);
 
         // btn (components)

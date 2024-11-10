@@ -65,7 +65,7 @@ export default class Load extends Phaser.Scene {
         // rectangle_1
         const rectangle_1 = this.add.rectangle(0, 0, 1710, 1080);
         rectangle_1.setOrigin(0, 0);
-        rectangle_1.alpha = 0.01;
+        rectangle_1.alpha = 0.0001;
         rectangle_1.isFilled = true;
         loadingDialog.add(rectangle_1);
 

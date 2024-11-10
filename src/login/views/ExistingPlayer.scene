@@ -59,11 +59,11 @@
                     },
                     "x": 1081.01,
                     "y": 680.51,
-                    "alpha": 0.01,
-                    "alphaTopLeft": 0.01,
-                    "alphaTopRight": 0.01,
-                    "alphaBottomLeft": 0.01,
-                    "alphaBottomRight": 0.01
+                    "alpha": 0.0001,
+                    "alphaTopLeft": 0.0001,
+                    "alphaTopRight": 0.0001,
+                    "alphaBottomLeft": 0.0001,
+                    "alphaBottomRight": 0.0001
                 },
                 {
                     "type": "Image",
@@ -80,11 +80,11 @@
                     },
                     "x": 1081.01,
                     "y": 748.01,
-                    "alpha": 0.01,
-                    "alphaTopLeft": 0.01,
-                    "alphaTopRight": 0.01,
-                    "alphaBottomLeft": 0.01,
-                    "alphaBottomRight": 0.01
+                    "alpha": 0.0001,
+                    "alphaTopLeft": 0.0001,
+                    "alphaTopRight": 0.0001,
+                    "alphaBottomLeft": 0.0001,
+                    "alphaBottomRight": 0.0001
                 },
                 {
                     "type": "Image",
@@ -369,11 +369,11 @@
                     },
                     "x": 853.76,
                     "y": 988.76,
-                    "alpha": 0.01,
-                    "alphaTopLeft": 0.01,
-                    "alphaTopRight": 0.01,
-                    "alphaBottomLeft": 0.01,
-                    "alphaBottomRight": 0.01
+                    "alpha": 0.0001,
+                    "alphaTopLeft": 0.0001,
+                    "alphaTopRight": 0.0001,
+                    "alphaBottomLeft": 0.0001,
+                    "alphaBottomRight": 0.0001
                 },
                 {
                     "type": "Sprite",

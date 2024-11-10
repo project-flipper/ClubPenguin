@@ -21,7 +21,7 @@ export default class MoreServers extends Phaser.GameObjects.Container {
         // rectangle_1
         const rectangle_1 = scene.add.rectangle(0, 0, 1710, 1080);
         rectangle_1.setOrigin(0, 0);
-        rectangle_1.alpha = 0.01;
+        rectangle_1.alpha = 0.0001;
         rectangle_1.isFilled = true;
         this.add(rectangle_1);
 

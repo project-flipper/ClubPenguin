@@ -112,36 +112,36 @@ export default class Lodge extends Phaser.Scene implements Room {
         // fishButton
         const fishButton = this.add.image(988.76, 128.92, "lodge2013", "lodge/fishButton");
         fishButton.setOrigin(0, 0);
-        fishButton.alpha = 0.01;
-        fishButton.alphaTopLeft = 0.01;
-        fishButton.alphaTopRight = 0.01;
-        fishButton.alphaBottomLeft = 0.01;
-        fishButton.alphaBottomRight = 0.01;
+        fishButton.alpha = 0.0001;
+        fishButton.alphaTopLeft = 0.0001;
+        fishButton.alphaTopRight = 0.0001;
+        fishButton.alphaBottomLeft = 0.0001;
+        fishButton.alphaBottomRight = 0.0001;
 
         // atticButton
         const atticButton = this.add.image(1375.76, 227.25, "lodge2013", "lodge/attic_button0004");
-        atticButton.alpha = 0.01;
-        atticButton.alphaTopLeft = 0.01;
-        atticButton.alphaTopRight = 0.01;
-        atticButton.alphaBottomLeft = 0.01;
-        atticButton.alphaBottomRight = 0.01;
+        atticButton.alpha = 0.0001;
+        atticButton.alphaTopLeft = 0.0001;
+        atticButton.alphaTopRight = 0.0001;
+        atticButton.alphaBottomLeft = 0.0001;
+        atticButton.alphaBottomRight = 0.0001;
 
         // entranceButton
         const entranceButton = this.add.image(133.99, 518.51, "lodge2013", "lodge/lodgeEntrance0004");
         entranceButton.setOrigin(0.3292700729927007, 0.48927374301675974);
-        entranceButton.alpha = 0.01;
-        entranceButton.alphaTopLeft = 0.01;
-        entranceButton.alphaTopRight = 0.01;
-        entranceButton.alphaBottomLeft = 0.01;
-        entranceButton.alphaBottomRight = 0.01;
+        entranceButton.alpha = 0.0001;
+        entranceButton.alphaTopLeft = 0.0001;
+        entranceButton.alphaTopRight = 0.0001;
+        entranceButton.alphaBottomLeft = 0.0001;
+        entranceButton.alphaBottomRight = 0.0001;
 
         // candleButton
         const candleButton = this.add.image(589.95, 333.23, "lodge2013", "lodge/candle_button0004");
-        candleButton.alpha = 0.01;
-        candleButton.alphaTopLeft = 0.01;
-        candleButton.alphaTopRight = 0.01;
-        candleButton.alphaBottomLeft = 0.01;
-        candleButton.alphaBottomRight = 0.01;
+        candleButton.alpha = 0.0001;
+        candleButton.alphaTopLeft = 0.0001;
+        candleButton.alphaTopRight = 0.0001;
+        candleButton.alphaBottomLeft = 0.0001;
+        candleButton.alphaBottomRight = 0.0001;
 
         // block
         const block = this.add.image(0, 0, "lodge2013", "lodge/block");
@@ -175,11 +175,11 @@ export default class Lodge extends Phaser.Scene implements Room {
         // noteButton
         const noteButton = this.add.image(923.85, 273.83, "lodge2013", "lodge/note0009");
         noteButton.setOrigin(0, 0);
-        noteButton.alpha = 0.01;
-        noteButton.alphaTopLeft = 0.01;
-        noteButton.alphaTopRight = 0.01;
-        noteButton.alphaBottomLeft = 0.01;
-        noteButton.alphaBottomRight = 0.01;
+        noteButton.alpha = 0.0001;
+        noteButton.alphaTopLeft = 0.0001;
+        noteButton.alphaTopRight = 0.0001;
+        noteButton.alphaBottomLeft = 0.0001;
+        noteButton.alphaBottomRight = 0.0001;
 
         // table1
         const table1 = this.add.image(676.01, 577.69, "lodge2013", "lodge/table10001");
@@ -187,11 +187,11 @@ export default class Lodge extends Phaser.Scene implements Room {
 
         // table1btn
         const table1btn = this.add.image(671.96, 525.04, "lodge2013", "lodge/table_button0004");
-        table1btn.alpha = 0.01;
-        table1btn.alphaTopLeft = 0.01;
-        table1btn.alphaTopRight = 0.01;
-        table1btn.alphaBottomLeft = 0.01;
-        table1btn.alphaBottomRight = 0.01;
+        table1btn.alpha = 0.0001;
+        table1btn.alphaTopLeft = 0.0001;
+        table1btn.alphaTopRight = 0.0001;
+        table1btn.alphaBottomLeft = 0.0001;
+        table1btn.alphaBottomRight = 0.0001;
 
         // table2
         const table2 = this.add.image(698.51, 892.69, "lodge2013", "lodge/table20001");
@@ -199,11 +199,11 @@ export default class Lodge extends Phaser.Scene implements Room {
 
         // table2btn
         const table2btn = this.add.image(653.96, 831.04, "lodge2013", "lodge/table_button0004");
-        table2btn.alpha = 0.01;
-        table2btn.alphaTopLeft = 0.01;
-        table2btn.alphaTopRight = 0.01;
-        table2btn.alphaBottomLeft = 0.01;
-        table2btn.alphaBottomRight = 0.01;
+        table2btn.alpha = 0.0001;
+        table2btn.alphaTopLeft = 0.0001;
+        table2btn.alphaTopRight = 0.0001;
+        table2btn.alphaBottomLeft = 0.0001;
+        table2btn.alphaBottomRight = 0.0001;
 
         // table3
         const table3 = this.add.image(1148.51, 915.19, "lodge2013", "lodge/table30001");
@@ -211,11 +211,11 @@ export default class Lodge extends Phaser.Scene implements Room {
 
         // table3btn
         const table3btn = this.add.image(1148.96, 853.54, "lodge2013", "lodge/table_button0004");
-        table3btn.alpha = 0.01;
-        table3btn.alphaTopLeft = 0.01;
-        table3btn.alphaTopRight = 0.01;
-        table3btn.alphaBottomLeft = 0.01;
-        table3btn.alphaBottomRight = 0.01;
+        table3btn.alpha = 0.0001;
+        table3btn.alphaTopLeft = 0.0001;
+        table3btn.alphaTopRight = 0.0001;
+        table3btn.alphaBottomLeft = 0.0001;
+        table3btn.alphaBottomRight = 0.0001;
 
         // catalog
         const catalog = this.add.image(1533.15, 946.8, "lodge2013", "lodge/catalog0001");
@@ -224,11 +224,11 @@ export default class Lodge extends Phaser.Scene implements Room {
         // catalogbtn
         const catalogbtn = this.add.image(1533.15, 946.8, "lodge2013", "lodge/catalog0004");
         catalogbtn.setOrigin(-0.1595744680851064, -0.01859504132231405);
-        catalogbtn.alpha = 0.01;
-        catalogbtn.alphaTopLeft = 0.01;
-        catalogbtn.alphaTopRight = 0.01;
-        catalogbtn.alphaBottomLeft = 0.01;
-        catalogbtn.alphaBottomRight = 0.01;
+        catalogbtn.alpha = 0.0001;
+        catalogbtn.alphaTopLeft = 0.0001;
+        catalogbtn.alphaTopRight = 0.0001;
+        catalogbtn.alphaBottomLeft = 0.0001;
+        catalogbtn.alphaBottomRight = 0.0001;
 
         // lodge_attic_trigger
         const lodge_attic_trigger = this.add.image(1367.89, 524.25, "lodge2013", "lodge/attic_trigger");
@@ -237,11 +237,11 @@ export default class Lodge extends Phaser.Scene implements Room {
         // gearButton
         const gearButton = this.add.image(894.26, 483.75, "lodge2013", "lodge/gear0004");
         gearButton.setOrigin(0, 0.60309);
-        gearButton.alpha = 0.01;
-        gearButton.alphaTopLeft = 0.01;
-        gearButton.alphaTopRight = 0.01;
-        gearButton.alphaBottomLeft = 0.01;
-        gearButton.alphaBottomRight = 0.01;
+        gearButton.alpha = 0.0001;
+        gearButton.alphaTopLeft = 0.0001;
+        gearButton.alphaTopRight = 0.0001;
+        gearButton.alphaBottomLeft = 0.0001;
+        gearButton.alphaBottomRight = 0.0001;
 
         // lists
         const triggers = [fish_trigger, village_trigger, lodge_table_trigger, lodge_table_trigger_2, lodge_table_trigger_1, lodge_attic_trigger];

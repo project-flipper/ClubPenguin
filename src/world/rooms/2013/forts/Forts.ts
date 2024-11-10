@@ -147,27 +147,27 @@ export default class Forts extends Phaser.Scene implements Room {
 
         // town_btn
         const town_btn = this.add.image(207.5625, 355.3875, "forts2013", "forts/town_btn0004");
-        town_btn.alpha = 0.01;
-        town_btn.alphaTopLeft = 0.01;
-        town_btn.alphaTopRight = 0.01;
-        town_btn.alphaBottomLeft = 0.01;
-        town_btn.alphaBottomRight = 0.01;
+        town_btn.alpha = 0.0001;
+        town_btn.alphaTopLeft = 0.0001;
+        town_btn.alphaTopRight = 0.0001;
+        town_btn.alphaBottomLeft = 0.0001;
+        town_btn.alphaBottomRight = 0.0001;
 
         // plaza_btn
         const plaza_btn = this.add.image(1586.25, 303.75, "forts2013", "forts/plaza_btn0004");
-        plaza_btn.alpha = 0.01;
-        plaza_btn.alphaTopLeft = 0.01;
-        plaza_btn.alphaTopRight = 0.01;
-        plaza_btn.alphaBottomLeft = 0.01;
-        plaza_btn.alphaBottomRight = 0.01;
+        plaza_btn.alpha = 0.0001;
+        plaza_btn.alphaTopLeft = 0.0001;
+        plaza_btn.alphaTopRight = 0.0001;
+        plaza_btn.alphaBottomLeft = 0.0001;
+        plaza_btn.alphaBottomRight = 0.0001;
 
         // rink_btn
         const rink_btn = this.add.image(517.5, 263.8125, "forts2013", "forts/rink_btn0004");
-        rink_btn.alpha = 0.01;
-        rink_btn.alphaTopLeft = 0.01;
-        rink_btn.alphaTopRight = 0.01;
-        rink_btn.alphaBottomLeft = 0.01;
-        rink_btn.alphaBottomRight = 0.01;
+        rink_btn.alpha = 0.0001;
+        rink_btn.alphaTopLeft = 0.0001;
+        rink_btn.alphaTopRight = 0.0001;
+        rink_btn.alphaBottomLeft = 0.0001;
+        rink_btn.alphaBottomRight = 0.0001;
 
         // forts_plaza_trigger
         const forts_plaza_trigger = this.add.image(1570.275, 454.1625, "forts2013", "forts/plaza_trigger");

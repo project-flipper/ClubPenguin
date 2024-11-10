@@ -15,11 +15,11 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
 
         // hitbox
         const hitbox = scene.add.image(0, -21.375, "penguin", "penguin/hitbox");
-        hitbox.alpha = 0.01;
-        hitbox.alphaTopLeft = 0.01;
-        hitbox.alphaTopRight = 0.01;
-        hitbox.alphaBottomLeft = 0.01;
-        hitbox.alphaBottomRight = 0.01;
+        hitbox.alpha = 0.0001;
+        hitbox.alphaTopLeft = 0.0001;
+        hitbox.alphaTopRight = 0.0001;
+        hitbox.alphaBottomLeft = 0.0001;
+        hitbox.alphaBottomRight = 0.0001;
         this.add(hitbox);
 
         // shadow
@@ -80,7 +80,7 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
         [AnimationFrame.IDLE_UP_RIGHT]: { totalFrames: 1, repeat: true },
         [AnimationFrame.IDLE_RIGHT]: { totalFrames: 1, repeat: true },
         [AnimationFrame.IDLE_DOWN_RIGHT]: { totalFrames: 1, repeat: true },
-    
+
         [AnimationFrame.WADDLE_DOWN]: { totalFrames: 8, repeat: true },
         [AnimationFrame.WADDLE_DOWN_LEFT]: { totalFrames: 8, repeat: true },
         [AnimationFrame.WADDLE_LEFT]: { totalFrames: 8, repeat: true },
@@ -89,7 +89,7 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
         [AnimationFrame.WADDLE_UP_RIGHT]: { totalFrames: 8, repeat: true },
         [AnimationFrame.WADDLE_RIGHT]: { totalFrames: 8, repeat: true },
         [AnimationFrame.WADDLE_DOWN_RIGHT]: { totalFrames: 8, repeat: true },
-    
+
         [AnimationFrame.SIT_DOWN]: { totalFrames: 1, repeat: true },
         [AnimationFrame.SIT_DOWN_LEFT]: { totalFrames: 1, repeat: true },
         [AnimationFrame.SIT_LEFT]: { totalFrames: 1, repeat: true },
@@ -98,17 +98,17 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
         [AnimationFrame.SIT_UP_RIGHT]: { totalFrames: 1, repeat: true },
         [AnimationFrame.SIT_RIGHT]: { totalFrames: 1, repeat: true },
         [AnimationFrame.SIT_DOWN_RIGHT]: { totalFrames: 1, repeat: true },
-    
+
         [AnimationFrame.WAVE]: { totalFrames: 29, repeat: false },
         [AnimationFrame.DANCE]: { totalFrames: 193, repeat: true },
-    
+
         [AnimationFrame.THROW_DOWN_LEFT]: { totalFrames: 28, repeat: false },
         [AnimationFrame.THROW_UP_LEFT]: { totalFrames: 28, repeat: false },
         [AnimationFrame.THROW_UP_RIGHT]: { totalFrames: 28, repeat: false },
         [AnimationFrame.THROW_DOWN_RIGHT]: { totalFrames: 28, repeat: false },
-    
+
         [AnimationFrame.PENGUIN_JUMP]: { totalFrames: 63, repeat: false },
-    
+
         [AnimationFrame.CJ_BOW_RIGHT]: { totalFrames: 61, repeat: false },
         [AnimationFrame.CJ_BOW_LEFT]: { totalFrames: 61, repeat: false },
         [AnimationFrame.CJ_BOW_DOWN_RIGHT]: { totalFrames: 61, repeat: false },

@@ -58,11 +58,11 @@ export default class DojoExt extends Phaser.Scene implements Room {
         // door_btn
         const door_btn = this.add.image(766.35, 465.75, "dojoext2013", "dojoext/door0004");
         door_btn.setOrigin(0, 0);
-        door_btn.alpha = 0.01;
-        door_btn.alphaTopLeft = 0.01;
-        door_btn.alphaTopRight = 0.01;
-        door_btn.alphaBottomLeft = 0.01;
-        door_btn.alphaBottomRight = 0.01;
+        door_btn.alpha = 0.0001;
+        door_btn.alphaTopLeft = 0.0001;
+        door_btn.alphaTopRight = 0.0001;
+        door_btn.alphaBottomLeft = 0.0001;
+        door_btn.alphaBottomRight = 0.0001;
 
         // dojoext_dojo
         const dojoext_dojo = this.add.image(33.4125, -13.725, "dojoext2013", "dojoext/dojo");
@@ -93,11 +93,11 @@ export default class DojoExt extends Phaser.Scene implements Room {
 
         // deck_btn
         const deck_btn = this.add.image(1599.4125, 985.725, "dojoext2013", "dojoext/deck0004");
-        deck_btn.alpha = 0.01;
-        deck_btn.alphaTopLeft = 0.01;
-        deck_btn.alphaTopRight = 0.01;
-        deck_btn.alphaBottomLeft = 0.01;
-        deck_btn.alphaBottomRight = 0.01;
+        deck_btn.alpha = 0.0001;
+        deck_btn.alphaTopLeft = 0.0001;
+        deck_btn.alphaTopRight = 0.0001;
+        deck_btn.alphaBottomLeft = 0.0001;
+        deck_btn.alphaBottomRight = 0.0001;
 
         // dojoext_dojo_mc
         const dojoext_dojo_mc = this.add.image(873.675, 662.7375, "dojoext2013", "dojoext/dojo_mc");

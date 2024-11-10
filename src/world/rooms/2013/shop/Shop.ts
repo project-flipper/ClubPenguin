@@ -115,20 +115,20 @@ export default class Shop extends Phaser.Scene implements Room {
         // display_button
         const display_button = this.add.image(1543.8375, 417.2625, "shop2013", "shop/display_button0004");
         display_button.setOrigin(0, 0);
-        display_button.alpha = 0.01;
-        display_button.alphaTopLeft = 0.01;
-        display_button.alphaTopRight = 0.01;
-        display_button.alphaBottomLeft = 0.01;
-        display_button.alphaBottomRight = 0.01;
+        display_button.alpha = 0.0001;
+        display_button.alphaTopLeft = 0.0001;
+        display_button.alphaTopRight = 0.0001;
+        display_button.alphaBottomLeft = 0.0001;
+        display_button.alphaBottomRight = 0.0001;
 
         // register_button
         const register_button = this.add.image(1377, 357.75, "shop2013", "shop/register_button0004");
         register_button.setOrigin(0, 0);
-        register_button.alpha = 0.01;
-        register_button.alphaTopLeft = 0.01;
-        register_button.alphaTopRight = 0.01;
-        register_button.alphaBottomLeft = 0.01;
-        register_button.alphaBottomRight = 0.01;
+        register_button.alpha = 0.0001;
+        register_button.alphaTopLeft = 0.0001;
+        register_button.alphaTopRight = 0.0001;
+        register_button.alphaBottomLeft = 0.0001;
+        register_button.alphaBottomRight = 0.0001;
 
         // shop_redemption_trigger
         const shop_redemption_trigger = this.add.image(1500.75, 648, "shop2013", "shop/redemption_trigger");
@@ -152,27 +152,27 @@ export default class Shop extends Phaser.Scene implements Room {
 
         // chest_btn
         const chest_btn = this.add.image(1514.3625, 600.075, "shop2013", "shop/chest_btn");
-        chest_btn.alpha = 0.01;
-        chest_btn.alphaTopLeft = 0.01;
-        chest_btn.alphaTopRight = 0.01;
-        chest_btn.alphaBottomLeft = 0.01;
-        chest_btn.alphaBottomRight = 0.01;
+        chest_btn.alpha = 0.0001;
+        chest_btn.alphaTopLeft = 0.0001;
+        chest_btn.alphaTopRight = 0.0001;
+        chest_btn.alphaBottomLeft = 0.0001;
+        chest_btn.alphaBottomRight = 0.0001;
 
         // changeroom_btn
         const changeroom_btn = this.add.image(510.6375, 312.8625, "shop2013", "shop/changeroom_btn");
-        changeroom_btn.alpha = 0.01;
-        changeroom_btn.alphaTopLeft = 0.01;
-        changeroom_btn.alphaTopRight = 0.01;
-        changeroom_btn.alphaBottomLeft = 0.01;
-        changeroom_btn.alphaBottomRight = 0.01;
+        changeroom_btn.alpha = 0.0001;
+        changeroom_btn.alphaTopLeft = 0.0001;
+        changeroom_btn.alphaTopRight = 0.0001;
+        changeroom_btn.alphaBottomLeft = 0.0001;
+        changeroom_btn.alphaBottomRight = 0.0001;
 
         // door_btn
         const door_btn = this.add.image(1235.8125, 261.5625, "shop2013", "shop/door_btn");
-        door_btn.alpha = 0.01;
-        door_btn.alphaTopLeft = 0.01;
-        door_btn.alphaTopRight = 0.01;
-        door_btn.alphaBottomLeft = 0.01;
-        door_btn.alphaBottomRight = 0.01;
+        door_btn.alpha = 0.0001;
+        door_btn.alphaTopLeft = 0.0001;
+        door_btn.alphaTopRight = 0.0001;
+        door_btn.alphaBottomLeft = 0.0001;
+        door_btn.alphaBottomRight = 0.0001;
 
         // lists
         const triggers = [shop_town_trigger];

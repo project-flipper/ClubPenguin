@@ -66,11 +66,11 @@ export default class Village extends Phaser.Scene implements Room {
         // lodge_btn
         const lodge_btn = this.add.image(1155.7125, 323.8875, "village2014", "village/lodge_door0004");
         lodge_btn.setOrigin(0, 0);
-        lodge_btn.alpha = 0.01;
-        lodge_btn.alphaTopLeft = 0.01;
-        lodge_btn.alphaTopRight = 0.01;
-        lodge_btn.alphaBottomLeft = 0.01;
-        lodge_btn.alphaBottomRight = 0.01;
+        lodge_btn.alpha = 0.0001;
+        lodge_btn.alphaTopLeft = 0.0001;
+        lodge_btn.alphaTopRight = 0.0001;
+        lodge_btn.alphaBottomLeft = 0.0001;
+        lodge_btn.alphaBottomRight = 0.0001;
 
         // epf_door
         const epf_door = this.add.image(1413.45, 345.825, "village2014", "village/epf_door0001");
@@ -79,11 +79,11 @@ export default class Village extends Phaser.Scene implements Room {
         // epf_btn
         const epf_btn = this.add.image(1413.45, 345.825, "village2014", "village/epf_door0004");
         epf_btn.setOrigin(0, 0);
-        epf_btn.alpha = 0.01;
-        epf_btn.alphaTopLeft = 0.01;
-        epf_btn.alphaTopRight = 0.01;
-        epf_btn.alphaBottomLeft = 0.01;
-        epf_btn.alphaBottomRight = 0.01;
+        epf_btn.alpha = 0.0001;
+        epf_btn.alphaTopLeft = 0.0001;
+        epf_btn.alphaTopRight = 0.0001;
+        epf_btn.alphaBottomLeft = 0.0001;
+        epf_btn.alphaBottomRight = 0.0001;
 
         // village_trees
         const village_trees = this.add.image(289.2375, 705.2625, "village2014", "village/trees");
@@ -113,11 +113,11 @@ export default class Village extends Phaser.Scene implements Room {
         // tours_btn
         const tours_btn = this.add.image(839.3625, 500.525, "village2014", "village/tours_btn");
         tours_btn.setOrigin(0.7025405405405406, 0.8079701492537313);
-        tours_btn.alpha = 0.01;
-        tours_btn.alphaTopLeft = 0.01;
-        tours_btn.alphaTopRight = 0.01;
-        tours_btn.alphaBottomLeft = 0.01;
-        tours_btn.alphaBottomRight = 0.01;
+        tours_btn.alpha = 0.0001;
+        tours_btn.alphaTopLeft = 0.0001;
+        tours_btn.alphaTopRight = 0.0001;
+        tours_btn.alphaBottomLeft = 0.0001;
+        tours_btn.alphaBottomRight = 0.0001;
 
         // epf_title
         const epf_title = this.add.image(1361.5875, 221.0625, "village2014", "village/epf_title0001");

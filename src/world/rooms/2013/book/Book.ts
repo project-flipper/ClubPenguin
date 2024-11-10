@@ -44,11 +44,11 @@ export default class Book extends Phaser.Scene implements Room {
         // artshowcasebutton
         const artshowcasebutton = this.add.image(704.475, 187.2, "book2013", "book/artshowcase0004");
         artshowcasebutton.setOrigin(0.48079, 0.51911);
-        artshowcasebutton.alpha = 0.01;
-        artshowcasebutton.alphaTopLeft = 0.01;
-        artshowcasebutton.alphaTopRight = 0.01;
-        artshowcasebutton.alphaBottomLeft = 0.01;
-        artshowcasebutton.alphaBottomRight = 0.01;
+        artshowcasebutton.alpha = 0.0001;
+        artshowcasebutton.alphaTopLeft = 0.0001;
+        artshowcasebutton.alphaTopRight = 0.0001;
+        artshowcasebutton.alphaBottomLeft = 0.0001;
+        artshowcasebutton.alphaBottomRight = 0.0001;
 
         // mancalanotice
         const mancalanotice = this.add.image(1571.4, 206.6625, "book2013", "book/mancalanotice0001");
@@ -221,11 +221,11 @@ export default class Book extends Phaser.Scene implements Room {
         // stairsbutton
         const stairsbutton = this.add.image(1356.4125, 276.525, "book2013", "book/stairs0004");
         stairsbutton.setOrigin(0, 0);
-        stairsbutton.alpha = 0.01;
-        stairsbutton.alphaTopLeft = 0.01;
-        stairsbutton.alphaTopRight = 0.01;
-        stairsbutton.alphaBottomLeft = 0.01;
-        stairsbutton.alphaBottomRight = 0.01;
+        stairsbutton.alpha = 0.0001;
+        stairsbutton.alphaTopLeft = 0.0001;
+        stairsbutton.alphaTopRight = 0.0001;
+        stairsbutton.alphaBottomLeft = 0.0001;
+        stairsbutton.alphaBottomRight = 0.0001;
 
         // stairslight
         const stairslight = this.add.image(1360, 278, "book2013", "book/stairs0002");

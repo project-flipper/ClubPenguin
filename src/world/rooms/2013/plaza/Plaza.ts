@@ -45,11 +45,11 @@ export default class Plaza extends Phaser.Scene implements Room {
 
         // canon_btn
         const canon_btn = this.add.image(233.6625, 478.4625, "plaza2013", "plaza/canon_btn0004");
-        canon_btn.alpha = 0.01;
-        canon_btn.alphaTopLeft = 0.01;
-        canon_btn.alphaTopRight = 0.01;
-        canon_btn.alphaBottomLeft = 0.01;
-        canon_btn.alphaBottomRight = 0.01;
+        canon_btn.alpha = 0.0001;
+        canon_btn.alphaTopLeft = 0.0001;
+        canon_btn.alphaTopRight = 0.0001;
+        canon_btn.alphaBottomLeft = 0.0001;
+        canon_btn.alphaBottomRight = 0.0001;
 
         // petdoor
         const petdoor = this.add.image(266.9625, 403.5375, "plaza2013", "plaza/petdoor0001");
@@ -128,72 +128,72 @@ export default class Plaza extends Phaser.Scene implements Room {
 
         // manhole_btn
         const manhole_btn = this.add.image(511, 628, "plaza2013", "plaza/manhole_mc");
-        manhole_btn.alpha = 0.01;
-        manhole_btn.alphaTopLeft = 0.01;
-        manhole_btn.alphaTopRight = 0.01;
-        manhole_btn.alphaBottomLeft = 0.01;
-        manhole_btn.alphaBottomRight = 0.01;
+        manhole_btn.alpha = 0.0001;
+        manhole_btn.alphaTopLeft = 0.0001;
+        manhole_btn.alphaTopRight = 0.0001;
+        manhole_btn.alphaBottomLeft = 0.0001;
+        manhole_btn.alphaBottomRight = 0.0001;
 
         // petdoor_btn
         const petdoor_btn = this.add.image(266.9625, 403.5375, "plaza2013", "plaza/petdoor0004");
         petdoor_btn.setOrigin(0, 0);
-        petdoor_btn.alpha = 0.01;
-        petdoor_btn.alphaTopLeft = 0.01;
-        petdoor_btn.alphaTopRight = 0.01;
-        petdoor_btn.alphaBottomLeft = 0.01;
-        petdoor_btn.alphaBottomRight = 0.01;
+        petdoor_btn.alpha = 0.0001;
+        petdoor_btn.alphaTopLeft = 0.0001;
+        petdoor_btn.alphaTopRight = 0.0001;
+        petdoor_btn.alphaBottomLeft = 0.0001;
+        petdoor_btn.alphaBottomRight = 0.0001;
 
         // hoteldoor_btn
         const hoteldoor_btn = this.add.image(580.95, 378, "plaza2013", "plaza/hoteldoor0004");
         hoteldoor_btn.setOrigin(0, 0);
-        hoteldoor_btn.alpha = 0.01;
-        hoteldoor_btn.alphaTopLeft = 0.01;
-        hoteldoor_btn.alphaTopRight = 0.01;
-        hoteldoor_btn.alphaBottomLeft = 0.01;
-        hoteldoor_btn.alphaBottomRight = 0.01;
+        hoteldoor_btn.alpha = 0.0001;
+        hoteldoor_btn.alphaTopLeft = 0.0001;
+        hoteldoor_btn.alphaTopRight = 0.0001;
+        hoteldoor_btn.alphaBottomLeft = 0.0001;
+        hoteldoor_btn.alphaBottomRight = 0.0001;
 
         // stagedoor1_btn
         const stagedoor1_btn = this.add.image(813.375, 384.075, "plaza2013", "plaza/stagedoor10004");
         stagedoor1_btn.setOrigin(0, 0);
-        stagedoor1_btn.alpha = 0.01;
-        stagedoor1_btn.alphaTopLeft = 0.01;
-        stagedoor1_btn.alphaTopRight = 0.01;
-        stagedoor1_btn.alphaBottomLeft = 0.01;
-        stagedoor1_btn.alphaBottomRight = 0.01;
+        stagedoor1_btn.alpha = 0.0001;
+        stagedoor1_btn.alphaTopLeft = 0.0001;
+        stagedoor1_btn.alphaTopRight = 0.0001;
+        stagedoor1_btn.alphaBottomLeft = 0.0001;
+        stagedoor1_btn.alphaBottomRight = 0.0001;
 
         // stagedoor2_btn
         const stagedoor2_btn = this.add.image(1030.275, 386.55, "plaza2013", "plaza/stagedoor20004");
         stagedoor2_btn.setOrigin(0, 0);
-        stagedoor2_btn.alpha = 0.01;
-        stagedoor2_btn.alphaTopLeft = 0.01;
-        stagedoor2_btn.alphaTopRight = 0.01;
-        stagedoor2_btn.alphaBottomLeft = 0.01;
-        stagedoor2_btn.alphaBottomRight = 0.01;
+        stagedoor2_btn.alpha = 0.0001;
+        stagedoor2_btn.alphaTopLeft = 0.0001;
+        stagedoor2_btn.alphaTopRight = 0.0001;
+        stagedoor2_btn.alphaBottomLeft = 0.0001;
+        stagedoor2_btn.alphaBottomRight = 0.0001;
 
         // pizzadoor_btn
         const pizzadoor_btn = this.add.image(1273.1625, 398.5875, "plaza2013", "plaza/pizzadoor0004");
         pizzadoor_btn.setOrigin(0, 0);
-        pizzadoor_btn.alpha = 0.01;
-        pizzadoor_btn.alphaTopLeft = 0.01;
-        pizzadoor_btn.alphaTopRight = 0.01;
-        pizzadoor_btn.alphaBottomLeft = 0.01;
-        pizzadoor_btn.alphaBottomRight = 0.01;
+        pizzadoor_btn.alpha = 0.0001;
+        pizzadoor_btn.alphaTopLeft = 0.0001;
+        pizzadoor_btn.alphaTopRight = 0.0001;
+        pizzadoor_btn.alphaBottomLeft = 0.0001;
+        pizzadoor_btn.alphaBottomRight = 0.0001;
 
         // forest_btn
         const forest_btn = this.add.image(1575, 552.375, "plaza2013", "plaza/forest_btn0004");
-        forest_btn.alpha = 0.01;
-        forest_btn.alphaTopLeft = 0.01;
-        forest_btn.alphaTopRight = 0.01;
-        forest_btn.alphaBottomLeft = 0.01;
-        forest_btn.alphaBottomRight = 0.01;
+        forest_btn.alpha = 0.0001;
+        forest_btn.alphaTopLeft = 0.0001;
+        forest_btn.alphaTopRight = 0.0001;
+        forest_btn.alphaBottomLeft = 0.0001;
+        forest_btn.alphaBottomRight = 0.0001;
 
         // forts_btn
         const forts_btn = this.add.image(5.625, 541.2375, "plaza2013", "plaza/forts_btn0004");
-        forts_btn.alpha = 0.01;
-        forts_btn.alphaTopLeft = 0.01;
-        forts_btn.alphaTopRight = 0.01;
-        forts_btn.alphaBottomLeft = 0.01;
-        forts_btn.alphaBottomRight = 0.01;
+        forts_btn.alpha = 0.0001;
+        forts_btn.alphaTopLeft = 0.0001;
+        forts_btn.alphaTopRight = 0.0001;
+        forts_btn.alphaBottomLeft = 0.0001;
+        forts_btn.alphaBottomRight = 0.0001;
 
         // plaza_forts_mc
         const plaza_forts_mc = this.add.image(13.3875, 671.625, "plaza2013", "plaza/forts_mc");
@@ -229,11 +229,11 @@ export default class Plaza extends Phaser.Scene implements Room {
 
         // tickets_btn
         const tickets_btn = this.add.image(965.25, 445.1625, "plaza2013", "plaza/tickets_btn0004");
-        tickets_btn.alpha = 0.01;
-        tickets_btn.alphaTopLeft = 0.01;
-        tickets_btn.alphaTopRight = 0.01;
-        tickets_btn.alphaBottomLeft = 0.01;
-        tickets_btn.alphaBottomRight = 0.01;
+        tickets_btn.alpha = 0.0001;
+        tickets_btn.alphaTopLeft = 0.0001;
+        tickets_btn.alphaTopRight = 0.0001;
+        tickets_btn.alphaBottomLeft = 0.0001;
+        tickets_btn.alphaBottomRight = 0.0001;
 
         // lists
         const triggers = [plaza_hotel_mc, plaza_stage_mc_1, plaza_stage_mc, plaza_pizza_mc, plaza_forts_mc, plaza_forest_mc, plaza_cave_mc, plaza_pet_mc];

@@ -235,29 +235,29 @@ export default class Lounge extends Phaser.Scene implements Room {
         // bitsbutton
         const bitsbutton = this.add.image(222, 396, "lounge2013", "lounge/bits_button");
         bitsbutton.setOrigin(0, 0);
-        bitsbutton.alpha = 0.01;
-        bitsbutton.alphaTopLeft = 0.01;
-        bitsbutton.alphaTopRight = 0.01;
-        bitsbutton.alphaBottomLeft = 0.01;
-        bitsbutton.alphaBottomRight = 0.01;
+        bitsbutton.alpha = 0.0001;
+        bitsbutton.alphaTopLeft = 0.0001;
+        bitsbutton.alphaTopRight = 0.0001;
+        bitsbutton.alphaBottomLeft = 0.0001;
+        bitsbutton.alphaBottomRight = 0.0001;
 
         // astrobutton
         const astrobutton = this.add.image(1356, 375, "lounge2013", "lounge/astro_button");
         astrobutton.setOrigin(0, 0);
-        astrobutton.alpha = 0.01;
-        astrobutton.alphaTopLeft = 0.01;
-        astrobutton.alphaTopRight = 0.01;
-        astrobutton.alphaBottomLeft = 0.01;
-        astrobutton.alphaBottomRight = 0.01;
+        astrobutton.alpha = 0.0001;
+        astrobutton.alphaTopLeft = 0.0001;
+        astrobutton.alphaTopRight = 0.0001;
+        astrobutton.alphaBottomLeft = 0.0001;
+        astrobutton.alphaBottomRight = 0.0001;
 
         // thinicebutton
         const thinicebutton = this.add.image(1290, 268, "lounge2013", "lounge/thinice_button");
         thinicebutton.setOrigin(0, 0);
-        thinicebutton.alpha = 0.01;
-        thinicebutton.alphaTopLeft = 0.01;
-        thinicebutton.alphaTopRight = 0.01;
-        thinicebutton.alphaBottomLeft = 0.01;
-        thinicebutton.alphaBottomRight = 0.01;
+        thinicebutton.alpha = 0.0001;
+        thinicebutton.alphaTopLeft = 0.0001;
+        thinicebutton.alphaTopRight = 0.0001;
+        thinicebutton.alphaBottomLeft = 0.0001;
+        thinicebutton.alphaBottomRight = 0.0001;
 
         // bits_trigger
         const bits_trigger = this.add.image(328.95, 560.8125, "lounge2013", "lounge/bits_trigger");
@@ -273,67 +273,67 @@ export default class Lounge extends Phaser.Scene implements Room {
 
         // chairbutton11
         const chairbutton11 = this.add.image(371.7, 802.35, "lounge2013", "lounge/chairbutton1_1");
-        chairbutton11.alpha = 0.01;
-        chairbutton11.alphaTopLeft = 0.01;
-        chairbutton11.alphaTopRight = 0.01;
-        chairbutton11.alphaBottomLeft = 0.01;
-        chairbutton11.alphaBottomRight = 0.01;
+        chairbutton11.alpha = 0.0001;
+        chairbutton11.alphaTopLeft = 0.0001;
+        chairbutton11.alphaTopRight = 0.0001;
+        chairbutton11.alphaBottomLeft = 0.0001;
+        chairbutton11.alphaBottomRight = 0.0001;
 
         // chairbutton12
         const chairbutton12 = this.add.image(457.2, 954.1125, "lounge2013", "lounge/chairbutton1_2");
-        chairbutton12.alpha = 0.01;
-        chairbutton12.alphaTopLeft = 0.01;
-        chairbutton12.alphaTopRight = 0.01;
-        chairbutton12.alphaBottomLeft = 0.01;
-        chairbutton12.alphaBottomRight = 0.01;
+        chairbutton12.alpha = 0.0001;
+        chairbutton12.alphaTopLeft = 0.0001;
+        chairbutton12.alphaTopRight = 0.0001;
+        chairbutton12.alphaBottomLeft = 0.0001;
+        chairbutton12.alphaBottomRight = 0.0001;
 
         // chairbutton13
         const chairbutton13 = this.add.image(217.2375, 987.1875, "lounge2013", "lounge/chairbutton1_3");
-        chairbutton13.alpha = 0.01;
-        chairbutton13.alphaTopLeft = 0.01;
-        chairbutton13.alphaTopRight = 0.01;
-        chairbutton13.alphaBottomLeft = 0.01;
-        chairbutton13.alphaBottomRight = 0.01;
+        chairbutton13.alpha = 0.0001;
+        chairbutton13.alphaTopLeft = 0.0001;
+        chairbutton13.alphaTopRight = 0.0001;
+        chairbutton13.alphaBottomLeft = 0.0001;
+        chairbutton13.alphaBottomRight = 0.0001;
 
         // chairbutton14
         const chairbutton14 = this.add.image(184.6125, 861.3, "lounge2013", "lounge/chairbutton1_4");
-        chairbutton14.alpha = 0.01;
-        chairbutton14.alphaTopLeft = 0.01;
-        chairbutton14.alphaTopRight = 0.01;
-        chairbutton14.alphaBottomLeft = 0.01;
-        chairbutton14.alphaBottomRight = 0.01;
+        chairbutton14.alpha = 0.0001;
+        chairbutton14.alphaTopLeft = 0.0001;
+        chairbutton14.alphaTopRight = 0.0001;
+        chairbutton14.alphaBottomLeft = 0.0001;
+        chairbutton14.alphaBottomRight = 0.0001;
 
         // chairbutton21
         const chairbutton21 = this.add.image(1341.45, 813.4875, "lounge2013", "lounge/chairbutton2_1");
-        chairbutton21.alpha = 0.01;
-        chairbutton21.alphaTopLeft = 0.01;
-        chairbutton21.alphaTopRight = 0.01;
-        chairbutton21.alphaBottomLeft = 0.01;
-        chairbutton21.alphaBottomRight = 0.01;
+        chairbutton21.alpha = 0.0001;
+        chairbutton21.alphaTopLeft = 0.0001;
+        chairbutton21.alphaTopRight = 0.0001;
+        chairbutton21.alphaBottomLeft = 0.0001;
+        chairbutton21.alphaBottomRight = 0.0001;
 
         // chairbutton22
         const chairbutton22 = this.add.image(1522.125, 869.9625, "lounge2013", "lounge/chairbutton2_2");
-        chairbutton22.alpha = 0.01;
-        chairbutton22.alphaTopLeft = 0.01;
-        chairbutton22.alphaTopRight = 0.01;
-        chairbutton22.alphaBottomLeft = 0.01;
-        chairbutton22.alphaBottomRight = 0.01;
+        chairbutton22.alpha = 0.0001;
+        chairbutton22.alphaTopLeft = 0.0001;
+        chairbutton22.alphaTopRight = 0.0001;
+        chairbutton22.alphaBottomLeft = 0.0001;
+        chairbutton22.alphaBottomRight = 0.0001;
 
         // chairbutton23
         const chairbutton23 = this.add.image(1496.5875, 978.975, "lounge2013", "lounge/chairbutton2_3");
-        chairbutton23.alpha = 0.01;
-        chairbutton23.alphaTopLeft = 0.01;
-        chairbutton23.alphaTopRight = 0.01;
-        chairbutton23.alphaBottomLeft = 0.01;
-        chairbutton23.alphaBottomRight = 0.01;
+        chairbutton23.alpha = 0.0001;
+        chairbutton23.alphaTopLeft = 0.0001;
+        chairbutton23.alphaTopRight = 0.0001;
+        chairbutton23.alphaBottomLeft = 0.0001;
+        chairbutton23.alphaBottomRight = 0.0001;
 
         // chairbutton24
         const chairbutton24 = this.add.image(1259.6625, 957.825, "lounge2013", "lounge/chairbutton2_4");
-        chairbutton24.alpha = 0.01;
-        chairbutton24.alphaTopLeft = 0.01;
-        chairbutton24.alphaTopRight = 0.01;
-        chairbutton24.alphaBottomLeft = 0.01;
-        chairbutton24.alphaBottomRight = 0.01;
+        chairbutton24.alpha = 0.0001;
+        chairbutton24.alphaTopLeft = 0.0001;
+        chairbutton24.alphaTopRight = 0.0001;
+        chairbutton24.alphaBottomLeft = 0.0001;
+        chairbutton24.alphaBottomRight = 0.0001;
 
         // block
         const block = this.add.image(0, 0, "lounge2013", "lounge/block");

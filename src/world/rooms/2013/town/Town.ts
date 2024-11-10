@@ -182,38 +182,38 @@ export default class Town extends Phaser.Scene implements Room {
         // forts_btn
         const forts_btn = this.add.image(1465.5375, 168.75, "town2013", "town/forts_btn0004");
         forts_btn.setOrigin(0, 0);
-        forts_btn.alpha = 0.01;
-        forts_btn.alphaTopLeft = 0.01;
-        forts_btn.alphaTopRight = 0.01;
-        forts_btn.alphaBottomLeft = 0.01;
-        forts_btn.alphaBottomRight = 0.01;
+        forts_btn.alpha = 0.0001;
+        forts_btn.alphaTopLeft = 0.0001;
+        forts_btn.alphaTopRight = 0.0001;
+        forts_btn.alphaBottomLeft = 0.0001;
+        forts_btn.alphaBottomRight = 0.0001;
 
         // dock_btn
         const dock_btn = this.add.image(-22.5, 168.75, "town2013", "town/dock_btn0004");
         dock_btn.setOrigin(0, 0);
-        dock_btn.alpha = 0.01;
-        dock_btn.alphaTopLeft = 0.01;
-        dock_btn.alphaTopRight = 0.01;
-        dock_btn.alphaBottomLeft = 0.01;
-        dock_btn.alphaBottomRight = 0.01;
+        dock_btn.alpha = 0.0001;
+        dock_btn.alphaTopLeft = 0.0001;
+        dock_btn.alphaTopRight = 0.0001;
+        dock_btn.alphaBottomLeft = 0.0001;
+        dock_btn.alphaBottomRight = 0.0001;
 
         // seat1_btn
         const seat1_btn = this.add.image(568.35, 503.6625, "town2013", "town/seat1_btn0004");
         seat1_btn.setOrigin(0, 0);
-        seat1_btn.alpha = 0.01;
-        seat1_btn.alphaTopLeft = 0.01;
-        seat1_btn.alphaTopRight = 0.01;
-        seat1_btn.alphaBottomLeft = 0.01;
-        seat1_btn.alphaBottomRight = 0.01;
+        seat1_btn.alpha = 0.0001;
+        seat1_btn.alphaTopLeft = 0.0001;
+        seat1_btn.alphaTopRight = 0.0001;
+        seat1_btn.alphaBottomLeft = 0.0001;
+        seat1_btn.alphaBottomRight = 0.0001;
 
         // seat2_btn
         const seat2_btn = this.add.image(728.6625, 487.9125, "town2013", "town/seat2_btn0004");
         seat2_btn.setOrigin(0, 0);
-        seat2_btn.alpha = 0.01;
-        seat2_btn.alphaTopLeft = 0.01;
-        seat2_btn.alphaTopRight = 0.01;
-        seat2_btn.alphaBottomLeft = 0.01;
-        seat2_btn.alphaBottomRight = 0.01;
+        seat2_btn.alpha = 0.0001;
+        seat2_btn.alphaTopLeft = 0.0001;
+        seat2_btn.alphaTopRight = 0.0001;
+        seat2_btn.alphaBottomLeft = 0.0001;
+        seat2_btn.alphaBottomRight = 0.0001;
 
         // town_coffee_trigger
         const town_coffee_trigger = this.add.image(477, 514.35, "town2013", "town/coffee_trigger");

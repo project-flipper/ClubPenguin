@@ -55,11 +55,11 @@ export default class FirstLane extends Phaser.GameObjects.Container {
 
         // btn
         const btn = scene.add.image(117.45, 92.025, "mtn2014", "mtn/firstlane_btn0004");
-        btn.alpha = 0.01;
-        btn.alphaTopLeft = 0.01;
-        btn.alphaTopRight = 0.01;
-        btn.alphaBottomLeft = 0.01;
-        btn.alphaBottomRight = 0.01;
+        btn.alpha = 0.0001;
+        btn.alphaTopLeft = 0.0001;
+        btn.alphaTopRight = 0.0001;
+        btn.alphaBottomLeft = 0.0001;
+        btn.alphaBottomRight = 0.0001;
         this.add(btn);
 
         // btn (components)

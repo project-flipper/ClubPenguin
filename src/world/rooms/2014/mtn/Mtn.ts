@@ -101,22 +101,22 @@ export default class Mtn extends Phaser.Scene implements Room {
 
         // cat_btn
         const cat_btn = this.add.image(545.625, 201.9375, "mtn2014", "mtn/cat_btn");
-        cat_btn.alpha = 0.01;
-        cat_btn.alphaTopLeft = 0.01;
-        cat_btn.alphaTopRight = 0.01;
-        cat_btn.alphaBottomLeft = 0.01;
-        cat_btn.alphaBottomRight = 0.01;
+        cat_btn.alpha = 0.0001;
+        cat_btn.alphaTopLeft = 0.0001;
+        cat_btn.alphaTopRight = 0.0001;
+        cat_btn.alphaBottomLeft = 0.0001;
+        cat_btn.alphaBottomRight = 0.0001;
 
         // catalogue
         const catalogue = this.add.image(1617.6375, 1005.525, "mtn2014", "mtn/catalogue0001");
 
         // catalogue_btn
         const catalogue_btn = this.add.image(1617.6375, 1005.525, "mtn2014", "mtn/catalogue0004");
-        catalogue_btn.alpha = 0.01;
-        catalogue_btn.alphaTopLeft = 0.01;
-        catalogue_btn.alphaTopRight = 0.01;
-        catalogue_btn.alphaBottomLeft = 0.01;
-        catalogue_btn.alphaBottomRight = 0.01;
+        catalogue_btn.alpha = 0.0001;
+        catalogue_btn.alphaTopLeft = 0.0001;
+        catalogue_btn.alphaTopRight = 0.0001;
+        catalogue_btn.alphaBottomLeft = 0.0001;
+        catalogue_btn.alphaBottomRight = 0.0001;
 
         // firstLane
         const firstLane = new FirstLane(this, 229.05, 538.875);
@@ -149,19 +149,19 @@ export default class Mtn extends Phaser.Scene implements Room {
 
         // shop_btn
         const shop_btn = this.add.image(1178.8875, 337.3875, "mtn2014", "mtn/shop_btn0004");
-        shop_btn.alpha = 0.01;
-        shop_btn.alphaTopLeft = 0.01;
-        shop_btn.alphaTopRight = 0.01;
-        shop_btn.alphaBottomLeft = 0.01;
-        shop_btn.alphaBottomRight = 0.01;
+        shop_btn.alpha = 0.0001;
+        shop_btn.alphaTopLeft = 0.0001;
+        shop_btn.alphaTopRight = 0.0001;
+        shop_btn.alphaBottomLeft = 0.0001;
+        shop_btn.alphaBottomRight = 0.0001;
 
         // exit_btn
         const exit_btn = this.add.image(1415.1375, 575.8875, "mtn2014", "mtn/exit_btn0004");
-        exit_btn.alpha = 0.01;
-        exit_btn.alphaTopLeft = 0.01;
-        exit_btn.alphaTopRight = 0.01;
-        exit_btn.alphaBottomLeft = 0.01;
-        exit_btn.alphaBottomRight = 0.01;
+        exit_btn.alpha = 0.0001;
+        exit_btn.alphaTopLeft = 0.0001;
+        exit_btn.alphaTopRight = 0.0001;
+        exit_btn.alphaBottomLeft = 0.0001;
+        exit_btn.alphaBottomRight = 0.0001;
 
         // waddle103
         const waddle103 = this.add.image(1249.09, 697.28, "mtn2014", "mtn/waddle103_mc");

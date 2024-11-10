@@ -132,11 +132,11 @@ export default class Cove extends Phaser.Scene implements Room {
         // binoculars_btn
         const binoculars_btn = this.add.image(456.8625, 210.15, "cove2013", "cove/binoculars0004");
         binoculars_btn.setOrigin(0, 0);
-        binoculars_btn.alpha = 0.01;
-        binoculars_btn.alphaTopLeft = 0.01;
-        binoculars_btn.alphaTopRight = 0.01;
-        binoculars_btn.alphaBottomLeft = 0.01;
-        binoculars_btn.alphaBottomRight = 0.01;
+        binoculars_btn.alpha = 0.0001;
+        binoculars_btn.alphaTopLeft = 0.0001;
+        binoculars_btn.alphaTopRight = 0.0001;
+        binoculars_btn.alphaBottomLeft = 0.0001;
+        binoculars_btn.alphaBottomRight = 0.0001;
 
         // cove_tree1
         const cove_tree1 = this.add.image(1626.3, 665.4375, "cove2013", "cove/tree1");
@@ -223,22 +223,22 @@ export default class Cove extends Phaser.Scene implements Room {
         // waves_btn
         const waves_btn = this.add.image(1334.7, 744.3, "cove2013", "cove/waves0004");
         waves_btn.setOrigin(0.47191977, 0.48719844);
-        waves_btn.alpha = 0.01;
-        waves_btn.alphaTopLeft = 0.01;
-        waves_btn.alphaTopRight = 0.01;
-        waves_btn.alphaBottomLeft = 0.01;
-        waves_btn.alphaBottomRight = 0.01;
+        waves_btn.alpha = 0.0001;
+        waves_btn.alphaTopLeft = 0.0001;
+        waves_btn.alphaTopRight = 0.0001;
+        waves_btn.alphaBottomLeft = 0.0001;
+        waves_btn.alphaBottomRight = 0.0001;
 
         // cat
         const cat = this.add.image(1621.0125, 1000.9125, "cove2013", "cove/cat_btn0001");
 
         // cat_btn
         const cat_btn = this.add.image(1621.0125, 1000.9125, "cove2013", "cove/cat_btn0004");
-        cat_btn.alpha = 0.01;
-        cat_btn.alphaTopLeft = 0.01;
-        cat_btn.alphaTopRight = 0.01;
-        cat_btn.alphaBottomLeft = 0.01;
-        cat_btn.alphaBottomRight = 0.01;
+        cat_btn.alpha = 0.0001;
+        cat_btn.alphaTopLeft = 0.0001;
+        cat_btn.alphaTopRight = 0.0001;
+        cat_btn.alphaBottomLeft = 0.0001;
+        cat_btn.alphaBottomRight = 0.0001;
 
         // catalogue
         const catalogue = this.add.sprite(1093.05, 265.1625, "cove2013", "cove/catalogue0001");
@@ -247,11 +247,11 @@ export default class Cove extends Phaser.Scene implements Room {
         // catalogue_btn
         const catalogue_btn = this.add.image(1088.325, 263.025, "cove2013", "cove/catalogue_btn");
         catalogue_btn.setOrigin(0, 0);
-        catalogue_btn.alpha = 0.01;
-        catalogue_btn.alphaTopLeft = 0.01;
-        catalogue_btn.alphaTopRight = 0.01;
-        catalogue_btn.alphaBottomLeft = 0.01;
-        catalogue_btn.alphaBottomRight = 0.01;
+        catalogue_btn.alpha = 0.0001;
+        catalogue_btn.alphaTopLeft = 0.0001;
+        catalogue_btn.alphaTopRight = 0.0001;
+        catalogue_btn.alphaBottomLeft = 0.0001;
+        catalogue_btn.alphaBottomRight = 0.0001;
 
         // lists
         const triggers = [cove_forest_mc, waves_trigger];

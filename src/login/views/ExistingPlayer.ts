@@ -30,20 +30,20 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
 
         // forgotButton
         const forgotButton = scene.add.image(1081.01, 680.51, "login", "login-screen/forgotExistingHover");
-        forgotButton.alpha = 0.01;
-        forgotButton.alphaTopLeft = 0.01;
-        forgotButton.alphaTopRight = 0.01;
-        forgotButton.alphaBottomLeft = 0.01;
-        forgotButton.alphaBottomRight = 0.01;
+        forgotButton.alpha = 0.0001;
+        forgotButton.alphaTopLeft = 0.0001;
+        forgotButton.alphaTopRight = 0.0001;
+        forgotButton.alphaBottomLeft = 0.0001;
+        forgotButton.alphaBottomRight = 0.0001;
         this.add(forgotButton);
 
         // forgetButton
         const forgetButton = scene.add.image(1081.01, 748.01, "login", "login-screen/forgotExistingHover");
-        forgetButton.alpha = 0.01;
-        forgetButton.alphaTopLeft = 0.01;
-        forgetButton.alphaTopRight = 0.01;
-        forgetButton.alphaBottomLeft = 0.01;
-        forgetButton.alphaBottomRight = 0.01;
+        forgetButton.alpha = 0.0001;
+        forgetButton.alphaTopLeft = 0.0001;
+        forgetButton.alphaTopRight = 0.0001;
+        forgetButton.alphaBottomLeft = 0.0001;
+        forgetButton.alphaBottomRight = 0.0001;
         this.add(forgetButton);
 
         // login_screen_itembg
@@ -124,11 +124,11 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
 
         // differentButton
         const differentButton = scene.add.image(853.76, 988.76, "login", "login-screen/moreGalleryHover");
-        differentButton.alpha = 0.01;
-        differentButton.alphaTopLeft = 0.01;
-        differentButton.alphaTopRight = 0.01;
-        differentButton.alphaBottomLeft = 0.01;
-        differentButton.alphaBottomRight = 0.01;
+        differentButton.alpha = 0.0001;
+        differentButton.alphaTopLeft = 0.0001;
+        differentButton.alphaTopRight = 0.0001;
+        differentButton.alphaBottomLeft = 0.0001;
+        differentButton.alphaBottomRight = 0.0001;
         this.add(differentButton);
 
         // different

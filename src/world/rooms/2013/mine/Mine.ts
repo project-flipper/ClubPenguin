@@ -161,36 +161,36 @@ export default class Mine extends Phaser.Scene {
         // rescuebtn
         const rescuebtn = this.add.image(515.25, 166.5, "mine2013", "mine/rescuehover");
         rescuebtn.setOrigin(0, 0);
-        rescuebtn.alpha = 0.01;
-        rescuebtn.alphaTopLeft = 0.01;
-        rescuebtn.alphaTopRight = 0.01;
-        rescuebtn.alphaBottomLeft = 0.01;
-        rescuebtn.alphaBottomRight = 0.01;
+        rescuebtn.alpha = 0.0001;
+        rescuebtn.alphaTopLeft = 0.0001;
+        rescuebtn.alphaTopRight = 0.0001;
+        rescuebtn.alphaBottomLeft = 0.0001;
+        rescuebtn.alphaBottomRight = 0.0001;
 
         // cartbtn
         const cartbtn = this.add.image(1377, 200.25, "mine2013", "mine/carthover");
         cartbtn.setOrigin(0, 0);
-        cartbtn.alpha = 0.01;
-        cartbtn.alphaTopLeft = 0.01;
-        cartbtn.alphaTopRight = 0.01;
-        cartbtn.alphaBottomLeft = 0.01;
-        cartbtn.alphaBottomRight = 0.01;
+        cartbtn.alpha = 0.0001;
+        cartbtn.alphaTopLeft = 0.0001;
+        cartbtn.alphaTopRight = 0.0001;
+        cartbtn.alphaBottomLeft = 0.0001;
+        cartbtn.alphaBottomRight = 0.0001;
 
         // pufflebtn
         const pufflebtn = this.add.image(717.3, 384.08, "mine2013", "mine/puffle_btn0004");
-        pufflebtn.alpha = 0.01;
-        pufflebtn.alphaTopLeft = 0.01;
-        pufflebtn.alphaTopRight = 0.01;
-        pufflebtn.alphaBottomLeft = 0.01;
-        pufflebtn.alphaBottomRight = 0.01;
+        pufflebtn.alpha = 0.0001;
+        pufflebtn.alphaTopLeft = 0.0001;
+        pufflebtn.alphaTopRight = 0.0001;
+        pufflebtn.alphaBottomLeft = 0.0001;
+        pufflebtn.alphaBottomRight = 0.0001;
 
         // phonebtn
         const phonebtn = this.add.image(597.49, 383.96, "mine2013", "mine/phone_btn0004");
-        phonebtn.alpha = 0.01;
-        phonebtn.alphaTopLeft = 0.01;
-        phonebtn.alphaTopRight = 0.01;
-        phonebtn.alphaBottomLeft = 0.01;
-        phonebtn.alphaBottomRight = 0.01;
+        phonebtn.alpha = 0.0001;
+        phonebtn.alphaTopLeft = 0.0001;
+        phonebtn.alphaTopRight = 0.0001;
+        phonebtn.alphaBottomLeft = 0.0001;
+        phonebtn.alphaBottomRight = 0.0001;
 
         // lists
         const triggers = [mine_cart_trigger, mine_rescue_trigger, mine_cave_trigger, mine_cavemine_trigger];

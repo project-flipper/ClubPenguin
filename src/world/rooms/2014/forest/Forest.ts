@@ -201,20 +201,20 @@ export default class Forest extends Phaser.Scene implements Room {
 
         // trash1_btn
         const trash1_btn = this.add.image(177.075, 788.9625, "forest2014", "forest/trash1_btn0004");
-        trash1_btn.alpha = 0.01;
-        trash1_btn.alphaTopLeft = 0.01;
-        trash1_btn.alphaTopRight = 0.01;
-        trash1_btn.alphaBottomLeft = 0.01;
-        trash1_btn.alphaBottomRight = 0.01;
+        trash1_btn.alpha = 0.0001;
+        trash1_btn.alphaTopLeft = 0.0001;
+        trash1_btn.alphaTopRight = 0.0001;
+        trash1_btn.alphaBottomLeft = 0.0001;
+        trash1_btn.alphaBottomRight = 0.0001;
 
         // trash2_btn
         const trash2_btn = this.add.image(-23.7375, 760.5, "forest2014", "forest/trash2_btn0004");
         trash2_btn.visible = false;
-        trash2_btn.alpha = 0.01;
-        trash2_btn.alphaTopLeft = 0.01;
-        trash2_btn.alphaTopRight = 0.01;
-        trash2_btn.alphaBottomLeft = 0.01;
-        trash2_btn.alphaBottomRight = 0.01;
+        trash2_btn.alpha = 0.0001;
+        trash2_btn.alphaTopLeft = 0.0001;
+        trash2_btn.alphaTopRight = 0.0001;
+        trash2_btn.alphaBottomLeft = 0.0001;
+        trash2_btn.alphaBottomRight = 0.0001;
 
         // forest_plaza_mc
         const forest_plaza_mc = this.add.image(-3.2625, 288.1125, "forest2014", "forest/plaza_mc");

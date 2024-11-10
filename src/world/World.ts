@@ -36,6 +36,7 @@ export let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
 
 export default class World extends Phaser.Scene {
+
     constructor() {
         super("World");
 

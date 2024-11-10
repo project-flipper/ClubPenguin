@@ -154,11 +154,11 @@ export default class Dance extends Phaser.Scene implements Room {
 
         // pufflehitbox
         const pufflehitbox = this.add.image(1176.6375, 247.275, "dance2013", "dance/pufflehitbox0004");
-        pufflehitbox.alpha = 0.01;
-        pufflehitbox.alphaTopLeft = 0.01;
-        pufflehitbox.alphaTopRight = 0.01;
-        pufflehitbox.alphaBottomLeft = 0.01;
-        pufflehitbox.alphaBottomRight = 0.01;
+        pufflehitbox.alpha = 0.0001;
+        pufflehitbox.alphaTopLeft = 0.0001;
+        pufflehitbox.alphaTopRight = 0.0001;
+        pufflehitbox.alphaBottomLeft = 0.0001;
+        pufflehitbox.alphaBottomRight = 0.0001;
 
         // boilerspeakercone
         const boilerspeakercone = this.add.sprite(1118.1375, 293.85, "dance2013", "dance/boilerspeakercone0001");
@@ -168,20 +168,20 @@ export default class Dance extends Phaser.Scene implements Room {
         // boilerButton
         const boilerButton = this.add.image(1028.025, 247.05, "dance2013", "dance/boilerspeaker0004");
         boilerButton.setOrigin(0, 0);
-        boilerButton.alpha = 0.01;
-        boilerButton.alphaTopLeft = 0.01;
-        boilerButton.alphaTopRight = 0.01;
-        boilerButton.alphaBottomLeft = 0.01;
-        boilerButton.alphaBottomRight = 0.01;
+        boilerButton.alpha = 0.0001;
+        boilerButton.alphaTopLeft = 0.0001;
+        boilerButton.alphaTopRight = 0.0001;
+        boilerButton.alphaBottomLeft = 0.0001;
+        boilerButton.alphaBottomRight = 0.0001;
 
         // contesthitbox
         const contesthitbox = this.add.image(1205.1, 141.1875, "dance2013", "dance/contesthitbox");
         contesthitbox.setOrigin(0, 0);
-        contesthitbox.alpha = 0.01;
-        contesthitbox.alphaTopLeft = 0.01;
-        contesthitbox.alphaTopRight = 0.01;
-        contesthitbox.alphaBottomLeft = 0.01;
-        contesthitbox.alphaBottomRight = 0.01;
+        contesthitbox.alpha = 0.0001;
+        contesthitbox.alphaTopLeft = 0.0001;
+        contesthitbox.alphaTopRight = 0.0001;
+        contesthitbox.alphaBottomLeft = 0.0001;
+        contesthitbox.alphaBottomRight = 0.0001;
 
         // contest
         const contest = this.add.image(1204.1, 140.1875, "dance2013", "dance/contest0001_0001");
@@ -234,11 +234,11 @@ export default class Dance extends Phaser.Scene implements Room {
         // disksButton
         const disksButton = this.add.image(363.2625, 455.5125, "dance2013", "dance/disks0004");
         disksButton.setOrigin(0.53205405, 0.74149635);
-        disksButton.alpha = 0.01;
-        disksButton.alphaTopLeft = 0.01;
-        disksButton.alphaTopRight = 0.01;
-        disksButton.alphaBottomLeft = 0.01;
-        disksButton.alphaBottomRight = 0.01;
+        disksButton.alpha = 0.0001;
+        disksButton.alphaTopLeft = 0.0001;
+        disksButton.alphaTopRight = 0.0001;
+        disksButton.alphaBottomLeft = 0.0001;
+        disksButton.alphaBottomRight = 0.0001;
 
         // dance_railing
         const dance_railing = this.add.image(1324.9125, 537.975, "dance2013", "dance/railing");
@@ -295,11 +295,11 @@ export default class Dance extends Phaser.Scene implements Room {
         // dj3k
         const dj3k = this.add.image(585.9, 278.325, "dance2013", "dance/mix_button");
         dj3k.setOrigin(0, 0);
-        dj3k.alpha = 0.01;
-        dj3k.alphaTopLeft = 0.01;
-        dj3k.alphaTopRight = 0.01;
-        dj3k.alphaBottomLeft = 0.01;
-        dj3k.alphaBottomRight = 0.01;
+        dj3k.alpha = 0.0001;
+        dj3k.alphaTopLeft = 0.0001;
+        dj3k.alphaTopRight = 0.0001;
+        dj3k.alphaBottomLeft = 0.0001;
+        dj3k.alphaBottomRight = 0.0001;
 
         // catalog
         const catalog = this.add.image(1620, 1002.375, "dance2013", "dance/catalog0001");
