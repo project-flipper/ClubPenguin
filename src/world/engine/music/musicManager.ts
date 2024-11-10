@@ -1,24 +1,20 @@
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { Engine, logger } from "@clubpenguin/world/engine/engine";
+import { logger } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 
 /**
  * Manages the music in the game.
  */
 export class MusicManager {
-    public engine: Engine;
+    public world: World;
 
     public currentMusicId: number;
     private _musicMuted: boolean;
 
-    constructor(engine: Engine) {
-        this.engine = engine;
+    constructor(world: World) {
+        this.world = world;
 
         this._musicMuted = false;
-    }
-
-    get world(): World {
-        return this.engine.world;
     }
 
     /**

@@ -71,7 +71,7 @@ export class Engine extends EventEmitter {
 
         this.tweenTracker = new TweenTracker();
 
-        this.music = new MusicManager(this);
+        this.music = new MusicManager(world);
         this.players = new PlayerManager(this);
         this.clothing = new ClothingManager(this);
         this.snowballs = new SnowballManager(this);
