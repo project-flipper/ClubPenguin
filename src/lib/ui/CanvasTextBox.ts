@@ -86,6 +86,7 @@ export default class CanvasTextBox extends Phaser.GameObjects.Text {
 
     setBoxWidth(val: number): this {
         this.__boxWidth = val;
+        this.setWordWrapWidth(val, true);
 
         return this.repositionText();
     }

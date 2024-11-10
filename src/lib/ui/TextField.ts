@@ -44,6 +44,11 @@ export default class TextField extends Phaser.GameObjects.Container {
             this.handleValueChange(this.value);
         });
         element.on('keydown', (event: KeyboardEvent) => {
+            if (this.filterRegex.test(event.key)) {
+                event.preventDefault();
+                return;
+            }
+
             if (this.handleKeyDown(event)) {
                 this.filter();
                 this.render();
@@ -97,7 +102,16 @@ export default class TextField extends Phaser.GameObjects.Container {
     public handleKeyDown: (event: KeyboardEvent) => boolean;
     public handleValueChange: (value: string) => void;
 
-    public filterRegex: RegExp;
+    public _filterRegex: RegExp;
+
+    get filterRegex(): RegExp {
+        return this._filterRegex;
+    }
+
+    set filterRegex(value: RegExp) {
+        this._filterRegex = value;
+        this.html.pattern = `^(?!${value.source})`;
+    }
 
     filter(): void {
         if (this.filterRegex) this.html.value = this.html.value.replace(this.filterRegex, '');
@@ -119,6 +133,7 @@ export default class TextField extends Phaser.GameObjects.Container {
         this.render();
     }
 
+    private _placeholder: string;
     private _disabled: boolean;
     private _locked: boolean;
 
@@ -135,7 +150,7 @@ export default class TextField extends Phaser.GameObjects.Container {
         this._setDisabled();
         this.element.setX(value ? -9999 : 0);
         this.render();
-        this.text.visible = value;
+        this.text.visible = !value && !this.html.value;
     }
 
     get disabled(): boolean {
@@ -184,10 +199,11 @@ export default class TextField extends Phaser.GameObjects.Container {
     }
 
     get placeholder(): string {
-        return this.html.placeholder;
+        return this._placeholder;
     }
 
     set placeholder(value: string) {
+        this._placeholder = value;
         this.html.placeholder = value;
         this.render();
     }
@@ -228,7 +244,7 @@ export default class TextField extends Phaser.GameObjects.Container {
     set fieldWidth(value: number) {
         this._width = value;
         this.text.boxWidth = value;
-        this.html.style.width = `${value}px`;
+        this.html.style.width = `${this._width - this.marginLeft - this.marginRight}px`;
     }
 
     get fieldHeight(): number {
@@ -238,7 +254,7 @@ export default class TextField extends Phaser.GameObjects.Container {
     set fieldHeight(value: number) {
         this._height = value;
         this.text.boxHeight = value;
-        this.html.style.height = `${value}px`;
+        this.html.style.height = `${this._height - this.marginTop - this.marginBottom}px`;
     }
 
     get marginLeft(): number {
@@ -248,6 +264,7 @@ export default class TextField extends Phaser.GameObjects.Container {
     set marginLeft(value: number) {
         this.text.setPadding({ left: value });
         this.html.style.marginLeft = `${value}px`;
+        this.html.style.width = `${this._width - this.marginLeft - this.marginRight}px`;
     }
 
     get marginTop(): number {
@@ -257,6 +274,7 @@ export default class TextField extends Phaser.GameObjects.Container {
     set marginTop(value: number) {
         this.text.setPadding({ top: value });
         this.html.style.marginTop = `${value}px`;
+        this.html.style.height = `${this._height - this.marginTop - this.marginBottom}px`;
     }
 
     get marginRight(): number {
@@ -266,6 +284,7 @@ export default class TextField extends Phaser.GameObjects.Container {
     set marginRight(value: number) {
         this.text.setPadding({ right: value });
         this.html.style.marginRight = `${value}px`;
+        this.html.style.width = `${this._width - this.marginLeft - this.marginRight}px`;
     }
 
     get marginBottom(): number {
@@ -275,6 +294,7 @@ export default class TextField extends Phaser.GameObjects.Container {
     set marginBottom(value: number) {
         this.text.setPadding({ bottom: value });
         this.html.style.marginBottom = `${value}px`;
+        this.html.style.height = `${this._height - this.marginTop - this.marginBottom}px`;
     }
 
     get font(): string {
@@ -282,7 +302,7 @@ export default class TextField extends Phaser.GameObjects.Container {
     }
 
     set font(value: string) {
-        this.text.setFontFamily(value);
+        this.text.setFontFamily(`"${value}"`);
         this.html.style.fontFamily = value;
     }
 
@@ -358,6 +378,8 @@ export default class TextField extends Phaser.GameObjects.Container {
         value = this.placeholder && !value ? this.placeholder : value;
         value = value.length > this.maxLength ? value.slice(value.length - this.maxLength) : value;
         this.text.text = value;
+        this.text.visible = !this.locked && !this.html.value;
+        this.element.setX(this.locked ? -9999 : 0);
     }
 
     setup(): void {
