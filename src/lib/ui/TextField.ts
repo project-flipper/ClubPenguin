@@ -44,7 +44,7 @@ export default class TextField extends Phaser.GameObjects.Container {
             this.handleValueChange(this.value);
         });
         element.on('keydown', (event: KeyboardEvent) => {
-            if (this.filterRegex.test(event.key)) {
+            if (this.filterRegex && this.filterRegex.test(event.key)) {
                 event.preventDefault();
                 return;
             }
