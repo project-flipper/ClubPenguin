@@ -157,7 +157,8 @@
                         "fieldHeight",
                         "maxLength",
                         "font",
-                        "fontSize"
+                        "fontSize",
+                        "marginLeft"
                     ],
                     "label": "field",
                     "scope": "PUBLIC",
@@ -165,8 +166,9 @@
                     "fieldWidth": 456.6375,
                     "fieldHeight": 63,
                     "maxLength": 12,
-                    "font": "BurbankSmallMedium",
-                    "fontSize": -45,
+                    "font": "Burbank Small Medium",
+                    "fontSize": "45px",
+                    "marginLeft": 4.5,
                     "x": 680,
                     "y": 549
                 }

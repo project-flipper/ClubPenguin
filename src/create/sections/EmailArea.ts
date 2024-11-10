@@ -84,11 +84,11 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         textField.fieldHeight = 69;
         textField.maxLength = 32;
         textField.verticalAlign = 1;
-        textField.font = "BurbankSmallBold";
-        textField.fontSize = -27;
+        textField.font = "Burbank Small Bold";
+        textField.fontSize = "27px";
         textField.fontColor = "#2c2c2e";
         textField.backgroundIsFilled = false;
-        textField.leftMargin = 11.25;
+        textField.marginLeft = 12;
         textField.autocomplete = "email";
 
         this.progressBubble = progressBubble;

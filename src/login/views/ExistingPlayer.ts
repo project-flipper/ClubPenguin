@@ -3,11 +3,11 @@
 
 /* START OF COMPILED CODE */
 
+import TextField from "../../lib/ui/TextField";
 import ButtonComponent from "../../lib/components/ButtonComponent";
 import PlayerItem from "../prefabs/PlayerItem";
 import Checkbox from "../prefabs/Checkbox";
 import TextBox from "../../lib/ui/TextBox";
-import TextField from "../../lib/ui/TextField";
 /* START-USER-IMPORTS */
 import { Locale } from "@clubpenguin/app/locale";
 import Login, { SavedAccount } from "../Login";
@@ -17,6 +17,10 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
 
     constructor(scene: Phaser.Scene, x?: number, y?: number) {
         super(scene, x ?? 0, y ?? 0);
+
+        // passwordTextField
+        const passwordTextField = new TextField(scene, 886.73, 245.03);
+        this.add(passwordTextField);
 
         // forgot
         const forgot = scene.add.sprite(1081.01, 680.51, "login", "login-screen/forgotExisting0001");
@@ -101,10 +105,6 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         passwordLabel.align = 2;
         this.add(passwordLabel);
 
-        // passwordTextField
-        const passwordTextField = new TextField(scene, 886.73, 245.03);
-        this.add(passwordTextField);
-
         // loginButton
         const loginButton = scene.add.image(878.85, 489.83, "login", "login-screen/button");
         loginButton.setOrigin(0, 0);
@@ -156,6 +156,21 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         forgetLabel.align = 1;
         this.add(forgetLabel);
 
+        // passwordTextField (prefab fields)
+        passwordTextField.inputType = "password";
+        passwordTextField.fieldWidth = 456.6375;
+        passwordTextField.fieldHeight = 63;
+        passwordTextField.maxLength = 32;
+        passwordTextField.font = "BurbankSmallMedium";
+        passwordTextField.fontSize = "45px";
+        passwordTextField.fontColor = "#000000";
+        passwordTextField.backgroundIsFilled = true;
+        passwordTextField.backgroundIsStroked = true;
+        passwordTextField.backgroundStrokeWidth = 2;
+        passwordTextField.backgroundStrokeColor = "#000000";
+        passwordTextField.marginLeft = 4.5;
+        passwordTextField.autocomplete = "password";
+
         // forgotButton (components)
         const forgotButtonButtonComponent = new ButtonComponent(forgotButton);
         forgotButtonButtonComponent.handCursor = true;
@@ -184,20 +199,6 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         passwordLabel.boxHeight = 52.2;
         passwordLabel.horizontalAlign = 0;
         passwordLabel.verticalAlign = 1;
-
-        // passwordTextField (prefab fields)
-        passwordTextField.inputType = "password";
-        passwordTextField.fieldWidth = 456.6375;
-        passwordTextField.fieldHeight = 63;
-        passwordTextField.maxLength = 32;
-        passwordTextField.font = "BurbankSmallMedium";
-        passwordTextField.fontSize = -45;
-        passwordTextField.fontColor = "#000000";
-        passwordTextField.backgroundIsFilled = true;
-        passwordTextField.backgroundIsStroked = true;
-        passwordTextField.backgroundStrokeWidth = 2;
-        passwordTextField.backgroundStrokeColor = "#000000";
-        passwordTextField.autocomplete = "password";
 
         // loginButton (components)
         const loginButtonButtonComponent = new ButtonComponent(loginButton);
@@ -234,6 +235,7 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         forgetLabel.horizontalAlign = 0;
         forgetLabel.verticalAlign = 1;
 
+        this.passwordTextField = passwordTextField;
         this.forgot = forgot;
         this.forget = forget;
         this.forgotButton = forgotButton;
@@ -244,7 +246,6 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         this.nameCheckLabel = nameCheckLabel;
         this.passwordCheckLabel = passwordCheckLabel;
         this.passwordLabel = passwordLabel;
-        this.passwordTextField = passwordTextField;
         this.loginButton = loginButton;
         this.loginLabel = loginLabel;
         this.secret = secret;
@@ -312,6 +313,7 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         /* END-USER-CTR-CODE */
     }
 
+    public passwordTextField: TextField;
     public forgot: Phaser.GameObjects.Sprite;
     public forget: Phaser.GameObjects.Sprite;
     public forgotButton: Phaser.GameObjects.Image;
@@ -322,7 +324,6 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
     public nameCheckLabel: TextBox;
     public passwordCheckLabel: TextBox;
     public passwordLabel: TextBox;
-    public passwordTextField: TextField;
     public loginButton: Phaser.GameObjects.Image;
     public loginLabel: TextBox;
     public secret: Phaser.GameObjects.Image;
@@ -344,6 +345,8 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
 
         this.loginButton.off('release');
         this.loginButton.on('release', () => {
+            this.lock();
+
             this.scene.login({
                 name: account.user.username,
                 password: this.passwordTextField.value,

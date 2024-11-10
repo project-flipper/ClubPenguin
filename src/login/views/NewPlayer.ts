@@ -194,12 +194,13 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         nameTextField.fieldWidth = 456.525;
         nameTextField.fieldHeight = 63.1125;
         nameTextField.maxLength = 12;
-        nameTextField.font = "BurbankSmallMedium";
-        nameTextField.fontSize = -45;
+        nameTextField.font = "Burbank Small Medium";
+        nameTextField.fontSize = "45px";
         nameTextField.fontColor = "#000000";
         nameTextField.backgroundIsStroked = true;
         nameTextField.backgroundStrokeWidth = 2;
         nameTextField.backgroundStrokeColor = "#000000";
+        nameTextField.marginLeft = 4.5;
         nameTextField.autocomplete = "username";
 
         // passwordTextField (prefab fields)
@@ -207,12 +208,13 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         passwordTextField.fieldWidth = 456.525;
         passwordTextField.fieldHeight = 63.1125;
         passwordTextField.maxLength = 32;
-        passwordTextField.font = "BurbankSmallMedium";
-        passwordTextField.fontSize = -45;
+        passwordTextField.font = "Burbank Small Medium";
+        passwordTextField.fontSize = "45px";
         passwordTextField.fontColor = "#000000";
         passwordTextField.backgroundIsStroked = true;
         passwordTextField.backgroundStrokeWidth = 2;
         passwordTextField.backgroundStrokeColor = "#000000";
+        passwordTextField.marginLeft = 4.5;
         passwordTextField.autocomplete = "password";
 
         // nameLabel (prefab fields)

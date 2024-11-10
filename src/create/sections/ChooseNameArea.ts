@@ -108,11 +108,11 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         textField.fieldHeight = 95;
         textField.maxLength = 12;
         textField.verticalAlign = 1;
-        textField.font = "BurbankSmallBold";
-        textField.fontSize = -27;
+        textField.font = "Burbank Small Bold";
+        textField.fontSize = "27px";
         textField.fontColor = "#2c2c2e";
         textField.backgroundIsFilled = false;
-        textField.leftMargin = 11.25;
+        textField.marginLeft = 12;
         textField.autocomplete = "username";
 
         this.progressBubble = progressBubble;

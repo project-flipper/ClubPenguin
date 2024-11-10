@@ -85,8 +85,9 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         field.fieldWidth = 456.6375;
         field.fieldHeight = 63;
         field.maxLength = 12;
-        field.font = "BurbankSmallMedium";
-        field.fontSize = -45;
+        field.font = "Burbank Small Medium";
+        field.fontSize = "45px";
+        field.marginLeft = 4.5;
 
         this.bg = bg;
         this.okayButton = okayButton;

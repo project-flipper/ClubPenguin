@@ -88,11 +88,11 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         textField1.fieldHeight = 68;
         textField1.maxLength = 32;
         textField1.verticalAlign = 1;
-        textField1.font = "BurbankSmallBold";
-        textField1.fontSize = -27;
+        textField1.font = "Burbank Small Bold";
+        textField1.fontSize = "27px";
         textField1.fontColor = "#2c2c2e";
         textField1.backgroundIsFilled = false;
-        textField1.leftMargin = 11.25;
+        textField1.marginLeft = 12;
         textField1.autocomplete = "new-password";
 
         // textField2 (prefab fields)
@@ -101,11 +101,11 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         textField2.fieldHeight = 68;
         textField2.maxLength = 32;
         textField2.verticalAlign = 1;
-        textField2.font = "BurbankSmallBold";
-        textField2.fontSize = -27;
+        textField2.font = "Burbank Small Bold";
+        textField2.fontSize = "27px";
         textField2.fontColor = "#2c2c2e";
         textField2.backgroundIsFilled = false;
-        textField2.leftMargin = 11.25;
+        textField2.marginLeft = 12;
         textField2.autocomplete = "new-password";
 
         this.progressBubble = progressBubble;

@@ -34,7 +34,8 @@
                         "fontColor",
                         "backgroundStrokeColor",
                         "inputType",
-                        "autocomplete"
+                        "autocomplete",
+                        "marginLeft"
                     ],
                     "label": "nameTextField",
                     "scope": "PUBLIC",
@@ -42,12 +43,13 @@
                     "fieldWidth": 456.525,
                     "fieldHeight": 63.1125,
                     "maxLength": 12,
-                    "font": "BurbankSmallMedium",
-                    "fontSize": -45,
+                    "font": "Burbank Small Medium",
+                    "fontSize": "45px",
                     "fontColor": "#000000",
                     "backgroundIsStroked": true,
                     "backgroundStrokeWidth": 2,
                     "backgroundStrokeColor": "#000000",
+                    "marginLeft": 4.5,
                     "autocomplete": "username",
                     "x": 711,
                     "y": 135
@@ -68,7 +70,8 @@
                         "fontColor",
                         "backgroundStrokeColor",
                         "inputType",
-                        "autocomplete"
+                        "autocomplete",
+                        "marginLeft"
                     ],
                     "label": "passwordTextField",
                     "scope": "PUBLIC",
@@ -76,12 +79,13 @@
                     "fieldWidth": 456.525,
                     "fieldHeight": 63.1125,
                     "maxLength": 32,
-                    "font": "BurbankSmallMedium",
-                    "fontSize": -45,
+                    "font": "Burbank Small Medium",
+                    "fontSize": "45px",
                     "fontColor": "#000000",
                     "backgroundIsStroked": true,
                     "backgroundStrokeWidth": 2,
                     "backgroundStrokeColor": "#000000",
+                    "marginLeft": 4.5,
                     "autocomplete": "password",
                     "x": 711,
                     "y": 202.5
@@ -596,8 +600,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

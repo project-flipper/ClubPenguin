@@ -240,11 +240,12 @@ export default class UI2014 extends Phaser.GameObjects.Layer implements UI {
         chat.maxLength = 48;
         chat.disabled = false;
         chat.readOnly = false;
-        chat.font = "BurbankSmallMedium";
-        chat.fontSize = -27;
+        chat.font = "Burbank Small Medium";
+        chat.fontSize = "27px";
         chat.fontColor = "#ffffffff";
         chat.backgroundIsFilled = false;
         chat.backgroundIsStroked = false;
+        chat.marginLeft = 4.5;
 
         // chatButton (components)
         const chatButtonButtonComponent = new ButtonComponent(chatButton);

@@ -195,7 +195,8 @@
                         "fontSize",
                         "fontColor",
                         "backgroundIsFilled",
-                        "backgroundIsStroked"
+                        "backgroundIsStroked",
+                        "marginLeft"
                     ],
                     "label": "chat",
                     "scope": "PUBLIC",
@@ -206,11 +207,12 @@
                     "maxLength": 48,
                     "disabled": false,
                     "readOnly": false,
-                    "font": "BurbankSmallMedium",
-                    "fontSize": -27,
+                    "font": "Burbank Small Medium",
+                    "fontSize": "27px",
                     "fontColor": "#ffffffff",
                     "backgroundIsFilled": false,
                     "backgroundIsStroked": false,
+                    "marginLeft": 4.5,
                     "x": 590.4500122070312,
                     "y": 1020.5999755859375
                 },

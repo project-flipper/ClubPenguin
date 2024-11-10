@@ -1,0 +1,73 @@
+{
+    "id": "ac15f857-cc8f-4965-a2a2-6af6bc617d12",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "f903d692-7086-4c94-910b-4d6dc748a185",
+            "label": "text_1",
+            "text": "CanvasTextBox",
+            "fontSize": "20px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "prefabProperties": [
+        {
+            "name": "boxWidth",
+            "label": "Width",
+            "tooltip": "The width in which this text box is bounded.",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "boxHeight",
+            "label": "Height",
+            "tooltip": "The height in which this text box is bounded.",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "horizontalAlign",
+            "label": "Horizontal Align",
+            "tooltip": "The orientation to align the text horizontally with.",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "verticalAlign",
+            "label": "Vertical Align",
+            "tooltip": "The orientation to align the text vertically with.",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        }
+    ]
+}

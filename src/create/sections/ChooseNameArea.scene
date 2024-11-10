@@ -213,7 +213,8 @@
                         "maxLength",
                         "backgroundIsFilled",
                         "leftMargin",
-                        "autocomplete"
+                        "autocomplete",
+                        "marginLeft"
                     ],
                     "label": "textField",
                     "scope": "PUBLIC",
@@ -221,11 +222,11 @@
                     "fieldHeight": 95,
                     "maxLength": 12,
                     "verticalAlign": 1,
-                    "font": "BurbankSmallBold",
-                    "fontSize": -27,
+                    "font": "Burbank Small Bold",
+                    "fontSize": "27px",
                     "fontColor": "#2c2c2e",
                     "backgroundIsFilled": false,
-                    "leftMargin": 11.25,
+                    "marginLeft": 12,
                     "autocomplete": "username",
                     "x": 135,
                     "y": 42.75
@@ -249,8 +250,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }
