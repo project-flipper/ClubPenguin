@@ -186,7 +186,7 @@ export class Engine extends EventEmitter {
         if (!player || !player.actions.isIdle()) return;
 
         let objects = this.currentRoom.input.hitTestPointer(pointer);
-        if (objects[0] != player.hitbox) player.actions.lookAt(pointer.worldX, pointer.worldY);
+        if (objects[0] != player.hitbox) this.world.lookAt(pointer.worldX, pointer.worldY);
     }
 
     /**

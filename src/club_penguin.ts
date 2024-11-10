@@ -72,6 +72,9 @@ declare global {
         LOG_LEVEL: number,
         FPS_LIMIT: number
     };
+    const __experiments__: {
+        [key: string]: any
+    };
     const __webpack_public_path__: string;
 
     /* ========== PLAY PAGE ========== */

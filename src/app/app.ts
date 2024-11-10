@@ -61,6 +61,16 @@ export class App extends Phaser.Game {
     }
 
     /**
+     * Gets an experimental feature value.
+     * @param key The key of the experimental feature.
+     * @param fallback The fallback value to use if the feature has no value.
+     * @returns The value of the experimental feature.
+     */
+    getExperimentalFeature<T>(key: string, fallback: T): T {
+        return __experiments__[key] ?? fallback;
+    }
+
+    /**
      * Gets a translated message to warn users about devtool usage.
      * @returns The translated message.
      */

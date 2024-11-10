@@ -197,6 +197,7 @@ module.exports = env => {
                     LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3),
                     FPS_LIMIT: env.fpsLimit ? parseInt(env.fpsLimit) : 24
                 }),
+                '__experiments__': JSON.stringify({}),
                 '__environment__': JSON.stringify(environment)
             }),
             new HtmlWebpackPlugin({

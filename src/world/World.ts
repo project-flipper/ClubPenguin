@@ -417,6 +417,20 @@ export default class World extends Phaser.Scene {
     /* ========= ACTIONS ========= */
 
     /**
+     * Looks at the specified coordinates.
+     * @param x The x-coordinate to look at.
+     * @param y The y-coordinate to look at.
+     */
+    lookAt(x: number, y: number): void {
+        let player = this.engine.player;
+        let action = player.actions.get();
+        let safe = player.actions.getDirectionVector(player.actions.getDirection(x, y));
+        player.actions.lookAt(safe.x, safe.y);
+
+        if (!player.actions.equals(action) && this.game.getExperimentalFeature('HANDLE_STARE_ACTION', false)) this.send('player:action', player.actions.get());
+    }
+
+    /**
      * Moves the player to the specified coordinates.
      * @param x The x-coordinate to move the player to.
      * @param y The y-coordinate to move the player to.

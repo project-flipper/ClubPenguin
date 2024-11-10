@@ -156,6 +156,9 @@ export class Actions {
     lookAt(x: number, y: number): void {
         this.stopMoving();
 
+        this._x = x;
+        this._y = y;
+
         let direction = this.getDirection(x, y);
         this.player.playAnimation(AnimationFrame.IDLE_DOWN + direction);
         this._type = ActionType.IDLE;
