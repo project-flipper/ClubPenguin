@@ -6,8 +6,8 @@
 import ButtonComponent from "../../../../lib/components/ButtonComponent";
 import RoomTrigger from "../../../../lib/components/RoomTrigger";
 import DepthEnabled from "../../../../lib/components/DepthEnabled";
-import MancalaBoard from "./prefabs/MancalaBoard";
 import PressureTrigger from "../../../../lib/components/PressureTrigger";
+import WaddleTrigger from "../../../../lib/components/WaddleTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
@@ -37,10 +37,6 @@ export default class Book extends Phaser.Scene implements Room {
         const book_base = this.add.image(-136.35, -11.25, "book2013", "book/base");
         book_base.setOrigin(0, 0);
 
-        // artshowcase
-        const artshowcase = this.add.image(704.475, 187.2, "book2013", "book/artshowcase0001");
-        artshowcase.setOrigin(0.48079, 0.51911);
-
         // artshowcasebutton
         const artshowcasebutton = this.add.image(704.475, 187.2, "book2013", "book/artshowcase0004");
         artshowcasebutton.setOrigin(0.48079, 0.51911);
@@ -50,12 +46,21 @@ export default class Book extends Phaser.Scene implements Room {
         artshowcasebutton.alphaBottomLeft = 0.0001;
         artshowcasebutton.alphaBottomRight = 0.0001;
 
+        // artshowcase
+        const artshowcase = this.add.image(704.475, 187.2, "book2013", "book/artshowcase0001");
+        artshowcase.setOrigin(0.48079, 0.51911);
+
+        // book_mancalanotice0004
+        const book_mancalanotice0004 = this.add.image(1650.6, 300.04, "book2013", "book/mancalanotice0004");
+        book_mancalanotice0004.setOrigin(0.6286764705882353, 0.3826530612244898);
+
         // mancalanotice
-        const mancalanotice = this.add.image(1571.4, 206.6625, "book2013", "book/mancalanotice0001");
-        mancalanotice.setOrigin(-0.01566, -0.04476);
+        const mancalanotice = this.add.image(1650.6, 300.04, "book2013", "book/mancalanotice0001");
+        mancalanotice.setOrigin(0.62868, 0.38265);
 
         // mancalatitle
-        const mancalatitle = this.add.image(1634, 342, "book2013", "book/mancalatitle0001");
+        const mancalatitle = this.add.image(1571.4, 206.66, "book2013", "book/mancalatitle0001");
+        mancalatitle.setOrigin(-0.06429, -0.01178);
 
         // book_logo
         const book_logo = this.add.image(1140.4125, 219.825, "book2013", "book/logo");
@@ -172,22 +177,6 @@ export default class Book extends Phaser.Scene implements Room {
         // times
         const times = this.add.image(1154, 234, "book2013", "book/times0001");
 
-        // mancalaBoard1
-        const mancalaBoard1 = new MancalaBoard(this, 1399.1625, 640.575);
-        this.add.existing(mancalaBoard1);
-
-        // mancalaBoard2
-        const mancalaBoard2 = new MancalaBoard(this, 1260.7875, 739.575);
-        this.add.existing(mancalaBoard2);
-
-        // mancalaBoard3
-        const mancalaBoard3 = new MancalaBoard(this, 1447.2, 773.4375);
-        this.add.existing(mancalaBoard3);
-
-        // mancalaBoard4
-        const mancalaBoard4 = new MancalaBoard(this, 1319.175, 900.45);
-        this.add.existing(mancalaBoard4);
-
         // book_conveyorbelt
         const book_conveyorbelt = this.add.image(-4.275, 571.725, "book2013", "book/conveyorbelt");
         book_conveyorbelt.setOrigin(0, 0);
@@ -219,7 +208,7 @@ export default class Book extends Phaser.Scene implements Room {
         const artlabel = this.add.image(710, 84, "book2013", "book/artlabel0001");
 
         // stairsbutton
-        const stairsbutton = this.add.image(1356.4125, 276.525, "book2013", "book/stairs0004");
+        const stairsbutton = this.add.image(1356.41, 276.53, "book2013", "book/stairs0004");
         stairsbutton.setOrigin(0, 0);
         stairsbutton.alpha = 0.0001;
         stairsbutton.alphaTopLeft = 0.0001;
@@ -228,9 +217,8 @@ export default class Book extends Phaser.Scene implements Room {
         stairsbutton.alphaBottomRight = 0.0001;
 
         // stairslight
-        const stairslight = this.add.image(1360, 278, "book2013", "book/stairs0002");
+        const stairslight = this.add.image(1356.41, 276.53, "book2013", "book/stairs0002");
         stairslight.setOrigin(0, 0);
-        stairslight.visible = false;
 
         // chair1_trigger
         const chair1_trigger = this.add.image(515.1375, 809.8875, "book2013", "book/chair1_trigger");
@@ -242,6 +230,15 @@ export default class Book extends Phaser.Scene implements Room {
         chair2_trigger.setOrigin(0, 0);
         chair2_trigger.visible = false;
 
+        // book_hit
+        const book_hit = this.add.image(1566.5625, 909.3375, "book2013", "book/book0002");
+        book_hit.setOrigin(0, 0);
+        book_hit.alpha = 0.0001;
+        book_hit.alphaTopLeft = 0.0001;
+        book_hit.alphaTopRight = 0.0001;
+        book_hit.alphaBottomLeft = 0.0001;
+        book_hit.alphaBottomRight = 0.0001;
+
         // book
         const book = this.add.image(1566.5625, 909.3375, "book2013", "book/book0001");
         book.setOrigin(0, 0);
@@ -250,13 +247,96 @@ export default class Book extends Phaser.Scene implements Room {
         const booklabel = this.add.image(1584, 942, "book2013", "book/booklabel0001");
         booklabel.setOrigin(0, 0);
 
-        // lists
-        const triggers = [coffee_trigger, chair2_trigger, chair1_trigger];
+        // table100
+        const table100 = this.add.image(1258.31, 725.96, "book2013", "book/table_trigger");
+        table100.visible = false;
 
-        // artshowcasebutton (components)
-        const artshowcasebuttonButtonComponent = new ButtonComponent(artshowcasebutton);
-        artshowcasebuttonButtonComponent.handCursor = true;
-        artshowcasebuttonButtonComponent.pixelPerfect = true;
+        // book_mancalatable_1
+        const book_mancalatable_1 = this.add.image(1259.55, 736.31, "book2013", "book/mancalatable");
+        book_mancalatable_1.setOrigin(0.4846153846153846, 0.4669811320754717);
+
+        // board100
+        const board100 = this.add.image(1260.79, 739.58, "book2013", "book/mancalaboard0001");
+        board100.setOrigin(0.4875, 1.10455);
+
+        // mancala100
+        const mancala100 = this.add.image(1258.99, 704.93, "book2013", "book/mancala_btn0004");
+        mancala100.alpha = 0.0001;
+        mancala100.alphaTopLeft = 0.0001;
+        mancala100.alphaTopRight = 0.0001;
+        mancala100.alphaBottomLeft = 0.0001;
+        mancala100.alphaBottomRight = 0.0001;
+
+        // table101
+        const table101 = this.add.image(1398.15, 630.11, "book2013", "book/table_trigger");
+        table101.visible = false;
+
+        // book_mancalatable
+        const book_mancalatable = this.add.image(1397.93, 637.31, "book2013", "book/mancalatable");
+        book_mancalatable.setOrigin(0.48462, 0.46698);
+
+        // board101
+        const board101 = this.add.image(1399.16, 640.57, "book2013", "book/mancalaboard0001");
+        board101.setOrigin(0.4875, 1.10455);
+
+        // mancala101
+        const mancala101 = this.add.image(1397.36, 605.93, "book2013", "book/mancala_btn0004");
+        mancala101.alpha = 0.0001;
+        mancala101.alphaTopLeft = 0.0001;
+        mancala101.alphaTopRight = 0.0001;
+        mancala101.alphaBottomLeft = 0.0001;
+        mancala101.alphaBottomRight = 0.0001;
+
+        // table104
+        const table104 = this.add.image(1317.04, 892.46, "book2013", "book/table_trigger");
+        table104.visible = false;
+
+        // book_mancalatable_3
+        const book_mancalatable_3 = this.add.image(1317.94, 897.19, "book2013", "book/mancalatable");
+        book_mancalatable_3.setOrigin(0.4846153846153846, 0.4669811320754717);
+
+        // board104
+        const board104 = this.add.image(1319.18, 900.45, "book2013", "book/mancalaboard0001");
+        board104.setOrigin(0.4875, 1.10455);
+
+        // mancala104
+        const mancala104 = this.add.image(1317.38, 865.8, "book2013", "book/mancala_btn0004");
+        mancala104.alpha = 0.0001;
+        mancala104.alphaTopLeft = 0.0001;
+        mancala104.alphaTopRight = 0.0001;
+        mancala104.alphaBottomLeft = 0.0001;
+        mancala104.alphaBottomRight = 0.0001;
+
+        // table103
+        const table103 = this.add.image(1446.3, 763.76, "book2013", "book/table_trigger");
+        table103.visible = false;
+
+        // book_mancalatable_2
+        const book_mancalatable_2 = this.add.image(1445.96, 770.18, "book2013", "book/mancalatable");
+        book_mancalatable_2.setOrigin(0.4846153846153846, 0.4669811320754717);
+
+        // board103
+        const board103 = this.add.image(1447.2, 773.44, "book2013", "book/mancalaboard0001");
+        board103.setOrigin(0.4875, 1.10455);
+
+        // mancala103
+        const mancala103 = this.add.image(1445.4, 738.79, "book2013", "book/mancala_btn0004");
+        mancala103.alpha = 0.0001;
+        mancala103.alphaTopLeft = 0.0001;
+        mancala103.alphaTopRight = 0.0001;
+        mancala103.alphaBottomLeft = 0.0001;
+        mancala103.alphaBottomRight = 0.0001;
+
+        // lists
+        const triggers = [coffee_trigger, chair2_trigger, chair1_trigger, table101, table100, table104, table103];
+
+        // artshowcase (components)
+        const artshowcaseButtonComponent = new ButtonComponent(artshowcase);
+        artshowcaseButtonComponent.upTexture = {"key":"book2013","frame":"book/artshowcase0001"};
+        artshowcaseButtonComponent.overTexture = {"key":"book2013","frame":"book/artshowcase0002"};
+        artshowcaseButtonComponent.handCursor = true;
+        artshowcaseButtonComponent.pixelPerfect = true;
+        artshowcaseButtonComponent.hitbox = artshowcasebutton;
 
         // mancalanotice (components)
         const mancalanoticeButtonComponent = new ButtonComponent(mancalanotice);
@@ -264,6 +344,7 @@ export default class Book extends Phaser.Scene implements Room {
         mancalanoticeButtonComponent.overTexture = {"key":"book2013","frame":"book/mancalanotice0002"};
         mancalanoticeButtonComponent.handCursor = true;
         mancalanoticeButtonComponent.pixelPerfect = true;
+        mancalanoticeButtonComponent.hitbox = book_mancalanotice0004;
 
         // coffee_trigger (components)
         const coffee_triggerRoomTrigger = new RoomTrigger(coffee_trigger);
@@ -334,18 +415,6 @@ export default class Book extends Phaser.Scene implements Room {
         boardLabelDepthEnabled.automaticSort = false;
         boardLabelDepthEnabled.depth = 760.15;
 
-        // mancalaBoard1 (components)
-        new DepthEnabled(mancalaBoard1);
-
-        // mancalaBoard2 (components)
-        new DepthEnabled(mancalaBoard2);
-
-        // mancalaBoard3 (components)
-        new DepthEnabled(mancalaBoard3);
-
-        // mancalaBoard4 (components)
-        new DepthEnabled(mancalaBoard4);
-
         // book_conveyorbelt (components)
         const book_conveyorbeltDepthEnabled = new DepthEnabled(book_conveyorbelt);
         book_conveyorbeltDepthEnabled.automaticSort = false;
@@ -393,6 +462,7 @@ export default class Book extends Phaser.Scene implements Room {
         bookButtonComponent.overTexture = {"key":"book2013","frame":"book/book0002"};
         bookButtonComponent.handCursor = true;
         bookButtonComponent.pixelPerfect = true;
+        bookButtonComponent.hitbox = book_hit;
         const bookDepthEnabled = new DepthEnabled(book);
         bookDepthEnabled.automaticSort = false;
         bookDepthEnabled.depth = 1108;
@@ -402,18 +472,148 @@ export default class Book extends Phaser.Scene implements Room {
         booklabelDepthEnabled.automaticSort = false;
         booklabelDepthEnabled.depth = 1108;
 
+        // table100 (components)
+        const table100WaddleTrigger = new WaddleTrigger(table100);
+        table100WaddleTrigger.game_id = "mancala";
+        table100WaddleTrigger.prompt = "mancala_prompt";
+        table100WaddleTrigger.waddle_id = 100;
+        table100WaddleTrigger.waddle_type = "TABLE";
+        table100WaddleTrigger.seat1 = true;
+        table100WaddleTrigger.seat1frame = 23;
+        table100WaddleTrigger.seat1x = 1193.29;
+        table100WaddleTrigger.seat1y = 694.58;
+        table100WaddleTrigger.done1x = 1148.29;
+        table100WaddleTrigger.done1y = 784.58;
+        table100WaddleTrigger.seat2 = true;
+        table100WaddleTrigger.seat2frame = 19;
+        table100WaddleTrigger.seat2x = 1328.29;
+        table100WaddleTrigger.seat2y = 775.58;
+        table100WaddleTrigger.done2x = 1238.29;
+        table100WaddleTrigger.done2y = 843.08;
+
+        // book_mancalatable_1 (components)
+        const book_mancalatable_1DepthEnabled = new DepthEnabled(book_mancalatable_1);
+        book_mancalatable_1DepthEnabled.automaticSort = false;
+        book_mancalatable_1DepthEnabled.depth = 739.58;
+
+        // board100 (components)
+        const board100DepthEnabled = new DepthEnabled(board100);
+        board100DepthEnabled.automaticSort = false;
+        board100DepthEnabled.depth = 739.58;
+        const board100ButtonComponent = new ButtonComponent(board100);
+        board100ButtonComponent.overTexture = {"key":"book2013","frame":"book/mancalaboard0002"};
+        board100ButtonComponent.handCursor = true;
+        board100ButtonComponent.pixelPerfect = true;
+
+        // table101 (components)
+        const table101WaddleTrigger = new WaddleTrigger(table101);
+        table101WaddleTrigger.game_id = "mancala";
+        table101WaddleTrigger.prompt = "mancala_prompt";
+        table101WaddleTrigger.waddle_id = 101;
+        table101WaddleTrigger.waddle_type = "TABLE";
+        table101WaddleTrigger.seat1 = true;
+        table101WaddleTrigger.seat1frame = 23;
+        table101WaddleTrigger.seat1x = 1331.66;
+        table101WaddleTrigger.seat1y = 595.57;
+        table101WaddleTrigger.done1x = 1286.66;
+        table101WaddleTrigger.done1y = 685.58;
+        table101WaddleTrigger.seat2 = true;
+        table101WaddleTrigger.seat2frame = 19;
+        table101WaddleTrigger.seat2x = 1466.66;
+        table101WaddleTrigger.seat2y = 676.58;
+        table101WaddleTrigger.done2x = 1376.66;
+        table101WaddleTrigger.done2y = 744.08;
+
+        // book_mancalatable (components)
+        const book_mancalatableDepthEnabled = new DepthEnabled(book_mancalatable);
+        book_mancalatableDepthEnabled.automaticSort = false;
+        book_mancalatableDepthEnabled.depth = 640.57;
+
+        // board101 (components)
+        const board101DepthEnabled = new DepthEnabled(board101);
+        board101DepthEnabled.automaticSort = false;
+        board101DepthEnabled.depth = 640.57;
+        const board101ButtonComponent = new ButtonComponent(board101);
+        board101ButtonComponent.overTexture = {"key":"book2013","frame":"book/mancalaboard0002"};
+        board101ButtonComponent.handCursor = true;
+        board101ButtonComponent.pixelPerfect = true;
+        board101ButtonComponent.hitbox = mancala101;
+
+        // table104 (components)
+        const table104WaddleTrigger = new WaddleTrigger(table104);
+        table104WaddleTrigger.game_id = "mancala";
+        table104WaddleTrigger.prompt = "mancala_prompt";
+        table104WaddleTrigger.waddle_id = 104;
+        table104WaddleTrigger.waddle_type = "TABLE";
+        table104WaddleTrigger.seat1 = true;
+        table104WaddleTrigger.seat1frame = 23;
+        table104WaddleTrigger.seat1x = 1251.68;
+        table104WaddleTrigger.seat1y = 855.45;
+        table104WaddleTrigger.done1x = 1206.68;
+        table104WaddleTrigger.done1y = 945.45;
+        table104WaddleTrigger.seat2 = true;
+        table104WaddleTrigger.seat2frame = 19;
+        table104WaddleTrigger.seat2x = 1386.68;
+        table104WaddleTrigger.seat2y = 936.45;
+        table104WaddleTrigger.done2x = 1296.68;
+        table104WaddleTrigger.done2y = 1003.95;
+
+        // book_mancalatable_3 (components)
+        const book_mancalatable_3DepthEnabled = new DepthEnabled(book_mancalatable_3);
+        book_mancalatable_3DepthEnabled.automaticSort = false;
+        book_mancalatable_3DepthEnabled.depth = 900.45;
+
+        // board104 (components)
+        const board104DepthEnabled = new DepthEnabled(board104);
+        board104DepthEnabled.automaticSort = false;
+        board104DepthEnabled.depth = 900.45;
+        const board104ButtonComponent = new ButtonComponent(board104);
+        board104ButtonComponent.overTexture = {"key":"book2013","frame":"book/mancalaboard0002"};
+        board104ButtonComponent.handCursor = true;
+        board104ButtonComponent.pixelPerfect = true;
+        board104ButtonComponent.hitbox = mancala104;
+
+        // table103 (components)
+        const table103WaddleTrigger = new WaddleTrigger(table103);
+        table103WaddleTrigger.game_id = "mancala";
+        table103WaddleTrigger.prompt = "mancala_prompt";
+        table103WaddleTrigger.waddle_id = 103;
+        table103WaddleTrigger.waddle_type = "TABLE";
+        table103WaddleTrigger.seat1 = true;
+        table103WaddleTrigger.seat1frame = 23;
+        table103WaddleTrigger.seat1x = 1379.7;
+        table103WaddleTrigger.seat1y = 728.44;
+        table103WaddleTrigger.done1x = 1334.7;
+        table103WaddleTrigger.done1y = 818.44;
+        table103WaddleTrigger.seat2 = true;
+        table103WaddleTrigger.seat2frame = 19;
+        table103WaddleTrigger.seat2x = 1514.7;
+        table103WaddleTrigger.seat2y = 809.44;
+        table103WaddleTrigger.done2x = 1424.7;
+        table103WaddleTrigger.done2y = 876.94;
+
+        // book_mancalatable_2 (components)
+        const book_mancalatable_2DepthEnabled = new DepthEnabled(book_mancalatable_2);
+        book_mancalatable_2DepthEnabled.automaticSort = false;
+        book_mancalatable_2DepthEnabled.depth = 773.44;
+
+        // board103 (components)
+        const board103DepthEnabled = new DepthEnabled(board103);
+        board103DepthEnabled.automaticSort = false;
+        board103DepthEnabled.depth = 773.44;
+        const board103ButtonComponent = new ButtonComponent(board103);
+        board103ButtonComponent.overTexture = {"key":"book2013","frame":"book/mancalaboard0002"};
+        board103ButtonComponent.handCursor = true;
+        board103ButtonComponent.pixelPerfect = true;
+        board103ButtonComponent.hitbox = mancala103;
+
         this.artshowcase = artshowcase;
-        this.artshowcasebutton = artshowcasebutton;
         this.mancalanotice = mancalanotice;
         this.mancalatitle = mancalatitle;
         this.block = block;
         this.books = books;
         this.boardLabel = boardLabel;
         this.times = times;
-        this.mancalaBoard1 = mancalaBoard1;
-        this.mancalaBoard2 = mancalaBoard2;
-        this.mancalaBoard3 = mancalaBoard3;
-        this.mancalaBoard4 = mancalaBoard4;
         this.conveyoritems = conveyoritems;
         this.conveyorroll = conveyorroll;
         this.artlabel = artlabel;
@@ -423,23 +623,26 @@ export default class Book extends Phaser.Scene implements Room {
         this.chair2_trigger = chair2_trigger;
         this.book = book;
         this.booklabel = booklabel;
+        this.table100 = table100;
+        this.board100 = board100;
+        this.table101 = table101;
+        this.board101 = board101;
+        this.table104 = table104;
+        this.board104 = board104;
+        this.table103 = table103;
+        this.board103 = board103;
         this.triggers = triggers;
 
         this.events.emit("scene-awake");
     }
 
     public artshowcase!: Phaser.GameObjects.Image;
-    public artshowcasebutton!: Phaser.GameObjects.Image;
     public mancalanotice!: Phaser.GameObjects.Image;
     public mancalatitle!: Phaser.GameObjects.Image;
     public block!: Phaser.GameObjects.Image;
     public books!: Phaser.GameObjects.Image;
     public boardLabel!: Phaser.GameObjects.Image;
     public times!: Phaser.GameObjects.Image;
-    public mancalaBoard1!: MancalaBoard;
-    public mancalaBoard2!: MancalaBoard;
-    public mancalaBoard3!: MancalaBoard;
-    public mancalaBoard4!: MancalaBoard;
     public conveyoritems!: Phaser.GameObjects.Sprite;
     public conveyorroll!: Phaser.GameObjects.Sprite;
     public artlabel!: Phaser.GameObjects.Image;
@@ -449,6 +652,14 @@ export default class Book extends Phaser.Scene implements Room {
     public chair2_trigger!: Phaser.GameObjects.Image;
     public book!: Phaser.GameObjects.Image;
     public booklabel!: Phaser.GameObjects.Image;
+    public table100!: Phaser.GameObjects.Image;
+    public board100!: Phaser.GameObjects.Image;
+    public table101!: Phaser.GameObjects.Image;
+    public board101!: Phaser.GameObjects.Image;
+    public table104!: Phaser.GameObjects.Image;
+    public board104!: Phaser.GameObjects.Image;
+    public table103!: Phaser.GameObjects.Image;
+    public board103!: Phaser.GameObjects.Image;
     public triggers!: Phaser.GameObjects.Image[];
 
     /* START-USER-CODE */
@@ -487,19 +698,50 @@ export default class Book extends Phaser.Scene implements Room {
         });
         this.stairsbutton.on('release', () => this.world.move(1419.75, 463.5));
 
-        this.artshowcasebutton.on('over', () => this.artshowcase.setFrame('book/artshowcase0002'));
-        this.artshowcasebutton.on('out', () => this.artshowcase.setFrame('book/artshowcase0001'));
-
         this.book.on('over', () => {
             this.sound.play('book2013-bookopen');
-            this.book.setFrame('book/book0002');
             this.booklabel.visible = false;
         });
         this.book.on('out', () => {
             this.sound.play('book2013-bookclose');
-            this.book.setFrame('book/book0001');
             this.booklabel.visible = true;
         });
+
+        this.board100.on('out', () => {
+            this.interface.hideHint();
+            this.board100.setFrame('book/mancalaboard0001');
+        });
+        this.board100.on('over', () => {
+            this.interface.showLocalizedHint(this.board100, 'mancala_hint');
+        });
+        this.board100.on('release', () => this.world.move(this.board100.x, this.board100.y));
+
+        this.board101.on('out', () => {
+            this.interface.hideHint();
+            this.board101.setFrame('book/mancalaboard0001');
+        });
+        this.board101.on('over', () => {
+            this.interface.showLocalizedHint(this.board101, 'mancala_hint');
+        });
+        this.board101.on('release', () => this.world.move(this.board101.x, this.board101.y));
+
+        this.board103.on('out', () => {
+            this.interface.hideHint();
+            this.board103.setFrame('book/mancalaboard0001');
+        });
+        this.board103.on('over', () => {
+            this.interface.showLocalizedHint(this.board103, 'mancala_hint');
+        });
+        this.board103.on('release', () => this.world.move(this.board103.x, this.board103.y));
+
+        this.board104.on('out', () => {
+            this.interface.hideHint();
+            this.board104.setFrame('book/mancalaboard0001');
+        });
+        this.board104.on('over', () => {
+            this.interface.showLocalizedHint(this.board104, 'mancala_hint');
+        });
+        this.board104.on('release', () => this.world.move(this.board104.x, this.board104.y));
 
         let trigger1 = PressureTrigger.getComponent(this.chair1_trigger);
         trigger1.onActivate = this.updatePressState.bind(this);
