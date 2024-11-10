@@ -148,7 +148,7 @@ export default class Cleaner {
      * @param key The key of the resource.
      */
     freeResource(type: string, key: string): void {
-        logger.info('Unloading', type, key);
+        logger.debug('Unloading', type, key);
         switch (String(type)) {
             case 'animation':
                 this.app.unloadAnimation(key);

@@ -364,11 +364,11 @@ export class Airtower extends Phaser.Events.EventEmitter {
                 reject();
             });
             this.socket.on('message', packet => {
-                logger.info('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', packet);
+                logger.debug('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', packet);
                 this.emit('s:message', packet);
             });
             this.socket.onAnyOutgoing((event, op, d) => {
-                logger.info('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', { op, d });
+                logger.debug('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', { op, d });
             });
             this.socket.once('disconnect', (reason, description) => {
                 logger.info('Socket connection closed', { reason, description });
@@ -385,7 +385,6 @@ export class Airtower extends Phaser.Events.EventEmitter {
 
     send(event: string, data: any): void {
         if (this.isConnected()) {
-            logger.info('Sending', event, data);
             this.socket.send(event, data);
         } else throw new Error('Connection not yet established');
     }
