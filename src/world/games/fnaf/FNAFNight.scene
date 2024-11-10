@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Game",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/games/2013/fnaf/fnaf-pack.json"
+            "ClubPenguin/media/assets/world/games/fnaf/fnaf-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "FNAFNight",

@@ -570,7 +570,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
 
     preload(): void {
 
-        this.load.pack("fnaf-pack", "assets/world/games/2013/fnaf/fnaf-pack.json");
+        this.load.pack("fnaf-pack", "assets/world/games/fnaf/fnaf-pack.json");
     }
 
     editorCreate(): void {
