@@ -227,6 +227,7 @@ export class Actions {
             this._type = ActionType.IDLE;
             this.engine.players.testTriggers(this.player, true);
             this.player.emit('action:update', this);
+            this.player.emit('action:complete', this);
             return;
         }
 
@@ -250,6 +251,7 @@ export class Actions {
                 this._type = ActionType.IDLE;
                 this.engine.players.testTriggers(this.player, true);
                 this.player.emit('action:update', this);
+                this.player.emit('action:complete', this);
             },
             duration: (distance / this.player.spriteSpeed) * 1000
         });
