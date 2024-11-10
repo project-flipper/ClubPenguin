@@ -91,6 +91,19 @@
         },
         {
             "type": "Image",
+            "id": "ebb25b94-2c99-4042-a31e-a4102609a821",
+            "label": "mine_cavebg",
+            "texture": {
+                "key": "mine2013",
+                "frame": "mine/cavebg"
+            },
+            "x": 708.75,
+            "y": 123.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
             "id": "a74f4058-15c9-41d0-af07-fd92d59695d2",
             "label": "cavelit",
             "scope": "PUBLIC",
@@ -98,8 +111,8 @@
                 "key": "mine2013",
                 "frame": "mine/cave"
             },
-            "x": 708.19,
-            "y": 122.18,
+            "x": 708.75,
+            "y": 123.75,
             "originX": 0,
             "originY": 0
         },

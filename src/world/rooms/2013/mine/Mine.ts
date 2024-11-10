@@ -53,8 +53,12 @@ export default class Mine extends Phaser.Scene {
         cart.setOrigin(0, 0);
         cart.visible = false;
 
+        // mine_cavebg
+        const mine_cavebg = this.add.image(708.75, 123.75, "mine2013", "mine/cavebg");
+        mine_cavebg.setOrigin(0, 0);
+
         // cavelit
-        const cavelit = this.add.image(708.19, 122.18, "mine2013", "mine/cave");
+        const cavelit = this.add.image(708.75, 123.75, "mine2013", "mine/cave");
         cavelit.setOrigin(0, 0);
 
         // mine_bulb0001
