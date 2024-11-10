@@ -627,35 +627,35 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         // leftDoorButton
         const leftDoorButton = this.add.rectangle(25, 268, 62, 120);
         leftDoorButton.setOrigin(0, 0);
-        leftDoorButton.alpha = 0.01;
+        leftDoorButton.alpha = 0.0001;
         leftDoorButton.isFilled = true;
         officeView.add(leftDoorButton);
 
         // leftLightButton
         const leftLightButton = this.add.rectangle(25, 393, 62, 120);
         leftLightButton.setOrigin(0, 0);
-        leftLightButton.alpha = 0.01;
+        leftLightButton.alpha = 0.0001;
         leftLightButton.isFilled = true;
         officeView.add(leftLightButton);
 
         // rightDoorButton
         const rightDoorButton = this.add.rectangle(1519, 275, 62, 120);
         rightDoorButton.setOrigin(0, 0);
-        rightDoorButton.alpha = 0.01;
+        rightDoorButton.alpha = 0.0001;
         rightDoorButton.isFilled = true;
         officeView.add(rightDoorButton);
 
         // rightLightButton
         const rightLightButton = this.add.rectangle(1519, 398, 62, 120);
         rightLightButton.setOrigin(0, 0);
-        rightLightButton.alpha = 0.01;
+        rightLightButton.alpha = 0.0001;
         rightLightButton.isFilled = true;
         officeView.add(rightLightButton);
 
         // boop
         const boop = this.add.rectangle(671, 236, 16, 22);
         boop.setOrigin(0, 0);
-        boop.alpha = 0.01;
+        boop.alpha = 0.0001;
         boop.isFilled = true;
         officeView.add(boop);
 
@@ -1008,7 +1008,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
         this.flashingEvent = this.time.addEvent({
             callback: () => {
                 if (this.isGameOver) return;
-                if (Phaser.Math.RND.between(1, 30) <= 1) this.doFlashing();
+                if (Phaser.Math.RND.between(1, 1000) <= 1) this.doFlashing();
             },
             delay: 1000,
             repeat: -1
@@ -1074,15 +1074,15 @@ export default class FNAFNight extends Phaser.Scene implements Game {
 
         if (this.isLookingAtCameras && robotvoice) {
             if (this.currentCamera == Location.EAST_HALL_CORNER && this.chica.location == Location.EAST_HALL_CORNER) {
-                robotvoice.volume = Phaser.Math.Between(0.01, 1);
+                robotvoice.volume = Phaser.Math.Between(0.01, 0.81);
                 return;
             } else if (this.currentCamera == Location.WEST_HALL_CORNER && this.bonnie.location == Location.WEST_HALL_CORNER) {
-                robotvoice.volume = Phaser.Math.Between(0.01, 1);
+                robotvoice.volume = Phaser.Math.Between(0.01, 0.81);
                 return;
             }
         }
 
-        if ((this.chica.location == Location.EAST_HALL_CORNER || this.bonnie.location == Location.WEST_HALL_CORNER) && robotvoice) robotvoice.volume = Phaser.Math.Between(0.01, 0.26);
+        if ((this.chica.location == Location.EAST_HALL_CORNER || this.bonnie.location == Location.WEST_HALL_CORNER) && robotvoice) robotvoice.volume = Phaser.Math.Between(0.01, 0.21);
         else if (this.activeFlashing && robotvoice) robotvoice.volume = 1; 
         else if (robotvoice) robotvoice.volume = 0;
     }
