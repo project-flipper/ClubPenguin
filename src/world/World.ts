@@ -890,16 +890,28 @@ export default class World extends Phaser.Scene {
     @handle('message:create')
     async handleMessageCreate(data: Payloads['message:create']): Promise<void> {
         let author = this.engine.getPlayer(data.player_id);
-        if (author) {
-            if (data.type == 'TEXT') author.overlay.balloon.showMessage(data.message, false);
-            else if (data.type == 'EMOJI') author.overlay.balloon.showEmoji(data.emoji);
+        if (author && !this.isMyPlayer(author.userData)) {
+            let balloon = author.overlay.balloon;
+            if (data.type == 'TEXT') balloon.showMessage(data.message, false);
+            else if (data.type == 'EMOJI') balloon.showEmoji(data.emoji);
             else if (data.type == 'JOKE') {
                 let message = this.game.gameConfig.jokes[data.joke];
-                author.overlay.balloon.showMessage(message, true);
+                balloon.showMessage(message, true);
             }
             else logger.warn('Received unknown message type!', data);
 
-            author.overlay.balloon.setBanned(data.banned);
+            balloon.setBanned(data.banned);
+        } else if (author) {
+            let balloon = author.overlay.balloon;
+            if (data.type == 'TEXT') {
+                if (balloon.currentMessage == data.message) balloon.setBanned(data.banned);
+            } else if (data.type == 'EMOJI') {
+                if (balloon.currentEmoji == data.emoji) balloon.setBanned(data.banned);
+            } else if (data.type == 'JOKE') {
+                let message = this.game.gameConfig.jokes[data.joke];
+                if (balloon.currentMessage == message) balloon.setBanned(data.banned);
+            }
+            else logger.warn('Received unknown message type!', data);
         }
     }
 
