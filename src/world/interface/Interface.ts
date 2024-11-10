@@ -282,6 +282,26 @@ export default class Interface extends Phaser.Scene {
 
     public quickKeys = false;
 
+    public emoji0: Phaser.Input.Keyboard.KeyCombo;
+    public emoji1: Phaser.Input.Keyboard.KeyCombo;
+    public emoji2: Phaser.Input.Keyboard.KeyCombo;
+    public emoji3: Phaser.Input.Keyboard.KeyCombo;
+    public emoji4: Phaser.Input.Keyboard.KeyCombo;
+    public emoji5: Phaser.Input.Keyboard.KeyCombo;
+    public emoji6: Phaser.Input.Keyboard.KeyCombo;
+    public emoji7: Phaser.Input.Keyboard.KeyCombo;
+    public emoji8: Phaser.Input.Keyboard.KeyCombo;
+    public emoji9: Phaser.Input.Keyboard.KeyCombo;
+    public emojiF: Phaser.Input.Keyboard.KeyCombo;
+    public emojiG: Phaser.Input.Keyboard.KeyCombo;
+    public emojiH: Phaser.Input.Keyboard.KeyCombo;
+    public emojiP: Phaser.Input.Keyboard.KeyCombo;
+    public emojiM: Phaser.Input.Keyboard.KeyCombo;
+    public emojiL: Phaser.Input.Keyboard.KeyCombo;
+    public emojiC: Phaser.Input.Keyboard.KeyCombo;
+    public emojiT: Phaser.Input.Keyboard.KeyCombo;
+    public fullscreen: Phaser.Input.Keyboard.KeyCombo;
+
     create(data: any) {
 
         this.editorCreate();
@@ -293,24 +313,25 @@ export default class Interface extends Phaser.Scene {
             this.clearAvatarOverlays();
         });
 
-        this.input.keyboard.createCombo('e1', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('e2', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('e3', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('e4', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('e5', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('e6', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('e7', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('e8', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('e9', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('e0', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('ef', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('eg', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('eh', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('ep', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('em', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('el', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('ec', { resetOnWrongKey: true, resetOnMatch: true });
-        this.input.keyboard.createCombo('et', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji1 = this.input.keyboard.createCombo('e1', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji2 = this.input.keyboard.createCombo('e2', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji3 = this.input.keyboard.createCombo('e3', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji4 = this.input.keyboard.createCombo('e4', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji5 = this.input.keyboard.createCombo('e5', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji6 = this.input.keyboard.createCombo('e6', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji7 = this.input.keyboard.createCombo('e7', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji8 = this.input.keyboard.createCombo('e8', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji9 = this.input.keyboard.createCombo('e9', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emoji0 = this.input.keyboard.createCombo('e0', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emojiF = this.input.keyboard.createCombo('ef', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emojiG = this.input.keyboard.createCombo('eg', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emojiH = this.input.keyboard.createCombo('eh', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emojiP = this.input.keyboard.createCombo('ep', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emojiM = this.input.keyboard.createCombo('em', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emojiL = this.input.keyboard.createCombo('el', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emojiC = this.input.keyboard.createCombo('ec', { resetOnWrongKey: true, resetOnMatch: true });
+        this.emojiT = this.input.keyboard.createCombo('et', { resetOnWrongKey: true, resetOnMatch: true });
+        this.fullscreen = this.input.keyboard.createCombo([Phaser.Input.Keyboard.KeyCodes.CTRL, Phaser.Input.Keyboard.KeyCodes.SHIFT, Phaser.Input.Keyboard.KeyCodes.ENTER], { resetOnWrongKey: true, resetOnMatch: true });
 
         this.input.keyboard.on('keydown', this.keydownHandler, this);
         this.input.keyboard.on('keycombomatch', this.processEmojiCombo, this);
@@ -444,64 +465,66 @@ export default class Interface extends Phaser.Scene {
     processEmojiCombo(combo: Phaser.Input.Keyboard.KeyCombo): void {
         if (!this.canProcessInput) return;
 
-        switch (combo.keyCodes[1]) {
-            case 49:
+        switch (combo) {
+            case this.emoji1:
                 this.world.sendEmoji(Emoji.LAUGHING);
                 break;
-            case 50:
+            case this.emoji2:
                 this.world.sendEmoji(Emoji.HAPPY);
                 break;
-            case 51:
+            case this.emoji3:
                 this.world.sendEmoji(Emoji.INDIFFERENT);
                 break;
-            case 52:
+            case this.emoji4:
                 this.world.sendEmoji(Emoji.SAD);
                 break;
-            case 53:
+            case this.emoji5:
                 this.world.sendEmoji(Emoji.SURPRISED);
                 break;
-            case 54:
+            case this.emoji6:
                 this.world.sendEmoji(Emoji.POKING_OUT_TONGUE);
                 break;
-            case 55:
+            case this.emoji7:
                 this.world.sendEmoji(Emoji.WINKING);
                 break;
-            case 56:
+            case this.emoji8:
                 this.world.sendEmoji(Emoji.SICK);
                 break;
-            case 57:
+            case this.emoji9:
                 this.world.sendEmoji(Emoji.MAD);
                 break;
-            case 48:
+            case this.emoji0:
                 this.world.sendEmoji(Emoji.UPSET);
                 break;
-            case 70:
+            case this.emojiF:
                 this.world.sendEmoji(Emoji.FLOWER);
                 break;
-            case 71:
+            case this.emojiG:
                 this.world.sendEmoji(Emoji.CONTROLLER);
                 break;
-            case 72:
+            case this.emojiH:
                 this.world.sendEmoji(Emoji.HEART);
                 break;
-            case 80:
+            case this.emojiP:
                 this.world.sendEmoji(Emoji.PUFFLE);
                 break;
-            case 77:
+            case this.emojiM:
                 this.world.sendEmoji(Emoji.COIN);
                 break;
-            case 76:
+            case this.emojiL:
                 this.world.sendEmoji(Emoji.SHAMROCK);
                 break;
-            case 67:
+            case this.emojiC:
                 this.world.sendEmoji(Emoji.COFFEE);
                 break;
-            case 84:
+            case this.emojiT:
                 this.world.sendEmoji(Emoji.TOOT);
                 this.lastFart = this.game.now();
                 break;
+            case this.fullscreen:
+                this.game.scale.toggleFullscreen();
+                break;
         }
-
     }
 
     /**
