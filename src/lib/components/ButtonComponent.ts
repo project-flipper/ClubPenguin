@@ -79,7 +79,6 @@ export default class ButtonComponent {
     setup(): void {
         this.remove();
         let hitbox = this.hitbox;
-        console.log('Setting', hitbox.frame.name, 'as hitbox for', this.gameObject.frame.name, 'with handCursor', this.handCursor, 'and pixelPerfect', this.pixelPerfect);
         hitbox.setInteractive({ useHandCursor: this.handCursor, pixelPerfect: this.pixelPerfect });
 
         hitbox.on('pointerdown', this.onPointerDown, this);
