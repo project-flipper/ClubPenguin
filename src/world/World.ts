@@ -473,7 +473,7 @@ export default class World extends Phaser.Scene {
      */
     sitUpLeft(): void {
         let player = this.engine.player;
-        let to = player.actions.getDirectionVector(Direction.LEFT);
+        let to = player.actions.getDirectionVector(Direction.UP_LEFT);
         this.sit(to.x, to.y);
     }
 
