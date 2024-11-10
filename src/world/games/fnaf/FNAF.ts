@@ -13,6 +13,7 @@ import Load from "@clubpenguin/load/Load";
 import { Engine, Game } from "@clubpenguin/world/engine/engine";
 import World from "@clubpenguin/world/World";
 import FNAFNight from "./FNAFNight";
+import Interface from "@clubpenguin/world/interface/Interface";
 /* END-USER-IMPORTS */
 
 export default class FNAF extends Phaser.Scene implements Game {
@@ -447,6 +448,10 @@ export default class FNAF extends Phaser.Scene implements Game {
 
     get world(): World {
         return this.scene.get('World') as World;
+    }
+
+    get interface(): Interface {
+        return this.scene.get('Interface') as Interface;
     }
 
     get loadScreen(): Load {

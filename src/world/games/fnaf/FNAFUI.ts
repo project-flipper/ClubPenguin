@@ -473,7 +473,9 @@ export default class FNAFUI extends Phaser.Scene {
             else this.flipCamerasUp();
         });
 
-        this.close.on('release', () => this.fnaf.endGame());
+        this.close.on('release', () => {
+            this.fnaf.fnaf.interface.promptQuestion.showLocalized('quit_game_prompt', () => this.fnaf.endGame(), () => {});
+        });
 
         this.cam1a.setInteractive();
         this.cam1a.on('pointerdown', () => {
