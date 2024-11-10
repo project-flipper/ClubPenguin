@@ -112,7 +112,9 @@ export default class World extends Phaser.Scene {
         this.myUser = myUser;
         this.inventory = []; // TODO: Request inventory
         for (let i in this.game.gameConfig.paper_items) {
-            this.inventory.push(this.game.gameConfig.paper_items[i].paper_item_id);
+            let paper_item = this.game.gameConfig.paper_items[i];
+            if (paper_item.is_bait) continue;
+            this.inventory.push(paper_item.paper_item_id);
         }
 
         this.postload();
