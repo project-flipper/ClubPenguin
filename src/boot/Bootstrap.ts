@@ -188,6 +188,7 @@ export default class Bootstrap extends Phaser.Scene {
 
         this.load.pack("app-pack", "assets/app/app-pack.json");
         this.load.pack("font-library", "assets/lib/fonts/font-library.json");
+        this.load.pack("web-fonts", "assets/lib/fonts/web-fonts.json");
         this.scene.run('Logo', {
             oninit: (scene: Phaser.Scene) => load.track(new LoaderTask('Logo loader', scene.load))
         });

@@ -67,3 +67,59 @@ export class LoaderPlugin extends Phaser.Loader.LoaderPlugin {
         return false;
     }
 }
+
+export type FontFaceFileConfig = Phaser.Types.Loader.FileConfig & {
+    family: string,
+    cache: Phaser.Cache.BaseCache
+};
+
+/**
+ * A custom file loader for fonts.
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/FontFace
+ */
+export class FontFaceFile extends Phaser.Loader.File {
+    public family: string;
+
+    constructor(loader: Phaser.Loader.LoaderPlugin, key: FontFaceFileConfig);
+    constructor(loader: Phaser.Loader.LoaderPlugin, key: string, url: string, family: string, xhrSettings: Phaser.Types.Loader.XHRSettingsObject);
+    constructor(loader: Phaser.Loader.LoaderPlugin, key: string | FontFaceFileConfig, url?: string, family?: string, xhrSettings?: Phaser.Types.Loader.XHRSettingsObject) {
+        let type = 'fontFace';
+        let extension = 'ttf';
+
+        if (typeof key === 'object') {
+            let config = key;
+            key = config.key;
+            family = config.family;
+            url = config.url as string;
+            xhrSettings = config.xhrSettings !== false ? config.xhrSettings : undefined;
+        }
+
+        let fileConfig: FontFaceFileConfig = {
+            type,
+            key,
+            url,
+            family,
+            extension,
+            responseType: 'arraybuffer',
+            cache: loader.cacheManager.binary,
+            xhrSettings
+        };
+        super(loader, fileConfig);
+
+        this.family = family;
+    }
+
+    onProcess(): void {
+        this.state = Phaser.Loader.FILE_PROCESSING;
+
+        let font = new FontFace(this.family, this.xhrLoader.response as ArrayBuffer);
+        font.load().then(() => {
+            this.onProcessComplete();
+            document.fonts.add(font);
+        }).catch(e => {
+            this.onProcessError();
+
+            logger.error(`Failed to load font ${this.key} from ${this.url}`, e);
+        });
+    }
+}

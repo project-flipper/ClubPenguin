@@ -1,8 +1,14 @@
 import "phaser";
 import "devtools-detect";
 
-if ('Phaser' in global) delete global['Phaser'];
+if ('Phaser' in global && !__webpack_options__.EXPOSE_DEBUG) delete global['Phaser'];
 Phaser.Plugins.PluginCache.register('Loader', LoaderPlugin, 'load');
+Phaser.Loader.FileTypesManager.register('fontFace', function (this: LoaderPlugin, key: string | FontFaceFileConfig | FontFaceFileConfig[], url?: string, family?: string, xhrSettings?: Phaser.Types.Loader.XHRSettingsObject): LoaderPlugin {
+    if (Array.isArray(key)) for (let i of key) this.addFile(new FontFaceFile(this, i));
+    else if (typeof key == 'string') this.addFile(new FontFaceFile(this, key, url, family, xhrSettings));
+    else this.addFile(new FontFaceFile(this, key));
+    return this;
+});
 
 import { App } from "@clubpenguin/app/app";
 import Bootstrap from "@clubpenguin/boot/Bootstrap";
@@ -18,7 +24,7 @@ import Logo from "@clubpenguin/logo/Logo";
 import World from "@clubpenguin/world/World";
 import Interface from "@clubpenguin/world/interface/Interface";
 import { Debug } from "@clubpenguin/debug";
-import { LoaderPlugin } from "@clubpenguin/app/loader";
+import { LoaderPlugin, FontFaceFile, FontFaceFileConfig } from "@clubpenguin/app/loader";
 import { ColorLevelFormatter, getLogger, LogLevel } from "@clubpenguin/lib/log";
 
 let logger = getLogger('CP');
