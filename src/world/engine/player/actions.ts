@@ -1,7 +1,7 @@
 import { Direction, DirectionQuarters, getAngle, getDirection, getDirectionQuarters, roundTo } from "@clubpenguin/lib/math";
 import World from "@clubpenguin/world/World";
 import { Engine, logger } from "../engine";
-import { Player } from "./avatar";
+import { Player, PlayerLoadingState } from "./avatar";
 import { ActionData, ActionType } from "@clubpenguin/net/types/action";
 import { AnimationFrame } from "./animationFrame";
 
@@ -256,12 +256,12 @@ export class Actions {
         this.player.emit('action:update', this);
     }
 
-    teleport(x: number, y: number, testTriggers = true): void {
+    teleport(x: number, y: number, testTriggers = true, prohibitRoomJoin = false): void {
         this.player.setPosition(x, y);
         this.player.depth = this.player.y + 1;
         this.player.overlay.setPosition(this.player.x, this.player.y);
         this.player.overlay.depth = this.player.depth;
-        if (testTriggers) this.engine.players.testTriggers(this.player, true);
+        if (testTriggers) this.engine.players.testTriggers(this.player, true, x, y, prohibitRoomJoin || this.player.loadingState != PlayerLoadingState.READY);
     }
 
     /**
@@ -302,18 +302,19 @@ export class Actions {
     /**
      * Sets the player's action data.
      * @param data The action data to set.
+     * @param prohibitJoinRoom Whether to prohibit the player from joining a room.
      */
-    set(data: ActionData): void {
+    set(data: ActionData, prohibitJoinRoom = false): void {
         switch (data.type) {
             case ActionType.IDLE:
                 this.stopMoving();
-                if (data.x && data.y) this.teleport(data.x, data.y);
+                if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
                 this.player.playAnimation(AnimationFrame.IDLE_DOWN + (data.to_x != null && data.to_y != null ? this.getDirection(data.to_x, data.to_y) : 0));
                 break;
             case ActionType.WADDLE:
                 this.stopMoving();
 
-                if (data.x && data.y) this.teleport(data.x, data.y, false);
+                if (data.x && data.y) this.teleport(data.x, data.y, false, prohibitJoinRoom);
                 this.move(data.to_x, data.to_y);
                 if (data.since) {
                     // Server sync
@@ -323,22 +324,22 @@ export class Actions {
                 break;
             case ActionType.SIT:
                 this.stopMoving();
-                if (data.x && data.y) this.teleport(data.x, data.y);
+                if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
                 this.player.playAnimation(AnimationFrame.SIT_DOWN + (data.to_x != null && data.to_y != null ? this.getDirection(data.to_x, data.to_y) : 0));
                 break;
             case ActionType.WAVE:
                 this.stopMoving();
-                if (data.x && data.y) this.teleport(data.x, data.y);
+                if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
                 this.player.playAnimation(AnimationFrame.WAVE);
                 break;
             case ActionType.DANCE:
                 this.stopMoving();
-                if (data.x && data.y) this.teleport(data.x, data.y);
+                if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
                 this.player.playAnimation(AnimationFrame.DANCE);
                 break;
             case ActionType.THROW:
                 this.stopMoving();
-                if (data.x && data.y) this.teleport(data.x, data.y);
+                if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
                 this.throw(data.to_x, data.to_y);
                 break;
             default:

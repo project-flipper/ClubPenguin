@@ -31,7 +31,7 @@ export class PlayerManager {
             if (player.loadingState == PlayerLoadingState.READY) player.actions.reset();
         });
         this.engine.on('clothing:ready', (player: Player) => {
-            player.actions.set(player.actions.get());
+            player.actions.set(player.actions.get(), true);
         });
         this.engine.on('room:unload', () => {
             this.players = {};
@@ -231,7 +231,7 @@ export class PlayerManager {
         this.engine.currentRoom.add.existing(player);
 
         this.players[player.userData.id] = player;
-        this.testTriggers(player, true, undefined, undefined, true);
+        this.testTriggers(player, true, NaN, NaN, true);
 
         this.engine.emit('player:add', player);
         return player;
