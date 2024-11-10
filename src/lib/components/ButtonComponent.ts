@@ -11,13 +11,14 @@ export default class ButtonComponent {
 
         /* START-USER-CTR-CODE */
 
-        this.setup();
+        this.hitbox = gameObject;
 
         /* END-USER-CTR-CODE */
 
         // custom definition props
         this.handCursor = false;
         this.pixelPerfect = false;
+        this.hitbox;
     }
 
     static getComponent(gameObject: Phaser.GameObjects.Image): ButtonComponent {
@@ -31,15 +32,29 @@ export default class ButtonComponent {
 
     /* START-USER-CODE */
 
+    private _hitbox: Phaser.GameObjects.Image;
     private _handCursor: boolean;
     private _pixelPerfect: boolean;
+
+    get hitbox(): Phaser.GameObjects.Image {
+        return this._hitbox;
+    }
+
+    set hitbox(val: Phaser.GameObjects.Image) {
+        if (this.hitbox) this.remove();
+        this._hitbox = val;
+        this.setup();
+    }
 
     get handCursor(): boolean {
         return this._handCursor;
     }
 
     set handCursor(val: boolean) {
-        this.gameObject.scene.input.setHitArea(this.gameObject, { useHandCursor: val });
+        let hitbox = this.hitbox;
+        if (!hitbox.input) this.setup();
+        else hitbox.scene.input.setHitArea(hitbox, { useHandCursor: val });
+        this._handCursor = val;
     }
 
     get pixelPerfect(): boolean {
@@ -47,22 +62,40 @@ export default class ButtonComponent {
     }
 
     set pixelPerfect(val: boolean) {
-        if (val) {
-            let callback = this.gameObject.scene.input.makePixelPerfect() as Phaser.Types.Input.HitAreaCallback;
-            this.gameObject.input.hitArea = {};
-            this.gameObject.input.hitAreaCallback = callback;
-        } else this.gameObject.scene.input.setHitAreaFromTexture(this.gameObject);
+        let hitbox = this.hitbox;
+        if (!hitbox.input) this.setup();
+        else {
+            if (val) {
+                let callback = hitbox.scene.input.makePixelPerfect() as Phaser.Types.Input.HitAreaCallback;
+                hitbox.input.hitArea = {};
+                hitbox.input.hitAreaCallback = callback;
+            } else hitbox.scene.input.setHitAreaFromTexture(hitbox);
 
-        this.gameObject.input.customHitArea = val;
+            hitbox.input.customHitArea = val;
+        }
+        this._pixelPerfect = val;
     }
 
     setup(): void {
-        this.gameObject.setInteractive({ useHandCursor: this.handCursor, pixelPerfect: this.pixelPerfect });
+        this.remove();
+        let hitbox = this.hitbox;
+        console.log('Setting', hitbox.frame.name, 'as hitbox for', this.gameObject.frame.name, 'with handCursor', this.handCursor, 'and pixelPerfect', this.pixelPerfect);
+        hitbox.setInteractive({ useHandCursor: this.handCursor, pixelPerfect: this.pixelPerfect });
 
-        this.gameObject.on('pointerdown', this.onPointerDown, this);
-        this.gameObject.on('pointerup', this.onPointerUp, this);
-        this.gameObject.on('pointerover', this.onPointerOver, this);
-        this.gameObject.on('pointerout', this.onPointerOut, this);
+        hitbox.on('pointerdown', this.onPointerDown, this);
+        hitbox.on('pointerup', this.onPointerUp, this);
+        hitbox.on('pointerover', this.onPointerOver, this);
+        hitbox.on('pointerout', this.onPointerOut, this);
+    }
+
+    remove(): void {
+        let hitbox = this.hitbox;
+        hitbox.removeInteractive();
+
+        hitbox.off('pointerdown', this.onPointerDown, this);
+        hitbox.off('pointerup', this.onPointerUp, this);
+        hitbox.off('pointerover', this.onPointerOver, this);
+        hitbox.off('pointerout', this.onPointerOut, this);
     }
 
     wasOnCanvas(pointer: Phaser.Input.Pointer): boolean {

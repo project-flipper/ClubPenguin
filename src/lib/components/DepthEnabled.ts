@@ -13,7 +13,7 @@ export default class DepthEnabled {
         (gameObject as any)["__DepthEnabled"] = this;
 
         /* START-USER-CTR-CODE */
-
+        // Write your code here.
         /* END-USER-CTR-CODE */
 
         // custom definition props

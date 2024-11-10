@@ -56,6 +56,17 @@
                     "type": {
                         "id": "boolean"
                     }
+                },
+                {
+                    "name": "hitbox",
+                    "label": "Hitbox",
+                    "tooltip": "The hitbox to use for this button component. Defaults to this gameobject.",
+                    "defValue": "",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "object-var",
+                        "expressionType": "Phaser.GameObjects.GameObject"
+                    }
                 }
             ]
         },
