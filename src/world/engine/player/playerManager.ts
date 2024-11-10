@@ -271,11 +271,13 @@ export class PlayerManager {
      * @param finishedMoving Whether the player has finished moving.
      * @param x The x-coordinate to test triggers at.
      * @param y The y-coordinate to test triggers at.
-     * @param prohibitJoinRoom Whether to prohibit the player from joining a room.
+     * @param prohibitJoinRoom Whether to prohibit the player from joining a room. This will be overriden if the player is not ready.
      */
     testTriggers(player: Player, finishedMoving: boolean, x?: number, y?: number, prohibitJoinRoom = false): void {
         x = x ?? player.x;
         y = y ?? player.y;
+
+        prohibitJoinRoom = prohibitJoinRoom || player.loadingState != PlayerLoadingState.READY;
 
         let scene = player.scene as Room;
         let triggers = 'triggers' in scene ? scene.triggers : [];
