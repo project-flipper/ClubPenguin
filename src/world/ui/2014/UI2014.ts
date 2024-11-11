@@ -481,6 +481,7 @@ export default class UI2014 extends Phaser.GameObjects.Layer implements UI {
         });
         this.settingsButton.on('release', () => {
             this.scene.hideHint();
+            this.scene.loadContent(async () => (await import('@clubpenguin/world/content/help/Help')).default);
         });
 
         this.scene.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
