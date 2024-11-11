@@ -262,7 +262,6 @@ export class PlayerManager {
         if (player.overlay) player.overlay.destroy();
         player.destroy();
         delete this.players[player.userData.id];
-
     }
 
     /**
@@ -279,10 +278,7 @@ export class PlayerManager {
 
         prohibitJoinRoom = prohibitJoinRoom || player.loadingState != PlayerLoadingState.READY;
 
-        let scene = player.scene as Room;
-        let triggers = 'triggers' in scene ? scene.triggers : [];
-
-        for (let trigger of triggers) {
+        for (let trigger of this.engine.triggers) {
             let genericTrigger = Trigger.getComponent(trigger);
             if (genericTrigger && finishedMoving && genericTrigger.test(x, y)) genericTrigger.execute(this.engine, player);
 
