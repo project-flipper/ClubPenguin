@@ -59,13 +59,15 @@ export class MusicManager {
     }
 
     set muted(value: boolean) {
+        if (this._musicMuted == value) return;
         this._musicMuted = value;
-        if (this.currentMusicId) {
-            let key = `music-${this.currentMusicId}`;
-            if (value) {
-                this.world.sound.stopByKey(key);
-            } else if (!this.world.load.cacheManager.audio.has(key)) {
-                this.world.sound.play(key, { loop: true });
+        let id = this.currentMusicId;
+        if (id) {
+            let key = `music-${id}`;
+            if (value) this.world.sound.removeByKey(key);
+            else {
+                this.stop();
+                this.play(id);
             }
         }
     }
@@ -76,7 +78,7 @@ export class MusicManager {
     stop(): void {
         if (this.currentMusicId) {
             let key = `music-${this.currentMusicId}`;
-            this.world.sound.stopByKey(key);
+            this.world.sound.removeByKey(key);
             this.currentMusicId = undefined;
         }
     }
