@@ -28,6 +28,7 @@ import { Player } from "./player/avatar";
 import { PlayerManager } from "./player/playerManager";
 import { SnowballManager } from "./snowballs/snowballManager";
 import WaddleTrigger from "@clubpenguin/lib/components/WaddleTrigger";
+import { MaximumConcurrency } from "@clubpenguin/lib/concurrent";
 
 export let logger = getLogger('CP.world.engine');
 
@@ -64,6 +65,9 @@ export class Engine extends EventEmitter {
     public clothing: ClothingManager;
     public snowballs: SnowballManager;
 
+    public roomConcurrency: MaximumConcurrency<void>;
+    public gameConcurrency: MaximumConcurrency<void>;
+
     constructor(world: World) {
         super();
 
@@ -75,6 +79,9 @@ export class Engine extends EventEmitter {
         this.players = new PlayerManager(this);
         this.clothing = new ClothingManager(this);
         this.snowballs = new SnowballManager(this);
+
+        this.roomConcurrency = new MaximumConcurrency(1);
+        this.gameConcurrency = new MaximumConcurrency(1);
     }
 
     get app(): App {
@@ -322,8 +329,6 @@ export class Engine extends EventEmitter {
             component.handCursor = true;
             component.pixelPerfect = true;
 
-            let paper = this.app.gameConfig.paper_items[config.pin_id];
-
             pin.on('release', () => this.world.buyItem(config.pin_id, true));
         }
 
@@ -379,7 +384,9 @@ export class Engine extends EventEmitter {
         try {
             await this.loadRoom(config);
         } catch (e) {
-            if (this.currentRoom == undefined && this.previousRoomId) {
+            this.unloadRoom();
+
+            if (this.previousRoomId) {
                 try {
                     await this.world.joinRoom(this.previousRoomId, this.previousPlayerX, this.previousPlayerY);
                 } catch (ne) {
@@ -399,6 +406,8 @@ export class Engine extends EventEmitter {
 
             load.hide();
             logger.error('Room failed to load', e);
+
+            throw e;
         }
 
         logger.debug('Setting up room');
@@ -441,6 +450,17 @@ export class Engine extends EventEmitter {
         this.interface.show();
         load.hide();
         this.emit('room:ready', this.currentRoom);
+    }
+
+    /**
+     * Queues a room join with the specified configuration and players.
+     * If there are any rooms in the queue, it clears the queue and joins the room.
+     * @param config The configuration for the room to join.
+     * @param players The array of player data to add to the room.
+     */
+    queueRoomJoin(config: RoomConfig, players: PlayerData[]): Promise<void> {
+        if (this.roomConcurrency.inQueue > 0) this.roomConcurrency.clear('Room operation outdated');
+        return this.roomConcurrency.run(async () => this.joinRoom(config, players));
     }
 
     /**
@@ -610,6 +630,8 @@ export class Engine extends EventEmitter {
                 }
             }
 
+            this.unloadGame();
+
             let error = this.world.scene.get('ErrorArea') as ErrorArea;
             error.show(error.createError({
                 message: 'shell.GAME_FULL',
@@ -622,10 +644,23 @@ export class Engine extends EventEmitter {
 
             load.hide();
             logger.error('Game failed to load', e);
+
+            throw e;
         }
 
         if (!isWidgetLike) this.interface.hide();
         this.emit('game:ready', this.currentGame);
+    }
+
+    /**
+     * Queues a game start with the provided configuration and options.
+     * If there are any games in the queue, it clears the queue and starts the game.
+     * @param config The configuration for the game to start.
+     * @param options The options for the game.
+     */
+    async queueGameStart(config: GameConfig, options?: any): Promise<void> {
+        if (this.gameConcurrency.inQueue > 0) this.gameConcurrency.clear('Game operation outdated');
+        return this.gameConcurrency.run(() => this.startGame(config, options));
     }
 
     /**

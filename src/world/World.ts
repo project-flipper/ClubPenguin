@@ -810,7 +810,8 @@ export default class World extends Phaser.Scene {
         let roomData = this.game.gameConfig.rooms[data.room_id];
 
         if (roomData) {
-            await this.engine.joinRoom(roomData, data.players);
+            await this.engine.queueRoomJoin(roomData, data.players);
+
             for (let player of data.players) this.updateUser(player.user, false);
             for (let waddleData of data.waddles) {
                 let waddle = this.engine.getWaddle(waddleData.waddle_id);
@@ -876,7 +877,7 @@ export default class World extends Phaser.Scene {
             this.postGameRoomId = undefined;
             this.showGameOverAfterRoomReady = false;
 
-            await this.engine.startGame(gameData, this.gameStartParams);
+            await this.engine.queueGameStart(gameData, this.gameStartParams);
         } else {
             logger.warn('Game not found', data.game_id);
         }
