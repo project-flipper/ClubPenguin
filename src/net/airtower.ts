@@ -361,7 +361,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
                 logger.error('Socket connection closed due to an error', error);
                 this.emit('s:error');
                 this.socket = undefined;
-                reject();
+                reject(error);
             });
             this.socket.on('message', packet => {
                 logger.debug('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', packet);
@@ -374,7 +374,7 @@ export class Airtower extends Phaser.Events.EventEmitter {
                 logger.info('Socket connection closed', { reason, description });
                 this.emit('s:disconnect', reason, description);
                 this.socket = undefined;
-                reject();
+                reject(new Error(`${reason}: ${description}`));
             });
         });
     }

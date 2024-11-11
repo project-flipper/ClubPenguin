@@ -307,7 +307,9 @@ export default class Login extends Phaser.Scene {
 
         let { ok } = await error.shield(this.game.airtower.connect(world.url), e => {
             load.hide();
+            console.error(e);
             return { message: 'shell.NO_SOCKET_CONNECTION', type: 'c', code: error.NO_SOCKET_CONNECTION};
+            // return { message: 'shell.CONNECTION_TIMEOUT', type: 'c', code: error.CONNECTION_TIMEOUT};
         });
 
         if (!ok) return;
