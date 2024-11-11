@@ -22,15 +22,14 @@ import { AnyUserData, MyUserData, UserData } from "@clubpenguin/net/types/user";
 import { Engine } from "@clubpenguin/world/engine/engine";
 import { App } from "@clubpenguin/app/app";
 import { RelationshipType } from "@clubpenguin/net/types/relationship";
-import { ActionData, ActionType } from "@clubpenguin/net/types/action";
 import { getLogger } from "@clubpenguin/lib/log";
-import { ClientAcks, ClientPayload, ClientPayloads, Payload, Payloads } from "@clubpenguin/net/types/payload";
+import { ClientPayloads, Payload, Payloads } from "@clubpenguin/net/types/payload";
 import { Emoji } from "@clubpenguin/net/types/message";
 import ErrorArea, { CPError } from "@clubpenguin/app/ErrorArea";
 import { WorldData } from "@clubpenguin/net/types/world";
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { ItemType } from "./engine/clothing/itemType";
-import { Direction, roundTo } from "@clubpenguin/lib/math";
+import { Direction } from "@clubpenguin/lib/math";
 
 export let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
@@ -71,6 +70,7 @@ export default class World extends Phaser.Scene {
         return this.scene.get('Load') as Load;
     }
 
+    public worldData: WorldData;
     public worldId: number;
     public myUser: MyUserData;
     public inventory: number[];
@@ -81,6 +81,7 @@ export default class World extends Phaser.Scene {
     }
 
     create(data: WorldData): void {
+        this.worldData = data;
         this.worldId = data.id;
 
         this.editorCreate();
