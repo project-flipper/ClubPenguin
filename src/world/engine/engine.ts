@@ -65,8 +65,8 @@ export class Engine extends EventEmitter {
     public clothing: ClothingManager;
     public snowballs: SnowballManager;
 
-    public roomConcurrency: MaximumConcurrency<void>;
-    public gameConcurrency: MaximumConcurrency<void>;
+    public roomConcurrency: MaximumConcurrency;
+    public gameConcurrency: MaximumConcurrency;
 
     constructor(world: World) {
         super();
