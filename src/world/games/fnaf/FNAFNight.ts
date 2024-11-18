@@ -1528,15 +1528,21 @@ export default class FNAFNight extends Phaser.Scene implements Game {
     startRandomFreddyJumpscare(): void {
         if (!this.randomFreddyJumpscare) this.randomFreddyJumpscare = this.time.addEvent({
             callback: () => {
-                if (Phaser.Math.RND.between(1, 4) <= 1 && !this.isPowerOut) {
+                if (Phaser.Math.RND.between(1, 4) <= 1 && !this.isPowerOut && !this.isLookingAtCameras) {
                     this.showJumpscare(this.freddy);
-                    this.randomFreddyJumpscare.remove();
-                    this.randomFreddyJumpscare = undefined;
+                    this.stopRandomFreddyJumpscare();
                 }
             },
             delay: 1000,
             repeat: -1
         });
+    }
+
+    stopRandomFreddyJumpscare(): void {
+        if (this.randomFreddyJumpscare) {
+            this.randomFreddyJumpscare.remove();
+            this.randomFreddyJumpscare = undefined;
+        }
     }
 
     public animatronicToJumpscare: Animatronic;
@@ -1724,6 +1730,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
 
         this.events.off('camera:state', this.jumpscareOnCameraFlip, this);
         this.events.off('camera:state', this.startRandomFreddyJumpscare, this);
+        this.stopRandomFreddyJumpscare();
         this.showOffice();
         this.sound.play('fnaf-ambience2', { loop: true, volume: 0.5 });
 
