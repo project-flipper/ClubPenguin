@@ -262,9 +262,12 @@ export class PlayerManager {
 
         if (player.overlay) player.overlay.destroy();
 
-        for (let resKey of this.engine.cleaner.playersUsingResources[player.userData.id]) {
-            let [type, key] = this.engine.cleaner.fromKey(resKey);
-            this.engine.cleaner.deallocateResource(type, key, player.userData.id);
+        let cleaner = this.engine.cleaner;
+        if (player.userData.id in cleaner.playersUsingResources) {
+            for (let resKey of cleaner.playersUsingResources[player.userData.id]) {
+                let [type, key] = cleaner.fromKey(resKey);
+                cleaner.deallocateResource(type, key, player.userData.id);
+            }
         }
 
         player.destroy();
