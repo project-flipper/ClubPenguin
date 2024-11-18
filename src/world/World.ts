@@ -145,8 +145,49 @@ export default class World extends Phaser.Scene {
         this.game.friends.connect(this.myUser.id.toString(), friends, characters, true, true, friendList.length > 10, false);
 
         await this.spawnRoom();
+        this.startInactivityTimer();
     }
 
+    public inactivityTimer: Phaser.Time.TimerEvent;
+    public inactivityTimeoutMs = 1000 * 60 * 10;
+
+    /**
+     * Starts the inactivity timer, which disconnects the player from the world if no activity is detected.
+     * 
+     * By default, the inactivity timeout is set to 10 minutes but can be adjusted by changing the {@link inactivityTimeoutMs} property.
+     */
+    startInactivityTimer(): void {
+        this.stopInactivityTimer();
+        this.inactivityTimer = this.time.addEvent({
+            delay: this.inactivityTimeoutMs,
+            callback: () => {
+                this.game.airtower.disconnect(1000, 'Inactivity timeout');
+            }
+        });
+    }
+
+    /**
+     * Resets the inactivity timer by restarting it.
+     * 
+     * If the inactivity timer is not set, this method does nothing.
+     */
+    resetInactivityTimer(): void {
+        if (this.inactivityTimer) this.startInactivityTimer();
+    }
+
+    /**
+     * Stops the inactivity timer.
+     */
+    stopInactivityTimer(): void {
+        if (this.inactivityTimer) {
+            this.inactivityTimer.destroy();
+            this.inactivityTimer = undefined;
+        }
+    }
+
+    /**
+     * Stops the world by disconnecting from the world server and stopping the engine and interface.
+     */
     stop(): void {
         this.game.airtower.disconnect(1000, 'Disconnecting from world');
         this.isActive = false;
