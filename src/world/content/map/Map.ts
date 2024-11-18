@@ -1130,9 +1130,6 @@ export default class Map extends Phaser.Scene implements Content {
     public hidesInterface = true;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-        this.scene.moveAbove('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 

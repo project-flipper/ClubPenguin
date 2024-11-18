@@ -281,9 +281,6 @@ export default class Help extends Phaser.Scene implements Content {
     }
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-        this.scene.moveAbove('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 
