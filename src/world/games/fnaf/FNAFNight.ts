@@ -1605,7 +1605,7 @@ export default class FNAFNight extends Phaser.Scene implements Game {
     }
 
     showJumpscare(animatronic: Animatronic): void {
-        if (this.isGameOver) return;
+        if (this.isGameOver || (this.isPowerOut && animatronic != this.freddy)) return;
         if (this.isLookingAtCameras) this.showOffice();
 
         this.isGameLocked = true;
