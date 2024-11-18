@@ -374,7 +374,7 @@ export default class UI2014 extends Phaser.GameObjects.Layer implements UI {
         this.playerNamecard.paperdoll.mask = mask;
 
         this.snowballCrosshair.on('release', () => {
-            this.scene.world.throwSnowball(this.snowballCrosshair.x, this.snowballCrosshair.y);
+            if (!this.scene.engine.player.actions.isMoving) this.scene.world.throwSnowball(this.snowballCrosshair.x, this.snowballCrosshair.y);
             this.snowballCrosshair.visible = false;
         });
 

@@ -215,6 +215,8 @@ export class Engine extends EventEmitter {
      * @param pointer The pointer that triggered the event.
      */
     playerPointerUpHandler(pointer: Phaser.Input.Pointer): void {
+        this.world.resetInactivityTimer();
+
         let player = this.player;
         if (!player) return;
 

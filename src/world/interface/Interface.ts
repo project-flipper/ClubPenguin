@@ -405,21 +405,22 @@ export default class Interface extends Phaser.Scene {
         if (!this.canProcessInput) return;
 
         let handled = false;
+        let moving = this.world.engine.player.actions.isMoving;
         switch (event.key) {
             case 'ArrowDown':
-                this.world.sitDown();
+                if (!moving) this.world.sitDown();
                 handled = true;
                 break;
             case 'ArrowLeft':
-                this.world.sitLeft();
+                if (!moving) this.world.sitLeft();
                 handled = true;
                 break;
             case 'ArrowUp':
-                this.world.sitUp();
+                if (!moving) this.world.sitUp();
                 handled = true;
                 break;
             case 'ArrowRight':
-                this.world.sitRight();
+                if (!moving) this.world.sitRight();
                 handled = true;
                 break;
             case 'Enter':
@@ -427,15 +428,15 @@ export default class Interface extends Phaser.Scene {
                 handled = true;
                 break;
             case 'w':
-                this.world.wave();
+                if (!moving) this.world.wave();
                 handled = true;
                 break;
             case 's':
-                this.world.sit(this.input.activePointer.worldX, this.input.activePointer.worldY);
+                if (!moving) this.world.sit(this.input.activePointer.worldX, this.input.activePointer.worldY);
                 handled = true;
                 break;
             case 'd':
-                this.world.dance();
+                if (!moving) this.world.dance();
                 handled = true;
                 break;
             case 't':
@@ -460,6 +461,8 @@ export default class Interface extends Phaser.Scene {
                 break;
         }
         if (handled) {
+            this.world.resetInactivityTimer();
+    
             event.preventDefault();
             event.stopPropagation();
         }
@@ -471,6 +474,8 @@ export default class Interface extends Phaser.Scene {
      */
     processEmojiCombo(combo: Phaser.Input.Keyboard.KeyCombo): void {
         if (!this.canProcessInput) return;
+
+        this.world.resetInactivityTimer();
 
         switch (combo) {
             case this.emoji1:
@@ -544,6 +549,8 @@ export default class Interface extends Phaser.Scene {
 
         let message = this.ui.chatValue;
         if (message.length > 0) {
+            this.world.resetInactivityTimer();
+    
             this.world.sendMessage(message);
             this.ui.chatValue = '';
         }

@@ -267,6 +267,13 @@ export class Actions {
     }
 
     /**
+     * Checks if the player is currently moving.
+     */
+    get isMoving(): boolean {
+        return this.moveTween && this.moveTween.isPlaying();
+    }
+
+    /**
      * Stops the player from moving.
      */
     stopMoving(): void {
