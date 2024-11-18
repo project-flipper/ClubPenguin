@@ -1,6 +1,6 @@
 enum Floor {
     ROOF,
-    GYM,
+    SPA,
     LOBBY
 }
 
@@ -338,7 +338,7 @@ export default class HotelElevator extends Phaser.Scene implements Content {
         });
         this.gym.on('release', () => {
             this.sound.play('hotelelevator-ring');
-            this.targetFloor = Floor.GYM;
+            this.targetFloor = Floor.SPA;
             if (!this.goTo) this.goTo = this.time.delayedCall(500, () => this.goToFloor());
         });
         this.lobby.on('release', () => {
@@ -359,7 +359,7 @@ export default class HotelElevator extends Phaser.Scene implements Content {
             case Floor.ROOF:
                 this.world.joinRoom(432, 148.5, 573.75);
                 break;
-            case Floor.GYM:
+            case Floor.SPA:
                 this.world.joinRoom(431, 112.5, 474.75);
                 break;
             case Floor.LOBBY:
