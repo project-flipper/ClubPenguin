@@ -56,7 +56,7 @@ export default class Book extends Phaser.Scene implements Room {
 
         // mancalanotice
         const mancalanotice = this.add.image(1650.6, 300.04, "book2013", "book/mancalanotice0001");
-        mancalanotice.setOrigin(0.62868, 0.38265);
+        mancalanotice.setOrigin(0.6286764705882353, 0.3826530612244898);
 
         // mancalatitle
         const mancalatitle = this.add.image(1571.4, 206.66, "book2013", "book/mancalatitle0001");

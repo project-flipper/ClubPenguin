@@ -422,8 +422,6 @@ export default class Attic extends Phaser.Scene implements Room {
         });
         this.tablebtn5.on('release', () => this.world.move(this.table5.x, this.table5.y));
 
-
-
         this.game.locale.register(this.localize, this);
 
         if (data.onready) data.onready(this);
