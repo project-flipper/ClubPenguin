@@ -8,7 +8,7 @@ import { AvatarData as AvatarData } from "@clubpenguin/net/types/avatar";
 import World from "@clubpenguin/world/World";
 import { Avatar } from "@clubpenguin/world/engine/player/avatar";
 import Interface from "@clubpenguin/world/interface/Interface";
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine, Game, Room } from "@clubpenguin/world/engine/engine";
 import { getLogger } from "@clubpenguin/lib/log";
 import { AnimationFrame } from "@clubpenguin/world/engine/player/animationFrame";
 
@@ -43,7 +43,11 @@ export class Debug {
     }
 
     get room(): Room {
-        return this.engine.currentRoom;
+        return this.engine?.currentRoom;
+    }
+
+    get game(): Game {
+        return this.engine?.currentGame;
     }
 
     get player(): Avatar {
