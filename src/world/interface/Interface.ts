@@ -381,7 +381,7 @@ export default class Interface extends Phaser.Scene {
      * Shorthand method to show the map.
      */
     showMap(): void {
-        this.loadContent(async () => (await import('@clubpenguin/world/content/map/Map')).default);
+        this.loadContent('map', async () => (await import('@clubpenguin/world/content/map/Map')).default);
     }
 
     /* ============ INPUT ============ */
@@ -738,15 +738,18 @@ export default class Interface extends Phaser.Scene {
 
     /* ============ CONTENT ============ */
 
+    public currentPopup: Content;
     public currentContent: Content;
+    public currentWindow: Content;
     private _prevVisible: boolean;
 
     /**
      * Loads and shows dynamic content.
+     * @param name The name of the content to be loaded.
      * @param callback A promise that resolves to the content class to be loaded.
      * @param data Any additional data to be passed to the content class.
      */
-    async loadContent(callback: () => Promise<ContentCls>, data?: any): Promise<void> {
+    async loadContent(name: string, callback: () => Promise<ContentCls>, data?: any): Promise<void> {
         let load = this.loadScreen;
         try {
             this.closeContent();
