@@ -124,8 +124,7 @@ export class SnowballManager {
         let triggers = this.engine.triggers;
     
         for (let trigger of triggers) {
-            let snowballTrigger = SnowballTrigger.getComponent(trigger);
-            if (snowballTrigger && snowballTrigger.test(snowball.x, snowball.y)) snowballTrigger.execute(this.engine, player, snowball);
+            if (trigger instanceof SnowballTrigger && trigger.test(snowball.x, snowball.y)) trigger.execute(this.engine, player, snowball);
         }
     }
 

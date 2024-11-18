@@ -103,8 +103,6 @@ function onAppCrash(): void {
 export function isBrowserCompatible(): boolean {
     return (
         typeof fetch == 'function' &&
-        typeof crypto == 'object' &&
-        typeof crypto.subtle == 'object' &&
         typeof WebSocket == 'function'
     );
 }
@@ -174,10 +172,11 @@ export function run(params: RunParams): void {
         },
         loader: {
             baseURL: params.mediaPath,
-            maxParallelDownloads: 10,
             crossOrigin: params.crossOrigin,
             maxRetries: 1
         },
+        autoMobilePipeline: true,
+        antialias: true,
         powerPreference: 'high-performance',
         failIfMajorPerformanceCaveat: true,
         callbacks: {
@@ -331,7 +330,9 @@ export function sendToggleBestCharacter(id: string): void {
 export function stop(terminate = false): void {
     if (isRunning()) {
         logger.info('Stopping app');
-        //app.airtower.close();
+        let activeWorld = app.scene.getScene('World') as World;
+        if (activeWorld) activeWorld.stop();
+        app.cleaner.purge(true);
         app.destroy(true, terminate);
     }
     lang = undefined;

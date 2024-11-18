@@ -7,7 +7,7 @@ import Trigger from "@clubpenguin/lib/components/Trigger";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { AnimationFrame } from "./animationFrame";
 import { AnyUserData } from "@clubpenguin/net/types/user";
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine } from "@clubpenguin/world/engine/engine";
 import { Avatar, AvatarCls, Player, PlayerLoadingState } from "@clubpenguin/world/engine/player/avatar";
 import World from "@clubpenguin/world/World";
 import { ClothingSprite } from "../clothing/clothingManager";
@@ -78,6 +78,7 @@ export class PlayerManager {
      * @param frameKey The key of the frame to generate the animation for.
      * @param prefix The prefix of the animation to generate.
      * @param frame The action frame id of the animation to generate.
+     * @param meta The metadata of the animation to generate.
      * @returns The generated animation.
      */
     generateSpriteAnimations(
@@ -253,13 +254,19 @@ export class PlayerManager {
      * @param player The player to remove.
      */
     removePlayer(player: Player): void {
-        this.testTriggers(player, true, NaN, NaN);
-
         this.world.interface.removePlayerOverlay(player);
         this.engine.emit('player:remove', player);
 
         if (player.actions) player.actions.stopMoving();
+        this.testTriggers(player, true, NaN, NaN);
+
         if (player.overlay) player.overlay.destroy();
+
+        for (let resKey of this.engine.cleaner.playersUsingResources[player.userData.id]) {
+            let [type, key] = this.engine.cleaner.fromKey(resKey);
+            this.engine.cleaner.deallocateResource(type, key, player.userData.id);
+        }
+
         player.destroy();
         delete this.players[player.userData.id];
     }
@@ -279,20 +286,11 @@ export class PlayerManager {
         prohibitJoinRoom = prohibitJoinRoom || player.loadingState != PlayerLoadingState.READY;
 
         for (let trigger of this.engine.triggers) {
-            let genericTrigger = Trigger.getComponent(trigger);
-            if (genericTrigger && finishedMoving && genericTrigger.test(x, y)) genericTrigger.execute(this.engine, player);
-
-            let roomTrigger = RoomTrigger.getComponent(trigger);
-            if (roomTrigger && finishedMoving && !prohibitJoinRoom && roomTrigger.test(x, y)) roomTrigger.execute(this.engine, player);
-
-            let gameTrigger = GameTrigger.getComponent(trigger);
-            if (gameTrigger && finishedMoving && !prohibitJoinRoom && gameTrigger.test(x, y)) gameTrigger.execute(this.engine, player);
-
-            let waddleTrigger = WaddleTrigger.getComponent(trigger);
-            if (waddleTrigger && finishedMoving && !prohibitJoinRoom && waddleTrigger.test(x, y)) waddleTrigger.execute(this.engine, player);
-
-            let pressureTrigger = PressureTrigger.getComponent(trigger);
-            if (pressureTrigger) pressureTrigger.execute(this.engine, player, pressureTrigger.test(x, y), finishedMoving);
+            if (trigger instanceof Trigger && finishedMoving && trigger.test(x, y)) trigger.execute(this.engine, player);
+            if (trigger instanceof RoomTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
+            if (trigger instanceof GameTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
+            if (trigger instanceof WaddleTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
+            if (trigger instanceof PressureTrigger) trigger.execute(this.engine, player, trigger.test(x, y), finishedMoving);
         }
     }
 

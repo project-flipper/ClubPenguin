@@ -62,6 +62,8 @@ export default class World extends Phaser.Scene {
     declare public game: App;
     public engine: Engine;
 
+    public isActive = false;
+
     get interface(): Interface {
         return (this.scene.get('Interface') as Interface);
     }
@@ -86,14 +88,16 @@ export default class World extends Phaser.Scene {
 
         this.editorCreate();
 
-        this.startWorld();
+        this.start();
     }
 
     /**
      * Starts the world by connecting to the world server and loading the world assets
      * Also initializes the engine and interface, then requests a room to spawn in.
      */
-    async startWorld(): Promise<void> {
+    async start(): Promise<void> {
+        this.isActive = true;
+
         let load = this.loadScreen;
         load.track(new LoaderTask('World loader', this.load));
 
@@ -141,6 +145,17 @@ export default class World extends Phaser.Scene {
         this.game.friends.connect(this.myUser.id.toString(), friends, characters, true, true, friendList.length > 10, false);
 
         await this.spawnRoom();
+    }
+
+    stop(): void {
+        this.game.airtower.disconnect(1000, 'Disconnecting from world');
+        this.isActive = false;
+
+        this.engine.stop();
+        this.interface.stop();
+
+        this.game.airtower.off('s:message', this.onWorldMessage, this);
+        this.game.airtower.off('s:disconnect', this.onWorldClose, this);
     }
 
     /**

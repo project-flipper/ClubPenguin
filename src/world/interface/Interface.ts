@@ -337,12 +337,18 @@ export default class Interface extends Phaser.Scene {
         this.input.keyboard.on('keycombomatch', this.processEmojiCombo, this);
 
         this.game.locale.register(this.localize, this);
-        this.events.on('shutdown', () => {
-            this.game.locale.unregister(this.localize);
-            this.game.unloadAssetPack('interface-pack');
-        });
+        this.events.on('shutdown', this.stop, this);
 
         this.loadUI(data.ui).then(() => data.onready && data.onready(this));
+    }
+
+    stop(): void {
+        this.removeUI();
+        this.input.keyboard.off('keydown', this.keydownHandler, this);
+        this.input.keyboard.off('keycombomatch', this.processEmojiCombo, this);
+
+        this.game.locale.unregister(this.localize);
+        this.game.unloadAssetPack('interface-pack');
     }
 
     get world(): World {

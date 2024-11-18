@@ -1,9 +1,3 @@
-/**
- * The `Engine` class is responsible for managing the game world, including players, rooms, and games.
- * It extends `EventEmitter` to handle various events within the game.
- * 
- * @extends EventEmitter
- */
 import EventEmitter from "eventemitter3";
 
 import { App } from "@clubpenguin/app/app";
@@ -29,8 +23,21 @@ import { PlayerManager } from "./player/playerManager";
 import { SnowballManager } from "./snowballs/snowballManager";
 import WaddleTrigger from "@clubpenguin/lib/components/WaddleTrigger";
 import { MaximumConcurrency } from "@clubpenguin/lib/concurrent";
+import GenericTrigger from "@clubpenguin/lib/components/Trigger";
+import RoomTrigger from "@clubpenguin/lib/components/RoomTrigger";
+import GameTrigger from "@clubpenguin/lib/components/GameTrigger";
+import PressureTrigger from "@clubpenguin/lib/components/PressureTrigger";
+import SnowballTrigger from "@clubpenguin/lib/components/SnowballTrigger";
 
 export let logger = getLogger('CP.world.engine');
+
+export type Trigger =
+    | GenericTrigger
+    | RoomTrigger
+    | GameTrigger
+    | WaddleTrigger
+    | PressureTrigger
+    | SnowballTrigger;
 
 export interface Room extends Phaser.Scene {
     safeX?: number;
@@ -67,6 +74,8 @@ export class Engine extends EventEmitter {
 
     public roomConcurrency: MaximumConcurrency;
     public gameConcurrency: MaximumConcurrency;
+
+    private _triggers: Trigger[];
 
     constructor(world: World) {
         super();
@@ -225,8 +234,39 @@ export class Engine extends EventEmitter {
     /**
      * Gets the triggers in the current room.
      */
-    get triggers(): Phaser.GameObjects.Image[] {
-        return 'triggers' in this.currentRoom ? this.currentRoom.triggers : [];
+    get triggers(): Trigger[] {
+        if (this._triggers == null) {
+            this._triggers = this._computeTriggers();
+        }
+
+        return this._triggers;
+    }
+
+    _computeTriggers(): Trigger[] {
+        let gameobjects = 'triggers' in this.currentRoom ? this.currentRoom.triggers : [];
+        let triggers: Trigger[] = [];
+
+        for (let go of gameobjects) {
+            let genericTrigger = GenericTrigger.getComponent(go);
+            if (genericTrigger) triggers.push(genericTrigger);
+
+            let roomTrigger = RoomTrigger.getComponent(go);
+            if (roomTrigger) triggers.push(roomTrigger);
+
+            let gameTrigger = GameTrigger.getComponent(go);
+            if (gameTrigger) triggers.push(gameTrigger);
+
+            let waddleTrigger = WaddleTrigger.getComponent(go);
+            if (waddleTrigger) triggers.push(waddleTrigger);
+
+            let pressureTrigger = PressureTrigger.getComponent(go);
+            if (pressureTrigger) triggers.push(pressureTrigger);
+
+            let snowballTrigger = SnowballTrigger.getComponent(go);
+            if (snowballTrigger) triggers.push(snowballTrigger);
+        }
+
+        return triggers;
     }
 
     /**
@@ -236,8 +276,7 @@ export class Engine extends EventEmitter {
      */
     getWaddle(id: number): WaddleTrigger {
         for (let trigger of this.triggers) {
-            let waddle = WaddleTrigger.getComponent(trigger);
-            if (waddle && waddle.waddle_id == id) return waddle;
+            if (trigger instanceof WaddleTrigger && trigger.waddle_id == id) return trigger;
         }
     }
 
@@ -353,6 +392,11 @@ export class Engine extends EventEmitter {
             this.previousPlayerX = this.player?.x;
             this.previousPlayerY = this.player?.y;
 
+            for (let playerId in this.players.players) {
+                let player = this.players.players[playerId];
+                this.players.removePlayer(player);
+            }
+
             if ('beforeUnload' in this.currentRoom) this.currentRoom.beforeUnload(this);
             this.currentRoom.scene.remove();
             if ('unload' in this.currentRoom) this.currentRoom.unload(this);
@@ -362,6 +406,7 @@ export class Engine extends EventEmitter {
             this.previousRoomId = this.currentRoomId;
             this.currentRoom = undefined;
             this.currentRoomId = undefined;
+            this._triggers = undefined;
 
             this.tweenTracker.reset();
         }
@@ -690,6 +735,12 @@ export class Engine extends EventEmitter {
 
         this.interface.show();
         load.hide();
+    }
+
+    stop(): void {
+        this.unloadRoom();
+        this.unloadGame();
+        this.cleaner.purge(true);
     }
 
     /* END-USER-CODE */
