@@ -54,7 +54,7 @@ export default class Load extends Phaser.Scene {
         // message
         const message = new TextBox(this, 498.375, 657, "BurbankSmallMedium");
         message.text = "Loading Description Message Text";
-        message.fontSize = -36;
+        message.fontSize = 36;
         message.align = 1;
         loadingScreen.add(message);
 

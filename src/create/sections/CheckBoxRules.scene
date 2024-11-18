@@ -46,7 +46,7 @@
                     "tintBottomRight": "#666666",
                     "text": "I agree to the ",
                     "font": "BurbankSmallBold",
-                    "fontSize": -18
+                    "fontSize": 18
                 },
                 {
                     "type": "BitmapText",
@@ -61,7 +61,7 @@
                     "tintBottomRight": "#01539c",
                     "text": "CLUB PENGUIN RULES",
                     "font": "BurbankSmallBold",
-                    "fontSize": -20.25
+                    "fontSize": 20.25
                 },
                 {
                     "prefabId": "2a3345f5-0fde-4aad-9d3d-82c19e306a8a",

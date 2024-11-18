@@ -168,7 +168,7 @@ export default class PlayerSelection extends Phaser.GameObjects.Container {
         // differentLabel
         const differentLabel = new TextBox(scene, 136.35, 961.43, "BurbankSmallMedium");
         differentLabel.text = "Login as a different penguin";
-        differentLabel.fontSize = -36;
+        differentLabel.fontSize = 36;
         this.add(differentLabel);
 
         // differentButton (components)

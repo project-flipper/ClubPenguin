@@ -66,7 +66,7 @@ export default class Startscreen extends Phaser.Scene {
         // createPenguinTextBox
         const createPenguinTextBox = new TextBox(this, 405, 888.75, "BurbankSmallBold");
         createPenguinTextBox.text = "Create a Penguin";
-        createPenguinTextBox.fontSize = -40;
+        createPenguinTextBox.fontSize = 40;
         startscreen.add(createPenguinTextBox);
 
         // loginButton
@@ -77,7 +77,7 @@ export default class Startscreen extends Phaser.Scene {
         // loginTextBox
         const loginTextBox = new TextBox(this, 922.5, 888.75, "BurbankSmallBold");
         loginTextBox.text = "Login";
-        loginTextBox.fontSize = -45;
+        loginTextBox.fontSize = 45;
         startscreen.add(loginTextBox);
 
         // loginButtonGraphic
@@ -103,7 +103,7 @@ export default class Startscreen extends Phaser.Scene {
         membershipTextBox.tintBottomLeft = 21147;
         membershipTextBox.tintBottomRight = 21147;
         membershipTextBox.text = "Learn More About Membership";
-        membershipTextBox.fontSize = -18;
+        membershipTextBox.fontSize = 18;
         startscreen.add(membershipTextBox);
 
         // memberBadge

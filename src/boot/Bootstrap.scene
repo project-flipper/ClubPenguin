@@ -103,7 +103,7 @@
                     "text": "Load Error\nSorry, there's been an error loading\nClub Penguin. Please try logging in\nlater. If the problem continues please\ncontact support@clubpenguin.com",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -40.5
+                    "fontSize": 40.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -141,7 +141,7 @@
                     "text": "c0",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -24.75
+                    "fontSize": 24.75
                 },
                 {
                     "type": "Image",
@@ -201,7 +201,7 @@
                     "text": "OK",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -42.75
+                    "fontSize": 42.75
                 }
             ]
         }

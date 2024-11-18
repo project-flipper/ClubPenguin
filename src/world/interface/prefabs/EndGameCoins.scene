@@ -50,7 +50,7 @@
                     "tintBottomRight": "#003399",
                     "tintFill": true,
                     "text": "88888888 coins",
-                    "fontSize": -45
+                    "fontSize": 45
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -74,7 +74,7 @@
                     "x": 130.05,
                     "y": 24.75,
                     "text": "88888888 coins",
-                    "fontSize": -45
+                    "fontSize": 45
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -100,7 +100,7 @@
                     "y": 75.83,
                     "text": "Your total coins: 888 888 888",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -31.5
+                    "fontSize": 31.5
                 }
             ]
         }

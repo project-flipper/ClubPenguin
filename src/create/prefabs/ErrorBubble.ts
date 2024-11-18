@@ -22,7 +22,7 @@ export default class ErrorBubble extends Phaser.GameObjects.Container {
         textBox.tintBottomLeft = 6710886;
         textBox.tintBottomRight = 6710886;
         textBox.text = "Example error";
-        textBox.fontSize = -18;
+        textBox.fontSize = 18;
         this.add(textBox);
 
         // textBox (prefab fields)

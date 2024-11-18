@@ -64,7 +64,7 @@
                     "tintBottomRight": "#666666",
                     "text": "Example error",
                     "font": "BurbankSmallBold",
-                    "fontSize": -18
+                    "fontSize": 18
                 }
             ]
         }

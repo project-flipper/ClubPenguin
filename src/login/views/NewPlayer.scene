@@ -126,7 +126,7 @@
                     "text": "Penguin name:",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -164,7 +164,7 @@
                     "text": "Password:",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "f58c5cab-2cab-446d-beda-1099ff2e1881",
@@ -215,7 +215,7 @@
                     "text": "Remember me on this computer",
                     "font": "BurbankSmallMedium",
                     "align": 0,
-                    "fontSize": -36,
+                    "fontSize": 36,
                     "maxWidth": 760.3875
                 },
                 {
@@ -255,7 +255,7 @@
                     "text": "Remember my password",
                     "font": "BurbankSmallMedium",
                     "align": 0,
-                    "fontSize": -36,
+                    "fontSize": 36,
                     "maxWidth": 760.3875
                 },
                 {
@@ -317,7 +317,7 @@
                     "text": "Login",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -45
+                    "fontSize": 45
                 },
                 {
                     "type": "Rectangle",
@@ -373,7 +373,7 @@
                     "text": "Forgot your password?",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "type": "Rectangle",
@@ -439,7 +439,7 @@
                     "text": "Don't have a penguin?",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -467,7 +467,7 @@
                     "text": "Create a free account now",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -38.25
+                    "fontSize": 38.25
                 },
                 {
                     "type": "Rectangle",
@@ -523,7 +523,7 @@
                     "text": "Club Penguin Rules",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -40.5
+                    "fontSize": 40.5
                 },
                 {
                     "type": "Rectangle",
@@ -579,7 +579,7 @@
                     "text": "Back",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "type": "Image",

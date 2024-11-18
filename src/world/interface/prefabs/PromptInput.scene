@@ -118,7 +118,7 @@
                     "tintFill": true,
                     "text": "Message goes here",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -144,7 +144,7 @@
                     "y": 657,
                     "text": "Continue",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -45
+                    "fontSize": 45
                 },
                 {
                     "prefabId": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",

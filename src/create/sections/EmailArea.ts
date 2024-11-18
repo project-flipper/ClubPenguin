@@ -23,7 +23,7 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         title.tintBottomLeft = 2894894;
         title.tintBottomRight = 2894894;
         title.text = "Parent's Email Address:";
-        title.fontSize = -27;
+        title.fontSize = 27;
         this.add(title);
 
         // emailConditions
@@ -42,7 +42,7 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         emailConditionTextBox.tintBottomLeft = 5395026;
         emailConditionTextBox.tintBottomRight = 5395026;
         emailConditionTextBox.text = "Club Penguin will send your parent an email with an activation code.";
-        emailConditionTextBox.fontSize = -18;
+        emailConditionTextBox.fontSize = 18;
         emailConditionTextBox.maxWidth = 528.75;
         emailConditions.add(emailConditionTextBox);
 
@@ -64,7 +64,7 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         placeholder.tintBottomLeft = 13882584;
         placeholder.tintBottomRight = 13882584;
         placeholder.text = "Enter parent's email address";
-        placeholder.fontSize = -27;
+        placeholder.fontSize = 27;
         this.add(placeholder);
 
         // errorBubble

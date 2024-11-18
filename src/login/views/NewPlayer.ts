@@ -30,7 +30,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         nameLabel.tintBottomLeft = 0;
         nameLabel.tintBottomRight = 0;
         nameLabel.text = "Penguin name:";
-        nameLabel.fontSize = -36;
+        nameLabel.fontSize = 36;
         nameLabel.align = 2;
         this.add(nameLabel);
 
@@ -42,7 +42,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         passwordLabel.tintBottomLeft = 0;
         passwordLabel.tintBottomRight = 0;
         passwordLabel.text = "Password:";
-        passwordLabel.fontSize = -36;
+        passwordLabel.fontSize = 36;
         passwordLabel.align = 2;
         this.add(passwordLabel);
 
@@ -58,7 +58,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         nameCheckLabel.tintBottomLeft = 0;
         nameCheckLabel.tintBottomRight = 0;
         nameCheckLabel.text = "Remember me on this computer";
-        nameCheckLabel.fontSize = -36;
+        nameCheckLabel.fontSize = 36;
         nameCheckLabel.align = 0;
         nameCheckLabel.maxWidth = 760.3875;
         this.add(nameCheckLabel);
@@ -71,7 +71,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         passwordCheckLabel.tintBottomLeft = 0;
         passwordCheckLabel.tintBottomRight = 0;
         passwordCheckLabel.text = "Remember my password";
-        passwordCheckLabel.fontSize = -36;
+        passwordCheckLabel.fontSize = 36;
         passwordCheckLabel.align = 0;
         passwordCheckLabel.maxWidth = 760.3875;
         this.add(passwordCheckLabel);
@@ -88,7 +88,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         // loginLabel
         const loginLabel = new TextBox(scene, 716.2875, 453.375, "BurbankSmallMedium");
         loginLabel.text = "Login";
-        loginLabel.fontSize = -45;
+        loginLabel.fontSize = 45;
         loginLabel.align = 1;
         this.add(loginLabel);
 
@@ -108,7 +108,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         // forgotLabel
         const forgotLabel = new TextBox(scene, 551.25, 592.425, "BurbankSmallMedium");
         forgotLabel.text = "Forgot your password?";
-        forgotLabel.fontSize = -36;
+        forgotLabel.fontSize = 36;
         forgotLabel.align = 1;
         this.add(forgotLabel);
 
@@ -133,14 +133,14 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         accountLabel.tintBottomLeft = 0;
         accountLabel.tintBottomRight = 0;
         accountLabel.text = "Don't have a penguin?";
-        accountLabel.fontSize = -36;
+        accountLabel.fontSize = 36;
         accountLabel.align = 1;
         this.add(accountLabel);
 
         // accountLabel2
         const accountLabel2 = new TextBox(scene, 303.4125, 750.375, "BurbankSmallMedium");
         accountLabel2.text = "Create a free account now";
-        accountLabel2.fontSize = -38.25;
+        accountLabel2.fontSize = 38.25;
         accountLabel2.align = 1;
         this.add(accountLabel2);
 
@@ -160,7 +160,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         // rulesLabel
         const rulesLabel = new TextBox(scene, 551.3625, 847.35, "BurbankSmallMedium");
         rulesLabel.text = "Club Penguin Rules";
-        rulesLabel.fontSize = -40.5;
+        rulesLabel.fontSize = 40.5;
         rulesLabel.align = 1;
         this.add(rulesLabel);
 
@@ -180,7 +180,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         // backLabel
         const backLabel = new TextBox(scene, 690.75, 966.2625, "BurbankSmallMedium");
         backLabel.text = "Back";
-        backLabel.fontSize = -36;
+        backLabel.fontSize = 36;
         backLabel.align = 1;
         this.add(backLabel);
 

@@ -147,7 +147,7 @@
                     "text": "Parabens, voce ganhou o dobro de moedas",
                     "font": "BurbankSmallBold",
                     "align": 1,
-                    "fontSize": -36,
+                    "fontSize": 36,
                     "maxWidth": 780.8625
                 }
             ]

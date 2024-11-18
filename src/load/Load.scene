@@ -99,7 +99,7 @@
                     "text": "Loading Description Message Text",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 }
             ]
         },

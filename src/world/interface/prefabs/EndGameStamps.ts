@@ -21,19 +21,19 @@ export default class EndGameStamps extends Phaser.GameObjects.Container {
         earnedShadow.tintBottomLeft = 13209;
         earnedShadow.tintBottomRight = 13209;
         earnedShadow.text = "0 of 25";
-        earnedShadow.fontSize = -45;
+        earnedShadow.fontSize = 45;
         this.add(earnedShadow);
 
         // earned
         const earned = new TextBox(scene, 128.25, 18);
         earned.text = "0 of 25";
-        earned.fontSize = -45;
+        earned.fontSize = 45;
         this.add(earned);
 
         // total
         const total = new TextBox(scene, 132.3, 75.83, "BurbankSmallMedium");
         total.text = "Your total coins: 888 888 888";
-        total.fontSize = -31.5;
+        total.fontSize = 31.5;
         this.add(total);
 
         // earnedShadow (prefab fields)

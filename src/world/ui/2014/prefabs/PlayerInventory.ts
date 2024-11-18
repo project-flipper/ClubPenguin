@@ -115,7 +115,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortText.tintBottomLeft = 0;
         sortText.tintBottomRight = 0;
         sortText.text = "Head Items";
-        sortText.fontSize = -24.75;
+        sortText.fontSize = 24.75;
         sortText.align = 1;
         sortText.maxWidth = 259.0875;
         this.add(sortText);
@@ -132,7 +132,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortHeadLabel.tintBottomLeft = 0;
         sortHeadLabel.tintBottomRight = 0;
         sortHeadLabel.text = "Head";
-        sortHeadLabel.fontSize = -24.75;
+        sortHeadLabel.fontSize = 24.75;
         sortHeadLabel.align = 1;
         sortHeadLabel.maxWidth = 264.0375;
         this.add(sortHeadLabel);
@@ -149,7 +149,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortFaceLabel.tintBottomLeft = 0;
         sortFaceLabel.tintBottomRight = 0;
         sortFaceLabel.text = "Face";
-        sortFaceLabel.fontSize = -24.75;
+        sortFaceLabel.fontSize = 24.75;
         sortFaceLabel.align = 1;
         sortFaceLabel.maxWidth = 264.0375;
         this.add(sortFaceLabel);
@@ -166,7 +166,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortNeckLabel.tintBottomLeft = 0;
         sortNeckLabel.tintBottomRight = 0;
         sortNeckLabel.text = "Neck";
-        sortNeckLabel.fontSize = -24.75;
+        sortNeckLabel.fontSize = 24.75;
         sortNeckLabel.align = 1;
         sortNeckLabel.maxWidth = 264.0375;
         this.add(sortNeckLabel);
@@ -183,7 +183,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortBodyLabel.tintBottomLeft = 0;
         sortBodyLabel.tintBottomRight = 0;
         sortBodyLabel.text = "Body";
-        sortBodyLabel.fontSize = -24.75;
+        sortBodyLabel.fontSize = 24.75;
         sortBodyLabel.align = 1;
         sortBodyLabel.maxWidth = 264.0375;
         this.add(sortBodyLabel);
@@ -200,7 +200,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortHandLabel.tintBottomLeft = 0;
         sortHandLabel.tintBottomRight = 0;
         sortHandLabel.text = "Hand";
-        sortHandLabel.fontSize = -24.75;
+        sortHandLabel.fontSize = 24.75;
         sortHandLabel.align = 1;
         sortHandLabel.maxWidth = 264.0375;
         this.add(sortHandLabel);
@@ -217,7 +217,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortFeetLabel.tintBottomLeft = 0;
         sortFeetLabel.tintBottomRight = 0;
         sortFeetLabel.text = "Feet";
-        sortFeetLabel.fontSize = -24.75;
+        sortFeetLabel.fontSize = 24.75;
         sortFeetLabel.align = 1;
         sortFeetLabel.maxWidth = 264.0375;
         this.add(sortFeetLabel);
@@ -234,7 +234,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortColorLabel.tintBottomLeft = 0;
         sortColorLabel.tintBottomRight = 0;
         sortColorLabel.text = "Color";
-        sortColorLabel.fontSize = -24.75;
+        sortColorLabel.fontSize = 24.75;
         sortColorLabel.align = 1;
         sortColorLabel.maxWidth = 264.0375;
         this.add(sortColorLabel);
@@ -251,7 +251,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortOtherLabel.tintBottomLeft = 0;
         sortOtherLabel.tintBottomRight = 0;
         sortOtherLabel.text = "Other";
-        sortOtherLabel.fontSize = -24.75;
+        sortOtherLabel.fontSize = 24.75;
         sortOtherLabel.align = 1;
         sortOtherLabel.maxWidth = 264.0375;
         this.add(sortOtherLabel);
@@ -268,7 +268,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortAllLabel.tintBottomLeft = 0;
         sortAllLabel.tintBottomRight = 0;
         sortAllLabel.text = "All";
-        sortAllLabel.fontSize = -24.75;
+        sortAllLabel.fontSize = 24.75;
         sortAllLabel.align = 1;
         sortAllLabel.maxWidth = 264.0375;
         this.add(sortAllLabel);
@@ -285,7 +285,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortFlagsLabel.tintBottomLeft = 0;
         sortFlagsLabel.tintBottomRight = 0;
         sortFlagsLabel.text = "Pins/Flags";
-        sortFlagsLabel.fontSize = -24.75;
+        sortFlagsLabel.fontSize = 24.75;
         sortFlagsLabel.align = 1;
         sortFlagsLabel.maxWidth = 264.0375;
         this.add(sortFlagsLabel);
@@ -302,7 +302,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortAwardsLabel.tintBottomLeft = 0;
         sortAwardsLabel.tintBottomRight = 0;
         sortAwardsLabel.text = "Awards";
-        sortAwardsLabel.fontSize = -24.75;
+        sortAwardsLabel.fontSize = 24.75;
         sortAwardsLabel.align = 1;
         sortAwardsLabel.maxWidth = 264.0375;
         this.add(sortAwardsLabel);
@@ -319,7 +319,7 @@ export default class PlayerInventory extends Phaser.GameObjects.Container {
         sortPhotosLabel.tintBottomLeft = 0;
         sortPhotosLabel.tintBottomRight = 0;
         sortPhotosLabel.text = "Backgrounds";
-        sortPhotosLabel.fontSize = -24.75;
+        sortPhotosLabel.fontSize = 24.75;
         sortPhotosLabel.align = 1;
         sortPhotosLabel.maxWidth = 264.0375;
         this.add(sortPhotosLabel);

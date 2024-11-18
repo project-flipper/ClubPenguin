@@ -114,8 +114,6 @@ export class HybridGame extends Phaser.Scene implements Game {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 

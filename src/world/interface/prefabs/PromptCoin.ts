@@ -30,7 +30,7 @@ export default class PromptCoin extends Phaser.GameObjects.Container {
         // okay
         const okay = new TextBox(scene, 775.0125, 657, "BurbankSmallMedium");
         okay.text = "Ok";
-        okay.fontSize = -45;
+        okay.fontSize = 45;
         this.add(okay);
 
         // message
@@ -41,7 +41,7 @@ export default class PromptCoin extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "You found a party hat.\nWould you like to pick it up?";
-        message.fontSize = -36;
+        message.fontSize = 36;
         this.add(message);
 
         // okayButton (components)

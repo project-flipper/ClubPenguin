@@ -79,7 +79,7 @@ export default class ErrorArea extends Phaser.Scene {
         // message
         const message = new TextBox(this, 58.5, 18, "BurbankSmallMedium");
         message.text = " Error Message\n Error Message\n Error Message\n Error Message\n Error Message\n Error Message";
-        message.fontSize = -36;
+        message.fontSize = 36;
         message.align = 0;
         errorWindow.add(message);
 
@@ -95,7 +95,7 @@ export default class ErrorArea extends Phaser.Scene {
         // buttonLabel
         const buttonLabel = new TextBox(this, 37.4625, 28.6875, "BurbankSmallBold");
         buttonLabel.text = "Ok";
-        buttonLabel.fontSize = -45;
+        buttonLabel.fontSize = 45;
         buttonLabel.align = 1;
         buttonContainer.add(buttonLabel);
 
@@ -107,7 +107,7 @@ export default class ErrorArea extends Phaser.Scene {
         code.tintBottomLeft = 9976322;
         code.tintBottomRight = 9976322;
         code.text = "c0";
-        code.fontSize = -22.5;
+        code.fontSize = 22.5;
         code.align = 2;
         errorWindow.add(code);
 

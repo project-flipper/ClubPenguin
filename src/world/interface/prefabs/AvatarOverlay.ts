@@ -22,7 +22,7 @@ export default class AvatarOverlay extends Phaser.GameObjects.Container {
         nickname.tintBottomLeft = 0;
         nickname.tintBottomRight = 0;
         nickname.text = "Nickname";
-        nickname.fontSize = -27;
+        nickname.fontSize = 27;
         nickname.align = 1;
         this.add(nickname);
 

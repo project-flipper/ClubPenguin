@@ -757,7 +757,8 @@ export default class FNAFNight extends Phaser.Scene implements Game {
     public goldenFreddy: GoldenFreddy;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
+        this.scene.moveBelow('FNAF');
+        this.scene.moveAbove('FNAF');
 
         this.currentNight = Math.min(Math.max(parseInt(data.night), 1), 7);
         this.fnaf = data.game;

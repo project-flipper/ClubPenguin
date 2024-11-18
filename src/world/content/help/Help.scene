@@ -221,15 +221,13 @@
                 "font",
                 "boxWidth",
                 "boxHeight",
-                "horizontalAlign",
-                "verticalAlign"
+                "horizontalAlign"
             ],
             "label": "title",
             "scope": "PUBLIC",
             "boxWidth": 616.3875,
             "boxHeight": 66.6,
             "horizontalAlign": 1,
-            "verticalAlign": 1,
             "x": 546.75,
             "y": 238.5,
             "text": "SETTINGS",
@@ -270,7 +268,7 @@
             "tintFill": true,
             "text": "You're on Server Name",
             "font": "BurbankSmallMedium",
-            "fontSize": -36
+            "fontSize": 36
         },
         {
             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -306,7 +304,7 @@
             "tintFill": true,
             "text": "Your penguin is 252 days old",
             "font": "BurbankSmallMedium",
-            "fontSize": -36
+            "fontSize": 36
         },
         {
             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -342,7 +340,7 @@
             "tintFill": true,
             "text": "Mute Music",
             "font": "BurbankSmallMedium",
-            "fontSize": -36
+            "fontSize": 36
         },
         {
             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -378,7 +376,7 @@
             "tintFill": true,
             "text": "Mute All Sounds",
             "font": "BurbankSmallMedium",
-            "fontSize": -36
+            "fontSize": 36
         },
         {
             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -404,7 +402,7 @@
             "y": 623.25,
             "text": "Manage Account",
             "font": "BurbankSmallBold",
-            "fontSize": -45
+            "fontSize": 45
         },
         {
             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -440,7 +438,7 @@
             "tintFill": true,
             "text": "20/100 Buddies",
             "font": "BurbankSmallMedium",
-            "fontSize": -36
+            "fontSize": 36
         }
     ],
     "plainObjects": [],

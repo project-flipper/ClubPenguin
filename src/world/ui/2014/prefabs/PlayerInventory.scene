@@ -306,7 +306,7 @@
                     "text": "Head Items",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 259.0875
                 },
                 {
@@ -366,7 +366,7 @@
                     "text": "Head",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -426,7 +426,7 @@
                     "text": "Face",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -486,7 +486,7 @@
                     "text": "Neck",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -546,7 +546,7 @@
                     "text": "Body",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -606,7 +606,7 @@
                     "text": "Hand",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -666,7 +666,7 @@
                     "text": "Feet",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -726,7 +726,7 @@
                     "text": "Color",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -786,7 +786,7 @@
                     "text": "Other",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -846,7 +846,7 @@
                     "text": "All",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -906,7 +906,7 @@
                     "text": "Pins/Flags",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -966,7 +966,7 @@
                     "text": "Awards",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 },
                 {
@@ -1026,7 +1026,7 @@
                     "text": "Backgrounds",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -24.75,
+                    "fontSize": 24.75,
                     "maxWidth": 264.0375
                 }
             ]

@@ -71,7 +71,7 @@
                     "tintFill": false,
                     "text": "BRB!",
                     "font": "BurbankSmallBlack",
-                    "fontSize": -72
+                    "fontSize": 72
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -103,7 +103,7 @@
                     "tintFill": false,
                     "text": "We're busy updating stuff behind the scenes. \n\nWe'll be fully up and running again soon. \n\nThanks for your patience!",
                     "font": "MyriadPro",
-                    "fontSize": -31.5
+                    "fontSize": 31.5
                 }
             ]
         }

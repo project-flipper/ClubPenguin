@@ -29,7 +29,7 @@ export default class BRBBillboard extends Phaser.GameObjects.Container {
         titleTextBox.tintBottomLeft = 21423;
         titleTextBox.tintBottomRight = 21423;
         titleTextBox.text = "BRB!";
-        titleTextBox.fontSize = -72;
+        titleTextBox.fontSize = 72;
         this.add(titleTextBox);
 
         // descriptionTextBox
@@ -40,7 +40,7 @@ export default class BRBBillboard extends Phaser.GameObjects.Container {
         descriptionTextBox.tintBottomLeft = 0;
         descriptionTextBox.tintBottomRight = 0;
         descriptionTextBox.text = "We're busy updating stuff behind the scenes. \n\nWe'll be fully up and running again soon. \n\nThanks for your patience!";
-        descriptionTextBox.fontSize = -31.5;
+        descriptionTextBox.fontSize = 31.5;
         this.add(descriptionTextBox);
 
         // titleTextBox (prefab fields)

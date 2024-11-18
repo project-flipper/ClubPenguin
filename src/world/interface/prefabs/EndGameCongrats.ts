@@ -57,7 +57,7 @@ export default class EndGameCongrats extends Phaser.GameObjects.Container {
         // congrats
         const congrats = new TextBox(scene, 524.14, 766.01, "BurbankSmallBold");
         congrats.text = "Congratulations, all Aqua Grabber stamps earned. Double coin bonus!\nstamp stamp";
-        congrats.fontSize = -36;
+        congrats.fontSize = 36;
         congrats.align = 1;
         congrats.maxWidth = 666;
         this.add(congrats);

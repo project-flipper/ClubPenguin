@@ -85,7 +85,7 @@ export default class Help extends Phaser.Scene implements Content {
         check2hit.alphaBottomRight = 0.0001;
 
         // title
-        const title = new TextBox(this, 546.75, 238.5, "CCComiccrazy-BoldItalicShadow");
+        const title = new TextBox(this, 546.75, 238.5, "CCComiccrazyBoldItalicShadow");
         this.add.existing(title);
         title.text = "SETTINGS";
         title.fontSize = 45;
@@ -99,7 +99,7 @@ export default class Help extends Phaser.Scene implements Content {
         serverName.tintBottomLeft = 0;
         serverName.tintBottomRight = 0;
         serverName.text = "You're on Server Name";
-        serverName.fontSize = -36;
+        serverName.fontSize = 36;
 
         // accountAge
         const accountAge = new TextBox(this, 548.32, 393.64, "BurbankSmallMedium");
@@ -110,7 +110,7 @@ export default class Help extends Phaser.Scene implements Content {
         accountAge.tintBottomLeft = 0;
         accountAge.tintBottomRight = 0;
         accountAge.text = "Your penguin is 252 days old";
-        accountAge.fontSize = -36;
+        accountAge.fontSize = 36;
 
         // muteMusic
         const muteMusic = new TextBox(this, 806.96, 465.64, "BurbankSmallMedium");
@@ -121,7 +121,7 @@ export default class Help extends Phaser.Scene implements Content {
         muteMusic.tintBottomLeft = 0;
         muteMusic.tintBottomRight = 0;
         muteMusic.text = "Mute Music";
-        muteMusic.fontSize = -36;
+        muteMusic.fontSize = 36;
 
         // muteAllSounds
         const muteAllSounds = new TextBox(this, 806.96, 526.39, "BurbankSmallMedium");
@@ -132,13 +132,13 @@ export default class Help extends Phaser.Scene implements Content {
         muteAllSounds.tintBottomLeft = 0;
         muteAllSounds.tintBottomRight = 0;
         muteAllSounds.text = "Mute All Sounds";
-        muteAllSounds.fontSize = -36;
+        muteAllSounds.fontSize = 36;
 
         // manageAccount
         const manageAccount = new TextBox(this, 567, 623.25, "BurbankSmallBold");
         this.add.existing(manageAccount);
         manageAccount.text = "Manage Account";
-        manageAccount.fontSize = -45;
+        manageAccount.fontSize = 45;
 
         // buddies
         const buddies = new TextBox(this, 660.38, 746.89, "BurbankSmallMedium");
@@ -149,7 +149,7 @@ export default class Help extends Phaser.Scene implements Content {
         buddies.tintBottomLeft = 0;
         buddies.tintBottomRight = 0;
         buddies.text = "20/100 Buddies";
-        buddies.fontSize = -36;
+        buddies.fontSize = 36;
 
         // rectangle_1 (components)
         new InputBlocker(rectangle_1);
@@ -194,7 +194,6 @@ export default class Help extends Phaser.Scene implements Content {
         title.boxWidth = 616.3875;
         title.boxHeight = 66.6;
         title.horizontalAlign = 1;
-        title.verticalAlign = 1;
 
         // serverName (prefab fields)
         serverName.boxWidth = 613.4625;
@@ -279,6 +278,13 @@ export default class Help extends Phaser.Scene implements Content {
 
     get interface(): Interface {
         return this.scene.get('Interface') as Interface;
+    }
+
+    init(data: any): void {
+        this.scene.moveBelow('Interface');
+        this.scene.moveAbove('Interface');
+
+        if (data.oninit) data.oninit(this);
     }
 
     public musicMuted: boolean;

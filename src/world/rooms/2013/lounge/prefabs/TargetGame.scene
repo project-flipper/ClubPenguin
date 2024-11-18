@@ -403,7 +403,7 @@
                     "text": "00",
                     "font": "LCD",
                     "align": 2,
-                    "fontSize": -40.5
+                    "fontSize": 40.5
                 },
                 {
                     "type": "Image",
@@ -442,7 +442,7 @@
                     "text": "00",
                     "font": "LCD",
                     "align": 2,
-                    "fontSize": -40.5
+                    "fontSize": 40.5
                 }
             ]
         }

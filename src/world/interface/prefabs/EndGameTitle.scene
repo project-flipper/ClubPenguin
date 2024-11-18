@@ -53,7 +53,7 @@
                     "tintFill": true,
                     "text": "Aqua Grabber",
                     "font": "BurbankSmallBold",
-                    "fontSize": -56.25
+                    "fontSize": 56.25
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -79,7 +79,7 @@
                     "y": 0,
                     "text": "Aqua Grabber",
                     "font": "BurbankSmallBold",
-                    "fontSize": -56.25
+                    "fontSize": 56.25
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -105,7 +105,7 @@
                     "y": 62.89,
                     "text": "You've earned:",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -31.5
+                    "fontSize": 31.5
                 }
             ]
         }

@@ -63,7 +63,7 @@ export default class Bootstrap extends Phaser.Scene {
         dialogMessage.tintBottomLeft = 0;
         dialogMessage.tintBottomRight = 0;
         dialogMessage.text = "Load Error\nSorry, there's been an error loading\nClub Penguin. Please try logging in\nlater. If the problem continues please\ncontact support@clubpenguin.com";
-        dialogMessage.fontSize = -40.5;
+        dialogMessage.fontSize = 40.5;
         dialogMessage.align = 1;
         embeddedErrorDialog.add(dialogMessage);
 
@@ -75,7 +75,7 @@ export default class Bootstrap extends Phaser.Scene {
         dialogCode.tintBottomLeft = 9976322;
         dialogCode.tintBottomRight = 9976322;
         dialogCode.text = "c0";
-        dialogCode.fontSize = -24.75;
+        dialogCode.fontSize = 24.75;
         dialogCode.align = 2;
         embeddedErrorDialog.add(dialogCode);
 
@@ -92,7 +92,7 @@ export default class Bootstrap extends Phaser.Scene {
         dialogButtonLabel.tintBottomLeft = 16777215;
         dialogButtonLabel.tintBottomRight = 16777215;
         dialogButtonLabel.text = "OK";
-        dialogButtonLabel.fontSize = -42.75;
+        dialogButtonLabel.fontSize = 42.75;
         dialogButtonLabel.align = 1;
         embeddedErrorDialog.add(dialogButtonLabel);
 

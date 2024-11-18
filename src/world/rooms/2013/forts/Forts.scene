@@ -347,8 +347,8 @@
             "y": 250,
             "angle": 4,
             "text": "Monday",
-            "font": "CCComicCrazyW100BoldItalic",
-            "fontSize": -18
+            "font": "CCComicrazyW00BoldItalic",
+            "fontSize": 18
         },
         {
             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -376,7 +376,7 @@
             "scaleY": 1.51,
             "text": "0000",
             "font": "cplcd",
-            "fontSize": -63
+            "fontSize": 63
         },
         {
             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -404,7 +404,7 @@
             "scaleY": 1,
             "text": "00",
             "font": "cplcd",
-            "fontSize": -40.5
+            "fontSize": 40.5
         },
         {
             "type": "Image",

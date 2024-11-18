@@ -46,7 +46,7 @@
                     "tintBottomRight": "#2C2C2E",
                     "text": "Choose a color:",
                     "font": "BurbankSmallBold",
-                    "fontSize": -27
+                    "fontSize": 27
                 },
                 {
                     "prefabId": "79b966a1-affc-42e5-8cfe-0d8e1a1c8e25",

@@ -221,7 +221,7 @@
                     "y": 515,
                     "text": "5\n",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -25
+                    "fontSize": 25
                 },
                 {
                     "type": "Image",
@@ -520,7 +520,7 @@
                     "x": 139,
                     "y": 470,
                     "text": "1",
-                    "fontSize": -50
+                    "fontSize": 50
                 },
                 {
                     "type": "Image",
@@ -572,7 +572,7 @@
                     "x": 396,
                     "y": 470,
                     "text": "3",
-                    "fontSize": -50
+                    "fontSize": 50
                 },
                 {
                     "type": "Image",
@@ -624,7 +624,7 @@
                     "x": 646,
                     "y": 470,
                     "text": "3",
-                    "fontSize": -50
+                    "fontSize": 50
                 },
                 {
                     "type": "Image",
@@ -676,7 +676,7 @@
                     "x": 899,
                     "y": 470,
                     "text": "1",
-                    "fontSize": -50
+                    "fontSize": 50
                 },
                 {
                     "type": "Image",

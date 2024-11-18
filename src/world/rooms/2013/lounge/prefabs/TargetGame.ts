@@ -154,7 +154,7 @@ export default class TargetGame extends Phaser.GameObjects.Container {
         // redScoreText
         const redScoreText = new TextBox(scene, 39.4875, 248.85, "LCD");
         redScoreText.text = "00";
-        redScoreText.fontSize = -40.5;
+        redScoreText.fontSize = 40.5;
         redScoreText.align = 2;
         this.add(redScoreText);
 
@@ -165,7 +165,7 @@ export default class TargetGame extends Phaser.GameObjects.Container {
         // blueScoreText
         const blueScoreText = new TextBox(scene, 452.925, 248.85, "LCD");
         blueScoreText.text = "00";
-        blueScoreText.fontSize = -40.5;
+        blueScoreText.fontSize = 40.5;
         blueScoreText.align = 2;
         this.add(blueScoreText);
 

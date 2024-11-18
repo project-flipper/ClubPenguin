@@ -112,7 +112,7 @@
                     "y": 657,
                     "text": "Yes",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -45
+                    "fontSize": 45
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -138,7 +138,7 @@
                     "y": 657,
                     "text": "No",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -45
+                    "fontSize": 45
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -174,7 +174,7 @@
                     "tintFill": true,
                     "text": "You found a party hat.\nWould you like to pick it up?",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -36
+                    "fontSize": 36
                 }
             ]
         }

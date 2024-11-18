@@ -591,6 +591,7 @@ export default class World extends Phaser.Scene {
      * @param y The y-coordinate to join at.
      */
     async joinRoom(roomId: number, x?: number, y?: number): Promise<void> {
+        if (this.engine.currentRoomId == roomId) return;
         this.leaveWaddle();
         let roomData = this.game.gameConfig.rooms[roomId];
 

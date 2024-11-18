@@ -23,7 +23,7 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         title.tintBottomLeft = 2894894;
         title.tintBottomRight = 2894894;
         title.text = "Create Password:";
-        title.fontSize = -27;
+        title.fontSize = 27;
         this.add(title);
 
         // field1Graphic
@@ -43,7 +43,7 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         placeholder1.tintBottomLeft = 13882584;
         placeholder1.tintBottomRight = 13882584;
         placeholder1.text = "Enter Password";
-        placeholder1.fontSize = -27;
+        placeholder1.fontSize = 27;
         this.add(placeholder1);
 
         // field2Graphic
@@ -63,7 +63,7 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         placeholder2.tintBottomLeft = 13882584;
         placeholder2.tintBottomRight = 13882584;
         placeholder2.text = "Confirm Password";
-        placeholder2.fontSize = -27;
+        placeholder2.fontSize = 27;
         this.add(placeholder2);
 
         // errorBubble

@@ -27,7 +27,7 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         text1.tintBottomLeft = 0;
         text1.tintBottomRight = 0;
         text1.text = "They could spend your coins";
-        text1.fontSize = -49.5;
+        text1.fontSize = 49.5;
         text1.align = 0;
         text1.maxWidth = 0;
         this.add(text1);
@@ -36,7 +36,7 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         const text2 = new TextBox(scene, 397.35, 336.375, "BurbankSmallBold");
         text2.visible = false;
         text2.text = "\nThey could change your igloo.\n";
-        text2.fontSize = -49.5;
+        text2.fontSize = 49.5;
         text2.align = 0;
         text2.maxWidth = 531.7875;
         this.add(text2);
@@ -50,7 +50,7 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         text3.tintBottomLeft = 0;
         text3.tintBottomRight = 0;
         text3.text = "They could get your penguin banned";
-        text3.fontSize = -49.5;
+        text3.fontSize = 49.5;
         text3.align = 0;
         text3.maxWidth = 549.7875;
         this.add(text3);
@@ -68,7 +68,7 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         // title
         const title = new TextBox(scene, 356.625, 176.7375, "BurbankSmallMedium");
         title.text = "If you save your password here, anyone who \nuses this computer could access your account.";
-        title.fontSize = -38.25;
+        title.fontSize = 38.25;
         title.align = 0;
         this.add(title);
 
@@ -80,7 +80,7 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         // saveLabel
         const saveLabel = new TextBox(scene, 363.425, 802.35, "BurbankSmallBold");
         saveLabel.text = "Save password";
-        saveLabel.fontSize = -31.5;
+        saveLabel.fontSize = 31.5;
         saveLabel.align = 1;
         this.add(saveLabel);
 
@@ -92,7 +92,7 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         // dontSaveLabel
         const dontSaveLabel = new TextBox(scene, 725.63, 802.35, "BurbankSmallBold");
         dontSaveLabel.text = "Don't save password";
-        dontSaveLabel.fontSize = -31.5;
+        dontSaveLabel.fontSize = 31.5;
         dontSaveLabel.align = 1;
         this.add(dontSaveLabel);
 
@@ -104,7 +104,7 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         // learnLabel
         const learnLabel = new TextBox(scene, 1142.775, 836.6625, "BurbankSmallBold");
         learnLabel.text = "En savoir plus";
-        learnLabel.fontSize = -27;
+        learnLabel.fontSize = 27;
         learnLabel.align = 1;
         this.add(learnLabel);
 

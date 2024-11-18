@@ -21,7 +21,7 @@ export default class MiniPlayerItem extends Phaser.GameObjects.Container {
         this.add(button);
 
         // playername
-        const playername = new TextBox(scene, 108, -94.5, "CCComiccrazy-BoldItalicShadow");
+        const playername = new TextBox(scene, 108, -94.5, "CCComicCrazyShadow");
         playername.text = "BASIL";
         playername.fontSize = 49.5;
         playername.dropShadowX = 0;
@@ -51,7 +51,6 @@ export default class MiniPlayerItem extends Phaser.GameObjects.Container {
         playername.boxWidth = 427.5;
         playername.boxHeight = 70.3125;
         playername.horizontalAlign = 1;
-        playername.verticalAlign = 1;
 
         // paperdoll (prefab fields)
         paperdoll.showBackground = false;

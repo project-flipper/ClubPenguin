@@ -52,7 +52,7 @@ export default class MoreServers extends Phaser.GameObjects.Container {
         this.add(worlds);
 
         // serversLabel
-        const serversLabel = new TextBox(scene, 208.24, 92.25, "CCComiccrazy-BoldItalicShadow");
+        const serversLabel = new TextBox(scene, 208.24, 92.25, "CCComiccrazyBoldItalicShadow");
         serversLabel.setOrigin(0, 0);
         serversLabel.text = "PLEASE SELECT A SERVER";
         serversLabel.fontSize = 45;
@@ -90,7 +90,7 @@ export default class MoreServers extends Phaser.GameObjects.Container {
         serversLabel.boxWidth = 1293.525;
         serversLabel.boxHeight = 66.6;
         serversLabel.horizontalAlign = 1;
-        serversLabel.verticalAlign = 1;
+        serversLabel.verticalAlign = 0;
 
         this.close = close;
         this.up = up;

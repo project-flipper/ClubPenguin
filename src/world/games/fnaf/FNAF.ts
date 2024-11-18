@@ -117,7 +117,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         // nightNumber
         const nightNumber = this.add.bitmapText(174, 515, "BurbankSmallMedium", "5\n");
         nightNumber.text = "5\n";
-        nightNumber.fontSize = -25;
+        nightNumber.fontSize = 25;
         menu.add(nightNumber);
 
         // star1
@@ -227,7 +227,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         // freddyAI
         const freddyAI = new TextBox(this, 139, 470);
         freddyAI.text = "1";
-        freddyAI.fontSize = -50;
+        freddyAI.fontSize = 50;
         customize.add(freddyAI);
 
         // bonnieAISub
@@ -243,7 +243,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         // bonnieAI
         const bonnieAI = new TextBox(this, 396, 470);
         bonnieAI.text = "3";
-        bonnieAI.fontSize = -50;
+        bonnieAI.fontSize = 50;
         customize.add(bonnieAI);
 
         // chicaAISub
@@ -259,7 +259,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         // chicaAI
         const chicaAI = new TextBox(this, 646, 470);
         chicaAI.text = "3";
-        chicaAI.fontSize = -50;
+        chicaAI.fontSize = 50;
         customize.add(chicaAI);
 
         // foxyAISub
@@ -275,7 +275,7 @@ export default class FNAF extends Phaser.Scene implements Game {
         // foxyAI
         const foxyAI = new TextBox(this, 899, 470);
         foxyAI.text = "1";
-        foxyAI.fontSize = -50;
+        foxyAI.fontSize = 50;
         customize.add(foxyAI);
 
         // goldenFreddy
@@ -459,8 +459,6 @@ export default class FNAF extends Phaser.Scene implements Game {
     }
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-
         let savedNight = localStorage.getItem('fnaf-night');
         this.currentNight = savedNight ? parseInt(savedNight) : 1;
 

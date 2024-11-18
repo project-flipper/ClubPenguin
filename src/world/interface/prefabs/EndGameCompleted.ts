@@ -52,7 +52,7 @@ export default class EndGameCompleted extends Phaser.GameObjects.Container {
         // info
         const info = new TextBox(scene, 470.14, 689.51, "BurbankSmallBold");
         info.text = "Parabens, voce ganhou o dobro de moedas";
-        info.fontSize = -36;
+        info.fontSize = 36;
         info.align = 1;
         info.maxWidth = 780.8625;
         this.add(info);

@@ -82,7 +82,7 @@
                     "tintFill": true,
                     "text": "9/25",
                     "font": "BurbankSmallBold",
-                    "fontSize": -24.75
+                    "fontSize": 24.75
                 }
             ]
         }

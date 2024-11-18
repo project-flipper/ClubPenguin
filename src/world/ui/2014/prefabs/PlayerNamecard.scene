@@ -143,7 +143,7 @@
                     "text": "Nickname",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "c2e8ed2b-a322-4448-9419-abe9122cc497",
@@ -285,7 +285,7 @@
                     "tintFill": true,
                     "text": "Your Coins: 000000",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -22.5
+                    "fontSize": 22.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -319,7 +319,7 @@
                     "tintFill": true,
                     "text": "Your Stamps: 355/355",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -22.5
+                    "fontSize": 22.5
                 },
                 {
                     "type": "Image",

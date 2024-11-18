@@ -35,19 +35,19 @@ export default class PromptIgloo extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "Line Goes Here\nLine Goes Here\nLine Goes Here\nLine Goes Here";
-        message.fontSize = -36;
+        message.fontSize = 36;
         this.add(message);
 
         // no
         const no = new TextBox(scene, 899.775, 504, "BurbankSmallMedium");
         no.text = "No";
-        no.fontSize = -45;
+        no.fontSize = 45;
         this.add(no);
 
         // yes
         const yes = new TextBox(scene, 652.275, 504, "BurbankSmallMedium");
         yes.text = "Yes";
-        yes.fontSize = -45;
+        yes.fontSize = 45;
         this.add(yes);
 
         // yesButton (components)

@@ -117,13 +117,13 @@
                     "boxWidth": 1293.525,
                     "boxHeight": 66.6,
                     "horizontalAlign": 1,
-                    "verticalAlign": 1,
+                    "verticalAlign": 0,
                     "x": 208.2375,
                     "y": 67.5,
                     "originX": 0,
                     "originY": 0,
                     "text": "Your Suggested Servers",
-                    "font": "CCComiccrazy-BoldItalicShadow",
+                    "font": "CCComiccrazyBoldItalicShadow",
                     "align": 1,
                     "fontSize": 45
                 },
@@ -149,7 +149,7 @@
                     "y": 998.775,
                     "text": "Buddies online",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -31.5
+                    "fontSize": 31.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -173,7 +173,7 @@
                     "y": 1005.3,
                     "text": "Amount of penguins online",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -31.5
+                    "fontSize": 31.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -197,7 +197,7 @@
                     "y": 1005.525,
                     "text": "Ultimate safe chat",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -31.5
+                    "fontSize": 31.5
                 },
                 {
                     "prefabId": "b5fff2dc-7ff0-4f5d-a287-4afddb10f16a",

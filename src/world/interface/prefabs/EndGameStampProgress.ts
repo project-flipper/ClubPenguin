@@ -33,7 +33,7 @@ export default class EndGameStampProgress extends Phaser.GameObjects.Container {
         progressText.tintBottomLeft = 3355443;
         progressText.tintBottomRight = 3355443;
         progressText.text = "9/25";
-        progressText.fontSize = -24.75;
+        progressText.fontSize = 24.75;
         this.add(progressText);
 
         // progressText (prefab fields)

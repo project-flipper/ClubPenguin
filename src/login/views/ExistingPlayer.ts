@@ -75,7 +75,7 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         nameCheckLabel.tintBottomLeft = 0;
         nameCheckLabel.tintBottomRight = 0;
         nameCheckLabel.text = "Remember me on this computer";
-        nameCheckLabel.fontSize = -36;
+        nameCheckLabel.fontSize = 36;
         nameCheckLabel.align = 0;
         nameCheckLabel.maxWidth = 760.3875;
         this.add(nameCheckLabel);
@@ -88,7 +88,7 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         passwordCheckLabel.tintBottomLeft = 0;
         passwordCheckLabel.tintBottomRight = 0;
         passwordCheckLabel.text = "Remember my password";
-        passwordCheckLabel.fontSize = -36;
+        passwordCheckLabel.fontSize = 36;
         passwordCheckLabel.align = 0;
         passwordCheckLabel.maxWidth = 760.3875;
         this.add(passwordCheckLabel);
@@ -101,7 +101,7 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         passwordLabel.tintBottomLeft = 0;
         passwordLabel.tintBottomRight = 0;
         passwordLabel.text = "Password:";
-        passwordLabel.fontSize = -36;
+        passwordLabel.fontSize = 36;
         passwordLabel.align = 2;
         this.add(passwordLabel);
 
@@ -113,7 +113,7 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         // loginLabel
         const loginLabel = new TextBox(scene, 910.91, 518.4, "BurbankSmallMedium");
         loginLabel.text = "Sign In";
-        loginLabel.fontSize = -45;
+        loginLabel.fontSize = 45;
         loginLabel.align = 1;
         this.add(loginLabel);
 
@@ -139,20 +139,20 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
         // differentLabel
         const differentLabel = new TextBox(scene, 406.58, 963, "BurbankSmallMedium");
         differentLabel.text = "Login as a different penguin";
-        differentLabel.fontSize = -36;
+        differentLabel.fontSize = 36;
         this.add(differentLabel);
 
         // forgotLabel
         const forgotLabel = new TextBox(scene, 875.48, 655.88, "BurbankSmallMedium");
         forgotLabel.text = "Forgot your password?";
-        forgotLabel.fontSize = -36;
+        forgotLabel.fontSize = 36;
         forgotLabel.align = 1;
         this.add(forgotLabel);
 
         // forgetLabel
         const forgetLabel = new TextBox(scene, 874.69, 723.15, "BurbankSmallMedium");
         forgetLabel.text = "Forget my penguin";
-        forgetLabel.fontSize = -36;
+        forgetLabel.fontSize = 36;
         forgetLabel.align = 1;
         this.add(forgetLabel);
 

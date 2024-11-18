@@ -58,7 +58,7 @@ export default class WorldTile extends Phaser.GameObjects.Container {
         // worldName
         const worldName = new TextBox(scene, 97.98750000000003, 9.5625, "BurbankSmallMedium");
         worldName.text = "World";
-        worldName.fontSize = -51.75;
+        worldName.fontSize = 51.75;
         this.add(worldName);
 
         // buddy

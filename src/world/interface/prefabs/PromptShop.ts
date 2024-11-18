@@ -36,13 +36,13 @@ export default class PromptShop extends Phaser.GameObjects.Container {
         // yes
         const yes = new TextBox(scene, 652.275, 657, "BurbankSmallMedium");
         yes.text = "Yes";
-        yes.fontSize = -45;
+        yes.fontSize = 45;
         this.add(yes);
 
         // no
         const no = new TextBox(scene, 899.775, 657, "BurbankSmallMedium");
         no.text = "No";
-        no.fontSize = -45;
+        no.fontSize = 45;
         this.add(no);
 
         // message
@@ -53,7 +53,7 @@ export default class PromptShop extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "You found a party hat.\nWould you like to pick it up?";
-        message.fontSize = -36;
+        message.fontSize = 36;
         this.add(message);
 
         // yesButton (components)

@@ -24,7 +24,7 @@ export default class Hint extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "Hint";
-        message.fontSize = -27;
+        message.fontSize = 27;
         this.add(message);
 
         this.box = box;

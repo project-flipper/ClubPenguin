@@ -66,7 +66,7 @@ export default class EndGameNoNewStamps extends Phaser.GameObjects.Container {
         // title_1
         const title_1 = new TextBox(scene, 705.26, 717.08, "BurbankSmallBold");
         title_1.text = "How to earn stamps\n";
-        title_1.fontSize = -38.25;
+        title_1.fontSize = 38.25;
         this.add(title_1);
 
         // closeButton (components)

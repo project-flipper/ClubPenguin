@@ -52,7 +52,7 @@ export default class Namecard extends Phaser.GameObjects.Container {
         nickname.tintBottomLeft = 0;
         nickname.tintBottomRight = 0;
         nickname.text = "Nickname";
-        nickname.fontSize = -36;
+        nickname.fontSize = 36;
         nickname.align = 1;
         this.add(nickname);
 

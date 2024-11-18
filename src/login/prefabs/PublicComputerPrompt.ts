@@ -22,7 +22,7 @@ export default class PublicComputerPrompt extends Phaser.GameObjects.Container {
         // message
         const message = new TextBox(scene, 556.9875, 341.1, "BurbankSmallMedium");
         message.text = "WAIT!\nDo other people use \nthis computer?";
-        message.fontSize = -40.5;
+        message.fontSize = 40.5;
         message.align = 1;
         message.maxWidth = 609.975;
         this.add(message);
@@ -35,7 +35,7 @@ export default class PublicComputerPrompt extends Phaser.GameObjects.Container {
         // yesLabel
         const yesLabel = new TextBox(scene, 573.525, 598.05, "BurbankSmallBold");
         yesLabel.text = "Yes";
-        yesLabel.fontSize = -40.5;
+        yesLabel.fontSize = 40.5;
         yesLabel.align = 1;
         this.add(yesLabel);
 
@@ -47,7 +47,7 @@ export default class PublicComputerPrompt extends Phaser.GameObjects.Container {
         // noLabel
         const noLabel = new TextBox(scene, 888.6375, 598.05, "BurbankSmallBold");
         noLabel.text = "No";
-        noLabel.fontSize = -40.5;
+        noLabel.fontSize = 40.5;
         noLabel.align = 1;
         this.add(noLabel);
 

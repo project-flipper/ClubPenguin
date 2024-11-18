@@ -40,13 +40,13 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "Message goes here";
-        message.fontSize = -36;
+        message.fontSize = 36;
         this.add(message);
 
         // okay
         const okay = new TextBox(scene, 723.2625, 657, "BurbankSmallMedium");
         okay.text = "Continue";
-        okay.fontSize = -45;
+        okay.fontSize = 45;
         this.add(okay);
 
         // field

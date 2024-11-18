@@ -22,7 +22,7 @@ export default class CheckBoxRules extends Phaser.GameObjects.Container {
         text1.tintBottomLeft = 6710886;
         text1.tintBottomRight = 6710886;
         text1.text = "I agree to the ";
-        text1.fontSize = -18;
+        text1.fontSize = 18;
         this.add(text1);
 
         // link1
@@ -32,7 +32,7 @@ export default class CheckBoxRules extends Phaser.GameObjects.Container {
         link1.tintBottomLeft = 86940;
         link1.tintBottomRight = 86940;
         link1.text = "CLUB PENGUIN RULES";
-        link1.fontSize = -20.25;
+        link1.fontSize = 20.25;
         this.add(link1);
 
         // errorBubble

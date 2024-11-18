@@ -43,7 +43,7 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
         this.add(items);
 
         // serversLabel
-        const serversLabel = new TextBox(scene, 208.2375, 67.5, "CCComiccrazy-BoldItalicShadow");
+        const serversLabel = new TextBox(scene, 208.2375, 67.5, "CCComiccrazyBoldItalicShadow");
         serversLabel.setOrigin(0, 0);
         serversLabel.text = "Your Suggested Servers";
         serversLabel.fontSize = 45;
@@ -53,19 +53,19 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
         // buddiesLabel
         const buddiesLabel = new TextBox(scene, 262.4625, 998.775, "BurbankSmallMedium");
         buddiesLabel.text = "Buddies online";
-        buddiesLabel.fontSize = -31.5;
+        buddiesLabel.fontSize = 31.5;
         this.add(buddiesLabel);
 
         // populationLabel
         const populationLabel = new TextBox(scene, 656.2125, 1005.3, "BurbankSmallMedium");
         populationLabel.text = "Amount of penguins online";
-        populationLabel.fontSize = -31.5;
+        populationLabel.fontSize = 31.5;
         this.add(populationLabel);
 
         // safeChatLabel
         const safeChatLabel = new TextBox(scene, 1182.825, 1005.525, "BurbankSmallMedium");
         safeChatLabel.text = "Ultimate safe chat";
-        safeChatLabel.fontSize = -31.5;
+        safeChatLabel.fontSize = 31.5;
         this.add(safeChatLabel);
 
         // world5
@@ -105,7 +105,7 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
         serversLabel.boxWidth = 1293.525;
         serversLabel.boxHeight = 66.6;
         serversLabel.horizontalAlign = 1;
-        serversLabel.verticalAlign = 1;
+        serversLabel.verticalAlign = 0;
 
         // buddiesLabel (prefab fields)
         buddiesLabel.boxWidth = 273.0375;

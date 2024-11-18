@@ -114,11 +114,11 @@ export default class Forts extends Phaser.Scene implements Room {
         clocktext.setOrigin(0, 0);
 
         // day
-        const day = new TextBox(this, 1169, 250, "CCComicCrazyW100BoldItalic");
+        const day = new TextBox(this, 1169, 250, "CCComicrazyW00BoldItalic");
         this.add.existing(day);
         day.angle = 4;
         day.text = "Monday";
-        day.fontSize = -18;
+        day.fontSize = 18;
 
         // clock
         const clock = new TextBox(this, 1170.1, 151.0625, "cplcd");
@@ -126,7 +126,7 @@ export default class Forts extends Phaser.Scene implements Room {
         clock.scaleX = 1;
         clock.scaleY = 1.51;
         clock.text = "0000";
-        clock.fontSize = -63;
+        clock.fontSize = 63;
 
         // am_pm
         const am_pm = new TextBox(this, 1299.6, 153.225, "cplcd");
@@ -134,7 +134,7 @@ export default class Forts extends Phaser.Scene implements Room {
         am_pm.scaleX = 1;
         am_pm.scaleY = 1;
         am_pm.text = "00";
-        am_pm.fontSize = -40.5;
+        am_pm.fontSize = 40.5;
 
         // snowball_target
         const snowball_target = this.add.image(1469, 175, "forts2013", "forts/target_area");
@@ -315,8 +315,6 @@ export default class Forts extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 

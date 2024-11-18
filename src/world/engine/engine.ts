@@ -342,7 +342,10 @@ export class Engine extends EventEmitter {
             roomScene = await new Promise<Room>(resolve => {
                 this.world.scene.add(key, room, true, {
                     config,
-                    oninit: (scene: Room) => load.track(new LoaderTask('Room loader', scene.load)),
+                    oninit: (scene: Room) => {
+                        load.track(new LoaderTask('Room loader', scene.load));
+                        scene.scene.moveBelow('Interface');
+                    },
                     onready: (scene: Room) => resolve(scene)
                 });
             });
@@ -416,7 +419,7 @@ export class Engine extends EventEmitter {
             this.tweenTracker.reset();
         }
 
-        this.cleaner.purge();
+        if (this.cleaner) this.cleaner.purge();
     }
 
     /**
@@ -620,7 +623,10 @@ export class Engine extends EventEmitter {
                 this.world.scene.add(key, cls, true, {
                     config,
                     options,
-                    oninit: (scene: Game) => load.track(new LoaderTask('Game loader', scene.load)),
+                    oninit: (scene: Game) => {
+                        load.track(new LoaderTask('Game loader', scene.load));
+                        scene.scene.moveBelow('Interface');
+                    },
                     onready: (scene: Game) => resolve(scene)
                 });
             });
@@ -652,7 +658,7 @@ export class Engine extends EventEmitter {
             this.currentGame = undefined;
         }
 
-        this.cleaner.purge();
+        if (this.cleaner) this.cleaner.purge();
     }
 
     /**
@@ -745,7 +751,7 @@ export class Engine extends EventEmitter {
     stop(): void {
         this.unloadRoom();
         this.unloadGame();
-        this.cleaner.purge(true);
+        if (this.cleaner) this.cleaner.purge(true);
     }
 
     /* END-USER-CODE */

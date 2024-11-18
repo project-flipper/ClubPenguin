@@ -80,7 +80,7 @@ export default class Create extends Phaser.Scene {
         // nextButtonLabelTextBox
         const nextButtonLabelTextBox = new TextBox(this, 1270.574951171875, 911.25, "BurbankSmallBold");
         nextButtonLabelTextBox.text = "Next";
-        nextButtonLabelTextBox.fontSize = -33.75;
+        nextButtonLabelTextBox.fontSize = 33.75;
         nextButtonLabelTextBox.dropShadowX = 4.5;
         nextButtonLabelTextBox.dropShadowY = 4.5;
         nextButtonLabelTextBox.dropShadowAlpha = 0.61;
@@ -137,7 +137,7 @@ export default class Create extends Phaser.Scene {
         confirmationNameTextBox.tintBottomLeft = 2270451;
         confirmationNameTextBox.tintBottomRight = 2270451;
         confirmationNameTextBox.text = "BanduPengu12";
-        confirmationNameTextBox.fontSize = -49.5;
+        confirmationNameTextBox.fontSize = 49.5;
         confirmationState.add(confirmationNameTextBox);
 
         // confirmationApprovedTextBox
@@ -147,7 +147,7 @@ export default class Create extends Phaser.Scene {
         confirmationApprovedTextBox.tintBottomLeft = 3355443;
         confirmationApprovedTextBox.tintBottomRight = 3355443;
         confirmationApprovedTextBox.text = "Until it is checked, your penguin name will appear as numbers. Approved names are updated within 2 days.";
-        confirmationApprovedTextBox.fontSize = -18;
+        confirmationApprovedTextBox.fontSize = 18;
         confirmationApprovedTextBox.maxWidth = 911.25;
         confirmationState.add(confirmationApprovedTextBox);
 
@@ -158,7 +158,7 @@ export default class Create extends Phaser.Scene {
         confirmationActivationTextBox.tintBottomLeft = 6381921;
         confirmationActivationTextBox.tintBottomRight = 6381921;
         confirmationActivationTextBox.text = "An activation email has been sent to:";
-        confirmationActivationTextBox.fontSize = -22.5;
+        confirmationActivationTextBox.fontSize = 22.5;
         confirmationActivationTextBox.maxWidth = 990;
         confirmationState.add(confirmationActivationTextBox);
 
@@ -169,7 +169,7 @@ export default class Create extends Phaser.Scene {
         confirmationEmailTextBox.tintBottomLeft = 6381921;
         confirmationEmailTextBox.tintBottomRight = 6381921;
         confirmationEmailTextBox.text = "parent@mail.com";
-        confirmationEmailTextBox.fontSize = -22.5;
+        confirmationEmailTextBox.fontSize = 22.5;
         confirmationEmailTextBox.maxWidth = 990;
         confirmationState.add(confirmationEmailTextBox);
 
@@ -180,7 +180,7 @@ export default class Create extends Phaser.Scene {
         confirmationBubbleTextBox.tintBottomLeft = 3223857;
         confirmationBubbleTextBox.tintBottomRight = 3223857;
         confirmationBubbleTextBox.text = "Ask your parent to check their email to play.";
-        confirmationBubbleTextBox.fontSize = -31.5;
+        confirmationBubbleTextBox.fontSize = 31.5;
         confirmationBubbleTextBox.maxWidth = 315;
         confirmationState.add(confirmationBubbleTextBox);
 
@@ -200,7 +200,7 @@ export default class Create extends Phaser.Scene {
         memberTtitleTextBox.tintBottomLeft = 164045;
         memberTtitleTextBox.tintBottomRight = 164045;
         memberTtitleTextBox.text = "Members can:";
-        memberTtitleTextBox.fontSize = -38;
+        memberTtitleTextBox.fontSize = 38;
         member.add(memberTtitleTextBox);
 
         // heading1TextBox
@@ -210,7 +210,7 @@ export default class Create extends Phaser.Scene {
         heading1TextBox.tintBottomLeft = 6381921;
         heading1TextBox.tintBottomRight = 6381921;
         heading1TextBox.text = "Play games";
-        heading1TextBox.fontSize = -26.25;
+        heading1TextBox.fontSize = 26.25;
         heading1TextBox.maxWidth = 459;
         member.add(heading1TextBox);
 
@@ -221,7 +221,7 @@ export default class Create extends Phaser.Scene {
         body1TextBox.tintBottomLeft = 6381921;
         body1TextBox.tintBottomRight = 6381921;
         body1TextBox.text = "access all game levels";
-        body1TextBox.fontSize = -26.25;
+        body1TextBox.fontSize = 26.25;
         body1TextBox.maxWidth = 459;
         member.add(body1TextBox);
 
@@ -232,7 +232,7 @@ export default class Create extends Phaser.Scene {
         heading2TextBox.tintBottomLeft = 6381921;
         heading2TextBox.tintBottomRight = 6381921;
         heading2TextBox.text = "Adopt pets";
-        heading2TextBox.fontSize = -26.25;
+        heading2TextBox.fontSize = 26.25;
         heading2TextBox.maxWidth = 459;
         member.add(heading2TextBox);
 
@@ -243,7 +243,7 @@ export default class Create extends Phaser.Scene {
         body2TextBox.tintBottomLeft = 6381921;
         body2TextBox.tintBottomRight = 6381921;
         body2TextBox.text = "adopt up to 20 pet puffles";
-        body2TextBox.fontSize = -26.25;
+        body2TextBox.fontSize = 26.25;
         body2TextBox.maxWidth = 459;
         member.add(body2TextBox);
 
@@ -254,7 +254,7 @@ export default class Create extends Phaser.Scene {
         heading3TextBox.tintBottomLeft = 6381921;
         heading3TextBox.tintBottomRight = 6381921;
         heading3TextBox.text = "Decorate your igloo";
-        heading3TextBox.fontSize = -26.25;
+        heading3TextBox.fontSize = 26.25;
         heading3TextBox.maxWidth = 459;
         member.add(heading3TextBox);
 
@@ -265,7 +265,7 @@ export default class Create extends Phaser.Scene {
         body3TextBox.tintBottomLeft = 6381921;
         body3TextBox.tintBottomRight = 6381921;
         body3TextBox.text = "invite your friends for a party";
-        body3TextBox.fontSize = -26.25;
+        body3TextBox.fontSize = 26.25;
         body3TextBox.maxWidth = 459;
         member.add(body3TextBox);
 
@@ -276,7 +276,7 @@ export default class Create extends Phaser.Scene {
         heading4TextBox.tintBottomLeft = 6381921;
         heading4TextBox.tintBottomRight = 6381921;
         heading4TextBox.text = "Dress up";
-        heading4TextBox.fontSize = -26.25;
+        heading4TextBox.fontSize = 26.25;
         heading4TextBox.maxWidth = 459;
         member.add(heading4TextBox);
 
@@ -287,7 +287,7 @@ export default class Create extends Phaser.Scene {
         body4TextBox.tintBottomLeft = 6381921;
         body4TextBox.tintBottomRight = 6381921;
         body4TextBox.text = "buy exclusive clothing";
-        body4TextBox.fontSize = -26.25;
+        body4TextBox.fontSize = 26.25;
         body4TextBox.maxWidth = 459;
         member.add(body4TextBox);
 
@@ -303,7 +303,7 @@ export default class Create extends Phaser.Scene {
         memberButtonTextBox.tintBottomLeft = 6434816;
         memberButtonTextBox.tintBottomRight = 6434816;
         memberButtonTextBox.text = "Learn More About Membership";
-        memberButtonTextBox.fontSize = -29.25;
+        memberButtonTextBox.fontSize = 29.25;
         memberButtonTextBox.maxWidth = 390;
         memberButtonTextBox.dropShadowX = 0;
         memberButtonTextBox.dropShadowY = 1;

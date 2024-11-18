@@ -430,7 +430,7 @@
                     "y": 961.43,
                     "text": "Login as a different penguin",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -36
+                    "fontSize": 36
                 }
             ]
         }

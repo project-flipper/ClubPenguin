@@ -57,7 +57,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         nickname.tintBottomLeft = 0;
         nickname.tintBottomRight = 0;
         nickname.text = "Nickname";
-        nickname.fontSize = -36;
+        nickname.fontSize = 36;
         nickname.align = 1;
         this.add(nickname);
 
@@ -98,7 +98,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         coins.tintBottomLeft = 0;
         coins.tintBottomRight = 0;
         coins.text = "Your Coins: 000000";
-        coins.fontSize = -22.5;
+        coins.fontSize = 22.5;
         this.add(coins);
 
         // stamps
@@ -109,7 +109,7 @@ export default class PlayerNamecard extends Phaser.GameObjects.Container {
         stamps.tintBottomLeft = 0;
         stamps.tintBottomRight = 0;
         stamps.text = "Your Stamps: 355/355";
-        stamps.fontSize = -22.5;
+        stamps.fontSize = 22.5;
         this.add(stamps);
 
         // inventoryTab

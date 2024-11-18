@@ -25,7 +25,7 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         titleTextBox.tintBottomLeft = 2894894;
         titleTextBox.tintBottomRight = 2894894;
         titleTextBox.text = "Create Penguin Name:";
-        titleTextBox.fontSize = -27;
+        titleTextBox.fontSize = 27;
         this.add(titleTextBox);
 
         // conditions
@@ -45,7 +45,7 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         condition1TextBox.tintBottomLeft = 5395026;
         condition1TextBox.tintBottomRight = 5395026;
         condition1TextBox.text = "4 - 12 letters, numbers or spaces";
-        condition1TextBox.fontSize = -22.5;
+        condition1TextBox.fontSize = 22.5;
         conditions.add(condition1TextBox);
 
         // condition2TextBox
@@ -56,7 +56,7 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         condition2TextBox.tintBottomLeft = 5395026;
         condition2TextBox.tintBottomRight = 5395026;
         condition2TextBox.text = "Do not use your real name";
-        condition2TextBox.fontSize = -22.5;
+        condition2TextBox.fontSize = 22.5;
         conditions.add(condition2TextBox);
 
         // fieldGraphic
@@ -77,7 +77,7 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         placeholder.tintBottomLeft = 13882584;
         placeholder.tintBottomRight = 13882584;
         placeholder.text = "Enter Penguin Name";
-        placeholder.fontSize = -27;
+        placeholder.fontSize = 27;
         this.add(placeholder);
 
         // textField

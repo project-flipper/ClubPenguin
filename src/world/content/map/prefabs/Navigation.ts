@@ -27,7 +27,7 @@ export default class Navigation extends Phaser.GameObjects.Container {
         gamesLabel.tintBottomLeft = 6710886;
         gamesLabel.tintBottomRight = 6710886;
         gamesLabel.text = "Games";
-        gamesLabel.fontSize = -22.5;
+        gamesLabel.fontSize = 22.5;
         this.add(gamesLabel);
 
         // placesLabel
@@ -38,7 +38,7 @@ export default class Navigation extends Phaser.GameObjects.Container {
         placesLabel.tintBottomLeft = 6710886;
         placesLabel.tintBottomRight = 6710886;
         placesLabel.text = "Places";
-        placesLabel.fontSize = -22.5;
+        placesLabel.fontSize = 22.5;
         this.add(placesLabel);
 
         // shopLabel
@@ -49,7 +49,7 @@ export default class Navigation extends Phaser.GameObjects.Container {
         shopLabel.tintBottomLeft = 6710886;
         shopLabel.tintBottomRight = 6710886;
         shopLabel.text = "Shop";
-        shopLabel.fontSize = -22.5;
+        shopLabel.fontSize = 22.5;
         this.add(shopLabel);
 
         // petsLabel
@@ -60,7 +60,7 @@ export default class Navigation extends Phaser.GameObjects.Container {
         petsLabel.tintBottomLeft = 6710886;
         petsLabel.tintBottomRight = 6710886;
         petsLabel.text = "Pets";
-        petsLabel.fontSize = -22.5;
+        petsLabel.fontSize = 22.5;
         this.add(petsLabel);
 
         // gamesButton
@@ -111,7 +111,7 @@ export default class Navigation extends Phaser.GameObjects.Container {
         petsHintLabel.tintBottomLeft = 3355443;
         petsHintLabel.tintBottomRight = 3355443;
         petsHintLabel.text = "Different colored puffles play different games.";
-        petsHintLabel.fontSize = -22.5;
+        petsHintLabel.fontSize = 22.5;
         puffleGames.add(petsHintLabel);
 
         // petsButtonLabel
@@ -122,7 +122,7 @@ export default class Navigation extends Phaser.GameObjects.Container {
         petsButtonLabel.tintBottomLeft = 18267;
         petsButtonLabel.tintBottomRight = 18267;
         petsButtonLabel.text = "Hide games";
-        petsButtonLabel.fontSize = -22.5;
+        petsButtonLabel.fontSize = 22.5;
         puffleGames.add(petsButtonLabel);
 
         // gamesLabel (prefab fields)

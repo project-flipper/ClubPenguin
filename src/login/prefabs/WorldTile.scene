@@ -157,7 +157,7 @@
                     "y": 9.5625,
                     "text": "World",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -51.75
+                    "fontSize": 51.75
                 },
                 {
                     "type": "Image",

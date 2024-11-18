@@ -45,7 +45,7 @@
                     "tintBottomRight": "#2C2C2E",
                     "text": "Parent's Email Address:",
                     "font": "BurbankSmallBold",
-                    "fontSize": -27
+                    "fontSize": 27
                 },
                 {
                     "type": "Container",
@@ -80,7 +80,7 @@
                             "tintBottomRight": "#525252",
                             "text": "Club Penguin will send your parent an email with an activation code.",
                             "font": "BurbankSmallBold",
-                            "fontSize": -18,
+                            "fontSize": 18,
                             "maxWidth": 528.75
                         }
                     ]
@@ -127,7 +127,7 @@
                     "tintBottomRight": "#D3D4D8",
                     "text": "Enter parent's email address",
                     "font": "BurbankSmallBold",
-                    "fontSize": -27
+                    "fontSize": 27
                 },
                 {
                     "prefabId": "5ed39c58-bdfa-4831-81bd-b75efd0bc709",

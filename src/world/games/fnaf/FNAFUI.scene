@@ -587,7 +587,7 @@
             "y": 638,
             "text": "100%",
             "font": "BurbankBigCondensatedBlack",
-            "fontSize": -30
+            "fontSize": 30
         },
         {
             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -611,7 +611,7 @@
             "y": 24,
             "text": "12 AM",
             "font": "BurbankBigCondensatedBlack",
-            "fontSize": -35
+            "fontSize": 35
         },
         {
             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -635,7 +635,7 @@
             "y": 55,
             "text": "Night 1",
             "font": "BurbankSmallMedium",
-            "fontSize": -15
+            "fontSize": 15
         },
         {
             "type": "Image",
@@ -732,7 +732,7 @@
             "visible": false,
             "text": "6 AM",
             "font": "BurbankBigCondensatedBlack",
-            "fontSize": -105
+            "fontSize": 105
         },
         {
             "type": "Image",

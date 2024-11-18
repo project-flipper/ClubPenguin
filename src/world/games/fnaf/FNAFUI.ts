@@ -243,19 +243,19 @@ export default class FNAFUI extends Phaser.Scene {
         // power
         const power = this.add.bitmapText(168, 638, "BurbankBigCondensatedBlack", "100%");
         power.text = "100%";
-        power.fontSize = -30;
+        power.fontSize = 30;
 
         // hour
         const hour = new TextBox(this, 1004, 24, "BurbankBigCondensatedBlack");
         this.add.existing(hour);
         hour.text = "12 AM";
-        hour.fontSize = -35;
+        hour.fontSize = 35;
 
         // night
         const night = new TextBox(this, 1004, 55, "BurbankSmallMedium");
         this.add.existing(night);
         night.text = "Night 1";
-        night.fontSize = -15;
+        night.fontSize = 15;
 
         // muteCall
         const muteCall = this.add.image(27, 22, "fnaf", "fnaf/Numbers & Nights/Camera and Nights/481");
@@ -289,7 +289,7 @@ export default class FNAFUI extends Phaser.Scene {
         this.add.existing(win6am);
         win6am.visible = false;
         win6am.text = "6 AM";
-        win6am.fontSize = -105;
+        win6am.fontSize = 105;
 
         // close
         const close = this.add.image(1103, 38, "interface", "interface/promptClose0001");
@@ -414,7 +414,8 @@ export default class FNAFUI extends Phaser.Scene {
     /* START-USER-CODE */
 
     init(data: any) {
-        this.scene.moveBelow('Interface');
+        this.scene.moveBelow('FNAFNight');
+        this.scene.moveAbove('FNAFNight');
         this.fnaf = data.game;
     }
 

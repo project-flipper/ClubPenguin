@@ -212,7 +212,7 @@
                     "text": "Remember me on this computer",
                     "font": "BurbankSmallMedium",
                     "align": 0,
-                    "fontSize": -36,
+                    "fontSize": 36,
                     "maxWidth": 760.3875
                 },
                 {
@@ -252,7 +252,7 @@
                     "text": "Remember my password",
                     "font": "BurbankSmallMedium",
                     "align": 0,
-                    "fontSize": -36,
+                    "fontSize": 36,
                     "maxWidth": 760.3875
                 },
                 {
@@ -291,7 +291,7 @@
                     "text": "Password:",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "type": "Image",
@@ -340,7 +340,7 @@
                     "text": "Sign In",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -45
+                    "fontSize": 45
                 },
                 {
                     "type": "Image",
@@ -414,7 +414,7 @@
                     "y": 963,
                     "text": "Login as a different penguin",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -442,7 +442,7 @@
                     "text": "Forgot your password?",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -470,7 +470,7 @@
                     "text": "Forget my penguin",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 }
             ]
         }

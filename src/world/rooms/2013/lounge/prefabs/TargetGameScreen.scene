@@ -85,7 +85,7 @@
                     "visible": false,
                     "text": "01:30",
                     "font": "LCD",
-                    "fontSize": -81
+                    "fontSize": 81
                 },
                 {
                     "type": "Image",

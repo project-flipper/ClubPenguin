@@ -9,12 +9,18 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
         super(scene, x ?? 0, y ?? 0, font ?? "BurbankSmallBold");
 
         this.text = "TextBox";
-        this.fontSize = -72;
+        this.fontSize = 72;
 
         /* START-USER-CTR-CODE */
 
         this.__baseX = this.x;
         this.__baseY = this.y;
+
+        this.debug = scene.add.rectangle(this.x, this.y, this.boxWidth, this.boxHeight, Phaser.Display.Color.RandomRGB().color, 0.25);
+        this.debug.setOrigin(0, 0);
+        this.debug.visible = false;
+        this.debug.setDepth(9999999);
+        scene.add.existing(this.debug);
 
         /* END-USER-CTR-CODE */
 
@@ -33,6 +39,8 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
 
     private __baseX: number;
     private __baseY: number;
+
+    private debug: Phaser.GameObjects.Rectangle;
 
     private _advancedWordWrap = true;
     public shouldSetMaxWidth = true;
@@ -58,6 +66,14 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
         super.setText(this.advancedWordWrap ? this.wrapText(value) : value);
 
         return this.repositionText();
+    }
+
+    setVisible(value: boolean): this {
+        super.setVisible(value);
+
+        if (this.debug) this.debug.visible = value;
+
+        return this;
     }
 
     setPosition(x?: number, y?: number): this {
@@ -213,7 +229,7 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
             case 1: //middle align
                 y = baseY + height / 2 - this.height / 2;
                 break;
-            case 2: // right align
+            case 2: // bottom align
                 y = baseY + height - this.height;
                 break;
             default:
@@ -222,6 +238,11 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
 
         super.setPosition(x, y);
         this.emit('textrepositioned');
+
+        if (this.debug) {
+            this.debug.setPosition(baseX, baseY);
+            this.debug.setSize(width, height);
+        }
 
         return this;
     }

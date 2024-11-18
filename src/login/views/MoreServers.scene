@@ -148,13 +148,13 @@
                     "boxWidth": 1293.525,
                     "boxHeight": 66.6,
                     "horizontalAlign": 1,
-                    "verticalAlign": 1,
+                    "verticalAlign": 0,
                     "x": 208.24,
                     "y": 92.25,
                     "originX": 0,
                     "originY": 0,
                     "text": "PLEASE SELECT A SERVER",
-                    "font": "CCComiccrazy-BoldItalicShadow",
+                    "font": "CCComiccrazyBoldItalicShadow",
                     "align": 1,
                     "fontSize": 45
                 }

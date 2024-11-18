@@ -39,7 +39,7 @@ export default class TargetGameScreen extends Phaser.GameObjects.Container {
         const countdown = new TextBox(scene, -66, 0, "LCD");
         countdown.visible = false;
         countdown.text = "01:30";
-        countdown.fontSize = -81;
+        countdown.fontSize = 81;
         this.add(countdown);
 
         // lounge_screencover

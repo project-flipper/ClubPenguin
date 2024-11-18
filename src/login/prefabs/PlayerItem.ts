@@ -25,7 +25,7 @@ export default class PlayerItem extends Phaser.GameObjects.Container {
         this.add(paperdoll);
 
         // playername
-        const playername = new TextBox(scene, -213.75, 264.38, "CCComiccrazy-BoldItalicShadow");
+        const playername = new TextBox(scene, -213.75, 264.38, "CCComicCrazyShadow");
         playername.text = "BASIL";
         playername.fontSize = 49.5;
         playername.dropShadowX = 0;

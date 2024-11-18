@@ -21,19 +21,19 @@ export default class EndGameTitle extends Phaser.GameObjects.Container {
         titleShadow.tintBottomLeft = 12953;
         titleShadow.tintBottomRight = 12953;
         titleShadow.text = "Aqua Grabber";
-        titleShadow.fontSize = -56.25;
+        titleShadow.fontSize = 56.25;
         this.add(titleShadow);
 
         // title
         const title = new TextBox(scene, 0, 0, "BurbankSmallBold");
         title.text = "Aqua Grabber";
-        title.fontSize = -56.25;
+        title.fontSize = 56.25;
         this.add(title);
 
         // earned
         const earned = new TextBox(scene, 0, 62.89, "BurbankSmallMedium");
         earned.text = "You've earned:";
-        earned.fontSize = -31.5;
+        earned.fontSize = 31.5;
         this.add(earned);
 
         // titleShadow (prefab fields)

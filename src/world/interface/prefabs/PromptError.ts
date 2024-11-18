@@ -26,7 +26,7 @@ export default class PromptError extends Phaser.GameObjects.Container {
         // okay
         const okay = new TextBox(scene, 775.0125, 463.5, "BurbankSmallMedium");
         okay.text = "Ok";
-        okay.fontSize = -45;
+        okay.fontSize = 45;
         this.add(okay);
 
         // message
@@ -37,7 +37,7 @@ export default class PromptError extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "Message goes here\nMessage goes here";
-        message.fontSize = -36;
+        message.fontSize = 36;
         this.add(message);
 
         // okayButton (components)
