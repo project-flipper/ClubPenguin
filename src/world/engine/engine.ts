@@ -28,6 +28,7 @@ import RoomTrigger from "@clubpenguin/lib/components/RoomTrigger";
 import GameTrigger from "@clubpenguin/lib/components/GameTrigger";
 import PressureTrigger from "@clubpenguin/lib/components/PressureTrigger";
 import SnowballTrigger from "@clubpenguin/lib/components/SnowballTrigger";
+import ContentTrigger from "@clubpenguin/lib/components/ContentTrigger";
 
 export let logger = getLogger('CP.world.engine');
 
@@ -37,7 +38,8 @@ export type Trigger =
     | GameTrigger
     | WaddleTrigger
     | PressureTrigger
-    | SnowballTrigger;
+    | SnowballTrigger
+    | ContentTrigger;
 
 export interface Room extends Phaser.Scene {
     safeX?: number;
@@ -264,6 +266,9 @@ export class Engine extends EventEmitter {
 
             let snowballTrigger = SnowballTrigger.getComponent(go);
             if (snowballTrigger) triggers.push(snowballTrigger);
+
+            let contentTrigger = ContentTrigger.getComponent(go);
+            if (contentTrigger) triggers.push(contentTrigger);
         }
 
         return triggers;

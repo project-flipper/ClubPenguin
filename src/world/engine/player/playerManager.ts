@@ -12,6 +12,7 @@ import { Avatar, AvatarCls, Player, PlayerLoadingState } from "@clubpenguin/worl
 import World from "@clubpenguin/world/World";
 import { ClothingSprite } from "../clothing/clothingManager";
 import { Actions } from "./actions";
+import ContentTrigger from "@clubpenguin/lib/components/ContentTrigger";
 
 /**
  * Manages the players in the current room.
@@ -291,6 +292,7 @@ export class PlayerManager {
         for (let trigger of this.engine.triggers) {
             if (trigger instanceof Trigger && finishedMoving && trigger.test(x, y)) trigger.execute(this.engine, player);
             if (trigger instanceof RoomTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
+            if (trigger instanceof ContentTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
             if (trigger instanceof GameTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
             if (trigger instanceof WaddleTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
             if (trigger instanceof PressureTrigger) trigger.execute(this.engine, player, trigger.test(x, y), finishedMoving);

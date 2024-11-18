@@ -524,6 +524,50 @@
                     }
                 }
             ]
+        },
+        {
+            "name": "ContentTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "name",
+                    "label": "Name",
+                    "tooltip": "The identifier for this content.",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "importFunction",
+                    "label": "Content Invoker",
+                    "tooltip": "A function that returns the content module. You usually pass an anonymous function here that returns a dynamic import.",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "expression",
+                        "expressionType": "() => Promise<ContentCls>"
+                    }
+                },
+                {
+                    "name": "contentType",
+                    "label": "Content Type",
+                    "tooltip": "The type of content this is.",
+                    "defValue": "CONTENT",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "option",
+                        "options": [
+                            "CONTENT",
+                            "WINDOW"
+                        ]
+                    }
+                }
+            ]
         }
     ],
     "meta": {
