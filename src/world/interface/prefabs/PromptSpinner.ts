@@ -38,6 +38,7 @@ export default class PromptSpinner extends Phaser.GameObjects.Container {
     declare scene: Interface;
 
     show(): void {
+        this.scene.hideHint();
         this.scene.closePrompt();
 
         this.spinner.play(this.spinner.anims.currentAnim.key);
