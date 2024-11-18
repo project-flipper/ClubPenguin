@@ -31,7 +31,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-dancefloor-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -48,7 +48,7 @@
             "originY": 0.549718,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-penguin1-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -65,7 +65,7 @@
             "originY": 0.549718,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-penguin2-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -82,7 +82,7 @@
             "originY": 0.549718,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-penguin3-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -99,7 +99,7 @@
             "originY": 0.549718,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-penguin4-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -116,7 +116,7 @@
             "originY": 0.549718,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-penguin1-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -133,7 +133,7 @@
             "originY": 0.549718,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-penguin4-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -198,7 +198,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-speaker1-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -215,7 +215,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-speaker2-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -288,7 +288,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-bits-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -342,7 +342,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-thinice-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -415,7 +415,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lounge2013-astro-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",

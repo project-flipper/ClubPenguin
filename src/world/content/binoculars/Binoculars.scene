@@ -284,7 +284,7 @@
                     "originY": 0.2980701754385965,
                     "animationPlayMethod": 1,
                     "animationKey": "binoculars-tide-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 },
                 {
                     "type": "Sprite",
@@ -302,7 +302,7 @@
                     "originY": 0.2980701754385965,
                     "animationPlayMethod": 1,
                     "animationKey": "binoculars-tide-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 }
             ]
         },
@@ -330,7 +330,7 @@
                     "originY": 0.757059,
                     "animationPlayMethod": 1,
                     "animationKey": "binoculars-penguin-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 },
                 {
                     "type": "Image",
@@ -360,7 +360,7 @@
                     "originY": 0.29807018,
                     "animationPlayMethod": 1,
                     "animationKey": "binoculars-tide-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 },
                 {
                     "type": "Sprite",
@@ -378,7 +378,7 @@
                     "originY": 0.2980701754385965,
                     "animationPlayMethod": 1,
                     "animationKey": "binoculars-tide-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 }
             ]
         },
@@ -406,7 +406,7 @@
                     "originY": 0.3676923076923077,
                     "animationPlayMethod": 1,
                     "animationKey": "binoculars-fish-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 },
                 {
                     "type": "Rectangle",

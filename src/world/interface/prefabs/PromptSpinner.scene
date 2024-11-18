@@ -51,7 +51,7 @@
                     "y": 428.625,
                     "animationPlayMethod": 1,
                     "animationKey": "interface-promptspinner-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 }
             ]
         }

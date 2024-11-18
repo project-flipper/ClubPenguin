@@ -867,7 +867,7 @@
                     "originY": 0,
                     "animationPlayMethod": 1,
                     "animationKey": "create-spinner-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 }
             ]
         }

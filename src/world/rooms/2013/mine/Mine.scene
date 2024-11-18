@@ -130,7 +130,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "mine2013-bulb-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -198,7 +198,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "mine2013-flame-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -376,7 +376,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "mine2013-eyes-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",

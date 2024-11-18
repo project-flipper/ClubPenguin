@@ -182,7 +182,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "forest2014-waterfallparticles-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -199,7 +199,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "forest2014-waterfallmidrolls-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -216,7 +216,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "forest2014-waterfallfoam-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -233,7 +233,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "forest2014-waterfallrolls-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",

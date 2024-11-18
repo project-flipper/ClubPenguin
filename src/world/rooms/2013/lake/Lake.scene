@@ -94,7 +94,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall2_top1-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -110,7 +110,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall2_top2-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -126,7 +126,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall2_rolls-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -142,7 +142,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall2_foam-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -158,7 +158,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall2_bottom1-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -174,7 +174,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall2_bottom2-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -190,7 +190,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall1_rolls-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -206,7 +206,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall1_bottom1-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -222,7 +222,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall1_bottom2-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -238,7 +238,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall1_foam-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -254,7 +254,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall1_top2-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -270,7 +270,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lake2013-fall1_top1-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",

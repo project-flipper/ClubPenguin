@@ -57,7 +57,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "dance2013-dancefloor-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -426,7 +426,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "dance2013-speaker1-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -443,7 +443,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "dance2013-speaker2-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -460,7 +460,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "dance2013-speaker3-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -501,7 +501,7 @@
             "originY": 0.782609,
             "animationPlayMethod": 1,
             "animationKey": "dance2013-puffleidle-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -544,7 +544,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "dance2013-boilerspeakercone-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -687,7 +687,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "dance2013-neon-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -704,7 +704,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "dance2013-djleft-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -721,7 +721,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "dance2013-djright-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",

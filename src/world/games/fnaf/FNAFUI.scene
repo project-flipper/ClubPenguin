@@ -688,7 +688,7 @@
             "visible": false,
             "animationPlayMethod": 1,
             "animationKey": "fnaf-static-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Rectangle",

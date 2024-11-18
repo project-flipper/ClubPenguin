@@ -57,7 +57,7 @@
                     },
                     "animationPlayMethod": 1,
                     "animationKey": "ui-inventoryspinner-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 }
             ]
         }

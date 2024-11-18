@@ -68,7 +68,7 @@
                     "alphaBottomRight": 0.25,
                     "animationPlayMethod": 1,
                     "animationKey": "fnaf-pregame-static-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 },
                 {
                     "type": "Image",

@@ -58,7 +58,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "village2014-belt-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -80,7 +80,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "village2014-cable-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -97,7 +97,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "village2014-sleds-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -453,7 +453,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "village2014-actualbelt-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -474,7 +474,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "village2014-cog-animation",
-            "animationPreview": true
+            "animationPreview": false
         }
     ],
     "plainObjects": [],

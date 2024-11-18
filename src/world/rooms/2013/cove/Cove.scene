@@ -368,7 +368,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "cove2013-fire-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",

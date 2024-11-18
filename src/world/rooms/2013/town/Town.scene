@@ -203,7 +203,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "town2013-speakers-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",

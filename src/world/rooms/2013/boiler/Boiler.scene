@@ -99,7 +99,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "boiler2013-steam-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",

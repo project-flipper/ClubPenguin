@@ -69,7 +69,7 @@
             "originY": 1.93026,
             "animationPlayMethod": 1,
             "animationKey": "lodge2013-candlefire-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -141,7 +141,7 @@
             "originY": 0,
             "animationPlayMethod": 1,
             "animationKey": "lodge2013-fire-animation",
-            "animationPreview": true
+            "animationPreview": false
         },
         {
             "type": "Image",

@@ -43,7 +43,7 @@
                     "originY": 0,
                     "animationPlayMethod": 1,
                     "animationKey": "load-spinner-animation",
-                    "animationPreview": true
+                    "animationPreview": false
                 },
                 {
                     "type": "Image",
