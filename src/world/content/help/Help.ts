@@ -267,6 +267,7 @@ export default class Help extends Phaser.Scene implements Content {
     declare game: App;
 
     public hidesInterface = false;
+    public aboveInterface = true;
 
     get world(): World {
         return this.scene.get('World') as World;

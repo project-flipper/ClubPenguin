@@ -1,6 +1,7 @@
 export interface Content extends Phaser.Scene {
     unload(interface_: Interface): void;
     hidesInterface?: boolean
+    aboveInterface?: boolean
 }
 
 export interface ContentCls {
@@ -764,7 +765,7 @@ export default class Interface extends Phaser.Scene {
                     oninit: (scene: Content) => {
                         load.track(new LoaderTask('Content loader', scene.load));
                         scene.scene.moveBelow('Interface');
-                        scene.scene.moveAbove('Interface');
+                        if (scene.aboveInterface) scene.scene.moveAbove('Interface');
                     },
                     onready: (scene: Content) => resolve(scene)
                 });

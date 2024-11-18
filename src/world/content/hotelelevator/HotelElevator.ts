@@ -306,6 +306,7 @@ export default class HotelElevator extends Phaser.Scene implements Content {
     declare game: App;
 
     public hidesInterface = true;
+    public aboveInterface = true;
 
     get world(): World {
         return this.scene.get('World') as World;

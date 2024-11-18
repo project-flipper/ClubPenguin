@@ -1128,6 +1128,7 @@ export default class Map extends Phaser.Scene implements Content {
     declare game: App;
 
     public hidesInterface = true;
+    public aboveInterface = false;
 
     init(data: any): void {
         if (data.oninit) data.oninit(this);

@@ -270,6 +270,7 @@ export default class Binoculars extends Phaser.Scene implements Content {
     declare game: App;
 
     public hidesInterface = true;
+    public aboveInterface = true;
 
     init(data: any): void {
         if (data.oninit) data.oninit(this);
