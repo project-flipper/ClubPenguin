@@ -130,11 +130,11 @@ export class HybridGame extends Phaser.Scene implements Game {
     }
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     get loadScreen(): Load {
-        return (this.scene.get('Load') as Load);
+        return this.scene.get('Load') as Load;
     }
 
     public gameData: GameConfig;

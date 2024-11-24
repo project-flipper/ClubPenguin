@@ -1135,11 +1135,11 @@ export default class Map extends Phaser.Scene implements Content {
     }
 
     get world(): World {
-        return (this.scene.get('World') as World);
+        return this.scene.get('World') as World;
     }
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     private _category = MapCategory.NO_CATEGORY;

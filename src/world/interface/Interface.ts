@@ -353,7 +353,7 @@ export default class Interface extends Phaser.Scene {
     }
 
     get world(): World {
-        return (this.scene.get('World') as World);
+        return this.scene.get('World') as World;
     }
 
     get engine(): Engine {

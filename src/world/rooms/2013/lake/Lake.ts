@@ -456,7 +456,7 @@ export default class Lake extends Phaser.Scene {
     }
 
     get world(): World {
-        return (this.scene.get('World') as World);
+        return this.scene.get('World') as World;
     }
 
     get engine(): Engine {
@@ -464,7 +464,7 @@ export default class Lake extends Phaser.Scene {
     }
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     public MOSS_KEY_ID = 7016;

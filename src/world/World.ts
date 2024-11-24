@@ -66,7 +66,7 @@ export default class World extends Phaser.Scene {
     public isActive = false;
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     get loadScreen(): Load {
