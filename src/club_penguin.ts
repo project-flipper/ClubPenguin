@@ -76,6 +76,9 @@ declare global {
         [key: string]: any
     };
     const __webpack_public_path__: string;
+    interface NodeRequire {
+        resolveWeak: (dependency: string) => number;
+    }
 
     /* ========== PLAY PAGE ========== */
     interface Window {
