@@ -750,32 +750,6 @@
         },
         {
             "type": "Image",
-            "id": "7ace8559-34fe-43eb-a574-1ff579af350a",
-            "label": "questIcon",
-            "scope": "PUBLIC",
-            "components": [
-                "DepthEnabled",
-                "ButtonComponent"
-            ],
-            "DepthEnabled.automaticSort": false,
-            "DepthEnabled.depth": 1080,
-            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/quest0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/quest0002\"}",
-            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/quest0003\"}",
-            "ButtonComponent.handCursor": true,
-            "ButtonComponent.pixelPerfect": true,
-            "ButtonComponent.hitbox": "hotelspa_quest0004",
-            "texture": {
-                "key": "hotelspa2013",
-                "frame": "hotelspa/quest0001"
-            },
-            "x": 1537.76,
-            "y": 901.35,
-            "originX": 0,
-            "originY": 0
-        },
-        {
-            "type": "Image",
             "id": "cf8c1134-76e3-4eb9-8059-efdb3265855d",
             "label": "hotelspa_quest0004",
             "texture": {
@@ -1332,6 +1306,32 @@
             "originX": 0,
             "originY": 0,
             "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "7ace8559-34fe-43eb-a574-1ff579af350a",
+            "label": "questIcon",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/quest0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/quest0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/quest0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_quest0004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/quest0001"
+            },
+            "x": 1537.76,
+            "y": 901.35,
+            "originX": 0,
+            "originY": 0
         }
     ],
     "plainObjects": [],

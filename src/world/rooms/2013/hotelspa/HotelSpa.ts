@@ -233,10 +233,6 @@ export default class HotelSpa extends Phaser.Scene {
         const hotelspa_towel = this.add.image(1500.75, 900, "hotelspa2013", "hotelspa/towel");
         hotelspa_towel.setOrigin(0, 0);
 
-        // questIcon
-        const questIcon = this.add.image(1537.76, 901.35, "hotelspa2013", "hotelspa/quest0001");
-        questIcon.setOrigin(0, 0);
-
         // hotelspa_quest0004
         const hotelspa_quest0004 = this.add.image(1537.76, 901.35, "hotelspa2013", "hotelspa/quest0004");
         hotelspa_quest0004.setOrigin(0, 0);
@@ -395,6 +391,10 @@ export default class HotelSpa extends Phaser.Scene {
         treadmillover2.setOrigin(0, 0);
         treadmillover2.visible = false;
 
+        // questIcon
+        const questIcon = this.add.image(1537.76, 901.35, "hotelspa2013", "hotelspa/quest0001");
+        questIcon.setOrigin(0, 0);
+
         // lists
         const triggers = [hotelspa_elevator_trigger, hotelspa_weight2_trigger, hotelspa_weight1_trigger, hotelspa_aero2_trigger, hotelspa_aero1_trigger, hotelspa_salon1_trigger, tread2_trigger, tread1_trigger, hotelspa_chair2_trigger, hotelspa_chair1_trigger, hotelspa_salon2_trigger];
 
@@ -544,18 +544,6 @@ export default class HotelSpa extends Phaser.Scene {
         hotelspa_towelDepthEnabled.automaticSort = false;
         hotelspa_towelDepthEnabled.depth = 927;
 
-        // questIcon (components)
-        const questIconDepthEnabled = new DepthEnabled(questIcon);
-        questIconDepthEnabled.automaticSort = false;
-        questIconDepthEnabled.depth = 1080;
-        const questIconButtonComponent = new ButtonComponent(questIcon);
-        questIconButtonComponent.upTexture = {"key":"hotelspa2013","frame":"hotelspa/quest0001"};
-        questIconButtonComponent.overTexture = {"key":"hotelspa2013","frame":"hotelspa/quest0002"};
-        questIconButtonComponent.downTexture = {"key":"hotelspa2013","frame":"hotelspa/quest0003"};
-        questIconButtonComponent.handCursor = true;
-        questIconButtonComponent.pixelPerfect = true;
-        questIconButtonComponent.hitbox = hotelspa_quest0004;
-
         // exercise1 (components)
         const exercise1DepthEnabled = new DepthEnabled(exercise1);
         exercise1DepthEnabled.automaticSort = false;
@@ -698,6 +686,18 @@ export default class HotelSpa extends Phaser.Scene {
         treadmillover2DepthEnabled.automaticSort = false;
         treadmillover2DepthEnabled.depth = 783.9;
 
+        // questIcon (components)
+        const questIconDepthEnabled = new DepthEnabled(questIcon);
+        questIconDepthEnabled.automaticSort = false;
+        questIconDepthEnabled.depth = 1080;
+        const questIconButtonComponent = new ButtonComponent(questIcon);
+        questIconButtonComponent.upTexture = {"key":"hotelspa2013","frame":"hotelspa/quest0001"};
+        questIconButtonComponent.overTexture = {"key":"hotelspa2013","frame":"hotelspa/quest0002"};
+        questIconButtonComponent.downTexture = {"key":"hotelspa2013","frame":"hotelspa/quest0003"};
+        questIconButtonComponent.handCursor = true;
+        questIconButtonComponent.pixelPerfect = true;
+        questIconButtonComponent.hitbox = hotelspa_quest0004;
+
         this.elevatordoor = elevatordoor;
         this.elevatorframe = elevatorframe;
         this.block = block;
@@ -707,7 +707,6 @@ export default class HotelSpa extends Phaser.Scene {
         this.salon2 = salon2;
         this.scissors1 = scissors1;
         this.scissors2 = scissors2;
-        this.questIcon = questIcon;
         this.exercise1 = exercise1;
         this.exercise2 = exercise2;
         this.exercise3 = exercise3;
@@ -724,6 +723,7 @@ export default class HotelSpa extends Phaser.Scene {
         this.treadmillbelt2 = treadmillbelt2;
         this.treadmill2 = treadmill2;
         this.treadmillover2 = treadmillover2;
+        this.questIcon = questIcon;
         this.triggers = triggers;
 
         this.events.emit("scene-awake");
@@ -738,7 +738,6 @@ export default class HotelSpa extends Phaser.Scene {
     public salon2!: Phaser.GameObjects.Image;
     public scissors1!: Phaser.GameObjects.Sprite;
     public scissors2!: Phaser.GameObjects.Sprite;
-    public questIcon!: Phaser.GameObjects.Image;
     public exercise1!: Phaser.GameObjects.Image;
     public exercise2!: Phaser.GameObjects.Image;
     public exercise3!: Phaser.GameObjects.Image;
@@ -755,6 +754,7 @@ export default class HotelSpa extends Phaser.Scene {
     public treadmillbelt2!: Phaser.GameObjects.Sprite;
     public treadmill2!: Phaser.GameObjects.Image;
     public treadmillover2!: Phaser.GameObjects.Image;
+    public questIcon!: Phaser.GameObjects.Image;
     public triggers!: Phaser.GameObjects.Image[];
 
     /* START-USER-CODE */
