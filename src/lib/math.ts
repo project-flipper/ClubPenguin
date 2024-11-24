@@ -35,7 +35,7 @@ export function getAngle(fromX: number, fromY: number, atX: number, atY: number)
     let dy = atY - fromY;
 
     let angle = (Math.atan2(dy, dx) * (180 / Math.PI)) - 90;
-    return (angle < 0) ? angle + 360 : angle;
+    return angle < 0 ? angle + 360 : angle;
 }
 
 /**
@@ -45,7 +45,7 @@ export function getAngle(fromX: number, fromY: number, atX: number, atY: number)
  */
 export function getDirection(angle: number): Direction {
     let direction = Math.round(angle / 45);
-    return (direction > 7) ? 0 : direction;
+    return direction > 7 ? 0 : direction;
 }
 
 /**
@@ -55,7 +55,7 @@ export function getDirection(angle: number): Direction {
  */
 export function getDirectionQuarters(angle: number): DirectionQuarters {
     var direction = Math.floor(angle / 90);
-    return (direction > 3) ? 0 : direction;
+    return direction > 3 ? 0 : direction;
 }
 
 /**
