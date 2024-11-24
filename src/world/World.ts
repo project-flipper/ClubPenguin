@@ -30,6 +30,7 @@ import { WorldData } from "@clubpenguin/net/types/world";
 import { AvatarData } from "@clubpenguin/net/types/avatar";
 import { ItemType } from "./engine/clothing/itemType";
 import { Direction } from "@clubpenguin/lib/math";
+import InternalErrorArea from "@clubpenguin/app/InternalErrorArea";
 
 export let logger = getLogger('CP.world');
 /* END-USER-IMPORTS */
@@ -161,7 +162,12 @@ export default class World extends Phaser.Scene {
         this.inactivityTimer = this.time.addEvent({
             delay: this.inactivityTimeoutMs,
             callback: () => {
+                this.game.airtower.off('s:disconnect', this.onWorldClose, this);
                 this.game.airtower.disconnect(1000, 'Inactivity timeout');
+
+                let error = this.scene.get('ErrorArea') as ErrorArea;
+                let internal = this.scene.get('InternalErrorArea') as InternalErrorArea;
+                internal.showErrorDialog(this.game.locale.localize('w.app.error.message.timeout'), this.game.locale.localize('w.app.dialog.error.button.ok'), () => window.location.reload(), error.TIMEOUT.toString());
             }
         });
     }
@@ -316,6 +322,15 @@ export default class World extends Phaser.Scene {
      */
     isIgnored(data: UserData): boolean {
         return data.relationship?.type == RelationshipType.IGNORED;
+    }
+
+    /**
+     * Checks if the user is walking a puffle.
+     * @param data The user data to check.
+     * @returns Whether the user is walking a puffle.
+     */
+    isWalkingPuffle(data: AnyUserData): boolean {
+        return data.puffle != undefined;
     }
 
     /* ========= AVATAR ========= */
