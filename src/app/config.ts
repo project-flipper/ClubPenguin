@@ -24,7 +24,8 @@ export interface GeneralConfig {
     island_options: {
         isDaytime: boolean
     },
-    party_dates: { [date: string]: string }
+    party_dates: { [date: string]: string },
+    billboards: { [id: string]: number },
 }
 
 export interface RoomConfig {
@@ -128,9 +129,9 @@ export class Config {
 
         let task = load.track(new LoaderTask('Configs loader', loader));
 
-        let general = this.addGlobalConfig(loader, cache, 'general');
-        let penguin_action_frames = this.addGlobalConfig(loader, cache, 'penguin_action_frames');
-        let player_colors = this.addGlobalConfig(loader, cache, 'player_colors');
+        let general = this.addLocalConfig(loader, cache, locale, 'general');
+        let penguin_action_frames = this.addLocalConfig(loader, cache, locale, 'penguin_action_frames');
+        let player_colors = this.addLocalConfig(loader, cache, locale, 'player_colors');
 
         let games = this.addLocalConfig(loader, cache, locale, 'games');
         let furniture_items = this.addLocalConfig(loader, cache, locale, 'furniture_items');

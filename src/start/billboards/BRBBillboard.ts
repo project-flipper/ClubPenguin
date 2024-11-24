@@ -4,9 +4,10 @@ import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Locale } from "@clubpenguin/app/locale";
+import { Billboard } from "../Startscreen";
 /* END-USER-IMPORTS */
 
-export default class BRBBillboard extends Phaser.GameObjects.Container {
+export default class BRBBillboard extends Phaser.GameObjects.Container implements Billboard {
 
     constructor(scene: Phaser.Scene, x?: number, y?: number) {
         super(scene, x ?? 0, y ?? 0);
@@ -67,7 +68,7 @@ export default class BRBBillboard extends Phaser.GameObjects.Container {
     /* START-USER-CODE */
 
     static preload(load: Phaser.Loader.LoaderPlugin): void {
-        load.pack('brb-billboard-pack', 'assets/start/billboard/brb-billboard-pack.json');
+        load.pack('brb-billboard-pack', 'assets/start/billboards/brb-billboard-pack.json');
     }
 
     localize(locale: Locale): void {

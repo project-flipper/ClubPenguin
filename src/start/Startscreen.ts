@@ -1,3 +1,15 @@
+export interface Billboard extends Phaser.GameObjects.Container {
+    localize(locale: Locale): void;
+
+    unload(game: App): void;
+}
+
+export interface BillboardCls {
+    new(scene: Phaser.Scene, x?: number, y?: number): Billboard;
+
+    preload(load: Phaser.Loader.LoaderPlugin): void;
+}
+
 /* START OF COMPILED CODE */
 
 import InputBlocker from "../lib/components/InputBlocker";
@@ -8,8 +20,8 @@ import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { Language, Locale } from "@clubpenguin/app/locale";
 import { App } from "@clubpenguin/app/app";
-import { BaseBillboard } from "@clubpenguin/start/billboard/Billboard";
 import { getLogger } from "@clubpenguin/lib/log";
+import { weightedPick } from "@clubpenguin/lib/math";
 
 let logger = getLogger('CP.start');
 /* END-USER-IMPORTS */
@@ -195,7 +207,8 @@ export default class Startscreen extends Phaser.Scene {
     /* START-USER-CODE */
 
     declare game: App;
-    public billboard: BaseBillboard;
+    public billboard: Billboard;
+    public currentBillboard: string;
 
     get loadScreen(): Load {
         return this.scene.get('Load') as Load;
@@ -234,7 +247,9 @@ export default class Startscreen extends Phaser.Scene {
         if (!load.isShowing) load.show();
 
         try {
-            let billboardCls = (await import('@clubpenguin/start/billboard/Billboard')).default(this);
+            let path = weightedPick(this.game.gameConfig.general.billboards);
+            this.currentBillboard = path;
+            let billboardCls = (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/start/billboards/${path}.ts`)).default as BillboardCls;
             let task = load.track(new LoaderTask('Billboard loader', this.load));
             billboardCls.preload(this.load);
 
@@ -254,7 +269,10 @@ export default class Startscreen extends Phaser.Scene {
         this.game.locale.register(this.localize, this);
         this.events.on('shutdown', () => {
             this.game.locale.unregister(this.localize);
-            if (this.billboard) this.billboard.unload(this.game);
+            if (this.billboard) {
+                this.billboard.unload(this.game);
+                this.removeBillboard(this.currentBillboard);
+            }
             this.game.unloadAssetPack('start-pack');
         });
 
@@ -294,6 +312,18 @@ export default class Startscreen extends Phaser.Scene {
 
     goToLogin(): void {
         this.scene.start('Login');
+    }
+
+    async removeBillboard(path: string): Promise<boolean> {
+        try {
+            let id = require.resolveWeak(`@clubpenguin/start/billboards/${path}.ts`);
+            if (!id) return false;
+            console.log(id, require.cache[id]);
+            delete require.cache[id];
+            return false;
+        } catch (e) {
+            return false;
+        }
     }
 
     /* END-USER-CODE */

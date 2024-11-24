@@ -5,6 +5,7 @@
         "compilerInsertSpaces": true,
         "exportClass": true,
         "autoImport": true,
+        "superClassName": "Phaser.GameObjects.Container implements Billboard",
         "preloadMethodName": "",
         "preloadPackFiles": [],
         "createMethodName": "",

@@ -78,3 +78,22 @@ export function roundTo(value: number, precision: number): number {
     let factor = Math.pow(10, precision);
     return Math.round(value * factor) / factor;
 }
+
+/**
+ * Picks a random item from an object with weights.
+ * @param weights The weights of the items to pick from.
+ * @returns The key of the picked item.
+ */
+export function weightedPick(weights: { [key: string]: number }): string {
+    let total = 0;
+    for (let key in weights) total += weights[key];
+
+    let random = Math.random() * total;
+    for (let key in weights) {
+        random -= weights[key];
+        if (random <= 0) return key;
+    }
+
+    return null;
+}
+(window as any).weightedPick = weightedPick;
