@@ -1,6 +1,7 @@
 import { AvatarData } from "./avatar"
 import { MembershipData } from "./membership"
 import { PresenceData } from "./presence"
+import { PuffleData } from "./puffle";
 import { RelationshipData } from "./relationship"
 
 export type BaseUserData = {
@@ -10,7 +11,8 @@ export type BaseUserData = {
     avatar: AvatarData,
     member?: MembershipData,
     igloo_id?: number,
-    mascot_id?: number
+    mascot_id?: number,
+    puffle?: PuffleData
 }
 
 export type UserData = BaseUserData & {
