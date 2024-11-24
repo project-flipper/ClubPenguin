@@ -382,10 +382,13 @@ export class Engine extends EventEmitter {
         return (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/rooms/${path}`)).default;
     }
 
-    removeRoomModule(path: string): boolean {
+    async removeRoomModule(path: string): Promise<boolean> {
         try {
-            //delete require.cache[require.resolve(/* webpackInclude: /\.ts$/ */ `@clubpenguin/world/rooms/${path}`)];
-            return true;
+            let id = require.resolveWeak(`@clubpenguin/world/rooms/${path}.ts`);
+            if (!id) return false;
+            console.log(id, require.cache[id]);
+            delete require.cache[id];
+            return false;
         } catch (e) {
             return false;
         }
@@ -659,10 +662,13 @@ export class Engine extends EventEmitter {
         return (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/world/games/${path}`)).default;
     }
 
-    removeGameModule(path: string): boolean {
+    async removeGameModule(path: string): Promise<boolean> {
         try {
-            //delete require.cache[require.resolve(/* webpackInclude: /\.ts$/ */ `@clubpenguin/world/games/${path}`)];
-            return true;
+            let id = require.resolveWeak(`@clubpenguin/world/games/${path}.ts`);
+            if (!id) return false;
+            console.log(id, require.cache[id]);
+            delete require.cache[id];
+            return false;
         } catch (e) {
             return false;
         }
