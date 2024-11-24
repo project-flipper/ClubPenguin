@@ -101,7 +101,7 @@ export class Engine extends EventEmitter {
     }
 
     get interface(): Interface {
-        return (this.world.scene.get('Interface') as Interface);
+        return this.world.scene.get('Interface') as Interface;
     }
 
     get loadScreen(): Load {
@@ -470,8 +470,10 @@ export class Engine extends EventEmitter {
             pin.on('release', () => this.world.buyItem(config.pin_id, true));
         }
 
-        roomScene.block.depth = 1000;
-        roomScene.block.visible = true;
+        if (this.app.getExperimentalFeature('EXPOSE_ROOM_BLOCK', false)) {
+            roomScene.block.depth = 1000;
+            roomScene.block.visible = true;
+        }
 
         await this.music.play(config.music_id);
 
