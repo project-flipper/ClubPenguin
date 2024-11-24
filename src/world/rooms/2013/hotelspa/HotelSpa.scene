@@ -1,0 +1,1364 @@
+{
+    "id": "daaca6ed-960d-4677-a96a-4563d99b2bb6",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/2013/hotelspa/hotelspa2013-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "HotelSpa",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "ff566aae-70a1-4972-b274-e956423bee15",
+            "label": "hotelspa_base",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/base"
+            },
+            "x": -121.5,
+            "y": -11.25,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "33564540-cc4a-47c5-a1e0-3bb32014584a",
+            "label": "elevatordoor",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/elevator0001"
+            },
+            "x": -30.37,
+            "y": 159.19,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "9e01dc54-b660-4e86-a813-e4391ecf7f80",
+            "label": "elevatorframe",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/elevatorframe0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/elevatorframe0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/elevatorframe0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_elevatorframe0004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/elevatorframe0001"
+            },
+            "x": -67.05,
+            "y": 142.31,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "545f6444-8119-4109-a468-b7fdd40286ea",
+            "label": "hotelspa_elevatorframe0004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/elevatorframe0004"
+            },
+            "x": -67.05,
+            "y": 142.31,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Sprite",
+            "id": "2c707ab1-e05e-4990-99e4-468ba95268e6",
+            "label": "hotelspa_speaker0001",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/speaker0001"
+            },
+            "x": 198,
+            "y": 155.25,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "hotelspa2013-speaker-animation"
+        },
+        {
+            "type": "Sprite",
+            "id": "d094acf7-2d33-49ea-8fc8-fb7046b6e1b7",
+            "label": "hotelspa_speaker",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/speaker0001"
+            },
+            "x": 681.75,
+            "y": 155.25,
+            "originX": 0,
+            "originY": 0,
+            "flipX": true,
+            "animationPlayMethod": 1,
+            "animationKey": "hotelspa2013-speaker-animation"
+        },
+        {
+            "type": "Image",
+            "id": "fc2fb5f6-08eb-4f59-b9d7-9e83ca51c962",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "585889ad-b2df-4e3f-878e-5ef378303f5e",
+            "label": "hotelspa_elevator_trigger",
+            "components": [
+                "ContentTrigger"
+            ],
+            "ContentTrigger.name": "hotelelevator",
+            "ContentTrigger.importFunction": "async () => (await import('@clubpenguin/world/content/hotelelevator/HotelElevator')).default",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/elevator_trigger"
+            },
+            "x": -81,
+            "y": 378,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "b179e56c-6e30-43b6-81a0-7d36afc3fd58",
+            "label": "hotelspa_aero1_trigger",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero1_trigger"
+            },
+            "x": 427.5,
+            "y": 384.75,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "ceab5adb-08ce-4f49-948f-9d0c61508559",
+            "label": "hotelspa_aero2_trigger",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero2_trigger"
+            },
+            "x": 258.75,
+            "y": 528.75,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "a96b5567-5f61-4be5-b17b-f69bf21d7628",
+            "label": "hotelspa_weight1_trigger",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/weight1_trigger"
+            },
+            "x": 551.25,
+            "y": 531,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "d30ae460-9739-4c71-b1b8-b5e7253d09b4",
+            "label": "hotelspa_weight2_trigger",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/weight2_trigger"
+            },
+            "x": 362.25,
+            "y": 621,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "64fbd1bb-5d63-450b-a2ec-e17a94529804",
+            "label": "hotelspa_salon1_trigger",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/salon1_trigger"
+            },
+            "x": 1129.5,
+            "y": 409.5,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "d6a7d931-8e81-4477-b2c4-d71e731e2e04",
+            "label": "hotelspa_salon2_trigger",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/salon2_trigger"
+            },
+            "x": 1338.75,
+            "y": 409.5,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "88e59c0d-a24d-406c-a1f0-1d13cad48292",
+            "label": "hotelspa_chair1_trigger",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/chair1_trigger"
+            },
+            "x": 1044,
+            "y": 769.5,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "c07e4b6b-d9c5-4f31-a24e-2f049e14a7ff",
+            "label": "hotelspa_chair2_trigger",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/chair2_trigger"
+            },
+            "x": 1381.5,
+            "y": 756,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "2b52ae2c-eb9d-4878-bc0d-32826c792be1",
+            "label": "tread1_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "PressureTrigger"
+            ],
+            "PressureTrigger.requiresIdle": true,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/tread2_trigger"
+            },
+            "x": 141.75,
+            "y": 783,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "f3651861-7555-477a-9399-5fddf27afad8",
+            "label": "tread2_trigger",
+            "scope": "PUBLIC",
+            "components": [
+                "PressureTrigger"
+            ],
+            "PressureTrigger.requiresIdle": true,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/tread1_trigger"
+            },
+            "x": 423,
+            "y": 783,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "5a292ff6-b819-4ecb-9219-6d9b7f4c2486",
+            "label": "hotelspa_couch",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 398.59,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/couch"
+            },
+            "x": 762.75,
+            "y": 396,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "9bdb6d50-6b47-4a91-9ac2-e7c2f6b18d3e",
+            "label": "hotelspa_lpillar",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 394.43,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/lpillar"
+            },
+            "x": 729,
+            "y": 31.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "074da955-3c9a-4f82-bf9e-cd96ae94a38b",
+            "label": "hotelspa_rpillar",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 392.18,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/rpillar"
+            },
+            "x": 954,
+            "y": 31.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3dce6e0a-776c-4f3e-90d7-2b4744ca0973",
+            "label": "hotelspa_panel",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 653.29,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/panel"
+            },
+            "x": 1343.25,
+            "y": -60.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "31a620e0-3cb4-4dbc-b239-13b2b6dab88d",
+            "label": "hotelspa_shelf",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 762.08,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/shelf"
+            },
+            "x": 1575,
+            "y": 528.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "f7118cdf-dd35-48e9-9dec-f6fef0366033",
+            "label": "salon1",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent",
+                "DepthEnabled"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/salon10001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/salon10002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/salon10003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_salon10004",
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 405.23,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/salon10001"
+            },
+            "x": 1113.41,
+            "y": 328.73,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "05ba0936-c2dc-4231-bf8d-e7cb44d600a7",
+            "label": "hotelspa_salon10004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/salon10004"
+            },
+            "x": 1113.41,
+            "y": 328.73,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "f1c4b313-e7a3-44d8-b685-3bf19ebe8e02",
+            "label": "salon2",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent",
+                "DepthEnabled"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/salon20001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/salon20002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/salon20003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_salon20004",
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 404.89,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/salon20001"
+            },
+            "x": 1319.85,
+            "y": 326.14,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "7abfb430-c251-464a-9d7c-ce25f6dc8273",
+            "label": "hotelspa_salon20004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/salon20004"
+            },
+            "x": 1319.85,
+            "y": 326.14,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "a45bb3bc-25a0-4e5a-8c57-0d18ba6d2aa7",
+            "label": "hotelspa_dumbbell1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 773.44,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/dumbbell1"
+            },
+            "x": -85.5,
+            "y": 690.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "d66fb9e7-014c-40b3-bf2e-d138cfc5f8aa",
+            "label": "hotelspa_railing",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 750.94,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/railing"
+            },
+            "x": -121.5,
+            "y": 684,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "7ab0d0ab-72c1-4e61-adc0-1f74046111e7",
+            "label": "hotelspa_punchbag",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 861.64,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/punchbag"
+            },
+            "x": -123.75,
+            "y": 573.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "04fc0cde-348a-4ee9-8907-a4c025141976",
+            "label": "scissors1",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 513.34,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/scissors0003"
+            },
+            "x": 1155.94,
+            "y": 354.71,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "fc2b4e5f-375f-44a7-9fc1-292864b58145",
+            "label": "scissors2",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 513.34,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/scissors0003"
+            },
+            "x": 1376.44,
+            "y": 354.71,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "67b6b613-941e-47b4-9785-2df48675d14e",
+            "label": "hotelspa_dumbbell2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 994.16,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/dumbbell2"
+            },
+            "x": 686.25,
+            "y": 911.25,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "b7df890b-1a27-4a07-91dc-02b4df2e544e",
+            "label": "hotelspa_dumbbell3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 958.16,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/dumbbell3"
+            },
+            "x": 848.25,
+            "y": 915.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "6b32f55c-c7e9-406a-b6f9-2e1426186d03",
+            "label": "hotelspa_dumbbell4",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 990.9,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/dumbbell4"
+            },
+            "x": 886.5,
+            "y": 949.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "cfc2a52b-3a8b-4ae3-ba74-b61d8461b4a9",
+            "label": "hotelspa_dumbbell5",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 416.7,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/dumbbell5"
+            },
+            "x": 333,
+            "y": 387,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "4778dba1-e230-48cb-8574-eaf1369fdfb4",
+            "label": "hotelspa_bottle",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 425.14,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/bottle"
+            },
+            "x": 243,
+            "y": 360,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "051eb5d0-9cfe-46e6-a499-b4592f9cb0d8",
+            "label": "hotelspa_bottle2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 931.05,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/bottle2"
+            },
+            "x": 319.5,
+            "y": 852.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "fd2fd9a0-d367-4919-b08e-d825b7cd6fc4",
+            "label": "hotelspa_bubbles",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 737.89,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/bubbles"
+            },
+            "x": 1309.5,
+            "y": 695.25,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "f249c4e1-48b4-43da-b362-c1d5ab526cb4",
+            "label": "hotelspa_aisle",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 664.2,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aisle"
+            },
+            "x": 956.25,
+            "y": 582.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "4b98d430-db81-45ff-937f-3c3b65e94ec9",
+            "label": "hotelspa_cup",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 441.23,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/cup"
+            },
+            "x": 288,
+            "y": 378,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "a3c726d5-cfa2-4f80-9eda-423c7b74b889",
+            "label": "hotelspa_towel",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 927,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/towel"
+            },
+            "x": 1500.75,
+            "y": 900,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "7ace8559-34fe-43eb-a574-1ff579af350a",
+            "label": "questIcon",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/quest0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/quest0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/quest0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_quest0004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/quest0001"
+            },
+            "x": 1537.76,
+            "y": 901.35,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "cf8c1134-76e3-4eb9-8059-efdb3265855d",
+            "label": "hotelspa_quest0004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/quest0004"
+            },
+            "x": 1537.76,
+            "y": 901.35,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "2f1d2253-7a28-4789-9ca7-fd6182b8a62e",
+            "label": "exercise1",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 394.43,
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero10001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero10002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero10003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_aero10004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero10001"
+            },
+            "x": 390.04,
+            "y": 380.93,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "88082d1c-390a-47fc-949d-106d2311aa83",
+            "label": "hotelspa_aero10004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero10004"
+            },
+            "x": 390.04,
+            "y": 380.93,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "cd248fc0-5dd6-4dc3-b969-8d2c3e0185ab",
+            "label": "exercise2",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 540,
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero20001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero20002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero20003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_aero20004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero20001"
+            },
+            "x": 212.4,
+            "y": 526.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "23ca086f-a642-4f1a-acb1-6dd42f0d51f0",
+            "label": "hotelspa_aero20004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero20004"
+            },
+            "x": 212.4,
+            "y": 526.5,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "26486be6-70ad-4892-b647-50eab5e86342",
+            "label": "exercise3",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 539.44,
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero30001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero30002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero30003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_aero30004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero30001"
+            },
+            "x": 524.25,
+            "y": 526.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "c6e2574e-3a13-433c-8b0c-fe825067c8bf",
+            "label": "hotelspa_aero30004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero30004"
+            },
+            "x": 524.25,
+            "y": 526.5,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "7cc2581d-3e43-4a53-8be6-dce78e82582c",
+            "label": "exercise4",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 632.25,
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero40001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero40002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/aero40003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_aero40004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero40001"
+            },
+            "x": 321.75,
+            "y": 616.5,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "85e40b06-473d-4218-b066-345b78564d16",
+            "label": "hotelspa_aero40004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/aero40004"
+            },
+            "x": 321.75,
+            "y": 616.5,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Sprite",
+            "id": "6cf6156e-0f04-4456-865d-c8a55a18330e",
+            "label": "dumbbell1",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/weightdumbbell0001"
+            },
+            "x": 652.05,
+            "y": 563.85,
+            "originX": 0.48711340206185566,
+            "originY": 0.48214285714285715
+        },
+        {
+            "type": "Sprite",
+            "id": "8512236b-bb04-4b24-a971-6c139ed37fc4",
+            "label": "dumbbell2",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 632.25,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/weightdumbbell0001"
+            },
+            "x": 465.3,
+            "y": 653.85,
+            "originX": 0.48711340206185566,
+            "originY": 0.48214285714285715
+        },
+        {
+            "type": "Image",
+            "id": "98dc8984-7d7a-44db-bf33-94885890366b",
+            "label": "hotelspa_bottle3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 562.61,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/bottle3"
+            },
+            "x": 393.75,
+            "y": 519.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "7fdc110c-da19-4887-ae54-f69ea5e18b31",
+            "label": "chair1",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent",
+                "DepthEnabled"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/chair10001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/chair10002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/chair10003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_chair10004",
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 799.54,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/chair10001"
+            },
+            "x": 1050.75,
+            "y": 657,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "5fc44f1f-256f-498f-8d04-bdc10fbe15f6",
+            "label": "hotelspa_chair10004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/chair10004"
+            },
+            "x": 1050.75,
+            "y": 657,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "003542a3-11fc-4713-aaff-1c6840f211f0",
+            "label": "chair2",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent",
+                "DepthEnabled"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/chair20001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/chair20002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/chair20003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_chair20004",
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 768.15,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/chair20001"
+            },
+            "x": 1390.5,
+            "y": 675,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "3c8d11a9-31ca-4a0a-ab8b-c0a89f3a8abd",
+            "label": "hotelspa_chair20004",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/chair20004"
+            },
+            "x": 1390.5,
+            "y": 675,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Sprite",
+            "id": "061e9b50-a77c-4a38-bbfa-389f5f85dd1f",
+            "label": "wash1",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/wash0011"
+            },
+            "x": 1118.25,
+            "y": 717.75,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "ae765527-d291-4f14-a243-a6a8ce4a8ea5",
+            "label": "wash2",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/wash0011"
+            },
+            "x": 1602,
+            "y": 733.5,
+            "originX": 0,
+            "originY": 0,
+            "flipX": true,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "b2f775a4-8761-4aff-942f-74cdc0248736",
+            "label": "hotelspa_foreground",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/foreground"
+            },
+            "x": -2.25,
+            "y": 884.25,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "bda13441-081e-4ed5-b9e4-880a95b7955f",
+            "label": "treadmillbelt1",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 783.9,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/treadmillbelt0001"
+            },
+            "x": 265.84,
+            "y": 847.69,
+            "originX": 0.49809,
+            "originY": 0.49655
+        },
+        {
+            "type": "Image",
+            "id": "d44ee474-1ffd-4aae-8244-772eadaf28a5",
+            "label": "treadmill1",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 783.9,
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/treadmill0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/treadmill0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_treadmill0003",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/treadmill0001"
+            },
+            "x": 131.4,
+            "y": 633.15,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "92227572-a6c5-419f-baf4-aea9f9262360",
+            "label": "hotelspa_treadmill0003",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/treadmill0003"
+            },
+            "x": 131.4,
+            "y": 633.15,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "96b58f62-dd74-4bc0-93c6-0f114e7529b6",
+            "label": "treadmillover1",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 783.9,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/treadmillover"
+            },
+            "x": 133.2,
+            "y": 635.85,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Sprite",
+            "id": "add3a11b-5599-4ab8-8cf1-a6ee970ebd63",
+            "label": "treadmillbelt2",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 783.9,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/treadmillbelt0001"
+            },
+            "x": 551.59,
+            "y": 847.69,
+            "originX": 0.49809,
+            "originY": 0.49655
+        },
+        {
+            "type": "Image",
+            "id": "c2e48455-2252-4ffa-bbe7-39c7326e26eb",
+            "label": "treadmill2",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 783.9,
+            "ButtonComponent.upTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/treadmill0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"hotelspa2013\",\"frame\":\"hotelspa/treadmill0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "hotelspa_treadmill_1",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/treadmill0001"
+            },
+            "x": 417.15,
+            "y": 633.15,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "cea1f8ef-a101-4b86-b643-bb9b73ee46e7",
+            "label": "hotelspa_treadmill_1",
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/treadmill0003"
+            },
+            "x": 417.15,
+            "y": 633.15,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "fa66ec65-35c1-420c-b17d-06e43d8bf401",
+            "label": "treadmillover2",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 783.9,
+            "texture": {
+                "key": "hotelspa2013",
+                "frame": "hotelspa/treadmillover"
+            },
+            "x": 419.4,
+            "y": 635.4,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "3ae57792-191d-49f8-b3bc-9af0eaf9374c",
+            "label": "triggers",
+            "objectIds": [
+                "585889ad-b2df-4e3f-878e-5ef378303f5e",
+                "d30ae460-9739-4c71-b1b8-b5e7253d09b4",
+                "a96b5567-5f61-4be5-b17b-f69bf21d7628",
+                "ceab5adb-08ce-4f49-948f-9d0c61508559",
+                "b179e56c-6e30-43b6-81a0-7d36afc3fd58",
+                "64fbd1bb-5d63-450b-a2ec-e17a94529804",
+                "f3651861-7555-477a-9399-5fddf27afad8",
+                "2b52ae2c-eb9d-4878-bc0d-32826c792be1",
+                "c07e4b6b-d9c5-4f31-a24e-2f049e14a7ff",
+                "88e59c0d-a24d-406c-a1f0-1d13cad48292",
+                "d6a7d931-8e81-4477-b2c4-d71e731e2e04"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}
