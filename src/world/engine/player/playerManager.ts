@@ -1,9 +1,4 @@
 import { App } from "@clubpenguin/app/app";
-import PressureTrigger from "@clubpenguin/lib/components/PressureTrigger";
-import RoomTrigger from "@clubpenguin/lib/components/RoomTrigger";
-import GameTrigger from "@clubpenguin/lib/components/GameTrigger";
-import WaddleTrigger from "@clubpenguin/lib/components/WaddleTrigger";
-import Trigger from "@clubpenguin/lib/components/Trigger";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { AnimationFrame } from "./animationFrame";
 import { AnyUserData } from "@clubpenguin/net/types/user";
@@ -12,7 +7,6 @@ import { Avatar, AvatarCls, Player, PlayerLoadingState } from "@clubpenguin/worl
 import World from "@clubpenguin/world/World";
 import { ClothingSprite } from "../clothing/clothingManager";
 import { Actions } from "./actions";
-import ContentTrigger from "@clubpenguin/lib/components/ContentTrigger";
 
 /**
  * Manages the players in the current room.
