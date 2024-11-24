@@ -233,7 +233,7 @@ export class PlayerManager {
         this.engine.currentRoom.add.existing(player);
 
         this.players[player.userData.id] = player;
-        this.testTriggers(player, true, NaN, NaN, true);
+        this.engine.testTriggers(player, true, NaN, NaN, true);
 
         this.engine.emit('player:add', player);
         return player;
@@ -259,7 +259,7 @@ export class PlayerManager {
         this.engine.emit('player:remove', player);
 
         if (player.actions) player.actions.stopMoving();
-        this.testTriggers(player, true, NaN, NaN);
+        this.engine.testTriggers(player, true, NaN, NaN);
 
         if (player.overlay) player.overlay.destroy();
 
@@ -273,76 +273,5 @@ export class PlayerManager {
 
         player.destroy();
         delete this.players[player.userData.id];
-    }
-
-    /**
-     * Tests all triggers in the current room against the given player.
-     * @param player The player to test triggers for.
-     * @param finishedMoving Whether the player has finished moving.
-     * @param x The x-coordinate to test triggers at.
-     * @param y The y-coordinate to test triggers at.
-     * @param prohibitJoinRoom Whether to prohibit the player from joining a room. This will be overriden if the player is not ready.
-     */
-    testTriggers(player: Player, finishedMoving: boolean, x?: number, y?: number, prohibitJoinRoom = false): void {
-        x = x ?? player.x;
-        y = y ?? player.y;
-
-        prohibitJoinRoom = prohibitJoinRoom || player.loadingState != PlayerLoadingState.READY;
-
-        for (let trigger of this.engine.triggers) {
-            if (trigger instanceof Trigger && finishedMoving && trigger.test(x, y)) trigger.execute(this.engine, player);
-            if (trigger instanceof RoomTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
-            if (trigger instanceof ContentTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
-            if (trigger instanceof GameTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
-            if (trigger instanceof WaddleTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this.engine, player);
-            if (trigger instanceof PressureTrigger) trigger.execute(this.engine, player, trigger.test(x, y), finishedMoving);
-        }
-    }
-
-    /**
-     * Finds a path for the given player to the given coordinates.
-     * This method uses pixel-perfect hit testing against a room's boundaries to find the path.
-     * @param player The player to find the path for.
-     * @param x The x-coordinate to find the path to.
-     * @param y The y-coordinate to find the path to.
-     * @returns The path to the given coordinates.
-     */
-    findPlayerPath(player: Player, x: number, y: number): Phaser.Math.Vector2 {
-        let origin = new Phaser.Math.Vector2(player.x, player.y);
-        let target = new Phaser.Math.Vector2(x, y);
-
-        let block = 'block' in player.scene ? player.scene.block as Phaser.GameObjects.Image : undefined;
-        if (block == undefined) return target;
-
-        let distance = Math.round(Phaser.Math.Distance.BetweenPoints(origin, target));
-        let stepX = (target.x - origin.x) / distance;
-        let stepY = (target.y - origin.y) / distance;
-
-        let point = new Phaser.Math.Vector2(0, 0);
-        let matrix = new Phaser.GameObjects.Components.TransformMatrix();
-        let parentMatrix = new Phaser.GameObjects.Components.TransformMatrix();
-
-        let hitTest = player.scene.input.makePixelPerfect();
-        while (distance > 0) {
-            if (block.parentContainer) {
-                block.parentContainer.getWorldTransformMatrix(matrix, parentMatrix);
-                matrix.applyInverse(origin.x, origin.y, point);
-            } else {
-                Phaser.Math.TransformXY(origin.x, origin.y, block.x, block.y, block.rotation, block.scaleX, block.scaleY, point);
-            }
-
-            let testX = point.x + block.displayOriginX;
-            let testY = point.y + block.displayOriginY;
-            if (hitTest({}, testX + stepX, testY + stepY, block)) {
-                break;
-            }
-
-            origin.x += stepX;
-            origin.y += stepY;
-
-            distance--;
-        }
-
-        return origin;
     }
 }

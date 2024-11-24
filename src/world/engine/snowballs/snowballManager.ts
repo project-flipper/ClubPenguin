@@ -109,23 +109,9 @@ export class SnowballManager {
                 this.engine.tweenTracker.untrackTween(tween);
                 snowball.step(tween, curve);
                 snowball.complete(tween);
-                this.testTriggers(snowball, player);
+                this.engine.testSnowballTriggers(snowball, player);
             }
         }));
-    }
-
-    /**
-     * Tests the given snowball against all triggers in the player's current room.
-     * If a trigger is activated by the snowball's position, it executes the trigger's action.
-     * @param snowball The snowball to test against the triggers.
-     * @param player The player who threw the snowball.
-     */
-    testTriggers(snowball: Snowball, player: Player): void {
-        let triggers = this.engine.triggers;
-    
-        for (let trigger of triggers) {
-            if (trigger instanceof SnowballTrigger && trigger.test(snowball.x, snowball.y)) trigger.execute(this.engine, player, snowball);
-        }
     }
 
     /**

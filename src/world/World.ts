@@ -511,7 +511,7 @@ export default class World extends Phaser.Scene {
      */
     move(x: number, y: number): void {
         let player = this.engine.player;
-        let safe = this.engine.players.findPlayerPath(player, x, y);
+        let safe = this.engine.findPlayerPath(player, x, y);
         let action = player.actions.get();
         player.actions.move(safe.x, safe.y);
 

@@ -225,7 +225,7 @@ export class Actions {
 
             this.player.playAnimation(AnimationFrame.IDLE_DOWN + direction);
             this._type = ActionType.IDLE;
-            this.engine.players.testTriggers(this.player, true);
+            this.engine.testTriggers(this.player, true);
             this.player.emit('action:update', this);
             this.player.emit('action:complete', this);
             return;
@@ -243,13 +243,13 @@ export class Actions {
                 this.player.depth = this.player.y + 1;
                 this.player.overlay.setPosition(this.player.x, this.player.y);
                 this.player.overlay.depth = this.player.depth;
-                this.engine.players.testTriggers(this.player, false);
+                this.engine.testTriggers(this.player, false);
             },
             onComplete: (tween: Phaser.Tweens.Tween) => {
                 this.engine.tweenTracker.untrackTween(tween);
                 this.player.playAnimation(AnimationFrame.IDLE_DOWN + direction);
                 this._type = ActionType.IDLE;
-                this.engine.players.testTriggers(this.player, true);
+                this.engine.testTriggers(this.player, true);
                 this.player.emit('action:update', this);
                 this.player.emit('action:complete', this);
             },
@@ -263,7 +263,7 @@ export class Actions {
         this.player.depth = this.player.y + 1;
         this.player.overlay.setPosition(this.player.x, this.player.y);
         this.player.overlay.depth = this.player.depth;
-        if (testTriggers) this.engine.players.testTriggers(this.player, true, x, y, prohibitRoomJoin || this.player.loadingState != PlayerLoadingState.READY);
+        if (testTriggers) this.engine.testTriggers(this.player, true, x, y, prohibitRoomJoin || this.player.loadingState != PlayerLoadingState.READY);
     }
 
     /**
@@ -444,7 +444,7 @@ export class Actions {
      */
     reset(): void {
         this.stopMoving();
-        this.engine.players.testTriggers(this.player, true, undefined, undefined, true);
+        this.engine.testTriggers(this.player, true, undefined, undefined, true);
 
         this.player.playAnimation(AnimationFrame.IDLE_DOWN);
         this._type = ActionType.IDLE;

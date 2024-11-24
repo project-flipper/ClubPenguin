@@ -18,7 +18,7 @@ import Cleaner from "@clubpenguin/lib/cleaner";
 import { ClothingManager } from "./clothing/clothingManager";
 import { HybridGame } from "./hybrid/hybridGame";
 import { MusicManager } from "./music/musicManager";
-import { Player } from "./player/avatar";
+import { Player, PlayerLoadingState } from "./player/avatar";
 import { PlayerManager } from "./player/playerManager";
 import { SnowballManager } from "./snowballs/snowballManager";
 import WaddleTrigger from "@clubpenguin/lib/components/WaddleTrigger";
@@ -50,6 +50,7 @@ export interface Room extends Phaser.Scene {
     triggers?: Phaser.GameObjects.Image[];
     beforeUnload?(engine: Engine): void;
     unload?(engine: Engine): void;
+    block?: Phaser.GameObjects.Image;
 }
 
 export interface Game extends Phaser.Scene {
@@ -277,6 +278,91 @@ export class Engine extends EventEmitter {
     }
 
     /**
+     * Tests all triggers in the current room against the given player.
+     * @param player The player to test triggers for.
+     * @param finishedMoving Whether the player has finished moving.
+     * @param x The x-coordinate to test triggers at.
+     * @param y The y-coordinate to test triggers at.
+     * @param prohibitJoinRoom Whether to prohibit the player from joining a room. This will be overriden if the player is not ready.
+     */
+    testTriggers(player: Player, finishedMoving: boolean, x?: number, y?: number, prohibitJoinRoom = false): void {
+        x = x ?? player.x;
+        y = y ?? player.y;
+
+        prohibitJoinRoom = prohibitJoinRoom || player.loadingState != PlayerLoadingState.READY;
+
+        for (let trigger of this.triggers) {
+            if (trigger instanceof GenericTrigger && finishedMoving && trigger.test(x, y)) trigger.execute(this, player);
+            if (trigger instanceof RoomTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this, player);
+            if (trigger instanceof ContentTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this, player);
+            if (trigger instanceof GameTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this, player);
+            if (trigger instanceof WaddleTrigger && finishedMoving && !prohibitJoinRoom && trigger.test(x, y)) trigger.execute(this, player);
+            if (trigger instanceof PressureTrigger) trigger.execute(this, player, trigger.test(x, y), finishedMoving);
+        }
+    }
+
+    /**
+     * Tests the given snowball against all triggers in the player's current room.
+     * If a trigger is activated by the snowball's position, it executes the trigger's action.
+     * @param snowball The snowball to test against the triggers.
+     * @param player The player who threw the snowball.
+     */
+    testSnowballTriggers(snowball: Snowball, player: Player): void {
+        let triggers = this.triggers;
+    
+        for (let trigger of triggers) {
+            if (trigger instanceof SnowballTrigger && trigger.test(snowball.x, snowball.y)) trigger.execute(this, player, snowball);
+        }
+    }
+
+    /**
+     * Finds a path for the given player to the given coordinates.
+     * This method uses pixel-perfect hit testing against a room's boundaries to find the path.
+     * @param player The player to find the path for.
+     * @param x The x-coordinate to find the path to.
+     * @param y The y-coordinate to find the path to.
+     * @returns The path to the given coordinates.
+     */
+    findPlayerPath(player: Player, x: number, y: number): Phaser.Math.Vector2 {
+        let origin = new Phaser.Math.Vector2(player.x, player.y);
+        let target = new Phaser.Math.Vector2(x, y);
+
+        let block = 'block' in player.scene ? player.scene.block as Phaser.GameObjects.Image : undefined;
+        if (block == undefined) return target;
+
+        let distance = Math.round(Phaser.Math.Distance.BetweenPoints(origin, target));
+        let stepX = (target.x - origin.x) / distance;
+        let stepY = (target.y - origin.y) / distance;
+
+        let point = new Phaser.Math.Vector2(0, 0);
+        let matrix = new Phaser.GameObjects.Components.TransformMatrix();
+        let parentMatrix = new Phaser.GameObjects.Components.TransformMatrix();
+
+        let hitTest = player.scene.input.makePixelPerfect();
+        while (distance > 0) {
+            if (block.parentContainer) {
+                block.parentContainer.getWorldTransformMatrix(matrix, parentMatrix);
+                matrix.applyInverse(origin.x, origin.y, point);
+            } else {
+                Phaser.Math.TransformXY(origin.x, origin.y, block.x, block.y, block.rotation, block.scaleX, block.scaleY, point);
+            }
+
+            let testX = point.x + block.displayOriginX;
+            let testY = point.y + block.displayOriginY;
+            if (hitTest({}, testX + stepX, testY + stepY, block)) {
+                break;
+            }
+
+            origin.x += stepX;
+            origin.y += stepY;
+
+            distance--;
+        }
+
+        return origin;
+    }
+
+    /**
      * Gets a waddle trigger by its ID.
      * @param id The ID of the waddle trigger.
      * @returns The waddle trigger with the given ID.
@@ -380,6 +466,9 @@ export class Engine extends EventEmitter {
 
             pin.on('release', () => this.world.buyItem(config.pin_id, true));
         }
+
+        roomScene.block.depth = 1000;
+        roomScene.block.visible = true;
 
         await this.music.play(config.music_id);
 
