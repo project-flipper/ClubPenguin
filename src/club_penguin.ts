@@ -55,8 +55,6 @@ interface RunParams {
     elementId: string,
     elementClassName: string,
     language: string,
-    apiPath: string,
-    mediaPath: string,
     crossOrigin: string,
     cacheVersion: string,
     contentVersion: string,
@@ -74,6 +72,22 @@ declare global {
     };
     const __experiments__: {
         [key: string]: any
+    };
+    const __environment__: {
+        language: string;
+        apiPath: string;
+        mediaPath: string;
+        crossOrigin: string;
+        cacheVersion: string;
+        contentVersion: string;
+        minigameVersion: string;
+        environmentType: string;
+        links: {
+            home: string;
+            play: string;
+            localPlay: string;
+        };
+        recaptchaSiteKey: string;
     };
     const __webpack_public_path__: string;
     interface NodeRequire {
@@ -174,7 +188,7 @@ export function run(params: RunParams): void {
             }
         },
         loader: {
-            baseURL: params.mediaPath,
+            baseURL: __environment__.mediaPath,
             crossOrigin: params.crossOrigin,
             maxRetries: 1
         },
@@ -187,12 +201,12 @@ export function run(params: RunParams): void {
                 if (params.elementId) app.canvas.id = params.elementId;
                 if (params.elementClassName) app.canvas.className = params.elementClassName;
 
-                app.friends.init(params.mediaPath, app.airtower.createAvatarUrlCallback());
+                app.friends.init(__environment__.mediaPath, app.airtower.createAvatarUrlCallback());
             }
         }
     }, {
         language: params.language,
-        apiPath: params.apiPath,
+        apiPath: __environment__.apiPath,
         cacheVersion: params.cacheVersion,
         contentVersion: params.contentVersion,
         minigameVersion: params.minigameVersion,

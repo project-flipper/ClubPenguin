@@ -9,8 +9,6 @@ interface ClubPenguinRunParams {
     elementId: string,
     elementClassName: string,
     language: string,
-    apiPath: string,
-    mediaPath: string,
     crossOrigin: string,
     cacheVersion: string,
     contentVersion: string,

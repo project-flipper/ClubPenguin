@@ -48,8 +48,6 @@ export default () => {
                     parentId: "club_penguin",
                     elementId: "cp_game",
                     elementClassName: "disney_land_clubpenguin_player",
-                    apiPath: __environment__.apiPath,
-                    mediaPath: __environment__.mediaPath,
                     crossOrigin: __environment__.crossOrigin,
                     cacheVersion: __environment__.cacheVersion,
                     contentVersion: __environment__.contentVersion,
