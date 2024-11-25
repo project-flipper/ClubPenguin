@@ -386,7 +386,6 @@ export class Engine extends EventEmitter {
         try {
             let id = require.resolveWeak(`@clubpenguin/world/rooms/${path}.ts`);
             if (!id) return false;
-            console.log(id, require.cache[id]);
             delete require.cache[id];
             return false;
         } catch (e) {
@@ -668,7 +667,6 @@ export class Engine extends EventEmitter {
         try {
             let id = require.resolveWeak(`@clubpenguin/world/games/${path}.ts`);
             if (!id) return false;
-            console.log(id, require.cache[id]);
             delete require.cache[id];
             return false;
         } catch (e) {

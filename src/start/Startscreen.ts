@@ -318,7 +318,6 @@ export default class Startscreen extends Phaser.Scene {
         try {
             let id = require.resolveWeak(`@clubpenguin/start/billboards/${path}.ts`);
             if (!id) return false;
-            console.log(id, require.cache[id]);
             delete require.cache[id];
             return false;
         } catch (e) {
