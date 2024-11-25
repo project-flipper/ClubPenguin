@@ -60,7 +60,25 @@ declare global {
         links: {
             home: string;
             play: string;
-            localPlay: string;
+            community: string;
+            support: string;
+            secured: string;
+            affiliates: string;
+            blog: string;
+            help: string;
+            parents: string;
+            membership: string;
+            exit: string;
+            company: string;
+            terms: string;
+            privacy: string;
+            contact: string;
+            sitemap: string;
+            forgotPassword: string;
+            createAccount: string;
+            guide: string;
+            playerSafety: string;
+            toys: string;
         };
         recaptchaSiteKey: string;
     };

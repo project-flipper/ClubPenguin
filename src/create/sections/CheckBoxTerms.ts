@@ -73,10 +73,10 @@ export default class CheckBoxTerms extends Phaser.GameObjects.Container {
         /* START-USER-CTR-CODE */
 
         link1.setInteractive({ useHandCursor: true });
-        link1.on('pointerup', (pointer: Phaser.Input.Pointer) => link1.emit('release', pointer.downTime));
+        link1.on('pointerup', () => window.location.href = __environment__.links.privacy);
 
         link2.setInteractive({ useHandCursor: true });
-        link2.on('pointerup', (pointer: Phaser.Input.Pointer) => link2.emit('release', pointer.downTime));
+        link2.on('pointerup', () => window.location.href = __environment__.links.terms);
 
         this.setLayout();
         checkbox.on('stateupdate', () => this.hideError());

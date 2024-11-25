@@ -287,7 +287,7 @@ export default class ExistingPlayer extends Phaser.GameObjects.Container {
             this.forgot.visible = false;
         });
         this.forgotButton.on('release', () => {
-            window.location.reload(); // TODO: go to URL
+            window.location.href = __environment__.links.forgotPassword;
         });
 
         this.forgetButton.on('over', () => {

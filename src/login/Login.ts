@@ -258,7 +258,7 @@ export default class Login extends Phaser.Scene {
             }
 
             return { message: 'shell.NO_SOCKET_CONNECTION', buttonCallback: () => {
-                window.location.reload();
+                window.location.href = __environment__.links.help;
                 return false;
             }, type: 'c', code: error.NO_SOCKET_CONNECTION};
         });

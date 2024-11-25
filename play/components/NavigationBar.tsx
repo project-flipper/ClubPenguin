@@ -26,20 +26,20 @@ export default () => {
                 <div id="navBg">
                     <div id="htmlNav">
                         <ul id="bu_nav">
-                            <li><NavigationLink link="/" text={t('home')} /></li>
+                            <li><NavigationLink link={__environment__.links.home} text={t('home')} /></li>
                             <li>|</li>
-                            <li><NavigationLink link="/" text={t('blog')} /></li>
+                            <li><NavigationLink link={__environment__.links.blog} text={t('blog')} /></li>
                             <li>|</li>
-                            <li><NavigationLink link="/" text={t('help')} /></li>
+                            <li><NavigationLink link={__environment__.links.help} text={t('help')} /></li>
                             <li>|</li>
-                            <li><NavigationLink link="/" text={t('parents')} /></li>
+                            <li><NavigationLink link={__environment__.links.parents} text={t('parents')} /></li>
                             <li>|</li>
-                            <li className="noMarg"><NavigationLink link="/" text={t('membership')} /></li>
+                            <li className="noMarg"><NavigationLink link={__environment__.links.membership} text={t('membership')} /></li>
                         </ul>
                         <ScreenSizeToggle />
                         <LanguageSelect text={t('selectlang')} langs={['en', 'pt', 'fr', 'es', 'de', 'ru']} />
                         <div id="logoff">
-                            <NavigationLink link="/" text={t('exit')} />
+                            <NavigationLink link={__environment__.links.exit} text={t('exit')} />
                         </div>
                     </div>
                 </div>

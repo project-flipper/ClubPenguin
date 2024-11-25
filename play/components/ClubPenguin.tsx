@@ -91,7 +91,7 @@ export default () => {
                                 </Trans>
                                 <p>
                                     <Trans i18nKey="upgradeText" ns="errors">
-                                        Visit our <a href={`${__environment__.links.home}/help/help-topics/technical-help`}>Browser FAQ</a> to find out more about this update.
+                                        Visit our <a href={`${__environment__.links.help}/help-topics/technical-help`}>Browser FAQ</a> to find out more about this update.
                                     </Trans>
                                 </p>
                             </div>
@@ -103,7 +103,7 @@ export default () => {
                                 </Trans>
                                 <p>
                                     <Trans i18nKey="installText" ns="errors">
-                                        Visit our <a href={`${__environment__.links.home}/help/help-topics/technical-help`}>Browser FAQ</a> to find out more about this update.
+                                        Visit our <a href={`${__environment__.links.help}/help-topics/technical-help`}>Browser FAQ</a> to find out more about this update.
                                     </Trans>
                                 </p>
                             </div>

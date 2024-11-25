@@ -11,26 +11,56 @@ function getNowFormat() {
     return `${now.getUTCFullYear()}${now.getUTCMonth() + 1}${now.getUTCDay() + 1}${now.getUTCHours()}${now.getUTCMinutes()}${now.getUTCSeconds()}`
 }
 
+function getterFactory(env) {
+    return function getter(attr, fallback) {
+        return attr in env ? env[attr] : fallback;
+    }
+}
+
 /** @type {(env: any) => import("webpack").Configuration} */
 module.exports = env => {
+    let get = getterFactory(env);
+    let now = getNowFormat();
+    let home = get('links.home', 'https://www.clubpenguin.com');
+    let play = get('links.play', 'https://play.clubpenguin.com');
+    let community = get('links.community', 'https://community.clubpenguin.com');
+    let support = get('links.support', 'https://support.clubpenguin.com');
+    let secured = get('links.secured', 'https://secured.clubpenguin.com');
     let environment = {
-        language: 'en',
-        apiPath: env.apiPath,
-        mediaPath: env.mediaPath ? env.mediaPath : '/media',
-        crossOrigin: env.crossOrigin,
-        cacheVersion: env.cacheVersion ? env.cacheVersion : getNowFormat(),
-        contentVersion: env.contentVersion ? env.contentVersion : env.cacheVersion,
-        minigameVersion: env.minigameVersion ? env.minigameVersion : env.cacheVersion,
-        environmentType: env.environmentType ? env.environmentType : env.development ? 'dev' : 'prod',
+        apiPath: get('apiPath'),
+        mediaPath: get('mediaPath', '/media'),
+        crossOrigin: get('crossOrigin'),
+        cacheVersion: get('cacheVersion', now),
+        contentVersion: get('contentVersion', now),
+        minigameVersion: get('minigameVersion', now),
+        environmentType: get('environmentType', env.development ? 'dev' : 'prod'),
         links: {
-            home: env.homeLink,
-            play: env.playLink,
-            localPlay: env.playLink,
+            home,
+            play,
+            community,
+            support,
+            secured,
+            affiliates: get('links.affiliates', 'https://signup.cj.com/member/brandedPublisherSignUp.do?air_refmerchantid=3297551'),
+            blog: get('links.blog', `${community}/blog`),
+            help: get('links.help', `${support}/help`),
+            parents: get('links.parents', `${home}/parents`),
+            membership: get('links.membership', `${home}/membership`),
+            exit: get('links.exit', `${home}/exit`),
+            company: get('links.company', `${home}/company`),
+            terms: get('links.terms', `${home}/terms`),
+            privacy: get('links.privacy', `${home}/privacy`),
+            contact: get('links.contact', `${support}/help/contact`),
+            sitemap: get('links.sitemap', `${home}/sitemap`),
+            forgotPassword: get('links.forgotPassword', `${secured}/penguin/forgot-password`),
+            createAccount: get('links.createAccount', `${play}#/create`),
+            guide: get('links.guide', `${home}/parents/club_penguin_guide`),
+            playerSafety: get('links.playerSafety', `${home}/parents/player_safety`),
+            toys: get('links.toys', `${home}/toys`),
         },
-        recaptchaSiteKey: env.recaptchaSiteKey
+        recaptchaSiteKey: get('recaptchaSiteKey')
     };
 
-    console.log(env);
+    console.log(environment);
 
     return {
         mode: env.development ? 'development' : 'production',

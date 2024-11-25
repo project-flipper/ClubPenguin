@@ -223,7 +223,7 @@ export default class World extends Phaser.Scene {
 
         let err: Partial<CPError> = {
             message: 'shell.CONNECTION_LOST', buttonLabel: 'Learn More', buttonCallback: () => {
-                window.location.reload();
+                window.location.href = __environment__.links.help;
                 return false;
             }, type: 'c', code: error.CONNECTION_LOST
         };

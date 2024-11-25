@@ -342,7 +342,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
             this.forgotBar.visible = false;
         });
         this.forgotHitbox.on('pointerup', () => {
-            window.location.reload(); // TODO: go to URL
+            window.location.href = __environment__.links.forgotPassword;
         });
 
         this.accountHitbox.setInteractive({ useHandCursor: true });

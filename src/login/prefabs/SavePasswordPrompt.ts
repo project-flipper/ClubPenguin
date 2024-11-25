@@ -181,7 +181,9 @@ export default class SavePasswordPrompt extends Phaser.GameObjects.Container {
         this.learnLabel = learnLabel;
 
         /* START-USER-CTR-CODE */
-        // Write your code here.
+
+        this.learnButton.on('release', () => window.location.href = __environment__.links.playerSafety);
+
         /* END-USER-CTR-CODE */
     }
 

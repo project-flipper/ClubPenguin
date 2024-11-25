@@ -26,7 +26,7 @@ export default () => {
                 daysLeft > 0 &&
                 <div id="TrialBanner">
                     <div id="TrialBannerBtn" className={currentLanguage != "en" ? `lang-${currentLanguage}` : undefined}>
-                        <a id="TrialBannerLink" href="/" target="_blank"></a>
+                        <a id="TrialBannerLink" href={__environment__.links.membership} target="_blank"></a>
                     </div>
                     <div id="TrialText" className="no_translate">
                         <Trans i18nKey="trialbanner" count={daysLeft}>
