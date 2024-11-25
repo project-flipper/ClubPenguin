@@ -114,7 +114,7 @@ export default class Forts extends Phaser.Scene implements Room {
         clocktext.setOrigin(0, 0);
 
         // day
-        const day = new TextBox(this, 1169, 250, "CCComicrazyW00BoldItalic");
+        const day = new TextBox(this, 1169, 250, "CCComicCrazyW00BoldItalic");
         this.add.existing(day);
         day.angle = 4;
         day.text = "Monday";

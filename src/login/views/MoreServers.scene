@@ -154,7 +154,7 @@
                     "originX": 0,
                     "originY": 0,
                     "text": "PLEASE SELECT A SERVER",
-                    "font": "CCComiccrazyBoldItalicShadow",
+                    "font": "CCComicCrazyBoldItalicShadow",
                     "align": 1,
                     "fontSize": 45
                 }

@@ -43,7 +43,7 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
         this.add(items);
 
         // serversLabel
-        const serversLabel = new TextBox(scene, 208.2375, 67.5, "CCComiccrazyBoldItalicShadow");
+        const serversLabel = new TextBox(scene, 208.2375, 67.5, "CCComicCrazyBoldItalicShadow");
         serversLabel.setOrigin(0, 0);
         serversLabel.text = "Your Suggested Servers";
         serversLabel.fontSize = 45;

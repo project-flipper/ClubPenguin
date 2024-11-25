@@ -85,7 +85,7 @@ export default class Help extends Phaser.Scene implements Content {
         check2hit.alphaBottomRight = 0.0001;
 
         // title
-        const title = new TextBox(this, 546.75, 238.5, "CCComiccrazyBoldItalicShadow");
+        const title = new TextBox(this, 546.75, 238.5, "CCComicCrazyBoldItalicShadow");
         this.add.existing(title);
         title.text = "SETTINGS";
         title.fontSize = 45;
