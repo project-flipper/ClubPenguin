@@ -13,7 +13,16 @@ function getNowFormat() {
 
 function getterFactory(env) {
     return function getter(attr, fallback) {
-        return attr in env ? env[attr] : fallback;
+        const keys = attr.split('.');
+        let result = env;
+        for (const key of keys) {
+            if (result && key in result) {
+                result = result[key];
+            } else {
+                return fallback;
+            }
+        }
+        return result;
     }
 }
 
@@ -60,6 +69,7 @@ module.exports = env => {
         recaptchaSiteKey: get('recaptchaSiteKey')
     };
 
+    console.log(env);
     console.log(environment);
 
     return {
