@@ -319,6 +319,7 @@ export class Actions {
                 this.stopMoving();
                 if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
                 this.player.playAnimation(AnimationFrame.IDLE_DOWN + (data.to_x != null && data.to_y != null ? this.getDirection(data.to_x, data.to_y) : 0));
+                this._type = ActionType.IDLE;
                 break;
             case ActionType.WADDLE:
                 this.stopMoving();
@@ -330,21 +331,25 @@ export class Actions {
                     let delta = Math.abs(Date.now() - data.since);
                     this.moveTween.forward(delta);
                 }
+                this._type = ActionType.WADDLE;
                 break;
             case ActionType.SIT:
                 this.stopMoving();
                 if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
                 this.player.playAnimation(AnimationFrame.SIT_DOWN + (data.to_x != null && data.to_y != null ? this.getDirection(data.to_x, data.to_y) : 0));
+                this._type = ActionType.SIT;
                 break;
             case ActionType.WAVE:
                 this.stopMoving();
                 if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
                 this.player.playAnimation(AnimationFrame.WAVE);
+                this._type = ActionType.WAVE;
                 break;
             case ActionType.DANCE:
                 this.stopMoving();
                 if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
                 this.player.playAnimation(AnimationFrame.DANCE);
+                this._type = ActionType.DANCE;
                 break;
             case ActionType.THROW:
                 this.stopMoving();
