@@ -318,12 +318,10 @@ export class Actions {
             case ActionType.IDLE:
                 this.stopMoving();
                 if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
-                this.player.playAnimation(AnimationFrame.IDLE_DOWN + (data.to_x != null && data.to_y != null ? this.getDirection(data.to_x, data.to_y) : 0));
-                this._type = ActionType.IDLE;
+                this.lookAt(data.to_x, data.to_y);
                 break;
             case ActionType.WADDLE:
                 this.stopMoving();
-
                 if (data.x && data.y) this.teleport(data.x, data.y, false, prohibitJoinRoom);
                 this.move(data.to_x, data.to_y);
                 if (data.since) {
@@ -331,25 +329,21 @@ export class Actions {
                     let delta = Math.abs(Date.now() - data.since);
                     this.moveTween.forward(delta);
                 }
-                this._type = ActionType.WADDLE;
                 break;
             case ActionType.SIT:
                 this.stopMoving();
                 if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
-                this.player.playAnimation(AnimationFrame.SIT_DOWN + (data.to_x != null && data.to_y != null ? this.getDirection(data.to_x, data.to_y) : 0));
-                this._type = ActionType.SIT;
+                this.sitFacing(data.to_x, data.to_y);
                 break;
             case ActionType.WAVE:
                 this.stopMoving();
                 if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
-                this.player.playAnimation(AnimationFrame.WAVE);
-                this._type = ActionType.WAVE;
+                this.wave();
                 break;
             case ActionType.DANCE:
                 this.stopMoving();
                 if (data.x && data.y) this.teleport(data.x, data.y, true, prohibitJoinRoom);
-                this.player.playAnimation(AnimationFrame.DANCE);
-                this._type = ActionType.DANCE;
+                this.dance();
                 break;
             case ActionType.THROW:
                 this.stopMoving();
