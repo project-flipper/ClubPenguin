@@ -3,8 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import { Player } from "@clubpenguin/world/engine/player/avatar";
 import Interface from "@clubpenguin/world/interface/Interface";
@@ -17,22 +16,22 @@ export default class MancalaBoard extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // book_mancalatable
-        const book_mancalatable = scene.add.image(1.2375, -3.2625, "book", "book/mancalatable");
+        const book_mancalatable = scene.add.image(1.2375, -3.2625, "book2013", "book/mancalatable");
         book_mancalatable.setOrigin(0.47076923, 0.43726415);
         this.add(book_mancalatable);
 
         // board
-        const board = scene.add.image(0.5625, -33.8625, "book", "book/mancalaboard0001");
+        const board = scene.add.image(0.5625, -33.8625, "book2013", "book/mancalaboard0001");
         board.setOrigin(0.4734166666666667, 0.46018181818181814);
         this.add(board);
 
         // button
-        const button = scene.add.image(4, -32, "book", "book/mancala_btn0004");
-        button.alpha = 0.01;
-        button.alphaTopLeft = 0.01;
-        button.alphaTopRight = 0.01;
-        button.alphaBottomLeft = 0.01;
-        button.alphaBottomRight = 0.01;
+        const button = scene.add.image(4, -32, "book2013", "book/mancala_btn0004");
+        button.alpha = 0.0001;
+        button.alphaTopLeft = 0.0001;
+        button.alphaTopRight = 0.0001;
+        button.alphaBottomLeft = 0.0001;
+        button.alphaBottomRight = 0.0001;
         this.add(button);
 
         // button (components)

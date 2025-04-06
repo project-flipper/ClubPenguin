@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/dojoext/dojoext-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/dojoext/dojoext2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "DojoExt",
@@ -21,7 +21,7 @@
             "id": "77a24586-48eb-458b-979c-d8c94cb13479",
             "label": "dojoext_sky",
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/sky"
             },
             "x": -125.775,
@@ -34,7 +34,7 @@
             "id": "493e3b7a-8c6c-4e41-9565-eed83aa5e49c",
             "label": "dojoext_base",
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/base"
             },
             "x": -127.125,
@@ -48,7 +48,7 @@
             "label": "lava",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/lava"
             },
             "x": -77.2875,
@@ -62,7 +62,7 @@
             "label": "smoke",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/smoke0001"
             },
             "x": -64.6875,
@@ -77,7 +77,7 @@
             "label": "waterfall",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/waterfall0001"
             },
             "x": 268.425,
@@ -91,7 +91,7 @@
             "label": "door",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/door0001"
             },
             "x": 766.35,
@@ -110,25 +110,25 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/door0004"
             },
             "x": 766.35,
             "y": 465.75,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
             "id": "23417297-25b8-4228-b43d-12fc71037a6e",
             "label": "dojoext_dojo",
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/dojo"
             },
             "x": 33.4125,
@@ -144,7 +144,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/tree1"
             },
             "x": 1542.375,
@@ -160,7 +160,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/tree2"
             },
             "x": 1461.7125,
@@ -178,7 +178,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/tree3"
             },
             "x": 1562.85,
@@ -194,7 +194,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/leftstatue"
             },
             "x": 520.2,
@@ -210,7 +210,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/rightstatue"
             },
             "x": 1241.4375,
@@ -229,7 +229,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/deck0001"
             },
             "x": 1599.4125,
@@ -246,16 +246,16 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/deck0004"
             },
             "x": 1599.4125,
             "y": 985.725,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -268,7 +268,7 @@
             "RoomTrigger.playerX": 855,
             "RoomTrigger.playerY": 798.75,
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/dojo_mc"
             },
             "x": 873.675,
@@ -286,7 +286,7 @@
             "RoomTrigger.playerX": 900,
             "RoomTrigger.playerY": 483.75,
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/shack_mc"
             },
             "x": 879.525,
@@ -299,7 +299,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dojoext",
+                "key": "dojoext2013",
                 "frame": "dojoext/block"
             },
             "x": -45,

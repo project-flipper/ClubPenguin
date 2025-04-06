@@ -10,9 +10,8 @@ export enum MapCategory {
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import InputBlocker from "../../../lib/ui/components/InputBlocker";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import InputBlocker from "../../../lib/components/InputBlocker";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import Navigation from "./prefabs/Navigation";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
@@ -1129,19 +1128,18 @@ export default class Map extends Phaser.Scene implements Content {
     declare game: App;
 
     public hidesInterface = true;
+    public aboveInterface = false;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 
     get world(): World {
-        return (this.scene.get('World') as World);
+        return this.scene.get('World') as World;
     }
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     private _category = MapCategory.NO_CATEGORY;
@@ -1354,9 +1352,10 @@ export default class Map extends Phaser.Scene implements Content {
             button.on('out', () => this.interface.hideHint());
         }
         if (roomId) button.on('release', () => {
-            this.world.joinRoom(roomId);
-            this.interface.safeCloseContent();
-            this.interface.hideHint();
+            if (this.world.engine.currentRoomId == roomId) {
+                this.interface.safeCloseContent();
+                this.interface.hideHint();
+            } else this.world.joinRoom(roomId);
         });
     }
 

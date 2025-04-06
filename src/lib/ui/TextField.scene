@@ -19,38 +19,26 @@
             "label": "container_1",
             "list": [
                 {
-                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
-                    "id": "63df6c5e-f18d-41ad-a487-64082fb643bc",
+                    "prefabId": "ac15f857-cc8f-4965-a2a2-6af6bc617d12",
+                    "id": "ecc4cf3a-63ba-464b-98f0-1bc5bcf8afe8",
                     "unlock": [
                         "x",
                         "y",
-                        "text",
-                        "tintTopLeft",
-                        "tintTopRight",
-                        "tintBottomLeft",
-                        "tintBottomRight",
-                        "font",
-                        "fontSize"
+                        "text"
                     ],
-                    "label": "textBox",
-                    "scope": "CLASS",
+                    "label": "text",
+                    "scope": "PUBLIC",
                     "x": 0,
                     "y": 0,
-                    "tintTopLeft": "#000000",
-                    "tintTopRight": "#000000",
-                    "tintBottomLeft": "#000000",
-                    "tintBottomRight": "#000000",
-                    "text": "TextField",
-                    "font": "BurbankSmallMedium",
-                    "fontSize": -72
+                    "text": "TextField"
                 }
             ]
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },
@@ -154,7 +142,7 @@
             "name": "font",
             "label": "Font Family",
             "tooltip": "Property 1",
-            "defValue": "BurbankSmallMedium",
+            "defValue": "Burbank Small Medium",
             "customDefinition": true,
             "type": {
                 "id": "asset-key"
@@ -164,10 +152,10 @@
             "name": "fontSize",
             "label": "Font Size",
             "tooltip": "Property 1",
-            "defValue": -72,
+            "defValue": "12px",
             "customDefinition": true,
             "type": {
-                "id": "number"
+                "id": "string"
             }
         },
         {
@@ -251,20 +239,40 @@
             }
         },
         {
-            "name": "leftMargin",
+            "name": "marginLeft",
             "label": "Left Margin",
             "tooltip": "Property 1",
-            "defValue": 4.5,
+            "defValue": 0,
             "customDefinition": true,
             "type": {
                 "id": "number"
             }
         },
         {
-            "name": "topMargin",
+            "name": "marginTop",
             "label": "Top Margin",
             "tooltip": "Property 1",
-            "defValue": 4.5,
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "marginRight",
+            "label": "Right Margin",
+            "tooltip": "Property 1",
+            "defValue": 0,
+            "customDefinition": true,
+            "type": {
+                "id": "number"
+            }
+        },
+        {
+            "name": "marginBottom",
+            "label": "Bottom Margin",
+            "tooltip": "Property 1",
+            "defValue": 0,
             "customDefinition": true,
             "type": {
                 "id": "number"

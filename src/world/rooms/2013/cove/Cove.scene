@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/cove/cove-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/cove/cove2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Cove",
@@ -21,7 +21,7 @@
             "id": "751ef3bd-e7e4-40df-b79f-22e3041a8a9a",
             "label": "cove_sky",
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/sky"
             },
             "x": -22.5,
@@ -34,7 +34,7 @@
             "id": "2f2930ef-1bba-4b13-a841-ef046a17c125",
             "label": "cove_base",
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/base"
             },
             "x": -65.75,
@@ -50,7 +50,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile1"
             },
             "x": 1248.6375,
@@ -66,7 +66,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile2"
             },
             "x": 1166.85,
@@ -82,7 +82,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile3"
             },
             "x": 1130.625,
@@ -98,7 +98,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile4"
             },
             "x": 1118.7,
@@ -114,7 +114,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile5"
             },
             "x": 1134.9,
@@ -130,7 +130,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile6"
             },
             "x": 1154.925,
@@ -146,7 +146,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile7"
             },
             "x": 1148.2875,
@@ -162,7 +162,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile8"
             },
             "x": 1135.2375,
@@ -178,7 +178,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile9"
             },
             "x": 1128.7125,
@@ -194,7 +194,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile10"
             },
             "x": 1127.925,
@@ -210,7 +210,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile11"
             },
             "x": 1141.875,
@@ -226,7 +226,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile12"
             },
             "x": 1151.2125,
@@ -242,7 +242,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile13"
             },
             "x": 1128.0375,
@@ -258,7 +258,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile14"
             },
             "x": 1128.0375,
@@ -274,7 +274,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/oceantile15"
             },
             "x": 1128.0375,
@@ -290,7 +290,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/rock"
             },
             "x": 564.975,
@@ -306,7 +306,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/fish"
             },
             "x": 160.7625,
@@ -322,7 +322,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/umbrella"
             },
             "x": 271.125,
@@ -340,7 +340,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 699.075,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/fireplace"
             },
             "x": 304.3125,
@@ -359,13 +359,16 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 699.075,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/fire0001"
             },
             "x": 343.6875,
             "y": 582.4125,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "cove2013-fire-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -377,7 +380,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 214.65,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/chairside"
             },
             "x": 460.4625,
@@ -396,7 +399,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 214.65,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/binoculars0001"
             },
             "x": 456.8625,
@@ -415,18 +418,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/binoculars0004"
             },
             "x": 456.8625,
             "y": 210.15,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -436,7 +439,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/tree1"
             },
             "x": 1626.3,
@@ -452,7 +455,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/surfshack"
             },
             "x": 1416.9375,
@@ -471,7 +474,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 414.7875,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/surfshacksign0001"
             },
             "x": 1354.05,
@@ -487,7 +490,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/chair"
             },
             "x": 1262.5875,
@@ -503,7 +506,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/table"
             },
             "x": 1367.1,
@@ -519,7 +522,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/chairbase"
             },
             "x": 1472.0625,
@@ -535,7 +538,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/chairback"
             },
             "x": 1479.6,
@@ -551,7 +554,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/nail1"
             },
             "x": 1159.875,
@@ -567,7 +570,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/nail2"
             },
             "x": 1242.675,
@@ -583,7 +586,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/nail3"
             },
             "x": 1425.7125,
@@ -599,7 +602,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/tree"
             },
             "x": 163.8,
@@ -617,7 +620,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/foreground"
             },
             "x": -91.35,
@@ -631,7 +634,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/block"
             },
             "originX": 0,
@@ -646,7 +649,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/ring"
             },
             "x": 512.8875,
@@ -662,7 +665,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/cup"
             },
             "x": 1020.375,
@@ -678,7 +681,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/medicsign"
             },
             "x": 946.575,
@@ -691,7 +694,7 @@
             "id": "15676bc6-985a-4e21-b992-ca4a11516e20",
             "label": "cove_ocean_water_mc",
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/ocean_water_mc"
             },
             "x": 530.6625,
@@ -706,10 +709,12 @@
             "label": "waves_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "waves",
+            "GameTrigger.prompt": "waves_prompt",
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/waves_mc"
             },
             "x": 1394.8875,
@@ -727,7 +732,7 @@
             "RoomTrigger.playerX": 1338.75,
             "RoomTrigger.playerY": 843.75,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/forest_mc"
             },
             "x": 338.175,
@@ -743,7 +748,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/waves0001"
             },
             "x": 1334.7,
@@ -762,18 +767,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/waves0004"
             },
             "x": 1334.7,
             "y": 744.3,
             "originX": 0.47191977,
             "originY": 0.48719844,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -786,7 +791,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/cat_btn0001"
             },
             "x": 1621.0125,
@@ -803,16 +808,16 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/cat_btn0004"
             },
             "x": 1621.0125,
             "y": 1000.9125,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Sprite",
@@ -820,7 +825,7 @@
             "label": "catalogue",
             "scope": "PUBLIC",
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/catalogue0001"
             },
             "x": 1093.05,
@@ -839,24 +844,24 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "cove",
+                "key": "cove2013",
                 "frame": "cove/catalogue_btn"
             },
             "x": 1088.325,
             "y": 263.025,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

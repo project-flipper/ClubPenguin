@@ -1,0 +1,800 @@
+{
+    "id": "9549b3d3-62ff-48ec-bc44-e6ad3c516504",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Game",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/games/fnaf/fnaf-pregame-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "FNAF",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1140,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "4d77c65a-01af-4b1d-afcc-51f237b30a1b",
+            "label": "rectangle",
+            "components": [
+                "InputBlocker"
+            ],
+            "originX": 0,
+            "originY": 0,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "width": 1140,
+            "height": 720
+        },
+        {
+            "type": "Layer",
+            "id": "820241e9-e92a-45f8-ba19-eb8745309a94",
+            "label": "menu",
+            "scope": "PUBLIC",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "45e917f7-42fa-495d-9464-fe341810beb2",
+                    "label": "freddy",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Static & Menu/Menu/431"
+                    },
+                    "x": -70,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "88045227-4263-439a-866d-d36e90e8ce43",
+                    "label": "menustatic",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Static & Menu/Full Static/12"
+                    },
+                    "x": -70,
+                    "originX": 0,
+                    "originY": 0,
+                    "alpha": 0.25,
+                    "alphaTopLeft": 0.25,
+                    "alphaTopRight": 0.25,
+                    "alphaBottomLeft": 0.25,
+                    "alphaBottomRight": 0.25,
+                    "animationPlayMethod": 1,
+                    "animationKey": "fnaf-pregame-static-animation",
+                    "animationPreview": false
+                },
+                {
+                    "type": "Image",
+                    "id": "68adfe16-94ec-4eda-af3d-7a782af18310",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_444",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/444"
+                    },
+                    "x": 103,
+                    "y": 68,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "13fd1b9b-2a56-4f83-b107-3518f0a5a180",
+                    "label": "newGame",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/448"
+                    },
+                    "x": 103,
+                    "y": 404,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "40635ccb-ba1b-4b89-9e46-0ddd7776fa50",
+                    "label": "continueGame",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/449"
+                    },
+                    "x": 103,
+                    "y": 475,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "9db5c90b-f4ca-4ac2-bc40-561a833b6b94",
+                    "label": "sixthNight",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/443"
+                    },
+                    "x": 103,
+                    "y": 549,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "1498f671-e10a-4178-90a3-1ed62c413b2d",
+                    "label": "customNight",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/526"
+                    },
+                    "x": 103,
+                    "y": 617,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "426fd26e-bc07-4af6-a46f-15dde1caff1d",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_433",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/433"
+                    },
+                    "x": 904,
+                    "y": 686,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "48605a09-3967-4a70-bde3-dc5cf7dac3cc",
+                    "label": "bar",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Other/Misc/452"
+                    },
+                    "x": -94,
+                    "y": -38,
+                    "originX": 0,
+                    "originY": 0,
+                    "alpha": 0.25,
+                    "alphaTopLeft": 0.25,
+                    "alphaTopRight": 0.25,
+                    "alphaBottomLeft": 0.25,
+                    "alphaBottomRight": 0.25
+                },
+                {
+                    "type": "Image",
+                    "id": "11dd501c-30d1-45ad-b496-f78be21f6482",
+                    "label": "carot",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/450"
+                    },
+                    "x": 53,
+                    "y": 480,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Sprite",
+                    "id": "fdd22a45-2eaf-419f-be37-c52481b353f2",
+                    "label": "menublip",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Static & Menu/Menu Static/22"
+                    },
+                    "x": -70,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "8f92c051-b7d7-4836-a413-7c9fcf503a47",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_475",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/475"
+                    },
+                    "x": 103,
+                    "y": 517,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "BitmapText",
+                    "id": "77751227-5997-45d4-b32c-afe5187e928e",
+                    "label": "nightNumber",
+                    "scope": "PUBLIC",
+                    "x": 174,
+                    "y": 515,
+                    "text": "5\n",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": 25
+                },
+                {
+                    "type": "Image",
+                    "id": "454c7c3f-1e79-45eb-a3f3-e02cbd0e422b",
+                    "label": "star1",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/432"
+                    },
+                    "x": 103,
+                    "y": 310,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "14af9f0a-2e35-4177-8973-34dfd4df46ee",
+                    "label": "star2",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/432"
+                    },
+                    "x": 180,
+                    "y": 310,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "431b292e-32f8-4bf3-80c6-245db937026e",
+                    "label": "star3",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/432"
+                    },
+                    "x": 257,
+                    "y": 310,
+                    "originX": 0,
+                    "originY": 0
+                }
+            ]
+        },
+        {
+            "type": "Layer",
+            "id": "f8a44e69-b402-42c5-882e-41b21e2d0345",
+            "label": "customize",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "8c420dbb-1f84-42cd-b867-c436b6fe019d",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_524",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/524"
+                    },
+                    "x": 378,
+                    "y": 40,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "974d46c2-1bd2-4c78-b8ec-a2c7ffa17507",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_593",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/593"
+                    },
+                    "x": 56,
+                    "y": 652,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "ed3cb79d-d552-4407-898a-918d8f9c8f1d",
+                    "label": "customizeReady",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/530"
+                    },
+                    "x": 924,
+                    "y": 628,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "54f927ea-aef3-4cf7-881c-51c6d8cd22b8",
+                    "label": "fnaf_pregame_Numbers___Nights_Custom_Night_and_Rare_Screens_527",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Custom Night and Rare Screens/527"
+                    },
+                    "x": 105.09375,
+                    "y": 187,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "2913150a-ab8e-4c37-bcb1-d1f803471b04",
+                    "label": "fnaf_pregame_Numbers___Nights_Custom_Night_and_Rare_Screens_528",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Custom Night and Rare Screens/528"
+                    },
+                    "x": 358.921875,
+                    "y": 187,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "996d8387-b9a5-41d0-a1c4-5873c2bf82e2",
+                    "label": "fnaf_pregame_Numbers___Nights_Custom_Night_and_Rare_Screens_529",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Custom Night and Rare Screens/529"
+                    },
+                    "x": 612.75,
+                    "y": 187,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "b2e5eca8-e8bb-4fed-b456-fbd01b93b396",
+                    "label": "fnaf_pregame_Numbers___Nights_Custom_Night_and_Rare_Screens_536",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Custom Night and Rare Screens/536"
+                    },
+                    "x": 866.578125,
+                    "y": 187,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "913dba67-1a00-47ab-97fe-3d53d79f0d8e",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_531",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/531"
+                    },
+                    "x": 136,
+                    "y": 119,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "02cdea70-9aa6-4923-ab63-dfabf68a69bb",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_533",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/533"
+                    },
+                    "x": 646,
+                    "y": 119,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "d22c5b8c-85f5-46c4-b48e-b95b7945fdff",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_534",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/534"
+                    },
+                    "x": 917,
+                    "y": 119,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "33118347-5eaa-41bb-9b4b-7ae19bc22185",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_535",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/535"
+                    },
+                    "x": 381,
+                    "y": 119,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "f04aba60-df20-401e-9fb5-5d9a1466cdad",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_537",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/537"
+                    },
+                    "x": 107,
+                    "y": 425,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "da4710d4-349c-428c-84a7-74a1349eb28b",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/537"
+                    },
+                    "x": 360,
+                    "y": 425,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "72695f1e-e75a-4757-98b8-49f43f865ba7",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_1",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/537"
+                    },
+                    "x": 613,
+                    "y": 425,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "48abc20e-2ac2-46f0-961b-17a9e5caeb9f",
+                    "label": "fnaf_pregame_Numbers___Nights_Camera_and_Nights_2",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/537"
+                    },
+                    "x": 867,
+                    "y": 425,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "1103dec6-8ade-40db-959e-2c604230e7a9",
+                    "label": "freddyAISub",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/542"
+                    },
+                    "x": 105,
+                    "y": 470,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "1943fc55-8832-455f-9384-6268a60e74d9",
+                    "label": "freddyAIAdd",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/541"
+                    },
+                    "x": 269,
+                    "y": 470,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "a046fd82-63b3-4e33-84d2-337cc49def52",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxHeight",
+                        "boxWidth",
+                        "verticalAlign",
+                        "text",
+                        "fontSize",
+                        "horizontalAlign"
+                    ],
+                    "label": "freddyAI",
+                    "scope": "PUBLIC",
+                    "boxWidth": 130,
+                    "boxHeight": 52,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 139,
+                    "y": 470,
+                    "text": "1",
+                    "fontSize": 50
+                },
+                {
+                    "type": "Image",
+                    "id": "b7bf0b04-306d-4a42-b6c2-ff5d3108253b",
+                    "label": "bonnieAISub",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/542"
+                    },
+                    "x": 362,
+                    "y": 470,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "379ea685-96d9-429e-b319-f4df76c62e15",
+                    "label": "bonnieAIAdd",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/541"
+                    },
+                    "x": 526,
+                    "y": 470,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "a32d3804-dcff-4a3d-a4f1-5497993b6323",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxHeight",
+                        "boxWidth",
+                        "verticalAlign",
+                        "text",
+                        "fontSize",
+                        "horizontalAlign"
+                    ],
+                    "label": "bonnieAI",
+                    "scope": "PUBLIC",
+                    "boxWidth": 130,
+                    "boxHeight": 52,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 396,
+                    "y": 470,
+                    "text": "3",
+                    "fontSize": 50
+                },
+                {
+                    "type": "Image",
+                    "id": "afd6c302-6572-42da-ab0c-bf37959f9264",
+                    "label": "chicaAISub",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/542"
+                    },
+                    "x": 612,
+                    "y": 470,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "bcc0c000-39df-472c-a89f-8327769e2708",
+                    "label": "chicaAIAdd",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/541"
+                    },
+                    "x": 776,
+                    "y": 470,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "39fec267-3b41-4b4c-ad1f-b64fb37828f2",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxHeight",
+                        "boxWidth",
+                        "verticalAlign",
+                        "text",
+                        "fontSize",
+                        "horizontalAlign"
+                    ],
+                    "label": "chicaAI",
+                    "scope": "PUBLIC",
+                    "boxWidth": 130,
+                    "boxHeight": 52,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 646,
+                    "y": 470,
+                    "text": "3",
+                    "fontSize": 50
+                },
+                {
+                    "type": "Image",
+                    "id": "ad81ce32-129f-4815-8dc5-b67e676c9e20",
+                    "label": "foxyAISub",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/542"
+                    },
+                    "x": 865,
+                    "y": 470,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "2810becd-8a44-45a4-a7d1-64e1ce8fa7c7",
+                    "label": "foxyAIAdd",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/541"
+                    },
+                    "x": 1029,
+                    "y": 470,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "ac7c239c-ce90-4eb0-aaa7-f3771e41345e",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxHeight",
+                        "boxWidth",
+                        "verticalAlign",
+                        "fontSize",
+                        "text",
+                        "horizontalAlign"
+                    ],
+                    "label": "foxyAI",
+                    "scope": "PUBLIC",
+                    "boxWidth": 130,
+                    "boxHeight": 52,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 899,
+                    "y": 470,
+                    "text": "1",
+                    "fontSize": 50
+                },
+                {
+                    "type": "Image",
+                    "id": "9e4dced2-9862-4900-9db9-0efbf6ef27a9",
+                    "label": "goldenFreddy",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Custom Night and Rare Screens/548"
+                    },
+                    "x": -70,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "c4b5be0b-2a04-4ebb-8b6c-682956ca8ef9",
+            "label": "ad",
+            "scope": "PUBLIC",
+            "components": [
+                "InputBlocker"
+            ],
+            "texture": {
+                "key": "fnaf-pregame",
+                "frame": "fnaf-pregame/Static & Menu/Menu/574"
+            },
+            "x": -70,
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Layer",
+            "id": "25c85740-e5a2-4679-adf5-b13f361751cd",
+            "label": "loading",
+            "scope": "PUBLIC",
+            "visible": false,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "cc937b9a-26f9-4b8e-aad9-8556c40e9c55",
+                    "label": "whatnight",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/453"
+                    },
+                    "x": 456.5,
+                    "y": 270,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "7885ec44-e9b2-43a8-9d1d-e844e9213cab",
+                    "label": "waitclock",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Numbers & Nights/Camera and Nights/482"
+                    },
+                    "x": 1070,
+                    "y": 657,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                },
+                {
+                    "type": "Sprite",
+                    "id": "23daff89-0eac-45c2-a115-9fdfa5cd0d10",
+                    "label": "waitblip",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "fnaf-pregame",
+                        "frame": "fnaf-pregame/Static & Menu/Load/4"
+                    },
+                    "x": -70,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false,
+                    "animationKey": "fnaf-pregame-blip-animation"
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "a01f1d48-705e-478e-aa49-034cd3566f15",
+            "label": "close",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptClose0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptClose0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/promptClose0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "interface",
+                "frame": "interface/promptClose0001"
+            },
+            "x": 1115,
+            "y": 40,
+            "scaleX": 0.5,
+            "scaleY": 0.5
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

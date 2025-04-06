@@ -3,8 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
@@ -32,13 +31,13 @@ export default class PromptOkay extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "Message goes here\nMessage goes here";
-        message.fontSize = -36;
+        message.fontSize = 36;
         this.add(message);
 
         // okay
         const okay = new TextBox(scene, 775.0125, 463.5, "BurbankSmallMedium");
         okay.text = "Ok";
-        okay.fontSize = -45;
+        okay.fontSize = 45;
         this.add(okay);
 
         // okayButton (components)
@@ -81,6 +80,7 @@ export default class PromptOkay extends Phaser.GameObjects.Container {
 
     public rejectCallback: (byUser: boolean) => void;
     show(message: string, okay: string, confirmCallback: () => void, rejectCallback: (byUser: boolean) => void): void {
+        this.scene.hideHint();
         this.scene.closePrompt();
 
         this.message.text = message;

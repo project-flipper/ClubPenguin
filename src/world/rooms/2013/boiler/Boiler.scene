@@ -1,0 +1,303 @@
+{
+    "id": "ace385ad-2c5b-41ad-94e7-5b64056702e3",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/2013/boiler/boiler2013-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Boiler",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "1975fb23-072e-43d5-9f5b-c5c7af135f1f",
+            "label": "boiler_base",
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/base"
+            },
+            "x": -4.5,
+            "y": -7.87,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "956c5792-d372-4688-9820-36da541ea402",
+            "label": "archives",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/archives0001"
+            },
+            "x": 1604.25,
+            "y": 972,
+            "originX": 0.47917,
+            "originY": 0.59504
+        },
+        {
+            "type": "Image",
+            "id": "ff833636-3441-4cdb-9e2f-c4043d3c6f6d",
+            "label": "door",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/door0001"
+            },
+            "x": 565.65,
+            "y": 185.96,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "c3f03b30-2127-4d78-86cc-71caf7149f0f",
+            "label": "doorbtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/door0004"
+            },
+            "x": 565.65,
+            "y": 185.96,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Sprite",
+            "id": "134459aa-06b8-4e08-8b09-845819eccb62",
+            "label": "boiler_steam0001",
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/steam0001"
+            },
+            "x": 268.76,
+            "y": 140.51,
+            "originX": 0,
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "boiler2013-steam-animation",
+            "animationPreview": false
+        },
+        {
+            "type": "Image",
+            "id": "c1671148-f2ac-4861-854c-fd88fc4f2f27",
+            "label": "dancebtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/dancebtn0004"
+            },
+            "x": 1086.64,
+            "y": -1.24,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Sprite",
+            "id": "b20f87ed-cb34-4365-ad4c-e89553c115f1",
+            "label": "drawer6",
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/drawer0001"
+            },
+            "x": 1032.08,
+            "y": 591.86,
+            "originX": 0.3218978102189781,
+            "originY": 0.32123711340206185
+        },
+        {
+            "type": "Sprite",
+            "id": "b8b5364c-8ae3-4355-97d9-de26b7b7737a",
+            "label": "drawer5",
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/drawer0001"
+            },
+            "x": 1035.56,
+            "y": 507.83,
+            "originX": 0.3218978102189781,
+            "originY": 0.32123711340206185
+        },
+        {
+            "type": "Sprite",
+            "id": "e5210340-e073-4194-9e2e-f2df51b63861",
+            "label": "drawer4",
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/drawer0001"
+            },
+            "x": 1038.6,
+            "y": 423.68,
+            "originX": 0.3218978102189781,
+            "originY": 0.32123711340206185
+        },
+        {
+            "type": "Sprite",
+            "id": "e23fe9bb-ad9c-4527-bc14-0933155417c6",
+            "label": "drawer3",
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/drawer0001"
+            },
+            "x": 901.58,
+            "y": 591.86,
+            "originX": 0.3218978102189781,
+            "originY": 0.32123711340206185
+        },
+        {
+            "type": "Sprite",
+            "id": "3d6d6031-0044-4edc-946e-d6821dd66224",
+            "label": "drawer2",
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/drawer0001"
+            },
+            "x": 905.06,
+            "y": 507.83,
+            "originX": 0.3218978102189781,
+            "originY": 0.32123711340206185
+        },
+        {
+            "type": "Sprite",
+            "id": "d4ee77a2-8c3a-4711-be90-1b282cf276b3",
+            "label": "drawer1",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/drawer0001"
+            },
+            "x": 908.1,
+            "y": 423.68,
+            "originX": 0.3218978102189781,
+            "originY": 0.32123711340206185
+        },
+        {
+            "type": "Image",
+            "id": "8fbd2a6c-61e5-4b09-b537-e0d632b65c4d",
+            "label": "archivesbtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/archives0004"
+            },
+            "x": 1604.25,
+            "y": 972,
+            "originX": 0.4791666666666667,
+            "originY": 0.5950413223140496,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "e4917123-2545-4661-8215-8b05ffb5e1a2",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "3c403c7e-0df5-40dc-820b-533198b8c2c9",
+            "label": "boiler_cave_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 806,
+            "RoomTrigger.playerX": 369,
+            "RoomTrigger.playerY": 726.75,
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/cave_trigger"
+            },
+            "x": 651.26,
+            "y": 621.79,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "36d9dd78-6dc4-4731-8b41-f43a904596d2",
+            "label": "boiler_dance_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 120,
+            "RoomTrigger.playerX": 1102.5,
+            "RoomTrigger.playerY": 506.25,
+            "texture": {
+                "key": "boiler2013",
+                "frame": "boiler/dance_trigger"
+            },
+            "x": 1201.16,
+            "y": 615.82,
+            "visible": false
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "12ab0a6c-4af5-4213-83ac-f260f3cf3cf9",
+            "label": "triggers",
+            "objectIds": [
+                "36d9dd78-6dc4-4731-8b41-f43a904596d2",
+                "3c403c7e-0df5-40dc-820b-533198b8c2c9"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}

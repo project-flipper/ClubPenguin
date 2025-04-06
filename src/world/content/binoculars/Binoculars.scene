@@ -280,8 +280,11 @@
                     },
                     "x": 202.5,
                     "y": 99.45,
-                    "originX": 0.37621,
-                    "originY": 0.29807
+                    "originX": 0.37620567375886527,
+                    "originY": 0.2980701754385965,
+                    "animationPlayMethod": 1,
+                    "animationKey": "binoculars-tide-animation",
+                    "animationPreview": false
                 },
                 {
                     "type": "Sprite",
@@ -295,8 +298,11 @@
                     "y": 85.3875,
                     "scaleX": 0.56922619,
                     "scaleY": 0.56922619,
-                    "originX": 0.37620567,
-                    "originY": 0.29807018
+                    "originX": 0.37620567375886527,
+                    "originY": 0.2980701754385965,
+                    "animationPlayMethod": 1,
+                    "animationKey": "binoculars-tide-animation",
+                    "animationPreview": false
                 }
             ]
         },
@@ -321,7 +327,10 @@
                     "x": 396.225,
                     "y": 64.35,
                     "originX": 3.30192,
-                    "originY": 0.757059
+                    "originY": 0.757059,
+                    "animationPlayMethod": 1,
+                    "animationKey": "binoculars-penguin-animation",
+                    "animationPreview": false
                 },
                 {
                     "type": "Image",
@@ -347,8 +356,11 @@
                     "x": 526.6125,
                     "y": 103.95,
                     "scaleX": -1,
-                    "originX": 0.37621,
-                    "originY": 0.29807
+                    "originX": 0.37620567,
+                    "originY": 0.29807018,
+                    "animationPlayMethod": 1,
+                    "animationKey": "binoculars-tide-animation",
+                    "animationPreview": false
                 },
                 {
                     "type": "Sprite",
@@ -362,8 +374,11 @@
                     "y": 89.8875,
                     "scaleX": -0.56922619,
                     "scaleY": 0.56922619,
-                    "originX": 0.37620567,
-                    "originY": 0.29807018
+                    "originX": 0.37620567375886527,
+                    "originY": 0.2980701754385965,
+                    "animationPlayMethod": 1,
+                    "animationKey": "binoculars-tide-animation",
+                    "animationPreview": false
                 }
             ]
         },
@@ -388,7 +403,10 @@
                     "scaleX": -1,
                     "angle": 90,
                     "originX": 0.46732394366197183,
-                    "originY": 0.3676923076923077
+                    "originY": 0.3676923076923077,
+                    "animationPlayMethod": 1,
+                    "animationKey": "binoculars-fish-animation",
+                    "animationPreview": false
                 },
                 {
                     "type": "Rectangle",
@@ -482,8 +500,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },
@@ -511,16 +529,6 @@
                 "344a6b55-e687-4670-a4c6-e8c6bdfb6f85",
                 "94083b0c-aa2f-4376-ba47-773744c0f2e3",
                 "de03f028-4091-44a3-b010-b4c4533e1ae0"
-            ]
-        },
-        {
-            "id": "8bb95dae-3c3a-4871-b4af-2d64032bc750",
-            "label": "tides",
-            "objectIds": [
-                "b2d6bcfb-b8ef-43ee-9c6e-73b99f4252e7",
-                "8d0d8ca6-e009-4add-b5c7-73c36670b291",
-                "40dc7a34-ce47-410e-adec-90478b4f4285",
-                "67785db0-9282-4248-b598-1e8869a380d0"
             ]
         }
     ]

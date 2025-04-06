@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
@@ -28,8 +27,12 @@ export default class Redemption extends Phaser.Scene {
 
     /* START-USER-CODE */
 
+    get loadScreen(): Load {
+        return this.scene.get('Load') as Load;
+    }
+
     init(): void {
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
 
         load.track(new LoaderTask('Redemption loader', this.load));
         if (!load.isShowing) load.show();
@@ -39,7 +42,7 @@ export default class Redemption extends Phaser.Scene {
 
         this.editorCreate();
 
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
         if (load.isShowing) load.waitAllTasksComplete().then(() => load.hide());
     }
 

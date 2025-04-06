@@ -1,0 +1,661 @@
+{
+    "id": "2813a221-6067-4ff5-834b-6fcda044e720",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.GameObjects.Layer implements UI",
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Layer",
+            "id": "3371b5ec-7f6b-4350-9ce9-d1915bf4694c",
+            "label": "ui",
+            "scope": "PUBLIC",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "bdccfb2f-0266-44b4-8240-2325c090d7c2",
+                    "label": "dock",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dock"
+                    },
+                    "x": 211.5,
+                    "y": 978.75,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Container",
+                    "id": "3a12419d-6e84-4224-9731-79b1878d3ec6",
+                    "label": "chatLog",
+                    "x": 855,
+                    "y": -4.5,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "d37bd47b-b626-472f-b467-7ee4ec4504b8",
+                            "label": "ui2014_messagesTabBody",
+                            "components": [
+                                "InputBlocker"
+                            ],
+                            "texture": {
+                                "key": "ui-2014",
+                                "frame": "2014/messagesTabBody"
+                            },
+                            "y": 9,
+                            "originY": 1,
+                            "visible": false
+                        },
+                        {
+                            "type": "Image",
+                            "id": "f49c3927-fe6b-4d91-9fba-3ba5f2cdac85",
+                            "label": "ui2014_messagesTab",
+                            "components": [
+                                "ButtonComponent"
+                            ],
+                            "ButtonComponent.handCursor": true,
+                            "texture": {
+                                "key": "ui-2014",
+                                "frame": "2014/messagesTab"
+                            },
+                            "originY": 0
+                        },
+                        {
+                            "type": "Image",
+                            "id": "a73d70c1-7905-40d7-a60e-1bac28b8ca0a",
+                            "label": "ui2014_messagesTabArrow0001",
+                            "texture": {
+                                "key": "ui-2014",
+                                "frame": "2014/messagesTabArrow0001"
+                            },
+                            "y": 18
+                        }
+                    ]
+                },
+                {
+                    "type": "Image",
+                    "id": "19454b9e-b59e-42fc-958c-382d28bc3bd3",
+                    "label": "puffleButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 277.20001220703125,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "ec26d7b0-8197-42ce-95e9-25c2287c9ba8",
+                    "label": "emojiButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 344.70001220703125,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "9ab3db78-721e-4c49-9309-4e5f04fffa96",
+                    "label": "actionButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 412.20001220703125,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "ee59b1f3-e503-4044-b56a-471522e92d23",
+                    "label": "snowballButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 479.70001220703125,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "355ec14e-f79c-485f-99f2-9b5d71e55c27",
+                    "label": "chatBg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/chatBg"
+                    },
+                    "x": 521.5499877929688,
+                    "y": 1007.4375,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",
+                    "id": "1bf628ee-fe3e-407f-80de-5f1f5d1cd9d2",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "inputType",
+                        "fieldWidth",
+                        "fieldHeight",
+                        "value",
+                        "maxLength",
+                        "disabled",
+                        "readOnly",
+                        "font",
+                        "fontSize",
+                        "fontColor",
+                        "backgroundIsFilled",
+                        "backgroundIsStroked",
+                        "marginLeft"
+                    ],
+                    "label": "chat",
+                    "scope": "PUBLIC",
+                    "inputType": "text",
+                    "fieldWidth": 525,
+                    "fieldHeight": 42.4125,
+                    "value": "",
+                    "maxLength": 48,
+                    "disabled": false,
+                    "readOnly": false,
+                    "font": "Burbank Small Medium",
+                    "fontSize": "27px",
+                    "fontColor": "#ffffffff",
+                    "backgroundIsFilled": false,
+                    "backgroundIsStroked": false,
+                    "marginLeft": 4.5,
+                    "x": 590.4500122070312,
+                    "y": 1020.5999755859375
+                },
+                {
+                    "type": "Image",
+                    "id": "dbf70628-a92f-4a53-948e-d6a674de1c8d",
+                    "label": "chatButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 547.2000122070312,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "e24ae1c8-fb80-4317-84f9-91241316634c",
+                    "label": "sendButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 1154.699951171875,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "e1625875-2b8b-4d79-b6f0-9579fd06dd6c",
+                    "label": "playerButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 1222.199951171875,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "4b47ec45-3143-4c16-b289-23e054fb4149",
+                    "label": "friendsButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 1289.8125,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "7fddb6ca-ed1e-4e02-a8ca-14fc38820ab0",
+                    "label": "iglooButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 1357.199951171875,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "f0810d7c-10dc-4aeb-8474-00bba0331ba8",
+                    "label": "settingsButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/dockButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/dockButton0001"
+                    },
+                    "x": 1424.699951171875,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "885629b0-e38e-48de-95f9-09edff9619ba",
+                    "label": "puffleButtonIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/puffleButtonIcon0001"
+                    },
+                    "x": 276.5249938964844,
+                    "y": 1035.675048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "c88eb0f8-503c-40cd-b7fc-4bfcaf842b4d",
+                    "label": "emojiIcon",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/emojiIcon"
+                    },
+                    "x": 344.25,
+                    "y": 1035.9000244140625
+                },
+                {
+                    "type": "Image",
+                    "id": "7c2a4c57-749b-4a15-a464-44104e02112a",
+                    "label": "actionIcon",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/actionIcon"
+                    },
+                    "x": 410.17498779296875,
+                    "y": 1033.987548828125
+                },
+                {
+                    "type": "Image",
+                    "id": "6ef1c8eb-dff7-4b16-9335-e8bfb11e75e2",
+                    "label": "snowballIcon",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/snowballIcon"
+                    },
+                    "x": 479.4750061035156,
+                    "y": 1035.449951171875
+                },
+                {
+                    "type": "Image",
+                    "id": "2ccab62f-db60-4c8e-a192-fe2d8e05f435",
+                    "label": "chatIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/chatIcon0001"
+                    },
+                    "x": 547.2000122070312,
+                    "y": 1037.925048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "595f13e2-efd7-490f-a92f-4f06d7295968",
+                    "label": "sendIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/sendIcon0001"
+                    },
+                    "x": 1156.2750244140625,
+                    "y": 1035.7874755859375
+                },
+                {
+                    "type": "Image",
+                    "id": "1e846436-c111-47aa-a000-36ffb9ffba7c",
+                    "label": "playerIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/playerIcon0001"
+                    },
+                    "x": 1221.75,
+                    "y": 1035.112548828125
+                },
+                {
+                    "type": "Image",
+                    "id": "725bacb0-e3e0-42e1-a350-14446c5340f3",
+                    "label": "friendsIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/friendsIcon"
+                    },
+                    "x": 1289.137451171875,
+                    "y": 1036.9124755859375
+                },
+                {
+                    "type": "Image",
+                    "id": "95f7c218-7fee-4bc4-8ee9-d10acfd731e4",
+                    "label": "settingsIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/settingsIcon"
+                    },
+                    "x": 1424.4749755859375,
+                    "y": 1035.675048828125
+                },
+                {
+                    "type": "Image",
+                    "id": "5c9346e5-66ed-42a0-b5cb-2bff6f511bd2",
+                    "label": "iglooIcon",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/iglooIcon0001"
+                    },
+                    "x": 1357.762451171875,
+                    "y": 1037.925048828125
+                },
+                {
+                    "prefabId": "0de601a7-fe65-410b-9c5c-b23260f5d760",
+                    "id": "c272f5b8-f137-4234-8238-59d8441514a6",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "emoteMenu",
+                    "scope": "PUBLIC",
+                    "x": 238.5,
+                    "y": 437.2875061035156,
+                    "visible": false
+                },
+                {
+                    "prefabId": "c6bd3489-b516-4f31-b452-156fd6d82207",
+                    "id": "b802005f-90c8-48dd-86f1-a5ebac8fb238",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "actionsMenu",
+                    "scope": "PUBLIC",
+                    "x": 336.6000061035156,
+                    "y": 528.75,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "109c8c01-ec2c-473a-a31c-ab52a3e82048",
+                    "label": "snowballCrosshair",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/snowballCrosshair"
+                    },
+                    "x": 855,
+                    "y": 540,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "63e8ca76-9836-4da5-9f5a-12ace5e0d6c0",
+                    "label": "mailIcon",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/mailIcon0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/mailIcon0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/mailIcon0001"
+                    },
+                    "x": 198,
+                    "y": 78.75,
+                    "originY": 0.6327
+                },
+                {
+                    "type": "Image",
+                    "id": "a9e3fd41-8697-4005-99dd-912ff1ad0753",
+                    "label": "newsIcon",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/newsIcon0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/newsIcon0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/newsIcon0001"
+                    },
+                    "x": 87.75,
+                    "y": 72.5625
+                },
+                {
+                    "type": "Image",
+                    "id": "f6662f74-e95a-47f6-82ba-31587c460d40",
+                    "label": "newsLabel",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/newsLabel0001"
+                    },
+                    "x": 114.75,
+                    "y": 108
+                },
+                {
+                    "type": "Image",
+                    "id": "11d4b26d-c236-4ba2-b4e4-184f58d522bd",
+                    "label": "safetyIcon",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/safetyIcon0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/safetyIcon0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/safetyIcon0001"
+                    },
+                    "x": 1604.25,
+                    "y": 90.11250305175781
+                },
+                {
+                    "type": "Image",
+                    "id": "7447c0f5-2a91-4991-aa70-c435ddf4003b",
+                    "label": "mapIcon",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/mapIcon0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/mapIcon0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/mapIcon0001"
+                    },
+                    "x": 108,
+                    "y": 990
+                },
+                {
+                    "type": "Image",
+                    "id": "015512fc-cc7f-4311-b4ff-311e7e3729a2",
+                    "label": "phoneIcon",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/phoneIcon0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/phoneIconOver\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/phoneIcon0001"
+                    },
+                    "x": 99.11250305175781,
+                    "y": 850.3875122070312
+                },
+                {
+                    "prefabId": "81602ca5-58d7-4ccb-83ce-8d7ea1959f16",
+                    "id": "10d1a9e3-abb5-4e96-8135-6734c3ce2bb5",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "namecard",
+                    "scope": "PUBLIC",
+                    "x": 269,
+                    "y": 213,
+                    "visible": false
+                },
+                {
+                    "prefabId": "7d82067f-50b0-4ae3-85fe-b877c5f23c44",
+                    "id": "956e2fb2-97ad-4cf8-8749-08e8a4528912",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "visible"
+                    ],
+                    "label": "playerNamecard",
+                    "scope": "PUBLIC",
+                    "x": 269,
+                    "y": 213,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "241f68fc-e399-4303-9f2e-179151fe25d3",
+                    "label": "photo_mask",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardPhoto"
+                    },
+                    "x": 287,
+                    "y": 303,
+                    "originX": 0,
+                    "originY": 0,
+                    "visible": false
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

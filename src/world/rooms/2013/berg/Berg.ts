@@ -3,9 +3,8 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import Aqua from "./prefabs/Aqua";
-import Trigger from "../../../../lib/ui/components/Trigger";
+import GameTrigger from "../../../../lib/components/GameTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine,  Room } from "@clubpenguin/world/engine/engine";
@@ -26,25 +25,25 @@ export default class Berg extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("berg-pack", "assets/world/rooms/2013/berg/berg-pack.json");
+        this.load.pack("berg2013-pack", "assets/world/rooms/2013/berg/berg2013-pack.json");
     }
 
     editorCreate(): void {
 
         // berg_sky
-        const berg_sky = this.add.image(-22.5, -22.5, "berg", "berg/sky");
+        const berg_sky = this.add.image(-22.5, -22.5, "berg2013", "berg/sky");
         berg_sky.setOrigin(0, 0);
 
         // berg_island
-        const berg_island = this.add.image(774.7875, 83.475, "berg", "berg/island");
+        const berg_island = this.add.image(774.7875, 83.475, "berg2013", "berg/island");
         berg_island.setOrigin(0, 0);
 
         // berg_base
-        const berg_base = this.add.image(-22.5, 193.1625, "berg", "berg/base");
+        const berg_base = this.add.image(-22.5, 193.1625, "berg2013", "berg/base");
         berg_base.setOrigin(0, 0);
 
         // block
-        const block = this.add.image(0, 0, "berg", "berg/block");
+        const block = this.add.image(0, 0, "berg2013", "berg/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
@@ -53,7 +52,7 @@ export default class Berg extends Phaser.Scene implements Room {
         this.add.existing(aqua);
 
         // aqua_mc
-        const aqua_mc = this.add.image(1163.1375, 304.425, "berg", "berg/aqua_mc");
+        const aqua_mc = this.add.image(1163.1375, 304.425, "berg2013", "berg/aqua_mc");
         aqua_mc.setOrigin(0, 0);
         aqua_mc.visible = false;
 
@@ -61,7 +60,9 @@ export default class Berg extends Phaser.Scene implements Room {
         const triggers = [aqua_mc];
 
         // aqua_mc (components)
-        new Trigger(aqua_mc);
+        const aqua_mcGameTrigger = new GameTrigger(aqua_mc);
+        aqua_mcGameTrigger.game_id = "aqua";
+        aqua_mcGameTrigger.prompt = "aqua_prompt";
 
         this.block = block;
         this.aqua = aqua;
@@ -81,13 +82,11 @@ export default class Berg extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 
     get world(): World {
-        return (this.scene.get('World') as World);
+        return this.scene.get('World') as World;
     }
 
     get engine(): Engine {
@@ -95,7 +94,7 @@ export default class Berg extends Phaser.Scene implements Room {
     }
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     create(data: any) {
@@ -114,13 +113,6 @@ export default class Berg extends Phaser.Scene implements Room {
         }]);
         aquaFloat.play();
 
-        Trigger.getComponent(this.aqua_mc).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('aqua_prompt', () => {
-                this.world.startGame('aqua', {});
-            }, () => { });
-        }
-
         this.game.locale.register(this.localize, this);
 
         if (data.onready) data.onready(this);
@@ -132,7 +124,7 @@ export default class Berg extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         engine.app.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('berg-pack');
+        engine.app.unloadAssetPack('berg2013-pack');
     }
 
     /* END-USER-CODE */

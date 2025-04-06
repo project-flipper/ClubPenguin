@@ -3,8 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
@@ -30,29 +29,31 @@ export default class PromptShop extends Phaser.GameObjects.Container {
 
         // icon
         const icon = scene.add.container(858.2625, 336.15);
+        icon.scaleX = 2;
+        icon.scaleY = 2;
         this.add(icon);
 
         // yes
         const yes = new TextBox(scene, 652.275, 657, "BurbankSmallMedium");
         yes.text = "Yes";
-        yes.fontSize = -45;
+        yes.fontSize = 45;
         this.add(yes);
 
         // no
         const no = new TextBox(scene, 899.775, 657, "BurbankSmallMedium");
         no.text = "No";
-        no.fontSize = -45;
+        no.fontSize = 45;
         this.add(no);
 
         // message
-        const message = new TextBox(scene, 534.9375, 458.2125, "BurbankSmallMedium");
+        const message = new TextBox(scene, 522.68, 458.55, "BurbankSmallMedium");
         message.tintFill = true;
         message.tintTopLeft = 0;
         message.tintTopRight = 0;
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "You found a party hat.\nWould you like to pick it up?";
-        message.fontSize = -36;
+        message.fontSize = 36;
         this.add(message);
 
         // yesButton (components)
@@ -84,9 +85,10 @@ export default class PromptShop extends Phaser.GameObjects.Container {
         no.verticalAlign = 1;
 
         // message (prefab fields)
-        message.boxWidth = 642.15;
-        message.boxHeight = 151.9875;
+        message.boxWidth = 659.8125;
+        message.boxHeight = 152.6625;
         message.horizontalAlign = 1;
+        message.verticalAlign = 1;
 
         this.bg = bg;
         this.yesButton = yesButton;
@@ -115,6 +117,7 @@ export default class PromptShop extends Phaser.GameObjects.Container {
 
     public rejectCallback: (byUser: boolean) => void;
     show(message: string, yes: string, no: string, confirmCallback: () => void, rejectCallback: (byUser: boolean) => void): void {
+        this.scene.hideHint();
         this.scene.closePrompt();
 
         this.message.text = message;
@@ -142,6 +145,13 @@ export default class PromptShop extends Phaser.GameObjects.Container {
     setIcon(icon: Phaser.GameObjects.GameObject): void {
         this.icon.removeAll(true);
         this.icon.add(icon);
+    }
+
+    setLoading(): void {
+        this.icon.removeAll(true);
+        let spinner = this.scene.add.sprite(0, 0, 'interface', 'interface/promptLoading0001');
+        spinner.play('interface-promptloading-animation');
+        this.icon.add(spinner);
     }
 
     hide(): void {

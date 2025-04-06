@@ -1,8 +1,9 @@
-import Phaser from "phaser";
+import { io, Socket } from "socket.io-client";
 
 import { App } from "@clubpenguin/app/app";
 import { ApiResponse, CreateUserResponse, FriendsResponse, LoginResponse, MyUserResponse, UserResponse, WorldsResponse, CreateUserForm } from "@clubpenguin/net/types/api";
 import { getLogger } from "@clubpenguin/lib/log";
+import { sleep } from "@clubpenguin/lib/time";
 
 let logger = getLogger('CP.net.airtower');
 
@@ -114,19 +115,9 @@ export class Route<M = string> {
 }
 
 /**
- * Creates a promise that fulfills after n milliseconds.
- * @param ms The number of milliseconds to sleep for.
- */
-export function sleep(ms?: number): Promise<void> {
-    return new Promise<void>(resolve => {
-        setTimeout(() => resolve(), ms);
-    });
-}
-
-/**
  * The available options to perform a request with {@link Airtower.request}.
  */
-type RequestOptions = {
+export type RequestOptions = {
     headers?: Record<string, string>,
     json?: any,
     form?: { [key: string]: any },
@@ -134,6 +125,13 @@ type RequestOptions = {
     handleRatelimit?: boolean,
     handleUnauthorized?: boolean,
     authorization?: string
+};
+
+export type DisneyFriendsCallbackParams = {
+    size: number;
+    language: string;
+    photo: boolean;
+    bypassPlayerSettingCache: boolean;
 };
 
 /**
@@ -159,19 +157,30 @@ export class Airtower extends Phaser.Events.EventEmitter {
     }
 
     /**
+     * Transforms a relative path into an absolute URL for the game API.
+     * This is typically used when external routing is needed externally.
+     * @param path The path to resolve.
+     * @param query An optional object to use as querystring.
+     * @returns The absolute URL.
+     */
+    getAbsoluteUrl(path: string, query?: Record<string, any>): string {
+        return new Route('GET', path).query(query).getURL(this.basePath).href
+    }
+
+    /**
      * Utility for Disney's Friend List to access the Avatar endpoint.
      * @returns A callback that generates an absolute URL to the requested asset.
      */
-    createAvatarUrlCallback(): (id: string, params: { size: number, language: string, photo: boolean, bypassPlayerSettingCache: boolean }) => string {
-        return (id: string, params: { size: number, language: string, photo: boolean, bypassPlayerSettingCache: boolean }) => {
-            return new Route('GET', `/avatars/${id}`).query(params).getURL(this.basePath).href;
+    createAvatarUrlCallback(): (id: string, params: DisneyFriendsCallbackParams) => string {
+        return (id: string, params: DisneyFriendsCallbackParams) => {
+            return this.getAbsoluteUrl(`/avatars/${id}`, params);
         };
     }
 
     #token: string;
     #key: string;
 
-    #ws: WebSocket;
+    socket: Socket;
 
     /**
      * Makes a request to the game API.
@@ -298,21 +307,24 @@ export class Airtower extends Phaser.Events.EventEmitter {
 
     /**
      * Refreshes a connection using an access token. Must have previously called {@link Airtower.logIn}.
+     * @param key The session key to use for the refresh.
      * @returns The response from the API.
      */
-    async refresh(): Promise<LoginResponse> {
-        if (!this.#key) throw new Error('Cannot refresh without logging in');
+    async refresh(key?: string): Promise<LoginResponse> {
+        key = key || this.#key;
+        if (!key) throw new Error('Cannot refresh without logging in');
 
         logger.info('Refreshing access token');
 
         let response = await this.request<LoginResponse>(new Route('POST', '/auth/refresh'), {
-            authorization: this.#key,
+            authorization: key,
             handleRatelimit: false,
             handleUnauthorized: false
         });
 
         if (response.success) {
             this.#token = response.data.access_token;
+            this.#key = response.data.session_key || key;
         }
 
         return response;
@@ -329,58 +341,59 @@ export class Airtower extends Phaser.Events.EventEmitter {
     }
 
     connect(url: string): Promise<void> {
-        return new Promise((resolve, reject) => {
+        return new Promise(async (resolve, reject) => {
             this.disconnect(1000);
-            this.#ws = new WebSocket(url);
-            this.#ws.onopen = () => {
-                logger.info('WebSocket connection opened');
-                this.emit('ws:open');
+            let response = await this.refresh();
+            this.socket = io(url, {
+                transports: ['websocket'],
+                reconnection: false,
+                auth: {
+                    token: response.data.access_token
+                }
+            });
+
+            this.socket.once('connect', () => {
+                logger.info('Socket connection opened');
+                this.emit('s:connect');
                 resolve();
-            };
-            this.#ws.onerror = () => {
-                logger.error('WebSocket connection closed due to an error');
-                this.emit('ws:error');
-                this.#ws = undefined;
-                reject();
-            };
-            this.#ws.onmessage = event => {
-                logger.debug('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', event.data);
-                this.emit('ws:message', event.data);
-            };
-            this.#ws.onclose = event => {
-                logger.info('WebSocket connection closed', event.code, event.reason);
-                this.emit('ws:close', event.code, event.reason);
-                this.#ws = undefined;
-            };
+            });
+            this.socket.once('connect_error', error => {
+                logger.error('Socket connection closed due to an error', error);
+                this.emit('s:error');
+                this.socket = undefined;
+                reject(error);
+            });
+            this.socket.on('message', packet => {
+                logger.debug('WS %cINCOMING%c', 'color:#FFFFFF;background-color:#22A4F3', '', packet);
+                this.emit('s:message', packet);
+            });
+            this.socket.onAnyOutgoing((event, op, d) => {
+                logger.debug('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', { op, d });
+            });
+            this.socket.once('disconnect', (reason, description) => {
+                logger.info('Socket connection closed', { reason, description });
+                this.emit('s:disconnect', reason, description);
+                this.socket = undefined;
+                reject(new Error(`${reason}: ${description}`));
+            });
         });
     }
 
     isConnected(): boolean {
-        return this.#ws && this.#ws.readyState == this.#ws.OPEN;
+        return this.socket && this.socket.active;
     }
 
-    send(payload: any): void {
+    send(event: string, data: any): void {
         if (this.isConnected()) {
-            let data = JSON.stringify(payload);
-            this.#ws.send(data);
-            logger.debug('WS %cOUTGOING%c', 'color:#22A4F3;background-color:#FFFFFF', '', data);
+            this.socket.send(event, data);
         } else throw new Error('Connection not yet established');
     }
 
-    async sendAuth(): Promise<void> {
-        let response = await this.refresh();
-        this.send({
-            op: 'auth',
-            d: {
-                token: response.data.access_token
-            }
-        });
-    }
-
     disconnect(code?: number, reason?: string): void {
-        if (this.#ws) {
-            this.#ws.close(code, reason);
-            this.#ws = undefined;
+        if (this.socket) {
+            this.send('disconnect', { code, reason });
+            this.socket.disconnect();
+            this.socket = undefined;
         }
     }
 
@@ -431,5 +444,11 @@ export class Airtower extends Phaser.Events.EventEmitter {
      */
     async getFriends(): Promise<FriendsResponse> {
         return await this.request<FriendsResponse>(new Route('GET', '/friends/'), {});
+    }
+
+    /* ============ ITEMS ============ */
+
+    async buyItem(itemId: number): Promise<void> {
+        
     }
 }

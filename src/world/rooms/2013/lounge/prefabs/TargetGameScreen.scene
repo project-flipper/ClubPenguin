@@ -23,7 +23,7 @@
                     "id": "fd607eef-cf71-43c3-9bf8-b24e5deebccb",
                     "label": "lounge_hangingBar_1",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/hangingBar"
                     },
                     "x": 160.65,
@@ -34,7 +34,7 @@
                     "id": "60bec663-0f2d-4720-a52c-c2504299298d",
                     "label": "lounge_hangingBar",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/hangingBar"
                     },
                     "x": -145.125,
@@ -45,7 +45,7 @@
                     "id": "fd2cbb55-2d9f-4208-89d5-4fa33ab6f49c",
                     "label": "lounge_screenbg",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/screenbg"
                     },
                     "x": -166.6,
@@ -85,14 +85,14 @@
                     "visible": false,
                     "text": "01:30",
                     "font": "LCD",
-                    "fontSize": -81
+                    "fontSize": 81
                 },
                 {
                     "type": "Image",
                     "id": "3bc43372-e3ae-4cc2-adb6-a8cb6ac214a8",
                     "label": "lounge_screencover",
                     "texture": {
-                        "key": "lounge",
+                        "key": "lounge2013",
                         "frame": "lounge/screencover"
                     },
                     "x": -175.05,

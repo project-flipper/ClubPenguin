@@ -1,0 +1,85 @@
+{
+    "id": "b79deb3b-48c7-4f7e-a7e5-dcd9c61bc263",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "11459b8d-579c-4ac2-8faa-1dfd84b5c94d",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "6b63252b-9f88-4b2d-b756-2157bdee35f9",
+                    "label": "prevButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/stampListPrev0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/stampListPrev0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/stampListPrev0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/stampListPrev0001"
+                    },
+                    "x": 31.39,
+                    "y": 95.63
+                },
+                {
+                    "type": "Image",
+                    "id": "39c037fc-ab37-42f7-bde7-a886a92b4ce8",
+                    "label": "nextButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/stampListNext0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/stampListNext0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/stampListNext0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/stampListNext0001"
+                    },
+                    "x": 681.98,
+                    "y": 95.63
+                },
+                {
+                    "type": "Image",
+                    "id": "5f1c1c48-9d9a-410a-9ba1-8828d905ae29",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/stampViewer0001"
+                    },
+                    "x": 73.91,
+                    "y": 4.5,
+                    "originX": 0,
+                    "originY": 0
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

@@ -3,13 +3,13 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../lib/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 import WorldTile from "../prefabs/WorldTile";
 /* START-USER-IMPORTS */
 import { WorldData } from "@clubpenguin/net/types/world";
 import { Locale } from "@clubpenguin/app/locale";
+import Login from "../Login";
 /* END-USER-IMPORTS */
 
 export default class WorldSelect extends Phaser.GameObjects.Container {
@@ -43,7 +43,7 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
         this.add(items);
 
         // serversLabel
-        const serversLabel = new TextBox(scene, 208.2375, 67.5, "CCComiccrazy-BoldItalicShadow");
+        const serversLabel = new TextBox(scene, 208.2375, 67.5, "CCComicCrazyBoldItalicShadow");
         serversLabel.setOrigin(0, 0);
         serversLabel.text = "Your Suggested Servers";
         serversLabel.fontSize = 45;
@@ -53,19 +53,19 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
         // buddiesLabel
         const buddiesLabel = new TextBox(scene, 262.4625, 998.775, "BurbankSmallMedium");
         buddiesLabel.text = "Buddies online";
-        buddiesLabel.fontSize = -31.5;
+        buddiesLabel.fontSize = 31.5;
         this.add(buddiesLabel);
 
         // populationLabel
         const populationLabel = new TextBox(scene, 656.2125, 1005.3, "BurbankSmallMedium");
         populationLabel.text = "Amount of penguins online";
-        populationLabel.fontSize = -31.5;
+        populationLabel.fontSize = 31.5;
         this.add(populationLabel);
 
         // safeChatLabel
         const safeChatLabel = new TextBox(scene, 1182.825, 1005.525, "BurbankSmallMedium");
         safeChatLabel.text = "Ultimate safe chat";
-        safeChatLabel.fontSize = -31.5;
+        safeChatLabel.fontSize = 31.5;
         this.add(safeChatLabel);
 
         // world5
@@ -105,7 +105,7 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
         serversLabel.boxWidth = 1293.525;
         serversLabel.boxHeight = 66.6;
         serversLabel.horizontalAlign = 1;
-        serversLabel.verticalAlign = 1;
+        serversLabel.verticalAlign = 0;
 
         // buddiesLabel (prefab fields)
         buddiesLabel.boxWidth = 273.0375;
@@ -138,6 +138,10 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
         /* START-USER-CTR-CODE */
 
         this.serversLabel.setOrigin(0);
+        this.more.on('release', () => {
+            this.visible = false;
+            this.scene.moreServers.visible = true;
+        });
 
         /* END-USER-CTR-CODE */
     }
@@ -157,6 +161,8 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
 
     /* START-USER-CODE */
 
+    declare scene: Login;
+
     setup(data: WorldData[]): void {
         for (let i = 0; i < 5; i++) {
             let world = data[i];
@@ -167,13 +173,11 @@ export default class WorldSelect extends Phaser.GameObjects.Container {
                 continue;
             }
 
-            tile.worldData = world;
-
-            tile.worldName.text = world.name;
-            tile.buddy.visible = world.buddies;
-            tile.safeChat.visible = world.safe_chat;
-            tile.setPopulation(world.population);
+            tile.setup(world);
+            tile.visible = true;
         }
+
+        this.scene.moreServers.visible = false;
     }
 
     localize(locale: Locale): void {

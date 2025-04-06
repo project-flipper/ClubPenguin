@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { DefinePlugin } = require('webpack');
+const { DefinePlugin, ProvidePlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,54 +11,66 @@ function getNowFormat() {
     return `${now.getUTCFullYear()}${now.getUTCMonth() + 1}${now.getUTCDay() + 1}${now.getUTCHours()}${now.getUTCMinutes()}${now.getUTCSeconds()}`
 }
 
+function getterFactory(env) {
+    return function getter(attr, fallback) {
+        const keys = attr.split('.');
+        let result = env;
+        for (const key of keys) {
+            if (result && key in result) {
+                result = result[key];
+            } else {
+                return fallback;
+            }
+        }
+        return result;
+    }
+}
+
 /** @type {(env: any) => import("webpack").Configuration} */
 module.exports = env => {
+    let get = getterFactory(env);
+    let now = getNowFormat();
+    let home = get('links.home', 'https://www.clubpenguin.com');
+    let play = get('links.play', 'https://play.clubpenguin.com');
+    let community = get('links.community', 'https://community.clubpenguin.com');
+    let support = get('links.support', 'https://support.clubpenguin.com');
+    let secured = get('links.secured', 'https://secured.clubpenguin.com');
     let environment = {
-        language: 'en',
-        apiPath: env.apiPath,
-        mediaPath: env.mediaPath ? env.mediaPath : '/',
-        crossOrigin: env.crossOrigin,
-        cacheVersion: env.cacheVersion ? env.cacheVersion : getNowFormat(),
-        contentVersion: env.contentVersion ? env.contentVersion : env.cacheVersion,
-        minigameVersion: env.minigameVersion ? env.minigameVersion : env.cacheVersion,
-        environmentType: env.environmentType ? env.environmentType : env.development ? 'dev' : 'prod',
+        apiPath: get('apiPath'),
+        mediaPath: get('mediaPath', '/media'),
+        crossOrigin: get('crossOrigin'),
+        cacheVersion: get('cacheVersion', now),
+        contentVersion: get('contentVersion', now),
+        minigameVersion: get('minigameVersion', now),
+        environmentType: get('environmentType', env.development ? 'dev' : 'prod'),
         links: {
-            home: env.homeLink,
-            play: env.playLink,
-            localPlay: env.playLink,
+            home,
+            play,
+            community,
+            support,
+            secured,
+            affiliates: get('links.affiliates', 'https://signup.cj.com/member/brandedPublisherSignUp.do?air_refmerchantid=3297551'),
+            blog: get('links.blog', `${community}/blog`),
+            help: get('links.help', `${support}/help`),
+            parents: get('links.parents', `${home}/parents`),
+            membership: get('links.membership', `${home}/membership`),
+            exit: get('links.exit', `${home}/exit`),
+            company: get('links.company', `${home}/company`),
+            terms: get('links.terms', `${home}/terms`),
+            privacy: get('links.privacy', `${home}/privacy`),
+            contact: get('links.contact', `${support}/help/contact`),
+            sitemap: get('links.sitemap', `${home}/sitemap`),
+            forgotPassword: get('links.forgotPassword', `${secured}/penguin/forgot-password`),
+            createAccount: get('links.createAccount', `${play}#/create`),
+            guide: get('links.guide', `${home}/parents/club_penguin_guide`),
+            playerSafety: get('links.playerSafety', `${home}/parents/player_safety`),
+            toys: get('links.toys', `${home}/toys`),
         },
-        recaptchaSiteKey: env.recaptchaSiteKey
+        recaptchaSiteKey: get('recaptchaSiteKey')
     };
 
     console.log(env);
-
-    let playPages = [
-        new HtmlWebpackPlugin({
-            template: './index.template.html',
-            filename: 'index.html',
-            inject: 'body',
-            templateParameters: environment,
-            publicPath: env.playLink || 'auto'
-        })
-    ];
-
-    for (let lang of ['de', 'es', 'fr', 'pt', 'ru']) {
-        playPages.push(new HtmlWebpackPlugin({
-            template: `./index.${lang}.template.html`,
-            filename: `${lang}/index.html`,
-            inject: 'body',
-            templateParameters: {
-                ...environment,
-                links: {
-                    ...environment.links,
-                    home: `${env.homeLink}/${lang}`,
-                    localPlay: `${env.playLink}/${lang}`
-                },
-                language: lang
-            },
-            publicPath: env.playLink || 'auto'
-        }));
-    }
+    console.log(environment);
 
     return {
         mode: env.development ? 'development' : 'production',
@@ -68,13 +80,14 @@ module.exports = env => {
 
         entry: {
             app: {
-                import: `./src/club_penguin.ts`,
+                import: './src/club_penguin.ts',
                 library: {
                     name: 'CP',
                     type: 'umd',
                     umdNamedDefine: true
                 }
-            }
+            },
+            play: './play/index.tsx'
         },
         output: {
             filename: '[name].[contenthash].js',
@@ -84,7 +97,7 @@ module.exports = env => {
             },
             assetModuleFilename: 'assets/[hash][ext][query]',
             clean: true,
-            publicPath: `${env.playLink}/`
+            publicPath: env.playLink ? `${env.playLink}/` : '/'
         },
 
         module: {
@@ -155,7 +168,8 @@ module.exports = env => {
         },
         resolve: {
             alias: {
-                '@clubpenguin': path.resolve(__dirname, 'src/')
+                '@clubpenguin': path.resolve(__dirname, 'src/'),
+                '@play': path.resolve(__dirname, 'play/')
             },
             extensions: ['.ts', '.tsx', '.mjs', '.js', '.jsx', '.json']
         },
@@ -196,7 +210,7 @@ module.exports = env => {
                     watch: false
                 },
                 {
-                    directory: path.resolve(__dirname, 'play'),
+                    directory: path.resolve(__dirname, 'play/assets'),
                     publicPath: '/'
                 }
             ],
@@ -205,23 +219,37 @@ module.exports = env => {
             }
         },
         watchOptions: {
-            ignored: ['media/', 'play/', 'node_modules/'],
+            ignored: ['media/', 'play/assets/', 'node_modules/'],
             aggregateTimeout: 200
         },
 
         plugins: [
             new ForkTsCheckerWebpackPlugin(),
+            new ProvidePlugin({
+                Phaser: 'phaser',
+                '$': 'jquery',
+                'jQuery': 'jquery'
+            }),
             new DefinePlugin({
                 '__webpack_options__': JSON.stringify({
                     EXPOSE_DEBUG: env.development,
                     RECAPTCHA_SITE_KEY: env.recaptchaSiteKey,
-                    LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3)
-                })
+                    LOG_LEVEL: env.logLevel ? parseInt(env.logLevel) : (env.development ? 0 : 3),
+                    FPS_LIMIT: env.fpsLimit ? parseInt(env.fpsLimit) : 24
+                }),
+                '__experiments__': JSON.stringify({}),
+                '__environment__': JSON.stringify(environment)
             }),
-            ...playPages,
+            new HtmlWebpackPlugin({
+                template: './play/index.html',
+                filename: 'index.html',
+                inject: 'body',
+                templateParameters: environment,
+                publicPath: env.playLink || 'auto'
+            }),
             new CopyPlugin({
                 patterns: [
-                    { from: '**/*', context: 'play' }
+                    { from: '**/*', context: 'play/assets' }
                 ]
             })
         ]

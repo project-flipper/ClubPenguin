@@ -46,7 +46,7 @@
                     "tintBottomRight": "#666666",
                     "text": "I agree to the ",
                     "font": "BurbankSmallBold",
-                    "fontSize": -18
+                    "fontSize": 18
                 },
                 {
                     "type": "BitmapText",
@@ -61,7 +61,7 @@
                     "tintBottomRight": "#01539c",
                     "text": "PRIVACY POLICY",
                     "font": "BurbankSmallBold",
-                    "fontSize": -20.25
+                    "fontSize": 20.25
                 },
                 {
                     "type": "BitmapText",
@@ -76,7 +76,7 @@
                     "tintBottomRight": "#666666",
                     "text": " and ",
                     "font": "BurbankSmallBold",
-                    "fontSize": -18
+                    "fontSize": 18
                 },
                 {
                     "type": "BitmapText",
@@ -91,7 +91,7 @@
                     "tintBottomRight": "#01539c",
                     "text": "TERMS OF USE",
                     "font": "BurbankSmallBold",
-                    "fontSize": -20.25
+                    "fontSize": 20.25
                 },
                 {
                     "prefabId": "398d1c7a-d16b-488b-a869-0649ea0098bc",

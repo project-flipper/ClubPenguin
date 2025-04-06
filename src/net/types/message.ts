@@ -33,18 +33,29 @@ export enum Emoji {
 
 export type TextMessageData = {
     type: 'TEXT',
-    player_id: number,
+    player_id?: number,
     message: string,
-    multipart: boolean,
-    banned: boolean
+    banned?: boolean
 };
 
 export type EmojiMessageData = {
     type: 'EMOJI',
-    player_id: number,
+    player_id?: number,
     emoji: Emoji,
-    multipart: boolean,
-    banned: boolean
+    banned?: boolean
 };
 
-export type MessageData = TextMessageData | EmojiMessageData;
+export type JokeMessageData = {
+    type: 'JOKE',
+    player_id?: number,
+    joke: number,
+    banned?: boolean
+};
+
+export type TourMessageData = {
+    type: 'TOUR',
+    player_id?: number,
+    banned?: boolean
+};
+
+export type MessageData = TextMessageData | JokeMessageData | EmojiMessageData | TourMessageData;

@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/dance/dance-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/dance/dance2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Dance",
@@ -24,12 +24,12 @@
             "components": [
                 "ButtonComponent"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"dance\",\"frame\":\"dance/stairs0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"dance\",\"frame\":\"dance/stairs0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"dance2013\",\"frame\":\"dance/stairs0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"dance2013\",\"frame\":\"dance/stairs0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/stairs0001"
             },
             "x": 1417.275,
@@ -48,13 +48,16 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": -1,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/dancefloor0001"
             },
             "x": 293.0625,
             "y": 548.6625,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance2013-dancefloor-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -67,7 +70,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/doorbehind"
             },
             "x": 121.95,
@@ -81,7 +84,7 @@
             "label": "door",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/dooropen0001"
             },
             "x": 260.7625,
@@ -94,7 +97,7 @@
             "id": "6d93f46d-c36e-484d-9c5e-6aa291de1e31",
             "label": "dance_base",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/base"
             },
             "x": -140,
@@ -110,7 +113,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/djbase"
             },
             "x": 781.5375,
@@ -129,7 +132,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixdisplay"
             },
             "x": 758.3625,
@@ -149,7 +152,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixwave0001"
             },
             "x": 723.0375,
@@ -169,7 +172,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixheadphonesback0001"
             },
             "x": 586,
@@ -188,7 +191,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mix0001"
             },
             "x": 585.9,
@@ -207,7 +210,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixheadphonesfront0001"
             },
             "x": 612,
@@ -227,7 +230,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixspeaker0001"
             },
             "x": 902.125,
@@ -247,7 +250,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixlights0001"
             },
             "x": 677.7,
@@ -267,7 +270,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixequalizer0001"
             },
             "x": 655.7625,
@@ -287,7 +290,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixdisksbase0001"
             },
             "x": 694.575,
@@ -307,7 +310,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixdisks0001"
             },
             "x": 699.8625,
@@ -327,7 +330,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixdiskreader"
             },
             "x": 681.3,
@@ -347,7 +350,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixvolume0001"
             },
             "x": 768.4875,
@@ -367,7 +370,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 488.3625,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mixsecondlights0001"
             },
             "x": 764.2125,
@@ -384,7 +387,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/railing2"
             },
             "x": 179.4375,
@@ -400,7 +403,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/couch"
             },
             "x": 130.725,
@@ -414,13 +417,16 @@
             "label": "speaker1",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/speaker10001"
             },
             "x": 303.525,
             "y": 24.4125,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance2013-speaker1-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -428,13 +434,16 @@
             "label": "speaker2",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/speaker20001"
             },
             "x": 389.5875,
             "y": 91.4625,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance2013-speaker2-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -442,13 +451,16 @@
             "label": "speaker3",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/speaker30001"
             },
             "x": 1201.6125,
             "y": 19.575,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance2013-speaker3-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -461,7 +473,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 355.6125,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/boilerspeaker0001"
             },
             "x": 1028.025,
@@ -480,13 +492,16 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 355.7,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/puffle0001"
             },
             "x": 1176.6375,
             "y": 247.275,
             "originX": 0.453474,
-            "originY": 0.782609
+            "originY": 0.782609,
+            "animationPlayMethod": 1,
+            "animationKey": "dance2013-puffleidle-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -498,16 +513,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/pufflehitbox0004"
             },
             "x": 1176.6375,
             "y": 247.275,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Sprite",
@@ -520,13 +535,16 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 355.6125,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/boilerspeakercone0001"
             },
             "x": 1118.1375,
             "y": 293.85,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance2013-boilerspeakercone-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -539,18 +557,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/boilerspeaker0004"
             },
             "x": 1028.025,
             "y": 247.05,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -563,18 +581,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/contesthitbox"
             },
             "x": 1205.1,
             "y": 141.1875,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -587,7 +605,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 360,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/contest0001_0001"
             },
             "x": 1204.1,
@@ -606,7 +624,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 360.2,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/signup_table"
             },
             "x": 1294.2125,
@@ -623,7 +641,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 360.4,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/pencilstill"
             },
             "x": 1307,
@@ -641,7 +659,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 365,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/stairscover"
             },
             "x": 1210.05,
@@ -660,13 +678,16 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 366,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/neon0001"
             },
             "x": 1228.725,
             "y": 60.6375,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance2013-neon-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -674,13 +695,16 @@
             "label": "djleft",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/dj_left0001"
             },
             "x": 522.45,
             "y": 109.8,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance2013-djleft-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -688,13 +712,16 @@
             "label": "djright",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/dj_right0001"
             },
             "x": 935.1,
             "y": 105.3,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "dance2013-djright-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -705,7 +732,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/disks0001"
             },
             "x": 363.2625,
@@ -724,7 +751,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 455.7,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/notice0001"
             },
             "x": 325.125,
@@ -744,7 +771,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 455.8,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/diskbox"
             },
             "x": 319.95,
@@ -761,7 +788,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/railing1"
             },
             "x": 313.425,
@@ -780,18 +807,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/disks0004"
             },
             "x": 363.2625,
             "y": 455.5125,
             "originX": 0.53205405,
             "originY": 0.74149635,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -801,7 +828,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/railing"
             },
             "x": 1324.9125,
@@ -817,7 +844,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/chair2cushion"
             },
             "x": 1509.975,
@@ -833,7 +860,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/chair2"
             },
             "x": 1466.8875,
@@ -849,7 +876,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/chair1"
             },
             "x": 1628.55,
@@ -865,7 +892,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/table"
             },
             "x": 1607.2875,
@@ -883,7 +910,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1107.6,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/foregroundtop"
             },
             "x": -168.4125,
@@ -901,7 +928,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1107.6,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/foregroundbottom"
             },
             "x": -45.675,
@@ -918,7 +945,7 @@
             ],
             "DepthEnabled.depth": 1108,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/foregroundside"
             },
             "x": -230.5125,
@@ -937,7 +964,7 @@
             "RoomTrigger.playerX": 956.25,
             "RoomTrigger.playerY": 562.5,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/town_trigger"
             },
             "x": 228.2625,
@@ -955,7 +982,7 @@
             "RoomTrigger.playerX": 1271.25,
             "RoomTrigger.playerY": 686.25,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/lounge_trigger"
             },
             "x": 1518.6375,
@@ -973,7 +1000,7 @@
             "RoomTrigger.playerX": 1260,
             "RoomTrigger.playerY": 720,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/boiler_trigger"
             },
             "x": 1158.8625,
@@ -986,10 +1013,12 @@
             "label": "dancing_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "dancing",
+            "GameTrigger.prompt": "dancing_prompt",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/dancing_trigger"
             },
             "x": 1277.325,
@@ -1002,10 +1031,12 @@
             "label": "mix_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "mixmaster",
+            "GameTrigger.prompt": "mixmaster_prompt",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mix_trigger"
             },
             "x": 781.875,
@@ -1023,18 +1054,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/mix_button"
             },
             "x": 585.9,
             "y": 278.325,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -1045,14 +1076,14 @@
                 "ButtonComponent",
                 "DepthEnabled"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"dance\",\"frame\":\"dance/catalog0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"dance\",\"frame\":\"dance/catalog0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"dance2013\",\"frame\":\"dance/catalog0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"dance2013\",\"frame\":\"dance/catalog0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1108,
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/catalog0001"
             },
             "x": 1620,
@@ -1064,7 +1095,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dance",
+                "key": "dance2013",
                 "frame": "dance/block"
             },
             "originX": 0,
@@ -1074,8 +1105,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

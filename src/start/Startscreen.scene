@@ -126,7 +126,7 @@
                     "y": 888.75,
                     "text": "Create a Penguin",
                     "font": "BurbankSmallBold",
-                    "fontSize": -40
+                    "fontSize": 40
                 },
                 {
                     "type": "Image",
@@ -172,7 +172,7 @@
                     "y": 888.75,
                     "text": "Login",
                     "font": "BurbankSmallBold",
-                    "fontSize": -45
+                    "fontSize": 45
                 },
                 {
                     "type": "Image",
@@ -259,7 +259,7 @@
                     "tintFill": false,
                     "text": "Learn More About Membership",
                     "font": "BurbankSmallBold",
-                    "fontSize": -18
+                    "fontSize": 18
                 },
                 {
                     "type": "Image",

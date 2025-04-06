@@ -24,7 +24,7 @@
                     "label": "seat1",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/secondlane_seat1"
                     },
                     "x": -162.7875,
@@ -38,7 +38,7 @@
                     "id": "40a72609-e1fe-4076-93ad-61c897cf96d2",
                     "label": "mtn_secondlane_separator1",
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/secondlane_separator1"
                     },
                     "x": -81.1125,
@@ -52,7 +52,7 @@
                     "label": "seat2",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/secondlane_seat2"
                     },
                     "x": -57.6,
@@ -67,7 +67,7 @@
                     "label": "seat3",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/secondlane_seat3"
                     },
                     "x": 47.5875,
@@ -81,7 +81,7 @@
                     "id": "da41b181-b496-474e-9e4b-ead57e5a4457",
                     "label": "mtn_secondlane_separator2",
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/secondlane_separator2"
                     },
                     "x": 43.3125,
@@ -100,16 +100,16 @@
                     "ButtonComponent.handCursor": true,
                     "ButtonComponent.pixelPerfect": true,
                     "texture": {
-                        "key": "mtn",
+                        "key": "mtn2014",
                         "frame": "mtn/secondlane_btn0004"
                     },
                     "x": -7.875,
                     "y": 37.575,
-                    "alpha": 0.01,
-                    "alphaTopLeft": 0.01,
-                    "alphaTopRight": 0.01,
-                    "alphaBottomLeft": 0.01,
-                    "alphaBottomRight": 0.01
+                    "alpha": 0.0001,
+                    "alphaTopLeft": 0.0001,
+                    "alphaTopRight": 0.0001,
+                    "alphaBottomLeft": 0.0001,
+                    "alphaBottomRight": 0.0001
                 }
             ]
         }

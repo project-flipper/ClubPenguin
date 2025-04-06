@@ -47,7 +47,7 @@
                     "tintFill": true,
                     "text": "Hint",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -27
+                    "fontSize": 27
                 }
             ]
         }

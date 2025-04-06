@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/town/town-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/town/town2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Town",
@@ -21,7 +21,7 @@
             "id": "6a27ced0-45ca-42df-8f7c-51a99e9e1f20",
             "label": "sky",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/sky"
             },
             "x": -22.5,
@@ -34,7 +34,7 @@
             "id": "db57d070-82b2-4780-9cf3-fe4e04265aa0",
             "label": "clouds",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/clouds"
             },
             "x": -22.5,
@@ -47,7 +47,7 @@
             "id": "d80541a1-0a4e-4741-8fe5-1c578375305c",
             "label": "mountains",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/mountains"
             },
             "x": 111.0375,
@@ -66,7 +66,7 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/danceinside"
             },
             "x": 901.35,
@@ -80,7 +80,7 @@
             "label": "danceDoor",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/dancedoor"
             },
             "x": 947,
@@ -91,7 +91,7 @@
             "id": "ea74d9e7-9991-472c-ae55-5f1fe2026ca2",
             "label": "base",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/base"
             },
             "x": -119.25,
@@ -107,7 +107,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/newsboard"
             },
             "x": 226.2375,
@@ -123,7 +123,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/sidetrees"
             },
             "x": 1695.0375,
@@ -139,7 +139,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/bottom"
             },
             "x": 864.1125,
@@ -154,12 +154,12 @@
             "components": [
                 "ButtonComponent"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"town\",\"frame\":\"town/shopdoor0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"town\",\"frame\":\"town/shopdoor0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"town2013\",\"frame\":\"town/shopdoor0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"town2013\",\"frame\":\"town/shopdoor0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/shopdoor0001"
             },
             "x": 1208.7,
@@ -175,12 +175,12 @@
             "components": [
                 "ButtonComponent"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"town\",\"frame\":\"town/coffeedoor0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"town\",\"frame\":\"town/coffeedoor0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"town2013\",\"frame\":\"town/coffeedoor0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"town2013\",\"frame\":\"town/coffeedoor0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/coffeedoor0001"
             },
             "x": 422.325,
@@ -194,13 +194,16 @@
             "label": "speakers",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/speakers1"
             },
             "x": 751.5,
             "y": 328.275,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "town2013-speakers-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -208,7 +211,7 @@
             "label": "spotlightLeft",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/spotlightleft"
             },
             "x": 824.7375,
@@ -221,7 +224,7 @@
             "label": "spotlightRight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/spotlightright"
             },
             "x": 1069.0875,
@@ -234,7 +237,7 @@
             "label": "spotlightContentLeft",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/spotlightcontent"
             },
             "x": 618.75,
@@ -248,7 +251,7 @@
             "label": "spotlightContentRight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/spotlightcontent"
             },
             "x": 956.25,
@@ -262,7 +265,7 @@
             "label": "spotlightMaskLeft",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/spotlightmaskleft"
             },
             "x": 824.7375,
@@ -277,7 +280,7 @@
             "label": "spotlightMaskRight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/spotlightmaskright"
             },
             "x": 1069.0875,
@@ -291,7 +294,7 @@
             "id": "98687bac-c9ff-4ca1-abd8-26f9de861565",
             "label": "town_shopfronts",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/shopfronts"
             },
             "x": 376.9875,
@@ -305,7 +308,7 @@
             "label": "storenames",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/storenames0001"
             },
             "x": 222.4,
@@ -318,7 +321,7 @@
             "id": "6779097e-f9a3-49f0-b193-6ac6b32fa060",
             "label": "town_shopsign",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/shopsign"
             },
             "x": 1159.875,
@@ -334,7 +337,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/cord"
             },
             "x": 1062.45,
@@ -350,7 +353,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/leftchair"
             },
             "x": 608.9625,
@@ -366,7 +369,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/rightchair"
             },
             "x": 783.225,
@@ -382,7 +385,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/table"
             },
             "x": 697.725,
@@ -398,7 +401,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/benchside"
             },
             "x": 289.35,
@@ -414,7 +417,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/clothes"
             },
             "x": 1347.75,
@@ -430,7 +433,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/dancecover"
             },
             "x": 951.975,
@@ -449,7 +452,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 507.936,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/discolights0001"
             },
             "x": 883,
@@ -467,7 +470,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 507.936,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/dancestars"
             },
             "x": 887.4,
@@ -481,7 +484,7 @@
             "label": "purplelight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/purplelight"
             },
             "x": 725.9625,
@@ -495,7 +498,7 @@
             "label": "bluelight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/bluelight"
             },
             "x": 779.9625,
@@ -509,7 +512,7 @@
             "label": "greenlight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/greenlight"
             },
             "x": 821.925,
@@ -523,7 +526,7 @@
             "label": "bluelight2",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/altbluelight"
             },
             "x": 1027.8,
@@ -537,7 +540,7 @@
             "label": "redlight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/redlight"
             },
             "x": 1088.6625,
@@ -551,7 +554,7 @@
             "label": "greenlight2",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/altgreenlight"
             },
             "x": 1115.8875,
@@ -565,7 +568,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/block"
             },
             "originX": 0,
@@ -582,18 +585,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/forts_btn0004"
             },
             "x": 1465.5375,
             "y": 168.75,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -605,18 +608,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/dock_btn0004"
             },
             "x": -22.5,
             "y": 168.75,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -628,18 +631,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/seat1_btn0004"
             },
             "x": 568.35,
             "y": 503.6625,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -651,18 +654,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/seat2_btn0004"
             },
             "x": 728.6625,
             "y": 487.9125,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -675,7 +678,7 @@
             "RoomTrigger.playerX": 798.75,
             "RoomTrigger.playerY": 450,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/coffee_trigger"
             },
             "x": 477,
@@ -693,7 +696,7 @@
             "RoomTrigger.playerX": 382.5,
             "RoomTrigger.playerY": 607.5,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/dance_trigger"
             },
             "x": 949.5,
@@ -711,7 +714,7 @@
             "RoomTrigger.playerX": 1428.75,
             "RoomTrigger.playerY": 438.75,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/dock_trigger"
             },
             "x": 87.8625,
@@ -729,7 +732,7 @@
             "RoomTrigger.playerX": 247.5,
             "RoomTrigger.playerY": 585,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/forts_trigger"
             },
             "x": 1586.25,
@@ -747,7 +750,7 @@
             "RoomTrigger.playerX": 1248.75,
             "RoomTrigger.playerY": 472.5,
             "texture": {
-                "key": "town",
+                "key": "town2013",
                 "frame": "town/shop_trigger"
             },
             "x": 1230.75,
@@ -757,8 +760,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

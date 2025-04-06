@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import { Emoji } from "@clubpenguin/net/types/message";
@@ -42,7 +41,7 @@ export default class Balloon extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "W";
-        message.fontSize = -27;
+        message.fontSize = 27;
         this.add(message);
 
         // message (prefab fields)
@@ -81,6 +80,9 @@ export default class Balloon extends Phaser.GameObjects.Container {
     public timer: Phaser.Time.TimerEvent;
     public DURATION = 6000;
 
+    public currentMessage: string;
+    public currentEmoji: Emoji;
+
     setBanned(state: boolean): void {
         this.upper.setFrame(state ? 'interface/bannedBalloonUpper' : 'interface/balloonUpper');
         this.lower.setFrame(state ? 'interface/bannedBalloonLower' : 'interface/balloonLower');
@@ -95,6 +97,9 @@ export default class Balloon extends Phaser.GameObjects.Container {
     }
 
     showMessage(message: string, allowMultipart = false): void {
+        this.currentMessage = message;
+        this.currentEmoji = undefined;
+
         this.setBanned(false);
 
         this.lower.visible = false;
@@ -129,6 +134,9 @@ export default class Balloon extends Phaser.GameObjects.Container {
     }
 
     showEmoji(emoji: Emoji): void {
+        this.currentMessage = undefined;
+        this.currentEmoji = emoji;
+
         this.setBanned(false);
 
         this.lower.visible = true;
@@ -225,6 +233,9 @@ export default class Balloon extends Phaser.GameObjects.Container {
                 this.startHideTimer();
             } else {
                 this.visible = false;
+
+                this.currentEmoji = undefined;
+                this.currentMessage = undefined;
             }
         });
     }

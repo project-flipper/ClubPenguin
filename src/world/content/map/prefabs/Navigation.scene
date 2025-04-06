@@ -66,7 +66,7 @@
                     "tintFill": true,
                     "text": "Games",
                     "font": "BurbankSmallBold",
-                    "fontSize": -22.5
+                    "fontSize": 22.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -102,7 +102,7 @@
                     "tintFill": true,
                     "text": "Places",
                     "font": "BurbankSmallBold",
-                    "fontSize": -22.5
+                    "fontSize": 22.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -138,7 +138,7 @@
                     "tintFill": true,
                     "text": "Shop",
                     "font": "BurbankSmallBold",
-                    "fontSize": -22.5
+                    "fontSize": 22.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -174,7 +174,7 @@
                     "tintFill": true,
                     "text": "Pets",
                     "font": "BurbankSmallBold",
-                    "fontSize": -22.5
+                    "fontSize": 22.5
                 },
                 {
                     "type": "Image",
@@ -341,7 +341,7 @@
                             "tintFill": true,
                             "text": "Different colored puffles play different games.",
                             "font": "BurbankSmallBold",
-                            "fontSize": -22.5
+                            "fontSize": 22.5
                         },
                         {
                             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -377,7 +377,7 @@
                             "tintFill": true,
                             "text": "Hide games",
                             "font": "BurbankSmallBold",
-                            "fontSize": -22.5
+                            "fontSize": 22.5
                         }
                     ]
                 }

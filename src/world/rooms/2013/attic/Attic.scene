@@ -1,0 +1,509 @@
+{
+    "id": "dc4f803e-5b8e-4a8b-81dc-57e51fb80af6",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Room",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/rooms/2013/attic/attic2013-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Attic",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Image",
+            "id": "a64ca16d-110b-4a8d-9994-14a943a46129",
+            "label": "attic_base",
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/base"
+            },
+            "x": -14.06,
+            "y": -7.31,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "f458876d-f2e0-4f63-a62c-755c69796b59",
+            "label": "attic_couchside",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/couchside"
+            },
+            "x": 251.33,
+            "y": 672.19,
+            "originX": 0.5008121827411167,
+            "originY": 0.6189399293286219
+        },
+        {
+            "type": "Image",
+            "id": "515e5a01-48be-4c82-b67e-308cc557aba1",
+            "label": "attic_foreground",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 1080,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/foreground"
+            },
+            "x": -6.19,
+            "y": 267.19,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Sprite",
+            "id": "a0549c1a-15dc-42a4-be86-05d341544a99",
+            "label": "horse",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/horse0001"
+            },
+            "x": 1538.89,
+            "y": 704.48,
+            "originX": 0.5604982206405694,
+            "originY": 0.4780453257790368
+        },
+        {
+            "type": "Image",
+            "id": "bbde14de-122a-4261-b5a1-ab50f582a2f0",
+            "label": "horseButton",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/horsehover0004"
+            },
+            "x": 1538.89,
+            "y": 704.48,
+            "originX": 0.42047138047138044,
+            "originY": 0.5097897897897897,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "ebd64cf5-7d9d-4806-b917-48a0908d0b49",
+            "label": "block",
+            "scope": "PUBLIC",
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/block"
+            },
+            "originX": 0,
+            "originY": 0,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "7bb57d89-0ef1-4729-8659-10bf3aadb211",
+            "label": "table1",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/table10001"
+            },
+            "x": 676.01,
+            "y": 712.69,
+            "originX": 0.48970588235294116,
+            "originY": 0.6617647058823529
+        },
+        {
+            "type": "Image",
+            "id": "c0d6803b-ba60-4b25-8f53-02151accd2b4",
+            "label": "tabletrigger1",
+            "scope": "PUBLIC",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "four",
+            "WaddleTrigger.prompt": "four_prompt",
+            "WaddleTrigger.waddle_id": 200,
+            "WaddleTrigger.waddle_type": "TABLE",
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 23,
+            "WaddleTrigger.seat1x": 606.82,
+            "WaddleTrigger.seat1y": 666.23,
+            "WaddleTrigger.done1x": 534.26,
+            "WaddleTrigger.done1y": 753.3,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 19,
+            "WaddleTrigger.seat2x": 730.69,
+            "WaddleTrigger.seat2y": 748.01,
+            "WaddleTrigger.done2x": 665.21,
+            "WaddleTrigger.done2y": 816.19,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tabletrigger"
+            },
+            "x": 678.26,
+            "y": 709.76,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "a9892c79-fe45-441e-8667-238bcf0cd873",
+            "label": "tablebtn1",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tablebtn0004"
+            },
+            "x": 671.96,
+            "y": 660.04,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "545f15bd-51dc-4113-bec7-61f2fc0e2329",
+            "label": "table2",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/table20001"
+            },
+            "x": 968.51,
+            "y": 667.69,
+            "originX": 0.5089285714285714,
+            "originY": 0.709731543624161
+        },
+        {
+            "type": "Image",
+            "id": "0c6d4f83-1009-4391-84be-d0c7cf45c241",
+            "label": "tabletrigger2",
+            "scope": "PUBLIC",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "four",
+            "WaddleTrigger.prompt": "four_prompt",
+            "WaddleTrigger.waddle_id": 201,
+            "WaddleTrigger.waddle_type": "TABLE",
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 23,
+            "WaddleTrigger.seat1x": 904.95,
+            "WaddleTrigger.seat1y": 617.06,
+            "WaddleTrigger.done1x": 844.43,
+            "WaddleTrigger.done1y": 697.28,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 19,
+            "WaddleTrigger.seat2x": 1017.68,
+            "WaddleTrigger.seat2y": 690.41,
+            "WaddleTrigger.done2x": 981.34,
+            "WaddleTrigger.done2y": 740.7,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tabletrigger"
+            },
+            "x": 968.51,
+            "y": 658.01,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "aa1cf254-7c57-4b70-8091-cc3c89d00d81",
+            "label": "tablebtn2",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tablebtn0004"
+            },
+            "x": 964.46,
+            "y": 606.04,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "72b2d462-cd2d-4d59-bce1-a5e9017d6466",
+            "label": "table3",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/table30001"
+            },
+            "x": 541.01,
+            "y": 870.19,
+            "originX": 0.8088235294117647,
+            "originY": 0.8072519083969466
+        },
+        {
+            "type": "Image",
+            "id": "19e069b1-5114-4150-8b86-cdd5069cbfc6",
+            "label": "tabletrigger3",
+            "scope": "PUBLIC",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "four",
+            "WaddleTrigger.prompt": "four_prompt",
+            "WaddleTrigger.waddle_id": 203,
+            "WaddleTrigger.waddle_type": "TABLE",
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 23,
+            "WaddleTrigger.seat1x": 837.45,
+            "WaddleTrigger.seat1y": 819.56,
+            "WaddleTrigger.done1x": 776.93,
+            "WaddleTrigger.done1y": 899.78,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 19,
+            "WaddleTrigger.seat2x": 950.18,
+            "WaddleTrigger.seat2y": 892.91,
+            "WaddleTrigger.done2x": 913.84,
+            "WaddleTrigger.done2y": 943.2,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tabletrigger"
+            },
+            "x": 901.01,
+            "y": 876.26,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "97c10208-6e1b-4f33-9fb2-fdef5ba8514b",
+            "label": "tablebtn3",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tablebtn0004"
+            },
+            "x": 496.46,
+            "y": 808.54,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "a03a8fe0-9ce9-4c00-abed-ee0471e60d8e",
+            "label": "table4",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/table20001"
+            },
+            "x": 901.01,
+            "y": 870.19,
+            "originX": 0.5089285714285714,
+            "originY": 0.709731543624161
+        },
+        {
+            "type": "Image",
+            "id": "c6f59082-faae-4aa3-afda-b0cc179f82d7",
+            "label": "tabletrigger4",
+            "scope": "PUBLIC",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "four",
+            "WaddleTrigger.prompt": "four_prompt",
+            "WaddleTrigger.waddle_id": 202,
+            "WaddleTrigger.waddle_type": "TABLE",
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 17,
+            "WaddleTrigger.seat1x": 558.34,
+            "WaddleTrigger.seat1y": 823.28,
+            "WaddleTrigger.done1x": 615.82,
+            "WaddleTrigger.done1y": 899.78,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 21,
+            "WaddleTrigger.seat2x": 442.58,
+            "WaddleTrigger.seat2y": 892.91,
+            "WaddleTrigger.done2x": 478.91,
+            "WaddleTrigger.done2y": 943.2,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tabletrigger"
+            },
+            "x": 491.51,
+            "y": 860.51,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "d44910ff-9d7d-4055-a504-ad8dcedde8f0",
+            "label": "tablebtn4",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tablebtn0004"
+            },
+            "x": 896.96,
+            "y": 808.54,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "f3a6d721-bfdc-4520-9cd1-6a2670f009ba",
+            "label": "table5",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled"
+            ],
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/table40001"
+            },
+            "x": 1283.51,
+            "y": 915.19,
+            "originX": 0.45478723404255317,
+            "originY": 0.7601351351351351
+        },
+        {
+            "type": "Image",
+            "id": "f8f42ffa-ae98-466a-a849-190d87448b67",
+            "label": "tabletrigger5",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "four",
+            "WaddleTrigger.prompt": "four_prompt",
+            "WaddleTrigger.waddle_id": 204,
+            "WaddleTrigger.waddle_type": "TABLE",
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 21,
+            "WaddleTrigger.seat1x": 1205.77,
+            "WaddleTrigger.seat1y": 927.68,
+            "WaddleTrigger.done1x": 1249.2,
+            "WaddleTrigger.done1y": 985.16,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 17,
+            "WaddleTrigger.seat2x": 1351.13,
+            "WaddleTrigger.seat2y": 868.73,
+            "WaddleTrigger.done2x": 1394.78,
+            "WaddleTrigger.done2y": 962.66,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tabletrigger"
+            },
+            "x": 1285.76,
+            "y": 903.26,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "259c8f86-52ca-4cf5-9513-c303da1c7966",
+            "label": "tablebtn5",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/tablebtn0004"
+            },
+            "x": 1283.96,
+            "y": 853.54,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "57118f9f-173c-4077-bf07-0523d3420951",
+            "label": "attic_lodge_trigger",
+            "components": [
+                "RoomTrigger"
+            ],
+            "RoomTrigger.destination": 220,
+            "RoomTrigger.playerX": 1289.25,
+            "RoomTrigger.playerY": 632.25,
+            "texture": {
+                "key": "attic2013",
+                "frame": "attic/lodge_trigger"
+            },
+            "x": 1280.14,
+            "y": 703.13,
+            "visible": false
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    },
+    "lists": [
+        {
+            "id": "bd18af8d-04f9-4643-a1a0-b9749dc452f3",
+            "label": "triggers",
+            "objectIds": [
+                "57118f9f-173c-4077-bf07-0523d3420951",
+                "c0d6803b-ba60-4b25-8f53-02151accd2b4",
+                "0c6d4f83-1009-4391-84be-d0c7cf45c241",
+                "19e069b1-5114-4150-8b86-cdd5069cbfc6",
+                "c6f59082-faae-4aa3-afda-b0cc179f82d7",
+                "f8f42ffa-ae98-466a-a849-190d87448b67"
+            ],
+            "scope": "PUBLIC"
+        }
+    ]
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css; charset=utf-8">
+
+    <title>Club Penguin</title>
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon">
+
+    <link href="css/baseline.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/affiliate.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/upgrade.css" rel="stylesheet" type="text/css" media="screen" />
+
+    <link href="css/modal.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/play.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="css/disney-error.css" rel="stylesheet" type="text/css" media="all" />
+
+    <style>
+        #D_F_GameSection {
+            width: 100%;
+            height: 95%;
+            min-height: 550px;
+            /*Increased to match mp client small screen*/
+            min-width: 800px;
+            /*Increased to match mp client small screen*/
+            display: block;
+            outline: none;
+            clear: both;
+			overflow: hidden;
+			position: relative;
+        }
+
+        #CP_Unallowed_JS_ErrorSection {
+            display: block;
+        }
+
+        #bigscreen {
+            display: none;
+        }
+
+        #upgrade {
+            display: none;
+        }
+
+        #TrialBannerContainer {
+			width: 100%;
+			height: 0px;
+			min-width: 760px;
+			display: block;
+			outline: none;
+			clear: both;
+			background-image: url(/images/bar-bg.png);
+			background-repeat: repeat-x;
+			overflow: hidden;
+		}
+
+		#TrialBanner {
+			width: 842px;
+			min-width: 760px;
+			margin-left: auto;
+			margin-right: auto;
+			line-height: 28px;
+			vertical-align: middle;
+		}
+
+		#TrialBannerBtn {
+			float: right;
+			width: 258px;
+			background-image: url(/images/bar-badge.png);
+			background-repeat: no-repeat;
+		}
+
+		#TrialBannerBtn a:link {
+			display: block;
+			float: right;
+			width: 208px;
+			height: 28px;
+			overflow: hidden;
+			background: url(/images/bar-button-states.png) no-repeat 0 0;
+			text-decoration: none;
+			font-size: 12px;
+		}
+
+		#TrialBannerBtn.lang-es a:link {
+			background: url(/images/bar-button-states-es.png) no-repeat 0 0;
+		}
+
+		#TrialBannerBtn.lang-fr a:link {
+			background: url(/images/bar-button-states-fr.png) no-repeat 0 0;
+		}
+
+		#TrialBannerBtn.lang-de a:link {
+			background: url(/images/bar-button-states-de.png) no-repeat 0 0;
+		}
+
+		#TrialBannerBtn.lang-pt a:link {
+			background: url(/images/bar-button-states-pt.png) no-repeat 0 0;
+		}
+
+		#TrialBannerBtn.lang-ru a:link {
+			background: url(/images/bar-button-states-ru.png) no-repeat 0 0;
+		}
+
+		#TrialBannerBtn a:hover {
+			background-position: 0px -28px;
+		}
+
+		#TrialBannerBtn.lang-es a:hover {
+			background-position: 0px -28px;
+		}
+
+		#TrialBannerBtn.lang-fr a:hover {
+			background-position: 0px -28px;
+		}
+
+		#TrialBannerBtn.lang-de a:hover {
+			background-position: 0px -28px;
+		}
+
+		#TrialBannerBtn.lang-pt a:hover {
+			background-position: 0px -28px;
+		}
+
+		#TrialBannerBtn.lang-ru a:hover {
+			background-position: 0px -28px;
+		}
+
+		#TrialBannerBtn a:active {
+			background-position: 0px -56px;
+		}
+
+		#TrialBannerBtn.lang-es a:active {
+			background-position: 0px -56px;
+		}
+
+		#TrialBannerBtn.lang-de a:active {
+			background-position: 0px -56px;
+		}
+
+		#TrialBannerBtn.lang-fr a:active {
+			background-position: 0px -56px;
+		}
+
+		#TrialBannerBtn.lang-pt a:active {
+			background-position: 0px -56px;
+		}
+
+		#TrialBannerBtn.lang-ru a:active {
+			background-position: 0px -56px;
+		}
+
+		#TrialText {
+			min-height: 28px;
+			line-height: 28px;
+			color: #333333;
+		}
+
+		#TrialText b {
+			color: #000000;
+			font-size: larger;
+			font-weight: bolder;
+		}
+
+        .centered {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grecaptcha-badge {
+            visibility: hidden;
+        }
+    </style>
+
+    <link id="stylesheet" type="text/css" href="css/0.css" rel="stylesheet" />
+</html>
+<body>
+    <div id="root">
+        <noscript>
+            <div id="CP_Unallowed_JS_ErrorSection" class="D_ER_ErrorSection centered">
+                <div id="CP_Unallowed_JS_ErrorMsg" class="D_ER_ErrorMsg">
+                    Oops! You need to allow JavaScript to play Club Penguin.
+                    <br />
+                    Ask your parent to enable it on your browser.
+                </div>
+                <a id="CP_Unallowed_JS_ErrorBtn" class="D_ER_ErrorBtn" href="" target="_self"
+                    title="Try logging in again">OK</a>
+            </div>
+        </noscript>
+    </div>
+
+    <script type="text/javascript">
+        function centerError(errorID) {
+            var element = document.getElementById(errorID);
+            if (!element) return;
+
+            var top = window.innerHeight / 2 - 110;
+            if (top < 0) {
+                top = 0;
+            }
+            var left = window.innerWidth / 2 - 177;
+            if (left < 0) {
+                left = 0;
+            }
+            element.style.top = top + "px";
+            element.style.left = left + "px";
+        }
+
+        function biAbout() {
+
+        }
+
+        if (typeof jsAPI === 'undefined') {
+            jsAPI = {};
+        }
+
+        jsAPI.showNav = function() {
+            var nav = document.getElementById('hdrWrap');
+            nav.style.visibility = "visible";
+        }
+
+        jsAPI.hideNav = function() {
+            var nav = document.getElementById('hdrWrap');
+            nav.style.visibility = "hidden";
+        }
+
+        jsAPI.showRules = function() {
+            if (typeof Disney === 'undefined') {
+                return;
+            }
+            if (typeof Disney.CP === 'undefined') {
+                return;
+            }
+            if (typeof Disney.CP.rules === 'undefined') {
+                return;
+            }
+            Disney.CP.rules.showRules();
+        }
+    </script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=<%= recaptchaSiteKey %>"></script>
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+
+    <div id="preloader"></div>
+</body>
+</html>

@@ -2,7 +2,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ColorSwatch from "../prefabs/ColorSwatch";
 /* START-USER-IMPORTS */
@@ -25,7 +24,7 @@ export default class ColorSelector extends Phaser.GameObjects.Container {
         titleTextBox.tintBottomLeft = 2894894;
         titleTextBox.tintBottomRight = 2894894;
         titleTextBox.text = "Choose a color:";
-        titleTextBox.fontSize = -27;
+        titleTextBox.fontSize = 27;
         this.add(titleTextBox);
 
         // swatch0

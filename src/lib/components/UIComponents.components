@@ -1,0 +1,582 @@
+{
+    "components": [
+        {
+            "name": "ButtonComponent",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "upTexture",
+                    "label": "Up Texture",
+                    "tooltip": "The texture to display when the mouse is not interacting with this button (idle).",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "texture-config"
+                    }
+                },
+                {
+                    "name": "overTexture",
+                    "label": "Over Texture",
+                    "tooltip": "The texture to display when the mouse is lingering over this button (hover).",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "texture-config"
+                    }
+                },
+                {
+                    "name": "downTexture",
+                    "label": "Down Texture",
+                    "tooltip": "The texture to display when the mouse is clicking this button (click).",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "texture-config"
+                    }
+                },
+                {
+                    "name": "handCursor",
+                    "label": "Hand Cursor",
+                    "tooltip": "Whether to use a hand cursor when the mouse is lingering over this button (hover).",
+                    "defValue": false,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "pixelPerfect",
+                    "label": "Pixel Perfect",
+                    "tooltip": "Whether to use a pixel-perfect hitbox. This setting is expensive and may affect performance.",
+                    "defValue": false,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "hitbox",
+                    "label": "Hitbox",
+                    "tooltip": "The hitbox to use for this button component. Defaults to this gameobject.",
+                    "defValue": "",
+                    "customDefinition": true,
+                    "type": {
+                        "id": "object-var",
+                        "expressionType": "Phaser.GameObjects.GameObject"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "InputBlocker",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.GameObject",
+            "properties": []
+        },
+        {
+            "name": "DepthEnabled",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.GameObject & Phaser.GameObjects.Components.Transform & Phaser.GameObjects.Components.Depth",
+            "properties": [
+                {
+                    "name": "automaticSort",
+                    "label": "Sort Automatically",
+                    "tooltip": "Let the game set depth at runtime based on Y position.",
+                    "defValue": true,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "depth",
+                    "label": "Depth",
+                    "tooltip": "The depth to set if automatic sort is off.",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "RoomTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "destination",
+                    "label": "Destination",
+                    "tooltip": "The room ID of where this trigger leads to.",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "playerX",
+                    "label": "Player X",
+                    "tooltip": "The X coordinate the player will spawn at.",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "playerY",
+                    "label": "Player Y",
+                    "tooltip": "The Y coordinate the player will spawn at.",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "PressureTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "requiresIdle",
+                    "label": "Requires Idling",
+                    "tooltip": "Whether to require players to be still before updating their state to active",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "SnowballTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
+        },
+        {
+            "name": "Trigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": []
+        },
+        {
+            "name": "GameTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "game_id",
+                    "label": "Game",
+                    "tooltip": "The game ID to prompt to join",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "prompt",
+                    "label": "Prompt",
+                    "tooltip": "The localized prompt to show before joining the game. Joins directly if none is specified",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "options",
+                    "label": "Options",
+                    "tooltip": "An object of options to pass when starting the game",
+                    "defValue": "{}",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "object-var",
+                        "expressionType": "any"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "WaddleTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "game_id",
+                    "label": "Game",
+                    "tooltip": "The game ID this waddle joins for",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "options",
+                    "label": "Options",
+                    "tooltip": "An object of options to pass when starting the game",
+                    "defValue": "{}",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "object-var",
+                        "expressionType": "any"
+                    }
+                },
+                {
+                    "name": "prompt",
+                    "label": "Prompt",
+                    "tooltip": "The localized prompt to show before joining the waddle. Joins directly if none is specified",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "waddle_id",
+                    "label": "ID",
+                    "tooltip": "The ID for this waddle",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "waddle_type",
+                    "label": "Type",
+                    "tooltip": "The type for this waddle",
+                    "defValue": "WADDLE",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "option",
+                        "options": [
+                            "WADDLE",
+                            "TABLE"
+                        ]
+                    }
+                },
+                {
+                    "name": "seat1",
+                    "label": "Enable Seat 1",
+                    "tooltip": "Enables this seat",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "seat1frame",
+                    "label": "Seat 1 Frame",
+                    "tooltip": "The animation frame the player at this seat will play",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat1x",
+                    "label": "Seat 1 X",
+                    "tooltip": "The X coordinate to waddle into this seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat1y",
+                    "label": "Seat 1 Y",
+                    "tooltip": "The Y coordinate to waddle into this seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "done1x",
+                    "label": "Done 1 X",
+                    "tooltip": "The X coordinate to waddle out of a seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "done1y",
+                    "label": "Done 1 Y",
+                    "tooltip": "The Y coordinate to waddle out of a seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat2",
+                    "label": "Enable Seat 2",
+                    "tooltip": "Enables this seat",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "seat2frame",
+                    "label": "Seat 2 Frame",
+                    "tooltip": "The animation frame the player at this seat will play",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat2x",
+                    "label": "Seat 2 X",
+                    "tooltip": "The X coordinate to waddle into this seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat2y",
+                    "label": "Seat 2 Y",
+                    "tooltip": "The Y coordinate to waddle into this seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "done2x",
+                    "label": "Done 2 X",
+                    "tooltip": "The X coordinate to waddle out of a seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "done2y",
+                    "label": "Done 2 Y",
+                    "tooltip": "The Y coordinate to waddle out of a seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat3",
+                    "label": "Enable Seat 3",
+                    "tooltip": "Enables this seat",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "seat3frame",
+                    "label": "Seat 3 Frame",
+                    "tooltip": "The animation frame the player at this seat will play",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat3x",
+                    "label": "Seat 3 X",
+                    "tooltip": "The X coordinate to waddle into this seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat3y",
+                    "label": "Seat 3 Y",
+                    "tooltip": "The Y coordinate to waddle into this seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "done3x",
+                    "label": "Done 3 X",
+                    "tooltip": "The X coordinate to waddle out of a seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "done3y",
+                    "label": "Done 3 Y",
+                    "tooltip": "The Y coordinate to waddle out of a seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat4",
+                    "label": "Enable Seat 4",
+                    "tooltip": "Enables this seat",
+                    "defValue": false,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "boolean"
+                    }
+                },
+                {
+                    "name": "seat4frame",
+                    "label": "Seat 4 Frame",
+                    "tooltip": "The animation frame the player at this seat will play",
+                    "defValue": 0,
+                    "customDefinition": true,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat4x",
+                    "label": "Seat 4 X",
+                    "tooltip": "The X coordinate to waddle into this seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "seat4y",
+                    "label": "Seat 4 Y",
+                    "tooltip": "The Y coordinate to waddle into this seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "done4x",
+                    "label": "Done 4 X",
+                    "tooltip": "The X coordinate to waddle out of a seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                },
+                {
+                    "name": "done4y",
+                    "label": "Done 4 Y",
+                    "tooltip": "The Y coordinate to waddle out of a seat",
+                    "defValue": 0,
+                    "customDefinition": false,
+                    "type": {
+                        "id": "number"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ContentTrigger",
+            "displayName": "",
+            "objectDisplayFormat": "",
+            "baseClass": "",
+            "gameObjectType": "Phaser.GameObjects.Image",
+            "properties": [
+                {
+                    "name": "name",
+                    "label": "Name",
+                    "tooltip": "The identifier for this content.",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "string"
+                    }
+                },
+                {
+                    "name": "importFunction",
+                    "label": "Content Invoker",
+                    "tooltip": "A function that returns the content module. You usually pass an anonymous function here that returns a dynamic import.",
+                    "defValue": "",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "expression",
+                        "expressionType": "() => Promise<ContentCls>"
+                    }
+                },
+                {
+                    "name": "contentType",
+                    "label": "Content Type",
+                    "tooltip": "The type of content this is.",
+                    "defValue": "CONTENT",
+                    "customDefinition": false,
+                    "type": {
+                        "id": "option",
+                        "options": [
+                            "CONTENT",
+                            "WINDOW"
+                        ]
+                    }
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "app": "Phaser Editor 2D - User Components Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.UserComponents"
+    },
+    "outputLang": "TYPE_SCRIPT",
+    "insertSpaces": true,
+    "exportClass": true,
+    "autoImport": true
+}

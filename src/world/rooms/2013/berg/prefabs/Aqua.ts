@@ -3,8 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -14,18 +13,18 @@ export default class Aqua extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // aqua
-        const aqua = scene.add.image(0, 0, "berg", "berg/aqua");
+        const aqua = scene.add.image(0, 0, "berg2013", "berg/aqua");
         aqua.setOrigin(0, 0.00852);
         this.add(aqua);
 
         // inside
-        const inside = scene.add.sprite(58, 4.85, "berg", "berg/aqua_inside0001");
+        const inside = scene.add.sprite(58, 4.85, "berg2013", "berg/aqua_inside0001");
         inside.setOrigin(0.26832685, -0.18965116);
         inside.visible = false;
         this.add(inside);
 
         // lights
-        const lights = scene.add.sprite(54.5, 132.25, "berg", "berg/aqua_lights0015");
+        const lights = scene.add.sprite(54.5, 132.25, "berg2013", "berg/aqua_lights0015");
         lights.setOrigin(0, 0);
         lights.visible = false;
         this.add(lights);

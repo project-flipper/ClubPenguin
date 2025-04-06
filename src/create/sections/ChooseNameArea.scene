@@ -61,7 +61,7 @@
                     "tintFill": false,
                     "text": "Create Penguin Name:",
                     "font": "BurbankSmallBold",
-                    "fontSize": -27
+                    "fontSize": 27
                 },
                 {
                     "type": "Container",
@@ -115,7 +115,7 @@
                             "tintFill": false,
                             "text": "4 - 12 letters, numbers or spaces",
                             "font": "BurbankSmallBold",
-                            "fontSize": -22.5
+                            "fontSize": 22.5
                         },
                         {
                             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -149,7 +149,7 @@
                             "tintFill": false,
                             "text": "Do not use your real name",
                             "font": "BurbankSmallBold",
-                            "fontSize": -22.5
+                            "fontSize": 22.5
                         }
                     ]
                 },
@@ -195,7 +195,7 @@
                     "tintBottomRight": "#D3D4D8",
                     "text": "Enter Penguin Name",
                     "font": "BurbankSmallBold",
-                    "fontSize": -27
+                    "fontSize": 27
                 },
                 {
                     "prefabId": "8b15151a-c1a4-40e6-b34e-d0d3fa33242c",
@@ -213,7 +213,8 @@
                         "maxLength",
                         "backgroundIsFilled",
                         "leftMargin",
-                        "autocomplete"
+                        "autocomplete",
+                        "marginLeft"
                     ],
                     "label": "textField",
                     "scope": "PUBLIC",
@@ -221,11 +222,11 @@
                     "fieldHeight": 95,
                     "maxLength": 12,
                     "verticalAlign": 1,
-                    "font": "BurbankSmallBold",
-                    "fontSize": -27,
+                    "font": "Burbank Small Bold",
+                    "fontSize": "27px",
                     "fontColor": "#2c2c2e",
                     "backgroundIsFilled": false,
-                    "leftMargin": 11.25,
+                    "marginLeft": 12,
                     "autocomplete": "username",
                     "x": 135,
                     "y": 42.75
@@ -249,8 +250,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

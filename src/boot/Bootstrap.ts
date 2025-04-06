@@ -1,9 +1,8 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import InputBlocker from "../lib/ui/components/InputBlocker";
+import InputBlocker from "../lib/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
-import ButtonComponent from "../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import TabId from "is-tab-duplicated";
 
@@ -24,17 +23,7 @@ export default class Bootstrap extends Phaser.Scene {
         super("Bootstrap");
 
         /* START-USER-CTR-CODE */
-
-        window.addEventListener('devtoolschange', event => {
-            if (event.detail.isOpen) console.log(
-                this.getDevtoolsWarnMessage(),
-                'font-weight: bold; color: red; font-size: 350%; background: navy;',
-                'color: red; font-size: 250%; background: navy;',
-                'color: lime; font-size: 200%; background: teal;',
-                'color: white; font-size: 150%; background: olive;'
-            );
-        });
-
+        // Write your code here.
         /* END-USER-CTR-CODE */
     }
 
@@ -74,7 +63,7 @@ export default class Bootstrap extends Phaser.Scene {
         dialogMessage.tintBottomLeft = 0;
         dialogMessage.tintBottomRight = 0;
         dialogMessage.text = "Load Error\nSorry, there's been an error loading\nClub Penguin. Please try logging in\nlater. If the problem continues please\ncontact support@clubpenguin.com";
-        dialogMessage.fontSize = -40.5;
+        dialogMessage.fontSize = 40.5;
         dialogMessage.align = 1;
         embeddedErrorDialog.add(dialogMessage);
 
@@ -86,7 +75,7 @@ export default class Bootstrap extends Phaser.Scene {
         dialogCode.tintBottomLeft = 9976322;
         dialogCode.tintBottomRight = 9976322;
         dialogCode.text = "c0";
-        dialogCode.fontSize = -24.75;
+        dialogCode.fontSize = 24.75;
         dialogCode.align = 2;
         embeddedErrorDialog.add(dialogCode);
 
@@ -103,7 +92,7 @@ export default class Bootstrap extends Phaser.Scene {
         dialogButtonLabel.tintBottomLeft = 16777215;
         dialogButtonLabel.tintBottomRight = 16777215;
         dialogButtonLabel.text = "OK";
-        dialogButtonLabel.fontSize = -42.75;
+        dialogButtonLabel.fontSize = 42.75;
         dialogButtonLabel.align = 1;
         embeddedErrorDialog.add(dialogButtonLabel);
 
@@ -172,6 +161,10 @@ export default class Bootstrap extends Phaser.Scene {
         this.loadClubPenguin();
     }
 
+    /**
+     * Loads the internal game state.
+     * Should a file fail to load, then the game will consider the state bad and refuse to start.
+     */
     async loadClubPenguin(): Promise<void> {
         logger.info('Starting Club Penguin');
 
@@ -195,6 +188,7 @@ export default class Bootstrap extends Phaser.Scene {
 
         this.load.pack("app-pack", "assets/app/app-pack.json");
         this.load.pack("font-library", "assets/lib/fonts/font-library.json");
+        this.load.pack("web-fonts", "assets/lib/fonts/web-fonts.json");
         this.scene.run('Logo', {
             oninit: (scene: Phaser.Scene) => load.track(new LoaderTask('Logo loader', scene.load))
         });
@@ -220,13 +214,13 @@ export default class Bootstrap extends Phaser.Scene {
 
         let path = window.location.hash;
 
-        if (path === '#login') {
+        if (path === '#/login') {
             logger.info('Setting initial landing to login screen');
             this.scene.start('Login');
-        } else if (path === '#create') {
+        } else if (path === '#/create') {
             logger.info('Setting initial landing to create screen');
             this.scene.start('Create');
-        } else if (path === '#redeem') {
+        } else if (path === '#/redeem') {
             logger.info('Setting initial landing to redemption screen');
             this.scene.start('Redemption');
         } else {
@@ -235,6 +229,10 @@ export default class Bootstrap extends Phaser.Scene {
         }
     }
 
+    /**
+     * Shows a load error using the internal error dialog.
+     * This exists in case locale isn't available, so we must resort to hard-coding these translations.
+     */
     showLoadError(): void {
         let errorMessage: string;
         let buttonText: string;
@@ -265,49 +263,8 @@ export default class Bootstrap extends Phaser.Scene {
                 buttonText = "OK";
         };
 
-        let interr = this.scene.get('InternalErrorArea') as InternalErrorArea;
-        interr.showErrorDialog(errorMessage, buttonText, () => window.location.reload(), '10010');
-    }
-
-    getDevtoolsWarnMessage(): string {
-        switch (this.game?.locale.language) {
-            case Language.PT:
-                return (
-                    '%cESPERE!\n%cSua conta pode estar em perigo.\n\n' +
-                    '%cQualquer criminoso pode induzi-lo a inserir códigos aqui que podem dar acesso à sua conta ou causar sua suspensão.\n\n' +
-                    '%cSe você sabe o que está fazendo, considere se juntar à nossa equipe :)'
-                );
-            case Language.FR:
-                return (
-                    '%cATTENDEZ!\n%cVotre compte peut être en danger.\n\n' +
-                    '%cTout criminel pourrait vous inciter à saisir ici des codes qui pourraient lui donner accès à votre compte ou entraîner votre suspension.\n\n' +
-                    '%cSi vous savez ce que vous faites, envisagez de rejoindre notre équipe :)'
-                );
-            case Language.ES:
-                return (
-                    '%c¡ESPERA!\n%cTu cuenta puede correr peligro.\n\n' +
-                    '%cCualquier malhechor podría engañarte al introducir códigos aquí que les puede dar acceso a tu cuenta, o causarle una suspención.\n\n' +
-                    '%cSi sabes lo que estás haciendo, considera unirte a nuestro equipo :)'
-                );
-            case Language.DE:
-                return (
-                    '%cWARTEN!\n%cIhr Konto könnte in Gefahr sein.\n\n' +
-                    '%cKriminelle könnten Sie dazu verleiten, hier Code einzuführen, der ihnen Zugriff auf Ihr Konto verschafft oder Sie sperrt.\n\n' +
-                    '%cWenn Sie wissen, was Sie tun, denken Sie darüber nach, unserem Team beizutreten :)'
-                );
-            case Language.RU:
-                return (
-                    '%cЖДАТЬ!\n%cВаш аккаунт может быть в опасности.\n\n' +
-                    '%cЗлоумышленники могут обманом заставить вас ввести здесь код, который может дать им доступ к вашей учетной записи или заблокировать вас.\n\n' +
-                    '%cЕсли вы знаете, что делаете, рассмотрите возможность присоединиться к нашей команде :)'
-                );
-            default:
-                return (
-                    '%cWAIT!\n%cYour account might be in danger.\n\n' +
-                    '%cBad actors might trick you into introducing code here that could give them access to your account or get you banned.\n\n' +
-                    '%cIf you know what you\'re doing, consider joining our team :)'
-                );
-        }
+        let internal = this.scene.get('InternalErrorArea') as InternalErrorArea;
+        internal.showErrorDialog(errorMessage, buttonText, () => window.location.reload(), '10010');
     }
 
     /* END-USER-CODE */

@@ -1,11 +1,11 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import { Avatar } from "../engine/player/avatar";
 import { Engine } from "../engine/engine";
 import { ClothingSprite } from "../engine/clothing/clothingManager";
+import { AnimationFrame } from "../engine/player/animationFrame";
 /* END-USER-IMPORTS */
 
 export default class penguin extends Phaser.GameObjects.Container implements Avatar {
@@ -14,12 +14,12 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
         super(scene, x ?? 0, y ?? 0);
 
         // hitbox
-        const hitbox = scene.add.image(0, -21.375, "penguin", "penguin/hitbox0004");
-        hitbox.alpha = 0.01;
-        hitbox.alphaTopLeft = 0.01;
-        hitbox.alphaTopRight = 0.01;
-        hitbox.alphaBottomLeft = 0.01;
-        hitbox.alphaBottomRight = 0.01;
+        const hitbox = scene.add.image(0, -21.375, "penguin", "penguin/hitbox");
+        hitbox.alpha = 0.0001;
+        hitbox.alphaTopLeft = 0.0001;
+        hitbox.alphaTopRight = 0.0001;
+        hitbox.alphaBottomLeft = 0.0001;
+        hitbox.alphaBottomRight = 0.0001;
         this.add(hitbox);
 
         // shadow
@@ -40,13 +40,11 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
         this.add(ring);
 
         // body_art
-        const body_art = scene.add.sprite(0, 0, "penguin", "penguin/body_0");
-        body_art.setOrigin(0.4988, 0.95943);
+        const body_art = scene.add.sprite(0, 0, "penguin", "penguin/body/0");
         this.add(body_art);
 
         // overlay_art
-        const overlay_art = scene.add.sprite(0, 0, "penguin", "penguin/overlay_0");
-        overlay_art.setOrigin(0.50145, 0.80194);
+        const overlay_art = scene.add.sprite(0, 0, "penguin", "penguin/overlay/0");
         this.add(overlay_art);
 
         // hitbox (components)
@@ -72,144 +70,74 @@ export default class penguin extends Phaser.GameObjects.Container implements Ava
     public overlay_art: Phaser.GameObjects.Sprite;
 
     /* START-USER-CODE */
-
     public animations: { [frame: number]: { body: Phaser.Animations.Animation, overlay: Phaser.Animations.Animation } };
+    public animationsMeta = {
+        [AnimationFrame.IDLE_DOWN]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.IDLE_DOWN_LEFT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.IDLE_LEFT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.IDLE_UP_LEFT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.IDLE_UP]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.IDLE_UP_RIGHT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.IDLE_RIGHT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.IDLE_DOWN_RIGHT]: { totalFrames: 1, repeat: true },
 
-    public spriteSpeed = 215;
+        [AnimationFrame.WADDLE_DOWN]: { totalFrames: 8, repeat: true },
+        [AnimationFrame.WADDLE_DOWN_LEFT]: { totalFrames: 8, repeat: true },
+        [AnimationFrame.WADDLE_LEFT]: { totalFrames: 8, repeat: true },
+        [AnimationFrame.WADDLE_UP_LEFT]: { totalFrames: 8, repeat: true },
+        [AnimationFrame.WADDLE_UP]: { totalFrames: 8, repeat: true },
+        [AnimationFrame.WADDLE_UP_RIGHT]: { totalFrames: 8, repeat: true },
+        [AnimationFrame.WADDLE_RIGHT]: { totalFrames: 8, repeat: true },
+        [AnimationFrame.WADDLE_DOWN_RIGHT]: { totalFrames: 8, repeat: true },
+
+        [AnimationFrame.SIT_DOWN]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.SIT_DOWN_LEFT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.SIT_LEFT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.SIT_UP_LEFT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.SIT_UP]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.SIT_UP_RIGHT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.SIT_RIGHT]: { totalFrames: 1, repeat: true },
+        [AnimationFrame.SIT_DOWN_RIGHT]: { totalFrames: 1, repeat: true },
+
+        [AnimationFrame.WAVE]: { totalFrames: 29, repeat: false },
+        [AnimationFrame.DANCE]: { totalFrames: 193, repeat: true },
+
+        [AnimationFrame.THROW_DOWN_LEFT]: { totalFrames: 28, repeat: false },
+        [AnimationFrame.THROW_UP_LEFT]: { totalFrames: 28, repeat: false },
+        [AnimationFrame.THROW_UP_RIGHT]: { totalFrames: 28, repeat: false },
+        [AnimationFrame.THROW_DOWN_RIGHT]: { totalFrames: 28, repeat: false },
+
+        [AnimationFrame.PENGUIN_JUMP]: { totalFrames: 63, repeat: false },
+
+        [AnimationFrame.CJ_BOW_RIGHT]: { totalFrames: 61, repeat: false },
+        [AnimationFrame.CJ_BOW_LEFT]: { totalFrames: 61, repeat: false },
+        [AnimationFrame.CJ_BOW_DOWN_RIGHT]: { totalFrames: 61, repeat: false },
+        [AnimationFrame.CJ_BOW_UP_LEFT]: { totalFrames: 61, repeat: false },
+        [AnimationFrame.CJ_BOW_DOWN_LEFT]: { totalFrames: 61, repeat: false },
+        [AnimationFrame.CJ_BOW_UP_RIGHT]: { totalFrames: 61, repeat: false }
+    };
+
     public attachClothing = true;
+    public spriteSpeed = 215;
     public speechBubbleOffset = { x: 0, y: 0 };
     public nicknameOffset = { x: 0, y: 0 };
     public snowballOffset = { x: 0, y: 0 };
-    public snowballDelay = 833;
+    public snowballDelay = 800;
 
+    public currentAnimation: number;
     public clothes: Map<number, ClothingSprite>;
 
     createAnimations(engine: Engine): void {
-        this.animations = {
-            0: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 0, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 0, 0),
-            },
-            1: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 1, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 1, 0),
-            },
-            2: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 2, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 2, 0),
-            },
-            3: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 3, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 3, 0),
-            },
-            4: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 4, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 4, 0),
-            },
-            5: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 5, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 5, 0),
-            },
-            6: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 6, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 6, 0),
-            },
-            7: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 7, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 7, 0),
-            },
-            8: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 8, 1, 8),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 8, 1, 8),
-            },
-            9: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 9, 1, 8),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 9, 1, 8),
-            },
-            10: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 10, 1, 8),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 10, 1, 8),
-            },
-            11: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 11, 1, 8),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 11, 1, 8),
-            },
-            12: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 12, 1, 8),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 12, 1, 8),
-            },
-            13: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 13, 1, 8),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 13, 1, 8),
-            },
-            14: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 14, 1, 8),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 14, 1, 8),
-            },
-            15: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 15, 1, 8),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 15, 1, 8),
-            },
-            16: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 16, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 16, 0),
-            },
-            17: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 17, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 17, 0),
-            },
-            18: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 18, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 18, 0),
-            },
-            19: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 19, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 19, 0),
-            },
-            20: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 20, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 20, 0),
-            },
-            21: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 21, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 21, 0),
-            },
-            22: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 22, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 22, 0),
-            },
-            23: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 23, 0),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 23, 0),
-            },
-            24: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 24, 1, 29, false),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 24, 1, 29, false),
-            },
-            25: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 25, 1, 193),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 25, 1, 193),
-            },
-            26: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 26, 1, 28, false),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 26, 1, 28, false),
-            },
-            27: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 27, 1, 28, false),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 27, 1, 28, false),
-            },
-            28: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 28, 1, 28, false),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 28, 1, 28, false),
-            },
-            29: {
-                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body_', 29, 1, 28, false),
-                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay_', 29, 1, 28, false),
-            }
-        };
-    }
+        this.animations = {};
 
-    public currentAnimation: number;
+        for (let frame of Object.keys(this.animationsMeta).map(x => parseInt(x))) {
+            let animationDef = this.animationsMeta[frame as keyof typeof this.animationsMeta];
+            this.animations[frame] = {
+                body: engine.players.generateSpriteAnimations('penguin', 'penguin', 'body', frame, animationDef),
+                overlay: engine.players.generateSpriteAnimations('penguin', 'penguin', 'overlay', frame, animationDef)
+            }
+        }
+    }
 
     playAnimation(index: number): boolean {
         let animation = this.animations[index];

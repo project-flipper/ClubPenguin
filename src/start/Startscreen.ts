@@ -1,16 +1,27 @@
+export interface Billboard extends Phaser.GameObjects.Container {
+    localize(locale: Locale): void;
+
+    unload(game: App): void;
+}
+
+export interface BillboardCls {
+    new(scene: Phaser.Scene, x?: number, y?: number): Billboard;
+
+    preload(load: Phaser.Loader.LoaderPlugin): void;
+}
+
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import InputBlocker from "../lib/ui/components/InputBlocker";
-import ButtonComponent from "../lib/ui/components/ButtonComponent";
+import InputBlocker from "../lib/components/InputBlocker";
+import ButtonComponent from "../lib/components/ButtonComponent";
 import TextBox from "../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
 import { Language, Locale } from "@clubpenguin/app/locale";
 import { App } from "@clubpenguin/app/app";
-import { BaseBillboard } from "@clubpenguin/start/billboard/Billboard";
 import { getLogger } from "@clubpenguin/lib/log";
+import { weightedPick } from "@clubpenguin/lib/math";
 
 let logger = getLogger('CP.start');
 /* END-USER-IMPORTS */
@@ -67,7 +78,7 @@ export default class Startscreen extends Phaser.Scene {
         // createPenguinTextBox
         const createPenguinTextBox = new TextBox(this, 405, 888.75, "BurbankSmallBold");
         createPenguinTextBox.text = "Create a Penguin";
-        createPenguinTextBox.fontSize = -40;
+        createPenguinTextBox.fontSize = 40;
         startscreen.add(createPenguinTextBox);
 
         // loginButton
@@ -78,7 +89,7 @@ export default class Startscreen extends Phaser.Scene {
         // loginTextBox
         const loginTextBox = new TextBox(this, 922.5, 888.75, "BurbankSmallBold");
         loginTextBox.text = "Login";
-        loginTextBox.fontSize = -45;
+        loginTextBox.fontSize = 45;
         startscreen.add(loginTextBox);
 
         // loginButtonGraphic
@@ -104,7 +115,7 @@ export default class Startscreen extends Phaser.Scene {
         membershipTextBox.tintBottomLeft = 21147;
         membershipTextBox.tintBottomRight = 21147;
         membershipTextBox.text = "Learn More About Membership";
-        membershipTextBox.fontSize = -18;
+        membershipTextBox.fontSize = 18;
         startscreen.add(membershipTextBox);
 
         // memberBadge
@@ -196,10 +207,15 @@ export default class Startscreen extends Phaser.Scene {
     /* START-USER-CODE */
 
     declare game: App;
-    public billboard: BaseBillboard;
+    public billboard: Billboard;
+    public currentBillboard: string;
+
+    get loadScreen(): Load {
+        return this.scene.get('Load') as Load;
+    }
 
     init(): void {
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
 
         load.track(new LoaderTask('Startscreen loader', this.load));
         if (!load.isShowing) load.show();
@@ -227,11 +243,13 @@ export default class Startscreen extends Phaser.Scene {
     }
 
     async loadContent(): Promise<void> {
-        let load = this.scene.get('Load') as Load;
+        let load = this.loadScreen;
         if (!load.isShowing) load.show();
 
         try {
-            let billboardCls = (await import('@clubpenguin/start/billboard/Billboard')).default(this);
+            let path = weightedPick(this.game.gameConfig.general.billboards);
+            this.currentBillboard = path;
+            let billboardCls = (await import(/* webpackInclude: /\.ts$/ */`@clubpenguin/start/billboards/${path}.ts`)).default as BillboardCls;
             let task = load.track(new LoaderTask('Billboard loader', this.load));
             billboardCls.preload(this.load);
 
@@ -251,7 +269,10 @@ export default class Startscreen extends Phaser.Scene {
         this.game.locale.register(this.localize, this);
         this.events.on('shutdown', () => {
             this.game.locale.unregister(this.localize);
-            if (this.billboard) this.billboard.unload(this.game);
+            if (this.billboard) {
+                this.billboard.unload(this.game);
+                this.removeBillboard(this.currentBillboard);
+            }
             this.game.unloadAssetPack('start-pack');
         });
 
@@ -291,6 +312,17 @@ export default class Startscreen extends Phaser.Scene {
 
     goToLogin(): void {
         this.scene.start('Login');
+    }
+
+    async removeBillboard(path: string): Promise<boolean> {
+        try {
+            let id = require.resolveWeak(`@clubpenguin/start/billboards/${path}.ts`);
+            if (!id) return false;
+            delete require.cache[id];
+            return false;
+        } catch (e) {
+            return false;
+        }
     }
 
     /* END-USER-CODE */

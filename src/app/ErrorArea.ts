@@ -36,16 +36,12 @@ export class CPError extends Error {
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import InputBlocker from "../lib/ui/components/InputBlocker";
+import InputBlocker from "../lib/components/InputBlocker";
 import TextBox from "../lib/ui/TextBox";
-import ButtonComponent from "../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
-import { App } from "./app";
+import { App, logger } from "./app";
 import { HTTPError } from "@clubpenguin/net/airtower";
-import { getLogger } from "@clubpenguin/lib/log";
-
-let logger = getLogger('CP.app.error');
 /* END-USER-IMPORTS */
 
 export default class ErrorArea extends Phaser.Scene {
@@ -83,7 +79,7 @@ export default class ErrorArea extends Phaser.Scene {
         // message
         const message = new TextBox(this, 58.5, 18, "BurbankSmallMedium");
         message.text = " Error Message\n Error Message\n Error Message\n Error Message\n Error Message\n Error Message";
-        message.fontSize = -36;
+        message.fontSize = 36;
         message.align = 0;
         errorWindow.add(message);
 
@@ -99,7 +95,7 @@ export default class ErrorArea extends Phaser.Scene {
         // buttonLabel
         const buttonLabel = new TextBox(this, 37.4625, 28.6875, "BurbankSmallBold");
         buttonLabel.text = "Ok";
-        buttonLabel.fontSize = -45;
+        buttonLabel.fontSize = 45;
         buttonLabel.align = 1;
         buttonContainer.add(buttonLabel);
 
@@ -111,7 +107,7 @@ export default class ErrorArea extends Phaser.Scene {
         code.tintBottomLeft = 9976322;
         code.tintBottomRight = 9976322;
         code.text = "c0";
-        code.fontSize = -22.5;
+        code.fontSize = 22.5;
         code.align = 2;
         errorWindow.add(code);
 
@@ -365,7 +361,7 @@ export default class ErrorArea extends Phaser.Scene {
 
         let copy = { ...e };
         copy.message = this.game.locale.localize(e.message, 'error_lang');
-        copy.buttonLabel = this.game.locale.localize(e.buttonLabel, 'error_lang');
+        copy.buttonLabel = this.game.locale.localize(e.buttonLabel);
         copy.localized = true;
         return copy;
     }

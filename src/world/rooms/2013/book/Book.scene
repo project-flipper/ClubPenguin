@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/book/book-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/book/book2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Book",
@@ -21,7 +21,7 @@
             "id": "805a340a-fe47-4735-bf52-f12a09b55a34",
             "label": "book_base",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/base"
             },
             "x": -136.35,
@@ -31,11 +31,37 @@
         },
         {
             "type": "Image",
+            "id": "59ae3dea-b6a1-41ac-8c7e-e6a74bb53b7d",
+            "label": "artshowcasebutton",
+            "texture": {
+                "key": "book2013",
+                "frame": "book/artshowcase0004"
+            },
+            "x": 704.475,
+            "y": 187.2,
+            "originX": 0.48079,
+            "originY": 0.51911,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
             "id": "1834c96f-b2d5-4cec-9527-5dbbad5e2385",
             "label": "artshowcase",
             "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"book2013\",\"frame\":\"book/artshowcase0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"book2013\",\"frame\":\"book/artshowcase0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "artshowcasebutton",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/artshowcase0001"
             },
             "x": 704.475,
@@ -45,27 +71,16 @@
         },
         {
             "type": "Image",
-            "id": "59ae3dea-b6a1-41ac-8c7e-e6a74bb53b7d",
-            "label": "artshowcasebutton",
-            "scope": "PUBLIC",
-            "components": [
-                "ButtonComponent"
-            ],
-            "ButtonComponent.handCursor": true,
-            "ButtonComponent.pixelPerfect": true,
+            "id": "9e2d5788-2b44-41e6-9f02-e870ffbbf736",
+            "label": "book_mancalanotice0004",
             "texture": {
-                "key": "book",
-                "frame": "book/artshowcase0004"
+                "key": "book2013",
+                "frame": "book/mancalanotice0004"
             },
-            "x": 704.475,
-            "y": 187.2,
-            "originX": 0.48079,
-            "originY": 0.51911,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "x": 1650.6,
+            "y": 300.04,
+            "originX": 0.6286764705882353,
+            "originY": 0.3826530612244898
         },
         {
             "type": "Image",
@@ -75,18 +90,19 @@
             "components": [
                 "ButtonComponent"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"book\",\"frame\":\"book/mancalanotice0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"book\",\"frame\":\"book/mancalanotice0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"book2013\",\"frame\":\"book/mancalanotice0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"book2013\",\"frame\":\"book/mancalanotice0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "book_mancalanotice0004",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/mancalanotice0001"
             },
-            "x": 1571.4,
-            "y": 206.6625,
-            "originX": -0.01566,
-            "originY": -0.04476
+            "x": 1650.6,
+            "y": 300.04,
+            "originX": 0.6286764705882353,
+            "originY": 0.3826530612244898
         },
         {
             "type": "Image",
@@ -94,18 +110,20 @@
             "label": "mancalatitle",
             "scope": "PUBLIC",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/mancalatitle0001"
             },
-            "x": 1634,
-            "y": 342
+            "x": 1571.4,
+            "y": 206.66,
+            "originX": -0.06429,
+            "originY": -0.01178
         },
         {
             "type": "Image",
             "id": "4877aa13-0d67-443e-a505-3f421ae82fc9",
             "label": "book_logo",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/logo"
             },
             "x": 1140.4125,
@@ -119,7 +137,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/block"
             },
             "x": -112.5,
@@ -138,7 +156,7 @@
             "RoomTrigger.playerX": 1428.75,
             "RoomTrigger.playerY": 708.75,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/coffee_trigger"
             },
             "x": 1425.6,
@@ -153,7 +171,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/couch1"
             },
             "x": 1578.15,
@@ -169,7 +187,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/table"
             },
             "x": 1598.9625,
@@ -185,7 +203,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/tableplant"
             },
             "x": 1630.125,
@@ -201,7 +219,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/couch2"
             },
             "x": 1554.75,
@@ -217,7 +235,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/cubicleseparator"
             },
             "x": 999.1125,
@@ -230,7 +248,7 @@
             "id": "f29d0615-8009-4bca-acfd-67c2c4d55a86",
             "label": "book_deskback1",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/deskback1"
             },
             "x": 1127.8125,
@@ -246,7 +264,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/chair3"
             },
             "x": 838.125,
@@ -262,7 +280,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/desk3"
             },
             "x": 1004.85,
@@ -278,12 +296,12 @@
             "components": [
                 "ButtonComponent"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"book\",\"frame\":\"book/books0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"book\",\"frame\":\"book/books0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"book2013\",\"frame\":\"book/books0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"book2013\",\"frame\":\"book/books0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/books0001"
             },
             "x": 477.7875,
@@ -299,7 +317,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/chair2"
             },
             "x": 731.25,
@@ -315,7 +333,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/desk2"
             },
             "x": 700.425,
@@ -328,7 +346,7 @@
             "id": "eaa67936-c241-487d-af8b-536999bb39f1",
             "label": "book_rack",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/rack"
             },
             "x": 895.725,
@@ -344,7 +362,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/plant"
             },
             "x": 897.525,
@@ -357,7 +375,7 @@
             "id": "034d9144-2cf3-448c-9a63-020db5c6ff8f",
             "label": "book_deskback",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/deskback"
             },
             "x": 1133.1,
@@ -373,7 +391,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/separator"
             },
             "x": 942.975,
@@ -389,7 +407,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/railing"
             },
             "x": 993.15,
@@ -405,7 +423,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/chair1"
             },
             "x": 1202.0625,
@@ -421,7 +439,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/desk1"
             },
             "x": 1228.05,
@@ -437,7 +455,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/chair"
             },
             "x": 540.45,
@@ -453,7 +471,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/chair"
             },
             "x": 675.45,
@@ -466,7 +484,7 @@
             "id": "f454b73a-c508-4b0a-b1b2-a34060146832",
             "label": "book_archives",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/archives"
             },
             "x": 360.3375,
@@ -479,7 +497,7 @@
             "id": "72378a70-c067-4290-a690-456c291bc45a",
             "label": "book_box",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/box"
             },
             "x": 108.9,
@@ -492,7 +510,7 @@
             "id": "135cbc8b-c4c1-43b3-8af7-11a08e56a95a",
             "label": "book_newspaperpile",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/newspaperpile"
             },
             "x": 211.6125,
@@ -508,7 +526,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/board"
             },
             "x": 317.025,
@@ -527,7 +545,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 760.15,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/boardLabel0001"
             },
             "x": 360,
@@ -539,71 +557,11 @@
             "label": "times",
             "scope": "PUBLIC",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/times0001"
             },
             "x": 1154,
             "y": 234
-        },
-        {
-            "prefabId": "515c2c01-ebbe-46d3-8f3d-47016c86159a",
-            "id": "8b7b13bb-0064-40e7-b33e-4a5b6bd516fb",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "mancalaBoard1",
-            "scope": "PUBLIC",
-            "components": [
-                "DepthEnabled"
-            ],
-            "x": 1399.1625,
-            "y": 640.575
-        },
-        {
-            "prefabId": "515c2c01-ebbe-46d3-8f3d-47016c86159a",
-            "id": "c01afb5d-65a1-405f-8978-aec1eaa715b5",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "mancalaBoard2",
-            "scope": "PUBLIC",
-            "components": [
-                "DepthEnabled"
-            ],
-            "x": 1260.7875,
-            "y": 739.575
-        },
-        {
-            "prefabId": "515c2c01-ebbe-46d3-8f3d-47016c86159a",
-            "id": "20a97269-9c00-495c-9b64-2febb734b931",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "mancalaBoard3",
-            "scope": "PUBLIC",
-            "components": [
-                "DepthEnabled"
-            ],
-            "x": 1447.2,
-            "y": 773.4375
-        },
-        {
-            "prefabId": "515c2c01-ebbe-46d3-8f3d-47016c86159a",
-            "id": "de063fe9-f1a5-4050-b273-569d17e96409",
-            "unlock": [
-                "x",
-                "y"
-            ],
-            "label": "mancalaBoard4",
-            "scope": "PUBLIC",
-            "components": [
-                "DepthEnabled"
-            ],
-            "x": 1319.175,
-            "y": 900.45
         },
         {
             "type": "Image",
@@ -615,7 +573,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 937.01,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/conveyorbelt"
             },
             "x": -4.275,
@@ -633,7 +591,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 937.01,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/conveyorbase"
             },
             "x": -4.275,
@@ -652,7 +610,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 937.01,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/conveyoritems0001"
             },
             "x": -130.5,
@@ -670,7 +628,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 937.01,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/conveyorcover"
             },
             "x": 259.9875,
@@ -689,7 +647,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 937.01,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/conveyorroll0001"
             },
             "x": 344.475,
@@ -705,7 +663,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/foreground"
             },
             "x": 857.1125,
@@ -717,7 +675,7 @@
             "id": "77811a42-4789-48d4-95ee-a62999260c9e",
             "label": "book_arttitle",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/arttitle"
             },
             "x": 710.325,
@@ -729,7 +687,7 @@
             "label": "artlabel",
             "scope": "PUBLIC",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/artlabel0001"
             },
             "x": 710,
@@ -746,18 +704,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/stairs0004"
             },
-            "x": 1356.4125,
-            "y": 276.525,
+            "x": 1356.41,
+            "y": 276.53,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -765,14 +723,13 @@
             "label": "stairslight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/stairs0002"
             },
-            "x": 1360,
-            "y": 278,
+            "x": 1356.41,
+            "y": 276.53,
             "originX": 0,
-            "originY": 0,
-            "visible": false
+            "originY": 0
         },
         {
             "type": "Image",
@@ -782,8 +739,9 @@
             "components": [
                 "PressureTrigger"
             ],
+            "PressureTrigger.requiresIdle": true,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/chair1_trigger"
             },
             "x": 515.1375,
@@ -800,8 +758,9 @@
             "components": [
                 "PressureTrigger"
             ],
+            "PressureTrigger.requiresIdle": true,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/chair2_trigger"
             },
             "x": 645.6375,
@@ -812,6 +771,24 @@
         },
         {
             "type": "Image",
+            "id": "52d48f38-2b61-4a2e-9268-d38e2f26e601",
+            "label": "book_hit",
+            "texture": {
+                "key": "book2013",
+                "frame": "book/book0002"
+            },
+            "x": 1566.5625,
+            "y": 909.3375,
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
             "id": "e5dc897c-95eb-4b42-a094-ef399aeb3dd3",
             "label": "book",
             "scope": "PUBLIC",
@@ -819,14 +796,15 @@
                 "ButtonComponent",
                 "DepthEnabled"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"book\",\"frame\":\"book/book0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"book\",\"frame\":\"book/book0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"book2013\",\"frame\":\"book/book0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"book2013\",\"frame\":\"book/book0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "book_hit",
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1108,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/book0001"
             },
             "x": 1566.5625,
@@ -845,19 +823,378 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1108,
             "texture": {
-                "key": "book",
+                "key": "book2013",
                 "frame": "book/booklabel0001"
             },
             "x": 1584,
             "y": 942,
             "originX": 0,
             "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "17f02dd0-90f0-4f05-95db-e4992969d42c",
+            "label": "table100",
+            "scope": "PUBLIC",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "mancala",
+            "WaddleTrigger.prompt": "mancala_prompt",
+            "WaddleTrigger.waddle_id": 100,
+            "WaddleTrigger.waddle_type": "TABLE",
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 23,
+            "WaddleTrigger.seat1x": 1193.29,
+            "WaddleTrigger.seat1y": 694.58,
+            "WaddleTrigger.done1x": 1148.29,
+            "WaddleTrigger.done1y": 784.58,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 19,
+            "WaddleTrigger.seat2x": 1328.29,
+            "WaddleTrigger.seat2y": 775.58,
+            "WaddleTrigger.done2x": 1238.29,
+            "WaddleTrigger.done2y": 843.08,
+            "texture": {
+                "key": "book2013",
+                "frame": "book/table_trigger"
+            },
+            "x": 1258.31,
+            "y": 725.96,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "bc90fca7-40b2-4224-8176-8510a5245d1f",
+            "label": "book_mancalatable_1",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 739.58,
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancalatable"
+            },
+            "x": 1259.55,
+            "y": 736.31,
+            "originX": 0.4846153846153846,
+            "originY": 0.4669811320754717
+        },
+        {
+            "type": "Image",
+            "id": "545b721d-547c-4eb7-8a43-25e8ba0bb301",
+            "label": "board100",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 739.58,
+            "ButtonComponent.overTexture": "{\"key\":\"book2013\",\"frame\":\"book/mancalaboard0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancalaboard0001"
+            },
+            "x": 1260.79,
+            "y": 739.58,
+            "originX": 0.4875,
+            "originY": 1.10455
+        },
+        {
+            "type": "Image",
+            "id": "7d44c56d-d29b-4438-bb18-c57abf8ba90c",
+            "label": "mancala100",
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancala_btn0004"
+            },
+            "x": 1258.99,
+            "y": 704.93,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "53eb76bd-2a5f-477f-a6cc-86a94b00a363",
+            "label": "table101",
+            "scope": "PUBLIC",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "mancala",
+            "WaddleTrigger.prompt": "mancala_prompt",
+            "WaddleTrigger.waddle_id": 101,
+            "WaddleTrigger.waddle_type": "TABLE",
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 23,
+            "WaddleTrigger.seat1x": 1331.66,
+            "WaddleTrigger.seat1y": 595.57,
+            "WaddleTrigger.done1x": 1286.66,
+            "WaddleTrigger.done1y": 685.58,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 19,
+            "WaddleTrigger.seat2x": 1466.66,
+            "WaddleTrigger.seat2y": 676.58,
+            "WaddleTrigger.done2x": 1376.66,
+            "WaddleTrigger.done2y": 744.08,
+            "texture": {
+                "key": "book2013",
+                "frame": "book/table_trigger"
+            },
+            "x": 1398.15,
+            "y": 630.11,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "fbd5f909-d800-4fc6-a058-7778a8ab6b85",
+            "label": "book_mancalatable",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 640.57,
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancalatable"
+            },
+            "x": 1397.93,
+            "y": 637.31,
+            "originX": 0.48462,
+            "originY": 0.46698
+        },
+        {
+            "type": "Image",
+            "id": "98296aa2-d193-452c-8c4c-0b0d650287f0",
+            "label": "board101",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 640.57,
+            "ButtonComponent.overTexture": "{\"key\":\"book2013\",\"frame\":\"book/mancalaboard0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "mancala101",
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancalaboard0001"
+            },
+            "x": 1399.16,
+            "y": 640.57,
+            "originX": 0.4875,
+            "originY": 1.10455
+        },
+        {
+            "type": "Image",
+            "id": "4ccc6ce4-5585-4d59-beed-316d27d0a728",
+            "label": "mancala101",
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancala_btn0004"
+            },
+            "x": 1397.36,
+            "y": 605.93,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "e1d58c98-5ac8-41c2-b38c-f37c44d5b6f5",
+            "label": "table104",
+            "scope": "PUBLIC",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "mancala",
+            "WaddleTrigger.prompt": "mancala_prompt",
+            "WaddleTrigger.waddle_id": 104,
+            "WaddleTrigger.waddle_type": "TABLE",
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 23,
+            "WaddleTrigger.seat1x": 1251.68,
+            "WaddleTrigger.seat1y": 855.45,
+            "WaddleTrigger.done1x": 1206.68,
+            "WaddleTrigger.done1y": 945.45,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 19,
+            "WaddleTrigger.seat2x": 1386.68,
+            "WaddleTrigger.seat2y": 936.45,
+            "WaddleTrigger.done2x": 1296.68,
+            "WaddleTrigger.done2y": 1003.95,
+            "texture": {
+                "key": "book2013",
+                "frame": "book/table_trigger"
+            },
+            "x": 1317.04,
+            "y": 892.46,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "7d8abb85-bd9f-4547-8ad5-935fe3d9cd23",
+            "label": "book_mancalatable_3",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 900.45,
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancalatable"
+            },
+            "x": 1317.94,
+            "y": 897.19,
+            "originX": 0.4846153846153846,
+            "originY": 0.4669811320754717
+        },
+        {
+            "type": "Image",
+            "id": "24264d5f-1995-405b-bca2-e80627da24fc",
+            "label": "board104",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 900.45,
+            "ButtonComponent.overTexture": "{\"key\":\"book2013\",\"frame\":\"book/mancalaboard0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "mancala104",
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancalaboard0001"
+            },
+            "x": 1319.18,
+            "y": 900.45,
+            "originX": 0.4875,
+            "originY": 1.10455
+        },
+        {
+            "type": "Image",
+            "id": "8774e044-2e32-474c-9589-c6901b35a6b0",
+            "label": "mancala104",
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancala_btn0004"
+            },
+            "x": 1317.38,
+            "y": 865.8,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "6d858ef9-f6f0-4a5f-a9b2-a3c038db258b",
+            "label": "table103",
+            "scope": "PUBLIC",
+            "components": [
+                "WaddleTrigger"
+            ],
+            "WaddleTrigger.game_id": "mancala",
+            "WaddleTrigger.prompt": "mancala_prompt",
+            "WaddleTrigger.waddle_id": 103,
+            "WaddleTrigger.waddle_type": "TABLE",
+            "WaddleTrigger.seat1": true,
+            "WaddleTrigger.seat1frame": 23,
+            "WaddleTrigger.seat1x": 1379.7,
+            "WaddleTrigger.seat1y": 728.44,
+            "WaddleTrigger.done1x": 1334.7,
+            "WaddleTrigger.done1y": 818.44,
+            "WaddleTrigger.seat2": true,
+            "WaddleTrigger.seat2frame": 19,
+            "WaddleTrigger.seat2x": 1514.7,
+            "WaddleTrigger.seat2y": 809.44,
+            "WaddleTrigger.done2x": 1424.7,
+            "WaddleTrigger.done2y": 876.94,
+            "texture": {
+                "key": "book2013",
+                "frame": "book/table_trigger"
+            },
+            "x": 1446.3,
+            "y": 763.76,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "489f7cf7-3efe-4baa-9016-7cc9fe5f4d12",
+            "label": "book_mancalatable_2",
+            "components": [
+                "DepthEnabled"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 773.44,
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancalatable"
+            },
+            "x": 1445.96,
+            "y": 770.18,
+            "originX": 0.4846153846153846,
+            "originY": 0.4669811320754717
+        },
+        {
+            "type": "Image",
+            "id": "f26a7d72-10c9-48d2-9908-1ad2dc043202",
+            "label": "board103",
+            "scope": "PUBLIC",
+            "components": [
+                "DepthEnabled",
+                "ButtonComponent"
+            ],
+            "DepthEnabled.automaticSort": false,
+            "DepthEnabled.depth": 773.44,
+            "ButtonComponent.overTexture": "{\"key\":\"book2013\",\"frame\":\"book/mancalaboard0002\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "mancala103",
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancalaboard0001"
+            },
+            "x": 1447.2,
+            "y": 773.44,
+            "originX": 0.4875,
+            "originY": 1.10455
+        },
+        {
+            "type": "Image",
+            "id": "cd01624d-c706-482e-bc13-603677d9f4a3",
+            "label": "mancala103",
+            "texture": {
+                "key": "book2013",
+                "frame": "book/mancala_btn0004"
+            },
+            "x": 1445.4,
+            "y": 738.79,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },
@@ -868,7 +1205,11 @@
             "objectIds": [
                 "f0456b68-6bd5-466f-bd1f-d20a2ce430c3",
                 "78ce897e-88e8-42cf-b334-a09944e3e7a2",
-                "3f7144dc-91d7-410b-bc9c-32c5f13de3d6"
+                "3f7144dc-91d7-410b-bc9c-32c5f13de3d6",
+                "53eb76bd-2a5f-477f-a6cc-86a94b00a363",
+                "17f02dd0-90f0-4f05-95db-e4992969d42c",
+                "e1d58c98-5ac8-41c2-b38c-f37c44d5b6f5",
+                "6d858ef9-f6f0-4a5f-a9b2-a3c038db258b"
             ],
             "scope": "PUBLIC"
         }

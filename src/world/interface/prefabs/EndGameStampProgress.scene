@@ -1,0 +1,97 @@
+{
+    "id": "a09ed801-aaab-43cc-a9df-ec5ff6f71f0a",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "704faac5-1561-43a4-a261-1a531c4373e6",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "76e4f434-e3c1-4e2c-b66b-e6304a91cb2f",
+                    "label": "interface_stampProgressBg",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/stampProgressBg"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "dfd745e6-d314-42dc-aa2f-5aaa766179f3",
+                    "label": "progress",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/stampProgressBar"
+                    }
+                },
+                {
+                    "type": "Image",
+                    "id": "82d323e5-b2e6-4679-8587-94544b7b803e",
+                    "label": "progressMask",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/stampProgressBar"
+                    },
+                    "visible": false
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "de70e5e4-8ca7-4f3a-b611-53d3d199f770",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "text",
+                        "fontSize",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "font",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight"
+                    ],
+                    "label": "progressText",
+                    "scope": "PUBLIC",
+                    "boxWidth": 158.9625,
+                    "boxHeight": 43.2,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": -265.72,
+                    "y": -21.82,
+                    "tintTopLeft": "#333333",
+                    "tintTopRight": "#333333",
+                    "tintBottomLeft": "#333333",
+                    "tintBottomRight": "#333333",
+                    "tintFill": true,
+                    "text": "9/25",
+                    "font": "BurbankSmallBold",
+                    "fontSize": 24.75
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

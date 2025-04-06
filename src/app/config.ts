@@ -1,11 +1,7 @@
-import Phaser from "phaser";
-
-import { App } from "@clubpenguin/app/app";
+import { App, logger } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { getLogger } from "@clubpenguin/lib/log";
-
-let logger = getLogger('CP.app.config');
+import { LoaderPlugin } from "./loader";
 
 export interface GeneralConfig {
     mascot_options: {
@@ -28,7 +24,8 @@ export interface GeneralConfig {
     island_options: {
         isDaytime: boolean
     },
-    party_dates: { [date: string]: string }
+    party_dates: { [date: string]: string },
+    billboards: { [id: string]: number },
 }
 
 export interface RoomConfig {
@@ -86,7 +83,7 @@ export interface GameConfig {
     is_hybrid: boolean
 }
 
-export default class Config {
+export class Config {
     public app: App;
 
     constructor(app: App) {
@@ -112,14 +109,16 @@ export default class Config {
     addGlobalConfig(loader: Phaser.Loader.LoaderPlugin, cache: Phaser.Cache.CacheManager, key: string): string {
         let cacheKey = `config-global-${key}`;
         if (cache.json.exists(cacheKey)) cache.json.remove(cacheKey);
-        loader.json(cacheKey, `config/${key}.json`);
+
+        loader.json(cacheKey, `config/${key}.json?v=${LoaderPlugin.cacheVersion}`);
         return cacheKey;
     }
 
     addLocalConfig(loader: Phaser.Loader.LoaderPlugin, cache: Phaser.Cache.CacheManager, locale: string, key: string): string {
         let cacheKey = `config-${locale}-${key}`;
-        if (cache.json.exists(`config-${locale}-${key}`)) cache.json.remove(cacheKey);
-        loader.json(cacheKey, `config/${locale}/${key}.json`);
+        if (cache.json.exists(cacheKey)) cache.json.remove(cacheKey);
+
+        loader.json(cacheKey, `config/${locale}/${key}.json?v=${LoaderPlugin.cacheVersion}`);
         return cacheKey;
     }
 
@@ -130,9 +129,9 @@ export default class Config {
 
         let task = load.track(new LoaderTask('Configs loader', loader));
 
-        let general = this.addGlobalConfig(loader, cache, 'general');
-        let penguin_action_frames = this.addGlobalConfig(loader, cache, 'penguin_action_frames');
-        let player_colors = this.addGlobalConfig(loader, cache, 'player_colors');
+        let general = this.addLocalConfig(loader, cache, locale, 'general');
+        let penguin_action_frames = this.addLocalConfig(loader, cache, locale, 'penguin_action_frames');
+        let player_colors = this.addLocalConfig(loader, cache, locale, 'player_colors');
 
         let games = this.addLocalConfig(loader, cache, locale, 'games');
         let furniture_items = this.addLocalConfig(loader, cache, locale, 'furniture_items');

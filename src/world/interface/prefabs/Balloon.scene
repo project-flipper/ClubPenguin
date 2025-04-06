@@ -120,7 +120,7 @@
                     "tintFill": true,
                     "text": "W",
                     "font": "BurbankSmallMedium",
-                    "fontSize": -27
+                    "fontSize": 27
                 }
             ]
         }

@@ -3,8 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import SnowballTrigger from "../../../../../lib/ui/components/SnowballTrigger";
+import SnowballTrigger from "../../../../../lib/components/SnowballTrigger";
 /* START-USER-IMPORTS */
 import Lounge from "../Lounge";
 /* END-USER-IMPORTS */
@@ -15,12 +14,12 @@ export default class SmallTarget extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // art
-        const art = scene.add.sprite(-28.5, -29, "lounge", "lounge/smallbluetarget");
+        const art = scene.add.sprite(-28.5, -29, "lounge2013", "lounge/smallbluetarget");
         art.setOrigin(0, 0);
         this.add(art);
 
         // hitbox
-        const hitbox = scene.add.image(0, 0, "lounge", "lounge/smalltargethitbox");
+        const hitbox = scene.add.image(0, 0, "lounge2013", "lounge/smalltargethitbox");
         hitbox.visible = false;
         this.add(hitbox);
 
@@ -66,7 +65,7 @@ export default class SmallTarget extends Phaser.GameObjects.Container {
         if (this.team == 'blue') this.scene.targetGame.blueScore += 1;
         else this.scene.targetGame.redScore += 1;
 
-        this.art.play(`lounge-small${this.team}target-animation`);
+        this.art.play(`lounge2013-small${this.team}target-animation`);
         this.art.once('animationcomplete', () => this.hide());
     }
 

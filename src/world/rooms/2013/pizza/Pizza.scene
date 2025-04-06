@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/pizza/pizza-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/pizza/pizza2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Pizza",
@@ -21,7 +21,7 @@
             "id": "fd9f0049-b5d7-49d7-9814-027f12393d1e",
             "label": "pizza_base",
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/base"
             },
             "originX": 0.09918483904465213,
@@ -33,7 +33,7 @@
             "label": "kitchensign",
             "scope": "PUBLIC",
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/kitchensign0001"
             },
             "x": 290.25,
@@ -47,7 +47,7 @@
             "label": "kitchendoor",
             "scope": "PUBLIC",
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/kitchendoor0001"
             },
             "x": 282.38,
@@ -66,18 +66,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/kitchendoor0004"
             },
             "x": 282.38,
             "y": 121.95,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -85,7 +85,7 @@
             "label": "door",
             "scope": "PUBLIC",
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/door0001"
             },
             "x": 696.38,
@@ -104,25 +104,25 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/door0004"
             },
             "x": 696.38,
             "y": 70.31,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
             "id": "567bed9c-d052-4910-80f8-02522fcadaa1",
             "label": "pizza_arc",
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/arc"
             },
             "originX": -0.027106261859582544,
@@ -136,7 +136,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/seats"
             },
             "x": 793.8,
@@ -152,7 +152,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/stage"
             },
             "x": 1544.74,
@@ -168,7 +168,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/stagestool"
             },
             "x": 1437.64,
@@ -184,7 +184,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/speaker"
             },
             "x": 1641.6,
@@ -200,7 +200,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/mic"
             },
             "x": 1477.8,
@@ -216,7 +216,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/curtain"
             },
             "x": 1525.16,
@@ -232,7 +232,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/seatback"
             },
             "x": 1053.9,
@@ -248,7 +248,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/squaretable"
             },
             "x": 1244.59,
@@ -264,7 +264,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/desk"
             },
             "x": 604.24,
@@ -280,7 +280,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/chair1"
             },
             "x": 752.85,
@@ -296,7 +296,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/chair2"
             },
             "x": 914.96,
@@ -312,7 +312,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/table1"
             },
             "x": 850.84,
@@ -328,7 +328,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/chair3"
             },
             "x": 1013.74,
@@ -344,7 +344,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/chair4"
             },
             "x": 1153.24,
@@ -360,7 +360,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/table2"
             },
             "x": 1164.26,
@@ -376,7 +376,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/stool"
             },
             "x": 559.13,
@@ -392,7 +392,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/stool"
             },
             "x": 562.5,
@@ -410,7 +410,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 498.94,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/counter"
             },
             "x": 409.5,
@@ -429,7 +429,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 498.94,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/register0001"
             },
             "x": 387.9,
@@ -445,7 +445,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/counter2"
             },
             "x": 363.83,
@@ -463,16 +463,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/stoolbtn0004"
             },
             "x": 1438.88,
             "y": 523.13,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -484,18 +484,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/seatbtn0004"
             },
             "x": 1150.88,
             "y": 574.88,
             "originX": 0.45,
             "originY": 0.49675,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -507,18 +507,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/seatbtn0004"
             },
             "x": 1018.13,
             "y": 694.13,
             "originX": 0.45,
             "originY": 0.4967532467532468,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -530,18 +530,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/seatbtn0004"
             },
             "x": 905.63,
             "y": 502.88,
             "originX": 0.45,
             "originY": 0.4967532467532468,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -553,18 +553,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/seatbtn0004"
             },
             "x": 752.63,
             "y": 550.13,
             "originX": 0.45,
             "originY": 0.4967532467532468,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -576,16 +576,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/stoolbtn0004"
             },
             "x": 559.13,
             "y": 487.13,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -597,16 +597,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/stoolbtn0004"
             },
             "x": 561.38,
             "y": 579.38,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -618,16 +618,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/stoolbtn0004"
             },
             "x": 498.38,
             "y": 664.88,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -635,20 +635,23 @@
             "label": "standbtn",
             "scope": "PUBLIC",
             "components": [
-                "ButtonComponent"
+                "ButtonComponent",
+                "GameTrigger"
             ],
             "ButtonComponent.pixelPerfect": true,
+            "GameTrigger.game_id": "fnaf",
+            "GameTrigger.prompt": "fnaf_prompt",
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/standbtn0004"
             },
             "x": 562.5,
             "y": 362.25,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -660,18 +663,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/registerbtn0004"
             },
             "x": 387.9,
             "y": 408.04,
             "originX": 0.5011818181818182,
             "originY": 0.49963963963963964,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -679,10 +682,12 @@
             "label": "pizzatron_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "pizzatron",
+            "GameTrigger.prompt": "pizzatron_prompt",
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/pizzatron_trigger"
             },
             "x": 376.88,
@@ -701,7 +706,7 @@
             "RoomTrigger.playerX": 1260,
             "RoomTrigger.playerY": 630,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/plaza_trigger"
             },
             "x": 859.5,
@@ -718,7 +723,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/foreground"
             },
             "originX": -0.028756476683937826,
@@ -730,7 +735,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "pizza",
+                "key": "pizza2013",
                 "frame": "pizza/block"
             },
             "originX": 0,
@@ -740,8 +745,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },
@@ -751,7 +756,8 @@
             "label": "triggers",
             "objectIds": [
                 "32f436bf-ec2a-4abe-8777-ea907d1dc6c8",
-                "0afeb940-99be-427f-aac8-2b9f2ca8cacd"
+                "0afeb940-99be-427f-aac8-2b9f2ca8cacd",
+                "3056e6b3-d618-421f-85bd-d425b4e8f318"
             ],
             "scope": "PUBLIC"
         }

@@ -3,10 +3,9 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
-import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
-import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
+import DepthEnabled from "../../../../lib/components/DepthEnabled";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
+import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
@@ -27,153 +26,153 @@ export default class Shop extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("shop-pack", "assets/world/rooms/2013/shop/shop-pack.json");
+        this.load.pack("shop2013-pack", "assets/world/rooms/2013/shop/shop2013-pack.json");
     }
 
     editorCreate(): void {
 
         // shop_base
-        const shop_base = this.add.image(-123.8625, -54.3375, "shop", "shop/base");
+        const shop_base = this.add.image(-123.8625, -54.3375, "shop2013", "shop/base");
         shop_base.setOrigin(0, 0);
 
         // shop_clothes
-        const shop_clothes = this.add.image(399.375, 572.175, "shop", "shop/clothes");
+        const shop_clothes = this.add.image(399.375, 572.175, "shop2013", "shop/clothes");
         shop_clothes.setOrigin(0.48888298, 0.7045933);
 
         // door
-        const door = this.add.image(1170.675, 163.6875, "shop", "shop/door0001");
+        const door = this.add.image(1170.675, 163.6875, "shop2013", "shop/door0001");
         door.setOrigin(0, 0);
 
         // changeroom
-        const changeroom = this.add.image(474.3, 170.8875, "shop", "shop/changeroom0001");
+        const changeroom = this.add.image(474.3, 170.8875, "shop2013", "shop/changeroom0001");
         changeroom.setOrigin(0, 0);
 
         // speakers
-        const speakers = this.add.sprite(608.85, 148.8375, "shop", "shop/speakers0001");
+        const speakers = this.add.sprite(608.85, 148.8375, "shop2013", "shop/speakers0001");
         speakers.setOrigin(0, 0);
 
         // shop_chair2
-        const shop_chair2 = this.add.image(1243.125, 652.3875, "shop", "shop/chair2");
+        const shop_chair2 = this.add.image(1243.125, 652.3875, "shop2013", "shop/chair2");
         shop_chair2.setOrigin(0.48390411, 0.10389313);
 
         // shop_chair1
-        const shop_chair1 = this.add.image(1175.625, 726.1875, "shop", "shop/chair1");
+        const shop_chair1 = this.add.image(1175.625, 726.1875, "shop2013", "shop/chair1");
         shop_chair1.setOrigin(0.4855483870967742, 0.1334108527131783);
 
         // shop_chairback1
-        const shop_chairback1 = this.add.image(328.275, 708.975, "shop", "shop/chairback1");
+        const shop_chairback1 = this.add.image(328.275, 708.975, "shop2013", "shop/chairback1");
         shop_chairback1.setOrigin(0.4854761904761905, 0.49038461538461536);
 
         // shop_chairrest1
-        const shop_chairrest1 = this.add.image(344.475, 780.975, "shop", "shop/chairrest1");
+        const shop_chairrest1 = this.add.image(344.475, 780.975, "shop2013", "shop/chairrest1");
         shop_chairrest1.setOrigin(0.4765979381443299, 0.6707407407407407);
 
         // shop_chairback2
-        const shop_chairback2 = this.add.image(376.2, 841.6125, "shop", "shop/chairback2");
+        const shop_chairback2 = this.add.image(376.2, 841.6125, "shop2013", "shop/chairback2");
         shop_chairback2.setOrigin(0.48622950819672134, 0.49101960784313725);
 
         // shop_chairrest2
-        const shop_chairrest2 = this.add.image(393.8625, 919.125, "shop", "shop/chairrest2");
+        const shop_chairrest2 = this.add.image(393.8625, 919.125, "shop2013", "shop/chairrest2");
         shop_chairrest2.setOrigin(0.48, 0.6520339);
 
         // shop_chair3
-        const shop_chair3 = this.add.image(1528.65, 396.675, "shop", "shop/chair3");
+        const shop_chair3 = this.add.image(1528.65, 396.675, "shop2013", "shop/chair3");
         shop_chair3.setOrigin(0.4826087, 0.42723404);
 
         // shop_desk
-        const shop_desk = this.add.image(1363.05, 406.35, "shop", "shop/desk");
+        const shop_desk = this.add.image(1363.05, 406.35, "shop2013", "shop/desk");
         shop_desk.setOrigin(0, 0);
 
         // register
-        const register = this.add.sprite(1371.6, 299.025, "shop", "shop/registeropen0001");
+        const register = this.add.sprite(1371.6, 299.025, "shop2013", "shop/registeropen0001");
         register.setOrigin(0, 0);
 
         // chest
-        const chest = this.add.image(1451.25, 531.5625, "shop", "shop/chest0001");
+        const chest = this.add.image(1451.25, 531.5625, "shop2013", "shop/chest0001");
         chest.setOrigin(0, 0);
 
         // display
-        const display = this.add.sprite(1517.5125, 421.425, "shop", "shop/display0001");
+        const display = this.add.sprite(1517.5125, 421.425, "shop2013", "shop/display0001");
         display.setOrigin(0, 0);
 
         // shop_foreground1
-        const shop_foreground1 = this.add.image(-74.8125, -20.3625, "shop", "shop/foreground1");
+        const shop_foreground1 = this.add.image(-74.8125, -20.3625, "shop2013", "shop/foreground1");
         shop_foreground1.setOrigin(0, 0);
 
         // shop_foreground2
-        const shop_foreground2 = this.add.image(498.825, 737.4375, "shop", "shop/foreground2");
+        const shop_foreground2 = this.add.image(498.825, 737.4375, "shop2013", "shop/foreground2");
         shop_foreground2.setOrigin(0, 0);
 
         // shop_bluelightflare
-        const shop_bluelightflare = this.add.image(405.1125, -54.225, "shop", "shop/bluelightflare");
+        const shop_bluelightflare = this.add.image(405.1125, -54.225, "shop2013", "shop/bluelightflare");
         shop_bluelightflare.setOrigin(0, 0);
 
         // block
-        const block = this.add.image(0, 0, "shop", "shop/block");
+        const block = this.add.image(0, 0, "shop2013", "shop/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
         // display_button
-        const display_button = this.add.image(1543.8375, 417.2625, "shop", "shop/display_button0004");
+        const display_button = this.add.image(1543.8375, 417.2625, "shop2013", "shop/display_button0004");
         display_button.setOrigin(0, 0);
-        display_button.alpha = 0.01;
-        display_button.alphaTopLeft = 0.01;
-        display_button.alphaTopRight = 0.01;
-        display_button.alphaBottomLeft = 0.01;
-        display_button.alphaBottomRight = 0.01;
+        display_button.alpha = 0.0001;
+        display_button.alphaTopLeft = 0.0001;
+        display_button.alphaTopRight = 0.0001;
+        display_button.alphaBottomLeft = 0.0001;
+        display_button.alphaBottomRight = 0.0001;
 
         // register_button
-        const register_button = this.add.image(1377, 357.75, "shop", "shop/register_button0004");
+        const register_button = this.add.image(1377, 357.75, "shop2013", "shop/register_button0004");
         register_button.setOrigin(0, 0);
-        register_button.alpha = 0.01;
-        register_button.alphaTopLeft = 0.01;
-        register_button.alphaTopRight = 0.01;
-        register_button.alphaBottomLeft = 0.01;
-        register_button.alphaBottomRight = 0.01;
+        register_button.alpha = 0.0001;
+        register_button.alphaTopLeft = 0.0001;
+        register_button.alphaTopRight = 0.0001;
+        register_button.alphaBottomLeft = 0.0001;
+        register_button.alphaBottomRight = 0.0001;
 
         // shop_redemption_trigger
-        const shop_redemption_trigger = this.add.image(1500.75, 648, "shop", "shop/redemption_trigger");
+        const shop_redemption_trigger = this.add.image(1500.75, 648, "shop2013", "shop/redemption_trigger");
         shop_redemption_trigger.visible = false;
 
         // shop_town_trigger
-        const shop_town_trigger = this.add.image(1231.875, 399.375, "shop", "shop/town_trigger");
+        const shop_town_trigger = this.add.image(1231.875, 399.375, "shop2013", "shop/town_trigger");
         shop_town_trigger.visible = false;
 
         // shop_changeroom_trigger
-        const shop_changeroom_trigger = this.add.image(520.875, 450, "shop", "shop/changeroom_trigger");
+        const shop_changeroom_trigger = this.add.image(520.875, 450, "shop2013", "shop/changeroom_trigger");
         shop_changeroom_trigger.visible = false;
 
         // unlockbook
-        const unlockbook = this.add.image(1495.35, 796.1625, "shop", "shop/unlockbook0001");
+        const unlockbook = this.add.image(1495.35, 796.1625, "shop2013", "shop/unlockbook0001");
         unlockbook.setOrigin(0, 0);
 
         // stylebook
-        const stylebook = this.add.image(1501.9875, 922.05, "shop", "shop/stylebook0001");
+        const stylebook = this.add.image(1501.9875, 922.05, "shop2013", "shop/stylebook0001");
         stylebook.setOrigin(0, 0);
 
         // chest_btn
-        const chest_btn = this.add.image(1514.3625, 600.075, "shop", "shop/chest_btn");
-        chest_btn.alpha = 0.01;
-        chest_btn.alphaTopLeft = 0.01;
-        chest_btn.alphaTopRight = 0.01;
-        chest_btn.alphaBottomLeft = 0.01;
-        chest_btn.alphaBottomRight = 0.01;
+        const chest_btn = this.add.image(1514.3625, 600.075, "shop2013", "shop/chest_btn");
+        chest_btn.alpha = 0.0001;
+        chest_btn.alphaTopLeft = 0.0001;
+        chest_btn.alphaTopRight = 0.0001;
+        chest_btn.alphaBottomLeft = 0.0001;
+        chest_btn.alphaBottomRight = 0.0001;
 
         // changeroom_btn
-        const changeroom_btn = this.add.image(510.6375, 312.8625, "shop", "shop/changeroom_btn");
-        changeroom_btn.alpha = 0.01;
-        changeroom_btn.alphaTopLeft = 0.01;
-        changeroom_btn.alphaTopRight = 0.01;
-        changeroom_btn.alphaBottomLeft = 0.01;
-        changeroom_btn.alphaBottomRight = 0.01;
+        const changeroom_btn = this.add.image(510.6375, 312.8625, "shop2013", "shop/changeroom_btn");
+        changeroom_btn.alpha = 0.0001;
+        changeroom_btn.alphaTopLeft = 0.0001;
+        changeroom_btn.alphaTopRight = 0.0001;
+        changeroom_btn.alphaBottomLeft = 0.0001;
+        changeroom_btn.alphaBottomRight = 0.0001;
 
         // door_btn
-        const door_btn = this.add.image(1235.8125, 261.5625, "shop", "shop/door_btn");
-        door_btn.alpha = 0.01;
-        door_btn.alphaTopLeft = 0.01;
-        door_btn.alphaTopRight = 0.01;
-        door_btn.alphaBottomLeft = 0.01;
-        door_btn.alphaBottomRight = 0.01;
+        const door_btn = this.add.image(1235.8125, 261.5625, "shop2013", "shop/door_btn");
+        door_btn.alpha = 0.0001;
+        door_btn.alphaTopLeft = 0.0001;
+        door_btn.alphaTopRight = 0.0001;
+        door_btn.alphaBottomLeft = 0.0001;
+        door_btn.alphaBottomRight = 0.0001;
 
         // lists
         const triggers = [shop_town_trigger];
@@ -183,8 +182,8 @@ export default class Shop extends Phaser.Scene implements Room {
 
         // changeroom (components)
         const changeroomButtonComponent = new ButtonComponent(changeroom);
-        changeroomButtonComponent.upTexture = {"key":"shop","frame":"shop/changeroom0001"};
-        changeroomButtonComponent.overTexture = {"key":"shop","frame":"shop/changeroom0002"};
+        changeroomButtonComponent.upTexture = {"key":"shop2013","frame":"shop/changeroom0001"};
+        changeroomButtonComponent.overTexture = {"key":"shop2013","frame":"shop/changeroom0002"};
         changeroomButtonComponent.handCursor = true;
         changeroomButtonComponent.pixelPerfect = true;
 
@@ -255,8 +254,8 @@ export default class Shop extends Phaser.Scene implements Room {
 
         // unlockbook (components)
         const unlockbookButtonComponent = new ButtonComponent(unlockbook);
-        unlockbookButtonComponent.upTexture = {"key":"shop","frame":"shop/unlockbook0001"};
-        unlockbookButtonComponent.overTexture = {"key":"shop","frame":"shop/unlockbook0002"};
+        unlockbookButtonComponent.upTexture = {"key":"shop2013","frame":"shop/unlockbook0001"};
+        unlockbookButtonComponent.overTexture = {"key":"shop2013","frame":"shop/unlockbook0002"};
         unlockbookButtonComponent.handCursor = true;
         unlockbookButtonComponent.pixelPerfect = true;
         const unlockbookDepthEnabled = new DepthEnabled(unlockbook);
@@ -265,7 +264,7 @@ export default class Shop extends Phaser.Scene implements Room {
 
         // stylebook (components)
         const stylebookButtonComponent = new ButtonComponent(stylebook);
-        stylebookButtonComponent.overTexture = {"key":"shop","frame":"shop/stylebook_open"};
+        stylebookButtonComponent.overTexture = {"key":"shop2013","frame":"shop/stylebook_open"};
         stylebookButtonComponent.handCursor = true;
         stylebookButtonComponent.pixelPerfect = true;
         const stylebookDepthEnabled = new DepthEnabled(stylebook);
@@ -327,13 +326,11 @@ export default class Shop extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 
     get world(): World {
-        return (this.scene.get('World') as World);
+        return this.scene.get('World') as World;
     }
 
     get engine(): Engine {
@@ -341,7 +338,7 @@ export default class Shop extends Phaser.Scene implements Room {
     }
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     public registerOpen: boolean;
@@ -350,35 +347,35 @@ export default class Shop extends Phaser.Scene implements Room {
 
         this.editorCreate();
 
-        this.speakers.play('shop-speakers-animation');
+        this.speakers.play('shop2013-speakers-animation');
 
         this.door_btn.on('over', () => {
             this.door.setFrame('shop/door0002');
-            this.sound.play('shop_dooropen');
+            this.sound.play('shop2013-dooropen');
         });
         this.door_btn.on('out', () => {
             this.door.setFrame('shop/door0001');
-            this.sound.play('shop_doorclose');
+            this.sound.play('shop2013-doorclose');
         });
         this.door_btn.on('release', () => this.world.move(1237.5, 405));
 
         this.changeroom_btn.on('over', () => {
             this.changeroom.setFrame('shop/changeroom0002');
-            this.sound.play('shop_changeroomopen');
+            this.sound.play('shop2013-changeroomopen');
         });
         this.changeroom_btn.on('out', () => {
             this.changeroom.setFrame('shop/changeroom0001');
-            this.sound.play('shop_changeroomclose');
+            this.sound.play('shop2013-changeroomclose');
         });
         this.changeroom_btn.on('release', () => this.world.move(528.75, 438.75));
 
         this.chest_btn.on('over', () => {
             this.chest.setFrame('shop/chest0002');
-            this.sound.play('shop_chestopen');
+            this.sound.play('shop2013-chestopen');
         });
         this.chest_btn.on('out', () => {
             this.chest.setFrame('shop/chest0001');
-            this.sound.play('shop_chestclose');
+            this.sound.play('shop2013-chestclose');
         });
         this.chest_btn.on('release', () => this.world.move(1485, 663.75));
 
@@ -387,12 +384,12 @@ export default class Shop extends Phaser.Scene implements Room {
             if (this.register.anims.isPlaying) return;
 
             if (!this.registerOpen) {
-                this.sound.play('shop_registeropen');
-                this.register.play('shop-registeropen-animation');
+                this.sound.play('shop2013-registeropen');
+                this.register.play('shop2013-registeropen-animation');
                 this.registerOpen = true;
             } else {
-                this.sound.play('shop_registerclose');
-                this.register.play('shop-registerclose-animation');
+                this.sound.play('shop2013-registerclose');
+                this.register.play('shop2013-registerclose-animation');
                 this.registerOpen = false;
             }
         });
@@ -400,14 +397,14 @@ export default class Shop extends Phaser.Scene implements Room {
         this.display_button.on('over', () => {
             if (this.display.anims.isPlaying) return;
 
-            this.sound.play('shop_displayspin');
-            this.display.play('shop-displayspin-animation');
+            this.sound.play('shop2013-displayspin');
+            this.display.play('shop2013-displayspin-animation');
         });
 
-        this.unlockbook.on('over', () => this.sound.play('shop_bookopen'));
-        this.unlockbook.on('out', () => this.sound.play('shop_bookclose'));
+        this.unlockbook.on('over', () => this.sound.play('shop2013-bookopen'));
+        this.unlockbook.on('out', () => this.sound.play('shop2013-bookclose'));
 
-        this.stylebook.on('over', () => this.sound.play('shop_bookopen'));
+        this.stylebook.on('over', () => this.sound.play('shop2013-bookopen'));
 
         this.game.locale.register(this.localize, this);
 
@@ -418,14 +415,14 @@ export default class Shop extends Phaser.Scene implements Room {
         this.stylebook.setFrame(`shop/stylebook${locale.frame}`);
         this.stylebook.off('out');
         this.stylebook.on('out', () => {
-            this.sound.play('shop_bookclose');
+            this.sound.play('shop2013-bookclose');
             this.stylebook.setFrame(`shop/stylebook${locale.frame}`);
         });
     }
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('shop-pack');
+        engine.app.unloadAssetPack('shop2013-pack');
     }
 
     /* END-USER-CODE */

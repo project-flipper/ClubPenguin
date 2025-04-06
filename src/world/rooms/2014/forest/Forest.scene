@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2014/forest/forest-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2014/forest/forest2014-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Forest",
@@ -21,7 +21,7 @@
             "id": "b7283570-33da-4af6-a547-c8555fd85e9f",
             "label": "forest_sky",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/sky"
             },
             "x": -130.6125,
@@ -34,7 +34,7 @@
             "id": "d46d60b9-7f0e-414d-8b3c-7a382eaff759",
             "label": "forest_base",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/base"
             },
             "x": -153,
@@ -50,7 +50,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush"
             },
             "x": 426.825,
@@ -66,7 +66,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush1"
             },
             "x": 443.25,
@@ -82,7 +82,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/tree1"
             },
             "x": 397.0125,
@@ -98,7 +98,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush2"
             },
             "x": 429.1875,
@@ -114,7 +114,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/trunk1"
             },
             "x": 443.1375,
@@ -130,7 +130,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/shadow2"
             },
             "x": 1221.75,
@@ -145,7 +145,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/shadow1"
             },
             "x": 1221.75,
@@ -160,7 +160,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/shadow"
             },
             "x": 1221.75,
@@ -173,13 +173,16 @@
             "label": "waterfallparticles",
             "scope": "PUBLIC",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/waterfallparticles0001"
             },
             "x": 884.25,
             "y": 177.6375,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "forest2014-waterfallparticles-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -187,13 +190,16 @@
             "label": "waterfallmidrolls",
             "scope": "PUBLIC",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/waterfallmidrolls0001"
             },
             "x": 890,
             "y": 223,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "forest2014-waterfallmidrolls-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -201,13 +207,16 @@
             "label": "waterfallfoam",
             "scope": "PUBLIC",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/waterfallfoam0001"
             },
             "x": 875,
             "y": 313,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "forest2014-waterfallfoam-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -215,20 +224,23 @@
             "label": "waterfallrolls",
             "scope": "PUBLIC",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/waterfallrolls0001"
             },
             "x": 881.4,
             "y": 177.725,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "forest2014-waterfallrolls-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
             "id": "e19f0834-5d28-4b20-a61d-03a355c869ef",
             "label": "forest_waterfallside",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/waterfallside"
             },
             "x": 497.025,
@@ -244,7 +256,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/tree"
             },
             "x": 881.1,
@@ -260,7 +272,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/rock"
             },
             "x": 930.825,
@@ -276,7 +288,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/cave"
             },
             "x": 1173.6,
@@ -292,7 +304,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/rock1"
             },
             "x": 1296.3375,
@@ -308,7 +320,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/trunk"
             },
             "x": 1018.35,
@@ -324,7 +336,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/isleright"
             },
             "x": 1312.425,
@@ -340,7 +352,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/tree2"
             },
             "x": 891.225,
@@ -356,7 +368,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/isleleft"
             },
             "x": 450.5625,
@@ -372,7 +384,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush4"
             },
             "x": 1505.7,
@@ -388,7 +400,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/arrow"
             },
             "x": 1544.625,
@@ -404,7 +416,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/stairs"
             },
             "x": 1525.05,
@@ -420,7 +432,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/rock2"
             },
             "x": 688.275,
@@ -436,7 +448,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush3"
             },
             "x": 1599.1875,
@@ -452,7 +464,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/tree3"
             },
             "x": 1669.95,
@@ -468,7 +480,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/tree4"
             },
             "x": 1524.4875,
@@ -484,7 +496,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/rock3"
             },
             "x": 1632.4875,
@@ -500,7 +512,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/tree5"
             },
             "x": 1703.025,
@@ -516,7 +528,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush5"
             },
             "x": 311.9625,
@@ -532,7 +544,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush6"
             },
             "x": 274.3875,
@@ -548,7 +560,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush7"
             },
             "x": 37.6875,
@@ -561,7 +573,7 @@
             "id": "c4647be2-bde0-4e6f-8f9c-d934b4980b29",
             "label": "forest_tree6",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/tree6"
             },
             "x": 17.325,
@@ -574,7 +586,7 @@
             "id": "8adcc41e-a2ec-4acb-81ce-b540b66d678d",
             "label": "forest_bush8",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush8"
             },
             "x": 70.9875,
@@ -590,7 +602,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bush9"
             },
             "x": 56.7,
@@ -609,7 +621,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 825.8625,
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/bigrock"
             },
             "x": 177.075,
@@ -625,7 +637,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/foreground"
             },
             "x": -153.45,
@@ -639,7 +651,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/block"
             },
             "originX": 0,
@@ -656,16 +668,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/trash1_btn0004"
             },
             "x": 177.075,
             "y": 788.9625,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -677,17 +689,17 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/trash2_btn0004"
             },
             "x": -23.7375,
             "y": 760.5,
             "visible": false,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -700,7 +712,7 @@
             "RoomTrigger.playerX": 1395,
             "RoomTrigger.playerY": 742.5,
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/plaza_mc"
             },
             "x": -3.2625,
@@ -720,7 +732,7 @@
             "RoomTrigger.playerX": 585,
             "RoomTrigger.playerY": 468,
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/cove_mc"
             },
             "x": 1539.1125,
@@ -738,7 +750,7 @@
             "RoomTrigger.playerX": 450,
             "RoomTrigger.playerY": 742.5,
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/shack_mc"
             },
             "x": 1602.3375,
@@ -758,7 +770,7 @@
             "RoomTrigger.playerX": 495,
             "RoomTrigger.playerY": 360,
             "texture": {
-                "key": "forest",
+                "key": "forest2014",
                 "frame": "forest/what_mc"
             },
             "x": 114.975,
@@ -770,8 +782,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

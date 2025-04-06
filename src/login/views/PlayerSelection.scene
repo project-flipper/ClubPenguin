@@ -1,0 +1,445 @@
+{
+    "id": "a2205cd9-27c9-470b-b99d-1edc91b94f8e",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "c2af9465-1026-4e79-91b9-ff8dd2f1dd9e",
+            "label": "layer_2",
+            "list": [
+                {
+                    "type": "Container",
+                    "id": "28b15c08-d973-494c-8005-baf1c064e4da",
+                    "label": "gallery1",
+                    "scope": "PUBLIC",
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "f222b769-cba8-4413-84bc-afaaaf885cbd",
+                            "label": "login_screen_itembg",
+                            "texture": {
+                                "key": "login",
+                                "frame": "login-screen/itembg"
+                            },
+                            "x": 580.5,
+                            "y": 90,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "prefabId": "9cc5dc20-06e9-47be-a300-cd5e375beeb5",
+                            "id": "4872b4d1-ae98-40f6-8e18-84b553e91cdf",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item0",
+                            "scope": "PUBLIC",
+                            "x": 855,
+                            "y": 411.75
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "9adfd99d-a3a1-4897-bb97-40718ab6b428",
+                    "label": "gallery2",
+                    "scope": "PUBLIC",
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "d796cc96-53a6-4bc9-ba31-5144aecfdd21",
+                            "label": "login_screen_itembg_1",
+                            "texture": {
+                                "key": "login",
+                                "frame": "login-screen/itembg"
+                            },
+                            "x": 288,
+                            "y": 90,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "type": "Image",
+                            "id": "6bb46df0-9e8f-42dd-b8bf-d428f339da02",
+                            "label": "login_screen_itembg_2",
+                            "texture": {
+                                "key": "login",
+                                "frame": "login-screen/itembg"
+                            },
+                            "x": 873,
+                            "y": 90,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "prefabId": "9cc5dc20-06e9-47be-a300-cd5e375beeb5",
+                            "id": "7227bc14-3256-45ab-887c-243ceac5a501",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item1",
+                            "scope": "PUBLIC",
+                            "x": 562.5,
+                            "y": 411.75
+                        },
+                        {
+                            "prefabId": "9cc5dc20-06e9-47be-a300-cd5e375beeb5",
+                            "id": "1ffcd8f3-db01-4825-990a-f0d8bab1ceda",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item2",
+                            "scope": "PUBLIC",
+                            "x": 1147.5,
+                            "y": 411.75
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "9856385f-94fa-42bc-8516-f42a64c0fb0e",
+                    "label": "gallery3",
+                    "scope": "PUBLIC",
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "fb4e9d7b-7c59-438a-a4ae-0ecc83cbb2f4",
+                            "label": "login_screen_itembg3",
+                            "texture": {
+                                "key": "login",
+                                "frame": "login-screen/itembg3"
+                            },
+                            "x": 85.5,
+                            "y": 90,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "prefabId": "9cc5dc20-06e9-47be-a300-cd5e375beeb5",
+                            "id": "fa79ea47-9ac1-4f13-bbe1-73610d206896",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item3",
+                            "scope": "PUBLIC",
+                            "x": 369,
+                            "y": 411.75
+                        },
+                        {
+                            "prefabId": "9cc5dc20-06e9-47be-a300-cd5e375beeb5",
+                            "id": "ba356ff3-864b-4dc9-bc5a-e09c792369c7",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item4",
+                            "scope": "PUBLIC",
+                            "x": 855,
+                            "y": 411.75
+                        },
+                        {
+                            "prefabId": "9cc5dc20-06e9-47be-a300-cd5e375beeb5",
+                            "id": "369e7c60-0a35-4aab-b1fc-5dbeb205b1ff",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item5",
+                            "scope": "PUBLIC",
+                            "x": 1341,
+                            "y": 411.75
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "f9ef3b47-f19f-45c7-bf89-d053b6ddbd62",
+                    "label": "gallery4",
+                    "scope": "PUBLIC",
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "9b8102b9-84e4-4646-8c97-fc8dbe1f77ef",
+                            "label": "login_screen_itembg4",
+                            "texture": {
+                                "key": "login",
+                                "frame": "login-screen/itembg4"
+                            },
+                            "x": 74.25,
+                            "y": 177.75,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "type": "Image",
+                            "id": "4098010c-0a64-4523-a478-4eb47ed1a20d",
+                            "label": "login_screen_itembg_3",
+                            "texture": {
+                                "key": "login",
+                                "frame": "login-screen/itembg4"
+                            },
+                            "x": 861.75,
+                            "y": 177.75,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "type": "Image",
+                            "id": "f86b4c1e-6e00-4679-b26f-b23e1c3ef79e",
+                            "label": "login_screen_itembg_4",
+                            "texture": {
+                                "key": "login",
+                                "frame": "login-screen/itembg4"
+                            },
+                            "x": 74.25,
+                            "y": 515.25,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "type": "Image",
+                            "id": "851e41ed-1a55-4bbc-a5da-807c79e7a1ef",
+                            "label": "login_screen_itembg_5",
+                            "texture": {
+                                "key": "login",
+                                "frame": "login-screen/itembg4"
+                            },
+                            "x": 861.75,
+                            "y": 515.25,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "e3238167-7660-43d3-b140-b84cef5b733f",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item6",
+                            "scope": "PUBLIC",
+                            "x": 222.75,
+                            "y": 407.25
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "04abdeeb-23b5-410e-bba7-b621d34e83a7",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item7",
+                            "scope": "PUBLIC",
+                            "x": 1010.25,
+                            "y": 407.25
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "daa65192-acd1-4b6b-b7a1-9c1bebc89286",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item8",
+                            "scope": "PUBLIC",
+                            "x": 222.75,
+                            "y": 744.75
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "06b619c6-1b0b-4afa-a8a3-ef5a999ba632",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item9",
+                            "scope": "PUBLIC",
+                            "x": 1010.25,
+                            "y": 744.75
+                        }
+                    ]
+                },
+                {
+                    "type": "Container",
+                    "id": "f2109be0-fa94-4eee-a63d-cfba2e44b223",
+                    "label": "gallery5",
+                    "scope": "PUBLIC",
+                    "visible": false,
+                    "list": [
+                        {
+                            "type": "Image",
+                            "id": "8ba7612e-c455-4e8c-b233-9fc7a32a06eb",
+                            "label": "login_screen_itembg5",
+                            "texture": {
+                                "key": "login",
+                                "frame": "login-screen/itembg5"
+                            },
+                            "x": 119.25,
+                            "y": 90,
+                            "originX": 0,
+                            "originY": 0
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "74d9f366-ee56-49e3-8c48-c6172b9e223e",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item10",
+                            "scope": "PUBLIC",
+                            "x": 270,
+                            "y": 319.5
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "b10e6039-27a0-4143-b7d6-fdabba526bff",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item11",
+                            "scope": "PUBLIC",
+                            "x": 967.5,
+                            "y": 319.5
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "6bb9f6d5-8fc5-4e3c-ab6d-969609ed9816",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item12",
+                            "scope": "PUBLIC",
+                            "x": 270,
+                            "y": 567
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "e60c34a8-b657-44e6-b374-f788bb411108",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item13",
+                            "scope": "PUBLIC",
+                            "x": 967.5,
+                            "y": 567
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "cafc39bf-d886-483d-9b3c-77b3450039be",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item14",
+                            "scope": "PUBLIC",
+                            "x": 270,
+                            "y": 814.5
+                        },
+                        {
+                            "prefabId": "388959b7-c107-4e36-b6bc-5b98591a1a75",
+                            "id": "ce6b20f6-19f8-4aa1-8989-04a0a99e3e54",
+                            "unlock": [
+                                "x",
+                                "y"
+                            ],
+                            "label": "item15",
+                            "scope": "PUBLIC",
+                            "x": 967.5,
+                            "y": 814.5
+                        }
+                    ]
+                },
+                {
+                    "type": "Image",
+                    "id": "c7103f12-539b-4c8a-be07-5355b58d2bf5",
+                    "label": "differentButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/moreGalleryHover"
+                    },
+                    "x": 856.01,
+                    "y": 988.65,
+                    "alpha": 0.0001,
+                    "alphaTopLeft": 0.0001,
+                    "alphaTopRight": 0.0001,
+                    "alphaBottomLeft": 0.0001,
+                    "alphaBottomRight": 0.0001
+                },
+                {
+                    "type": "Sprite",
+                    "id": "b908696b-a9ea-4ce3-9dc9-1d092ba84e47",
+                    "label": "different",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/moreGallery0001"
+                    },
+                    "x": 856.01,
+                    "y": 988.65,
+                    "visible": false
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "5eb941ed-e8e3-4833-86d4-5efbff2cfef8",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "text",
+                        "fontSize",
+                        "font"
+                    ],
+                    "label": "differentLabel",
+                    "scope": "PUBLIC",
+                    "boxWidth": 1431.225,
+                    "boxHeight": 52.2,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 136.35,
+                    "y": 961.43,
+                    "text": "Login as a different penguin",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": 36
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

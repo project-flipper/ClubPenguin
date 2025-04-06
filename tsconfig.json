@@ -7,7 +7,8 @@
         "lib": [
             "DOM",
             "ScriptHost",
-            "ESNext"
+            "ESNext",
+            "DOM.Iterable"
         ],
         "sourceMap": true,
         "resolveJsonModule": true,
@@ -24,5 +25,5 @@
         },
         "useDefineForClassFields": false
     },
-    "include": ["src/**/*"]
+    "include": ["src/**/*"],
 }

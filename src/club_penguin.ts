@@ -1,8 +1,14 @@
+import "phaser";
 import "devtools-detect";
-import Phaser from "phaser";
 
-if ('Phaser' in global) delete global['Phaser'];
+if ('Phaser' in global && !__webpack_options__.EXPOSE_DEBUG) delete global['Phaser'];
 Phaser.Plugins.PluginCache.register('Loader', LoaderPlugin, 'load');
+Phaser.Loader.FileTypesManager.register('fontFace', function (this: LoaderPlugin, key: string | FontFaceFileConfig | FontFaceFileConfig[], url?: string, family?: string, xhrSettings?: Phaser.Types.Loader.XHRSettingsObject): LoaderPlugin {
+    if (Array.isArray(key)) for (let i of key) this.addFile(new FontFaceFile(this, i));
+    else if (typeof key == 'string') this.addFile(new FontFaceFile(this, key, url, family, xhrSettings));
+    else this.addFile(new FontFaceFile(this, key));
+    return this;
+});
 
 import { App } from "@clubpenguin/app/app";
 import Bootstrap from "@clubpenguin/boot/Bootstrap";
@@ -18,7 +24,7 @@ import Logo from "@clubpenguin/logo/Logo";
 import World from "@clubpenguin/world/World";
 import Interface from "@clubpenguin/world/interface/Interface";
 import { Debug } from "@clubpenguin/debug";
-import { LoaderPlugin } from "@clubpenguin/app/loader";
+import { LoaderPlugin, FontFaceFile, FontFaceFileConfig } from "@clubpenguin/app/loader";
 import { ColorLevelFormatter, getLogger, LogLevel } from "@clubpenguin/lib/log";
 
 let logger = getLogger('CP');
@@ -34,13 +40,21 @@ logger.formatter = new ColorLevelFormatter('%c{level}%c %c[%c{now}%c] [%c{name}%
 
 let app: App;
 
+window.addEventListener('devtoolschange', event => {
+    if (event.detail.isOpen && app) console.log(
+        app.getDevtoolsWarnMessage(),
+        'font-weight: bold; color: red; font-size: 350%; background: navy;',
+        'color: red; font-size: 250%; background: navy;',
+        'color: lime; font-size: 200%; background: teal;',
+        'color: white; font-size: 150%; background: olive;'
+    );
+});
+
 interface RunParams {
     parentId: string,
     elementId: string,
     elementClassName: string,
     language: string,
-    apiPath: string,
-    mediaPath: string,
     crossOrigin: string,
     cacheVersion: string,
     contentVersion: string,
@@ -53,9 +67,49 @@ declare global {
     const __webpack_options__: {
         EXPOSE_DEBUG: boolean,
         RECAPTCHA_SITE_KEY: string,
-        LOG_LEVEL: number
+        LOG_LEVEL: number,
+        FPS_LIMIT: number
+    };
+    const __experiments__: {
+        [key: string]: any
+    };
+    const __environment__: {
+        language: string;
+        apiPath: string;
+        mediaPath: string;
+        crossOrigin: string;
+        cacheVersion: string;
+        contentVersion: string;
+        minigameVersion: string;
+        environmentType: string;
+        links: {
+            home: string;
+            play: string;
+            community: string;
+            support: string;
+            secured: string;
+            blog: string;
+            help: string;
+            parents: string;
+            membership: string;
+            exit: string;
+            company: string;
+            terms: string;
+            privacy: string;
+            contact: string;
+            sitemap: string;
+            forgotPassword: string;
+            createAccount: string;
+            guide: string;
+            playerSafety: string;
+            toys: string;
+        };
+        recaptchaSiteKey: string;
     };
     const __webpack_public_path__: string;
+    interface NodeRequire {
+        resolveWeak: (dependency: string) => number;
+    }
 
     /* ========== PLAY PAGE ========== */
     interface Window {
@@ -68,20 +122,29 @@ declare global {
     }
 }
 
+/**
+ * Handles the app crashing by delegating to a handler in the playpage, if available.
+ */
 function onAppCrash(): void {
     if (window.handleGameError) window.handleGameError({ handled: false });
     stop(true);
 }
 
+/**
+ * Checks if the browser is compatible with Club Penguin.
+ * @returns Whether the browser is compatible with Club Penguin.
+ */
 export function isBrowserCompatible(): boolean {
     return (
         typeof fetch == 'function' &&
-        typeof crypto == 'object' &&
-        typeof crypto.subtle == 'object' &&
         typeof WebSocket == 'function'
     );
 }
 
+/**
+ * Runs the Club Penguin app.
+ * @param params The parameters to run the app with.
+ */
 export function run(params: RunParams): void {
     stop();
 
@@ -93,7 +156,7 @@ export function run(params: RunParams): void {
         title: 'Club Penguin',
         banner: false,
         backgroundColor: 0xffffff,
-        transparent: false,
+        transparent: true,
         scene: [
             Bootstrap,
             Create,
@@ -117,7 +180,7 @@ export function run(params: RunParams): void {
         },
         fps: {
             target: 24,
-            limit: 24
+            limit: __webpack_options__.FPS_LIMIT
         },
         dom: {
             createContainer: true
@@ -142,10 +205,12 @@ export function run(params: RunParams): void {
             }
         },
         loader: {
-            baseURL: params.mediaPath,
-            maxParallelDownloads: 10,
-            crossOrigin: params.crossOrigin
+            baseURL: __environment__.mediaPath,
+            crossOrigin: params.crossOrigin,
+            maxRetries: 1
         },
+        autoMobilePipeline: true,
+        antialias: true,
         powerPreference: 'high-performance',
         failIfMajorPerformanceCaveat: true,
         callbacks: {
@@ -153,12 +218,12 @@ export function run(params: RunParams): void {
                 if (params.elementId) app.canvas.id = params.elementId;
                 if (params.elementClassName) app.canvas.className = params.elementClassName;
 
-                app.friends.init(params.mediaPath, app.airtower.createAvatarUrlCallback());
+                app.friends.init(__environment__.mediaPath, app.airtower.createAvatarUrlCallback());
             }
         }
     }, {
         language: params.language,
-        apiPath: params.apiPath,
+        apiPath: __environment__.apiPath,
         cacheVersion: params.cacheVersion,
         contentVersion: params.contentVersion,
         minigameVersion: params.minigameVersion,
@@ -166,13 +231,27 @@ export function run(params: RunParams): void {
     });
     app.onCrash = onAppCrash;
 
+    lang = params.language;
+    elementId = params.elementId;
+
     LoaderPlugin.cacheVersion = params.cacheVersion;
 }
 
+export let lang: string;
+export let elementId: string;
+
+/**
+ * Checks if the Club Penguin app is currently running.
+ * @returns Whether the Club Penguin app is currently running.
+ */
 export function isRunning(): boolean {
     return app !== undefined;
 }
 
+/**
+ * Handles the window resize event, or forces a reposition.
+ * @param repositionFriends Whether to reposition the friends list.
+ */
 export function sizeChange(repositionFriends = false): void {
     if (!isRunning()) return;
 
@@ -182,70 +261,124 @@ export function sizeChange(repositionFriends = false): void {
     if (repositionFriends) app.friends.reposition();
 }
 
+/**
+ * Handles navigating to a new page.
+ * @param redirectUrl The URL to redirect to after logging off.
+ */
 export function handleLogOff(redirectUrl: string): void {
     stop(true);
 
     if (redirectUrl) window.location.href = redirectUrl;
 }
 
+/**
+ * Alias for {@link handleLogOff}.
+ */
 export let handleWindowUnload = handleLogOff;
 
+/**
+ * Alias for {@link handleLogOff}.
+ */
 export let handleBack = handleLogOff;
 
+/**
+ * Handles resubmitting a name for approval.
+ */
 export function handleNameResubmit(): void {
 
 }
 
+/**
+ * Handles showing the preactivation screen.
+ */
 export function handleShowPreactivation(): void {
 
 }
 
+/**
+ * Handles an external event from the friends list.
+ * @param event The event to handle.
+ * @param params The parameters to handle the event with.
+ */
 export function friendsEventHandler(event: string, params: any[]): void {
     if (!isRunning()) return;
 
     app.friends.friendsEventHandler(event, params);
 }
 
+/**
+ * Sends a buddy request to a buddy.
+ * @param swid The SWID of the buddy to send a request to.
+ */
 export function sendBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
     app.friends.sendBuddyRequest(swid);
 }
 
+/**
+ * Accepts a buddy request from a buddy.
+ * @param swid The SWID of the buddy to accept a request from.
+ */
 export function sendAcceptBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
     app.friends.sendAcceptBuddyRequest(swid);
 }
 
+/**
+ * Rejects a buddy request from a buddy.
+ * @param swid The SWID of the buddy to reject a request from.
+ */
 export function sendRejectBuddyRequest(swid: string): void {
     if (!isRunning()) return;
 
     app.friends.sendRejectBuddyRequest(swid);
 }
 
+/**
+ * Toggles a buddy's best friend status.
+ * @param swid The SWID of the buddy to toggle the best friend status of.
+ * @returns 
+ */
 export function sendToggleBestFriend(swid: string): void {
     if (!isRunning()) return;
 
     app.friends.sendToggleBestFriend(swid);
 }
 
+/**
+ * Toggles a character's best friend status.
+ * @param id The ID of the character to toggle the best friend status of.
+ */
 export function sendToggleBestCharacter(id: string): void {
     if (!isRunning()) return;
 
     app.friends.sendToggleBestCharacter(id);
 }
 
+/**
+ * Stops the Club Penguin app.
+ * @param terminate Whether to destroy all game systems.
+ */
 export function stop(terminate = false): void {
     if (isRunning()) {
         logger.info('Stopping app');
-        //app.airtower.close();
-        app.destroy(false, terminate);
+        let activeWorld = app.scene.getScene('World') as World;
+        if (activeWorld) activeWorld.stop();
+        app.cleaner.purge(true);
+        app.destroy(true, terminate);
     }
+    lang = undefined;
+    elementId = undefined;
 }
 
 logger.info('Club Penguin ready');
 
+/**
+ * The debug instance for Club Penguin.
+ * Only available if the debug mode is enabled.
+ */
 export let debug: Debug;
 
 if (__webpack_options__.EXPOSE_DEBUG) debug = new Debug(() => app);

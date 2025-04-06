@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
@@ -32,13 +31,11 @@ export default class Stage extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 
     get world(): World {
-        return (this.scene.get('World') as World);
+        return this.scene.get('World') as World;
     }
 
     get engine(): Engine {
@@ -46,7 +43,7 @@ export default class Stage extends Phaser.Scene implements Room {
     }
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     create(data: any) {

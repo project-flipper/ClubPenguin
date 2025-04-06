@@ -34,7 +34,8 @@
                         "fontColor",
                         "backgroundStrokeColor",
                         "inputType",
-                        "autocomplete"
+                        "autocomplete",
+                        "marginLeft"
                     ],
                     "label": "nameTextField",
                     "scope": "PUBLIC",
@@ -42,12 +43,13 @@
                     "fieldWidth": 456.525,
                     "fieldHeight": 63.1125,
                     "maxLength": 12,
-                    "font": "BurbankSmallMedium",
-                    "fontSize": -45,
+                    "font": "Burbank Small Medium",
+                    "fontSize": "45px",
                     "fontColor": "#000000",
                     "backgroundIsStroked": true,
                     "backgroundStrokeWidth": 2,
                     "backgroundStrokeColor": "#000000",
+                    "marginLeft": 4.5,
                     "autocomplete": "username",
                     "x": 711,
                     "y": 135
@@ -68,7 +70,8 @@
                         "fontColor",
                         "backgroundStrokeColor",
                         "inputType",
-                        "autocomplete"
+                        "autocomplete",
+                        "marginLeft"
                     ],
                     "label": "passwordTextField",
                     "scope": "PUBLIC",
@@ -76,12 +79,13 @@
                     "fieldWidth": 456.525,
                     "fieldHeight": 63.1125,
                     "maxLength": 32,
-                    "font": "BurbankSmallMedium",
-                    "fontSize": -45,
+                    "font": "Burbank Small Medium",
+                    "fontSize": "45px",
                     "fontColor": "#000000",
                     "backgroundIsStroked": true,
                     "backgroundStrokeWidth": 2,
                     "backgroundStrokeColor": "#000000",
+                    "marginLeft": 4.5,
                     "autocomplete": "password",
                     "x": 711,
                     "y": 202.5
@@ -122,7 +126,7 @@
                     "text": "Penguin name:",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -160,7 +164,7 @@
                     "text": "Password:",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "f58c5cab-2cab-446d-beda-1099ff2e1881",
@@ -211,7 +215,7 @@
                     "text": "Remember me on this computer",
                     "font": "BurbankSmallMedium",
                     "align": 0,
-                    "fontSize": -36,
+                    "fontSize": 36,
                     "maxWidth": 760.3875
                 },
                 {
@@ -251,7 +255,7 @@
                     "text": "Remember my password",
                     "font": "BurbankSmallMedium",
                     "align": 0,
-                    "fontSize": -36,
+                    "fontSize": 36,
                     "maxWidth": 760.3875
                 },
                 {
@@ -313,7 +317,7 @@
                     "text": "Login",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -45
+                    "fontSize": 45
                 },
                 {
                     "type": "Rectangle",
@@ -322,7 +326,7 @@
                     "scope": "PUBLIC",
                     "x": 853.7625,
                     "y": 620.55,
-                    "alpha": 0.01,
+                    "alpha": 0.0001,
                     "isFilled": true,
                     "fillColor": "#56e4d7",
                     "width": 486,
@@ -369,7 +373,7 @@
                     "text": "Forgot your password?",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "type": "Rectangle",
@@ -378,7 +382,7 @@
                     "scope": "PUBLIC",
                     "x": 859.5,
                     "y": 747,
-                    "alpha": 0.01,
+                    "alpha": 0.0001,
                     "isFilled": true,
                     "fillColor": "#56e4d7",
                     "width": 685.575,
@@ -435,7 +439,7 @@
                     "text": "Don't have a penguin?",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -463,7 +467,7 @@
                     "text": "Create a free account now",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -38.25
+                    "fontSize": 38.25
                 },
                 {
                     "type": "Rectangle",
@@ -472,7 +476,7 @@
                     "scope": "PUBLIC",
                     "x": 852.75,
                     "y": 876.375,
-                    "alpha": 0.01,
+                    "alpha": 0.0001,
                     "isFilled": true,
                     "fillColor": "#56e4d7",
                     "width": 470.7,
@@ -519,7 +523,7 @@
                     "text": "Club Penguin Rules",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -40.5
+                    "fontSize": 40.5
                 },
                 {
                     "type": "Rectangle",
@@ -528,7 +532,7 @@
                     "scope": "PUBLIC",
                     "x": 853.7625,
                     "y": 991.0125,
-                    "alpha": 0.01,
+                    "alpha": 0.0001,
                     "isFilled": true,
                     "fillColor": "#56e4d7",
                     "width": 486,
@@ -575,7 +579,7 @@
                     "text": "Back",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "type": "Image",
@@ -596,8 +600,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

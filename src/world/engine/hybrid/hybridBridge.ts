@@ -1,8 +1,7 @@
-import Phaser from "phaser"
 import { RufflePlayer } from "./ruffle";
 import { getLogger } from "@clubpenguin/lib/log";
 
-let logger = getLogger('CP.world.engine.hybrid.hybridBridge');
+let logger = getLogger('CP.world.engine.hybrid');
 
 export type BridgedPlayer = RufflePlayer & {
     messageFromHTML5(payload: string): void;
@@ -27,6 +26,10 @@ export type HybridHandlers = {
     stopGameMusic(): void;
     hideLoading(): void;
     airtowerMessage(command: string, args: any[]): void;
+    getActiveWaddleId(): number;
+    showPrompt(style: string, message: string, file: string): void;
+    sendJoinLastRoom(): void;
+    closePrompt(): void;
     endGame(score: number, room: undefined): void;
 };
 
@@ -111,6 +114,6 @@ export class HybridBridge {
      */
     sendSafe(_op: string, ..._parameters: any): void {
         // I unfortunately have to delegate this to a setTimeout because ruffle cannot call itself (see ruffle issue #10791)
-        setTimeout(() => this.send.apply(this, arguments), 200);
+        setTimeout(() => this.send.apply(this, arguments), 10);
     }
 }

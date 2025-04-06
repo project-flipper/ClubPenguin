@@ -3,11 +3,10 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
-import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
-import Trigger from "../../../../lib/ui/components/Trigger";
-import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
+import DepthEnabled from "../../../../lib/components/DepthEnabled";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
+import GameTrigger from "../../../../lib/components/GameTrigger";
+import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
@@ -28,153 +27,153 @@ export default class Dock extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("dock-pack", "assets/world/rooms/2013/dock/dock-pack.json");
+        this.load.pack("dock2013-pack", "assets/world/rooms/2013/dock/dock2013-pack.json");
     }
 
     editorCreate(): void {
 
         // dock_sky
-        const dock_sky = this.add.image(-22.5, -22.5, "dock", "dock/sky");
+        const dock_sky = this.add.image(-22.5, -22.5, "dock2013", "dock/sky");
         dock_sky.setOrigin(0, 0);
 
         // dock_base
-        const dock_base = this.add.image(-80.55, 34.65, "dock", "dock/base");
+        const dock_base = this.add.image(-80.55, 34.65, "dock2013", "dock/base");
         dock_base.setOrigin(0, 0);
 
         // dock_stairs
-        const dock_stairs = this.add.image(411.975, 473.2875, "dock", "dock/stairs");
+        const dock_stairs = this.add.image(411.975, 473.2875, "dock2013", "dock/stairs");
         dock_stairs.setOrigin(0.49320122, 0.24320635);
 
         // boat_container
         const boat_container = this.add.container(28.9125, 596.7);
 
         // dock_boat
-        const dock_boat = this.add.image(0, 0, "dock", "dock/boat");
+        const dock_boat = this.add.image(0, 0, "dock2013", "dock/boat");
         dock_boat.setOrigin(0, 0);
         boat_container.add(dock_boat);
 
         // tube
-        const tube = this.add.image(61, 95, "dock", "dock/tube");
+        const tube = this.add.image(61, 95, "dock2013", "dock/tube");
         tube.setOrigin(0, 0);
         tube.visible = false;
         boat_container.add(tube);
 
         // dock_dock
-        const dock_dock = this.add.image(0, 0, "dock", "dock/dock");
+        const dock_dock = this.add.image(0, 0, "dock2013", "dock/dock");
         dock_dock.setOrigin(0.0932243, -0.71443869);
 
         // dock_spike2
-        const dock_spike2 = this.add.image(332.2125, 974.3625, "dock", "dock/spike2");
+        const dock_spike2 = this.add.image(332.2125, 974.3625, "dock2013", "dock/spike2");
         dock_spike2.setOrigin(0.47807692307692307, 0.7297297297297297);
 
         // dock_frozenFountain
-        const dock_frozenFountain = this.add.image(1644.975, 671.625, "dock", "dock/frozenFountain");
+        const dock_frozenFountain = this.add.image(1644.975, 671.625, "dock2013", "dock/frozenFountain");
         dock_frozenFountain.setOrigin(0.49477752, 0.77647059);
 
         // dock_snow
-        const dock_snow = this.add.image(1364.625, 861.975, "dock", "dock/snow");
+        const dock_snow = this.add.image(1364.625, 861.975, "dock2013", "dock/snow");
         dock_snow.setOrigin(0.49748744, 0.85820847);
 
         // dock_spike1
-        const dock_spike1 = this.add.image(608.2875, 728.8875, "dock", "dock/spike1");
+        const dock_spike1 = this.add.image(608.2875, 728.8875, "dock2013", "dock/spike1");
         dock_spike1.setOrigin(0.47269662921348315, 0.5542682926829269);
 
         // tubes
-        const tubes = this.add.sprite(594, 832.6125, "dock", "dock/tubes0001");
+        const tubes = this.add.sprite(594, 832.6125, "dock2013", "dock/tubes0001");
         tubes.setOrigin(0.514006734006734, 0.8076264591439689);
 
         // dock_board
-        const dock_board = this.add.image(769.05, 604.575, "dock", "dock/board");
+        const dock_board = this.add.image(769.05, 604.575, "dock2013", "dock/board");
         dock_board.setOrigin(0, 0);
 
         // catalog
-        const catalog = this.add.sprite(789.975, 673.65, "dock", "dock/catalog0001");
+        const catalog = this.add.sprite(789.975, 673.65, "dock2013", "dock/catalog0001");
         catalog.setOrigin(0, 0);
 
         // dock_beacon
-        const dock_beacon = this.add.image(534.825, 570.6, "dock", "dock/beacon");
+        const dock_beacon = this.add.image(534.825, 570.6, "dock2013", "dock/beacon");
         dock_beacon.setOrigin(0.4724444444444445, 0.5458450704225353);
 
         // dock_bench
-        const dock_bench = this.add.image(200.25, 362.3625, "dock", "dock/bench");
+        const dock_bench = this.add.image(200.25, 362.3625, "dock2013", "dock/bench");
         dock_bench.setOrigin(0.49014085, 0.4925);
 
         // dock_benchSide
-        const dock_benchSide = this.add.image(130.05, 434.8125, "dock", "dock/benchSide");
+        const dock_benchSide = this.add.image(130.05, 434.8125, "dock2013", "dock/benchSide");
         dock_benchSide.setOrigin(0.48789474, 0.732);
 
         // dock_table
-        const dock_table = this.add.image(1053.7875, 360.5625, "dock", "dock/table");
+        const dock_table = this.add.image(1053.7875, 360.5625, "dock2013", "dock/table");
         dock_table.setOrigin(0.49178571, 0.39712121);
 
         // block
-        const block = this.add.image(0, 0, "dock", "dock/block");
+        const block = this.add.image(0, 0, "dock2013", "dock/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
         // dock_catalogIcon
-        const dock_catalogIcon = this.add.image(1619.8875, 1001.025, "dock", "dock/catalogIcon");
+        const dock_catalogIcon = this.add.image(1619.8875, 1001.025, "dock2013", "dock/catalogIcon");
 
         // catalog_btn
-        const catalog_btn = this.add.image(850.05, 717.6375, "dock", "dock/catalogArea");
-        catalog_btn.alpha = 0.01;
-        catalog_btn.alphaTopLeft = 0.01;
-        catalog_btn.alphaTopRight = 0.01;
-        catalog_btn.alphaBottomLeft = 0.01;
-        catalog_btn.alphaBottomRight = 0.01;
+        const catalog_btn = this.add.image(850.05, 717.6375, "dock2013", "dock/catalogArea");
+        catalog_btn.alpha = 0.0001;
+        catalog_btn.alphaTopLeft = 0.0001;
+        catalog_btn.alphaTopRight = 0.0001;
+        catalog_btn.alphaBottomLeft = 0.0001;
+        catalog_btn.alphaBottomRight = 0.0001;
 
         // tubes_btn
-        const tubes_btn = this.add.image(594, 832.6125, "dock", "dock/tubes_btn0004");
+        const tubes_btn = this.add.image(594, 832.6125, "dock2013", "dock/tubes_btn0004");
         tubes_btn.setOrigin(0.5225500000000001, 0.7348538011695906);
-        tubes_btn.alpha = 0.01;
-        tubes_btn.alphaTopLeft = 0.01;
-        tubes_btn.alphaTopRight = 0.01;
-        tubes_btn.alphaBottomLeft = 0.01;
-        tubes_btn.alphaBottomRight = 0.01;
+        tubes_btn.alpha = 0.0001;
+        tubes_btn.alphaTopLeft = 0.0001;
+        tubes_btn.alphaTopRight = 0.0001;
+        tubes_btn.alphaBottomLeft = 0.0001;
+        tubes_btn.alphaBottomRight = 0.0001;
 
         // boat_btn
-        const boat_btn = this.add.image(25.2, 596.3625, "dock", "dock/boat_btn0004");
+        const boat_btn = this.add.image(25.2, 596.3625, "dock2013", "dock/boat_btn0004");
         boat_btn.setOrigin(0, 0);
-        boat_btn.alpha = 0.01;
-        boat_btn.alphaTopLeft = 0.01;
-        boat_btn.alphaTopRight = 0.01;
-        boat_btn.alphaBottomLeft = 0.01;
-        boat_btn.alphaBottomRight = 0.01;
+        boat_btn.alpha = 0.0001;
+        boat_btn.alphaTopLeft = 0.0001;
+        boat_btn.alphaTopRight = 0.0001;
+        boat_btn.alphaBottomLeft = 0.0001;
+        boat_btn.alphaBottomRight = 0.0001;
 
         // town_btn
-        const town_btn = this.add.image(1524.375, 238.5, "dock", "dock/town_btn0004");
-        town_btn.alpha = 0.01;
-        town_btn.alphaTopLeft = 0.01;
-        town_btn.alphaTopRight = 0.01;
-        town_btn.alphaBottomLeft = 0.01;
-        town_btn.alphaBottomRight = 0.01;
+        const town_btn = this.add.image(1524.375, 238.5, "dock2013", "dock/town_btn0004");
+        town_btn.alpha = 0.0001;
+        town_btn.alphaTopLeft = 0.0001;
+        town_btn.alphaTopRight = 0.0001;
+        town_btn.alphaBottomLeft = 0.0001;
+        town_btn.alphaBottomRight = 0.0001;
 
         // beach_btn
-        const beach_btn = this.add.image(408, 271, "dock", "dock/beach_btn0004");
-        beach_btn.alpha = 0.01;
-        beach_btn.alphaTopLeft = 0.01;
-        beach_btn.alphaTopRight = 0.01;
-        beach_btn.alphaBottomLeft = 0.01;
-        beach_btn.alphaBottomRight = 0.01;
+        const beach_btn = this.add.image(408, 271, "dock2013", "dock/beach_btn0004");
+        beach_btn.alpha = 0.0001;
+        beach_btn.alphaTopLeft = 0.0001;
+        beach_btn.alphaTopRight = 0.0001;
+        beach_btn.alphaBottomLeft = 0.0001;
+        beach_btn.alphaBottomRight = 0.0001;
 
         // village_btn
-        const village_btn = this.add.image(613.125, 146.25, "dock", "dock/village_btn0004");
-        village_btn.alpha = 0.01;
-        village_btn.alphaTopLeft = 0.01;
-        village_btn.alphaTopRight = 0.01;
-        village_btn.alphaBottomLeft = 0.01;
-        village_btn.alphaBottomRight = 0.01;
+        const village_btn = this.add.image(613.125, 146.25, "dock2013", "dock/village_btn0004");
+        village_btn.alpha = 0.0001;
+        village_btn.alphaTopLeft = 0.0001;
+        village_btn.alphaTopRight = 0.0001;
+        village_btn.alphaBottomLeft = 0.0001;
+        village_btn.alphaBottomRight = 0.0001;
 
         // dock_village_trigger
-        const dock_village_trigger = this.add.image(762.75, 315.1125, "dock", "dock/village_trigger");
+        const dock_village_trigger = this.add.image(762.75, 315.1125, "dock2013", "dock/village_trigger");
         dock_village_trigger.visible = false;
 
         // dock_town_trigger
-        const dock_town_trigger = this.add.image(1588.3875, 380.3625, "dock", "dock/town_trigger");
+        const dock_town_trigger = this.add.image(1588.3875, 380.3625, "dock2013", "dock/town_trigger");
         dock_town_trigger.visible = false;
 
         // dock_beach_trigger
-        const dock_beach_trigger = this.add.image(398.25, 328.6125, "dock", "dock/beach_trigger");
+        const dock_beach_trigger = this.add.image(398.25, 328.6125, "dock2013", "dock/beach_trigger");
         dock_beach_trigger.visible = false;
 
         // lists
@@ -232,8 +231,8 @@ export default class Dock extends Phaser.Scene implements Room {
 
         // dock_catalogIcon (components)
         const dock_catalogIconButtonComponent = new ButtonComponent(dock_catalogIcon);
-        dock_catalogIconButtonComponent.upTexture = {"key":"dock","frame":"dock/catalogIcon"};
-        dock_catalogIconButtonComponent.overTexture = {"key":"dock","frame":"dock/catalogIconOver"};
+        dock_catalogIconButtonComponent.upTexture = {"key":"dock2013","frame":"dock/catalogIcon"};
+        dock_catalogIconButtonComponent.overTexture = {"key":"dock2013","frame":"dock/catalogIconOver"};
         dock_catalogIconButtonComponent.handCursor = true;
         dock_catalogIconButtonComponent.pixelPerfect = true;
         const dock_catalogIconDepthEnabled = new DepthEnabled(dock_catalogIcon);
@@ -253,7 +252,9 @@ export default class Dock extends Phaser.Scene implements Room {
         const boat_btnButtonComponent = new ButtonComponent(boat_btn);
         boat_btnButtonComponent.handCursor = true;
         boat_btnButtonComponent.pixelPerfect = true;
-        new Trigger(boat_btn);
+        const boat_btnGameTrigger = new GameTrigger(boat_btn);
+        boat_btnGameTrigger.game_id = "hydro";
+        boat_btnGameTrigger.prompt = "hydro_prompt";
 
         // town_btn (components)
         const town_btnButtonComponent = new ButtonComponent(town_btn);
@@ -319,13 +320,11 @@ export default class Dock extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 
     get world(): World {
-        return (this.scene.get('World') as World);
+        return this.scene.get('World') as World;
     }
 
     get engine(): Engine {
@@ -333,7 +332,7 @@ export default class Dock extends Phaser.Scene implements Room {
     }
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     create(data: any) {
@@ -341,7 +340,7 @@ export default class Dock extends Phaser.Scene implements Room {
         this.editorCreate();
 
         this.catalog_btn.on('over', () => {
-            this.catalog.play('dock-catalog-animation');
+            this.catalog.play('dock2013-catalog-animation');
         });
         this.catalog_btn.on('out', () => {
             this.catalog.stop();
@@ -359,8 +358,8 @@ export default class Dock extends Phaser.Scene implements Room {
         this.boat_btn.on('release', () => this.world.move(247.5, 720));
 
         this.tubes_btn.on('over', () => {
-            this.sound.play('dock_tubes');
-            this.tubes.play('dock-tubes-animation');
+            this.sound.play('dock2013-tubes');
+            this.tubes.play('dock2013-tubes-animation');
         });
 
         this.town_btn.on('release', () => this.world.move(1541.25, 371.25));
@@ -378,13 +377,6 @@ export default class Dock extends Phaser.Scene implements Room {
             hold: 250
         });
 
-        Trigger.getComponent(this.boat_btn).execute = (engine, player) => {
-            if (engine.player != player) return;
-            this.interface.promptQuestion.showLocalized('hydro_prompt', () => {
-                this.world.startGame('hydro', {});
-            }, () => { });
-        }
-
         this.game.locale.register(this.localize, this);
 
         if (data.onready) data.onready(this);
@@ -396,7 +388,7 @@ export default class Dock extends Phaser.Scene implements Room {
 
     unload(engine: Engine): void {
         this.game.locale.unregister(this.localize);
-        engine.app.unloadAssetPack('dock-pack');
+        engine.app.unloadAssetPack('dock2013-pack');
     }
 
     /* END-USER-CODE */

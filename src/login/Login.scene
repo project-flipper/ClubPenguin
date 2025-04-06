@@ -41,6 +41,34 @@
             "scope": "PUBLIC",
             "x": 0,
             "y": 0,
+            "visible": true
+        },
+        {
+            "prefabId": "020273c6-2457-44cc-b5ad-9b27da304c42",
+            "id": "31605d72-4cbb-4931-b122-c16aa75d734b",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "existingPlayerView",
+            "scope": "PUBLIC",
+            "x": 0,
+            "y": 0,
+            "visible": true
+        },
+        {
+            "prefabId": "a2205cd9-27c9-470b-b99d-1edc91b94f8e",
+            "id": "af431a62-e8dd-45c5-b906-3226203b1031",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "playerSelectionView",
+            "scope": "PUBLIC",
+            "x": 0,
+            "y": 0,
             "visible": false
         },
         {
@@ -70,12 +98,26 @@
             "x": 0,
             "y": 0,
             "visible": false
+        },
+        {
+            "prefabId": "371c4c10-4c52-43ba-be66-1dd2dfa791e3",
+            "id": "b2e8eb1d-97e1-446a-bb9f-11641d925f16",
+            "unlock": [
+                "x",
+                "y",
+                "visible"
+            ],
+            "label": "moreServers",
+            "scope": "PUBLIC",
+            "x": 0,
+            "y": 0,
+            "visible": false
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

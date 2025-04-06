@@ -1,0 +1,106 @@
+{
+    "id": "9cc5dc20-06e9-47be-a300-cd5e375beeb5",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "0fcc8a68-a04e-4ef4-b70e-6ee5ddb5efd7",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "14f4b36d-c349-4938-9ffc-3c7d42f9254c",
+                    "label": "button",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"login\",\"frame\":\"login-screen/itemback0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"login\",\"frame\":\"login-screen/itemback0002\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "login",
+                        "frame": "login-screen/itemback0001"
+                    },
+                    "x": -225,
+                    "y": -272.25,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "4eac8cdf-d82e-412f-a999-0b6285431970",
+                    "id": "4e86ad98-2de4-4123-b3ee-c7990f58e77c",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "interactive",
+                        "showPin",
+                        "showBackground",
+                        "fadeAfterLoad"
+                    ],
+                    "label": "paperdoll",
+                    "scope": "PUBLIC",
+                    "interactive": false,
+                    "showBackground": false,
+                    "showPin": false,
+                    "fadeAfterLoad": false,
+                    "x": 0.11,
+                    "y": 0.34
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "978a055b-2486-4622-8eab-0969a3d9cd89",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "text",
+                        "dropShadowX",
+                        "dropShadowY",
+                        "dropShadowAlpha",
+                        "dropShadowColor",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "playername",
+                    "scope": "PUBLIC",
+                    "boxWidth": 427.5,
+                    "boxHeight": 70.3125,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": -213.75,
+                    "y": 264.38,
+                    "text": "BASIL",
+                    "font": "CCComicCrazyShadow",
+                    "fontSize": 49.5,
+                    "dropShadowX": 0,
+                    "dropShadowY": 0,
+                    "dropShadowAlpha": 1,
+                    "dropShadowColor": "#003366"
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

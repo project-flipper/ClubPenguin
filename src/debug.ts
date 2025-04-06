@@ -1,5 +1,5 @@
 import { App } from "@clubpenguin/app/app";
-import Config from "@clubpenguin/app/config";
+import { Config } from "@clubpenguin/app/config";
 import { Airtower } from "@clubpenguin/net/airtower";
 import { MembershipData } from "@clubpenguin/net/types/membership";
 import { UserData } from "@clubpenguin/net/types/user";
@@ -8,9 +8,9 @@ import { AvatarData as AvatarData } from "@clubpenguin/net/types/avatar";
 import World from "@clubpenguin/world/World";
 import { Avatar } from "@clubpenguin/world/engine/player/avatar";
 import Interface from "@clubpenguin/world/interface/Interface";
-import { Engine, Room } from "@clubpenguin/world/engine/engine";
+import { Engine, Game, Room } from "@clubpenguin/world/engine/engine";
 import { getLogger } from "@clubpenguin/lib/log";
-import { ItemType } from "./world/engine/clothing/itemType";
+import { AnimationFrame } from "@clubpenguin/world/engine/player/animationFrame";
 
 let logger = getLogger('CP.debug');
 
@@ -43,7 +43,11 @@ export class Debug {
     }
 
     get room(): Room {
-        return this.engine.currentRoom;
+        return this.engine?.currentRoom;
+    }
+
+    get game(): Game {
+        return this.engine?.currentGame;
     }
 
     get player(): Avatar {
@@ -56,6 +60,10 @@ export class Debug {
 
     get interface(): Interface {
         return this.app.scene.getScene('Interface') as Interface;
+    }
+
+    setFPS(fps: number): void {
+        this.app.setFPSLimit(fps);
     }
 
     INTERNAL_ID = 10000;
@@ -122,8 +130,25 @@ export class Debug {
 
         limit = limit ?? this.engine.currentRoom.roomData.max_users;
 
-        let actions: number[] = [
-            0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25
+        let actions: AnimationFrame[] = [
+            AnimationFrame.IDLE_DOWN,
+            AnimationFrame.IDLE_DOWN_LEFT,
+            AnimationFrame.IDLE_LEFT,
+            AnimationFrame.IDLE_UP_LEFT,
+            AnimationFrame.IDLE_UP,
+            AnimationFrame.IDLE_UP_RIGHT,
+            AnimationFrame.IDLE_RIGHT,
+            AnimationFrame.IDLE_DOWN_RIGHT,
+            AnimationFrame.SIT_DOWN,
+            AnimationFrame.SIT_DOWN_LEFT,
+            AnimationFrame.SIT_LEFT,
+            AnimationFrame.SIT_UP_LEFT,
+            AnimationFrame.SIT_UP,
+            AnimationFrame.SIT_UP_RIGHT,
+            AnimationFrame.SIT_RIGHT,
+            AnimationFrame.SIT_DOWN_RIGHT,
+            AnimationFrame.WAVE,
+            AnimationFrame.DANCE
         ];
 
         logger.debug('Starting stress test using', limit, 'mocked players');
@@ -160,67 +185,37 @@ export class Debug {
 
             let player = await this.engine.players.createPlayer(data, this.world.cameras.main.centerX + this.randomRange(-350, +350), this.world.cameras.main.centerY + this.randomRange(0, +400));
             this.engine.players.addPlayer(player);
-            player.actions.set({ player: data.id, frame: this.getRandomItem(actions) });
+            player.actions.fromFrame(this.getRandomItem(actions));
 
             this.INTERNAL_ID += 1;
         }
     }
 
+    async randomizeAvatar(): Promise<void> {
+        let itemsByType = this.getItemsByType();
+
+        let colors: number[] = [];
+        for (let idx in this.gameConfig.player_colors) {
+            colors.push(parseInt(idx));
+        }
+
+        let avatar: AvatarData = {
+            color: this.getRandomItem(colors),
+            head: this.getRandomItem(itemsByType[2]),
+            face: this.getRandomItem(itemsByType[3]),
+            neck: this.getRandomItem(itemsByType[4]),
+            body: this.getRandomItem(itemsByType[5]),
+            hand: this.getRandomItem(itemsByType[6]),
+            feet: this.getRandomItem(itemsByType[7]),
+            photo: this.getRandomItem(itemsByType[9]),
+            flag: this.getRandomItem(itemsByType[8]),
+        }
+
+        await this.world.updateAvatar(avatar);
+    }
+
     putItem(id: number): void {
-        let item = this.app.gameConfig.paper_items[id];
-        if (!item) {
-            logger.error('Item not found');
-            return;
-        }
-
-        let player = this.world.engine.player;
-        let user = player.userData;
-        switch (item.type) {
-            case ItemType.COLOR:
-                user.avatar.color = id;
-                break;
-            case ItemType.HEAD:
-                user.avatar.head = id;
-                break;
-            case ItemType.FACE:
-                user.avatar.face = id;
-                break;
-            case ItemType.NECK:
-                user.avatar.neck = id;
-                break;
-            case ItemType.BODY:
-                user.avatar.body = id;
-                break;
-            case ItemType.HAND:
-                user.avatar.hand = id;
-                break;
-            case ItemType.FEET:
-                user.avatar.feet = id;
-                break;
-            case ItemType.FLAG:
-                user.avatar.flag = id;
-                break;
-            case ItemType.PHOTO:
-                user.avatar.photo = id;
-                break;
-            case ItemType.BOOK:
-            default:
-                logger.error('Item type invalid', item.type);
-                return;
-        }
-
-        this.world.handle({
-            op: 'player:update',
-            d: {
-                user,
-                x: player.x,
-                y: player.y,
-                action: {
-                    frame: 0,
-                    player: user.id
-                }
-            }
-        });
+        this.world.wearItem(id);
     }
 
     getRandomAvatar(): AvatarData {

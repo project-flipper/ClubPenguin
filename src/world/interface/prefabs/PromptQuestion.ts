@@ -3,8 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
@@ -36,19 +35,19 @@ export default class PromptQuestion extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "Message goes here\nMessage goes here";
-        message.fontSize = -36;
+        message.fontSize = 36;
         this.add(message);
 
         // yes
         const yes = new TextBox(scene, 652.275, 463.5, "BurbankSmallMedium");
         yes.text = "Yes";
-        yes.fontSize = -45;
+        yes.fontSize = 45;
         this.add(yes);
 
         // no
         const no = new TextBox(scene, 899.775, 463.5, "BurbankSmallMedium");
         no.text = "No";
-        no.fontSize = -45;
+        no.fontSize = 45;
         this.add(no);
 
         // yesButton (components)
@@ -109,6 +108,7 @@ export default class PromptQuestion extends Phaser.GameObjects.Container {
 
     public rejectCallback: (byUser: boolean) => void;
     show(message: string, yes: string, no: string, confirmCallback: () => void, rejectCallback: (byUser: boolean) => void): void {
+        this.scene.hideHint();
         this.scene.closePrompt();
 
         this.message.text = message;

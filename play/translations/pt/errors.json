@@ -1,0 +1,10 @@
+{
+    "upgrade": "<0>Download the latest Chrome browser to play Club Penguin!</0><1>Ask your parents for help before you download.</1>",
+    "upgradeText": "Visit our <1>Browser FAQ</1> to find out more about this update.",
+    "install": "<0>Oops! You need the latest Chrome browser to play Club Penguin.</0><1>Ask your parent to download it from google.com/chrome.</1>",
+    "installText": "Visit our <1>Browser FAQ</1> to find out more about this update.",
+    "error": "Sorry, something went wrong<1></1>with Club Penguin.<3></3>Try logging in again.",
+    "errorTitle": "Try logging in again.",
+    "cjs": "Sorry! There was a problem loading Card-Jitsu Snow.<1></1>Please try again, or contact support if the problem continues.",
+    "cjsupgrade": "Ops! Você precisa ter o navegador Chrome mais recente para jogar o Desafio Ninja Neve.<1></1>Peça aos pais ou responsáveis para fazer o download acessando google.com/chrome."
+}

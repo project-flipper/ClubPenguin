@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
@@ -18,7 +17,7 @@ export default class LargeProgressBubble extends Phaser.GameObjects.Container {
         // label
         const label = new TextBox(scene, 29.25, 18, "BurbankSmallBold");
         label.text = "1.";
-        label.fontSize = -51.75;
+        label.fontSize = 51.75;
         this.add(label);
 
         // label (prefab fields)

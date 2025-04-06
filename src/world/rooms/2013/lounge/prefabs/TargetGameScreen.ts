@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextBox from "../../../../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import { Locale } from "@clubpenguin/app/locale";
@@ -19,15 +18,15 @@ export default class TargetGameScreen extends Phaser.GameObjects.Container {
         super(scene, x ?? 0, y ?? 0);
 
         // lounge_hangingBar_1
-        const lounge_hangingBar_1 = scene.add.image(160.65, -57.2625, "lounge", "lounge/hangingBar");
+        const lounge_hangingBar_1 = scene.add.image(160.65, -57.2625, "lounge2013", "lounge/hangingBar");
         this.add(lounge_hangingBar_1);
 
         // lounge_hangingBar
-        const lounge_hangingBar = scene.add.image(-145.125, -57.2625, "lounge", "lounge/hangingBar");
+        const lounge_hangingBar = scene.add.image(-145.125, -57.2625, "lounge2013", "lounge/hangingBar");
         this.add(lounge_hangingBar);
 
         // lounge_screenbg
-        const lounge_screenbg = scene.add.image(-166.6, -27.05, "lounge", "lounge/screenbg");
+        const lounge_screenbg = scene.add.image(-166.6, -27.05, "lounge2013", "lounge/screenbg");
         lounge_screenbg.setOrigin(0, 0);
         this.add(lounge_screenbg);
 
@@ -40,11 +39,11 @@ export default class TargetGameScreen extends Phaser.GameObjects.Container {
         const countdown = new TextBox(scene, -66, 0, "LCD");
         countdown.visible = false;
         countdown.text = "01:30";
-        countdown.fontSize = -81;
+        countdown.fontSize = 81;
         this.add(countdown);
 
         // lounge_screencover
-        const lounge_screencover = scene.add.image(-175.05, -35.4375, "lounge", "lounge/screencover");
+        const lounge_screencover = scene.add.image(-175.05, -35.4375, "lounge2013", "lounge/screencover");
         lounge_screencover.setOrigin(0, 0);
         this.add(lounge_screencover);
 
@@ -78,21 +77,21 @@ export default class TargetGameScreen extends Phaser.GameObjects.Container {
     }
 
     generateAnimation(key: string, from: number, to: number): Phaser.Animations.Animation {
-        let animationKey = `lounge-screen-${key}`;
+        let animationKey = `lounge2013-screen-${key}`;
         if (this.scene.anims.exists(animationKey)) this.scene.anims.remove(animationKey);
 
         let frames: Phaser.Types.Animations.AnimationFrame[] = [];
         if (to != undefined) {
             for (let i = from; i <= to; i++) {
                 frames.push({
-                    key: 'lounge-screen',
+                    key: 'lounge2013-screen',
                     frame: `lounge_screen/${key}${String(i).padStart(4, '0')}`,
                     duration: 0
                 });
             }
         } else {
             frames = [{
-                key: 'lounge-screen',
+                key: 'lounge2013-screen',
                 frame: `lounge_screen/${key}`,
                 duration: 0
             }];
@@ -144,7 +143,7 @@ export default class TargetGameScreen extends Phaser.GameObjects.Container {
     async load(language: string): Promise<void> {
         if (this.language == language) return;
 
-        let key = 'lounge-screen';
+        let key = 'lounge2013-screen';
         if (this.scene.textures.exists(key)) this.scene.game.unloadMultiatlas(key);
 
         let load = this.scene.scene.get('Load') as Load;
@@ -152,7 +151,7 @@ export default class TargetGameScreen extends Phaser.GameObjects.Container {
 
         this.scene.load.multiatlas({
             key,
-            atlasURL: `assets/world/rooms/2013/lounge/lounge-${language}.json`,
+            atlasURL: `assets/world/rooms/2013/lounge/lounge2013-${language}.json`,
             path: 'assets/world/rooms/2013/lounge'
         });
         this.scene.load.start();
@@ -166,7 +165,7 @@ export default class TargetGameScreen extends Phaser.GameObjects.Container {
     }
 
     unload(app: App): void {
-        app.unloadMultiatlas('lounge-screen');
+        app.unloadMultiatlas('lounge2013-screen');
     }
 
     localize(locale: Locale): void {

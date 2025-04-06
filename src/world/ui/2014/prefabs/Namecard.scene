@@ -1,0 +1,538 @@
+{
+    "id": "81602ca5-58d7-4ccb-83ce-8d7ea1959f16",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "4e76d93f-82b2-4001-b329-d6a67fe89885",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "66b47aed-87bf-466c-bd8b-74613d3680c1",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardBg"
+                    },
+                    "x": -9,
+                    "y": -15.4,
+                    "originX": 0,
+                    "originY": 0,
+                    "leftWidth": 46,
+                    "rightWidth": 46,
+                    "topHeight": 46,
+                    "bottomHeight": 46,
+                    "width": 522,
+                    "height": 710.775
+                },
+                {
+                    "type": "Image",
+                    "id": "ce61ec61-7c95-438a-93bd-bba4c2351166",
+                    "label": "tab",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardTab"
+                    },
+                    "x": 135,
+                    "y": -52.52,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "6bb28f73-1616-4e98-a4b2-7c2e0f45a67a",
+                    "label": "photo",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardPhoto"
+                    },
+                    "x": 18,
+                    "y": 90,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "4eac8cdf-d82e-412f-a999-0b6285431970",
+                    "id": "5e426218-f6ff-4153-b84e-8d6b22085fef",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "interactive"
+                    ],
+                    "label": "paperdoll",
+                    "scope": "PUBLIC",
+                    "interactive": false,
+                    "x": 249.075,
+                    "y": 321.525
+                },
+                {
+                    "type": "Image",
+                    "id": "b9272ea5-eb8b-4ca4-ae0b-9f5210de72c5",
+                    "label": "avatar",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardAvatar0001"
+                    },
+                    "x": 6.8625,
+                    "y": 113.175,
+                    "originX": -0.0208,
+                    "originY": 0.05,
+                    "visible": false
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "6ba35342-09cb-4234-a9e1-198b55fc9ade",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "text",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "nickname",
+                    "scope": "PUBLIC",
+                    "boxWidth": 369.7875,
+                    "boxHeight": 60.75,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 66.6,
+                    "y": 37,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Nickname",
+                    "font": "BurbankSmallMedium",
+                    "align": 1,
+                    "fontSize": 36
+                },
+                {
+                    "prefabId": "c2e8ed2b-a322-4448-9419-abe9122cc497",
+                    "id": "390555f6-95e6-449e-a775-600ed78bf8ed",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "badge",
+                    "scope": "PUBLIC",
+                    "x": 72.5625,
+                    "y": 67.6125
+                },
+                {
+                    "type": "Image",
+                    "id": "371a8f2c-c6fe-490f-b273-91a181958a80",
+                    "label": "moderatorEditButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardModerator0001"
+                    },
+                    "x": 387,
+                    "y": 89.8875,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "0687eb5b-a0b9-4893-9834-cb57c2ebb080",
+                    "label": "closeButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardClose0001"
+                    },
+                    "x": 450,
+                    "y": 54
+                },
+                {
+                    "type": "Image",
+                    "id": "801888c0-1ccd-4840-97ff-6cd7fc7132fb",
+                    "label": "friendButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
+                    },
+                    "x": 49.6125,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "83c28c44-bdcc-4843-91d7-14d9f7b1f3ad",
+                    "label": "friendsButtonDisabled",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
+                    },
+                    "x": 49.6125,
+                    "y": 616.5,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "9bf00de4-d765-479d-a06b-42c326d0ff40",
+                    "label": "friendsButtonIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardFriendsButtonDisabled"
+                    },
+                    "x": 49.6125,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "206dbbd8-2108-433c-845f-399b197de588",
+                    "label": "locateButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
+                    },
+                    "x": 117.1125,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "c3bc93c9-751d-4d9e-843c-c47ba936ff35",
+                    "label": "locateButtonDisabled",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
+                    },
+                    "x": 117.1125,
+                    "y": 616.5,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "b2c12e01-95a7-4868-bf49-adbad241508b",
+                    "label": "locateButtonIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardLocateButtonDisabled"
+                    },
+                    "x": 117.1125,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "20b8569b-3a6a-4ebc-b5b7-8d3377982ad4",
+                    "label": "iglooButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
+                    },
+                    "x": 184.5,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "af599254-8901-4169-92a9-8ec91dba4466",
+                    "label": "iglooButtonDisabled",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
+                    },
+                    "x": 184.5,
+                    "y": 616.5,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "3da8468d-31c5-4e91-b891-6da56dc16e13",
+                    "label": "iglooButtonIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardIglooButtonDisabled"
+                    },
+                    "x": 184.5,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "f9da086b-4177-4f47-a122-22562c2dadc4",
+                    "label": "mailButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
+                    },
+                    "x": 252,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "dbea3043-7385-476f-ac2a-a177e47873c1",
+                    "label": "mailButtonDisabled",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
+                    },
+                    "x": 252,
+                    "y": 616.5,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "a38bbb7a-170f-4207-a8ef-71de8947d994",
+                    "label": "mailButtonIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardMailButtonDisabled"
+                    },
+                    "x": 252,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "b3a708d5-fe3b-48da-a270-8d7ed062baba",
+                    "label": "stampbookButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
+                    },
+                    "x": 319.5,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "b6733560-f68d-46fb-aa85-adfc9b2eedef",
+                    "label": "stampbookButtonDisabled",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
+                    },
+                    "x": 319.5,
+                    "y": 616.5,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "9c5aede3-a946-40f8-9358-c5c6434fee84",
+                    "label": "stampbookButtonIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardStampbookButtonDisabled"
+                    },
+                    "x": 319.5,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "6a3264e0-1f5d-45c6-8209-079c36d6c411",
+                    "label": "ignoreButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
+                    },
+                    "x": 387,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "901aa453-f2ee-4298-81ff-b18074420ee5",
+                    "label": "ignoreButtonDisabled",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
+                    },
+                    "x": 387,
+                    "y": 616.5,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "56e67ddd-0f2b-4f5c-bec9-4d5728ccc8e1",
+                    "label": "ignoreButtonIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardIgnoreButtonDisabled"
+                    },
+                    "x": 387,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "5f51fc8a-2699-4cfd-b976-8c5b9cb54e44",
+                    "label": "reportButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
+                    },
+                    "x": 454.5,
+                    "y": 616.5
+                },
+                {
+                    "type": "Image",
+                    "id": "ee49ba40-bb3c-47e4-8e20-6032f234304e",
+                    "label": "reportButtonDisabled",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButtonDisabled"
+                    },
+                    "x": 454.5,
+                    "y": 616.5,
+                    "visible": false
+                },
+                {
+                    "type": "Image",
+                    "id": "63d6367b-3889-4fc5-8ecf-62218cea127d",
+                    "label": "reportButtonIcon",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardReportButtonDisabled"
+                    },
+                    "x": 454.5,
+                    "y": 616.5
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

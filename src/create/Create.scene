@@ -143,7 +143,7 @@
                     "y": 911.25,
                     "text": "Next",
                     "font": "BurbankSmallBold",
-                    "fontSize": -33.75,
+                    "fontSize": 33.75,
                     "dropShadowX": 4.5,
                     "dropShadowY": 4.5,
                     "dropShadowAlpha": 0.61,
@@ -298,7 +298,7 @@
                     "tintBottomRight": "#22A4F3",
                     "text": "BanduPengu12",
                     "font": "BurbankSmallBold",
-                    "fontSize": -49.5
+                    "fontSize": 49.5
                 },
                 {
                     "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -331,7 +331,7 @@
                     "tintBottomRight": "#333333",
                     "text": "Until it is checked, your penguin name will appear as numbers. Approved names are updated within 2 days.",
                     "font": "BurbankSmallBold",
-                    "fontSize": -18,
+                    "fontSize": 18,
                     "maxWidth": 911.25
                 },
                 {
@@ -365,7 +365,7 @@
                     "tintBottomRight": "#616161",
                     "text": "An activation email has been sent to:",
                     "font": "BurbankSmallBold",
-                    "fontSize": -22.5,
+                    "fontSize": 22.5,
                     "maxWidth": 990
                 },
                 {
@@ -399,7 +399,7 @@
                     "tintBottomRight": "#616161",
                     "text": "parent@mail.com",
                     "font": "BurbankSmallBold",
-                    "fontSize": -22.5,
+                    "fontSize": 22.5,
                     "maxWidth": 990
                 },
                 {
@@ -433,7 +433,7 @@
                     "tintBottomRight": "#313131",
                     "text": "Ask your parent to check their email to play.",
                     "font": "BurbankSmallBold",
-                    "fontSize": -31.5,
+                    "fontSize": 31.5,
                     "maxWidth": 315
                 },
                 {
@@ -488,7 +488,7 @@
                             "tintBottomRight": "#0280CD",
                             "text": "Members can:",
                             "font": "BurbankSmallBold",
-                            "fontSize": -38
+                            "fontSize": 38
                         },
                         {
                             "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
@@ -521,7 +521,7 @@
                             "tintBottomRight": "#616161",
                             "text": "Play games",
                             "font": "BurbankSmallBold",
-                            "fontSize": -26.25,
+                            "fontSize": 26.25,
                             "maxWidth": 459
                         },
                         {
@@ -555,7 +555,7 @@
                             "tintBottomRight": "#616161",
                             "text": "access all game levels",
                             "font": "BurbankSmallMedium",
-                            "fontSize": -26.25,
+                            "fontSize": 26.25,
                             "maxWidth": 459
                         },
                         {
@@ -589,7 +589,7 @@
                             "tintBottomRight": "#616161",
                             "text": "Adopt pets",
                             "font": "BurbankSmallBold",
-                            "fontSize": -26.25,
+                            "fontSize": 26.25,
                             "maxWidth": 459
                         },
                         {
@@ -623,7 +623,7 @@
                             "tintBottomRight": "#616161",
                             "text": "adopt up to 20 pet puffles",
                             "font": "BurbankSmallMedium",
-                            "fontSize": -26.25,
+                            "fontSize": 26.25,
                             "maxWidth": 459
                         },
                         {
@@ -657,7 +657,7 @@
                             "tintBottomRight": "#616161",
                             "text": "Decorate your igloo",
                             "font": "BurbankSmallBold",
-                            "fontSize": -26.25,
+                            "fontSize": 26.25,
                             "maxWidth": 459
                         },
                         {
@@ -691,7 +691,7 @@
                             "tintBottomRight": "#616161",
                             "text": "invite your friends for a party",
                             "font": "BurbankSmallMedium",
-                            "fontSize": -26.25,
+                            "fontSize": 26.25,
                             "maxWidth": 459
                         },
                         {
@@ -725,7 +725,7 @@
                             "tintBottomRight": "#616161",
                             "text": "Dress up",
                             "font": "BurbankSmallBold",
-                            "fontSize": -26.25,
+                            "fontSize": 26.25,
                             "maxWidth": 459
                         },
                         {
@@ -759,7 +759,7 @@
                             "tintBottomRight": "#616161",
                             "text": "buy exclusive clothing",
                             "font": "BurbankSmallMedium",
-                            "fontSize": -26.25,
+                            "fontSize": 26.25,
                             "maxWidth": 459
                         },
                         {
@@ -819,7 +819,7 @@
                             "tintBottomRight": "#623000",
                             "text": "Learn More About Membership",
                             "font": "BurbankSmallBold",
-                            "fontSize": -29.25,
+                            "fontSize": 29.25,
                             "maxWidth": 390,
                             "dropShadowX": 0,
                             "dropShadowY": 1,
@@ -864,15 +864,18 @@
                     "x": 812,
                     "y": 497,
                     "originX": 0,
-                    "originY": 0
+                    "originY": 0,
+                    "animationPlayMethod": 1,
+                    "animationKey": "create-spinner-animation",
+                    "animationPreview": false
                 }
             ]
         }
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

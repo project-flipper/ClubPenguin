@@ -1,0 +1,120 @@
+{
+    "id": "ce65e225-450c-42eb-ba82-2e1279e4af20",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "e2993107-2644-4fee-babb-493877eeffe8",
+            "label": "title",
+            "scope": "PUBLIC",
+            "list": [
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "d5997b95-8c8e-47cb-9c74-df7eb1e488b1",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "text",
+                        "font",
+                        "fontSize",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight"
+                    ],
+                    "label": "titleShadow",
+                    "scope": "PUBLIC",
+                    "boxWidth": 732.825,
+                    "boxHeight": 65.25,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 2.25,
+                    "y": 2.25,
+                    "tintTopLeft": "#003299",
+                    "tintTopRight": "#003299",
+                    "tintBottomLeft": "#003299",
+                    "tintBottomRight": "#003299",
+                    "tintFill": true,
+                    "text": "Aqua Grabber",
+                    "font": "BurbankSmallBold",
+                    "fontSize": 56.25
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "d73ee35e-6044-4bce-9539-fa55003009bf",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "text",
+                        "font",
+                        "fontSize"
+                    ],
+                    "label": "title",
+                    "scope": "PUBLIC",
+                    "boxWidth": 732.825,
+                    "boxHeight": 65.25,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 0,
+                    "y": 0,
+                    "text": "Aqua Grabber",
+                    "font": "BurbankSmallBold",
+                    "fontSize": 56.25
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "f53f5afe-527d-4589-9c95-c6ef6eb1ce0d",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "text",
+                        "font",
+                        "fontSize"
+                    ],
+                    "label": "earned",
+                    "scope": "PUBLIC",
+                    "boxWidth": 732.825,
+                    "boxHeight": 65.25,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 0,
+                    "y": 62.89,
+                    "text": "You've earned:",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": 31.5
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

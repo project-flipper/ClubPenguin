@@ -1,4 +1,4 @@
-![0618-Marketing-Evergreen-Homepage-Billboard-Igloos (2)](https://github.com/clubpenguin-html5/ClubPenguin/assets/44991848/0b711f05-86ce-46fc-a987-59511f69e267)
+![0618-Marketing-Evergreen-Homepage-Billboard-Igloos (2)](https://github.com/project-flipper/ClubPenguin/assets/44991848/0b711f05-86ce-46fc-a987-59511f69e267)
 
 # Index
 
@@ -14,12 +14,12 @@ Following Flash Player's discontinuation, this project aims to bring Club Pengui
 
 A key component is [Phaser](https://github.com/photonstorm/phaser), providing a game framework for HTML5 standards. The codebase of this project has been built from the ground up for performance using TypeScript, while maintaining high-fidelity to the Flash counterpart visually.
 
-It should be noted that the project only aims to stay close to the source material visually, meaning that communication to the back-end servers is not cross-compatible with the Flash client. Instead, we employ a [dedicated server](https://github.com/clubpenguin-html5/Island) with our own protocol using a Rest API and a WebSocket throughout.
+It should be noted that the project only aims to stay close to the source material visually, meaning that communication to the back-end servers is not cross-compatible with the Flash client. Instead, we employ a [dedicated server](https://github.com/project-flipper/Island) with our own protocol using a Rest API and a WebSocket throughout.
 
 # Installation
 Clone this repository using `git`:
 ```
-git clone git@github.com:clubpenguin-html5/ClubPenguin.git
+git clone git@github.com:project-flipper/ClubPenguin.git
 ```
 
 Next, install the mediaserver. If you plan on running a [webpack DevServer](https://webpack.js.org/configuration/dev-server/) using the provided configuration, then the mediaserver must be available as a directory called `media` in the project root. Otherwise, you may install it anywhere **as long as the game can access it** and is defined in [options](#options).
@@ -76,7 +76,7 @@ See [Project Flipper](https://projectflipper.me/) (non-affiliated with Disney).
 
 # Support
 <p>
-    <img align="right" width="250" height="250" src="https://github.com/clubpenguin-html5/ClubPenguin/assets/44991848/49c007ac-1011-4948-972e-39c293c7fcda">
+    <img align="right" width="250" height="250" src="https://github.com/project-flipper/ClubPenguin/assets/44991848/49c007ac-1011-4948-972e-39c293c7fcda">
 Catch us on our Discord server <a href="https://discord.gg/CfBct5NUjv">here!</a> or join through this code: <code>CfBct5NUjv</code>.
 
 Please be mindful of the information shared here, as it may contain the answer to your query.

@@ -3,7 +3,6 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
 import Interface from "../Interface";
 /* END-USER-IMPORTS */
@@ -20,6 +19,7 @@ export default class PromptSpinner extends Phaser.GameObjects.Container {
 
         // spinner
         const spinner = scene.add.sprite(855, 428.625, "interface", "interface/promptSpinner0001");
+        spinner.play("interface-promptspinner-animation");
         this.add(spinner);
 
         this.bg = bg;
@@ -38,9 +38,10 @@ export default class PromptSpinner extends Phaser.GameObjects.Container {
     declare scene: Interface;
 
     show(): void {
+        this.scene.hideHint();
         this.scene.closePrompt();
 
-        this.spinner.play('interface-promptspinner-animation');
+        this.spinner.play(this.spinner.anims.currentAnim.key);
 
         this.visible = true;
         this.scene.promptBlock.visible = true;

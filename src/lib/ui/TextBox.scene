@@ -19,7 +19,7 @@
             "label": "bitmaptext",
             "text": "TextBox",
             "font": "BurbankSmallBold",
-            "fontSize": -72
+            "fontSize": 72
         }
     ],
     "plainObjects": [],

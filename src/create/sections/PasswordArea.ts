@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ErrorBubble from "../prefabs/ErrorBubble";
 import TextField from "../../lib/ui/TextField";
@@ -24,7 +23,7 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         title.tintBottomLeft = 2894894;
         title.tintBottomRight = 2894894;
         title.text = "Create Password:";
-        title.fontSize = -27;
+        title.fontSize = 27;
         this.add(title);
 
         // field1Graphic
@@ -44,7 +43,7 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         placeholder1.tintBottomLeft = 13882584;
         placeholder1.tintBottomRight = 13882584;
         placeholder1.text = "Enter Password";
-        placeholder1.fontSize = -27;
+        placeholder1.fontSize = 27;
         this.add(placeholder1);
 
         // field2Graphic
@@ -64,7 +63,7 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         placeholder2.tintBottomLeft = 13882584;
         placeholder2.tintBottomRight = 13882584;
         placeholder2.text = "Confirm Password";
-        placeholder2.fontSize = -27;
+        placeholder2.fontSize = 27;
         this.add(placeholder2);
 
         // errorBubble
@@ -89,11 +88,11 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         textField1.fieldHeight = 68;
         textField1.maxLength = 32;
         textField1.verticalAlign = 1;
-        textField1.font = "BurbankSmallBold";
-        textField1.fontSize = -27;
+        textField1.font = "Burbank Small Bold";
+        textField1.fontSize = "27px";
         textField1.fontColor = "#2c2c2e";
         textField1.backgroundIsFilled = false;
-        textField1.leftMargin = 11.25;
+        textField1.marginLeft = 12;
         textField1.autocomplete = "new-password";
 
         // textField2 (prefab fields)
@@ -102,11 +101,11 @@ export default class PasswordArea extends Phaser.GameObjects.Container {
         textField2.fieldHeight = 68;
         textField2.maxLength = 32;
         textField2.verticalAlign = 1;
-        textField2.font = "BurbankSmallBold";
-        textField2.fontSize = -27;
+        textField2.font = "Burbank Small Bold";
+        textField2.fontSize = "27px";
         textField2.fontColor = "#2c2c2e";
         textField2.backgroundIsFilled = false;
-        textField2.leftMargin = 11.25;
+        textField2.marginLeft = 12;
         textField2.autocomplete = "new-password";
 
         this.progressBubble = progressBubble;

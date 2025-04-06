@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import LargeProgressBubble from "../prefabs/LargeProgressBubble";
 import TextBox from "../../lib/ui/TextBox";
 import TextField from "../../lib/ui/TextField";
@@ -26,7 +25,7 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         titleTextBox.tintBottomLeft = 2894894;
         titleTextBox.tintBottomRight = 2894894;
         titleTextBox.text = "Create Penguin Name:";
-        titleTextBox.fontSize = -27;
+        titleTextBox.fontSize = 27;
         this.add(titleTextBox);
 
         // conditions
@@ -46,7 +45,7 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         condition1TextBox.tintBottomLeft = 5395026;
         condition1TextBox.tintBottomRight = 5395026;
         condition1TextBox.text = "4 - 12 letters, numbers or spaces";
-        condition1TextBox.fontSize = -22.5;
+        condition1TextBox.fontSize = 22.5;
         conditions.add(condition1TextBox);
 
         // condition2TextBox
@@ -57,7 +56,7 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         condition2TextBox.tintBottomLeft = 5395026;
         condition2TextBox.tintBottomRight = 5395026;
         condition2TextBox.text = "Do not use your real name";
-        condition2TextBox.fontSize = -22.5;
+        condition2TextBox.fontSize = 22.5;
         conditions.add(condition2TextBox);
 
         // fieldGraphic
@@ -78,7 +77,7 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         placeholder.tintBottomLeft = 13882584;
         placeholder.tintBottomRight = 13882584;
         placeholder.text = "Enter Penguin Name";
-        placeholder.fontSize = -27;
+        placeholder.fontSize = 27;
         this.add(placeholder);
 
         // textField
@@ -109,11 +108,11 @@ export default class ChooseNameArea extends Phaser.GameObjects.Container {
         textField.fieldHeight = 95;
         textField.maxLength = 12;
         textField.verticalAlign = 1;
-        textField.font = "BurbankSmallBold";
-        textField.fontSize = -27;
+        textField.font = "Burbank Small Bold";
+        textField.fontSize = "27px";
         textField.fontColor = "#2c2c2e";
         textField.backgroundIsFilled = false;
-        textField.leftMargin = 11.25;
+        textField.marginLeft = 12;
         textField.autocomplete = "username";
 
         this.progressBubble = progressBubble;

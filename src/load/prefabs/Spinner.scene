@@ -40,7 +40,10 @@
                     "x": 7.287499999999998,
                     "y": 6.162499999999998,
                     "originX": 0,
-                    "originY": 0
+                    "originY": 0,
+                    "animationPlayMethod": 1,
+                    "animationKey": "load-spinner-animation",
+                    "animationPreview": false
                 },
                 {
                     "type": "Image",
@@ -61,8 +64,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     }

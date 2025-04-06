@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import SmallProgressBubble from "../prefabs/SmallProgressBubble";
 import ErrorBubble from "../prefabs/ErrorBubble";
 import TextField from "../../lib/ui/TextField";
@@ -24,7 +23,7 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         title.tintBottomLeft = 2894894;
         title.tintBottomRight = 2894894;
         title.text = "Parent's Email Address:";
-        title.fontSize = -27;
+        title.fontSize = 27;
         this.add(title);
 
         // emailConditions
@@ -43,7 +42,7 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         emailConditionTextBox.tintBottomLeft = 5395026;
         emailConditionTextBox.tintBottomRight = 5395026;
         emailConditionTextBox.text = "Club Penguin will send your parent an email with an activation code.";
-        emailConditionTextBox.fontSize = -18;
+        emailConditionTextBox.fontSize = 18;
         emailConditionTextBox.maxWidth = 528.75;
         emailConditions.add(emailConditionTextBox);
 
@@ -65,7 +64,7 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         placeholder.tintBottomLeft = 13882584;
         placeholder.tintBottomRight = 13882584;
         placeholder.text = "Enter parent's email address";
-        placeholder.fontSize = -27;
+        placeholder.fontSize = 27;
         this.add(placeholder);
 
         // errorBubble
@@ -85,11 +84,11 @@ export default class EmailArea extends Phaser.GameObjects.Container {
         textField.fieldHeight = 69;
         textField.maxLength = 32;
         textField.verticalAlign = 1;
-        textField.font = "BurbankSmallBold";
-        textField.fontSize = -27;
+        textField.font = "Burbank Small Bold";
+        textField.fontSize = "27px";
         textField.fontColor = "#2c2c2e";
         textField.backgroundIsFilled = false;
-        textField.leftMargin = 11.25;
+        textField.marginLeft = 12;
         textField.autocomplete = "email";
 
         this.progressBubble = progressBubble;

@@ -83,7 +83,7 @@
                     "text": " Error Message\n Error Message\n Error Message\n Error Message\n Error Message\n Error Message",
                     "font": "BurbankSmallMedium",
                     "align": 0,
-                    "fontSize": -36
+                    "fontSize": 36
                 },
                 {
                     "type": "Container",
@@ -136,7 +136,7 @@
                             "text": "Ok",
                             "font": "BurbankSmallBold",
                             "align": 1,
-                            "fontSize": -45
+                            "fontSize": 45
                         }
                     ]
                 },
@@ -176,7 +176,7 @@
                     "text": "c0",
                     "font": "BurbankSmallMedium",
                     "align": 2,
-                    "fontSize": -22.5
+                    "fontSize": 22.5
                 }
             ]
         }

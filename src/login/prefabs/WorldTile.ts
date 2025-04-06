@@ -3,8 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../lib/components/ButtonComponent";
 import TextBox from "../../lib/ui/TextBox";
 /* START-USER-IMPORTS */
 import Login from "@clubpenguin/login/Login";
@@ -59,7 +58,7 @@ export default class WorldTile extends Phaser.GameObjects.Container {
         // worldName
         const worldName = new TextBox(scene, 97.98750000000003, 9.5625, "BurbankSmallMedium");
         worldName.text = "World";
-        worldName.fontSize = -51.75;
+        worldName.fontSize = 51.75;
         this.add(worldName);
 
         // buddy
@@ -113,6 +112,14 @@ export default class WorldTile extends Phaser.GameObjects.Container {
     /* START-USER-CODE */
 
     public worldData: WorldData;
+
+    setup(data: WorldData): void {
+        this.worldData = data;
+        this.worldName.text = data.name;
+        this.buddy.visible = data.buddies;
+        this.safeChat.visible = data.safe_chat;
+        this.setPopulation(data.population);
+    }
 
     setPopulation(value: number): void {
         let off = 'login-screen/populationOff';

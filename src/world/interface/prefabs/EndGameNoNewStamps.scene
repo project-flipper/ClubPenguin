@@ -1,0 +1,204 @@
+{
+    "id": "53430e6d-2424-47ad-a72c-e17275a9f315",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "1a6ca32d-079a-4732-90fd-ab72eec9e5bd",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "NineSlice",
+                    "id": "2677e86f-1741-44a6-adc3-8984e882d290",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/promptBg"
+                    },
+                    "x": 452.25,
+                    "y": 83.25,
+                    "originX": 0,
+                    "originY": 0,
+                    "leftWidth": 47,
+                    "rightWidth": 47,
+                    "topHeight": 47,
+                    "bottomHeight": 47,
+                    "width": 825.75,
+                    "height": 848.25
+                },
+                {
+                    "type": "Image",
+                    "id": "40bd1f3e-1ac8-4dd5-adfa-ac1721d060b3",
+                    "label": "closeButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameClose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameClose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameClose0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameClose0001"
+                    },
+                    "x": 1211.85,
+                    "y": 148.61
+                },
+                {
+                    "prefabId": "ce65e225-450c-42eb-ba82-2e1279e4af20",
+                    "id": "a3ca9d18-6fc9-4d12-ae89-8ec0e549c958",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "title",
+                    "scope": "PUBLIC",
+                    "x": 486.5625,
+                    "y": 146.3625
+                },
+                {
+                    "prefabId": "1217bba6-a8b8-4418-bb2c-e68860a0c750",
+                    "id": "df6f273a-d05c-4593-9909-20513018d7a8",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "coins",
+                    "scope": "PUBLIC",
+                    "x": 495,
+                    "y": 254.7
+                },
+                {
+                    "prefabId": "0e9f82c4-08ad-4255-afff-98a7a9a0c172",
+                    "id": "36ecae34-6c70-4355-97a2-e80c574f479a",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "stamps",
+                    "scope": "PUBLIC",
+                    "x": 494.78,
+                    "y": 417.83
+                },
+                {
+                    "type": "Image",
+                    "id": "bb9e1a29-f9d0-4da4-86b6-d9bf1e74a16f",
+                    "label": "interface_endGameCoins",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameCoins"
+                    },
+                    "x": 521.44,
+                    "y": 269.66,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "9ff4846d-2a61-430d-9a26-dee70bef2fa2",
+                    "label": "interface_endGameStamps",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameStamps"
+                    },
+                    "x": 520.54,
+                    "y": 422.66,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "a09ed801-aaab-43cc-a9df-ec5ff6f71f0a",
+                    "id": "592ac86e-9322-4ed3-8f5f-5d89715c1e5c",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "progress",
+                    "scope": "PUBLIC",
+                    "x": 855,
+                    "y": 578.25
+                },
+                {
+                    "type": "Image",
+                    "id": "16b6b653-b80f-4340-b904-8370f351bd7b",
+                    "label": "stampButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameStampButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameStampButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"interface\",\"frame\":\"interface/endGameStampButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameStampButton0001"
+                    },
+                    "x": 859.5,
+                    "y": 741.71
+                },
+                {
+                    "type": "Image",
+                    "id": "2ed3aef8-5ba6-4f82-86f3-6b016fb84460",
+                    "label": "interface_endGameStampButtonIcon",
+                    "texture": {
+                        "key": "interface",
+                        "frame": "interface/endGameStampButtonIcon"
+                    },
+                    "x": 574.2,
+                    "y": 684.23,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "0b6435a4-4284-41df-bdad-db595e985924",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign",
+                        "text",
+                        "font",
+                        "fontSize"
+                    ],
+                    "label": "title_1",
+                    "scope": "PUBLIC",
+                    "boxWidth": 453.4875,
+                    "boxHeight": 47.25,
+                    "horizontalAlign": 0,
+                    "verticalAlign": 1,
+                    "x": 705.26,
+                    "y": 717.08,
+                    "text": "How to earn stamps\n",
+                    "font": "BurbankSmallBold",
+                    "fontSize": 38.25
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

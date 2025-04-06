@@ -1,0 +1,352 @@
+{
+    "id": "7d82067f-50b0-4ae3-85fe-b877c5f23c44",
+    "sceneType": "PREFAB",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "5461e1a1-d1b3-4aed-82ce-05127d7cd2f1",
+            "label": "container_1",
+            "list": [
+                {
+                    "prefabId": "ec4fa0b2-c5a9-4011-a05d-eef5b196ab1c",
+                    "id": "8a5922a3-6d19-4be2-a523-5cc35bd0ef0e",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "inventory",
+                    "scope": "PUBLIC",
+                    "x": 0,
+                    "y": 0
+                },
+                {
+                    "type": "NineSlice",
+                    "id": "fe5d1535-fd4e-4839-ac0e-9f6dc930cf29",
+                    "label": "bg",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardBg"
+                    },
+                    "x": -9,
+                    "y": -15.4,
+                    "originX": 0,
+                    "originY": 0,
+                    "leftWidth": 46,
+                    "rightWidth": 46,
+                    "topHeight": 46,
+                    "bottomHeight": 46,
+                    "width": 522,
+                    "height": 710.775
+                },
+                {
+                    "type": "Image",
+                    "id": "6194dac0-3f34-48dc-99a6-25bec4152f93",
+                    "label": "tab",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardTab"
+                    },
+                    "x": 135,
+                    "y": -52.52,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "296422ce-dd02-42ed-93c7-90e21cd9b780",
+                    "label": "photo",
+                    "components": [
+                        "InputBlocker"
+                    ],
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardPhoto"
+                    },
+                    "x": 18,
+                    "y": 90,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "prefabId": "4eac8cdf-d82e-412f-a999-0b6285431970",
+                    "id": "02b8187c-5146-4192-81b7-a044eda7e6ed",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "paperdoll",
+                    "scope": "PUBLIC",
+                    "x": 249.075,
+                    "y": 321.525
+                },
+                {
+                    "type": "Image",
+                    "id": "bda24176-957b-4249-9c33-4fc6aab7c642",
+                    "label": "avatar",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardAvatar0001"
+                    },
+                    "x": 6.8625,
+                    "y": 113.175,
+                    "originX": -0.0208,
+                    "originY": 0.05,
+                    "visible": false
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "f07e6ad9-28b6-4fef-9b6c-d640d928ac83",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "font",
+                        "fontSize",
+                        "align",
+                        "text",
+                        "tintFill",
+                        "tintTopLeft",
+                        "tintTopRight",
+                        "tintBottomLeft",
+                        "tintBottomRight",
+                        "boxWidth",
+                        "boxHeight",
+                        "horizontalAlign",
+                        "verticalAlign"
+                    ],
+                    "label": "nickname",
+                    "scope": "PUBLIC",
+                    "boxWidth": 369.7875,
+                    "boxHeight": 60.75,
+                    "horizontalAlign": 1,
+                    "verticalAlign": 1,
+                    "x": 66.6,
+                    "y": 37,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Nickname",
+                    "font": "BurbankSmallMedium",
+                    "align": 1,
+                    "fontSize": 36
+                },
+                {
+                    "prefabId": "c2e8ed2b-a322-4448-9419-abe9122cc497",
+                    "id": "275cbff2-57fd-43c9-b61b-9ec898096ebc",
+                    "unlock": [
+                        "x",
+                        "y"
+                    ],
+                    "label": "badge",
+                    "scope": "PUBLIC",
+                    "x": 72.5625,
+                    "y": 67.6125
+                },
+                {
+                    "type": "Image",
+                    "id": "3e007426-dd6f-467e-a048-916c71b259db",
+                    "label": "star",
+                    "scope": "PUBLIC",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/playerStar"
+                    },
+                    "x": 67.5,
+                    "y": 67.5
+                },
+                {
+                    "type": "Image",
+                    "id": "e122848f-0b8d-4e04-ac3d-095ff7d7a18b",
+                    "label": "moderatorEditButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardModerator0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardModerator0001"
+                    },
+                    "x": 387,
+                    "y": 89.8875,
+                    "originX": 0,
+                    "originY": 0
+                },
+                {
+                    "type": "Image",
+                    "id": "a6a47f58-36bb-439a-a5fd-8f5c34d9c673",
+                    "label": "closeButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardClose0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardClose0001"
+                    },
+                    "x": 450,
+                    "y": 54
+                },
+                {
+                    "type": "Image",
+                    "id": "e91c4ba4-73a0-49ff-964f-028798d29646",
+                    "label": "ui2014_coin",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/coin"
+                    },
+                    "x": 48.0375,
+                    "y": 578.025
+                },
+                {
+                    "type": "Image",
+                    "id": "e5987e8c-6895-46c0-b5d1-705d40b4820c",
+                    "label": "stampbookButton",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.upTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0001\"}",
+                    "ButtonComponent.overTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0002\"}",
+                    "ButtonComponent.downTexture": "{\"key\":\"ui-2014\",\"frame\":\"2014/namecardButton0003\"}",
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardButton0001"
+                    },
+                    "x": 48.825,
+                    "y": 638.775
+                },
+                {
+                    "type": "Image",
+                    "id": "b59b6e28-1a4e-42e4-a828-e0ac085d84e1",
+                    "label": "stampbookButtonIcon",
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardStampbookButtonIcon"
+                    },
+                    "x": 48.825,
+                    "y": 638.775
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "1efc7781-1775-43af-b613-8ee6e011fac0",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "verticalAlign",
+                        "font",
+                        "fontSize",
+                        "text",
+                        "tintBottomRight",
+                        "tintBottomLeft",
+                        "tintTopRight",
+                        "tintFill",
+                        "tintTopLeft"
+                    ],
+                    "label": "coins",
+                    "scope": "PUBLIC",
+                    "boxWidth": 249.525,
+                    "boxHeight": 38.7,
+                    "verticalAlign": 1,
+                    "x": 83.475,
+                    "y": 566.1,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Your Coins: 000000",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": 22.5
+                },
+                {
+                    "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+                    "id": "c8fead76-de1d-4607-8ffc-05a153fa97de",
+                    "unlock": [
+                        "x",
+                        "y",
+                        "boxWidth",
+                        "boxHeight",
+                        "verticalAlign",
+                        "font",
+                        "fontSize",
+                        "text",
+                        "tintBottomRight",
+                        "tintBottomLeft",
+                        "tintTopRight",
+                        "tintFill",
+                        "tintTopLeft"
+                    ],
+                    "label": "stamps",
+                    "scope": "PUBLIC",
+                    "boxWidth": 256.275,
+                    "boxHeight": 36,
+                    "verticalAlign": 1,
+                    "x": 83.475,
+                    "y": 618.975,
+                    "tintTopLeft": "#000000",
+                    "tintTopRight": "#000000",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000",
+                    "tintFill": true,
+                    "text": "Your Stamps: 355/355",
+                    "font": "BurbankSmallMedium",
+                    "fontSize": 22.5
+                },
+                {
+                    "type": "Image",
+                    "id": "527fda04-f468-483d-a65d-8cd781be61b5",
+                    "label": "inventoryTab",
+                    "scope": "PUBLIC",
+                    "components": [
+                        "ButtonComponent"
+                    ],
+                    "ButtonComponent.handCursor": true,
+                    "ButtonComponent.pixelPerfect": true,
+                    "texture": {
+                        "key": "ui-2014",
+                        "frame": "2014/namecardInventoryTab"
+                    },
+                    "x": 504,
+                    "y": 180,
+                    "originX": 0.09
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

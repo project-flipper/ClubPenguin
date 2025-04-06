@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/lounge/lounge-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/lounge/lounge2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Lounge",
@@ -22,13 +22,16 @@
             "label": "dancefloor",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/dancefloor0001"
             },
             "x": 627.975,
             "y": 801.1125,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-dancefloor-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -36,13 +39,16 @@
             "label": "penguin1",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/penguin0001"
             },
             "x": 756.225,
             "y": 893.1375,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-penguin1-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -50,13 +56,16 @@
             "label": "penguin2",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/penguin0001"
             },
             "x": 846.3375,
             "y": 875.7,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-penguin2-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -64,13 +73,16 @@
             "label": "penguin3",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/penguin0001"
             },
             "x": 894.15,
             "y": 905.5125,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-penguin3-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -78,13 +90,16 @@
             "label": "penguin4",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/penguin0001"
             },
             "x": 945.225,
             "y": 882.225,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-penguin4-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -92,13 +107,16 @@
             "label": "penguin5",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/penguin0001"
             },
             "x": 928.125,
             "y": 959.175,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-penguin1-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -106,20 +124,23 @@
             "label": "penguin6",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/penguin0001"
             },
             "x": 803.475,
             "y": 941.4,
-            "originX": 0.5069863,
-            "originY": 0.54971831
+            "originX": 0.506986,
+            "originY": 0.549718,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-penguin4-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
             "id": "fcbe316b-1e57-4f10-8989-c1625f886244",
             "label": "lounge_base",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/base"
             },
             "x": -21.0375,
@@ -137,7 +158,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 314.1,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/stairsrailing"
             },
             "x": 1449.3375,
@@ -168,13 +189,16 @@
             "label": "speaker1",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/speaker10001"
             },
             "x": 257.4,
             "y": 9.7875,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-speaker1-animation",
+            "animationPreview": false
         },
         {
             "type": "Sprite",
@@ -182,20 +206,23 @@
             "label": "speaker2",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/speaker20001"
             },
             "x": 1330.7625,
             "y": 9.7875,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-speaker2-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
             "id": "788867b1-4b4b-4901-a31e-849b2cc8008b",
             "label": "lounge_foreground1",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/foreground1"
             },
             "x": 366.525,
@@ -208,7 +235,7 @@
             "id": "5a9ea192-97c4-4aac-898c-9e3faef73a20",
             "label": "lounge_foreground2",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/foreground2"
             },
             "x": 1055.7,
@@ -224,7 +251,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/brokenmachine"
             },
             "x": 405,
@@ -238,7 +265,7 @@
             "label": "bitslight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/bits_lightoff"
             },
             "x": 177.3875,
@@ -252,13 +279,16 @@
             "label": "bitsscreen",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/bits_idle0001"
             },
             "x": 222.9375,
             "y": 395.6375,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-bits-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -271,7 +301,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 459.675,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/bitsmachine0001"
             },
             "x": 136.35,
@@ -289,7 +319,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 533.8125,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/bitschair"
             },
             "x": 322.3125,
@@ -303,13 +333,16 @@
             "label": "thinicescreen",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/thinice_idle0001"
             },
             "x": 1290,
             "y": 270,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-thinice-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -317,7 +350,7 @@
             "label": "thinicelight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/thinice_lightoff"
             },
             "x": 1407,
@@ -336,7 +369,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 345.9375,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/thinicemachine0001"
             },
             "x": 1198.4625,
@@ -354,7 +387,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 417.6,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/thinicechair"
             },
             "x": 1208.8125,
@@ -373,13 +406,16 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 434.925,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/astro_idle0001"
             },
             "x": 1344.2625,
             "y": 358.425,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "animationPlayMethod": 1,
+            "animationKey": "lounge2013-astro-animation",
+            "animationPreview": false
         },
         {
             "type": "Image",
@@ -392,7 +428,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 434.925,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/astro_lightoff"
             },
             "x": 1511,
@@ -411,7 +447,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 434.925,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/astromachine0001"
             },
             "x": 1306.0125,
@@ -429,7 +465,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 510.75,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/astrochair"
             },
             "x": 1306.35,
@@ -446,7 +482,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/vendingmachine0001"
             },
             "x": 65.3625,
@@ -462,7 +498,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/bin"
             },
             "x": 29.5875,
@@ -478,7 +514,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chair1_1"
             },
             "x": 386.325,
@@ -494,7 +530,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chair1_2"
             },
             "x": 464.2875,
@@ -510,7 +546,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairback1_2"
             },
             "x": 485.1,
@@ -526,7 +562,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chair1_3"
             },
             "x": 222.3,
@@ -542,7 +578,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairback1_3"
             },
             "x": 194.0625,
@@ -558,7 +594,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chair1_4"
             },
             "x": 173.475,
@@ -574,7 +610,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/table1"
             },
             "x": 307.2375,
@@ -592,7 +628,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 524.8125,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/railing"
             },
             "x": 647.4375,
@@ -610,7 +646,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 802.2375,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chair2_1"
             },
             "x": 1286.325,
@@ -628,7 +664,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 855.3375,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chair2_2"
             },
             "x": 1479.4875,
@@ -646,7 +682,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 959.5125,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chair2_3"
             },
             "x": 1448.1,
@@ -664,7 +700,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 938.8125,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chair2_4"
             },
             "x": 1218.375,
@@ -682,7 +718,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 961.2,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/table2"
             },
             "x": 1290.4875,
@@ -700,7 +736,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1015.2,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairback2_3"
             },
             "x": 1479.4875,
@@ -718,7 +754,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1009.575,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairback2_4"
             },
             "x": 1202.0625,
@@ -754,7 +790,7 @@
             "RoomTrigger.playerX": 1541.25,
             "RoomTrigger.playerY": 652.5,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/dance_trigger"
             },
             "x": 1455.4125,
@@ -774,18 +810,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/bits_button"
             },
             "x": 222,
             "y": 396,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -798,18 +834,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/astro_button"
             },
             "x": 1356,
             "y": 375,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -822,18 +858,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/thinice_button"
             },
             "x": 1290,
             "y": 268,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -841,10 +877,12 @@
             "label": "bits_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "bitsandbolts",
+            "GameTrigger.prompt": "bitsandbolts_prompt",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/bits_trigger"
             },
             "x": 328.95,
@@ -857,10 +895,12 @@
             "label": "astro_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "astro",
+            "GameTrigger.prompt": "astro_prompt",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/astro_trigger"
             },
             "x": 1383.3,
@@ -873,10 +913,12 @@
             "label": "thinice_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "thinice",
+            "GameTrigger.prompt": "thinice_prompt",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/thinice_trigger"
             },
             "x": 1272.2625,
@@ -893,16 +935,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairbutton1_1"
             },
             "x": 371.7,
             "y": 802.35,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -914,16 +956,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairbutton1_2"
             },
             "x": 457.2,
             "y": 954.1125,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -935,16 +977,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairbutton1_3"
             },
             "x": 217.2375,
             "y": 987.1875,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -956,16 +998,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairbutton1_4"
             },
             "x": 184.6125,
             "y": 861.3,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -977,16 +1019,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairbutton2_1"
             },
             "x": 1341.45,
             "y": 813.4875,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -998,16 +1040,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairbutton2_2"
             },
             "x": 1522.125,
             "y": 869.9625,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -1019,16 +1061,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairbutton2_3"
             },
             "x": 1496.5875,
             "y": 978.975,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -1040,16 +1082,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/chairbutton2_4"
             },
             "x": 1259.6625,
             "y": 957.825,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -1057,7 +1099,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/block"
             },
             "originX": 0,
@@ -1073,7 +1115,7 @@
                 "SnowballTrigger"
             ],
             "texture": {
-                "key": "lounge",
+                "key": "lounge2013",
                 "frame": "lounge/snowballblock"
             },
             "x": 607.05,
@@ -1085,8 +1127,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

@@ -3,10 +3,9 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../../../lib/ui/components/ButtonComponent";
-import DepthEnabled from "../../../../lib/ui/components/DepthEnabled";
-import RoomTrigger from "../../../../lib/ui/components/RoomTrigger";
+import ButtonComponent from "../../../../lib/components/ButtonComponent";
+import DepthEnabled from "../../../../lib/components/DepthEnabled";
+import RoomTrigger from "../../../../lib/components/RoomTrigger";
 /* START-USER-IMPORTS */
 import { App } from "@clubpenguin/app/app";
 import { Engine, Room } from "@clubpenguin/world/engine/engine";
@@ -26,90 +25,90 @@ export default class DojoExt extends Phaser.Scene implements Room {
 
     preload(): void {
 
-        this.load.pack("dojoext-pack", "assets/world/rooms/2013/dojoext/dojoext-pack.json");
+        this.load.pack("dojoext2013-pack", "assets/world/rooms/2013/dojoext/dojoext2013-pack.json");
     }
 
     editorCreate(): void {
 
         // dojoext_sky
-        const dojoext_sky = this.add.image(-125.775, -22.5, "dojoext", "dojoext/sky");
+        const dojoext_sky = this.add.image(-125.775, -22.5, "dojoext2013", "dojoext/sky");
         dojoext_sky.setOrigin(0, 0);
 
         // dojoext_base
-        const dojoext_base = this.add.image(-127.125, -20.025, "dojoext", "dojoext/base");
+        const dojoext_base = this.add.image(-127.125, -20.025, "dojoext2013", "dojoext/base");
         dojoext_base.setOrigin(0, 0);
 
         // lava
-        const lava = this.add.image(-77.2875, -91.2375, "dojoext", "dojoext/lava");
+        const lava = this.add.image(-77.2875, -91.2375, "dojoext2013", "dojoext/lava");
         lava.setOrigin(0, 0);
 
         // smoke
-        const smoke = this.add.sprite(-64.6875, -23.4, "dojoext", "dojoext/smoke0001");
+        const smoke = this.add.sprite(-64.6875, -23.4, "dojoext2013", "dojoext/smoke0001");
         smoke.setOrigin(0, 0);
         smoke.visible = false;
 
         // waterfall
-        const waterfall = this.add.sprite(268.425, 73.6875, "dojoext", "dojoext/waterfall0001");
+        const waterfall = this.add.sprite(268.425, 73.6875, "dojoext2013", "dojoext/waterfall0001");
         waterfall.setOrigin(0, 0);
 
         // door
-        const door = this.add.image(766.35, 465.75, "dojoext", "dojoext/door0001");
+        const door = this.add.image(766.35, 465.75, "dojoext2013", "dojoext/door0001");
         door.setOrigin(0, 0);
 
         // door_btn
-        const door_btn = this.add.image(766.35, 465.75, "dojoext", "dojoext/door0004");
+        const door_btn = this.add.image(766.35, 465.75, "dojoext2013", "dojoext/door0004");
         door_btn.setOrigin(0, 0);
-        door_btn.alpha = 0.01;
-        door_btn.alphaTopLeft = 0.01;
-        door_btn.alphaTopRight = 0.01;
-        door_btn.alphaBottomLeft = 0.01;
-        door_btn.alphaBottomRight = 0.01;
+        door_btn.alpha = 0.0001;
+        door_btn.alphaTopLeft = 0.0001;
+        door_btn.alphaTopRight = 0.0001;
+        door_btn.alphaBottomLeft = 0.0001;
+        door_btn.alphaBottomRight = 0.0001;
 
         // dojoext_dojo
-        const dojoext_dojo = this.add.image(33.4125, -13.725, "dojoext", "dojoext/dojo");
+        const dojoext_dojo = this.add.image(33.4125, -13.725, "dojoext2013", "dojoext/dojo");
         dojoext_dojo.setOrigin(0, 0);
 
         // dojoext_tree1
-        const dojoext_tree1 = this.add.image(1542.375, 818.55, "dojoext", "dojoext/tree1");
+        const dojoext_tree1 = this.add.image(1542.375, 818.55, "dojoext2013", "dojoext/tree1");
         dojoext_tree1.setOrigin(0.46656862745098043, 0.6685398230088496);
 
         // dojoext_tree2
-        const dojoext_tree2 = this.add.image(1461.7125, 905.85, "dojoext", "dojoext/tree2");
+        const dojoext_tree2 = this.add.image(1461.7125, 905.85, "dojoext2013", "dojoext/tree2");
         dojoext_tree2.setOrigin(0.5106310679611651, 0.6539837398373983);
 
         // dojoext_tree3
-        const dojoext_tree3 = this.add.image(1562.85, 808.7625, "dojoext", "dojoext/tree3");
+        const dojoext_tree3 = this.add.image(1562.85, 808.7625, "dojoext2013", "dojoext/tree3");
         dojoext_tree3.setOrigin(0, 0);
 
         // dojoext_leftstatue
-        const dojoext_leftstatue = this.add.image(520.2, 910.35, "dojoext", "dojoext/leftstatue");
+        const dojoext_leftstatue = this.add.image(520.2, 910.35, "dojoext2013", "dojoext/leftstatue");
         dojoext_leftstatue.setOrigin(0.49178030303030307, 0.37788461538461543);
 
         // dojoext_rightstatue
-        const dojoext_rightstatue = this.add.image(1241.4375, 901.35, "dojoext", "dojoext/rightstatue");
+        const dojoext_rightstatue = this.add.image(1241.4375, 901.35, "dojoext2013", "dojoext/rightstatue");
         dojoext_rightstatue.setOrigin(0.45155172, 0.36834891);
 
         // deck
-        const deck = this.add.image(1599.4125, 985.725, "dojoext", "dojoext/deck0001");
+        const deck = this.add.image(1599.4125, 985.725, "dojoext2013", "dojoext/deck0001");
 
         // deck_btn
-        const deck_btn = this.add.image(1599.4125, 985.725, "dojoext", "dojoext/deck0004");
-        deck_btn.alpha = 0.01;
-        deck_btn.alphaTopLeft = 0.01;
-        deck_btn.alphaTopRight = 0.01;
-        deck_btn.alphaBottomLeft = 0.01;
-        deck_btn.alphaBottomRight = 0.01;
+        const deck_btn = this.add.image(1599.4125, 985.725, "dojoext2013", "dojoext/deck0004");
+        deck_btn.alpha = 0.0001;
+        deck_btn.alphaTopLeft = 0.0001;
+        deck_btn.alphaTopRight = 0.0001;
+        deck_btn.alphaBottomLeft = 0.0001;
+        deck_btn.alphaBottomRight = 0.0001;
 
         // dojoext_dojo_mc
-        const dojoext_dojo_mc = this.add.image(873.675, 662.7375, "dojoext", "dojoext/dojo_mc");
+        const dojoext_dojo_mc = this.add.image(873.675, 662.7375, "dojoext2013", "dojoext/dojo_mc");
         dojoext_dojo_mc.visible = false;
 
         // dojoext_shack_mc
-        const dojoext_shack_mc = this.add.image(879.525, 999.675, "dojoext", "dojoext/shack_mc");
+        const dojoext_shack_mc = this.add.image(879.525, 999.675, "dojoext2013", "dojoext/shack_mc");
         dojoext_shack_mc.visible = false;
 
         // block
-        const block = this.add.image(-45, -45, "dojoext", "dojoext/block");
+        const block = this.add.image(-45, -45, "dojoext2013", "dojoext/block");
         block.setOrigin(0, 0);
         block.visible = false;
 
@@ -188,13 +187,11 @@ export default class DojoExt extends Phaser.Scene implements Room {
     declare game: App;
 
     init(data: any): void {
-        this.scene.moveBelow('Interface');
-
         if (data.oninit) data.oninit(this);
     }
 
     get world(): World {
-        return (this.scene.get('World') as World);
+        return this.scene.get('World') as World;
     }
 
     get engine(): Engine {
@@ -202,7 +199,7 @@ export default class DojoExt extends Phaser.Scene implements Room {
     }
 
     get interface(): Interface {
-        return (this.scene.get('Interface') as Interface);
+        return this.scene.get('Interface') as Interface;
     }
 
     create(data: any) {
@@ -213,25 +210,25 @@ export default class DojoExt extends Phaser.Scene implements Room {
 
         this.door_btn.on('over', () => {
             this.door.setFrame('dojoext/door0002');
-            this.sound.play('dojoext_dooropen');
+            this.sound.play('dojoext2013-dooropen');
         });
         this.door_btn.on('out', () => {
             this.door.setFrame('dojoext/door0001');
-            this.sound.play('dojoext_doorclose');
+            this.sound.play('dojoext2013-doorclose');
         });
         this.door_btn.on('release', () => this.world.move(873, 652.5));
 
         this.deck_btn.on('over', () => this.deck.setFrame('dojoext/deck0002'));
         this.deck_btn.on('out', () => this.deck.setFrame('dojoext/deck0001'));
 
-        this.smoke.play('dojoext-smoke-animation');
-        this.waterfall.play('dojoext-waterfall-animation');
+        this.smoke.play('dojoext2013-smoke-animation');
+        this.waterfall.play('dojoext2013-waterfall-animation');
 
         if (data.onready) data.onready(this);
     }
 
     unload(engine: Engine): void {
-        engine.app.unloadAssetPack('dojoext-pack');
+        engine.app.unloadAssetPack('dojoext2013-pack');
     }
 
     /* END-USER-CODE */

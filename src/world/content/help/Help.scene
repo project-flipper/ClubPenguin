@@ -1,0 +1,451 @@
+{
+    "id": "8c7c66f2-d4e7-403e-8a7a-db9ec986222d",
+    "sceneType": "SCENE",
+    "settings": {
+        "compilerInsertSpaces": true,
+        "exportClass": true,
+        "autoImport": true,
+        "superClassName": "Phaser.Scene implements Content",
+        "preloadPackFiles": [
+            "ClubPenguin/media/assets/world/content/help/help-pack.json"
+        ],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Help",
+        "compilerOutputLanguage": "TYPE_SCRIPT",
+        "borderWidth": 1710,
+        "borderHeight": 1080
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "fa406ed0-f107-4c6f-b734-a1d210a29945",
+            "label": "rectangle_1",
+            "components": [
+                "InputBlocker"
+            ],
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.25,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "width": 1710,
+            "height": 1080
+        },
+        {
+            "type": "NineSlice",
+            "id": "cdb8b9ad-e4c1-4a03-ae47-9219f6fa2393",
+            "label": "help_base",
+            "texture": {
+                "key": "help",
+                "frame": "help/base"
+            },
+            "x": 459,
+            "y": 171,
+            "originX": 0,
+            "originY": 0,
+            "leftWidth": 112.5,
+            "rightWidth": 112.5,
+            "topHeight": 112.5,
+            "bottomHeight": 112.5,
+            "width": 796.5,
+            "height": 675
+        },
+        {
+            "type": "Image",
+            "id": "80fae501-cdeb-427c-98bb-1e7c8a2144a7",
+            "label": "managebtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"help\",\"frame\":\"help/bigbutton0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"help\",\"frame\":\"help/bigbutton0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"help\",\"frame\":\"help/bigbutton0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "help",
+                "frame": "help/bigbutton0001"
+            },
+            "x": 855,
+            "y": 652.84
+        },
+        {
+            "type": "Image",
+            "id": "46a3e7bf-8229-4d5a-95ce-e5a63b41ed37",
+            "label": "closebtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"help\",\"frame\":\"help/close0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"help\",\"frame\":\"help/close0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"help\",\"frame\":\"help/close0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "help",
+                "frame": "help/close0001"
+            },
+            "x": 1188.11,
+            "y": 231.86
+        },
+        {
+            "type": "Image",
+            "id": "fdb4b10d-f255-4dee-b858-acd6757d97c9",
+            "label": "ignoredbtn",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.upTexture": "{\"key\":\"help\",\"frame\":\"help/button0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"help\",\"frame\":\"help/button0002\"}",
+            "ButtonComponent.downTexture": "{\"key\":\"help\",\"frame\":\"help/button0003\"}",
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "texture": {
+                "key": "help",
+                "frame": "help/button0001"
+            },
+            "x": 1028.02,
+            "y": 773.89
+        },
+        {
+            "type": "Image",
+            "id": "1efa2a45-e366-4df9-a791-96ae45dd2a39",
+            "label": "help_friends",
+            "texture": {
+                "key": "help",
+                "frame": "help/friends"
+            },
+            "x": 613.57,
+            "y": 753.75,
+            "originX": 0,
+            "originY": 0
+        },
+        {
+            "type": "Image",
+            "id": "a4cae91b-85de-42ce-b1f8-29a66439e923",
+            "label": "help_skull",
+            "texture": {
+                "key": "help",
+                "frame": "help/skull"
+            },
+            "x": 1028.14,
+            "y": 771.64
+        },
+        {
+            "type": "Image",
+            "id": "e0f82978-7c25-4773-ae0d-66667262b244",
+            "label": "check1",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "check1hit",
+            "texture": {
+                "key": "help",
+                "frame": "help/check0001"
+            },
+            "x": 771.41,
+            "y": 490.05,
+            "originX": 0.4125,
+            "originY": 0.6
+        },
+        {
+            "type": "Image",
+            "id": "272c8431-98e2-4e57-918a-51334732d727",
+            "label": "check1hit",
+            "texture": {
+                "key": "help",
+                "frame": "help/check0001"
+            },
+            "x": 771.41,
+            "y": 490.05,
+            "originX": 0.4125,
+            "originY": 0.6,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "type": "Image",
+            "id": "c72783e6-f1c0-4d6b-a9e2-b94a6f37aeeb",
+            "label": "check2",
+            "scope": "PUBLIC",
+            "components": [
+                "ButtonComponent"
+            ],
+            "ButtonComponent.handCursor": true,
+            "ButtonComponent.pixelPerfect": true,
+            "ButtonComponent.hitbox": "check2hit",
+            "texture": {
+                "key": "help",
+                "frame": "help/check0001"
+            },
+            "x": 771.41,
+            "y": 550.8,
+            "originX": 0.4125,
+            "originY": 0.6
+        },
+        {
+            "type": "Image",
+            "id": "d0ecf10d-1f70-49f7-8f8f-5bc9d164c340",
+            "label": "check2hit",
+            "texture": {
+                "key": "help",
+                "frame": "help/check0001"
+            },
+            "x": 771.41,
+            "y": 550.8,
+            "originX": 0.4125,
+            "originY": 0.6,
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "92af14c8-fc9b-4c57-ac5d-d7cec85d3292",
+            "unlock": [
+                "x",
+                "y",
+                "text",
+                "fontSize",
+                "font",
+                "boxWidth",
+                "boxHeight",
+                "horizontalAlign"
+            ],
+            "label": "title",
+            "scope": "PUBLIC",
+            "boxWidth": 616.3875,
+            "boxHeight": 66.6,
+            "horizontalAlign": 1,
+            "x": 546.75,
+            "y": 238.5,
+            "text": "SETTINGS",
+            "font": "CCComicCrazy-BoldItalicShadow",
+            "fontSize": 45
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "cbf43b71-2602-4061-8fc1-f1f4530f4484",
+            "unlock": [
+                "x",
+                "y",
+                "fontSize",
+                "font",
+                "text",
+                "tintFill",
+                "tintTopLeft",
+                "tintTopRight",
+                "tintBottomLeft",
+                "tintBottomRight",
+                "verticalAlign",
+                "horizontalAlign",
+                "boxHeight",
+                "boxWidth"
+            ],
+            "label": "serverName",
+            "scope": "PUBLIC",
+            "boxWidth": 613.4625,
+            "boxHeight": 52.2,
+            "horizontalAlign": 1,
+            "verticalAlign": 1,
+            "x": 548.32,
+            "y": 335.14,
+            "tintTopLeft": "#000000",
+            "tintTopRight": "#000000",
+            "tintBottomLeft": "#000000",
+            "tintBottomRight": "#000000",
+            "tintFill": true,
+            "text": "You're on Server Name",
+            "font": "BurbankSmallMedium",
+            "fontSize": 36
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "72811692-49dd-4336-8b98-2281eb5c0b97",
+            "unlock": [
+                "x",
+                "y",
+                "fontSize",
+                "font",
+                "text",
+                "tintFill",
+                "tintTopLeft",
+                "tintTopRight",
+                "tintBottomLeft",
+                "tintBottomRight",
+                "verticalAlign",
+                "horizontalAlign",
+                "boxHeight",
+                "boxWidth"
+            ],
+            "label": "accountAge",
+            "scope": "PUBLIC",
+            "boxWidth": 613.4625,
+            "boxHeight": 52.2,
+            "horizontalAlign": 1,
+            "verticalAlign": 1,
+            "x": 548.32,
+            "y": 393.64,
+            "tintTopLeft": "#000000",
+            "tintTopRight": "#000000",
+            "tintBottomLeft": "#000000",
+            "tintBottomRight": "#000000",
+            "tintFill": true,
+            "text": "Your penguin is 252 days old",
+            "font": "BurbankSmallMedium",
+            "fontSize": 36
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "9c3e053b-84eb-4796-8d87-44b334223597",
+            "unlock": [
+                "x",
+                "y",
+                "fontSize",
+                "font",
+                "text",
+                "tintFill",
+                "tintTopLeft",
+                "tintTopRight",
+                "tintBottomLeft",
+                "tintBottomRight",
+                "verticalAlign",
+                "horizontalAlign",
+                "boxHeight",
+                "boxWidth"
+            ],
+            "label": "muteMusic",
+            "scope": "PUBLIC",
+            "boxWidth": 356.175,
+            "boxHeight": 52.2,
+            "horizontalAlign": 0,
+            "verticalAlign": 1,
+            "x": 806.96,
+            "y": 465.64,
+            "tintTopLeft": "#000000",
+            "tintTopRight": "#000000",
+            "tintBottomLeft": "#000000",
+            "tintBottomRight": "#000000",
+            "tintFill": true,
+            "text": "Mute Music",
+            "font": "BurbankSmallMedium",
+            "fontSize": 36
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "d7de5525-9a2d-4574-a0f4-747c8f5eb35d",
+            "unlock": [
+                "x",
+                "y",
+                "fontSize",
+                "font",
+                "text",
+                "tintFill",
+                "tintTopLeft",
+                "tintTopRight",
+                "tintBottomLeft",
+                "tintBottomRight",
+                "verticalAlign",
+                "horizontalAlign",
+                "boxHeight",
+                "boxWidth"
+            ],
+            "label": "muteAllSounds",
+            "scope": "PUBLIC",
+            "boxWidth": 356.175,
+            "boxHeight": 52.2,
+            "horizontalAlign": 0,
+            "verticalAlign": 1,
+            "x": 806.96,
+            "y": 526.39,
+            "tintTopLeft": "#000000",
+            "tintTopRight": "#000000",
+            "tintBottomLeft": "#000000",
+            "tintBottomRight": "#000000",
+            "tintFill": true,
+            "text": "Mute All Sounds",
+            "font": "BurbankSmallMedium",
+            "fontSize": 36
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "e8d9dc09-8c5a-4a84-91c9-58f822697fab",
+            "unlock": [
+                "x",
+                "y",
+                "fontSize",
+                "font",
+                "text",
+                "verticalAlign",
+                "horizontalAlign",
+                "boxHeight",
+                "boxWidth"
+            ],
+            "label": "manageAccount",
+            "scope": "PUBLIC",
+            "boxWidth": 575.8875,
+            "boxHeight": 63,
+            "horizontalAlign": 1,
+            "verticalAlign": 1,
+            "x": 567,
+            "y": 623.25,
+            "text": "Manage Account",
+            "font": "BurbankSmallBold",
+            "fontSize": 45
+        },
+        {
+            "prefabId": "a9f4cfcc-33cf-429b-80ec-9e066872e764",
+            "id": "04371003-a372-4509-ab19-665d1e460032",
+            "unlock": [
+                "x",
+                "y",
+                "fontSize",
+                "font",
+                "text",
+                "tintFill",
+                "tintTopLeft",
+                "tintTopRight",
+                "tintBottomLeft",
+                "tintBottomRight",
+                "verticalAlign",
+                "horizontalAlign",
+                "boxHeight",
+                "boxWidth"
+            ],
+            "label": "buddies",
+            "scope": "PUBLIC",
+            "boxWidth": 322.7625,
+            "boxHeight": 52.2,
+            "horizontalAlign": 0,
+            "verticalAlign": 1,
+            "x": 660.38,
+            "y": 746.89,
+            "tintTopLeft": "#000000",
+            "tintTopRight": "#000000",
+            "tintBottomLeft": "#000000",
+            "tintBottomRight": "#000000",
+            "tintFill": true,
+            "text": "20/100 Buddies",
+            "font": "BurbankSmallMedium",
+            "fontSize": 36
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

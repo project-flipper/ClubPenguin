@@ -1,7 +1,6 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 

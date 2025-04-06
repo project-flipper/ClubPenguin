@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/berg/berg-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/berg/berg2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Berg",
@@ -21,7 +21,7 @@
             "id": "da2660c4-8a49-459e-91cf-5059f9d01e6e",
             "label": "berg_sky",
             "texture": {
-                "key": "berg",
+                "key": "berg2013",
                 "frame": "berg/sky"
             },
             "x": -22.5,
@@ -34,7 +34,7 @@
             "id": "d04a984d-0452-407f-b148-87ba43556a22",
             "label": "berg_island",
             "texture": {
-                "key": "berg",
+                "key": "berg2013",
                 "frame": "berg/island"
             },
             "x": 774.7875,
@@ -47,7 +47,7 @@
             "id": "b54f73da-70b6-4deb-b444-6205c51b1b0a",
             "label": "berg_base",
             "texture": {
-                "key": "berg",
+                "key": "berg2013",
                 "frame": "berg/base"
             },
             "x": -22.5,
@@ -61,7 +61,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "berg",
+                "key": "berg2013",
                 "frame": "berg/block"
             },
             "originX": 0,
@@ -86,10 +86,12 @@
             "label": "aqua_mc",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "aqua",
+            "GameTrigger.prompt": "aqua_prompt",
             "texture": {
-                "key": "berg",
+                "key": "berg2013",
                 "frame": "berg/aqua_mc"
             },
             "x": 1163.1375,
@@ -101,8 +103,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

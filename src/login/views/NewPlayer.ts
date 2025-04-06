@@ -1,10 +1,9 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 import TextField from "../../lib/ui/TextField";
 import TextBox from "../../lib/ui/TextBox";
 import Checkbox from "../prefabs/Checkbox";
-import ButtonComponent from "../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../lib/components/ButtonComponent";
 /* START-USER-IMPORTS */
 import Login from "@clubpenguin/login/Login";
 import { Locale } from "@clubpenguin/app/locale";
@@ -31,7 +30,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         nameLabel.tintBottomLeft = 0;
         nameLabel.tintBottomRight = 0;
         nameLabel.text = "Penguin name:";
-        nameLabel.fontSize = -36;
+        nameLabel.fontSize = 36;
         nameLabel.align = 2;
         this.add(nameLabel);
 
@@ -43,7 +42,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         passwordLabel.tintBottomLeft = 0;
         passwordLabel.tintBottomRight = 0;
         passwordLabel.text = "Password:";
-        passwordLabel.fontSize = -36;
+        passwordLabel.fontSize = 36;
         passwordLabel.align = 2;
         this.add(passwordLabel);
 
@@ -59,7 +58,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         nameCheckLabel.tintBottomLeft = 0;
         nameCheckLabel.tintBottomRight = 0;
         nameCheckLabel.text = "Remember me on this computer";
-        nameCheckLabel.fontSize = -36;
+        nameCheckLabel.fontSize = 36;
         nameCheckLabel.align = 0;
         nameCheckLabel.maxWidth = 760.3875;
         this.add(nameCheckLabel);
@@ -72,7 +71,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         passwordCheckLabel.tintBottomLeft = 0;
         passwordCheckLabel.tintBottomRight = 0;
         passwordCheckLabel.text = "Remember my password";
-        passwordCheckLabel.fontSize = -36;
+        passwordCheckLabel.fontSize = 36;
         passwordCheckLabel.align = 0;
         passwordCheckLabel.maxWidth = 760.3875;
         this.add(passwordCheckLabel);
@@ -89,13 +88,13 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         // loginLabel
         const loginLabel = new TextBox(scene, 716.2875, 453.375, "BurbankSmallMedium");
         loginLabel.text = "Login";
-        loginLabel.fontSize = -45;
+        loginLabel.fontSize = 45;
         loginLabel.align = 1;
         this.add(loginLabel);
 
         // forgotHitbox
         const forgotHitbox = scene.add.rectangle(853.7625, 620.55, 486, 81);
-        forgotHitbox.alpha = 0.01;
+        forgotHitbox.alpha = 0.0001;
         forgotHitbox.isFilled = true;
         forgotHitbox.fillColor = 5694679;
         this.add(forgotHitbox);
@@ -109,13 +108,13 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         // forgotLabel
         const forgotLabel = new TextBox(scene, 551.25, 592.425, "BurbankSmallMedium");
         forgotLabel.text = "Forgot your password?";
-        forgotLabel.fontSize = -36;
+        forgotLabel.fontSize = 36;
         forgotLabel.align = 1;
         this.add(forgotLabel);
 
         // accountHitbox
         const accountHitbox = scene.add.rectangle(859.5, 747, 685.575, 162);
-        accountHitbox.alpha = 0.01;
+        accountHitbox.alpha = 0.0001;
         accountHitbox.isFilled = true;
         accountHitbox.fillColor = 5694679;
         this.add(accountHitbox);
@@ -134,20 +133,20 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         accountLabel.tintBottomLeft = 0;
         accountLabel.tintBottomRight = 0;
         accountLabel.text = "Don't have a penguin?";
-        accountLabel.fontSize = -36;
+        accountLabel.fontSize = 36;
         accountLabel.align = 1;
         this.add(accountLabel);
 
         // accountLabel2
         const accountLabel2 = new TextBox(scene, 303.4125, 750.375, "BurbankSmallMedium");
         accountLabel2.text = "Create a free account now";
-        accountLabel2.fontSize = -38.25;
+        accountLabel2.fontSize = 38.25;
         accountLabel2.align = 1;
         this.add(accountLabel2);
 
         // rulesHitbox
         const rulesHitbox = scene.add.rectangle(852.75, 876.375, 470.7, 88.2);
-        rulesHitbox.alpha = 0.01;
+        rulesHitbox.alpha = 0.0001;
         rulesHitbox.isFilled = true;
         rulesHitbox.fillColor = 5694679;
         this.add(rulesHitbox);
@@ -161,13 +160,13 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         // rulesLabel
         const rulesLabel = new TextBox(scene, 551.3625, 847.35, "BurbankSmallMedium");
         rulesLabel.text = "Club Penguin Rules";
-        rulesLabel.fontSize = -40.5;
+        rulesLabel.fontSize = 40.5;
         rulesLabel.align = 1;
         this.add(rulesLabel);
 
         // backHitbox
         const backHitbox = scene.add.rectangle(853.7625, 991.0125, 486, 81);
-        backHitbox.alpha = 0.01;
+        backHitbox.alpha = 0.0001;
         backHitbox.isFilled = true;
         backHitbox.fillColor = 5694679;
         this.add(backHitbox);
@@ -181,7 +180,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         // backLabel
         const backLabel = new TextBox(scene, 690.75, 966.2625, "BurbankSmallMedium");
         backLabel.text = "Back";
-        backLabel.fontSize = -36;
+        backLabel.fontSize = 36;
         backLabel.align = 1;
         this.add(backLabel);
 
@@ -195,12 +194,13 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         nameTextField.fieldWidth = 456.525;
         nameTextField.fieldHeight = 63.1125;
         nameTextField.maxLength = 12;
-        nameTextField.font = "BurbankSmallMedium";
-        nameTextField.fontSize = -45;
+        nameTextField.font = "Burbank Small Medium";
+        nameTextField.fontSize = "45px";
         nameTextField.fontColor = "#000000";
         nameTextField.backgroundIsStroked = true;
         nameTextField.backgroundStrokeWidth = 2;
         nameTextField.backgroundStrokeColor = "#000000";
+        nameTextField.marginLeft = 4.5;
         nameTextField.autocomplete = "username";
 
         // passwordTextField (prefab fields)
@@ -208,12 +208,13 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         passwordTextField.fieldWidth = 456.525;
         passwordTextField.fieldHeight = 63.1125;
         passwordTextField.maxLength = 32;
-        passwordTextField.font = "BurbankSmallMedium";
-        passwordTextField.fontSize = -45;
+        passwordTextField.font = "Burbank Small Medium";
+        passwordTextField.fontSize = "45px";
         passwordTextField.fontColor = "#000000";
         passwordTextField.backgroundIsStroked = true;
         passwordTextField.backgroundStrokeWidth = 2;
         passwordTextField.backgroundStrokeColor = "#000000";
+        passwordTextField.marginLeft = 4.5;
         passwordTextField.autocomplete = "password";
 
         // nameLabel (prefab fields)
@@ -341,7 +342,7 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
             this.forgotBar.visible = false;
         });
         this.forgotHitbox.on('pointerup', () => {
-            window.location.reload(); // TODO: go to URL
+            window.location.href = __environment__.links.forgotPassword;
         });
 
         this.accountHitbox.setInteractive({ useHandCursor: true });
@@ -441,7 +442,13 @@ export default class NewPlayer extends Phaser.GameObjects.Container {
         this.accountLabel2.text = locale.localize('Create a free account now');
         this.rulesLabel.text = locale.localize('w.login.prompt.rules');
         this.backLabel.text = locale.localize('Back');
-        this.secret.setFrame(`login-screen/secret${locale.frame}`)
+        this.secret.setFrame(`login-screen/secret${locale.frame}`);
+    }
+
+    setVisible(value: boolean): this {
+        this.nameTextField.visible = value;
+        this.passwordTextField.visible = value;
+        return super.setVisible(value);
     }
 
     /* END-USER-CODE */

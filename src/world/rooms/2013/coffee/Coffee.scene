@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/coffee/coffee-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/coffee/coffee2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Coffee",
@@ -21,7 +21,7 @@
             "id": "6087d550-2e48-4a45-827b-6009ed97dfdc",
             "label": "coffee_base",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/base"
             },
             "x": -157.5,
@@ -34,7 +34,7 @@
             "id": "c9719c21-2a74-4038-b038-d61b92e31c8d",
             "label": "coffee_upstairs",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/upstairs"
             },
             "x": 1346.625,
@@ -48,7 +48,7 @@
             "label": "sign",
             "scope": "PUBLIC",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/sign0001"
             },
             "x": 1388.3625,
@@ -61,7 +61,7 @@
             "id": "45bb276f-946c-4ce5-b179-8b6f37038074",
             "label": "coffee_stairslight",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/stairslight"
             },
             "x": 1461.4875,
@@ -75,7 +75,7 @@
             "label": "stairslight",
             "scope": "PUBLIC",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/stairs-btn0002"
             },
             "x": 1376.5,
@@ -95,25 +95,25 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/stairs-btn0004"
             },
             "x": 1374.75,
             "y": 242.4375,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
             "id": "c2b9e03d-cb14-4f22-8758-49d43599c8de",
             "label": "coffee_paintings",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/paintings"
             },
             "x": 95.9625,
@@ -126,7 +126,7 @@
             "id": "542c26c7-3ffd-471d-8d39-99445f32b934",
             "label": "coffee_window",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/window"
             },
             "x": 329.625,
@@ -142,12 +142,12 @@
             "components": [
                 "ButtonComponent"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"coffee\",\"frame\":\"coffee/door0001\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"coffee\",\"frame\":\"coffee/door0002\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"coffee2013\",\"frame\":\"coffee/door0001\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"coffee2013\",\"frame\":\"coffee/door0002\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/door0001"
             },
             "x": 715.95,
@@ -160,7 +160,7 @@
             "id": "6e5cc92e-df38-47cb-a974-b443c6826a6d",
             "label": "coffee_ceiling",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/ceiling"
             },
             "x": 872.325,
@@ -173,7 +173,7 @@
             "id": "612e38e0-be55-4af0-a268-b6c403d02880",
             "label": "coffee_ceilinglamp1",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/ceilinglamp1"
             },
             "x": 921.7125,
@@ -186,7 +186,7 @@
             "id": "ffc4b822-98e4-45c8-b131-67437d9b3d7a",
             "label": "coffee_ceilinglamp2",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/ceilinglamp2"
             },
             "x": 942.4125,
@@ -199,7 +199,7 @@
             "id": "570e707c-ad02-4363-8e55-951d2cd412ae",
             "label": "coffee_ceilinglamp3",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/ceilinglamp3"
             },
             "x": 966.825,
@@ -212,7 +212,7 @@
             "id": "c336106c-df0c-4631-866f-b14618ecd6c2",
             "label": "coffee_countertable",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/countertable"
             },
             "x": 1073.3625,
@@ -225,7 +225,7 @@
             "id": "bd9d217c-e9b5-4107-adf0-7688c11d2075",
             "label": "coffee_countertrash",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/countertrash"
             },
             "x": 963,
@@ -241,7 +241,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/counter"
             },
             "x": 882.9,
@@ -254,7 +254,7 @@
             "id": "285b8cd7-2bcf-4f21-a4bc-e5da7fa82c0c",
             "label": "coffee_machine1",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/machine1"
             },
             "x": 1056.375,
@@ -267,7 +267,7 @@
             "id": "8beb889b-651c-41b8-a1d5-ffeb6ad45da5",
             "label": "coffee_machine2",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/machine2"
             },
             "x": 1112.175,
@@ -280,7 +280,7 @@
             "id": "7b04d506-1024-40ec-a9e3-ebbd216147b2",
             "label": "coffee_dispenser1",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/dispenser1"
             },
             "x": 1177.0875,
@@ -293,7 +293,7 @@
             "id": "75b2dbc9-1f8b-46e0-817d-11c058087360",
             "label": "coffee_dispenser2",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/dispenser2"
             },
             "x": 1204.3125,
@@ -306,7 +306,7 @@
             "id": "2ba2ffb8-1a20-4d82-b477-419e4427c835",
             "label": "coffee_dispenser3",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/dispenser3"
             },
             "x": 1234.9125,
@@ -319,7 +319,7 @@
             "id": "a360ea81-faee-4883-9e39-94e11b86c841",
             "label": "coffee_lamp",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/lamp"
             },
             "x": 535.8375,
@@ -332,7 +332,7 @@
             "id": "1f08b244-f448-4e67-846b-f851b3d71574",
             "label": "coffee_lamp_1",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/lamp"
             },
             "x": 375.75,
@@ -345,7 +345,7 @@
             "id": "39883a94-7360-4458-bbc3-fcfbf11bd049",
             "label": "coffee_plant",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/plant"
             },
             "x": 278.1,
@@ -358,7 +358,7 @@
             "id": "c7bee7eb-e612-4693-a3dd-d1dca6171981",
             "label": "coffee_frontcouch",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/frontcouch"
             },
             "x": 360.45,
@@ -374,7 +374,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/sidecouch"
             },
             "x": 286.2,
@@ -390,7 +390,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/sidecouchrest"
             },
             "x": 189.45,
@@ -406,7 +406,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smallcouch"
             },
             "x": 209.1375,
@@ -419,7 +419,7 @@
             "id": "14ec64e8-25be-4287-b70e-82300aa1c031",
             "label": "coffee_rug",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/rug"
             },
             "x": 383.7375,
@@ -435,7 +435,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/table"
             },
             "x": 419.85,
@@ -451,7 +451,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/railing"
             },
             "x": 200.8125,
@@ -464,7 +464,7 @@
             "id": "3434ba0c-6812-4830-afe8-ffa482cda7f3",
             "label": "coffee_carpet",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/carpet"
             },
             "x": 518.0625,
@@ -481,7 +481,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/register0001"
             },
             "x": 954.5625,
@@ -497,7 +497,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/downtable"
             },
             "x": 933.4125,
@@ -513,7 +513,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/beanbag"
             },
             "x": 1352.1375,
@@ -529,7 +529,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/couchcushion"
             },
             "x": 1132.2,
@@ -545,7 +545,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/couchback"
             },
             "x": 1357.875,
@@ -561,7 +561,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/singlecouchcushion"
             },
             "x": 717.975,
@@ -577,7 +577,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/singlecouchback"
             },
             "x": 705.0375,
@@ -593,7 +593,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/singlecouchrest"
             },
             "x": 720.5625,
@@ -609,7 +609,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothiebg"
             },
             "x": 55.4625,
@@ -625,7 +625,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothietable"
             },
             "x": 56.8125,
@@ -642,7 +642,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothieregister0001"
             },
             "x": 256.1625,
@@ -659,7 +659,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothieblender0001"
             },
             "x": 122.85,
@@ -676,7 +676,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothie-btn0002"
             },
             "x": -111.375,
@@ -693,7 +693,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothiefront"
             },
             "x": 124.3125,
@@ -711,7 +711,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 975.15,
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothiesign"
             },
             "x": -40.95,
@@ -730,7 +730,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 975.15,
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothietitle0001"
             },
             "x": -40.95,
@@ -746,7 +746,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothiechair"
             },
             "x": 446.9625,
@@ -762,7 +762,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothiechair"
             },
             "x": 423,
@@ -776,7 +776,7 @@
             "label": "beans",
             "scope": "PUBLIC",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/beans0001"
             },
             "x": 1521.225,
@@ -792,7 +792,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/shopouter"
             },
             "x": 85.1625,
@@ -805,7 +805,7 @@
             "id": "106b6c12-a71e-428b-9c26-44151fe0be89",
             "label": "coffee_beanssign",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/beanssign"
             },
             "x": 1585.2375,
@@ -824,18 +824,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothie-btn0004"
             },
             "x": -111.375,
             "y": 283.6125,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -848,18 +848,18 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/beansarea"
             },
             "x": 1482.6375,
             "y": 690.6375,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -867,10 +867,12 @@
             "label": "smoothie_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "smoothie",
+            "GameTrigger.prompt": "smoothie_prompt",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothie-trigger"
             },
             "x": 153,
@@ -888,7 +890,7 @@
             "RoomTrigger.playerX": 652.5,
             "RoomTrigger.playerY": 585,
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/door-trigger"
             },
             "x": 801.3375,
@@ -901,10 +903,12 @@
             "label": "beans_trigger",
             "scope": "PUBLIC",
             "components": [
-                "Trigger"
+                "GameTrigger"
             ],
+            "GameTrigger.game_id": "beans",
+            "GameTrigger.prompt": "beans_prompt",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/beans-trigger"
             },
             "x": 1591.2,
@@ -922,7 +926,7 @@
             "RoomTrigger.playerX": 1406.25,
             "RoomTrigger.playerY": 551.25,
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/upstairs-trigger"
             },
             "x": 1471.5,
@@ -938,18 +942,18 @@
                 "ButtonComponent"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/register_btn0004"
             },
             "x": 1022.4,
             "y": 441.45,
             "originX": 0.61464,
             "originY": -0.413,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -960,17 +964,17 @@
                 "ButtonComponent"
             ],
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/smoothieregister_btn0004"
             },
             "x": 326.8125,
             "y": 658.8,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -978,7 +982,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "coffee",
+                "key": "coffee2013",
                 "frame": "coffee/block"
             },
             "x": -99,
@@ -990,8 +994,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

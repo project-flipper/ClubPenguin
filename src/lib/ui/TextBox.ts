@@ -1,6 +1,5 @@
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -10,12 +9,18 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
         super(scene, x ?? 0, y ?? 0, font ?? "BurbankSmallBold");
 
         this.text = "TextBox";
-        this.fontSize = -72;
+        this.fontSize = 72;
 
         /* START-USER-CTR-CODE */
 
         this.__baseX = this.x;
         this.__baseY = this.y;
+
+        this.debug = scene.add.rectangle(this.x, this.y, this.boxWidth, this.boxHeight, Phaser.Display.Color.RandomRGB().color, 0.25);
+        this.debug.setOrigin(0, 0);
+        this.debug.visible = false;
+        this.debug.setDepth(9999999);
+        scene.add.existing(this.debug);
 
         /* END-USER-CTR-CODE */
 
@@ -35,8 +40,12 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
     private __baseX: number;
     private __baseY: number;
 
+    private debug: Phaser.GameObjects.Rectangle;
+
     private _advancedWordWrap = true;
     public shouldSetMaxWidth = true;
+
+    public splitRegExp = /(?:\r\n|\r|\n)/;
 
     get advancedWordWrap(): boolean {
         return this._advancedWordWrap;
@@ -57,6 +66,14 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
         super.setText(this.advancedWordWrap ? this.wrapText(value) : value);
 
         return this.repositionText();
+    }
+
+    setVisible(value: boolean): this {
+        super.setVisible(value);
+
+        if (this.debug) this.debug.visible = value;
+
+        return this;
     }
 
     setPosition(x?: number, y?: number): this {
@@ -212,7 +229,7 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
             case 1: //middle align
                 y = baseY + height / 2 - this.height / 2;
                 break;
-            case 2: // right align
+            case 2: // bottom align
                 y = baseY + height - this.height;
                 break;
             default:
@@ -222,14 +239,118 @@ export default class TextBox extends Phaser.GameObjects.BitmapText {
         super.setPosition(x, y);
         this.emit('textrepositioned');
 
+        if (this.debug) {
+            this.debug.setPosition(baseX, baseY);
+            this.debug.setSize(width, height);
+        }
+
         return this;
     }
 
-    wrapText(text: string): string {
-        //var lines = text.replace(/ +/gi, ' ').split(/(?:\r\n|\r|\n)/);
-        String.fromCharCode(this.wordWrapCharCode);
+    measureText(text: string): {  width: number, height: number } {
+        let textWidth = 0;
+        let textHeight = 0;
+        for (let char of text) {
+            let charData = this.fontData.chars[char.charCodeAt(0)];
+            let scalingFactor = (this.fontSize / this.fontData.size);
+            textWidth += Math.abs(charData.width * scalingFactor);
+            textHeight += Math.abs(charData.height * scalingFactor);
+        }
+        return { width: textWidth, height: textHeight };
+    }
 
+    wrapText(text: string): string {
         return text;
+        let output = '';
+
+        let lines = text.replace(/ +/gi, ' ').split(this.splitRegExp);
+
+        let linesCount = lines.length;
+
+        for (let i = 0; i < linesCount; i++) {
+            let line = lines[i];
+            let out = '';
+
+            // Trim whitespace
+            line = line.replace(/^ *|\s*$/gi, '');
+
+            // If entire line is less than wordWrapWidth append the entire line and exit early
+            let lineWidth = this.measureText(line).width;
+
+            if (lineWidth < this.boxWidth) {
+                output += line + '\n';
+                continue;
+            }
+
+            // Otherwise, calculate new lines
+            let currentLineWidth = this.boxWidth;
+
+            // Split into words
+            let words = line.split(' ');
+
+            for (let j = 0; j < words.length; j++) {
+                let word = words[j];
+                let wordWithSpace = word + ' ';
+                let wordWidth = this.measureText(wordWithSpace).width;
+
+                if (wordWidth > currentLineWidth) {
+                    // Break word
+                    if (j == 0) {
+                        // Shave off letters from word until it's small enough
+                        let newWord = wordWithSpace;
+
+                        while (newWord.length) {
+                            newWord = newWord.slice(0, -1);
+                            wordWidth = this.measureText(newWord).width;
+
+                            if (wordWidth <= currentLineWidth) {
+                                break;
+                            }
+                        }
+
+                        // If wordWrapWidth is too small for even a single letter, shame user
+                        // failure with a fatal error
+                        if (!newWord.length) {
+                            throw new Error('wordWrapWidth < a single character');
+                        }
+
+                        // Replace current word in array with remainder
+                        let secondPart = word.substr(newWord.length);
+
+                        words[j] = secondPart;
+
+                        // Append first piece to output
+                        out += newWord;
+                    }
+
+                    // If existing word length is 0, don't include it
+                    let offset = (words[j].length) ? j : j + 1;
+
+                    // Collapse rest of sentence and remove any trailing white space
+                    let remainder = words.slice(offset).join(' ').replace(/[ \n]*$/gi, '');
+
+                    // Prepend remainder to next line
+                    lines.splice(i + 1, 0, remainder);
+
+                    linesCount = lines.length;
+
+                    break; // Processing on this line
+
+                    // Append word with space to output
+                } else {
+                    out += wordWithSpace;
+                    currentLineWidth -= wordWidth;
+                }
+            }
+
+            // Append processed line to output
+            output += out.replace(/[ \n]*$/gi, '') + '\n';
+        }
+
+        // Trim the end of the string
+        output = output.replace(/[\s|\n]*$/gi, '');
+
+        return output;
     }
 
     /* END-USER-CODE */

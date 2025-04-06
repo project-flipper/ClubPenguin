@@ -1,12 +1,11 @@
-import Phaser from "phaser";
-
-import { App } from "@clubpenguin/app/app";
+import { App, logger } from "@clubpenguin/app/app";
 import Load from "@clubpenguin/load/Load";
 import { LoaderTask } from "@clubpenguin/load/tasks";
-import { getLogger } from "@clubpenguin/lib/log";
+import { LoaderPlugin } from "./loader";
 
-let logger = getLogger('CP.app.locale');
-
+/**
+ * Represents a supported game language by ID.
+ */
 export enum Language {
     EN = 1,
     PT = 2,
@@ -16,7 +15,12 @@ export enum Language {
     RU = 6
 }
 
-// compat
+/**
+ * Converts an abbreviation string of a language to its {@link Language} value.
+ * This is mainly used for backwards compatibility with the Flash client and playpage.
+ * @param lang The language abbreviation
+ * @returns The corresponding enum value.
+ */
 export function getLanguageByAbbreviation(lang: string): Language {
     switch (lang) {
         case 'en':
@@ -45,6 +49,9 @@ export enum LocaleEvents {
     DATA_LOADED = 'dataloaded'
 }
 
+/**
+ * The game locale handler.
+ */
 export class Locale extends Phaser.Events.EventEmitter {
     public app: App;
     public data: { [domain: string]: { [key: string]: string } };
@@ -67,6 +74,11 @@ export class Locale extends Phaser.Events.EventEmitter {
         this.on(LocaleEvents.DATA_LOADED, this.runTasks, this);
     }
 
+    /**
+     * Sets the current locale.
+     * This function only signals a language change but will have no effect until {@link Locale.load} is called.
+     * @param lang The language abbreviation.
+     */
     setLanguage(lang: string): void {
         this.language = getLanguageByAbbreviation(lang);
         this.abbreviation = this.getLanguageAbbreviation(this.language);
@@ -79,6 +91,11 @@ export class Locale extends Phaser.Events.EventEmitter {
         this.emit(LocaleEvents.LANGUAGE_CHANGE, this.language);
     }
 
+    /**
+     * Returns the string representation of a language.
+     * @param lang The language value.
+     * @returns The corresponding abbreviation.
+     */
     getLanguageAbbreviation(lang: Language): string {
         switch (lang) {
             case Language.EN:
@@ -96,6 +113,11 @@ export class Locale extends Phaser.Events.EventEmitter {
         }
     }
 
+    /**
+     * Returns the bitmask value of a language.
+     * @param lang The language value.
+     * @returns The corresponding bitmask.
+     */
     getLanguageBitmask(lang: Language): number {
         switch (lang) {
             case Language.EN:
@@ -113,10 +135,20 @@ export class Locale extends Phaser.Events.EventEmitter {
         }
     }
 
+    /**
+     * Returns the animation frame associated with a language.
+     * @param lang The language value.
+     * @returns The corresponding frame string.
+     */
     getLanguageFrame(lang: Language): string {
         return lang.toString().padStart(4, '0');
     }
 
+    /**
+     * Returns the full language string representation.
+     * @param lang The language value.
+     * @returns The corresponding language string.
+     */
     getLanguageString(lang: Language): string {
         switch (lang) {
             case Language.EN:
@@ -134,6 +166,10 @@ export class Locale extends Phaser.Events.EventEmitter {
         }
     }
 
+    /**
+     * Loads the locale.
+     * Upon success, any localization tasks registered will be called to produce localization changes.
+     */
     async load(): Promise<void> {
         let load = this.app.scene.getScene('Load') as Load;
         let loader = load.load;
@@ -143,7 +179,7 @@ export class Locale extends Phaser.Events.EventEmitter {
         let key = `locale-${this.abbreviation}`
         if (cache.json.exists(key)) cache.json.remove(key);
 
-        loader.json(key, `config/${this.abbreviation}/game_strings.json`)
+        loader.json(key, `config/${this.abbreviation}/game_strings.json?v=${LoaderPlugin.cacheVersion}`);
 
         logger.info('Loading locale');
         loader.start();
@@ -155,10 +191,20 @@ export class Locale extends Phaser.Events.EventEmitter {
         this.emit(LocaleEvents.DATA_LOADED, this.data);
     }
 
+    /**
+     * 
+     * @param key The string key.
+     * @param domain The domain the category is in.
+     * @returns The localized string if found, otherwise returned as a placeholder.
+     */
     localize(key: string, domain = 'lang'): string {
-        return this.data[domain][key] ?? key;
+        return (domain in this.data && this.data[domain][key]) ?? `**${key}**`;
     }
 
+    /**
+     * Runs all callbacks registered for localization.
+     * You should not call this manually, instead let {@link Locale.load} signal locale changes.
+     */
     private runTasks(): void {
         if (!this.data) return;
 
@@ -171,46 +217,69 @@ export class Locale extends Phaser.Events.EventEmitter {
         }
     }
 
-    immediate(task: LocaleTaskCallback, context?: any): void {
+    /**
+     * If the locale has been loaded, immediately call this callback.
+     * If no locale has been loaded, schedule this callback once.
+     * @param callback The callback to register.
+     * @param context The context to call this task with.
+     */
+    immediate(callback: LocaleTaskCallback, context?: any): void {
         context = context ?? this;
 
         if (this.data) {
             try {
-                task.call(context, this);
+                callback.call(context, this);
             } catch (e) {
                 logger.error('Localization task threw an error!', e);
             }
         } else {
-            this.once(LocaleEvents.DATA_LOADED, () => task.call(context, this));
+            this.once(LocaleEvents.DATA_LOADED, () => callback.call(context, this));
         }
     }
 
-    register(task: LocaleTaskCallback, context?: any): void {
+    /**
+     * Registers a callback for locale changes.
+     * If the locale has been loaded, immediately call this callback.
+     * Upon any locale changes, this callback will be called again as needed.
+     * @param callback The callback to register.
+     * @param context The context to call this task with.
+     */
+    register(callback: LocaleTaskCallback, context?: any): void {
         context = context ?? this;
 
-        if (!this.isRegistered(task)) this.tasks.push({ callback: task, context });
+        if (!this.isRegistered(callback)) this.tasks.push({ callback: callback, context });
         if (this.data) {
             try {
-                task.call(context, this);
+                callback.call(context, this);
             } catch (e) {
                 logger.error('Localization task threw an error!', e);
             }
         }
     }
 
-    isRegistered(task: LocaleTaskCallback): boolean {
+    /**
+     * Checks whether a callback is currently registered for locale changes.
+     * @param callback The callback to check for.
+     * @returns Whether it is currently registered.
+     */
+    isRegistered(callback: LocaleTaskCallback): boolean {
         for (let i = 0; i < this.tasks.length; i++) {
             let item = this.tasks[i];
-            if (item.callback == task) return true;
+            if (item.callback == callback) return true;
         }
         return false;
     }
 
-    unregister(task: LocaleTaskCallback): boolean {
+    /**
+     * Removes a callback from further calls from locale changes.
+     * @param callback The callback to unregister.
+     * @returns Whether unregistering the callback was successful.
+     */
+    unregister(callback: LocaleTaskCallback): boolean {
         for (let i = 0; i < this.tasks.length; i++) {
             let item = this.tasks[i];
 
-            if (item.callback == task) {
+            if (item.callback == callback) {
                 this.tasks.splice(i, 1);
                 return true;
             }

@@ -7,7 +7,7 @@
         "autoImport": true,
         "superClassName": "Phaser.Scene implements Room",
         "preloadPackFiles": [
-            "ClubPenguin/media/assets/world/rooms/2013/dock/dock-pack.json"
+            "ClubPenguin/media/assets/world/rooms/2013/dock/dock2013-pack.json"
         ],
         "createMethodName": "editorCreate",
         "sceneKey": "Dock",
@@ -21,7 +21,7 @@
             "id": "86b5d210-0206-463e-9254-976a4f90267f",
             "label": "dock_sky",
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/sky"
             },
             "x": -22.5,
@@ -34,7 +34,7 @@
             "id": "7d56ce62-373e-4193-9376-e28be5ad2617",
             "label": "dock_base",
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/base"
             },
             "x": -80.55,
@@ -50,7 +50,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/stairs"
             },
             "x": 411.975,
@@ -76,7 +76,7 @@
                     "id": "4bdbf97b-7b6a-42d1-82f6-37fad716561f",
                     "label": "dock_boat",
                     "texture": {
-                        "key": "dock",
+                        "key": "dock2013",
                         "frame": "dock/boat"
                     },
                     "originX": 0,
@@ -88,7 +88,7 @@
                     "label": "tube",
                     "scope": "PUBLIC",
                     "texture": {
-                        "key": "dock",
+                        "key": "dock2013",
                         "frame": "dock/tube"
                     },
                     "x": 61,
@@ -109,7 +109,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 689.85,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/dock"
             },
             "originX": 0.0932243,
@@ -123,7 +123,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/spike2"
             },
             "x": 332.2125,
@@ -139,7 +139,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/frozenFountain"
             },
             "x": 1644.975,
@@ -155,7 +155,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/snow"
             },
             "x": 1364.625,
@@ -171,7 +171,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/spike1"
             },
             "x": 608.2875,
@@ -188,7 +188,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/tubes0001"
             },
             "x": 594,
@@ -206,7 +206,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 746.55,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/board"
             },
             "x": 769.05,
@@ -225,7 +225,7 @@
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 746.55,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/catalog0001"
             },
             "x": 789.975,
@@ -241,7 +241,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/beacon"
             },
             "x": 534.825,
@@ -257,7 +257,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/bench"
             },
             "x": 200.25,
@@ -273,7 +273,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/benchSide"
             },
             "x": 130.05,
@@ -289,7 +289,7 @@
                 "DepthEnabled"
             ],
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/table"
             },
             "x": 1053.7875,
@@ -303,7 +303,7 @@
             "label": "block",
             "scope": "PUBLIC",
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/block"
             },
             "originX": 0,
@@ -318,14 +318,14 @@
                 "ButtonComponent",
                 "DepthEnabled"
             ],
-            "ButtonComponent.upTexture": "{\"key\":\"dock\",\"frame\":\"dock/catalogIcon\"}",
-            "ButtonComponent.overTexture": "{\"key\":\"dock\",\"frame\":\"dock/catalogIconOver\"}",
+            "ButtonComponent.upTexture": "{\"key\":\"dock2013\",\"frame\":\"dock/catalogIcon\"}",
+            "ButtonComponent.overTexture": "{\"key\":\"dock2013\",\"frame\":\"dock/catalogIconOver\"}",
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "DepthEnabled.automaticSort": false,
             "DepthEnabled.depth": 1080,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/catalogIcon"
             },
             "x": 1619.8875,
@@ -342,16 +342,16 @@
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/catalogArea"
             },
             "x": 850.05,
             "y": 717.6375,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -363,18 +363,18 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/tubes_btn0004"
             },
             "x": 594,
             "y": 832.6125,
             "originX": 0.5225500000000001,
             "originY": 0.7348538011695906,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -383,23 +383,25 @@
             "scope": "PUBLIC",
             "components": [
                 "ButtonComponent",
-                "Trigger"
+                "GameTrigger"
             ],
             "ButtonComponent.handCursor": true,
             "ButtonComponent.pixelPerfect": true,
+            "GameTrigger.game_id": "hydro",
+            "GameTrigger.prompt": "hydro_prompt",
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/boat_btn0004"
             },
             "x": 25.2,
             "y": 596.3625,
             "originX": 0,
             "originY": 0,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -411,16 +413,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/town_btn0004"
             },
             "x": 1524.375,
             "y": 238.5,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -432,16 +434,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/beach_btn0004"
             },
             "x": 408,
             "y": 271,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -453,16 +455,16 @@
             ],
             "ButtonComponent.pixelPerfect": true,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/village_btn0004"
             },
             "x": 613.125,
             "y": 146.25,
-            "alpha": 0.01,
-            "alphaTopLeft": 0.01,
-            "alphaTopRight": 0.01,
-            "alphaBottomLeft": 0.01,
-            "alphaBottomRight": 0.01
+            "alpha": 0.0001,
+            "alphaTopLeft": 0.0001,
+            "alphaTopRight": 0.0001,
+            "alphaBottomLeft": 0.0001,
+            "alphaBottomRight": 0.0001
         },
         {
             "type": "Image",
@@ -475,7 +477,7 @@
             "RoomTrigger.playerX": 1496.25,
             "RoomTrigger.playerY": 787.5,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/village_trigger"
             },
             "x": 762.75,
@@ -493,7 +495,7 @@
             "RoomTrigger.playerX": 213.75,
             "RoomTrigger.playerY": 720,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/town_trigger"
             },
             "x": 1588.3875,
@@ -511,7 +513,7 @@
             "RoomTrigger.playerX": 1271.25,
             "RoomTrigger.playerY": 461.25,
             "texture": {
-                "key": "dock",
+                "key": "dock2013",
                 "frame": "dock/beach_trigger"
             },
             "x": 398.25,
@@ -521,8 +523,8 @@
     ],
     "plainObjects": [],
     "meta": {
-        "app": "Phaser Editor 2D - Scene Editor",
-        "url": "https://phasereditor2d.com",
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
     },

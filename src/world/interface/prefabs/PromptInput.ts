@@ -3,8 +3,7 @@
 
 /* START OF COMPILED CODE */
 
-import Phaser from "phaser";
-import ButtonComponent from "../../../lib/ui/components/ButtonComponent";
+import ButtonComponent from "../../../lib/components/ButtonComponent";
 import TextBox from "../../../lib/ui/TextBox";
 import TextField from "../../../lib/ui/TextField";
 /* START-USER-IMPORTS */
@@ -26,7 +25,7 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         this.add(okayButton);
 
         // closeButton
-        const closeButton = scene.add.image(1188.1125, 231.8625, "interface", "interface/namecardClose0001");
+        const closeButton = scene.add.image(1188.1125, 231.8625, "interface", "interface/promptClose0001");
         this.add(closeButton);
 
         // icon
@@ -41,17 +40,17 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         message.tintBottomLeft = 0;
         message.tintBottomRight = 0;
         message.text = "Message goes here";
-        message.fontSize = -36;
+        message.fontSize = 36;
         this.add(message);
 
         // okay
         const okay = new TextBox(scene, 723.2625, 657, "BurbankSmallMedium");
         okay.text = "Continue";
-        okay.fontSize = -45;
+        okay.fontSize = 45;
         this.add(okay);
 
         // field
-        const field = new TextField(scene, 680, 549);
+        const field = new TextField(scene, 626.63, 532.91);
         this.add(field);
 
         // okayButton (components)
@@ -64,9 +63,9 @@ export default class PromptInput extends Phaser.GameObjects.Container {
 
         // closeButton (components)
         const closeButtonButtonComponent = new ButtonComponent(closeButton);
-        closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/namecardClose0001"};
-        closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/namecardClose0002"};
-        closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/namecardClose0003"};
+        closeButtonButtonComponent.upTexture = {"key":"interface","frame":"interface/promptClose0001"};
+        closeButtonButtonComponent.overTexture = {"key":"interface","frame":"interface/promptClose0002"};
+        closeButtonButtonComponent.downTexture = {"key":"interface","frame":"interface/promptClose0003"};
         closeButtonButtonComponent.handCursor = true;
         closeButtonButtonComponent.pixelPerfect = true;
 
@@ -86,8 +85,14 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         field.fieldWidth = 456.6375;
         field.fieldHeight = 63;
         field.maxLength = 12;
-        field.font = "BurbankSmallMedium";
-        field.fontSize = -45;
+        field.font = "Burbank Small Medium";
+        field.fontSize = "45px";
+        field.fontColor = "#000000";
+        field.backgroundIsFilled = true;
+        field.backgroundIsStroked = true;
+        field.backgroundStrokeWidth = 2;
+        field.backgroundStrokeColor = "#000000";
+        field.marginLeft = 4.5;
 
         this.bg = bg;
         this.okayButton = okayButton;
@@ -98,7 +103,9 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         this.field = field;
 
         /* START-USER-CTR-CODE */
-        // Write your code here.
+
+        this.field.setup();
+
         /* END-USER-CTR-CODE */
     }
 
@@ -116,10 +123,12 @@ export default class PromptInput extends Phaser.GameObjects.Container {
 
     public rejectCallback: (byUser: boolean) => void;
     show(message: string, okay: string, confirmCallback: (input: string) => void, rejectCallback: (byUser: boolean) => void): void {
+        this.scene.hideHint();
         this.scene.closePrompt();
 
         this.message.text = message;
         this.okay.text = okay;
+        this.field.value = '';
 
         this.okayButton.on('release', () => {
             this.hide();
@@ -131,6 +140,7 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         })
         this.rejectCallback = rejectCallback;
 
+        this.field.visible = true;
         this.visible = true;
         this.scene.promptBlock.visible = true;
     }
@@ -144,10 +154,18 @@ export default class PromptInput extends Phaser.GameObjects.Container {
         this.icon.add(icon);
     }
 
+    setLoading(): void {
+        this.icon.removeAll(true);
+        let spinner = this.scene.add.sprite(0, 0, 'interface', 'interface/promptLoading0001');
+        spinner.play('interface-promptloading-animation');
+        this.icon.add(spinner);
+    }
+
     hide(): void {
         this.okayButton.off('release');
         this.closeButton.off('release');
         this.icon.removeAll(true);
+        this.field.visible = false;
         this.visible = false;
         this.scene.promptBlock.visible = false;
     }

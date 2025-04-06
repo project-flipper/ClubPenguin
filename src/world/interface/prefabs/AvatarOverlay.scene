@@ -58,7 +58,7 @@
                     "text": "Nickname",
                     "font": "BurbankSmallMedium",
                     "align": 1,
-                    "fontSize": -27
+                    "fontSize": 27
                 },
                 {
                     "prefabId": "5496e58d-9143-42f5-9cc4-5ecb1eef26a1",
